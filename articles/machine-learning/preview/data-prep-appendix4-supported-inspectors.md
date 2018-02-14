@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 02/01/2018
 ---
 
 # Supported inspectors for the Azure Machine Learning data preparation preview
@@ -48,6 +48,7 @@ This Inspector supports the halo effect.
 - Default number of buckets (Scott's Rule) 
 - Show halo
 - Kernel density plot overlay (Gaussian kernel) 
+- Use logarithmic scale
 
 
 ### Actions
@@ -61,6 +62,7 @@ This inspector presents a frequency table of values for the column that is curre
 - Descending
 - Include null/error values
 - Show halo
+- Use logarithmic scale
 
 
 ### Actions 

@@ -125,7 +125,7 @@ The webhook is now called when a resource group is created in your subscription.
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."

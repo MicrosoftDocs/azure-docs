@@ -3,8 +3,8 @@ title: How to use a Windows VM Managed Service Identity (MSI) to access Azure Da
 description: A tutorial that shows you how to use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: skwan
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

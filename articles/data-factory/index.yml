@@ -15,6 +15,15 @@ metadata:
   ms.author: spelluru
 abstract:
   description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in preview. The version V1 is generally available. If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250  
+    title: Visually build pipelines for Azure Data Factory V2 (19:31)
+    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
+    width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -23,6 +32,14 @@ sections:
   - type: list
     style: icon48
     items: 
+    - image: 
+        src: /azure/data-factory/media/index/portal.svg
+      text: Data Factory UI
+      href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image: 
+        src: /azure/data-factory/media/index/copy-data-tool.png
+      text: Copy Data tool
+      href: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
     - image: 
         src: /azure/data-factory/media/index/logo_powershell.svg
       text: Azure PowerShell
@@ -40,10 +57,6 @@ sections:
       text: REST
       href: /azure/data-factory/quickstart-create-data-factory-rest-api 
     - image: 
-        src: /azure/data-factory/media/index/portal.svg
-      text: Azure portal
-      href: /azure/data-factory/quickstart-create-data-factory-portal
-    - image: 
         src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
       text: Resource Manager template
       href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template      
@@ -54,14 +67,14 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Deploy SSIS packages to Azure</a>    
-    - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">Copy data in cloud</a>
-    - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">Copy on-premises data to cloud</a>
-    - html: <a href="../data-factory/tutorial-bulk-copy">Copy data in bulk</a>    
-    - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Copy data incrementally</a>        
-    - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Transform data in cloud using Spark</a>    
-    - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Transform data in virtual network</a>        
-    - html: <a href="../data-factory/tutorial-control-flow">Control flow</a>   
+    - html: Deploy SSIS packages to Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Copy data in cloud - <a href="/azure/data-factory/tutorial-copy-data-tool">Copy Data tool</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
+    - html: Copy on-premises data to cloud - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">Copy Data tool | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
+    - html: Copy data in bulk - <a href="/azure/data-factory/tutorial-bulk-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
+    - html: Copy data incrementally - <a href="/azure/data-factory/tutorial-incremental-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
+    - html: Transform data in cloud using Spark - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a> 
+    - html: Transform data in virtual network - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
+    - html: Control flow - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a> 
 - title: Samples
   items:
   - type: paragraph

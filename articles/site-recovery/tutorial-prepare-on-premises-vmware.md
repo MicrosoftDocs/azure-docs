@@ -2,18 +2,11 @@
 title: Prepare on-premises VMware servers for disaster recovery of VMware VMs to Azure| Microsoft Docs
 description: Learn how to prepare on-premises VMware servers for disaster recovery to Azure using the Azure Site Recovery service.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-
-ms.assetid: 90a4582c-6436-4a54-a8f8-1fee806b8af7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -136,7 +129,7 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 2. On the Azure VM after failover, allow incoming connections to the SSH port for the network
    security group rules on the failed over VM, and for the Azure subnet to which it's connected.
-   [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)
+   [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md)
    for the VM. You can check **Boot diagnostics** to view a screenshot of the VM.
 
 ## Next steps

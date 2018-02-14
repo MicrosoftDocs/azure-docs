@@ -1547,7 +1547,7 @@ The following scalar functions perform an operation on a string input value and 
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Returns the number of characters of the specified string expression |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Returns a string that is the result of concatenating two or more string values. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Returns part of a string expression. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Returns a Boolean indicating whether the first string expression ends with the second |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Returns a Boolean indicating whether the first string expression starts with the second |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Returns a Boolean indicating whether the first string expression ends with the second |
 | [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Returns a Boolean indicating whether the first string expression contains the second. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found. |

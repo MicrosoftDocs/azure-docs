@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
 
 ---
@@ -526,6 +526,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |jobs.failed|Failed jobs|Count|Total|The count of all failed jobs.|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
 |dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
+|deviceDataUsage|Total devicedata usage|Count|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
 
 ## Microsoft.Devices/provisioningServices
 
@@ -663,6 +664,14 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ObservedCapacity|Observed Capacity|Count|Average|The capacity reported to autoscale when it executed.|No Dimensions|
 |ScaleActionsInitiated|Scale Actions Initiated|Count|Total|The direction of the scale operation.|ScaleDirection|
 
+## Microsoft.KeyVault/vaults
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|ServiceApiHit|Total Service Api Hits|Count|Count,Total|Number of total service api hits|ActivityType, ActivityName|
+|ServiceApiLatency|Overall Service Api Latency|Milliseconds|Count,Average,Minimum,Maximum|Overall latency of service api requests|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Total Service Api Results|Count|Count,Total|Number of total service api results|ActivityType, ActivityName, StatusCode|
+
 ## Microsoft.LocationBasedServices/accounts
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -703,15 +712,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BillableActionExecutions|Billable Action Executions|Count|Total|Number of workflow action executions getting billed.|No Dimensions|
 |BillableTriggerExecutions|Billable Trigger Executions|Count|Total|Number of workflow trigger executions getting billed.|No Dimensions|
 |TotalBillableExecutions|Total Billable Executions|Count|Total|Number of workflow executions getting billed.|No Dimensions|
-
-## Microsoft.Network/networkInterfaces
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|BytesSentRate|Bytes Sent|Count|Total|Number of bytes the Network Interface sent|No Dimensions|
-|BytesReceivedRate|Bytes Received|Count|Total|Number of bytes the Network Interface received|No Dimensions|
-|PacketsSentRate|Packets Sent|Count|Total|Number of packets the Network Interface sent|No Dimensions|
-|PacketsReceivedRate|Packets Received|Count|Total|Number of packets the Network Interface received|No Dimensions|
 
 ## Microsoft.Network/loadBalancers
 
@@ -754,13 +754,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ByteCount|Byte Count|Count|Total|Total number of Bytes transmitted within time period|Port, Direction|
 |PacketCount|Packet Count|Count|Total|Total number of Packets transmitted within time period|Port, Direction|
 |SynCount|SYN Count|Count|Total|Total number of SYN Packets transmitted within time period|Port, Direction|
-
-## Microsoft.Network/virtualNetworks
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|Inbound packets dropped for VM protection|CountPerSecond|Average|Inbound packets dropped for VM protection|No Dimensions|
-|PacketsOutDroppedVMProtection|Outbound packets dropped for VM protection|CountPerSecond|Average|Outbound packets dropped for VM protection|No Dimensions|
 
 ## Microsoft.Network/applicationGateways
 
@@ -861,6 +854,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |incoming.all.requests|All Incoming Requests|Count|Total|Total incoming requests for a notification hub|No Dimensions|
 |incoming.all.failedrequests|All Incoming Failed Requests|Count|Total|Total incoming failed requests for a notification hub|No Dimensions|
 
+## Microsoft.PowerBIDedicated/capacities
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|QueryDuration|Query Duration|Milliseconds|Average|DAX Query duration in last interval|No Dimensions|
+|QueryPoolJobQueueLength|Threads: Query pool job queue length|Count|Average|Number of jobs in the queue of the query thread pool.|No Dimensions|
+
 ## Microsoft.Relay/namespaces
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -934,23 +934,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
-|database_cpu_percent|CPU percentage|Percent|Average|CPU percentage|DatabaseResourceId|
 |physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
-|database_physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|DatabaseResourceId|
 |log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
-|database_log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|DatabaseResourceId|
 |dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|No Dimensions|
-|database_dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|DatabaseResourceId|
 |storage_percent|Storage percentage|Percent|Average|Storage percentage|No Dimensions|
 |workers_percent|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
-|database_workers_percent|Workers percentage|Percent|Average|Workers percentage|DatabaseResourceId|
 |sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
-|database_sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|DatabaseResourceId|
 |eDTU_limit|eDTU limit|Count|Average|eDTU limit|No Dimensions|
 |storage_limit|Storage limit|Bytes|Average|Storage limit|No Dimensions|
 |eDTU_used|eDTU used|Count|Average|eDTU used|No Dimensions|
 |storage_used|Storage used|Bytes|Average|Storage used|No Dimensions|
-|database_storage_used|Storage used|Bytes|Average|Storage used|DatabaseResourceId|
 |xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
 
 ## Microsoft.Sql/servers
@@ -958,9 +951,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|DatabaseResourceId, ElasticPoolResourceId|
 |storage_used|Storage used|Bytes|Average|Storage used|ElasticPoolResourceId|
-|database_storage_used|Storage used|Bytes|Average|Storage used|DatabaseResourceId, ElasticPoolResourceId|
 
 ## Microsoft.Storage/storageAccounts
 
@@ -1077,6 +1068,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
 |AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|Instance|
+|AppConnections|Connections|Count|Average|Connections|Instance|
 
 ## Microsoft.Web/sites (functions)
 
@@ -1110,8 +1102,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
 |AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|Instance|
-|FunctionExecutionUnits|Function Execution Units|Count|Average|Function Execution Units|Instance|
-|FunctionExecutionCount|Function Execution Count|Count|Average|Function Execution Count|Instance|
+|FunctionExecutionUnits|Function Execution Units|Count|Total|Function Execution Units|Instance|
+|FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
+|AppConnections|Connections|Count|Average|Connections|Instance|
 
 ## Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1135,18 +1128,18 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DiskQueueLength|Disk Queue Length|Count|Average|Disk Queue Length|Instance|
 |HttpQueueLength|Http Queue Length|Count|Average|Http Queue Length|Instance|
 |ActiveRequests|Active Requests|Count|Total|Active Requests|Instance|
-|TotalFrontEnds|Total Front Ends|Count|Average|Total Front Ends|Instance|
-|SmallAppServicePlanInstances|Small App Service Plan Workers|Count|Average|Small App Service Plan Workers|Instance|
-|MediumAppServicePlanInstances|Medium App Service Plan Workers|Count|Average|Medium App Service Plan Workers|Instance|
-|LargeAppServicePlanInstances|Large App Service Plan Workers|Count|Average|Large App Service Plan Workers|Instance|
+|TotalFrontEnds|Total Front Ends|Count|Average|Total Front Ends|No Dimensions|
+|SmallAppServicePlanInstances|Small App Service Plan Workers|Count|Average|Small App Service Plan Workers|No Dimensions|
+|MediumAppServicePlanInstances|Medium App Service Plan Workers|Count|Average|Medium App Service Plan Workers|No Dimensions|
+|LargeAppServicePlanInstances|Large App Service Plan Workers|Count|Average|Large App Service Plan Workers|No Dimensions|
 
 ## Microsoft.Web/hostingEnvironments/workerPools
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|WorkersTotal|Total Workers|Count|Average|Total Workers|Instance|
-|WorkersAvailable|Available Workers|Count|Average|Available Workers|Instance|
-|WorkersUsed|Used Workers|Count|Average|Used Workers|Instance|
+|WorkersTotal|Total Workers|Count|Average|Total Workers|No Dimensions|
+|WorkersAvailable|Available Workers|Count|Average|Available Workers|No Dimensions|
+|WorkersUsed|Used Workers|Count|Average|Used Workers|No Dimensions|
 |CpuPercentage|CPU Percentage|Percent|Average|CPU Percentage|Instance|
 |MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|Instance|
 
