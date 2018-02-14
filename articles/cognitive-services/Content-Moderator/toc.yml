@@ -16,6 +16,8 @@
     href: video-moderation-human-review.md
   - name: Jobs and reviews
     href: review-api.md
+  - name: Workflows
+    href: workflow-api.md
 - name: Quickstarts
   items: 
   - name: Review tool
@@ -90,8 +92,10 @@
   items:
   - name: Facebook content moderation
     href: facebook-post-moderation.md
-  - name: eCommerce catalog moderation
+  - name: eCommerce image moderation
     href: ecommerce-retail-catalog-moderation.md
+  - name: Video and trancript moderation
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: API References
   items: 
   - name: All APIs  

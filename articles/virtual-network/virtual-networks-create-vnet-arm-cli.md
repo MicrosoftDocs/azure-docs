@@ -42,9 +42,9 @@ You can also create a virtual network through Resource Manager using other tools
 
 To create a virtual network using the Azure CLI, complete the following steps:
 
-1. Install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
+1. Install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login).
 
-2. Create a resource group for your VNet using the [az group create](/cli/azure/group#create) command with the `--name` and `--location` arguments:
+2. Create a resource group for your VNet using the [az group create](/cli/azure/group#az_group_create) command with the `--name` and `--location` arguments:
 
 	```azurecli
 	az group create --name TestRG --location centralus
