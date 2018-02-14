@@ -24,7 +24,7 @@ Azure API Management service has built-in support for [HTTP response caching](ap
 API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
 
 ## Fragment caching
-There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and mileage accumulated. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
+There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
 
 Consider the following JSON response from a backend API.
 
@@ -117,7 +117,7 @@ The final step in the process is to update the returned response with the user p
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-You can chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response was still valid JSON.  
+You can chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response is still a valid JSON.  
 
 Once you combine all these steps together, the end result is a policy that looks like the following one.
 
@@ -173,14 +173,14 @@ Once you combine all these steps together, the end result is a policy that looks
 </policies>
 ```
 
-This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page. However, it can also be useful in APIs where clients cannot do client-side HTTP caching or it is desirable not to put that responsibility on the client.
+This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page. It can also be useful in APIs where clients cannot do client-side HTTP caching or it is desirable not to put that responsibility on the client.
 
 This same kind of fragment caching can also be done on the backend web servers using a Redis caching server, however, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.
 
 ## Transparent versioning
-It is common practice for multiple different implementation versions of an API to be supported at any one time. This is perhaps to support different environments, like dev, test, production, etc., or it may be to support older versions of the API to give time for API consumers to migrate to newer versions. 
+It is common practice for multiple different implementation versions of an API to be supported at any one time. For example, to support different environments (dev, test, production, etc.) or to support older versions of the API to give time for API consumers to migrate to newer versions. 
 
-One approach to handling this instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it is necessary to query some configuration data. By caching this configuration data, API Management can minimize the performance penalty of doing this lookup.
+One approach to handling this, instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it is necessary to query some configuration data. By caching this configuration data, API Management can minimize the performance penalty of doing this lookup.
 
 The first step is to determine the identifier used to configure the desired version. In this example, I chose to associate the version to the product subscription key. 
 
