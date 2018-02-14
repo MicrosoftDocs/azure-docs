@@ -3,8 +3,8 @@ title: Performance recommendations - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database provides recommendations for your SQL databases that can improve current query performance.
 services: sql-database
 documentationcenter: ''
-author: 
-manager: jhubbard
+author: stevestein
+manager: craigg 
 editor: monicar
 
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
@@ -56,7 +56,7 @@ Drop index recommendations also go through the verification after implementation
 
 Every query that's issued against SQL Server initially needs to be compiled to generate an execution plan. Each generated plan is added to the plan cache. Subsequent executions of the same query can reuse this plan from the cache, thus eliminating the need for additional compilation. 
 
-Applications that send queries, which include non-parameterized values, can lead to a performance overhead, where for every such query with different parameter values, the execution plan is compiled again. In many cases, the same queries with different parameter values generate the same execution plans. These plans, however, are still separately added to the plan cache. 
+Queries with non-parameterized values can lead to a performance overhead because the execution plan is recompiled each time the non-parameterized values are different. In many cases, the same queries with different parameter values generate the same execution plans. These plans, however, are still separately added to the plan cache. 
 
 The process of recompiling execution plans uses database resources, increases the query duration time, and overflows the plan cache. These events, in turn, cause plans to be evicted from the cache. This behavior of SQL Server can be altered by setting the forced parameterization option on the database. 
 
