@@ -26,7 +26,7 @@ Azure AD is a cloud-based Identity service. [Azure AD app gallery](https://azure
 ## If your application supports SAML or OpenIDConnect
 If you have a multi-tenant application you'd like to list in the Azure AD Application Gallery, you must first make sure that your application supports one of the following single sign-on technologies:
 
-1. **OpenID Connect** - Create the multi-tenant application in Azure AD and implement [Azure AD consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) for your application. Send the login request to common endpoint so that any customer can provide consent to the application. You can control the customer user access based on the tenant ID and user's UPN received in the token. Please submit the application as mentioned in this [article](active-directory-authentication-scenarios.md).
+1. **OpenID Connect** - Create the multi-tenant application in Azure AD and implement [Azure AD consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) for your application. Send the login request to common endpoint so that any customer can provide consent to the application. You can control the customer user access based on the tenant ID and user's UPN received in the token. Please submit the application as mentioned in this [article](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 2. **SAML** – If your application supports SAML 2.0 then we can list your application in the gallery and the instructions are listed [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)
 
@@ -37,7 +37,7 @@ Even if your application does not support one of these modes, we can still integ
 
 **Password SSO** – Create a web application that has an HTML sign-in page to configure [password-based single sign-on](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
 
-If you'd like to list your application with this technic then please submit the request as described in [this](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) article.
+If you'd like to list your application with this technology then please submit the request as described in [this](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) article.
 
 ## Escalations
 
