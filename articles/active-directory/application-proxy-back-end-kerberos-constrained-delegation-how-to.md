@@ -3,7 +3,7 @@ title: Troubleshoot Kerberos Constrained Delegation Configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: MarkusVi
 manager: mtillman
 
 ms.assetid: 
@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
 
 ---
 
@@ -150,6 +151,16 @@ If Kerberos is not available, then check the application’s authentication sett
 -   Go into IIS and select the **Configuration Editor** option for the application, and navigate to **system.webServer/security/authentication/windowsAuthentication** to make sure the value **UseAppPoolCredentials** is **True**
 
    ![IIS configuration app pools credential option](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+After changing this value to **True**, all cached Kerberos tickets need to be removed from the backend server. You can do this by running the following command:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+For more information, see [Purge the Kerberos client ticket cache for all sessions](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+
+
 
 While being useful in improving the performance of Kerberos operations, leaving Kernel mode enabled also causes the ticket for the requested service to be decrypted using machine account. This is also called the Local system, so having this set to true break KCD when the application is hosted across multiple servers in a farm.
 
