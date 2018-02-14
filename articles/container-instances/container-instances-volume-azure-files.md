@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 02/14/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -71,14 +71,16 @@ To mount an Azure file share as a volume in a container, specify the share and v
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image seanmckenna/aci-hellofiles \
-    --ip-address Public \
+    --image microsoft/aci-hellofiles \
+    --dns-name-label aci-files-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
     --azure-file-volume-account-key $STORAGE_KEY \
     --azure-file-volume-share-name $ACI_PERS_SHARE_NAME \
     --azure-file-volume-mount-path /aci/logs/
 ```
+
+The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding example if you receive a `DNS name label` error message when you execute the command.
 
 ## Manage files in mounted volume
 
