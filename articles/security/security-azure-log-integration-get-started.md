@@ -20,7 +20,7 @@ ms.custom: azlog
 ---
 # Azure log integration with Azure Diagnostics Logging and Windows Event Forwarding
 
-Azure Log Integration (AzLog) provides customers with an alternative in situations where an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is not currently available from their SIEM vendor. Azure Log integration makes Azure logs available to your SIEM and enables you to create a unified security dashboard for all your assets.
+Azure Log Integration (AzLog) provides customers with an alternative in the event that an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is not available from their SIEM vendor. Azure Log integration makes Azure logs available to your SIEM and enables you to create a unified security dashboard for all your assets.
 
 >[!NOTE]
 For more information on Azure Monitor, you can review [Get started with Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) For more information on the status of an Azure monitor connector contact your SIEM vendor.
