@@ -183,4 +183,4 @@ Test drive the [Job API console](try-review-api-job.md), and use the REST API co
 
 For reviews, get started with the [Review API console](try-review-api-review.md), and use the REST API code samples. Then see the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
 
-For video reviews, use the [video review quickstart](video-reviews-quickstart-dotnet.md), and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).
+For video reviews, use the [Video review quickstart](video-reviews-quickstart-dotnet.md), and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).
