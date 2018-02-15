@@ -49,7 +49,7 @@ First, create a virtual machine scale set with [New-AzureRmVmss](/powershell/mod
 
 ```azurepowershell-interactive
 # Create a resource group to store all your scale set resources
-New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
+New-AzureRmResourceGroup -ResourceGroupName $myResourceGroup -Location $myLocation
 
 # Create a virtual network subnet
 $subnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -58,16 +58,16 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName "myResourceGroup" `
+  -ResourceGroupName $myResourceGroup `
   -Name "myVnet" `
-  -Location "EastUS" `
+  -Location $myLocation `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnet
 
 # Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
+  -ResourceGroupName $myResourceGroup `
+  -Location $myLocation `
   -AllocationMethod Static `
   -Name "myPublicIP"
 
@@ -88,9 +88,9 @@ $inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
 
 # Create the load balancer
 $lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName "myResourceGroup" `
+  -ResourceGroupName $myResourceGroup `
   -Name "myLoadBalancer" `
-  -Location "EastUS" `
+  -Location $myLocation `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool `
   -InboundNatPool $inboundNATPool
@@ -108,7 +108,7 @@ $adminUsername = "azureuser"
 
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig `
-    -Location "EastUS" `
+    -Location $myLocation `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic
@@ -135,8 +135,8 @@ Add-AzureRmVmssNetworkInterfaceConfiguration `
 
 # Create the scale set with the config object (this step might take a few minutes)
 New-AzureRmVmss `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -ResourceGroupName $myResourceGroup `
+  -Name $myScaleSet `
   -VirtualMachineScaleSet $vmssConfig
 ```
 
@@ -295,8 +295,8 @@ To monitor the number of VM instances in your scale set, use **while**. It takes
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `
-    -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet"; sleep 10}
+    -ResourceGroupName $myResourceGroup `
+    -VMScaleSetName $myScaleSet; sleep 10}
 ```
 
 Once the CPU threshold has been met, the autoscale scales increase the number of VM instances in the scale set. The following output shows three VMs created as the scale set autoscales out:
