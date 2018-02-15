@@ -39,7 +39,7 @@ Reference data is not joined retroactively. This means that only current and fut
 
    ![Add data set](media/add-reference-data-set/add_data_set.png)
 
-6. On the **New reference data set** page, choose the format of the data based 
+6. On the **New reference data set** page, choose the format of the data: 
    - Choose **CSV** for comma-delimited data. The first row is treated as a header row. 
    - Choose **JSON Array** for javascript object notation (JSON) formatted data.
 
