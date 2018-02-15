@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Test your solution with simulated devices
+# Create a new simulated device
 
 This tutorial shows you how to customize the device simulator microservice in the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
@@ -74,6 +74,10 @@ In this tutorial, you learn how to:
 > * Add a new device type to the dashboard
 > * Send custom telemetry from an existing device type
 
+The following video shows a walkthrough of connecting simulated and real devices to the remote monitoring solution:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
+
 ## Prerequisites
 
 To follow this tutorial, you need:
@@ -123,24 +127,24 @@ The following commands use the `az` command from [Azure CLI 2.0](https://docs.mi
 1. To enable SSH access your virtual machine, run the following command using the name of your network security group from the previous step:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     To view the list of inbound rules for your network, run the following command:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. To change the virtual machine password to a password you know, run the following command. Use the name of the virtual machine you noted previously and a password of your choice:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. To find the IP address of your virtual machine, use the following command and make a note of the public IP address:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. You can now use SSH to connect to your virtual machine. The `ssh` command is pre-installed in the Cloud Shell. Use the public IP address from the previous step and, when prompted, the password you configured for the virtual machine:
