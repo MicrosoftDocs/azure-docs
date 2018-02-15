@@ -1,7 +1,7 @@
 ---
 title: News search SDK Python quickstart | Microsoft Docs
 description: Setup for News search SDK console application.
-titleSuffix: Azure Cognitive Services News search SDK Python quickstart
+titleSuffix: Azure News search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -16,7 +16,7 @@ ms.author: v-gedod
 The News Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
 ## Application dependencies
-If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
+If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6.
 
 The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). 
 Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install virtualenv for Python 2.7.
@@ -41,7 +41,7 @@ Then, instantiate the client:
 ```
 client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Search for results, and print the first Web page result:
+Search for results, and print the first webpage result:
 ```
 news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
 print("Search news for query \"Quantum Computing\" with market and count")
@@ -59,7 +59,7 @@ else:
     print("Didn't see any news result data..")
 
 ```
-Search with filters for most recent news about "Artificial Intelligence" with `freshness` and `sortBy` parameters, then verify number of results, and print out `totalEstimatedMatches`, `name`, `url`, `description`, `published time` and `name of provider` of the first news item result.
+Search with filters for most recent news about "Artificial Intelligence" with `freshness` and `sortBy` parameters. Verify number of results, and print out `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, and `name of provider` of the first news item result.
 ```
 def news_search_with_filtering(subscription_key):
 
@@ -89,7 +89,7 @@ def news_search_with_filtering(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Search category news for movie and TV entertainment with safe search, then verify number of results, and print out `category`, `name`, `url`, `description`, `published time` and `name of provider` of the first news item result.
+Search category news for movie and TV entertainment with safe search. Verify number of results, and print out `category`, `name`, `url`, `description`, `published time`, and `name of provider` of the first news item result.
 ```
 def news_category(subscription_key):
 
@@ -120,7 +120,7 @@ def news_category(subscription_key):
 
 
 ```
-Search news trending topics in Bing, then verify number of results, and print out `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` and `image Url` of the first news result.
+Search news trending topics in Bing.  Verify number of results, and print out `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, and `image Url` of the first news result.
 ```
 def news_trending(subscription_key):
 
