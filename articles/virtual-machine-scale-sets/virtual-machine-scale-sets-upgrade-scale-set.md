@@ -261,9 +261,28 @@ You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to rei
 
 
 
-## Read-only properties
+## Properties with restrictions on modification
 
-(*** TODO ***)
+### Create-time properties
+
+Some properties can only be set while initially creating the scale set. These properties include:
+
+- zones
+- image reference publisher
+- image reference offer
+
+### Properties that can only be changed based on the current value
+
+Some properties may be changed, with exceptions depending on the current value. These properties include:
+
+- singlePlacementGroup: if singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
+- subnet: the subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
+
+### Properties that require deallocation to change
+
+Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
+
+- sku name: If the new VM SKU is not supported on the hardware the scale set is currently on, you will need to deallocate the VMs in the scale set before modifying the sku name. For more information on resizing VMs, see [this blog post](https://azure.microsoft.com/blog/resize-virtual-machines/).
 
 
 ## VM-specific updates
