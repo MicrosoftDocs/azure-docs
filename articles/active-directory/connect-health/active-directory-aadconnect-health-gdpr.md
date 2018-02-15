@@ -23,7 +23,8 @@ Microsoft products and services are available today to help you meet the GDPR re
 
 Azure AD Connect Health provides monitoring, insights, and alert functionality to on-premises identity infrastructure and synchronization service. We are committed to GDPR compliance across our cloud services when enforcement begins May 2018 and provide GDPR related assurances in our contractual commitments. 
 
->[!NOTE] This article deals with Azure AD Connect Health and GDPR compliance.  For information on Azure AD Connect and GDPR compliance see the article [here](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
+>[!NOTE] 
+>This article deals with Azure AD Connect Health and GDPR compliance.  For information on Azure AD Connect and GDPR compliance see the article [here](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
 ## Update in Azure AD Connect Health 
 Azure AD Connect Health falls into the data **Processor** category of GDPR classification. As a data processor pipeline, we provide data processing services to key partners and end consumers. Azure AD Connect Health has no independent control over what personal data is collected and how it is used.

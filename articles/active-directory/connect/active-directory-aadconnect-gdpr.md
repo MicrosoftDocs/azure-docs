@@ -21,7 +21,8 @@ In May 2018, a European privacy law, the [General Data Protection Regulation (GD
 
 Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
 
->[!NOTE] This article deals with Azure AD Connect and GDPR compliance.  For information on Azure AD Connect Health and GDPR compliance see the article [here](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+>[!NOTE] 
+>This article deals with Azure AD Connect and GDPR compliance.  For information on Azure AD Connect Health and GDPR compliance see the article [here](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
 General Data Protection Regulation compliance for Azure AD Connect installations can be reached in two ways:
 
