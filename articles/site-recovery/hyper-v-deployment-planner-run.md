@@ -251,7 +251,7 @@ The generated Microsoft Excel report contains the following information:
 * [On-premises summary](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommendations](hyper-v-deployment-planner-analyze-report.md#recommendations)
 * [VM-storage placement](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
-* [Compatible VMs](-hyper-v-deployment-planner-analyze-report.md#compatible-vms)
+* [Compatible VMs](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [On-premises storage requirement](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [IR batching](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
