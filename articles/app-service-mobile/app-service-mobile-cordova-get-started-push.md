@@ -88,7 +88,7 @@ Run the following command:
     add it here. Otherwise, enter a placeholder value, such as 777777. If you are targeting Android, you can update
     this value in the config.xml file later.
 
-    >[NOTE!]
+    >[!NOTE]
     >As of version 2.0.0, the SENDER_ID has been removed from install time and google-services.json needs
     to be installed in the root folder of your project. For more information, see the [installation documention.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 5. Select **Add**.
