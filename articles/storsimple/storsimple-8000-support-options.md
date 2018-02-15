@@ -3,7 +3,7 @@ title: StorSimple Support terms | Microsoft Docs
 description: Describes support options for StorSimple 8000 series enterprise storage customers. 
 services: storsimple
 documentationcenter: NA
-author: alkohli
+author: GabiSocoteanu
 manager: jeconnoc
 editor: ''
 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/06/2018
+ms.date: 02/15/2018
 ms.author: alkohli
 
 ---
 # **StorSimple solution support**
 
-## **StorSimple support**
+## StorSimple support
 
 Microsoft offers flexible support options for StorSimple enterprise storage customers. We are deeply committed to delivering a high-quality support experience that allows you to maximize the impact of your investment in the StorSimple solution and Microsoft Azure. As a StorSimple customer, you receive:
 
@@ -30,7 +30,7 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 * Access to software updates covering major, minor, and maintenance fixes.
 * Support for StorSimple 8000 Series Storage Arrays and StorSimple Virtual Arrays in a single package.
 
-## **StorSimple support plans**
+## StorSimple support plans
 
 |                                                                                                                                                     | **STANDARD** <sup>1                                                 |  **PREMIUM** <sup>1                                                                         |
 |---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
@@ -49,8 +49,7 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 
 | HARDWARE AND SOFTWARE WARRANTY                                        |
 |-----------------------------------------------------------------------|
-| 90-day hardware warranty after purchase (StorSimple 8000 series only) |
-| Hardware parts replacement (StorSimple 8000 series only) <sup>6            |
+| Hardware parts replacement (StorSimple 8000 series only) <sup>6       |
 | Free software updates                                                 |
 
 <sup>1</sup> Support provided to customer until next EA anniversary. Customers must renew support at EA anniversary to be eligible for StorSimple support. Please contact Microsoft for geographical coverage. Premium coverage may vary by city. Please contact Microsoft account/sales team for geographical coverage before purchasing StorSimple Premium Support.
@@ -74,12 +73,14 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 <sup>5</sup> Customers using only StorSimple Virtual Arrays must purchase either StorSimple Standard or Premium support plans. Please contact your Microsoft account/sales team to purchase StorSimple support.
 
 <sup>6</sup> 
-To expedite hardware warranty claims, replacement parts will be shipped to the customer before receiving defective parts. Customer is responsible for timely return shipment of defective parts.
+To expedite hardware warranty claims, replacement parts will be shipped to the customer before receiving defective parts. Customer is responsible for timely return shipment of defective parts. 
 
-## **Local language support**
+If your support contract has expired, please be aware, depending on how long the support contract has been expired, it may take up to three weeks after the renewal processing has completed before a part is delivered as the local stocking location for your contract will not be stocked with replacement parts for your device until after your contract is processed.
+
+## Local language support
 In addition to English, local language support is provided in the following languages during business hours: Japanese, Korean, Taiwanese, and Traditional Chinese.
 
-## **Support scope** 
+## Support scope 
 Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer will need to be enrolled in an appropriate Azure support plan. Please refer [here](https://azure.microsoft.com/en-us/support/plans/) for details. The support team will refer non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 
 
 
@@ -93,16 +94,16 @@ Support for billing and subscription management-related issues is available at a
 
 <sup>2</sup> Expected response times are based on 24x7 support in English for Severity A and local business hours for Severity B and C, and local business hours support in the remaining local languages: Japanese, Taiwanese, Traditional Chinese, and Korean.
 
-## **Cancellation policy**
+## Cancellation policy
 In order to receive StorSimple support, customer must purchase Standard or Premium support plans for the duration of the subscription term. Cancellation does not result in a prorated refund. StorSimple support plans are reduction eligible at EA anniversary. However, Microsoft will be unable to provide support to StorSimple customers without valid support contracts.
 
-## **Renewal policy**
+## Renewal policy
 
 
 Upon the purchase of StorSimple 8000 Series Storage Arrays, support is provided through the next EA anniversary. Customer must renew StorSimple support at EA anniversary. StorSimple support plan orders are co-terminous. Customers will be notified via e-mail about impending support expiry for StorSimple 8000 Series Storage Arrays and are expected to follow up with the Microsoft account/sales teams or their Microsoft Licensing Solution Partner (LSP) to renew StorSimple support.
 
 
-Standard Azure support does not cover StorSimple hardware support. StorSimple support renewal can be aligned with EA anniversary date by acquiring the required support SKU with the license quantity equal to the number of the appliances and the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date if all the units have the same support contract expiration date. If the units have different support contract expiration dates, each appliance must be covered with one support SKU with the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date per each appliance. 
+Standard Azure support does not cover StorSimple hardware support. If you are covered under Premier or Unified Microsoft support, you must still purchase Standard StorSimple support renewal. StorSimple support renewal can be aligned with EA anniversary date by acquiring the required support SKU with the license quantity equal to the number of the appliances and the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date if all the units have the same support contract expiration date. If the units have different support contract expiration dates, each appliance must be covered with one support SKU with the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date per each appliance. 
 
 StorSimple 8000 Series Storage Arrays support is provided based on how the StorSimple array was purchased. 
 
@@ -111,7 +112,7 @@ StorSimple 8000 Series Storage Arrays support is provided based on how the StorS
 |:---------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Standard support** <br></br> [CWZ-00023] <br></br>*AzureStorSimple ShrdSvr ALNG SubsVL MVL StdSpprt*<br><br><br><br><br>                         |Included.<br><br><br><br><br><br><br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |<ul> <li>Provided to customers with initial purchase through the next EA anniversary.<li> Customer must purchase support in subsequent years as no replacement hardware parts can be dispatched without an active StorSimple support contract.<br>   <br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **Premium*** **support** <br></br> [CWZ-00024] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL PremSpprt* <br><br><br><br><br><br>                         | Since standard support is automatically included with Subscription, refer to the Standard to Premium Upgrade.      <br><br><br><br><br><br><br><br><br> <br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                    | <ul> <li>Customers covered by Microsoft Premier support contracts should refer to the standard to premium upgrade. <li>Customers who are not covered by a Microsoft Premier contract and wish to have Premium StorSimple Support should purchase this SKU at renewal time.<br><br><br><br><br><br><br><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Standard to Premium******upgrade** <br></br> [CWZ- 00025] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL Spprt- StepuptoPrem* <br><br><br><br><br><br><br><br><br>| Customers covered by Microsoft Premier Support contract at the time of StorSimple purchase are automatically upgraded to Premium StorSimple support free of charge for the duration of the time they remain covered by Premier support.  If customers acquire Premier Support later, a free StorSimple support upgrade can be obtained by requesting it via SSSupOps@microsoft.com. <br></br>Non-Premier customers can purchase the StorSimple Standard to Premium upgrade SKU [CWZ-00025] anytime during the Enterprise Agreement(EA) contract.<br><br><br><br><br><br><br><br> | <ul><li> Customers covered by Microsoft Premier Support contract can purchase the Standard Support SKU [CWZ-00023] and the StorSimple Standard Support contract will be automatically upgraded, at no additional charges, for the duration of the time they remain covered by Premier support. <li> If customers acquire Premier Support later, a free StorSimple support upgrade can be obtained by requesting it via SSSupOps@microsoft.com. <li> Non-Premier customers covered by StorSimple Standard support can purchase the Premium upgrade SKU [CWZ-00025] anytime during the Enterprise Agreement(EA) contract. Next year, when renewing Support contract, customers should purchase directly the Premium Support SKU [CWZ-00024] and not just the upgrade SKU [CWZ-00025].<br><br> |
+| **Standard to Premium**** upgrade <br></br> [CWZ- 00025] <br></br> *AzureStorSimple ShrdSvr ALNG SubsVL MVL Spprt- StepuptoPrem* <br><br><br><br><br><br><br><br><br>| Customers covered by Microsoft Premier Support contract at the time of StorSimple purchase are automatically upgraded to Premium StorSimple support free of charge for the duration of the time they remain covered by Premier support.  If customers acquire Premier Support later, a free StorSimple support upgrade can be obtained by requesting it via SSSupOps@microsoft.com. <br></br>Non-Premier customers can purchase the StorSimple Standard to Premium upgrade SKU [CWZ-00025] anytime during the Enterprise Agreement(EA) contract.<br><br><br><br><br><br><br><br> | <ul><li> Customers covered by Microsoft Premier Support contract can purchase the Standard Support SKU [CWZ-00023] and the StorSimple Standard Support contract will be automatically upgraded, at no additional charges, for the duration of the time they remain covered by Premier support. <li> If customers acquire Premier Support later, a free StorSimple support upgrade can be obtained by requesting it via SSSupOps@microsoft.com. <li> Non-Premier customers covered by StorSimple Standard support can purchase the Premium upgrade SKU [CWZ-00025] anytime during the Enterprise Agreement(EA) contract. Next year, when renewing Support contract, customers should purchase directly the Premium Support SKU [CWZ-00024] and not just the upgrade SKU [CWZ-00025].<br><br> |
 
 
 
