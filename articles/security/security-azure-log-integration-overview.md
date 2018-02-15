@@ -22,7 +22,7 @@ ms.custom: azlog
 
 Azure log integration enables you to integrate raw logs from your Azure resources with your on-premises Security Information and Event Management (SIEM) systems in the event that a connector to [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) is not yet available from your SIEM vendor.
 
-The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
+The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
 [!IMPORTANT]
 If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution and so would not be required to use Azure Log Integration. 
@@ -61,7 +61,7 @@ In this document, you were introduced to Azure log integration. To learn more ab
 
 * [Get started with Azure log integration](security-azure-log-integration-get-started.md) - This tutorial walks you through installation of Azure log integration and integrating logs from Azure WAD storage, Azure Activity Logs, Azure Security Center alerts and Azure Active Directory audit logs.
 * [Azure log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) - This FAQ answers questions about Azure log integration.
-* [Stream Azure monitoring data to an event hub for consumption by an external tool](monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)
+* [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
