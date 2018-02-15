@@ -34,12 +34,12 @@ Additional regions are added as demand increases.
 Azure automatically applies security patches to the nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that nodes are rebooted as required. You have several options for performing node reboots:
 
 - Manually, through the Azure portal or the Azure CLI. 
-- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. You can use this process without changing Kubernetes versions by performing an `az aks upgrade` targeting the same Kubernetes version currently on your cluster.
+- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. You can use this process without changing Kubernetes versions by performing an `az aks upgrade` targeting the version already on your cluster.
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then orchestrates those reboots across the cluster, following the same cordon and drain process described earlier.
 
 ## Do you recommend customers use ACS or AKS? 
 
-While AKS remains in preview, we recommend that you build proof-of-concept's, dev and test clusters in AKS but deploy production clusters using ACS-Kubernetes or [acs-engine](https://github.com/azure/acs-engine).  
+While AKS remains in preview, we recommend creating production clusters using ACS-Kubernetes or [acs-engine](https://github.com/azure/acs-engine). You can use AKS for proof-of-concept deployments, and dev/test environments.
 
 ## When will ACS be deprecated? 
 
@@ -67,13 +67,7 @@ No, AKS does not currently provide Windows Server-based agent nodes, so you cann
 
 ## Why are two resource groups created with AKS? 
 
-Each Azure Container Service (AKS) cluster is contained in two resource groups. The first is created by you and contains only the AKS resource. The second resource group is automatically created during deployment and contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. This resource group is created to simplify resource cleanup. 
-
-The auto-created resource group has a name similar to:
-
-```
-MC_myResourceGRoup_myAKSCluster_eastus
-```
+Each AKS deployment spans two resource groups. The first is created by you and contains only the AKS resource. The AKS resource provider automatically creates the second one during deployment with a name like *MC_myResourceGRoup_myAKSCluster_eastus*. The second resource group contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. It is created to simplify resource cleanup. 
 
 If you are creating resources that will be used with your AKS cluster, such as storage accounts or reserved public IP address, you should place them in the automatically generated resource group.
 
