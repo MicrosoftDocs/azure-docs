@@ -314,7 +314,7 @@ If you are using custom images, you can update the image by updating the imageRe
 
 ### Updating the OS image for your scale set
 
-Let's say you have a scale set running Ubuntu LTS 16.04, and you want to update to version 16.04.201801090. The image reference version property is not part of a list, so we can directly modify these properties with these commands:
+Let's say you have a scale set running an old version of Ubuntu LTS 16.04, and you want to update to a newer version of Ubuntu LTS 16.04 (e.g. version 16.04.201801090). The image reference version property is not part of a list, so we can directly modify these properties with these commands:
 
 Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {scaleSetName} -ImageReferenceVersion 16.04.201801090`
 
