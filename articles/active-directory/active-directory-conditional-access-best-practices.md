@@ -47,12 +47,6 @@ To make your policy work, you must configure:
 | **Access controls** | You need to select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
 
 
-In addition to these basic requirements, in many cases, you should also configure a condition. While a policy would also work without a configured condition, conditions are the driving factor for fine-tuning access to your apps.
-
-
-![Cloud apps](./media/active-directory-conditional-access-best-practices/04.png)
-
-
 
 ### How are assignments evaluated?
 
