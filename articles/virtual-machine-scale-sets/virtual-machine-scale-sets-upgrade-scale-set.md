@@ -316,17 +316,37 @@ If you are using custom images, you can update the image by updating the imageRe
 
 Let's say you have a scale set running an old version of Ubuntu LTS 16.04, and you want to update to a newer version of Ubuntu LTS 16.04 (e.g. version 16.04.201801090). The image reference version property is not part of a list, so we can directly modify these properties with these commands:
 
-Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {scaleSetName} -ImageReferenceVersion 16.04.201801090`
+Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -ImageReferenceVersion 16.04.201801090`
 
-CLI: `az vmss update -g {resourceGroupName} -n {scaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
+CLI: `az vmss update -g {resourceGroupName} -n {vmScaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
 
 
 ### Updating the load balancer for your scale set
 
-(*** TODO ***)
-
 Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and application gateway properties for a scale set are part of a list, so we will use the commands for removing and adding list elements instead of modifying the properties directly:
 
-Powershel: (*** TODO ***)
+Powershell:
+```
+# get the current model of the scale set and store it in a local powershell object named $vmss
+> $vmss=Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName}
 
-CLI: (*** TODO ***)
+# create a local powershell object for the new desired IP configuration, which includes the referencerence to the application gateway
+> $ipconf = New-AzureRmVmssIPConfig myNic -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+
+# replace the existing IP configuration in the local powershell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+> $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
+
+# Update the model of the scale set with the new configuration in the local powershell object
+> Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName} -virtualMachineScaleSet $vmss
+
+```
+
+CLI:
+```
+az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0 # remove the load balancer backend pool from the scale set model
+az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0 # remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
+az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # add the application gateway backend pool to the scale set model
+```
+
+>[!NOTE]
+> These commands assume there is only one IP configuration and load balancer on the scale set. If there are multiple, you may need to use a list index other than 0.
