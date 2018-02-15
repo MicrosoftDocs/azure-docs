@@ -210,7 +210,7 @@ This section is optional.  Include it for a metric measurement alert.
 | Element name | Required | Description |
 |:--|:--|:--|
 | TriggerCondition | Yes | Specifies whether the threshold is for total number of breaches or consecutive breaches from the following values:<br><br>**Total<br>Consecutive** |
-| Operator | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>lt = less than** |
+| Operator | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>eq = equal to** |
 | Value | Yes | Number of the times the criteria must be met to trigger the alert. |
 
 ##### Throttling
