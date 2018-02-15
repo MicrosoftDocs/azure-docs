@@ -14,6 +14,7 @@
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+## [Azure AD Connect Health and GDPR](active-directory-aadconnect-health-gdpr.md)
 
 # Related
 ## [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md)
