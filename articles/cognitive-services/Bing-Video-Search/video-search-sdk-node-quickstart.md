@@ -12,13 +12,13 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Video Search SDK Node quickstart
+# Video Search SDK Node quickstart (preview)
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
 
 ## Application dependencies
 
-To set up a console application using the Bing video Search SDK, run `npm install azure-cognitiveservices-videosearch` in your development environment.
+To set up a console application using the Bing Video Search SDK, run `npm install azure-cognitiveservices-videosearch` in your development environment.
 
 ## Video Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
