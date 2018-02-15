@@ -38,20 +38,22 @@ A data source name (DSN) contains the information about a specific data source t
 
     ![Open Databricks cluster](./media/connect-databricks-excel-python-r-sql-database/open-databricks-cluster.png "Open Databricks cluster")
 
-2. Under the **Configuration** tab, click the **JDBC/ODBC** tab and copy the values for **Server Hostname** and **HTTP Path**.
+2. Under the **Configuration** tab, click the **JDBC/ODBC** tab and copy the values for **Server Hostname** and **HTTP Path**. You need these values to complete the steps in this article.
 
-    ![Open Databricks cluster](./media/connect-databricks-excel-python-r-sql-database/get-databricks-jdbc-configuration.png "Open Databricks cluster")
+    ![Get Databricks configuration](./media/connect-databricks-excel-python-r-sql-database/get-databricks-jdbc-configuration.png "Get Databricks configuration")
 
-3. Under **Azure Databricks Service**, provide the following values:
+3. On your computer, start **ODBC Data Sources** application (32-bit or 64-bit) depending on your computer.
 
-    ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
+    ![Launch ODBC](./media/connect-databricks-excel-python-r-sql-database/launch-odbc-app.png "Launch ODBC app")
 
-    * For **Workspace name**, provide a name for your Databricks workspace.
-    * For **Subscription**, from the drop-down, select your Azure subscription.
-    * For **Resource group**, specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
-    * For **Location**, select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).
+4. Under the **User DSN** tab, click **Add**. In the **Create New Data Source** dialog box, select the **Simba Spark ODBC Driver**, and then click **Finish**.
 
-4. Click **Create**.
+    ![Launch ODBC](./media/connect-databricks-excel-python-r-sql-database/add-new-user-dsn.png "Launch ODBC app")
+
+4. In the **Simba Spark ODBC Driver** dialog box, provide the following values.
+
+
+
 
 ## Create a Spark cluster in Databricks
 
