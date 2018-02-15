@@ -28,7 +28,7 @@ To reference another workspace in your query, use the [*workspace*](https://docs
 
 For example, the first query returns summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*.  The second query example returns a summarized count of requests made against an app named *fabrikamapp* in Application Insights. 
 
-## Identifying resources
+### Identifying workspace resources
 Identifying a workspace can be performed one of several ways:
 
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
@@ -57,9 +57,9 @@ Identifying a workspace can be performed one of several ways:
     workspace("/subscriptions/e427267-5645-4c4e-9c67-3b84b59a6982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
     ```
 
-## Querying data from a specific Application Insights app
+### Identifying an application
 
-Identifying an application can be performed with the *app(Identifier)* expression.  The *Identifier* argument specifies the app using one of the following:
+Identifying an application in Application Insights can be performed with the *app(Identifier)* expression.  The *Identifier* argument specifies the app using one of the following:
 
 * Resource name - is a human readable name of the app, sometimes referred to as the *component name*.  
 
@@ -73,7 +73,7 @@ Identifying an application can be performed with the *app(Identifier)* expressio
     >Because Azure subscription names are not unique, this identifier might be ambiguous. 
     >
 
-* ID - is the GUID of the app.
+* ID - the app GUID of the application.
 
     `app("b438b4f6-912a-46d5-9cb1-b44069212ab4").requests | count`
 
