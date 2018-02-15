@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/14/2018
 ms.author: saurinsh
 
 ---
@@ -37,6 +37,9 @@ Using a standalone Active Directory running on Azure IaaS is covered in this art
     - Create HDInsight cluster
 
 > [!IMPORTANT]
+> 
+> To use Azure Data Lake Store, you must sync AD on Azure AD. For more information, see [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
+>
 > Oozie is not enabled on domain-joined HDInsight.
 
 ## Prerequisite

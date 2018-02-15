@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 02/01/2018
 ---
 
 
@@ -26,7 +26,7 @@ Writing to Excel requires an additional library. Adding new libraries is documen
 
 Before you write to Excel, some other changes might be needed. Some of the data types that are used in data preparation are not supported in some destination formats. For example, if "Error" objects exist, they won't serialize correctly to Excel. Thus, before you attempt to write to Excel, you need a "Replace Error Values" transform, which removes errors from any columns.
 
-If all of the previous work is complete, the following line writes the data table to a single sheet in an Excel document. Add a Write DataFlow (Script) transform. Then enter the following code in an expression section.
+If all of the previous work is complete, the following line writes the data table to a single sheet in an Excel document. Add a Transform DataFlow (Script) transform. Then enter the following code in an expression section.
 
 
 ### On Windows 

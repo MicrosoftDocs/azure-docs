@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Features Overview | Microsoft Docs
-description: This page provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature.
+title: Azure SQL Database feature comparison | Microsoft Docs
+description: This article compares the features of SQL Server and Azure SQL Database and shows their differences.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 10/25/2017
+ms.date: 02/08/2018
 ms.author: carlrab
 ---
 
-# Azure SQL Database features
+# Feature comparison: Azure SQL Database versus SQL Server 
 
 Azure SQL Database shares a common code base with SQL Server and, at the database level, supports most of the same features. The major feature differences between Azure SQL Database and SQL Server are at the instance level. 
 
@@ -35,7 +35,7 @@ The following table lists the major features of SQL Server and provides informat
 | **SQL Server Feature** | **Supported in Azure SQL Database** | 
 | --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
-| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
+| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | High availability is included with every database. See [High-availability and Azure SQL Database](sql-database-high-availability.md). Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No |
 | [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes |
 |[Auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Yes](sql-database-auditing.md)|

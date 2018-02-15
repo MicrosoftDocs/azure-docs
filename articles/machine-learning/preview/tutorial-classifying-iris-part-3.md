@@ -142,6 +142,17 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    
    The cluster name is a way for you to identify the environment. The location should be the same as the location of the Model Management account you created from the Azure portal.
 
+   In order to make sure that environment is setup successfully use the following command to check the status:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Please make sure "Provisioning State" has value as "Succeeded" (as shown below) before you set the environment in step 5.
+
+   ![Provisioning State](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Create a Model Management account. (This is a one-time setup.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -183,7 +194,7 @@ Now you're ready to create the real-time web service.
    * `-n`: The app name, which must be all lowercase.
    * `-f`: The scoring script file name.
    * `--model-file`: The model file. In this case, it's the pickled model.pkl file.
-   * `-r`: The type of model. In this case, it's a Python model.
+   * `-r`: The runtime of the model. In this case, it's a Python model. Valid runtimes are `python` and `spark-py`.
    * `--collect-model-data true`: This enables data collection.
    * `-c`: Path to the conda dependencies file where additional packages are specified.
 
@@ -254,8 +265,9 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 2. To test the service, execute the returned service run command:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    The output is **"2"**, which is the predicted class. (Your result might be different.) 
 
