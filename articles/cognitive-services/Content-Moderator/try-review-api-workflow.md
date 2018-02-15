@@ -154,29 +154,29 @@ Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (
 	Your request body looks like the following JSON request:
 
 		{
-		"Description": "Default workflow from API console",
-		"Type": "Image",
-		"Expression": {
-		    "Type": "Logic",
-    		"If": {
-      			"ConnectorName": "moderator",
-      			"OutputName": "isAdult",
-      			"Operator": "eq",
-      			"Value": "true",
-      			"Type": "Condition"
-    			},
-    		"Then": {
-      		"Perform": [
-        	{
-         		"Name": "createreview",
-          		"CallbackEndpoint": null,
-          		"Tags": [ ]
-        	}
-      		],
-      		"Type": "Actions"
+			"Description": "Default workflow from API console",
+			"Type": "Image",
+			"Expression": {
+				"Type": "Logic",
+				"If": {
+					"ConnectorName": "moderator",
+					"OutputName": "isAdult",
+					"Operator": "eq",
+					"Value": "true",
+					"Type": "Condition"
+					},
+				"Then": {
+				"Perform": [
+				{
+					"Name": "createreview",
+					"CallbackEndpoint": null,
+					"Tags": [ ]
+				}
+				],
+				"Type": "Actions"
+				}
 			}
 		}
-	}
  
 ### Submit your request
   
