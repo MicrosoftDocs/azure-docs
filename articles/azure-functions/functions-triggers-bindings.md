@@ -42,7 +42,7 @@ For information about which bindings are in preview or are approved for producti
 
 ## Register binding extensions
 
-In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. In version 2.x of the runtime, you must explicitly register binding extensions. 
+In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
 
 Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The way you install and register binding extensions depends on how you develop your functions: 
 
@@ -56,16 +56,20 @@ For information about how to set a function app to use version 2.x of the Functi
 
 When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
 
++ **Visual Studio**: Use the NuGet Package Manager tools. The following [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command installs the Azure Cosmos DB extension from the Package Manager Console:
 
     ```
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
++ **Visual Studio Code**: You can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET CLI, as follows:
 
     ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### Local development Azure Functions Core Tools
 
+When you develop functions locally, you can install the extensions you need by using the Azure Functions Core Tools from the Terminal or from a command prompt. The following `func extensions install` command installs the Azure Cosmos DB binding extension:
 
 ```
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
