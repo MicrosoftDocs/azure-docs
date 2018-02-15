@@ -26,7 +26,7 @@ Now you can query not only across multiple Log Analytics workspaces, but also da
 ## Querying across Log Analytics workspaces and from Application Insights
 To reference another workspace in your query, use the [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifier, and for an app from Application Insights, use the [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) identifier.  
 
-For example, the first query returns summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*.  The second query example returns a summarized count of requests made against a particular app in Application Insights. 
+For example, the first query returns summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*.  The second query example returns a summarized count of requests made against an app named *fabrikamapp* in Application Insights. 
 
 ## Identifying resources
 Identifying a workspace can be performed one of several ways:
