@@ -192,6 +192,11 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
   <td></td>
 </tr>
 <tr>
+  <td>GetStatus</td>
+  <td>Gets the status of the Azure Cosmos DB Emulator. The status is indicated by the exit code: 1 = Starting, 2 = Running, 3 = Stopped. A negative exit code indicates that an error occurred. No other output is produced.</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
+<tr>
   <td>Shutdown</td>
   <td>Shuts down the Azure Cosmos DB Emulator.</td>
   <td>CosmosDB.Emulator.exe /Shutdown</td>
@@ -315,6 +320,40 @@ To change the number of collections available to the Azure Cosmos DB Emulator, d
 4. Install the latest version of the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 5. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
+## Controlling the Emulator
+
+The Emulator comes with a PowerShell module for starting, stopping, uninstalling, and retrieving the status of the service. To use it:
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+or put the `PSModules` directory on your `PSModulesPath` and import it like this:
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+Here is a summary of the commands for controlling the emulator from PowerShell:
+
+### `Get-CosmosDbEmulatorStatus`
+
+Returns one of these ServiceControllerStatus values: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, or ServiceControllerStatus.Stopped.
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+Starts the emulator. By default, the command waits until the emulator is ready to accept requests. Use the -NoWait option, if you wish the cmdlet to return as soon as it starts the emulator.
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+Stops the emulator. By default, this command waits until the emulator is fully shutdown. Use the -NoWait option, if you wish the cmdlet to return as soon as the emulator begins to shut down.
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+Uninstalls the emulator and optionally removes the full contents of $env:LOCALAPPDATA\CosmosDbEmulator.
+The cmdlet ensures the emulator is stopped before uninstalling it.
+
 ## Running on Docker
 
 The Azure Cosmos DB Emulator can be run on Docker for Windows. The Emulator does not work on Docker for Oracle Linux.
@@ -434,59 +473,7 @@ There is one new feature and two bug fixes in this release. Thanks to the custom
 
 #### Features
 
-Many of the customers we've talked to have said: It would be nice if the emulator was scriptable. Hence, in this release we've added some scriptability. The emulator now includes a PowerShell module for starting, stopping, getting status, and uninstalling itself.
-
-To use the module:
-
-```powershell
-Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
-```
-
-or put the `PSModules` directory on your `PSModulesPath` and import it like this:
-
-```powershell
-$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
-Import-Module Microsoft.Azure.CosmosDB.Emulator
-```
-
-Here is a summary of the new PowerShell commands:
-
-##### `Get-CosmosDbEmulatorStatus`
-
-Returns one of these ServiceControllerStatus values: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, or ServiceControllerStatus.Stopped.
-
-##### `Start-CosmosDbEmulator [-NoWait]`
-
-Starts the emulator. By default, the command waits until the emulator is ready to accept requests. Use the -NoWait option, if you wish the cmdlet to return as soon as it starts the emulator.
-
-##### `Stop-CosmosDbEmulator [-NoWait]`
-
-Stops the emulator. By default, this command waits until the emulator is fully shutdown. Use the -NoWait option, if you wish the cmdlet to return as soon as the emulator begins to shut down.
-
-##### `Uninstall-CosmosDbEmulator [-RemoveData]`
-
-Uninstalls the emulator and optionally removes the full contents of $env:LOCALAPPDATA\CosmosDbEmulator.
-The cmdlet ensures the emulator is stopped before uninstalling it.
-
-Underlying the `Microsoft.Azure.CosmosDB.Emulator` module is a new command line option for the CosmosDB.Emulator program:
-
-> `/GetStatus`
->
-> Gets the status of the Azure Cosmos DB Emulator. The status is indicated by the exit code: 1 = Starting, 2 = Running, 3 = Stopped.
-
-Because the CosmosDB.Emulator program is a Windows app, not a console app, you must wait for it to complete in order to check the status code. For example, from a cmd window you should execute this command:
-
-```bat
-start /wait CosmosDB.Emulator /GetStatus
-```
-
-and then check the error level returned using `if errorlevel <number> <command>` statements:
-
-```bat
-if errorlevel 3 ( echo Do something )
-if errorlevel 2 ( echo Do something else )
-if errorlevel 1 ( echo Do something else else )
-```
+Many of the customers we've talked to have said: It would be nice if the emulator was scriptable. Hence, in this release we've added some scriptability. The emulator now includes a PowerShell module for starting, stopping, getting status, and uninstalling itself: `Microsoft.Azure.CosmosDB.Emulator`. 
 
 ### 1.20.91.1 Released on January 26, 2018
 
