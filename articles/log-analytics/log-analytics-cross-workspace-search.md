@@ -46,7 +46,7 @@ Identifying a workspace can be performed one of several ways:
     >Because Azure subscription names are not unique, this identifier might be ambiguous. 
     >
 
-* workspace ID - A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
+* Workspace ID - A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
 
     `workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count`
 
