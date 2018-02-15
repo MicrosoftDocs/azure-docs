@@ -4,7 +4,6 @@
 
 # Quickstarts
 ## [Create an event hub](event-hubs-create.md)
-## [Stream into Event Hubs with PowerShell and .NET Standard](event-hubs-quickstart-stream.md)
 
 # Tutorials
 ## [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
