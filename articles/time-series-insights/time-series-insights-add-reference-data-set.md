@@ -53,9 +53,7 @@ A Reference Data Set is a collection of items that are augmented with the events
    For example, paste JSON array data:
    ![Paste JSON data](media/add-reference-data-set/json_data_pasted.png)
 
-
    If there is an error parsing the data values, the error appears in red at the bottom of the page, such as `CSV parsing error, no rows extracted`.
-
 
 8. Once the data is successfully parsed, a data grid is shown displaying the columns and rows representing the data.  Review the data grid to ensure correctness.
 
