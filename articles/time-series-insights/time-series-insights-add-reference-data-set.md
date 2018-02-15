@@ -65,7 +65,7 @@ A Reference Data Set is a collection of items that are augmented with the events
 
       ![Choose data types on the column headings.](media/add-reference-data-set/choose_datatypes.png)
 
-   - Rename the column headers if needed. This the column name is necessary to join to the correct property in your event source. Ensure that the key column names match exactly to the event names to your incoming data, including case-sensitivity.
+   - Rename the column headers if needed. The key column name is necessary to join to the correct property in your event source. Ensure that the key column names match exactly to the event names to your incoming data, including case-sensitivity. The non-key column names are be used to augment the incoming data with the corresponding reference data values.
    - Click **Add a row** or **Add a column** to add more reference data values, as needed.
    - Type a value in the **Filter the rows...** field to review specific rows as needed. The filter is useful for reviewing data, but is not applied when uploading the data.
  
@@ -77,11 +77,11 @@ A Reference Data Set is a collection of items that are augmented with the events
 
    ![Select the key column(s).](media/add-reference-data-set/set_primary_key.png)
 
-   Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down, and the secondary key will be removed.
+   Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down to remove the secondary key.
 
-11. Select the **Upload rows** button to upload the data. 
+11.  To upload the data, select the **Upload rows** button.
 
-   The page will confirm the completed upload and display the message **Successfully uploaded dataset**.
+   The page confirms the completed upload and display the message **Successfully uploaded dataset**.
 
    ![Upload](media/add-reference-data-set/upload_rows.png)
 
