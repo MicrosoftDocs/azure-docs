@@ -85,7 +85,7 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
    | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
    | logs |`%%logs` |Outputs the logs for the current Livy session. |
-   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
+   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. You cannot delete the session that is initiated for the kernel itself. |
    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
 
    > [!NOTE]
@@ -141,7 +141,7 @@ The way notebooks are saved to the storage account is compatible with HDFS. So, 
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
 
-In case there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
+In case, there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
 
 ## Supported browser
 
