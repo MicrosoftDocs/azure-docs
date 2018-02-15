@@ -32,7 +32,8 @@ Follow these steps to create an Azure Database for MySQL server:
 
    ![Azure Database for MySQL option](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
-4. Fill out the new server details form with the following information:
+3. Fill out the new server details form with the following information:
+   
    ![Create server form](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
 
     **Setting** | **Suggested value** | **Field description** 
@@ -76,7 +77,7 @@ The Azure Database for MySQL service creates a firewall at the server level. It 
    ---|---|---
    AllowAllIps |  0.0.0.0 | 255.255.255.255
    
-![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
+   ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
    Allowing all IP addresses is not secure. This example is provided for simplicity, but in a real-world scenario, you need to know the precise IP address ranges to add for your applications and users. 
 
