@@ -488,7 +488,7 @@ if errorlevel 2 ( echo Do something else )
 if errorlevel 1 ( echo Do something else else )
 ```
 
-### 1.20 Released on January 26, 2018
+### 1.20.91.1 Released on January 26, 2018
 
 * Enabled the MongoDB aggregation pipeline by default.
 
