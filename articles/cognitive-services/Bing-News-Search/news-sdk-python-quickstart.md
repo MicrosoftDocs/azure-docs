@@ -1,7 +1,7 @@
 ---
-title: News search SDK Python quickstart | Microsoft Docs
-description: Setup for News search SDK console application.
-titleSuffix: Azure News search SDK Python quickstart
+title: News Search SDK Python quickstart | Microsoft Docs
+description: Setup for News Search SDK console application.
+titleSuffix: Azure News Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -13,7 +13,7 @@ ms.author: v-gedod
 ---
 # News Search SDK Python quickstart
 
-The News Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The News Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6.
