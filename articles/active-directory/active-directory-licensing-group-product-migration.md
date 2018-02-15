@@ -1,7 +1,7 @@
 ---
 
   title: How to safely migrate users between product licenses by using group-based licensing in Azure Active Directory | Microsoft Docs
-  description: Describes the recommended process for migrating users between different product licenses (Office 365 Enterprise E1 and E3) by using group-based licensing
+  description: Describes the recommended process to migrate users between different product licenses (Office 365 Enterprise E1 and E3) by using group-based licensing
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
@@ -22,16 +22,16 @@
 
 # How to safely migrate users between product licenses by using group-based licensing
 
-This article describes the recommended method for moving users between product licenses when using group-based licensing. The goal of this approach is to ensure that there's no loss of service or data during the migration: users should switch between products seamlessly. Two variants of the migration process are covered:
+This article describes the recommended method to move users between product licenses when using group-based licensing. The goal of this approach is to ensure that there's no loss of service or data during the migration: users should switch between products seamlessly. Two variants of the migration process are covered:
 
 -	Simple migration between product licenses that don't contain conflicting service plans, such as migrating between Office 365 Enterprise E3 and Office 365 Enterprise E5.
 
--	More complex migration between products that contain some conflicting service plans, such as migrating between Office 365 Enterprise E1 and Office 365 Enterprise E3. For more information regarding conflicts, see [Conflicting service plans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) and [Service plans that can't be assigned at the same time](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+-	More complex migration between products that contain some conflicting service plans, such as migrating between Office 365 Enterprise E1 and Office 365 Enterprise E3. For more information about conflicts, see [Conflicting service plans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) and [Service plans that can't be assigned at the same time](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 This article includes sample PowerShell code that can be used to perform the migration and verification steps. The code is especially useful for large-scale operations where it's not feasible to perform the steps manually.
 
 ## Before you begin
-It's important to verify certain assumptions are true for all users to be migrated before you begin the migration. If the assumptions aren't true for all users, the migration might fail for some. As a result, some of the users might lose access to services or data. The following assumptions should be verified:
+Before you begin the migration, it's important to verify certain assumptions are true for all of the users to be migrated. If the assumptions aren't true for all of the users, the migration might fail for some. As a result, some of the users might lose access to services or data. The following assumptions should be verified:
 
 -	Users have the *source license* that's assigned by using group-based licensing. The licenses for the product to move away from are inherited from a single source group and aren't assigned directly.
 
@@ -62,7 +62,7 @@ The migration goal is to use group-based licensing to change user licenses from 
 7.	Repeat the process for subsequent batches of users.
 
 ### Migrate a single user by using the Azure portal
-This section provides a simple walkthrough for the migration of a single user:
+This is a simple walkthrough for how to migrate a single user.
 
 **STEP 1**: The user has a *source license* that's inherited from the group. There are no direct assignments for the license:
 
@@ -90,13 +90,13 @@ The following snippet shows how to automate the migration process for a large-sc
 
 ############### NON-CONFLICTING LICENSES SCENARIO ################
 
-# The group and license that we are moving from.
+# The source group and source license to remove the user from.
 $sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
-$sourceSkuId = 'TailspinOnline:ENTERPRISEPACK'      #<- this is the O365 E3 product
+$sourceSkuId = 'TailspinOnline:ENTERPRISEPACK'      # <-- This is the Office 365 Enterprise E3 product.
 
-# The group and license that we are moving to.
+# The target group and target license to assign to the user.
 $targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
-$targetSkuId = 'TailspinOnline:ENTERPRISEPREMIUM'   #<- this is the O365 E5 product
+$targetSkuId = 'TailspinOnline:ENTERPRISEPREMIUM'   # <-- This is the Office 365 Enterprise E5 product.
 
 if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId))
 {
@@ -107,7 +107,7 @@ Write-Host "STEP 1: Adding users to the target group $targetGroupId. This will a
 AddUsersToGroup $usersToMigrate $targetGroupId
 
 # Verify that the target license shows up in the conflict state for each user on the list.
-# This step runs in a loop, forever, until all users are in the expected state.
+# This step runs in a loop, forever, until all of the users are in the expected state.
 # Group-based licensing (GBL) can take some time to reflect the changes on users.
 # As a result, the loop should terminate after a period of time that's dependent on the size of the user collection.
 # Note: If the loop hasn't terminated after a long period of time, stop the script.
@@ -174,7 +174,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## Migrate users between products that have conflicting service plans
-The migration goal is to use group-based licensing to change user licenses from a *source license* (in this example: Office 365 Enterprise E1) to a *target license* (in this example: Office 365 Enterprise E3). The two products in this scenario contain conflicting service plans, so you have to work around the conflict to seamlessly migrate the users. For more information about these conflicts, see in this [Active Directory licensing group problem resolution: Conflicting service plans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). At no point during the migration should users lose access to services or data. The migration is performed in small "batches." You can validate the outcome for each batch and minimize the scope of any problems that might occur during the process. Overall, the process is as follows:
+The migration goal is to use group-based licensing to change user licenses from a *source license* (in this example: Office 365 Enterprise E1) to a *target license* (in this example: Office 365 Enterprise E3). The two products in this scenario contain conflicting service plans, so you have to work around the conflict to seamlessly migrate the users. For more information about these conflicts, see [Active Directory licensing group problem resolution: Conflicting service plans](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). At no point during the migration should users lose access to services or data. The migration is performed in small "batches." You can validate the outcome for each batch and minimize the scope of any problems that might occur during the process. Overall, the process is as follows:
 
 1.	Users are members of a source group and they inherit the *source license* from that group.
 
@@ -191,7 +191,7 @@ The migration goal is to use group-based licensing to change user licenses from 
 7.	Repeat the process for subsequent batches of users.
 
 ### Migrate a single user by using the Azure portal
-This section provides a simple walkthrough for the migration of a single user:
+This is a simple walkthrough for how to migrate a single user.
 
 **STEP 1**: The user has a *source license* that's inherited from the group. There are no direct assignments for the license:
 
@@ -219,13 +219,14 @@ The following snippet shows how to automate the migration process for a large-sc
 [string[]]$usersToMigrate = 'MigrationUser@tailspinonline.com', 'MigrationUser2@tailspinonline.com'
 
 ############### CONFLICTING LICENSES SCENARIO ################
-# The group and license that we are moving from.
-$sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
-$sourceSkuId = 'TailspinOnline:STANDARDPACK'             #<- this is the O365 E1 product
 
-# The group and license that we are moving to.
+# The source group and source license to remove the user from.
+$sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
+$sourceSkuId = 'TailspinOnline:STANDARDPACK'             # <-- This is the Office 365 Enterprise E1 product.
+
+# The target group and target license to assign to the user.
 $targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
-$targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           #<- this is the O365 E3 product
+$targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           # <-- This is the Office 365 Enterprise E3 product.
 
 # Assumptions before migration:
 # 1. Users are already in the source group and they have the source license assigned from that group.
@@ -233,7 +234,7 @@ $targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           #<- this is the O365 E3
 #    and they don't have the source license assigned directly.
 #    IMPORTANT: If Assumption 2 isn't true, removing users from the source group in STEP 3
 #               won't result in the target license being correctly applied.
-# 3. There are enough available licenses to assign a target license to all of the users we are migrating.
+# 3. There are enough available licenses to assign a target license to all of the users that are being migrated.
 if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId))
 {
     throw "Some users did not pass validation checks. See the output for details. Aborting migration process."
@@ -243,7 +244,7 @@ Write-Host "STEP 1: Adding users to the target group $targetGroupId. This will p
 AddUsersToGroup $usersToMigrate $targetGroupId
 
 # Verify that the target license shows up in the conflict state for each user on the list.
-# This step runs in a loop, forever, until all users are in the expected state.
+# This step runs in a loop, forever, until all of the users are in the expected state.
 # Group-based licensing (GBL) can take some time to reflect the changes on users.
 # As a result, the loop should terminate after a period of time that's dependent on the size of the user collection.
 # Note: If the loop hasn't terminated after a long period of time, stop the script.
@@ -405,7 +406,7 @@ function GetUserLicense
     [OutputType([Microsoft.Online.Administration.UserLicense])]
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
 
-    # Look for the specific license SKU in all licenses that are assigned to the user.
+    # Look for the specific license SKU in all of the licenses that are assigned to the user.
     foreach($license in $user.Licenses)
     {
         if ($license.AccountSkuId -ieq $skuId)
@@ -455,7 +456,7 @@ function UserHasLicenseAssignedFromThisGroup
 
     [Guid[]]$objectsAssigningLicense = GetObjectIdsAssigningLicense $user $skuId
 
-    # GroupsAssigningLicense contains a collection of IDs of objects for assigning the license.
+    # GroupsAssigningLicense contains a collection of object IDs for assigning the license.
     # This could be a group object or a user object (contrary to what the name suggests).
     foreach ($assignmentSource in $objectsAssigningLicense)
     {
@@ -596,7 +597,7 @@ function VerifySourceandTargetLicensePresent
 # VerifyAssumptionsForUser function
 # Verify basic assumptions that should be true for a user before we execute the migration process.
 # The function prints details about the verification steps.
-# Return TRUE if all assumptions are true.
+# Return TRUE if all of the assumptions are true.
 function VerifyAssumptionsForUser
 {
     [OutputType([bool])]
@@ -660,7 +661,7 @@ function VerifyAssumptions
 
     Write-Host "Verifying initial assumptions:"
 
-    # Check if there are enough target licenses for all users.
+    # Check if there are enough target licenses for all of the users.
     $skuState = Get-MsolAccountSku | Where {$_.AccountSkuId -ieq $targetSkuId}
 
     if($skuState -eq $null)
@@ -708,7 +709,7 @@ function VerifyAssumptions
 # ExecuteVerificationLoop function
 # Execute a verification function (passed in as a delegate by using $checkFunction) for each user.
 # The function tracks how many users passed/failed verification.
-# The function repeats the verification loop until all users have passed the check.
+# The function repeats the verification loop until all of the users have passed the check.
 #   The loop may never terminate if some users never reach the expected state.
 #   If the loop doesn't terminate, you should investigate to determine the cause.
 # Note: If the verification function fails with an exception,
@@ -772,11 +773,12 @@ $ErrorActionPreference = "Stop"
 [string[]]$usersToMigrate = 'MigrationUser@tailspinonline.com', 'MigrationUser2@tailspinonline.com'
 
 ############### CONFLICTING LICENSES SCENARIO ################
-# The group and license that we are moving from.
+
+# The source group and source license to remove the user from.
 $sourceGroupId = [Guid]'b82c04f0-ce30-4ff1-bac7-735d92d83036'
 $sourceSkuId = 'TailspinOnline:STANDARDPACK'             # <-- This is the Office 365 Enterprise E1 product.
 
-# The group and license that we are moving to.
+# The target group and target license to assign to the user.
 $targetGroupId = [Guid]'bcf279d1-5ad5-46a5-b469-4b8a552aa2fe'
 $targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           # <-- This is the Office 365 Enterprise E3 product.
 
@@ -786,7 +788,7 @@ $targetSkuId = 'TailspinOnline:ENTERPRISEPACK'           # <-- This is the Offic
 #    and they don't have the source license assigned directly.
 #    IMPORTANT: If Assumption 2 isn't true, removing users from the source group in STEP 3
 #               won't result in the target license being correctly applied.
-# 3. There are enough available licenses to assign a target license to all of the users we are migrating.
+# 3. There are enough available licenses to assign a target license to all of the users that are being migrated.
 if(-Not (VerifyAssumptions $usersToMigrate $sourceGroupId $sourceSkuId $targetGroupId $targetSkuId))
 {
     throw "Some users did not pass validation checks. See the output for details. Aborting migration process."
@@ -796,7 +798,7 @@ Write-Host "STEP 1: Adding users to the target group $targetGroupId. This will p
 AddUsersToGroup $usersToMigrate $targetGroupId
 
 # Verify that the target license shows up in the conflict state for each user on the list.
-# This step runs in a loop, forever, until all users are in the expected state.
+# This step runs in a loop, forever, until all of the users are in the expected state.
 # Group-based licensing (GBL) can take some time to reflect the changes on users.
 # As a result, the loop should terminate after a period of time that's dependent on the size of the user collection.
 # Note: If the loop hasn't terminated after a long period of time, stop the script.
