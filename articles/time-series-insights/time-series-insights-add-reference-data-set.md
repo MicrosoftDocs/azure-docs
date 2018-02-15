@@ -17,7 +17,7 @@ ms.date: 02/15/2018
 
 This article describes how to add a reference data set to your Azure Time Series Insights environment. Reference data is useful to join to your source data to augment the values.
 
-A Reference Data Set is a collection of items that are augmented with the events from your event source. Time Series Insights ingress engine joins an event from your event source with an item in your reference data set. This augmented event is then available for query. This join is based on the keys defined in your reference data set.
+A Reference Data Set is a collection of items that are augmented with the events from your event source. Time Series Insights ingress engine joins an event from your event source with an item in your reference data set. This augmented event is then available for query. This join is based on the Primary Key columns defined in your reference data set.
 
 ## Add a reference data set
 
@@ -59,12 +59,14 @@ A Reference Data Set is a collection of items that are augmented with the events
 
    ![Add reference data](media/add-reference-data-set/parse_data.png)
 
-   - Review each column to see the data type assumed, and change the data type if needed.  Select the data type as **#** for double (numerical data), **T|F** for boolean, or **Abc** for string.
+   - Review each column to see the data type assumed, and change the data type if needed.  Select the data type symbol in the column heading: **#** for double (numerical data), **T|F** for boolean, or **Abc** for string.
 
       ![Choose data types on the column headings.](media/add-reference-data-set/choose_datatypes.png)
 
    - Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source. Ensure that the reference data key column names match exactly to the event name to your incoming data, including case-sensitivity. The non-key column names are used to augment the incoming data with the corresponding reference data values.
+
    - Click **Add a row** or **Add a column** to add more reference data values, as needed.
+
    - Type a value in the **Filter the rows...** field to review specific rows as needed. The filter is useful for reviewing data, but is not applied when uploading the data.
  
 9. Name the data set, by filling in the **Data set name** field above the data grid.
@@ -79,9 +81,9 @@ A Reference Data Set is a collection of items that are augmented with the events
 
 11.  To upload the data, select the **Upload rows** button.
 
-   The page confirms the completed upload and display the message **Successfully uploaded dataset**.
-
    ![Upload](media/add-reference-data-set/upload_rows.png)
+
+   The page confirms the completed upload and display the message **Successfully uploaded dataset**.
 
 ## Next steps
 * [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
