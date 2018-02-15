@@ -1,5 +1,5 @@
 ---
-title: Add push Notifications to Apache Cordova App with Azure Mobile Apps | Microsoft Docs
+title: Add push notifications to Apache Cordova App with Azure Mobile Apps | Microsoft Docs
 description: Learn how to use Azure Mobile Apps to send push notifications to your Apache Cordova app.
 services: app-service\mobile
 documentationcenter: javascript
@@ -240,7 +240,7 @@ app on the Android platform in one of the following ways:
 
     Make sure you are deploying to a virtual device that has Google APIs set as the target, as shown in the Android Virtual Device (AVD) manager.
 
-    ![Android Virtual Device manager](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
+    ![Android Virtual Device Manager](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
     If you want to use a faster x86 emulator, [install the HAXM driver][11], and then configure the emulator to use it.
 
