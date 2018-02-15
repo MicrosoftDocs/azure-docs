@@ -17,6 +17,12 @@ ms.author: billmath
 
 # Azure AD Connect and GDPR compliance
 
+In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
+
+Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
+
+>[!NOTE] This article deals with Azure AD Connect and GDPR compliance.  For information on Azure AD Connect Health and GDPR compliance see the article [here](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+
 General Data Protection Regulation compliance for Azure AD Connect installations can be reached in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations
@@ -79,4 +85,5 @@ Use the following steps to schedule the script to run every 48 hours.
 
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- [Azure AD Connect Health and GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
