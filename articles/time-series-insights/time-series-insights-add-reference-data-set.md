@@ -49,13 +49,14 @@ Reference data is not joined retroactively. This means that only current and fut
    - Paste the data into the text editor. Then, select **Parse reference data** button.
    - Select **Choose File** button to add data from a local text file. 
 
+   > [!NOTE]
+   > If there is an error parsing the data values, the error appears in red at the bottom of the page, such as `CSV parsing error, no rows extracted`.
+
    For example, paste CSV data:
    ![Pasted CSV data](media/add-reference-data-set/csv_data_pasted.png)
 
    For example, paste JSON array data:
    ![Paste JSON data](media/add-reference-data-set/json_data_pasted.png)
-
-   If there is an error parsing the data values, the error appears in red at the bottom of the page, such as `CSV parsing error, no rows extracted`.
 
 8. Once the data is successfully parsed, a data grid is shown displaying the columns and rows representing the data.  Review the data grid to ensure correctness.
 
