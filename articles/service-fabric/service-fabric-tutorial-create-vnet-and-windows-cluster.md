@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure cluster on Azure
-> * [Scale a cluster in or out](/service-fabric-tutorial-scale-cluster.md)
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
@@ -63,7 +63,7 @@ The cluster certificate must:
 
 Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
 
-This tutorial deplays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
+This tutorial displays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
 
 - The number of nodes and node types that your cluster needs 
 - The properties of each of node type (for example size, primary, internet facing, and number of VMs)
