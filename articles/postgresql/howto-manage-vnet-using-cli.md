@@ -51,7 +51,7 @@ VNets and Azure service resources can be in the same or different subscriptions.
 
 ### Sample script to create an Azure Database for PostgreSQL database, create a VNet, VNet service endpoint and secure the server to the subnet with a VNet rule
 In this sample script, change the highlighted lines to customize the admin username and password. Replace the SubscriptionID used in the `az account set --subscription` command with your own subscription identifier.
-[!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh?highlight=4,16 "Create an Azure Database for PostgreSQL, VNet, VNet service endpoint, and VNet rule.")]
+[!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh?highlight=4,19 "Create an Azure Database for PostgreSQL, VNet, VNet service endpoint, and VNet rule.")]
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
