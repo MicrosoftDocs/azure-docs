@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -165,7 +165,7 @@ For more information, see:
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance/compliance
+**Product capability:** Governance/Compliance
  
 You now can go to the Access Panel and view the terms of use that you previously accepted.
 
@@ -216,7 +216,7 @@ For more information, see [Fewer sign-in prompts: The new "keep me signed in" ex
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance
+**Product capability:** Governance/Compliance
  
 An option for administrators requires their users to expand the terms of use prior to accepting the terms.
 
@@ -374,7 +374,7 @@ For more information, see:
 
 **Type:** New feature    
 **Service category:** Terms of use  
-**Product capability:** Governance/compliance
+**Product capability:** Governance/Compliance
 
 
 
@@ -664,7 +664,7 @@ For more information, see [Reference for MFA reporting in the Azure portal](http
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance  
+**Product capability:** Governance/Compliance  
 
 
 
@@ -707,7 +707,7 @@ For more information, see [Privileged Identity Management for Azure resources](h
 
 **Type:** New feature  
 **Service category:** Access reviews  
-**Product capability:** Governance  
+**Product capability:** Governance/Compliance  
 
 
 
