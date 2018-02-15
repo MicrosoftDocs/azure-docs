@@ -19,22 +19,22 @@ ms.author: iainfou
 
 ---
 # Encrypt OS and attached data disks in a virtual machine scale set
-Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) supports Azure disk encryption (ADE).  Azure disk encryption can be enabled for Windows and Linux VM scale sets to protect and safeguard the scale sets data at rest using industry standard encryption technology. For more information, read Azure Disk Encryption for Windows and Linux virtual machines.
+Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) supports Azure disk encryption (ADE).  Azure disk encryption can be enabled for Windows and Linux virtual machine scale sets to protect and safeguard the scale sets data at rest using industry standard encryption technology. For more information, read Azure Disk Encryption for Windows and Linux virtual machines.
 
 > [!NOTE]
->  Azure disk encryption for VM scale sets is currently in public preview, available in all Azure public regions.
+>  Azure disk encryption for virtual machine scale sets is currently in public preview, available in all Azure public regions.
 
 Azure disk encryption is supported:
 - for scale sets created with managed disks, and not supported for native (or unmanaged) disk scale sets.
 - for OS and data volumes in Windows scale sets. Disable encryption is supported for OS and Data volumes for Windows scale sets.
 - for data volumes in Linux scale sets. OS disk encryption is NOT supported in the current preview for Linux scale sets.
 
-Scale set VM reimage and upgrade operations are not supported in the current preview. The Azure disk encryption for VM scale sets preview is recommended only in test environments. In the preivew, do not enable disk encrptyion in production environments where you might need to upgrade an OS image in an encrypted scale set.
+Scale set VM reimage and upgrade operations are not supported in the current preview. The Azure disk encryption for virtual machine scale sets preview is recommended only in test environments. In the preview, do not enable disk encryption in production environments where you might need to upgrade an OS image in an encrypted scale set.
 
 ## Prerequisites
 Install the latest versions of [Azure Powershell](https://github.com/Azure/azure-powershell/releases), which contains the encryption commands.
 
-The Azure disk encryption for VM scale sets preview requires you to self-register your subscription using the following PowerShell commands: 
+The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription using the following PowerShell commands: 
 
 ```powershell
 Login-AzureRmAccount
@@ -68,7 +68,6 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $VaultName -EnabledForDiskEncryption
 ## Enable encryption
 The following commands encrypt a data disk in a running scale set using a key vault in the same resource group. You can also use templates to encrypt disks in a running [Windows scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
-
 ```powershell
 $rgname="windatadiskencryptiontest"
 $VmssName="nt1vm"
@@ -91,7 +90,7 @@ Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $Vmss
 ```
 
 ## Disable encryption
-Disable encryption on a running virtual machine scale set using the following commands. You can also use templates to disable encryption in a running [Windows VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows) or [Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux).
+Disable encryption on a running virtual machine scale set using the following commands. You can also use templates to disable encryption in a running [Windows scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows) or [Linux scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux).
 
 ```powershell
 $rgname="windatadiskencryptiontest"
