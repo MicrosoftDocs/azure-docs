@@ -179,7 +179,7 @@ Exclude disk | Yes | Yes
 Multi-path (MPIO) | N/A | Yes
 
 > [!NOTE]
-> ** UEFI boot VMware virtual machines or Physical servers running Windows Server 2012 or later, can be migrated to Azure. Following restrictions apply.
+> ** UEFI boot VMware virtual machines running Windows Server 2012 or later, can be migrated to Azure. Following restrictions apply.
 > - Migration to Azure only. Failback to on-premises VMware site not supported.
 > - No more than 4 partitions are supported on the OS disk of the server.
 > - Requires Azure Site Recovery Mobility service version 9.13 or later.
