@@ -24,8 +24,8 @@
 ### [Azure PowerShell](tutorial-install-apps-powershell.md)
 ### [Template](tutorial-install-apps-template.md)
 ## 5 - Autoscale a scale set
-### Azure CLI 2.0
-### Azure PowerShell
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### Template
 
 # How To

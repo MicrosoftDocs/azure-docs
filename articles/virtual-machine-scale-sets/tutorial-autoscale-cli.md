@@ -85,7 +85,7 @@ The start of the autoscale profile defines the default, minimum, and maximum sca
 ## Create a rule to autoscale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by 3. In scale sets with a large number of VM instances, the `type` of *PercentChangeCount* may be more appropriate, and then and increase the `value` by *10% or *20*.
+Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by three.
 
 The following parameters are used for this rule:
 
@@ -131,7 +131,7 @@ The following example defines the rule to scale out the number of VM instances. 
 ## Create a rule to autoscale in
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
-Create another rule that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
+Create another rule that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale in the number of VM instances by one. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 
 ```json
 {
@@ -158,7 +158,7 @@ Create another rule that decreases the number of VM instances in a scale set whe
 
 
 ## Apply autoscale rules to a scale set
-The final step is to apply the autoscale profile and rules to your scale set. Your scale is then able to automatically scale in or out based on the application demand. Apply the autoscale profile with [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) as follows. The complete JSON uses the profile and rules noted in the previous sections.
+The final step is to apply the autoscale profile and rules to your scale set. Your scale set is then able to automatically scale in or out based on the application demand. Apply the autoscale profile with [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) as follows. The complete JSON uses the profile and rules noted in the previous sections.
 
 ```azurecli-interactive
 az monitor autoscale-settings create \
@@ -325,7 +325,7 @@ Once **stress** stops on the initial VM instances, the average CPU load returns 
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Exit *watch* with `Ctrl-c`. The scale set continues to scale in every 5 minutes and remove one VM instance until the minimum instance count of 2 is reached.
+Exit *watch* with `Ctrl-c`. The scale set continues to scale in every 5 minutes and remove one VM instance until the minimum instance count of two is reached.
 
 
 ## Clean up resources
