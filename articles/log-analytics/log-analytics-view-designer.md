@@ -74,7 +74,7 @@ View Designer has three panes:
 
 ![View Designer](media/log-analytics-view-designer/view-designer-screenshot.png)
 
-### Configure the view tiles
+### Configure the view tile
 A custom view can have only a single tile. To view the current tile or select an alternate one, select the **Tile** tab in the **Control** pane. The **Properties** pane displays the properties of the current tile. 
 
 You can configure the tile properties according to the information in the [Tile reference](log-analytics-view-designer-tiles.md) and then click **Apply** to save the changes.
