@@ -217,9 +217,13 @@ To update a global scale set property, you must update the property in the scale
 
 REST API: `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate))
 
+ARM templates: you can alternatively deploy an ARM template using the properties from the REST API to update global scale set properties.
+
 Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss))
 
 CLI. To modify a property: `az vmss update --set {propertyPath}={value}`. To add an object to a list property in a scale set: `az vmss update --add {propertyPath} {JSONObjectToAdd}`. To remove an object from a list property in a scale set: `az vmss update --remove {propertyPath} {indexToRemove}`. (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update)). Alternatively, if you previously deployed the scale set using the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. To do this, you need to ensure that all properties in the `az vmss create` command are the same as before, except for the properties you wish to modify.
+
+
 
 You can also use [resources.azure.com](https://resources.azure.com) or the [Azure SDKs](https://azure.microsoft.com/downloads/) to update the scale set model.
 
@@ -282,22 +286,47 @@ Some properties may be changed, with exceptions depending on the current value. 
 
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
 
-- sku name: If the new VM SKU is not supported on the hardware the scale set is currently on, you will need to deallocate the VMs in the scale set before modifying the sku name. For more information on resizing VMs, see [this blog post](https://azure.microsoft.com/blog/resize-virtual-machines/).
+- sku name: If the new VM SKU is not supported on the hardware the scale set is currently on, you will need to deallocate the VMs in the scale set before modifying the sku name. For more information on resizing VMs, see [this Azure blog post](https://azure.microsoft.com/blog/resize-virtual-machines/).
 
 
 ## VM-specific updates
 
-(*** TODO ***)
+Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is attaching/detaching data disks to/from VMs in the scale set. This is a preview feature. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
+## Scenarios: Application updates, OS updates, etc.
 
+### Application updates
 
+If an application is deployed to a scale set through extensions, updating the extension configuration will cause the application to update in accordance with the upgrade policy. For instance, if you have a new version of a script to run in a custom script extension, you could update the fileUris property to point to the new script. In some cases, however, you may wish to force an update even though the extension configuration is unchanged (e.g. you updaged the script without changing the URI of the script). In these cases, you can modify the forceUpdateTag to force an update. The Azure platform does not interpret this property, so changing its value has no affect on how the extension runs. Modifying it simply forces the extension to re-run. For more information on the forceUpdateTag, see the [REST API documentation for extensions](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate).
+
+It is also common for applications to be deployed through a custom image. This scenario is covered below in the "OS updates" section
+
+### OS Updates
+
+If you are using platform images, you can update the image by modifying the imageReference (more information in the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+
+>[!NOTE]
+> With platform images, it is common to specify "latest" for the image reference version. This means that during scale set create, scale out, and reimage, the VMs will be created with the latest available version. However, it **does not** mean that the OS image will be automatically updated over time as new image versions are released. This is a separate feature, currently in preview. For more information, see the [Automatic OS Upgrades documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+
+If you are using custom images, you can update the image by updating the imageReference ID (more information in the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## Examples
 
 ### Updating the OS image for your scale set
 
-(*** TODO ***)
+Let's say you have a scale set running Ubuntu LTS 16.04, and you want to update to version 16.04.201801090. The image reference version property is not part of a list, so we can directly modify these properties with these commands:
+
+Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {scaleSetName} -ImageReferenceVersion 16.04.201801090`
+
+CLI: `az vmss update -g {resourceGroupName} -n {scaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
+
 
 ### Updating the load balancer for your scale set
 
 (*** TODO ***)
+
+Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and application gateway properties for a scale set are part of a list, so we will use the commands for removing and adding list elements instead of modifying the properties directly:
+
+Powershel: (*** TODO ***)
+
+CLI: (*** TODO ***)
