@@ -17,7 +17,7 @@ The Azure Site Recovery Deployment Planner Report provides the cost estimation s
 ### Cost estimation summary 
 The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you specified for report generation.
 
-![Cost estimation summary](media/hyper-v-deployment-planner-cost-estimation/cost-estimation-summary-h2a.png)
+![Cost estimation summary](media/hyper-v-azure-deployment-planner-cost-estimation/cost-estimation-summary-h2a.png)
 
 The summary helps you to understand the cost that you need to pay for storage, compute, network, and license when you protect your compatible VMs by using Azure Site Recovery. The cost is calculated for compatible VMs and not on all the profiled VMs. 
  
@@ -40,7 +40,7 @@ This section shows the subscription ID and offer ID that you used for report gen
 
 In the whole report, the cells marked in gray are read-only. Cells in white can be modified according to your requirements.
 
-![Cost estimation details](media/hyper-v-deployment-planner-cost-estimation/cost-estimation1-h2a.png)
+![Cost estimation details](media/hyper-v-azure-deployment-planner-cost-estimation/cost-estimation1-h2a.png)
 
 ### Overall DR costs by components
 The first section shows the overall DR cost by components and DR cost by states. 
