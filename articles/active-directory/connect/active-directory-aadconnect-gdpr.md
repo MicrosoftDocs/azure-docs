@@ -15,7 +15,7 @@ ms.date: 02/15/2018
 ms.author: billmath
 ---
 
-# Azure AD Connect and GDPR compliance
+# GDPR compliance and Azure AD Connect 
 
 In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
 
@@ -42,15 +42,22 @@ To be GDPR compliant, Azure AD Connect customers should use the following guidel
 
 Data about a person is automatically removed from the Azure AD Connect database when that person’s data is removed from the source system where it originated from. No specific action from administrators is required to be GDPR compliant.  However, it does require that the Azure AD Connect data is synced with your data source at least every two days.
 
-## Delete the contents of the Azure AD Connect installation log file folder
-Regularly check the contents of **c:\programdata\aadconnect** and delete the contents of this folder – with the exception of the **PersistedState.Xml** file, as this file is used to maintain the state of the previous installation of Azure A Connect and is used when an upgrade installation is performed. This file does not contain any data about a person and should not be deleted.
+## Delete the Azure AD Connect installation log file folder contents
+Regularly check and delete the contents of **c:\programdata\aadconnect** folder – except for the **PersistedState.Xml** file. This file maintains the state of the previous installation of Azure A Connect and is used when an upgrade installation is performed. This file doesn't contain any data about a person and shouldn't be deleted.
 
 >[!IMPORTANT]
 >Do not delete the PersistedState.xml file.  This file contains no user information and maintains the state of the previous installation.
 
 You can either review and delete these files using Windows Explorer or you can use a script like the following to perform the necessary actions:
 
-![](media\active-directory-aadconnect-gdpr\gdpr1.png)
+
+```
+$Files = ((Get-childitem -Path "$env:programdata\aadconnect" -Recurse).VersionInfo).FileName
+Foreach ($file in $files) {
+If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper()) # Do not delete this file
+    {Remove-Item -Path $File -Force}
+    } 
+```
 
 ### Schedule this script to run every 48 hours
 Use the following steps to schedule the script to run every 48 hours.
