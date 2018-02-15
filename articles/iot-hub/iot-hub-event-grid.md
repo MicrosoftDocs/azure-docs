@@ -11,7 +11,7 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
 ---
 # React to IoT Hub events by using Event Grid to trigger actions - Preview
@@ -103,7 +103,7 @@ For a detailed description of each property, see [Azure Event Grid event schema 
 
 ## Filter events
 
-IoT Hub event subscriptions can filter events based on event type and device name. Subject filters in Event Grid work based on **prefix** and **suffix** matches, so that events with a matching subject are delivered to the subscriber. 
+IoT Hub event subscriptions can filter events based on event type and device name. Subject filters in Event Grid work based on **prefix** and **suffix** matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
 
 The subject of IoT Events uses the format:
 
