@@ -55,7 +55,7 @@ The following example creates an Azure Database for MySQL server located in `wes
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 > [!IMPORTANT]
-> The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+> The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
 
 
 ## Configure firewall rule
@@ -122,7 +122,7 @@ mysql> USE mysampledb;
 ```
 
 ## Create tables in the database
-Now that you know how to connect to the Azure Database for MySQL database, complete some basic tasks:
+Now that you know how to connect to the Azure Database for MySQL database, complete some basic tasks.
 
 First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
@@ -184,7 +184,7 @@ Restoring a server to a point-in-time creates a new server, copied as the origin
 
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
-## Next Steps
+## Next steps
 In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL server
