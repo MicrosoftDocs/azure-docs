@@ -65,33 +65,38 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/cognitive-services-migration-from-dm.md",
-            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-migration-from-dm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/cognitive-services-recommendations-batch-scoring.md",
-            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-batch-scoring",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/cognitive-services-recommendations-buildtypes.md",
-            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-buildtypes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/cognitive-services-recommendations-collecting-data.md",
-            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-collecting-data",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
-            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-quick-start",
+            "redirect_url": "/azure/cognitive-services/recommendations/overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/cognitive-services-recommendations-ui-intro.md",
-            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-ui-intro",
+            "source_path": "articles/cognitive-services/Recommendations/cognitive-services-migration-from-dm.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Recommendations/cognitive-services-recommendations-batch-scoring.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Recommendations/cognitive-services-recommendations-buildtypes.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Recommendations/cognitive-services-recommendations-collecting-data.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Recommendations/cognitive-services-recommendations-quick-start.md",
+            "redirect_url": "/azure/cognitive-services/Recommendations/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Recommendations/cognitive-services-recommendations-ui-intro.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/overview",
             "redirect_document_id": false
         },
         {
@@ -16036,6 +16041,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-eventhub-structured-streaming",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
@@ -16817,6 +16827,11 @@
 	{
             "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-tutorial",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-new-relic-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
     }
    ]
