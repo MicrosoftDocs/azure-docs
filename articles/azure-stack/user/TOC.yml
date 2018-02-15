@@ -117,10 +117,8 @@
         href: azure-stack-deploy-template-visual-studio.md
   - name: Billing
     items:
-    - name: Enable tenant usage billing
-      href: azure-stack-csp-enable-tenant-billing.md
-    - name: Enable RBAC usage billing
-      href: azure-stack-csp-enable-rbac-billing.md
+    - name: Enable billing and usage tracking
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell

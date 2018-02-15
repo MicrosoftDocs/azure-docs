@@ -250,6 +250,8 @@
       items:
       - name: Overview
         href: azure-stack-billing-and-chargeback.md
+      - name: Manage usage and billing as a CSP
+        href: zure-stack-add-manage-billing-as-a-csp.md
       - name: Register to track billing usage
         href: azure-stack-csp-register-azure-stack.md
       - name: Add tenants for usage and billing 
@@ -260,12 +262,6 @@
         items:
         - name: Usage data reporting
           href: azure-stack-usage-reporting.md
-        - name: Usage report infrastructure 
-          href: azure-stack-csp-ref-infrastructure.md
-        - name: Usage and billing glossary 
-          href: azure-stack-csp-ref-glossary.md
-        - name: Usage and billing error codes 
-          href: azure-stack-csp-ref-error-codes.md
         - name: Provider usage API
           href: azure-stack-provider-resource-api.md
         - name: Tenant usage API
