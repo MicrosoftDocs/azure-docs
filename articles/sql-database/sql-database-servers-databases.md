@@ -84,7 +84,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 > For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
 >
 
-To create a database within SQL Database Managed Instance, see [Create and Manage an Azure SQL Database Managed Instance](sql-database-managed-instance-create-manage.md).
+To create a database within SQL Database Managed Instance, see Create and Manage an Azure SQL Database Managed Instance - sql-database-managed-instance-create-manage.md (to be created).
 
 ### Manage an existing SQL server
 
@@ -102,7 +102,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 > For an Azure portal quick start tutorial, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
 >
 
-To manage a server within SQL Database Managed Instance, see [Create and Manage an Azure SQL Database Managed Instance](sql-database-managed-instance-create-manage.md).
+To manage a server within SQL Database Managed Instance, see Create and Manage an Azure SQL Database Managed Instance - sql-database-managed-instance-create-manage.md (to be created).
 
 ## Manage Azure SQL servers, databases, and firewalls using PowerShell
 

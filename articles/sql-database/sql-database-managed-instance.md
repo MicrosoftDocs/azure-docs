@@ -186,4 +186,4 @@ For a list of supported, partially supported, and unsupported features, see [SQL
 ## Next steps
 
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a quickstart tutorial, see [Create a Managed Instance](sql-database-quickstart-managed-instance.md)
+- For a quickstart tutorial, see Create a Managed Instance - sql-database-quickstart-managed-instance.md (to be created)
