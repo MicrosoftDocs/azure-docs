@@ -62,7 +62,7 @@ else:
     print("Didn't see any data..")
 
 ```
-Search and handle disambiguation results for an ambiguous query (Harry Potter)".
+Search and handle disambiguation results for an ambiguous query (Harry Potter).
 ```
 def handling_disambiguation(subscription_key):
 
