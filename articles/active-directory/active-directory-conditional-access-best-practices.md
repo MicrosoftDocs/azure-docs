@@ -28,9 +28,9 @@ With [Azure Active Directory (Azure AD) conditional access](active-directory-con
 
 This article assumes that you familiar the concepts and the terminology outlined in [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
-## What you should know
 
-### What’s required to make a policy work?
+
+## What’s required to make a policy work?
 
 When you create a new policy, there are no users, groups, apps, or access controls selected.
 
@@ -47,6 +47,9 @@ To make your policy work, you must configure:
 | **Access controls** | You need to select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
 
 
+
+
+## What you should know
 
 ### How are assignments evaluated?
 
