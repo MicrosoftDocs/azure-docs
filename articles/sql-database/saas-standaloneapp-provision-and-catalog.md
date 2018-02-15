@@ -85,7 +85,7 @@ In this task, you learn how to provision the catalog used to register all the te
 
 Once the script completes, the catalog will exist and all the sample tenants will be registered. 
 
-Now take a look at the resources you created.
+Now look at the resources you created.
 
 1. Open the [Azure portal](https://portal.azure.com/) and browse the resource groups.  Open the **wingtip-sa-catalog-\<user\>** resource group and note the catalog server and database.
 1. Open the database in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password = **P@ssword1**.
@@ -98,8 +98,10 @@ Now take a look at the resources you created.
 
    ![data explorer](media/saas-standaloneapp-provision-and-catalog/data-explorer-tenantsextended.png)
 
-      * As an alternative to using the Data Explorer you can connect to the database from SQL Server Management Studio.
-      * Do not edit data directly in the catalog - always use the shard management APIs. 
+    As an alternative to using the Data Explorer you can connect to the database from SQL Server Management Studio. To do this, connect to the server wingtip- 
+
+    
+    Note that you should not edit data directly in the catalog - always use the shard management APIs. 
 
 ## Provision a new tenant application
 
@@ -120,13 +122,18 @@ After the tenant has been provisioned, the new tenant's events website is opened
 
    ![red maple racing](media/saas-standaloneapp-provision-and-catalog/redmapleracing.png)
 
-You can then inspect the new resources created in the Azure portal 
+You can then inspect the new resources created in the Azure portal. 
 
    ![red maple racing resources](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
 
+
+## To stop billing, delete resource groups ##
+
+When you have finished exploring the sample, delete all the resource groups you created to stop the associated billing.
+
 ## Additional resources
 
-- To learn about multi-tenant SaaS applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).
+- To learn more about multi-tenant SaaS database applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
 ## Next steps
 
@@ -136,7 +143,3 @@ In this tutorial you learned:
 > * How to deploy the Wingtip Tickets SaaS Standalone Application.
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
-
-## To stop billing, delete resource groups ##
-
-When you have finished exploring the sample, delete all the resource groups you created to stop the associated billing.
