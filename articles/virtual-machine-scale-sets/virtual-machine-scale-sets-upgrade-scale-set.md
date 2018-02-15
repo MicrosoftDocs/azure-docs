@@ -18,7 +18,7 @@ ms.date: 02/14/2018
 ms.author: negat
 
 ---
-# Upgrade a virtual machine scale set
+# Modify a virtual machine scale set
 This article describes how to modify an existing scale set. This includes how to change the configuration of the scale set, how to change the configuration of the applications running on the scale set, how to manage availability, and more.
 
 ## Fundamental concepts
