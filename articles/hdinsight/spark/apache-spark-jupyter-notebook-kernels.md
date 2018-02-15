@@ -141,7 +141,7 @@ The way notebooks are saved to the storage account is compatible with HDFS. So, 
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
 
-In case, there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
+In case there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
 
 ## Supported browser
 
