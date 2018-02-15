@@ -85,7 +85,7 @@ The start of the autoscale profile defines the default, minimum, and maximum sca
 ## Create a rule to autoscale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 10-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could set the `type` to *ChangeCount* and increase the `value` by *1* or *2* instances. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
+Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by 3. In scale sets with a large number of VM instances, the `type` of *PercentChangeCount* may be more appropriate, and then and increase the `value` by *10% or *20*.
 
 The following parameters are used for this rule:
 
@@ -94,12 +94,12 @@ The following parameters are used for this rule:
 | *metricName*      | The performance metric to monitor and apply scale set actions on.                                                   | Percentage CPU  |
 | *timeGrain*       | How often the metrics are collected for analysis.                                                                   | 1 minute        |
 | *timeAggregation* | Defines how the collected metrics should be aggregated for analysis.                                                | Average         |
-| *timeWindow*      | The amount of time monitored before the metric and threshold values are compared.                                   | 10 minutes      |
+| *timeWindow*      | The amount of time monitored before the metric and threshold values are compared.                                   | 5 minutes       |
 | *operator*        | Operator used to compare the metric data against the threshold.                                                     | Greater Than    |
 | *threshold*       | The value that causes the autoscale rule to trigger an action.                                                      | 70%             |
-| *direction*       | Defines if the scale set should scale in or out when the rule applies.                                             | Increase        |
-| *type*            | Indicates that the number of VM instances should be changed by a percentage amount.                                 | Percent Change  |
-| *value*           | How many VM instances should be scaled in or out when the rule applies.                                            | 20              |
+| *direction*       | Defines if the scale set should scale in or out when the rule applies.                                              | Increase        |
+| *type*            | Indicates that the number of VM instances should be changed by a specific value.                                    | Change Count    |
+| *value*           | How many VM instances should be scaled in or out when the rule applies.                                             | 3               |
 | *cooldown*        | The amount of time to wait before the rule is applied again so that the autoscale actions have time to take effect. | 5 minutes       |
 
 The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
@@ -113,15 +113,15 @@ The following example defines the rule to scale out the number of VM instances. 
     "metricResourceLocation": "'$location_name'",
     "timeGrain": "PT1M",
     "statistic": "Average",
-    "timeWindow": "PT10M",
+    "timeWindow": "PT5M",
     "timeAggregation": "Average",
     "operator": "GreaterThan",
     "threshold": 70
   },
   "scaleAction": {
     "direction": "Increase",
-    "type": "PercentChangeCount",
-    "value": "20",
+    "type": "ChangeCount",
+    "value": "3",
     "cooldown": "PT5M"
   }
 }
@@ -131,7 +131,7 @@ The following example defines the rule to scale out the number of VM instances. 
 ## Create a rule to autoscale in
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
-Create another rule that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 10-minute period. The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
+Create another rule that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale out the number of VM instances. The *metricResourceUri* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 
 ```json
 {
@@ -142,15 +142,15 @@ Create another rule that decreases the number of VM instances in a scale set whe
     "metricResourceLocation": "'$location_name'",
     "timeGrain": "PT1M",
     "statistic": "Average",
-    "timeWindow": "PT10M",
+    "timeWindow": "PT5M",
     "timeAggregation": "Average",
     "operator": "LessThan",
     "threshold": 30
   },
   "scaleAction": {
     "direction": "Decrease",
-    "type": "PercentChangeCount",
-    "value": "20",
+    "type": "ChangeCount",
+    "value": "1",
     "cooldown": "PT5M"
   }
 }
@@ -296,7 +296,7 @@ exit
 ```
 
 ## Monitor the active autoscale rules
-To monitor the number of VM instances in your scale set, use **watch**. It takes 5 minutes for the autoscale scales to begin the scale out process in response to the CPU load generated by **stress* on each of the VM instances:
+To monitor the number of VM instances in your scale set, use **watch**. It takes 5 minutes for the autoscale scales to begin the scale out process in response to the CPU load generated by **stress** on each of the VM instances:
 
 ```azurecli-interactive
 watch az vmss list-instances \

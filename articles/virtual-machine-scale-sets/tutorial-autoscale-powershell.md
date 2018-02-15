@@ -36,38 +36,116 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 
 ## Create a scale set
-To help create the autoscale rules, define some parameters for your subscription ID, resource group and scale set name, and location:
+To make it easier to create the autoscale rules, define some variables for your scale set. The following example defines variables for the scale set named *myScaleSet* in the resource group named *myResourceGroup* and in the *East US* region. Your subscription ID is obtained with [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). If you have multiple subscriptions associated with your account, only the first subscription is returned. Adjust the names and subscription ID as follows:
 
-```azurepowershell-interactive
-$mySubscriptionId = (Get-AzureRmSubscription).Id
+```powershell
+$mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroup"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 ```
 
-Create a resource group with [az group create](/cli/azure/group#create) as follows:
+First, create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss), along with all the required network and load balancer resources:
 
 ```azurepowershell-interactive
-az group create --name $resourcegroup_name --location $location_name
+# Create a resource group to store all your scale set resources
+New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
+
+# Create a virtual network subnet
+$subnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 10.0.0.0/24
+
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myVnet" `
+  -Location "EastUS" `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $subnet
+
+# Create a public IP address
+$publicIP = New-AzureRmPublicIpAddress `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -AllocationMethod Static `
+  -Name "myPublicIP"
+
+# Create a frontend and backend IP pool
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
+  -Name "myFrontEndPool" `
+  -PublicIpAddress $publicIP
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
+
+# Create a Network Address Translation (NAT) pool
+$inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
+  -Name "myRDPRule" `
+  -FrontendIpConfigurationId $frontendIP.Id `
+  -Protocol TCP `
+  -FrontendPortRangeStart 50001 `
+  -FrontendPortRangeEnd 50010 `
+  -BackendPort 3389
+
+# Create the load balancer
+$lb = New-AzureRmLoadBalancer `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myLoadBalancer" `
+  -Location "EastUS" `
+  -FrontendIpConfiguration $frontendIP `
+  -BackendAddressPool $backendPool `
+  -InboundNatPool $inboundNATPool
+
+# Create IP address configurations
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name "myIPConfig" `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
+  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
+  -SubnetId $vnet.Subnets[0].Id
+
+# Provide your own secure password for use with the VM instances
+$securePassword = "P@ssword!"
+$adminUsername = "azureuser"
+
+# Create a config object
+$vmssConfig = New-AzureRmVmssConfig `
+    -Location "EastUS" `
+    -SkuCapacity 2 `
+    -SkuName "Standard_DS2" `
+    -UpgradePolicyMode Automatic
+
+# Reference a virtual machine image from the gallery
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher "MicrosoftWindowsServer" `
+  -ImageReferenceOffer "WindowsServer" `
+  -ImageReferenceSku "2016-Datacenter" `
+  -ImageReferenceVersion "latest"
+
+# Set up information for authenticating with the virtual machine
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername $adminUsername `
+  -AdminPassword $securePassword `
+  -ComputerNamePrefix "myVM"
+
+# Attach the virtual network to the config object
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name "network-config" `
+  -Primary $true `
+  -IPConfiguration $ipConfig
+
+# Create the scale set with the config object (this step might take a few minutes)
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
-Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set with an instance count of *2*, and generates SSH keys if they do not exist:
-
-```azurepowershell-interactive
-az vmss create \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
-  --image UbuntuLTS \
-  --upgrade-policy-mode automatic \
-  --instance-count 2 \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
+It takes a few minutes to create and configure all the scale set resources and VMs.
 
 ## Create a rule to autoscale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-Let's create a rule with [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could leave out `-ScaleActionScaleType` and only specify `-ScaleActionValue` to increase by *1* or *2* instances. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
+Let's create a rule with [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by 3. In scale sets with a large number of VM instances, the `-ScaleActionScaleType` of *PercentChangeCount* may be more appropriate, and then and increase the `-SectActionValue` by *10* or *20* percent.
 
 The following parameters are used for this rule:
 
@@ -76,12 +154,12 @@ The following parameters are used for this rule:
 | *-MetricName*           | The performance metric to monitor and apply scale set actions on.                                                   | Percentage CPU |
 | *-TimeGrain*            | How often the metrics are collected for analysis.                                                                   | 1 minute       |
 | *-MetricStatistic*      | Defines how the collected metrics should be aggregated for analysis.                                                | Average        |
-| *-TimeWindow*           | The amount of time monitored before the metric and threshold values are compared.                                   | 10 minutes     |
+| *-TimeWindow*           | The amount of time monitored before the metric and threshold values are compared.                                   | 5 minutes      |
 | *-Operator*             | Operator used to compare the metric data against the threshold.                                                     | Greater Than   |
 | *-Threshold*            | The value that causes the autoscale rule to trigger an action.                                                      | 70%            |
 | *-ScaleActionDirection* | Defines if the scale set should scale up or down when the rule applies.                                             | Increase       |
-| *–ScaleActionScaleType* | Indicates that the number of VM instances should be changed by a percentage amount.                                 | Percent Change |
-| *-ScaleActionValue*     | The percentage of VM instances should be changed when the rule triggers.                                            | 20             |
+| *–ScaleActionScaleType* | Indicates that the number of VM instances should be changed by a specific value.                                    | Change Count   |
+| *-ScaleActionValue*     | The percentage of VM instances should be changed when the rule triggers.                                            | 3              |
 | *-ScaleActionCooldown*  | The amount of time to wait before the rule is applied again so that the autoscale actions have time to take effect. | 5 minutes      |
 
 The following example creates an object named *myRuleScaleOut* that holds this scale up rule. The *-MetricResourceId* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
@@ -92,12 +170,12 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
   -TimeGrain 00:01:00 `
   -MetricStatistic Average `
-  -TimeWindow 00:10:00 `
+  -TimeWindow 00:05:00 `
   -Operator GreaterThan `
   -Threshold 70 `
   -ScaleActionDirection Increase `
-  –ScaleActionScaleType PercentChangeCount `
-  -ScaleActionValue 20 `
+  –ScaleActionScaleType ChangeCount `
+  -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
 
@@ -105,7 +183,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ## Create a rule to autoscale in
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
-Create another rule with [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 10-minute period. When the rule triggers, the number of VM instances is decreased by 20%.The following example creates an object named *myRuleScaleDown* that holds this scale up rule. The *-MetricResourceId* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
+Create another rule with [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. When the rule triggers, the number of VM instances is decreased by 1.The following example creates an object named *myRuleScaleDown* that holds this scale up rule. The *-MetricResourceId* uses the variables previously defined for the subscription ID, resource group name, and scale set name:
 
 ```azurepowershell-interactive
 $myRuleScaleIn = New-AzureRmAutoscaleRule `
@@ -115,11 +193,11 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -MetricStatistic Average `
   -Threshold 30 `
   -TimeGrain 00:01:00 `
-  -TimeWindow 00:10:00 `
+  -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection Decrease `
-  –ScaleActionScaleType PercentChangeCount `
-  -ScaleActionValue 20
+  –ScaleActionScaleType ChangeCount `
+  -ScaleActionValue 1
 ```
 
 
@@ -193,87 +271,60 @@ Create a remote connection to your first VM instance. Specify your own public IP
 mstsc /v 52.168.121.216:50001
 ```
 
-Once logged in, install the **stress** utility. Start *10* **stress** workers that generate CPU load. These workers run from for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
+Once logged in, open Internet Explorer from the taskbar. Select **OK** to accept the prompt to *Use recommended security, privacy, and compatibility settings*, then type *http://download.sysinternals.com/files/CPUSTRES.zip* in the address bar.
 
-```azurepowershell-interactive
-sudo apt-get -y install stress
-sudo stress --cpu 10 --timeout 420 &
+As Internet Explorer Enhanced Security Configuation is enabled, choose to **Add** the *http://download.sysinternals.com* domain to your list of trusted sites. When prompted for the file download, select **Open**, then select and **Run** the *CPUSTRES.EXE* tool.
+
+To generate some CPU load, check two boxes for **Active** threads. From the **Activity** drop-down menu for both threads, select *Maximum*. You can open Task Manager to confirm that the CPU load on the VMs is at 100%.
+
+![CPU Stress utility generates load on the VM instance](media/tutorial-autoscale-powershell/cpu-stress-load.PNG)
+
+Leave the remote desktop connection session open, and open another remote desktop connection session. Connect to second VM instance with the port number listed from the previous [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig) cmdlet:
+
+```powershell
+mstsc /v 52.168.121.216:50002
 ```
 
-When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, press the *Enter* key to return to the prompt.
+Once logged in to the second VM instance, repeat the previous steps to download and run *CPUSTRES.EXE*. Again, start two active threads, and set the activity to maximum.
 
-To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
+Leave both remote desktop connection sessions open.
 
-```azuecli-interactive
-top
-```
-
-Exit **top**, then close your connection to the VM instance. **stress** continues to run on the VM instance.
-
-```azurepowershell-interactive
-Ctrl-c
-exit
-```
-
-Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
-
-```azurepowershell-interactive
-ssh azureuser@13.92.224.66 -p 50003
-```
-
-Install and run **stress**, then start ten workers on this second VM instance.
-
-```azurepowershell-interactive
-sudo apt-get -y install stress
-sudo stress --cpu 10 --timeout 420 &
-```
-
-Again, when **stress** shows output similar to *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, press the *Enter* key to return to the prompt.
-
-Close your connection to the second VM instance. **stress** continues to run on the VM instance.
-
-```azurepowershell-interactive
-exit
-```
 
 ## Monitor the active autoscale rules
-To monitor the number of VM instances in your scale set, use **watch**. It takes 5 minutes for the autoscale scales to begin the scale out process in response to the CPU load generated by **stress* on each of the VM instances:
+To monitor the number of VM instances in your scale set, use **while**. It takes 5 minutes for the autoscale scales to begin the scale out process in response to the CPU load generated by **CPUStress* on each of the VM instances:
 
 ```azurepowershell-interactive
-watch az vmss list-instances \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
-  --output table
+while (1) {Get-AzureRmVmssVM `
+    -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet"; sleep 10}
 ```
 
 Once the CPU threshold has been met, the autoscale scales increase the number of VM instances in the scale set. The following output shows three VMs created as the scale set autoscales out:
 
-```bash
-Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
-
-  InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
-------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
-           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  4f92f350-2b68-464f-8a01-e5e590557955
-           2  True                  eastus      myScaleSet_2  Succeeded            MYRESOURCEGROUP  d734cd3d-fb38-4302-817c-cfe35655d48e
-           4  True                  eastus      myScaleSet_4  Creating             MYRESOURCEGROUP  061b4c90-0d73-49fc-a066-19eab0b3d95c
-           5  True                  eastus      myScaleSet_5  Creating             MYRESOURCEGROUP  4beff8b9-4e65-40cb-9652-43899309da27
-           6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+```powershell
+ResourceGroupName         Name Location          Sku Capacity InstanceID ProvisioningState
+-----------------         ---- --------          --- -------- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_2   eastus Standard_DS2                   2         Succeeded
+MYRESOURCEGROUP   myScaleSet_3   eastus Standard_DS2                   3         Succeeded
+MYRESOURCEGROUP   myScaleSet_4   eastus Standard_DS2                   4          Creating
+MYRESOURCEGROUP   myScaleSet_5   eastus Standard_DS2                   5          Creating
+MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Creating
 ```
 
-Once **stress** stops on the initial VM instances, the average CPU load returns to normal. After another 5 minutes, the autoscale rules then scale in the number of VM instances. Scale in actions remove VM instances with the highest IDs first. The following example output shows one VM instance deleted as the scale set autoscales in:
+In your remote desktop connection session to each of your VM instances, close the **CPUStress** tool. The average CPU load across the scale set returns to normal. After another 5 minutes, the autoscale rules then scale in the number of VM instances. Scale in actions remove VM instances with the highest IDs first. The following example output shows one VM instance deleted as the scale set autoscales in:
 
-```bash
-           6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+```powershell
+MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Deleting
 ```
 
-Exit *watch* with `Ctrl-c`. The scale set continues to scale in every 5 minutes and remove one VM instance until the minimum instance count of 2 is reached.
+Exit *while* with `Ctrl-c`. The scale set continues to scale in every 5 minutes and remove one VM instance until the minimum instance count of 2 is reached.
 
 
 ## Clean up resources
 To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
 
 ```azurepowershell-interactive
-az group delete --name $resourcegroup_name --yes --no-wait
+Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
 
