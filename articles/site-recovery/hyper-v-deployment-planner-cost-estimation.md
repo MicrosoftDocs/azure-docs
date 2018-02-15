@@ -92,7 +92,7 @@ This table shows the number of Windows and non-Windows VMs and the DR-drill comp
 **Cost duration**: You can view all costs either for the month or for the whole year. 
 
 ## Detailed cost analysis table
-![Detailed cost analysis](media/hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png)
+![Detailed cost analysis](media/hyper-v-azure-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png)
 
 The table lists the cost breakdown for each compatible VM. You also can use this table to get the estimated Azure DR cost of nonprofiled VMs by manually adding VMs. This information is useful in cases where you need to estimate Azure costs for a new DR deployment without detailed profiling.
 
