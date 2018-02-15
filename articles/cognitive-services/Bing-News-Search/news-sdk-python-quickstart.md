@@ -1,7 +1,7 @@
 ---
 title: News search SDK Python quickstart | Microsoft Docs
 description: Setup for News search SDK console application.
-titleSuffix: Azure cognitive services News search SDK Python quickstart
+titleSuffix: Azure Cognitive Services News search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -148,6 +148,6 @@ def news_trending(subscription_key):
 
 ## Next steps
 
-[Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 
