@@ -30,7 +30,7 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 ```
 ## Entity Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Add imports, and create an instance of the `CognitiveServicesCredentials`:
+Add imports:
 ```
 from azure.cognitiveservices.search.entitysearch import EntitySearchAPI
 from azure.cognitiveservices.search.entitysearch.models import Place, ErrorResponseException
@@ -38,7 +38,7 @@ from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Then, instantiate the client:
+Create an instance of the `CognitiveServicesCredentials`. Instantiate the client:
 ```
 client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 ```

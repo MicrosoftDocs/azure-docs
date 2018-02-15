@@ -30,14 +30,14 @@ python -m pip install azure-cognitiveservices-search-newssearch
 ```
 ## News Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Add imports, and create an instance of the `CognitiveServicesCredentials`:
+Add imports:
 ```
 from azure.cognitiveservices.search.newssearch import NewsSearchAPI
 from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Then, instantiate the client:
+Create an instance of `CognitiveServicesCredentials`. Instantiate the client:
 ```
 client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
