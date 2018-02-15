@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell
@@ -79,7 +79,7 @@ An advanced option is provided to associate existing resources to Cloud Shell.
 At the storage setup prompt, click "Show advanced settings" to show additional options.
 
 > [!Note]
-> Dropdowns are filtered for your pre-assigned Cloud Shell region and LRS/GRS storage accounts.
+> Dropdowns are filtered for your pre-assigned Cloud Shell region and LRS/GRS/ZRS storage accounts.
 
 [Learn about Cloud Shell storage, updating Azure file shares, and uploading/downloading files.](persisting-shell-storage.md)
 
