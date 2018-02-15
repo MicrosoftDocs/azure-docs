@@ -85,6 +85,10 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 Yes, you can use Exchange ActiveSync in a conditional access policy.
 
 
+
+
+
+
 ## What you should avoid doing
 
 The conditional access framework provides you with a great configuration flexibility. However, great flexibility  also means that you should carefully review each configuration policy before releasing it to avoid undesirable results. In this context, you should pay special attention to assignments affecting complete sets such as **all users / groups / cloud apps**.
@@ -105,6 +109,23 @@ In your environment, you should avoid the following configurations:
 
 - **Block access** - This configuration blocks your entire organization, which is definitely not a good idea.
 
+
+## How should you deploy a new policy?
+
+As a first step, you should evaluate your policy using the [what if tool](active-directory-conditional-access-whatif.md).
+
+When you are ready to deploy a new policy into your environment, you should do this in phases:
+
+1. Apply a policy to a small set of users and verify it behaves as expected. 
+
+2.  When you expand a policy to include more users, continue to exclude all administrators from the policy. This ensures that administrators still have access and can update a policy if a change is required.
+
+3. Apply a policy to all users only if this is really required. 
+
+As a best practice, create a user account that is:
+
+- Dedicated to policy administration 
+- Excluded from all your policies
 
 
 ## Policy migration
