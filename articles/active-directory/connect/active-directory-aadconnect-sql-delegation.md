@@ -22,25 +22,24 @@ Prior to Azure AD Connect build xx, administrative delegation, when deploying co
 With the latest release of Azure AD Connect, provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.
 
 ## Before you begin
-To use this feature, you need to be aware that there are several moving parts and each one may involve a different administrator in your organization.  The following table summarizes the individual roles and their respective duties in deploying Azure AD Connect with this feature.
+To use this feature, you need realize that there are several moving parts and each one may involve a different administrator in your organization.  The following table summarizes the individual roles and their respective duties in deploying Azure AD Connect with this feature.
 
 |Role|Description|
 |-----|-----|
 |Domain or Forest AD administrator|Creates the domain level service account that is used by Azure AD Connect to run the sync service.  For more information on service accounts, see [Accounts and permissions](active-directory-aadconnect-accounts-permissions.md).
-|SQL administrator|Creates the ADSync database and grants login + dbo access to the Azure AD Connect admininistrator and the service account created by the domain/forest admin.|
+|SQL administrator|Creates the ADSync database and grants login + dbo access to the Azure AD Connect administrator and the service account created by the domain/forest admin.|
 Azure AD Connect administrator|Installs Azure AD Connect and specifies the service account during custom installation.
 
 ## Steps for installing Azure AD Connect using SQL delegated permissions
-To provision the database out of band and install Azure AD Connect with database owner permissions, do the following:
-
+To provision the database out of band and install Azure AD Connect with database owner permissions, use the following steps.
 
 >[!NOTE]
 >Although it is not required, it is **highly recommended** that the Latin1_General_CI_AS collation is selected when creating the database.
 
 
-1.	Have the SQL Administrator create the ADSync database with a case insensitive collation sequence **(Latin1_General_CI_AS)**.  The database must be named **ADSync**.  The recovery model, compatibility level, and containment type will be updated to the correct values when Azure AD Connect is installed.  However the collation sequence must be set correctly by the SQL administrator otherwise Azure AD Connect will block the installation.  To recover the SA must delete and recreate the database.</br>
+1.	Have the SQL Administrator create the ADSync database with a case insensitive collation sequence **(Latin1_General_CI_AS)**.  The database must be named **ADSync**.  The recovery model, compatibility level, and containment type are updated to the correct values when Azure AD Connect is installed.  However the collation sequence must be set correctly by the SQL administrator otherwise Azure AD Connect will block the installation.  To recover the SA must delete and recreate the database.</br>
 ![Collation](media/active-directory-aadconnect-sql-delegation/sql1.png)
-2.	Grant the Azure AD Connect administrator and the domain service account the following:
+2.	Grant the Azure AD Connect administrator and the domain service account the following permissions:
 - SQL Login 
 - **database owner(dbo)** rights.  </br>
 ![Permissions](media/active-directory-aadconnect-sql-delegation/sql3.png)
