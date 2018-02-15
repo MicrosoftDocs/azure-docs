@@ -26,7 +26,7 @@ Diagnosing and troubleshooting issues in a distributed application hosted in a c
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
 
 > [!NOTE]
-> The Azure Files does not support logging at this time.
+> Azure Files does not support logging at this time.
 > 
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md).
@@ -63,7 +63,6 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
   * [The client is receiving HTTP 409 (Conflict) messages]
   * [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
   * [Capacity metrics show an unexpected increase in storage capacity usage]
-  * [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
   * [Your issue arises from using the storage emulator for development or test]
   * [You are encountering problems installing the Azure SDK for .NET]
   * [You have a different issue with a storage service]
@@ -652,12 +651,6 @@ You can find a list of common REST API error codes that the storage services ret
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capacity metrics show an unexpected increase in storage capacity usage
 If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application-specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired).
 
-### <a name="you-are-experiencing-unexpected-reboots"></a>You are experiencing unexpected reboots of Azure Virtual Machines that have a large number of attached VHDs
-If an Azure Virtual Machine (VM) has a large number of attached VHDs that are in the same storage account, you could exceed the scalability targets for an individual storage account causing the VM to fail. You should check the minute metrics for the storage account (**TotalRequests**/**TotalIngress**/**TotalEgress**) for spikes that exceed the scalability targets for a storage account. See the section "[Metrics show an increase in PercentThrottlingError]" for assistance in determining if throttling has occurred on your storage account.
-
-In general, each individual input or output operation on a VHD from a Virtual Machine translates to **Get Page** or **Put Page** operations on the underlying page blob. Therefore, you can use the estimated IOPS for your environment to tune how many VHDs you can have in a single storage account based on the specific behavior of your application. We do not recommend having more than 40 disks in a single storage account. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details of the current scalability targets for storage accounts, in particular the total request rate and total bandwidth for the type of storage account you are using.
-If you are exceeding the scalability targets for your storage account, you should place your VHDs in multiple different storage accounts to reduce the activity in each individual account.
-
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Your issue arises from using the storage emulator for development or test
 You typically use the storage emulator during development and test to avoid the requirement for an Azure storage account. The common issues that can occur when you are using the storage emulator are:
 
@@ -861,7 +854,6 @@ You can find more information at [What is Application Insights](../../applicatio
 
 [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]: #metrics-show-low-percent-success
 [Capacity metrics show an unexpected increase in storage capacity usage]: #capacity-metrics-show-an-unexpected-increase
-[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]: #you-are-experiencing-unexpected-reboots
 [Your issue arises from using the storage emulator for development or test]: #your-issue-arises-from-using-the-storage-emulator
 [Feature "X" is not working in the storage emulator]: #feature-X-is-not-working
 [Error "The value for one of the HTTP headers is not in the correct format" when using the storage emulator]: #error-HTTP-header-not-correct-format
