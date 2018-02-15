@@ -3,7 +3,7 @@ title: 'Tutorial: Azure Active Directory integration with New Relic | Microsoft 
 description: Learn how to configure single sign-on between Azure Active Directory and New Relic.
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: cwatson-cat
 manager: mtillman
 ms.reviewer: joflore
 
