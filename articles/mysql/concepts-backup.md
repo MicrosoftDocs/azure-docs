@@ -35,7 +35,7 @@ Azure Database for MySQL provides the flexibility to choose between locally redu
 
 ## Backup frequency
 
-Generally, full backups occur weekly, differential backups occur twice a day, and transaction log backups occur every five minutes. The first full backup is scheduled immediately after a server is created. For example, the initial backup can take longer on a restored database or a database copy.
+Generally, full backups occur weekly, differential backups occur twice a day, and transaction log backups occur every five minutes. The first full backup is scheduled immediately after a server is created. For example, the initial backup can take longer on a restored database.
 
 ## Backup storage cost
 
