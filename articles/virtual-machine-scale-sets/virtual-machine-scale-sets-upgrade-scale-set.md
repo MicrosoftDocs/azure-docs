@@ -209,3 +209,76 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instanc
 As you can see, these properties describe the current runtime state of the VM itself, including any extensions applied to the scale set (omitted for brevity).
 
 
+
+
+## How to update global scale set properties
+
+To update a global scale set property, you must update the property in the scale set model. You can do this via:
+
+REST API: `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate))
+
+Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss))
+
+CLI. To modify a property: `az vmss update --set {propertyPath}={value}`. To add an object to a list property in a scale set: `az vmss update --add {propertyPath} {JSONObjectToAdd}`. To remove an object from a list property in a scale set: `az vmss update --remove {propertyPath} {indexToRemove}`. (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update)). Alternatively, if you previously deployed the scale set using the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. To do this, you need to ensure that all properties in the `az vmss create` command are the same as before, except for the properties you wish to modify.
+
+You can also use [resources.azure.com](https://resources.azure.com) or the [Azure SDKs](https://azure.microsoft.com/downloads/) to update the scale set model.
+
+Once the scale set model is updated, the new configuration will apply to any new VMs created in the scale set. However, the models for the existing VMs in the scale set must still be brought up to date with the latest overall scale set model. In the model for each VM is a boolean property called `latestModelApplied` that indicates whether or not the VM is up to date with the latest overall scale set model (`true` means the VM is up to date with the latest model).
+
+
+
+
+## How to bring VMs up to date with the latest scale set model
+
+Scale sets have an "upgrade policy" that determine how VMs are brought up to date with the latest scale set model. The 3 modes for the upgrade policy are:
+
+- Automatic: In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
+- Rolling: In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
+- Manual: In this mode, when you update the scale set model, nothing happens to existing VMs. To update existing VMs, you must do a "manual upgrade" of each existing VM. You can do this via:
+
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/manualupgrade?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances))
+
+Powershell: `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance))
+
+CLI: `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --instance-ids {instanceIds}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances)).
+
+You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to do a manual upgrade on a VM in a scale set.
+
+>[!NOTE]
+> Service Fabric clusters can only use Automatic mode, but the update is handled differently. For more information on service fabric updates, see [the Service Fabric documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
+
+>[!NOTE]
+> There is one type of modification to global scale set properties that does not follow the upgrade policy. These are changes to the scale set OS Profile (e.g. admin username and password). These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up to date, you must do a "reimage" of each existing VM. You can do this via:
+
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
+
+Powershell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
+
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage)).
+
+You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to reimage a VM in a scale set.
+
+
+
+
+## Read-only properties
+
+(*** TODO ***)
+
+
+## VM-specific updates
+
+(*** TODO ***)
+
+
+
+
+## Examples
+
+### Updating the OS image for your scale set
+
+(*** TODO ***)
+
+### Updating the load balancer for your scale set
+
+(*** TODO ***)
