@@ -64,7 +64,7 @@ After the new server has been provisioned, the user has several options for conf
 
 3. Click **OK** to save the new password.
 
-### Scale up/down by changing vCores
+### Scale vCores up/down
 
 1. Click on **Pricing tier**, located under **Settings**.
 
@@ -74,7 +74,7 @@ After the new server has been provisioned, the user has several options for conf
 
 3. Click **OK** to save changes.
 
-### Scale up/down by changing Storage
+### Scale Storage up
 
 1. Click on **Pricing tier**, located under **Settings**.
 
