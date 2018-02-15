@@ -21,16 +21,16 @@ ms.author: rithorn
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 
-The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for "Management Groups" in the "More Services" section.  
+As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
 
-As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.   
+The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **More Services** section.  
 
 You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management. 
-The following diagram shows an example hierarhcy that consists of management groups and subscriptions organized by departments.    
+The following diagram shows an example hierarchy that consists of management groups and subscriptions organized by departments.    
 
 ![hierarchy tree](media/management-groups/MG_overview.png)
 
-By creating a hierhacy that is broken out by department, you are able to assign a [Azure Role-Based Access Control(RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) role to one group and have it inherit to all the departments under that management group. This simplifies your work by only having to assign the role once.  In addition to only having to assign the role once, you also have one location to maintain the access if you need to change it later.  This reduces your workload and reduces the risk of error.  
+By creating a hierarchy that is grouped by department, you are able to assign [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) roles that inherit to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
 
 ### Important facts about management groups
 - 10,000 management groups can be supported in a single directory. 
@@ -41,7 +41,7 @@ By creating a hierhacy that is broken out by department, you are able to assign 
 
 ## Root management group for each directory
 
-Each directory is given a single top level management group called the "Root" management group that all other managmeent groups and subscriptiosn should fold up to.  This Root managmeent group allows for global policies and RBAC assignments to be applied at the directory level. The Directory Administrator needs to elevates themselves to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC role to other directory users or groups to manage the hierarchy.  
+Each directory is given a single top-level management group called the "Root" management group. This Root management group should be built into the hierarchy to have all management groups and subscriptions fold up to it. This Root management group allows for global policies and RBAC assignments to be applied at the directory level. The [Directory Administrator needs to elevate themselves](/active-directory/role-based-access-control-tenant-admin-access.md) to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC role to other directory users or groups to manage the hierarchy.  
 
 ### Important facts about the Root management group
 - The root management group's name and ID are given the Azure Active Directory ID by default. The display name can be updated at any time to show different within the Azure portal. 
@@ -62,19 +62,13 @@ While any [built-in RBAC role](https://docs.microsoft.com/en-us/azure/active-dir
 - **Resource Policy Contributor** can create and manage policies in the directory on the resources.     
 - **Reader** can view existing Azure resources.
 
->![Note] For the public preview, custom RBAC roles are not supported. 
-
-### Assigning RBAC in the public preview 
-Assignment of RBAC roles to management groups is only available via PowerShell/CloudShell, REST API, or CLI.  
-
-The page "[Manage Role-Based Access Control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-powershell)"  provides the full list of PowerShell commands that are available. 
-
-It is important to note the management group scope when doing a policy assignment is shown here.  
-
-```powershell
-/providers/Microsoft.Management/ManagementGroups/<groupID>
-``` 
+For the public preview, custom RBAC roles cannot be applied to management groups. 
 
 
-# How-to guide
+## Next steps 
+### [Learn how to create a management group](/management-groups-create.md)
+### [Learn how to maintain management groups](/management-groups-manage.md)
+### [Review the Azure Powershell]()
+### [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
+### [Review the command-line tool spec]()
 
