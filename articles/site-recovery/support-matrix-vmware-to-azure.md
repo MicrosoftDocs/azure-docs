@@ -137,7 +137,7 @@ Guest/server multi-path (MPIO) | N/A
 > - Only migration to Azure is supported. Failback to on-premises VMware site not supported.
 > - The server should not have more than 4 partitions on the OS disk.
 > - Requires Azure Site Recovery Mobility service version 9.13 or later.
-> Not supported for Physical servers.
+> - Not supported for Physical servers.
 
 
 ## Azure storage
