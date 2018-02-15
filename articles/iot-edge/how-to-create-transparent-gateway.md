@@ -68,7 +68,7 @@ You can use the sample Powershell and Bash scripts described in [Managing CA Cer
 
 1. Clone the Microsoft Azure IoT SDKs and libraries for C from GitHub:
 
-   ```cmd
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -144,7 +144,7 @@ By default the sample scripts do not set a passphrase to the device private key.
 
 The script prompts you to set a passphrase for the Edge Agent certificate. Restart the IoT Edge runtime after this command:
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -156,7 +156,7 @@ First, a downstream device application has to trust the **IoT hub owner CA** cer
 
 For instance, for .NET applications, you can add the following snippet to trust a certificate in PEM format stored in path `certPath`. Depending on which version of the script you used, the path references either `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) or `RootCA.pem` (Powershell).
 
-   ```dotnet
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...
