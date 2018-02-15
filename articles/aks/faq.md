@@ -61,6 +61,10 @@ No, this is not yet available but will be available soon.
 
 No, it is not but this integration is planned. In the meantime, you can try out the following solution from [Hexadite][hexadite]. 
 
+## Can I run Windows Server containers on AKS?
+
+No, AKS does not currently provide Windows Server-based agent nodes, so you cannot run Windows Server containers. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+
 ## Why are two resource groups created with AKS? 
 
 Each Azure Container Service (AKS) cluster is contained in two resource groups. The first is created by you and contains only the AKS resource. The second resource group is automatically created during deployment and contains all of the infrastructure resources associated with the cluster, such as VMs, networking, and storage. This resource group is created to simplify resource cleanup. 
