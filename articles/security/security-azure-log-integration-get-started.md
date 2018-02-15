@@ -25,6 +25,9 @@ Azure Log Integration (AzLog) provides customers with an alternative in the even
 >[!NOTE]
 For more information on Azure Monitor, you can review [Get started with Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) For more information on the status of an Azure monitor connector contact your SIEM vendor.
 
+[!IMPORTANT]
+If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution and so would not be required to use Azure Log Integration. 
+
 This article helps you get started with Azure Log Integration by focusing on the installation of the AzLog service and integrating the service with Azure Diagnostics. The Azure Log Integration service will then be able to collect Windows Event Log information from the Windows Security Event Channel from virtual machines deployed in Azure IaaS. This is similar to “Event Forwarding” that you may have used on-premises.
 
 >[!NOTE]
