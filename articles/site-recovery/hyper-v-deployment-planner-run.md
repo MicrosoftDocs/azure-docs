@@ -176,9 +176,9 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 | -UseManagedDisks | (Optional) UseManagedDisks: Yes/No. The default is Yes. The number of virtual machines that can be placed in a single storage account is calculated based on whether failover/test failover of virtual machines is done on a managed disk instead of an unmanaged disk. |
 |-SubscriptionId |(Optional) The subscription GUID. Use this parameter to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription, and your target Azure region in the specified currency.|
-|-TargetRegion|(Optional) The Azure region where replication is targeted. Because Azure has different costs per region, to generate a report with a specific target Azure region, use this parameter. The default is WestUS2 or the last-used target region. Refer to the list of [supported target regions](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
+|-TargetRegion|(Optional) The Azure region where replication is targeted. Because Azure has different costs per region, to generate a report with a specific target Azure region, use this parameter. The default is WestUS2 or the last-used target region. Refer to the list of [supported target regions](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Optional) The offer associated with the subscription. The default is MS-AZR-0003P (Pay-As-You-Go).|
-|-Currency|(Optional) The currency in which cost is shown in the generated report. The default is US Dollar ($) or the last-used currency. Refer to the list of [supported currencies](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
+|-Currency|(Optional) The currency in which cost is shown in the generated report. The default is US Dollar ($) or the last-used currency. Refer to the list of [supported currencies](hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
 
 By default, the tool is configured to profile and generate reports for up to 1,000 VMs. You can change the limit by changing the MaxVMsSupported key value in the ASRDeploymentPlanner.exe.config file.
 ```
@@ -248,16 +248,16 @@ We strongly recommend that you plan for growth during deployment planning. Altho
 
 The generated Microsoft Excel report contains the following information:
 
-* [On-premises summary](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
-* [Recommendations](site-recovery-hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-storage placement](site-recovery-hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
-* [Compatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#compatible-vms)
-* [Incompatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [On-premises storage requirement](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [IR batching](site-recovery-hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
-* [Cost estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md)
+* [On-premises summary](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [Recommendations](hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [VM-storage placement](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Compatible VMs](-hyper-v-deployment-planner-analyze-report.md#compatible-vms)
+* [Incompatible VMs](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
+* [On-premises storage requirement](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [IR batching](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
+* [Cost estimation](hyper-v-deployment-planner-cost-estimation.md)
 
-![Deployment planner report](media/site-recovery-hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
+![Deployment planner report](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
 
 
 ## Get throughput
@@ -302,4 +302,4 @@ For replication, set the recommended bandwidth to meet the RPO 100 percent of th
 
     
 ## Next steps
-* [Analyze the generated report](site-recovery-hyper-v-deployment-planner-analyze-report.md)
+* [Analyze the generated report](hyper-v-deployment-planner-analyze-report.md)
