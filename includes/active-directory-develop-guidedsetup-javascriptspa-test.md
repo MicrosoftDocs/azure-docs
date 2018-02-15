@@ -47,4 +47,4 @@ If a back-end API doesn't require a scope (not recommended), you can use the **c
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: "Active"
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
 
 ---
@@ -31,7 +31,7 @@ SQL Database provides these options for database recovery using [automated datab
 
 A restored database incurs an extra storage cost under the following conditions: 
 - Restore of P11–P15 to S4-S12 or P1–P6 if the database max size is greater than 500 GB.
-- Restore of P1–P6 or PRS1–PRS6 to S4-S12 if the database max size is greater than 250 GB.
+- Restore of P1–P6 to S4-S12 if the database max size is greater than 250 GB.
 
 The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount. For more information about database storage sizes and changing the database maximum size, see [single database resource limits](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
@@ -87,7 +87,7 @@ To recover to a point in time using the Azure portal, open the page for your dat
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## Deleted database restore
-You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). You can restore a deleted database to an earlier point in time during the retention using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > For a sample PowerShell script showing how to restore a deleted database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).

@@ -26,7 +26,7 @@ Endpoint: Returns search suggestions as JSON results that are relevant to the us
 For examples that describe how to set up Custom Search sources, see the [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Custom Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference.
 
 ##Response JSON
-The response to a videos search request includes results as JSON objects. 
+A custom search request returns results as JSON objects. 
 
 ##Next steps
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.

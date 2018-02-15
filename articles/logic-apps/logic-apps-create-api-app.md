@@ -41,9 +41,9 @@ a platform-as-a-service (PaaS) offering that provides one of the best, easiest,
 and most scalable ways for API hosting. 
 
 For custom APIs to work with logic apps, your API can provide 
-[*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+[*actions*](./logic-apps-overview.md#logic-app-concepts) 
 that perform specific tasks in logic app workflows. Your API can also act as a 
-[*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+[*trigger*](./logic-apps-overview.md#logic-app-concepts) 
 that starts a logic app workflow when new data or an event meets a specified condition. 
 This topic describes common patterns that you can follow 
 for building actions and triggers in your API, 
@@ -118,7 +118,7 @@ so that your Swagger file works well with logic apps.
 ## Action patterns
 
 For logic apps to perform tasks, your custom API should provide 
-[*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+[*actions*](./logic-apps-overview.md#logic-app-concepts). 
 Each operation in your API maps to an action. A basic action is a 
 controller that accepts HTTP requests and returns HTTP responses. 
 So for example, a logic app sends an HTTP request to your web app or API app. 
@@ -283,7 +283,7 @@ Your API can then unregister the callback URL and stop any processes as necessar
 
 ## Trigger patterns
 
-Your custom API can act as a [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+Your custom API can act as a [*trigger*](./logic-apps-overview.md#logic-app-concepts) 
 that starts a logic app when new data or an event meets a specified condition. 
 This trigger can either check regularly, or wait and listen, 
 for new data or events at your service endpoint. 
