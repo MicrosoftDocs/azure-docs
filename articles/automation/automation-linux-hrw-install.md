@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/07/2017
+ms.date: 02/14/2018
 ms.author: magoedte
 ---
 
@@ -61,7 +61,7 @@ By default, Linux Hybrid Runbook Workers require signature validation. If you ru
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
     ```
 
-## Supported Runbook types
+## Supported runbook types
 
 Linux Hybrid Runbook Workers do not support the full set of runbook types that are found within Azure automation.
 
@@ -76,7 +76,7 @@ The following runbook types do not work on a Linux Hybrid Worker:
 * Graphical
 * Graphical PowerShell Workflow
 
-## Next Steps
+## Next steps
 
 * Review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 * For instructions on how to remove Hybrid Runbook Workers, see [Remove Azure Automation Hybrid Runbook Workers](automation-remove-hrw.md)
