@@ -14,54 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
 
 ---
 # Best practices for conditional access in Azure Active Directory
 
-This topic provides you with information about things you should know and what it is you should avoid doing when configuring conditional access policies. Before reading this topic, you should familiarize yourself with the concepts and the terminology outlined in [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. This article provides you with information about:
+
+- Things you should know 
+- What it is you should avoid doing when configuring conditional access policies. 
+
+This article assumes that you familiar the concepts and the terminology outlined in [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 ## What you should know
 
 ### What’s required to make a policy work?
 
-When you create a new policy, there are no users, groups, apps or access controls selected.
+When you create a new policy, there are no users, groups, apps, or access controls selected.
 
 ![Cloud apps](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-To make your policy work, you must configure the following:
+To make your policy work, you must configure:
 
 
 |What           | How                                  | Why|
 |:--            | :--                                  | :-- |
-|**Cloud apps** |You need to select one or more apps.  | The goal of a conditional access policy is to enable you to fine-tune how authorized users can access your apps.|
-| **Users and groups** | You need to select at least one user or group that is authorized to access the cloud apps you have selected. | A conditional access policy that has no users and groups assigned, is never triggered. |
-| **Access controls** | You need to select at least one access control. | Your policy processor needs to know what to do if your conditions are satisfied.|
-
-
-In addition to these basic requirements, in many cases, you should also configure a condition. While a policy would also work without a configured condition, conditions are the driving factor for fine-tuning access to your apps.
-
-
-![Cloud apps](./media/active-directory-conditional-access-best-practices/04.png)
+|**Cloud apps** |You need to select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
+| **Users and groups** | You need to select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
+| **Access controls** | You need to select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
 
 
 
 ### How are assignments evaluated?
 
-All assignments are logically **ANDed**. If you have more than one assignment configured, to trigger a policy, all assignments must be satisfied.  
+All assignments are logically **ANDed**. If you have more than one assignment configured, all assignments must be satisfied to trigger a policy.  
 
-If you need to configure a location condition that applies to all connections made from outside your organization's network, you can accomplish this by:
+If you need to configure a location condition that applies to all connections made from outside your organization's network:
 
-- Including **All locations**
-- Excluding **All trusted IPs**
+- Include **All locations**
+- Exclude **All trusted IPs**
 
 ### What happens if you have policies in the Azure classic portal and Azure portal configured?  
 Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
-### What happens if you have policies in the Intune Silverlight portal and the Azure Portal?
+### What happens if you have policies in the Intune Silverlight portal and the Azure portal?
 Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
 ### What happens if I have multiple policies for the same user configured?  
@@ -75,7 +74,7 @@ Yes, you can use Exchange ActiveSync in a conditional access policy.
 
 ## What you should avoid doing
 
-The conditional access framework provides you with a great configuration flexibility. However, great flexibility  also means that you should carefully review each configuration policy prior to releasing it to avoid undesirable results. In this context, you should pay special attention to assignments affecting complete sets such as **all users / groups / cloud apps**.
+The conditional access framework provides you with a great configuration flexibility. However, great flexibility  also means that you should carefully review each configuration policy before releasing it to avoid undesirable results. In this context, you should pay special attention to assignments affecting complete sets such as **all users / groups / cloud apps**.
 
 In your environment, you should avoid the following configurations:
 
@@ -97,7 +96,7 @@ In your environment, you should avoid the following configurations:
 
 ## Policy migration
 
-You should consider migrating the policies you have not created in the Azure portal because:
+Consider migrating the policies you have not created in the Azure portal because:
 
 - You can now address scenarios you could not handle before.
 
@@ -105,7 +104,7 @@ You should consider migrating the policies you have not created in the Azure por
 
 - You can manage all your conditional access policies in one central location.
 
-- The Azure classic portal will be retired.   
+- The Azure classic portal has been retired.   
 
 
 For more information, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md).
