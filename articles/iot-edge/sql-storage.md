@@ -129,7 +129,7 @@ In a command-line tool, connect to your database:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -141,7 +141,7 @@ Open the SQL command tool:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
@@ -186,7 +186,7 @@ IoT Edge automatically builds a bridge (Linux) or NAT (Windows) network when it 
 
 * Linux
 
-   ```cmd
+   ```bash
    sudo docker network inspect azure-iot-edge
    ```
 
@@ -306,7 +306,7 @@ In a command-line tool, connect to your database:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -318,7 +318,7 @@ Open the SQL command tool:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
