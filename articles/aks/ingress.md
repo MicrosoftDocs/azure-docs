@@ -14,23 +14,21 @@ ms.custom: mvc
 
 # HTTP load balancing and TLS termination with Ingress
 
-With Kubernetes, an ingress controller is a piece of software that provides configurable traffic and TLS termination among other capabilities. Using an ingress controller, a single external address can be used to route traffic to multiple Kubernetes services.
+An ingress controller is a piece of software that provides configurable traffic and TLS termination among other capabilities. Using an ingress controller, a single external address can be used to route traffic to multiple Kubernetes services.
 
-The Kuebrentes ingress resource defines the ingress routes and rules for incoming traffic.
-
-This document will walk through a sample implementation of the NGIX ingress controller in an AKS cluster. Dynamic TLS certificate creation and configuration will be provided by kube-lego. 
+This document will walk through a sample deployment of the NGIX ingress controller in an AKS cluster. Dynamic TLS certificate creation and configuration will be provided by kube-lego. 
 
 ## Install the ingress controller
 
-First, use Helm to install the NGINX ingress controller. This will provide an out of the box / default configuration for the ingress controller. See the NGINX ingress controller documentation for detailed documentation. 
+First, use Helm to install the NGINX ingress controller. This will provide an out of the box / default configuration for the ingress controller. See the NGINX ingress controller documentation for detailed information. 
 
 ```
 helm install stable/nginx-ingress
 ```
 
-Once deployed, the NGINX ingress controller Helm chart also created a Kubernetes LoadBalancer service, which creates an Azure public IP address. This public IP address is the address which will be used to contact Kubernetes services behind the ingress controller.  
+An Azure public IP address is also created. This public IP address is used to contact Kubernetes services behind the ingress controller.  
 
-To get the IP address, use the kubectl get service command. It may take some time for the IP address to be assiged to the service.
+To get the public IP address, use the kubectl get service command. It may take some time for the IP address to be assiged to the service.
 
 ```console
 $ kubectl get service
@@ -41,15 +39,15 @@ toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.2
 toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
 ```
 
-At this point, if you browse to the publis IP address of the NGINX ingress controller service, you are routed to the default back end. This result is because no ingress routes have been configured.
+Becasue no ingress rules have been created, if you browse to the publis IP address, you are routed to the default back end / 404 response.
 
 ![Default NGINX backend](media/ingress/default-back-end.png)
 
 ## Configure DNS name
 
-In order to efficiently use the ingress controller and prepare for TLS endpoint termination, a DNS name should be associated with the public IP address of the ingress controller. This can be done either through the Azure portal or using the Azure CLI.
+Now configure a DNS name for the ingress controllers public IP address.
 
-The following sample sets the DNS name on a given public IP address. Update the script with the IP address of the ingress controller and the DNS name that you would like to use. The name entered will be concatenated with a default Azure DNS name. You can also associate you own DNS name with the public IP address, however this operation is outside of the scope of this document.
+The following sample sets the DNS name on a given public IP address. Update the sample with the IP address of the ingress controller and the DNS name that you would like to use.
 
 ```
 #!/bin/bash
@@ -68,7 +66,7 @@ PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Run the following command to retrieve the IP address. replace the IP address value with that of the ingress controller.
+Run the following command to retrieve the IP address. Update the IP address value with that of your ingress controller.
 
 ```
 $ az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
@@ -81,6 +79,10 @@ At this point, the ingress controller is accessable through the DNS name. Becaus
 ![Default NGINX backend](media/ingress/default-back-end-two.png)
 
 ## Install kube-lego
+
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document will demonstrate using Kube-Lego. Kube-Lego provides automatic Lets Encrypt certificate generation and management functionality. 
+
+To install the Kube-Lego controller, use the following Helm install command. 
 
 ```
 helm install --name my-release stable/kube-lego --set config.LEGO_EMAIL=nepeters@microsoft.com --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
