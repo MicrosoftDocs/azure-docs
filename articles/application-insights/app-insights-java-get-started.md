@@ -191,6 +191,38 @@ To get the most accurate results, the filter should be mapped before all other f
     </filter-mapping>
 ```
 
+Or use Annotation-based configuration:
+
+```Java
+    import javax.servlet.Filter;
+
+    import org.springframework.boot.web.servlet.FilterRegistrationBean;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+    
+    @Configuration
+    public class InsightsConfiguration {
+
+	    @Bean
+	    public FilterRegistrationBean someFilterRegistration() {
+
+		    FilterRegistrationBean registration = new FilterRegistrationBean();
+		    registration.setFilter(appInsightsWebRequestTrackingFilter());
+		    registration.addUrlPatterns("/*");
+		    registration.setName("webRequestTrackingFilter");
+		    registration.setOrder(1);
+		    return registration;
+	    }
+
+	    @Bean(name = "ApplicationInsightsWebFilter")
+	    public Filter appInsightsWebRequestTrackingFilter() {
+		    return new WebRequestTrackingFilter();
+	    }
+}
+```
+
 #### If you're using Spring Web MVC 3.1 or later
 Edit these elements in *-servlet.xml to include the Application Insights package:
 
@@ -204,6 +236,24 @@ Edit these elements in *-servlet.xml to include the Application Insights package
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
+```
+
+Or use Annotation-based configuration:
+
+```Java
+    import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+    import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+    
+    import com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter;
+    
+    @Configuration
+    public class InsightsWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
+
+	    @Override
+	    public void addInterceptors(InterceptorRegistry registry) {
+		    registry.addInterceptor(new RequestNameHandlerInterceptorAdapter());
+	    }
+}
 ```
 
 #### If you're using Struts 2
