@@ -51,7 +51,7 @@
 
 
 ## Manage Azure AD Connect Sync
-### [Azure AD Connect and GDPR](active-directory-aadconnect-gdpr.md)
+### [GDPR compliance and Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)

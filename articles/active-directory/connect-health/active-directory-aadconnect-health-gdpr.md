@@ -15,7 +15,7 @@ ms.date: 02/15/2018
 ms.author: billmath
 ---
 
-# Azure AD Connect Health and GDPR compliance 
+# GDPR compliance and Azure AD Connect Health 
 
 In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
 
