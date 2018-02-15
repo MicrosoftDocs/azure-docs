@@ -1,7 +1,7 @@
 ---
 title: Image Search SDK Python quickstart | Microsoft Docs
 description: Setup for Image Search SDK console application.
-titleSuffix: Azure cognitive services Web search SDK Python quickstart
+titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -105,6 +105,6 @@ if trending_result.categories:
 
 ## Next steps
 
-[Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 
