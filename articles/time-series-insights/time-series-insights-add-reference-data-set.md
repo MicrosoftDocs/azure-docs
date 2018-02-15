@@ -19,7 +19,7 @@ This article describes how to add a reference data set to your Azure Time Series
 
 A Reference Data Set is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
 
-Reference data is not joined retroactively, meaning that only current and future ingress data is matched and joined to the reference date set, once is has been configured and uploaded.
+Reference data is not joined retroactively. This means that only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.
 
 ## Add a reference data set
 
