@@ -123,7 +123,7 @@ def web_results_with_count_and_offset(subscription_key):
         print("Encountered exception. {}".format(err))```
 
 ```
-Search for (xbox) with response filter to `news`, and print details of news results.
+Search for "xbox" with `response_filter` assigned to `News`.  Print details of news results.
 ```
 def web_search_with_response_filter(subscription_key):
 
@@ -149,7 +149,7 @@ def web_search_with_response_filter(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Search (Niagra Falls) with `answerCount` and `promote` parameters, and print details of results.
+Search with query "Niagara Falls", using `answerCount` and `promote` parameters. Print details of results.
 ```
 def web_search_with_answer_count_promote_and_safe_search(subscription_key):
 
@@ -157,12 +157,12 @@ def web_search_with_answer_count_promote_and_safe_search(subscription_key):
 
     try:
         web_data = client.web.search(
-            query="Niagra Falls",
+            query="Niagara Falls",
             answer_count=2,
             promote=["videos"],
             safe_search=SafeSearch.strict  # or directly "Strict"
         )
-        print("\r\nSearched for Query# \" Niagra Falls\"")
+        print("\r\nSearched for Query# \" Niagara Falls\"")
 
         if web_data.web_pages.value:
 
