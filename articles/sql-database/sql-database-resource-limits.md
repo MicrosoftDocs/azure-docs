@@ -78,7 +78,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 >
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
+ [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
@@ -111,7 +111,16 @@ You can increase or decrease the resources available to an elastic pool based on
 
 ## What is the maximum number of servers and databases?
 
-The maximum number of servers per subscription per region is 21. The maximum number of databases per server is 5000. These are soft limits established experimentally based on payload size analysis, logical master telemetry collection analysis, and a few other aspects. You can request to exceed these limits, provided you stay within your DTU quota. As the number of databases and servers becomes large, the problem that you will hit is resource stats collection in logical master and contention on management operations. These problems are not fatal; they will increase latency.
+| Maximum | Value |
+| :--- | :--- |
+| Databases per server | 5000 |
+| Number of servers per subscription per region | 21 |
+|||
+
+> [!IMPORTANT]
+> As the number of databases approaches the limit per server, the following can occur:
+> <br> •	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> <br> •	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 ## What happens when database and elastic pool resource limits are reached?
 
