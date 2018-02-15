@@ -3,6 +3,7 @@
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
+## [Management groups](management-groups-overview.md)
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
@@ -20,6 +21,8 @@
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
 ### [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource)
+### [Create new management groups](management-groups-create.md)
+### [Mantain your management groups](management-groups-manage.md)
 
 ## Deploy
 ### Azure PowerShell
