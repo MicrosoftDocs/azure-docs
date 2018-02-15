@@ -54,13 +54,28 @@ Before you proceed, you will need to note the Log Analytics workspace your Autom
 3. After the command is complete, the Hybrid Worker Groups blade in the Azure portal will show the new group and number of members or if an existing group, the number of members is incremented.  You can select the group from the list on the **Hybrid Worker Groups** blade and select the **Hybrid Workers** tile.  On the **Hybrid Workers** blade, you see each member of the group listed.  
 
 
-## Turning Off Signature Validation 
+## Turning off signature validation 
 By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you will see an error containing "Signature validation failed". To turn off signature validation, run the following command, replacing the second parameter with your OMS workspace ID:
 
     ```
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
     ```
-   
+
+## Supported Runbook types
+
+Linux Hybrid Runbook Workers do not support the full set of runbook types that are found within Azure automation.
+
+The following runbook types work on a Linux Hybrid Worker:
+
+* Python 2
+* PowerShell
+ 
+The following runbook types do not work on a Linux Hybrid Worker:
+
+* PowerShell Workflow
+* Graphical
+* Graphical PowerShell Workflow
+
 ## Next Steps
 
 * Review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
