@@ -40,6 +40,46 @@ When you develop functions by using Visual Studio to create a class library, you
 
 For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
 
+## Register binding extensions
+
+In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. In version 2.x of the runtime, you must explicitly register binding extensions. 
+
+Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The way you install and register binding extensions depends on how you develop your functions: 
+
++ [Locally in C# using Visual Studio](#precompiled-functions-c)
++ [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
++ [In the Azure portal](#azure-portal-development) 
+
+For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview.
+
+###  Local C# development using Visual Studio or VS Code 
+
+When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
+
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
+
+    ```
+    ```
+
+### Local development Azure Functions Core Tools
+
+
+```
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+```
+
+### Azure portal development
+
+When you create a function or add a binding to an existing function, you are prompted when the extension for the trigger or binding being added requires registration.   
+
+After a warning appears for the specific extension being installed, click **Install** to register the extension. You need only install each extension one time for a given function app. 
+
+>[!Note] 
+>The in-portal installation process can take up to 10 minutes on a consumption plan.
+
 ## Example: queue trigger and table output binding
 
 Suppose you want to write a new row to Azure Table storage whenever a new message appears in Azure Queue storage. This scenario can be implemented using an Azure Queue storage trigger and an Azure Table storage output binding. 
@@ -480,50 +520,6 @@ In C# and other .NET languages, you can use an imperative binding pattern, as op
 ## function.json file schema
 
 The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
-
-## Register binding extensions
-
-Version 2.x of the Azure Functions runtime introduces a new extension-based model for triggers and bindings. In version 2.x of the runtime, you must explicitly register binding extensions. For more information, see the [Azure WebJobs SDK Extensions project](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)
- 
->[!NOTE]
->For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview.
-
-Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The way you install and register binding extensions depends on how you develop your functions: 
-
-+ [Locally in Visual Studio as precompiled C# functions](#precompiled-functions-c)
-+ [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
-+ [In the Azure portal](#azure-portal-development) 
-
-### Precompiled functions (C#)
-
-When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
-
-+ **Visual Studio**: Use the NuGet Package Manager tools. The following command installs the Azure Cosmos DB extension from the Package Manager Console:
-
-    ```
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-+ **Visual Studio Code**: You can install packages from the command prompt using the .NET CLI, as follows:
-
-    ```
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6
-    ```
-
-If you develop locally in a non-.NET language, you should instead use the Azure Functions Core Tools to install the extension.  
-
-### Local development Azure Functions Core Tools
-
-When you develop functions locally, you can install the extensions you need by using the Azure Functions Core Tools from the Terminal or from a command prompt. The following command installs the Azure Cosmos DB binding extension:
-
-```
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-```
-
-### Azure portal development
-
-When you create a function or add a binding to an existing function, you are prompted when the extension for the trigger or binding being added requires registration.   
-
-[!INCLUDE [functions-register-extension-portal](../../includes/functions-register-extension-portal.md)]
 
 ## Handling binding errors
 
