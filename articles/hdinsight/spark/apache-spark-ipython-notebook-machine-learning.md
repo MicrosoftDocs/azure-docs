@@ -25,7 +25,7 @@ Learn how to build an Apache Spark machine learning application using a Spark cl
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) is Spark’s scalable machine learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
 
-##Prerequisites:
+## Prerequisites:
 
 You must have the following item:
 
