@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
 
 ---
@@ -132,6 +132,7 @@ To make setting up a secure test cluster easy for you, we have provided the **Ba
 #####Basic Option
 Follow the screens to add or reuse an existing keyvault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.
 
+
 Resist the temptation of navigating away from the screen until the preceding process is completed.
 
 ![CreateKeyVault]
@@ -140,7 +141,7 @@ Now that the certificate is added to your keyvault, you may see the following sc
 
 ![CreateKeyVault2]
 
-Click on the advanced access policies and enable access to the Virtual Machines for deployment. It is recommended that you enable the template deployment as well.
+Click on the advanced access policies and enable access to the Virtual Machines for deployment. It is recommended that you enable the template deployment as well. Once you have made your selections, do not forget to click the **Save** button and close out of the **Access policies** pane.
 
 ![CreateKeyVault3]
 
