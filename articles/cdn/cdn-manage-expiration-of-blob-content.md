@@ -55,7 +55,7 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
    ![CDN caching page](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**To set a blob's Cache-Control headers by using global caching rules:**
+**To set a Blob storage service's Cache-Control headers by using global caching rules:**
 
 1. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings** and set **Caching behavior** to **Override**.
       
@@ -67,33 +67,20 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
 3. Select **Save**.
  
-**To set a blob container's Cache-Control headers by using custom caching rules:**
-
-1. Under **Custom caching rules**, set **Match condition** to **Path**
-
-2. For **Match value**, enter `/blobcontainer1/*`
-
-3. Set **Caching behavior** to **Override** and enter 2 in the **Hours** box.
-
-   ![CDN custom caching rules container example](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-container.png)
-
-   This custom caching rule sets a cache duration of two hours on any blob files in the /blobcontainer1 folder in the origin of your endpoint. For this specific container, it overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
-
-4. Select **Save**.
-
 **To set a blob file's Cache-Control headers by using custom caching rules:**
 
-1. Under **Custom caching rules**, set **Match condition** to **Path**
+1. Under **Custom caching rules**, create two match conditions:
 
-2. For **Match value**, enter `/blobcontainer1/blob1.txt`
+     A. For the first match condition, set **Match condition** to **Path** and enter `/blobcontainer1/*` for **Match value**. Set **Caching behavior** to **Override** and enter 4 in the **Hours** box.
 
-3. Set **Caching behavior** to **Override** and enter 1 in the **Days** box.
+    B. For the second match condition, set **Match condition** to **Path** and enter `/blobcontainer1/blob1.txt` for **Match value**. Set **Caching behavior** to **Override** and enter 2 in the **Hours** box.
 
-   ![CDN custom caching rules blob example](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-blob.png)
+    ![CDN custom caching rules example](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-example.png)
 
-   This custom caching rule sets a cache duration of one day on the specific `/blobcontainer1/blob1.txt` blob file in the origin of your endpoint. For this specific file, it overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
+    The first custom caching rule sets a cache duration of four hours for any blob files in the `/blobcontainer1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `blob1.txt` blob file only and sets a cache duration of two hours for it.
 
-4. Select **Save**.
+2. Select **Save**.
+
 
 ## Setting Cache-Control headers by using Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
