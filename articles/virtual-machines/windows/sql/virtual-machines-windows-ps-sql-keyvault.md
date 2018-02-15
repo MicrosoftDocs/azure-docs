@@ -21,9 +21,7 @@ ms.author: jroth
 # Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
-> * [Classic](../classic/ps-sql-keyvault.md)
-> 
-> 
+> * [Classic](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## Overview
 There are multiple SQL Server encryption features, such as [transparent data encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [column level encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), and [backup encryption](https://msdn.microsoft.com/library/dn449489.aspx). These forms of encryption require you to manage and store the cryptographic keys you use for encryption. The Azure Key Vault (AKV) service is designed to improve the security and management of these keys in a secure and highly available location. The [SQL Server Connector](http://www.microsoft.com/download/details.aspx?id=45344) enables SQL Server to use these keys from Azure Key Vault.
