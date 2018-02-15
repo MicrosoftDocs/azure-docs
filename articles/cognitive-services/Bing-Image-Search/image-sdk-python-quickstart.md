@@ -1,6 +1,6 @@
 ---
-title: Image search SDK Python quickstart | Microsoft Docs
-description: Setup for Image search SDK console application.
+title: Image Search SDK Python quickstart | Microsoft Docs
+description: Setup for Image Search SDK console application.
 titleSuffix: Azure cognitive services Web search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
