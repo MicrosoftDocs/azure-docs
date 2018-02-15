@@ -53,7 +53,7 @@ Node autoscaling is not supported but is on the roadmap. You might want to take 
 
 No, RBAC is currently not supported in AKS but will be available soon.   
 
-## Can I deploy AKS into my own virtual network?
+## Can I deploy AKS into my existing virtual network?
 
 No, this is not yet available but will be available soon.
 
