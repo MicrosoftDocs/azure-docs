@@ -57,13 +57,26 @@ If you need to configure a location condition that applies to all connections ma
 - Include **All locations**
 - Exclude **All trusted IPs**
 
+
+### What to do if you are locked out of the Azure AD admin portal?
+
+If you are locked out of the Azure AD portal due to an incorrect setting in a conditional access policy:
+
+- Verify whether there are other administrators in your organization that are not blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
+
+- If none of the administrators in your organization can update the policy, you need to submit a support request. Microsoft support can review and update conditional access policy that is preventing access.
+
+
 ### What happens if you have policies in the Azure classic portal and Azure portal configured?  
+
 Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
 ### What happens if you have policies in the Intune Silverlight portal and the Azure portal?
+
 Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
 ### What happens if I have multiple policies for the same user configured?  
+
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
 
