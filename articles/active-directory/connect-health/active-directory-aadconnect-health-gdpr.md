@@ -27,17 +27,13 @@ Azure AD Connect Health provides monitoring, insights, and alert functionality t
 >This article deals with Azure AD Connect Health and GDPR compliance.  For information on Azure AD Connect and GDPR compliance see the article [here](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
 ## Update in Azure AD Connect Health 
-Azure AD Connect Health falls into the data **Processor** category of GDPR classification. As a data processor pipeline, we provide data processing services to key partners and end consumers. Azure AD Connect Health has no independent control over what personal data is collected and how it is used.
-
-Azure AD Connect Health does not generate user data. Data retrieval, aggregation, analysis and reporting in Azure AD Connect Health are based on existing on-premises data. 
-
-Currently, Azure AD Connect Health does not generate reports, provide analytics/insights beyond 30 days. In order to comply to the GDPR as well as Azure data retention policies, the following changes have been made. 
+Azure AD Connect Health falls into the data **Processor** category of GDPR classification. As a data processor pipeline, we provide data processing services to key partners and end consumers. Azure AD Connect Health does not generate user data, has no independent control over what personal data is collected and how it is used. Data retrieval, aggregation, analysis and reporting in Azure AD Connect Health are based on existing on-premises data. 
 
 ## Data retention policy alignment
-To align with GDPR Compliance, Microsoft privacy compliance and Azure AD data retention policy, Azure AD Connect Health has updated data storage and processing procedures to not retain any data beyond 30 days. 
+Currently,Azure AD Connect Health does not generate reports, provide analytics or insights beyond 30 days. To align with GDPR Compliance, Microsoft privacy compliance and Azure AD data retention policy, Azure AD Connect Health has updated data storage and processing procedures to not retain any data beyond 30 days. 
  
 ## Disable Connect Health data collection and monitoring
-Azure AD Connect Health provides capabilities to stop data collection at the server level and the service level. After stopping data collection, the target servers will be deleted from the Azure AD Connect Health portal. 
+Azure AD Connect Health provides capabilities to stop data collection at the server level and the service instance level. After stopping data collection, the target servers will be deleted from the Azure AD Connect Health portal. 
 
 >[!IMPORTANT]
 >Global Admin or Contributor and above in RBAC role permission are required to proceed the deletion action.
@@ -52,19 +48,12 @@ You need to be aware of the following with regard to deletion actions.
 - All data from this service instance will be deleted as per the Microsoft Azure Data Retention Policy.
 - After performing this action, if you wish to start monitoring the service, please uninstall and [reinstall the health agent](active-directory-aadconnect-health-agent-install.md) on all the servers that will be monitored.
 
-### To delete server level
+### To delete in server level
 To remove a server from Azure AD Connect Health data collection use the following steps [here](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
 
-After clicking on **Delete** button you need to confirm the name of the server you wish to delete and click **Delete** again.
+### To delete in service instance level
+To remove a service instance from Azure AD Connect Health data collection use the following steps [here](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
 
-![](media/active-directory-aadconnect-health-gdpr/gdpr2.png) 
-
-### To delete service level
-To remove a service from Azure AD Connect Health data collection use the following steps [here](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
-
-After clicking on **Delete** button you need to confirm the name of the service you wish to delete and click **Delete** again.
-
-![](media/active-directory-aadconnect-health-gdpr/gdpr3.png) 
 
 ## Next Steps
 
