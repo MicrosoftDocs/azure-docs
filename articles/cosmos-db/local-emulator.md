@@ -71,7 +71,7 @@ Because the Azure Cosmos DB Emulator provides an emulated environment running on
 * The Azure Cosmos DB Emulator does not simulate different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos DB Emulator does not simulate [multi-region replication](distribute-data-globally.md).
 * The Azure Cosmos DB Emulator does not support the service quota overrides that are available in the Azure Cosmos DB service (e.g. document size limits, increased partitioned collection storage).
-* As your copy of the Azure Cosmos DB Emulator might not be up to date with the most recent changes with the Azure Cosmos DB service, please [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
+* As your copy of the Azure Cosmos DB Emulator might not be up-to-date with the most recent changes with the Azure Cosmos DB service, please [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
 
 ## System requirements
 The Azure Cosmos DB Emulator has the following hardware and software requirements:
@@ -473,7 +473,7 @@ There is one new feature and two bug fixes in this release. Thanks to the custom
 
 #### Features
 
-Many of the customers we've talked to have said: It would be nice if the emulator was scriptable. Hence, in this release we've added some scriptability. The emulator now includes a PowerShell module for starting, stopping, getting status, and uninstalling itself: `Microsoft.Azure.CosmosDB.Emulator`. 
+Many of the customers we've talked to have said: It would be nice if the Emulator was scriptable. Hence, in this release we've added some script ability. The Emulator now includes a PowerShell module for starting, stopping, getting status, and uninstalling itself: `Microsoft.Azure.CosmosDB.Emulator`. 
 
 ### 1.20.91.1 Released on January 26, 2018
 
