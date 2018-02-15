@@ -267,6 +267,34 @@ After you have added an IP address for the listener, configure the additional av
 
 After you configure the availability group to use the new IP address, configure the connection to the listener. 
 
+## Add load balancing rule for distributed availability group
+
+If an availability group participates in a distributed availability group, the load balancer needs an additional rule. This rule stores the port is used by the distributed availability group listener.
+
+>[!IMPORTANT]
+>This step only applies if the availability group participates in a [distributed availability group](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. On each server that participates in the distributed availability group, create an inbound rule on the distributed availability group listener TCP port. In many examples, documentation uses 5022. 
+
+1. In the Azure portal, click on the load balancer and click **Load balancing rules**, and then click **+Add**. 
+
+1. Create the load balancing rule with the following settings:
+
+   |Setting |Value
+   |:-----|:----
+   |**Name** |A name to identify the load balancing rule for the distributed availability group. 
+   |**Frontend IP address** |Use the same frontend IP address as the availability group.
+   |**Protocol** |TCP
+   |**Port** |Use the port for the distributed availability group. 
+   |**Backend port** |Use the same value as **Port**.
+   |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
+   |**Health probe** |Choose the probe you created.
+   |**Session persistence** |None
+   |**Idle timeout (minutes)** |Default (4)
+   |**Floating IP (direct server return)** | Enabled
+
+Repeat these steps for the load balancer on the other availability groups that participate in the distributed availability groups.
+
 ## Next steps
 
 - [Configure a SQL Server Always On availability group on Azure virtual machines in different regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
