@@ -17,11 +17,11 @@ ms.author: rithorn
 
 
 # Creating management groups 
-[Management groups](/azure-resource-manager/management-groups-overview.md) is a new feature that is available in a Public Preview. To get started using management groups, log into the [Azure portal](https://portal.azure.com) or use the [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [command-line tool](/cli/azure/install-azure-cli?view=azure-cli-latest), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) options.   
+The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. In addition to the portal, you can use [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [command-line tool](/cli/azure/install-azure-cli?view=azure-cli-latest), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to create management groups.   
 
-Use the following instructions to learn how to create a management group. The new management group can be created under the top level or under a different management group.  
+Use the following instructions to learn how to create a management group. 
 
-Any user within a directory can create a management group and they are made the owner of that new management group. A management group created under another management group inherits the policy and authorizations that are assigned from any parent of the hierarchy. The following graph gives an example of a hierarchy created that is grouped by departments.  
+Any user within a directory can create a management group and they are made the owner of that new management group. A management group created under another management group *inherits* the policy and authorizations that are assigned from any parent of the hierarchy. The following graph gives an example of a hierarchy created that is grouped by departments.  
 
 ![hierarchy tree](media/management-groups/MG_overview.png) 
 
@@ -29,22 +29,18 @@ Using the diagram as an example, you can create a new management group under the
 
 # How-to create a management group 
 
-Creating a management group can be done using the [Azure portal](https://portal/azure.com), [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [command-line tool](/cli/azure/install-azure-cli?view=azure-cli-latest), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview). 
+Creating a management group can be done using the [Azure portal](https://portal/azure.com), [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [command-line tool](), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview). 
 
 Let's say you want to create a new management group with the identifier of "Contoso."
 
 # [Portal](#tab/portal)
 
 1. On the main page, select **New Management group.** 
-
-![Create Group](media/management-groups/create_main.png)
-
+![Create Group](media/management-groups/create_main.png) 
 2.  Fill in the management group ID field with "Contoso."
-    - This identifier is the directory unique identifier that is used to submit commands on this management group. This identifier is not editable after creation as it is used throughout the Azure system to identify this group. 
-    - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time. 
-
+    - The Management Group ID is the directory unique identifier that is used to submit commands on this management group. This identifier is not editable after creation as it is used throughout the Azure system to identify this group. 
+    - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
 ![Create](media/management-groups/create_context_menu.png)  
-
 3.  Select the save button at the bottom of the menu
 
 You see the new group now show in the list
@@ -66,4 +62,9 @@ C:\> Add-AzureRmManagementGroup -GroupName newGroup -DisplayName "Contoso IT" -P
 
 ---
 
-
+## Next steps 
+### [Learn more about management groups](management-groups-overview.md)
+### [Learn how to maintain management groups](management-groups-manage.md)
+### [Review the Azure Powershell module]()
+### [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
+### [Review the command-line tool spec]()
