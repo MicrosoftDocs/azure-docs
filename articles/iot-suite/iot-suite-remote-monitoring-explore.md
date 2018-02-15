@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -225,6 +225,16 @@ You can use the tag values to create filters.
 1. Create a new filter that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicle**.
 
 Now the Contoso operator can query devices based on the operating team without the need to change anything on the devices.
+
+## Stop simulated devices
+
+You can use the settings menu to stop the simulated devices. This helps to reduce the costs of testing and exploring the solution. To start or stop the simulated devices:
+
+1. Choose the **Settings** icon.
+
+1. Then toggle **Running** on or off:
+
+    ![Settings menu](media/iot-suite-remote-monitoring-explore/settings.png)
 
 ## Next steps
 
