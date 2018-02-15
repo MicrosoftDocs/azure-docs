@@ -14,11 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 02/12/2018
+ms.date: 02/28/2018
 ms.author: carlrab
 
 ---
 # Azure SQL Database resource limits
+
+> [!IMPORTANT]
+> For resource limits with SQL Database Managed Instance, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 
 ## Single database: Storage sizes and performance levels
 
