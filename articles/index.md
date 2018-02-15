@@ -734,7 +734,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-entities-search/">
                                                 <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
                                                 <p>Bing Entity Search</p>
                                             </a>
@@ -2759,7 +2759,7 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>
