@@ -55,6 +55,7 @@ You start by creating a simple runbook that outputs the text *Hello World*.
 Now you add a simple command to print the text "Hello World":
 
 ```python
+from __future__ import print_function
 print("Hello World!")
 ```
 
@@ -150,6 +151,7 @@ To work with Azure VMs, create an instance of the
 Use the Compute client to start the VM. Add the following code to the runbook:
 
 ```python
+from __future__ import print_function
 # Initialize the compute management client with the RunAs credential and specify the subscription to work against.
 compute_client = ComputeManagementClient(
 azure_credential,
