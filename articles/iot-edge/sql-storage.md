@@ -115,7 +115,7 @@ In step 3, you add create options to the SQL Server container, which are importa
 8. To start your Edge runtime, select **Edge: Start Edge** in the Command Palette.
 
 >[!TIP]
->Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker.md#change-the-sa-password).
+>Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
 ## Create the SQL database
 

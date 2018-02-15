@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -37,29 +37,31 @@ At a high level, the deployment manifest configures the desired properties of th
 
 The manifest follows this structure:
 
-    {
-        "moduleContent": {
-            "$edgeAgent": {
-                "properties.desired": {
-                    // desired properties of the Edge agent
-                }
-            },
-            "$edgeHub": {
-                "properties.desired": {
-                    // desired properties of the Edge hub
-                }
-            },
-            "{module1}": {  // optional
-                "properties.desired": {
-                    // desired properties of module with id {module1}
-                }
-            },
-            "{module2}": {  // optional
-                ...
-            },
-            ...
-        }
-    }
+   ```json
+   {
+       "moduleContent": {
+           "$edgeAgent": {
+               "properties.desired": {
+                   // desired properties of the Edge agent
+               }
+           },
+           "$edgeHub": {
+               "properties.desired": {
+                   // desired properties of the Edge hub
+               }
+           },
+           "{module1}": {  // optional
+               "properties.desired": {
+                   // desired properties of module with id {module1}
+               }
+           },
+           "{module2}": {  // optional
+               ...
+           },
+           ...
+       }
+   }
+   ```
 
 An example of a deployment manifest is reported at the end of this section.
 
@@ -80,11 +82,13 @@ Refer to the [desired properties of the Edge agent][lnk-edgeagent-desired] for t
 ### Specify the routes
 Edge hub provides a way to declaratively route messages between modules, and between modules and IoT Hub.
 
-Routes have the following syntax:
+Routes have the following syntax: 
 
-        FROM <source>
-        [WHERE <condition>]
-        INTO <sink>
+   ```
+   FROM <source>
+   [WHERE <condition>]
+   INTO <sink>
+   ```
 
 The *source* can be anything of the following:
 
@@ -122,74 +126,76 @@ If you do not specify a module twin's desired properties in the deployment manif
 
 This an example of a deployment manifest JSON document.
 
-    {
-    "moduleContent": {
-        "$edgeAgent": {
-            "properties.desired": {
-                "schemaVersion": "1.0",
-                "runtime": {
+```json
+{
+"moduleContent": {
+    "$edgeAgent": {
+        "properties.desired": {
+            "schemaVersion": "1.0",
+            "runtime": {
+                "type": "docker",
+                "settings": {
+                    "minDockerVersion": "v1.25",
+                    "loggingOptions": ""
+                }
+            },
+            "systemModules": {
+                "edgeAgent": {
                     "type": "docker",
                     "settings": {
-                        "minDockerVersion": "v1.25",
-                        "loggingOptions": ""
+                    "image": "microsoft/azureiotedge-agent:1.0-preview",
+                    "createOptions": ""
                     }
                 },
-                "systemModules": {
-                    "edgeAgent": {
-                        "type": "docker",
-                        "settings": {
-                        "image": "microsoft/azureiotedge-agent:1.0-preview",
-                        "createOptions": ""
-                        }
-                    },
-                    "edgeHub": {
-                        "type": "docker",
-                        "status": "running",
-                        "restartPolicy": "always",
-                        "settings": {
-                        "image": "microsoft/azureiotedge-hub:1.0-preview",
-                        "createOptions": ""
-                        }
-                    }
-                },
-                "modules": {
-                    "tempSensor": {
-                        "version": "1.0",
-                        "type": "docker",
-                        "status": "running",
-                        "restartPolicy": "always",
-                        "settings": {
-                        "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                        "createOptions": "{}"
-                        }
-                    },
-                    "filtermodule": {
-                        "version": "1.0",
-                        "type": "docker",
-                        "status": "running",
-                        "restartPolicy": "always",
-                        "settings": {
-                        "image": "myacr.azurecr.io/filtermodule:latest",
-                        "createOptions": "{}"
-                        }
+                "edgeHub": {
+                    "type": "docker",
+                    "status": "running",
+                    "restartPolicy": "always",
+                    "settings": {
+                    "image": "microsoft/azureiotedge-hub:1.0-preview",
+                    "createOptions": ""
                     }
                 }
-            }
-        },
-        "$edgeHub": {
-            "properties.desired": {
-                "schemaVersion": "1.0",
-                "routes": {
-                    "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                    "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+            },
+            "modules": {
+                "tempSensor": {
+                    "version": "1.0",
+                    "type": "docker",
+                    "status": "running",
+                    "restartPolicy": "always",
+                    "settings": {
+                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
+                    "createOptions": "{}"
+                    }
                 },
-                "storeAndForwardConfiguration": {
-                    "timeToLiveSecs": 10
+                "filtermodule": {
+                    "version": "1.0",
+                    "type": "docker",
+                    "status": "running",
+                    "restartPolicy": "always",
+                    "settings": {
+                    "image": "myacr.azurecr.io/filtermodule:latest",
+                    "createOptions": "{}"
+                    }
                 }
             }
         }
+    },
+    "$edgeHub": {
+        "properties.desired": {
+            "schemaVersion": "1.0",
+            "routes": {
+                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+            },
+            "storeAndForwardConfiguration": {
+                "timeToLiveSecs": 10
+            }
+        }
     }
-    }
+}
+}
+```
 
 ## Reference: Edge agent module twin
 
