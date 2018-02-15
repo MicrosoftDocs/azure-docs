@@ -3,7 +3,7 @@ title: Using New Relic with Azure | Microsoft Docs
 description: Learn how to use the New Relic service to manage and monitor your Azure application.
 services: ''
 documentationcenter: .net
-author: nickfloyd
+author: cwatson-cat
 manager: timlt
 editor: ''
 

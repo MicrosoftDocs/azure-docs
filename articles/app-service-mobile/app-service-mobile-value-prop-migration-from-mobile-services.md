@@ -56,7 +56,7 @@ VMs from a much richer set of options. You can also  quickly scale up or out to 
 
 ## Be in the “know”
 React to issues in real time with monitoring and alerts to automatically notify you and your team. Integrate advanced app analytics and monitoring
-functionality from New Relic and AppInsights to get insight into how your mobile app is performing. With *Azure App Service*, you can now
+functionality from AppInsights to get insight into how your mobile app is performing. With *Azure App Service*, you can now
 set up alerts based on variety of performance metrics, either programmatically and via the Azure portal.
 
 ## Keep your assets safe
