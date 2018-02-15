@@ -35,7 +35,7 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## x.x.xxx.x
-Status: <release date>
+Status: Released to select customers
 
 >[!NOTE]
 >When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, please make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
