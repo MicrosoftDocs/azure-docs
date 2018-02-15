@@ -1,7 +1,7 @@
 ---
-title: Web search SDK Python quickstart | Microsoft Docs
-description: Setup for Web search SDK console application.
-titleSuffix: Azure cognitive services Web search SDK Python quickstart
+title: Web Search SDK Python quickstart | Microsoft Docs
+description: Setup for Web Search SDK console application.
+titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -101,6 +101,6 @@ else:
 
 ## Next steps
 
-[Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 
