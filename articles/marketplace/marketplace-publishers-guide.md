@@ -1,7 +1,7 @@
 ---
 title: Azure Marketplace and AppSource Publisher Guide
 description: Step by step guide and publishing checklists for new publishers to Azure Marketplace
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: ellacroi
 manager: msmbaldwin
