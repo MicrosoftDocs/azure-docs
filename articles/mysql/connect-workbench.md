@@ -28,7 +28,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. From the left-hand menu in Azure portal, click **All resources**, and the search for the server you have created (such as **mydemoserver**).
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 
 3. Click the server name.
 
