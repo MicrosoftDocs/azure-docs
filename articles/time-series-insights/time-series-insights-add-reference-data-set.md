@@ -73,11 +73,11 @@ A Reference Data Set is a collection of items that are augmented with the events
 
    ![Name the data set.](media/add-reference-data-set/name_reference_dataset.png)
 
-10. Provide the **Primary Key** column in the data set, by selecting the drop down above the data grid.
+10. Provide the **Primary Key** column in the data set, by selecting the drop-down above the data grid.
 
    ![Select the key column(s).](media/add-reference-data-set/set_primary_key.png)
 
-   Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop down, and the secondary key will be removed.
+   Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down, and the secondary key will be removed.
 
 11. Select the **Upload rows** button to upload the data. 
 
