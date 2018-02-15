@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 02/15/2018
 ms.author: billmath
 ---
 
@@ -68,7 +68,7 @@ Use the following steps to schedule the script to run every 48 hours.
 
 7.	Select **Start a program** as the action and click on **Next**.
 
-![](media\active-directory-aadconnect-gdpr\gdpr8.png)
+    ![](media\active-directory-aadconnect-gdpr\gdpr8.png)
 
 8.	Type **PowerShell** in the box for the Program/script, and in box labeled **Add arguments (optional)**, enter the full path to the script that you created earlier, then click **Next**.
 
