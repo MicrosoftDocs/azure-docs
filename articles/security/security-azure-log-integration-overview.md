@@ -47,6 +47,7 @@ Azure Log Integration supports ArcSight, QRadar, and Splunk. In all circumstance
 If there are no other options available, Azure Log Integration may be considered. The following table includes our recommendations.
 
 |**SIEM** | **Using log integrator** | **Investigating SIEM integration options**|
+|---------|--------------------------|-------------------------------------------|
 |**SPLUNK** | Begin migrating to the [Azure monitor add-on for Splunk](https://splunkbase.splunk.com/app/3534/) | Use [SPLUNK connector](https://splunkbase.splunk.com/app/3534/) |
 |**IBM QRADAR** | Migrate to or begin using the QRadar connector documented at the end of http://aka.ms/azmoneventhub | Use the QRadar connector documented at the end of http://aka.ms/azmoneventhub  |
 |**ARCSIGHT** | Continue to use the Log Integrator until a connector is available, then migrate to the connector-based solution.  | Consider Azure Log Analytics as an alternative. Do not onboard to Azure Log Integration unless you are willing to go through the migration process when the connector becomes available. |
