@@ -5,16 +5,8 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-<<<<<<< HEAD
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/15/2017
-=======
 ms.topic: tutorial
 ms.date: 02/07/2018
->>>>>>> 3ddea50a5fc29282b0aa3314268ea73c85720776
 ms.author: raynew
 ms.custom: MVC
 
