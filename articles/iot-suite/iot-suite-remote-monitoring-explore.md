@@ -27,6 +27,7 @@ In this tutorial, you learn how to:
 > * Respond to an alarm
 > * Update the firmware in your devices
 > * Organize your assets
+> * Stop and start the simulated devices
 
 The following video shows a walkthrough of the remote monitoring solution:
 
@@ -245,6 +246,7 @@ In this tutorial, you learned to:
 > * Respond to an alarm
 > * Update the firmware in your devices
 > * Organize your assets
+> * Stop and start the simulated devices
 
 Now that you have explored the remote monitoring solution, the suggested next steps are to learn about the advanced features of the remote monitoring solution:
 
