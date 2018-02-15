@@ -64,7 +64,7 @@ If you are locked out of the Azure AD portal due to an incorrect setting in a co
 
 - Verify whether there are other administrators in your organization that are not blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
 
-- If none of the administrators in your organization can update the policy, you need to submit a support request. Microsoft support can review and update conditional access policy that is preventing access.
+- If none of the administrators in your organization can update the policy, you need to submit a support request. Microsoft support can review and update conditional access policies that are preventing access.
 
 
 ### What happens if you have policies in the Azure classic portal and Azure portal configured?  
