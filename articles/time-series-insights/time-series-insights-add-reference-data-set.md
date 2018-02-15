@@ -65,7 +65,7 @@ A Reference Data Set is a collection of items that are augmented with the events
 
       ![Choose data types on the column headings.](media/add-reference-data-set/choose_datatypes.png)
 
-   - Rename the column headers if needed. The key column name is necessary to join to the correct property in your event source. Ensure that the key column names match exactly to the event names to your incoming data, including case-sensitivity. The non-key column names are be used to augment the incoming data with the corresponding reference data values.
+   - Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source. Ensure that the reference data key column names match exactly to the event name to your incoming data, including case-sensitivity. The non-key column names are used to augment the incoming data with the corresponding reference data values.
    - Click **Add a row** or **Add a column** to add more reference data values, as needed.
    - Type a value in the **Filter the rows...** field to review specific rows as needed. The filter is useful for reviewing data, but is not applied when uploading the data.
  
