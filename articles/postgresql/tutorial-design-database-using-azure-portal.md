@@ -88,13 +88,13 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 When you created the Azure Database for PostgreSQL server, the default **postgres** database was also created. To connect to your database server, you need to provide host information and access credentials.
 
-1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created, **mydemoserver**.
+1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created.
 
   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-3. Click the server name **mydemoserver**.
+2. Click the server name **mydemoserver**.
 
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
+3. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
 
  ![Azure Database for PostgreSQL - Server Admin Login](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 

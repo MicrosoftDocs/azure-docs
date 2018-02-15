@@ -185,10 +185,10 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 The `az postgres server restore` command needs the following parameters:
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
-| --resource-group |  myresourcegroup |  The resource group in which the source server exists.  |
-| --name | mydemoserver-restored | The name of the new server that is created by the restore command. |
+| resource-group |  myresourcegroup |  The resource group in which the source server exists.  |
+| name | mydemoserver-restored | The name of the new server that is created by the restore command. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Select a point-in-time to restore to. This date and time must be within the source server's backup retention period. Use ISO8601 date and time format. For example, you may use your own local timezone, such as `2017-04-13T05:59:00-08:00`, or use UTC Zulu format `2017-04-13T13:59:00Z`. |
-| --source-server | mydemoserver | The name or ID of the source server to restore from. |
+| source-server | mydemoserver | The name or ID of the source server to restore from. |
 
 Restoring a server to a point-in-time creates a new server, copied as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server.
 
