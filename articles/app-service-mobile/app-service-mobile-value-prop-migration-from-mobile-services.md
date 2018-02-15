@@ -26,7 +26,7 @@ that are not available today with Mobile Services:
 * New host features including Web Jobs, custom CNames, better monitoring
 * Integration with Traffic Manager
 * Connectivity to your on-premises resources and VPNs using VNet in addition to Hybrid Connections
-* Monitoring, alerting and  troubleshooting for your app using NewRelic or AppInsights
+* Monitoring, alerting and  troubleshooting for your app using AppInsights
 * Richer spectrum of the underlying compute resources and pricing
 * Built-in auto scale, load balancing, and performance monitoring.
 * Built-in staging, backup, roll-back, and testing-in-production capabilities
