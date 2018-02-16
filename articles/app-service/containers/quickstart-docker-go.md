@@ -35,7 +35,7 @@ ms.custom: mvc
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a Web App for the Container
+## Create a Web App
 
 Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace `<app name>` with a globally unique app name.
 
@@ -62,12 +62,12 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 }
 ```
 
-## Get data from the app's endpoint
+## Browse to the app
 
 Using the `curl` command, contact the REST API endpoint provided by the container's application.
 
 ```bash
-curl -X GET http://<app_name>.azurewebsites.net:8080/hello
+http://<app_name>.azurewebsites.net:8080/hello
 ```
 
 ```output
