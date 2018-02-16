@@ -23,16 +23,16 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 
 ## How do I change an enterprise app's name or logo?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
-3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
+2. Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. On the **Azure Active Directory - *directoryname*** pane (that is, the Azure AD pane for the directory you are managing), select **Enterprise applications**.
 
     ![Opening Enterprise apps](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
-4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
-5. On the **Enterprise applications - All applications** blade, select an app.
-6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Properties**.
+4. On the **Enterprise applications** pane, select **All applications**. You see a list of the apps you can manage.
+5. On the **Enterprise applications - All applications** pane, select an app.
+6. On the ***appname*** pane (that is, the pane with the name of the selected app in the title), select **Properties**.
 
     ![Selecting the properties command](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
-7. On the ***appname*** **- Properties** blade, browse for a file to use as a new logo, or edit the app name, or both.
+7. On the ***appname*** **- Properties** pane, browse for a file to use as a new logo, or edit the app name, or both.
 
     ![Changing the app logo or nameproperties command](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
 8. Select the **Save** command.
