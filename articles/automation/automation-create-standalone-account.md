@@ -52,9 +52,9 @@ To verify user roles:
 To create an Azure Automation account in the Azure portal, complete the following steps:    
 
 1. Sign in to the Azure portal with an account that's a member of the subscription Administrators role and a coadministrator of the subscription.
-2. Select **New**.<br><br> ![Select New in Azure portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Search for **Automation**. In the search results, select **Automation & Control**.<br><br> ![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-4. Under **Automation Accounts**, select **Add**.
+2. Select **+ Create a Resource**.
+3. Search for **Automation**. In the search results, select **Automation**.<br><br> ![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+4. On the next screen select **Create**.
   ![Add Automation account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
   
   > [!NOTE]

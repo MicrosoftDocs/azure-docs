@@ -7,7 +7,7 @@
 ## [Security group view](network-watcher-security-group-view-overview.md)
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
-## [Connectivity check](network-watcher-connectivity-overview.md)
+## [Connection troubleshoot](network-watcher-connectivity-overview.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Get Started
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Test connectivity
+## Troubleshoot connections
 ### [Azure portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)

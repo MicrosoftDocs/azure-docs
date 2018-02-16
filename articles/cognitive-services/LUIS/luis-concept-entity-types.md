@@ -8,8 +8,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: v-demak
+ms.date: 02/15/2018
+ms.author: v-demak;v-geberr;
 ---
 # Entities in LUIS
 
@@ -22,22 +22,122 @@ In the utterance "Book me a ticket to Paris", "Paris" is an entity of type locat
 
 You do not need to create entities for every concept in your app, but only for those required for the app to take action. 
 
-You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page in the LUIS app web portal. LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
+You can add, edit, or delete entities in your app through the **Entities list** on the **Entities** page in the LUIS app web portal. LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
 
+## Entities are optional but highly recommended
+While most LUIS apps have entities, they are not required. 
 
 ## Types of entities
 
 LUIS offers the following types of entities:
 
 
-| Type          | Description           |
-| ------------- |-----------------------|
-| Prebuilt      | Built-in types that represent common concepts like dates, times, and geography. <br/> See [Prebuilt entities](./Pre-builtEntities.md) for more information.|
-| List      | List entities represent a fixed set of related words in your system. Each list entity may have one or more forms. They aren't machine learned, and are best used for a known set of variations on ways to represent the same concept. List entities don't have to be labeled in utterances or trained by the system.  <br/> A list entity is an explicitly specified list of values.  Unlike other entity types, LUIS does not discover additional values for list entities during training. Therefore, each list entity forms a closed set.  | 
-| Simple | A simple entity is a generic entity that describes a single concept.  <br/> |  
-| Hierarchical | A hierarchical entity defines a category and its members. It is made up of child entities that form the members of the category. You can use hierarchical entities to define hierarchical or inheritance relationships between entities, in which children are subtypes of the parent entity. <br/><br/>For example, in a travel agent app, you could add hierarchical entities like these:<ul><li> $Location, including $FromLocation and $ToLocation as child entities that represent origin and destination locations.</li> <li> $TravelClass, including $First, $Business, and $Economy as child entities that represent the travel class.</li></ul>     | 
-| Composite | A composite entity is made up of other entities that form parts of a whole.  For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities.  |  
+| Name |Type | Description |
+| -- |--|--|
+| Prebuilt |[RegEx](#regex)| Built-in types that represent common concepts like dates, times, and geography. <br/> For more information, see [Prebuilt entities](./Pre-builtEntities.md).|
+| List | [Exact match](#exact-match)| List entities represent a fixed set of related words in your system. Each list entity may have one or more forms. They aren't machine learned, and are best used for a known set of variations on ways to represent the same concept. List entities are not labeled in utterances or trained by the system.  <br/><br/> A list entity is an explicitly specified list of values.  Unlike other entity types, LUIS does not discover additional values for list entities during training. Therefore, each list entity forms a closed set. <br/><br>If there is more than one list entity with the same value, each entity is returned in the endpoint query. | 
+| Simple | [Machine-learned](#machine-learned) | A simple entity is a generic entity that describes a single concept.  <br/> |  
+| Hierarchical | [Machine-learned](#machine-learned) | A hierarchical entity defines a category and its members. It is made up of child entities that form the members of the category. You can use hierarchical entities to define hierarchical or inheritance relationships between entities, in which children are subtypes of the parent entity. <br/><br/>For example, in a travel agent app, you could add hierarchical entities like these:<ul><li> $Location, including $FromLocation and $ToLocation as child entities that represent origin and destination locations.</li> <li> $TravelClass, including $First, $Business, and $Economy as child entities that represent the travel class.</li></ul>     | 
+| Composite | [Machine-learned](#machine-learned) | A composite entity is made up of other entities that form parts of a whole.  For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities, or prebuilt entities.  |  
 
+<a name="machine-learned"></a>
+**Machine-learned** entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](label-suggested-utterances.md). 
+
+<a name="regex"></a>
+**Regular expression entities** use the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. There are many [examples](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) of the regular expressions in the /Specs directory for the supported cultures. If your specific culture or regular expression isn't currently supported, contribute to the project. 
+
+<a name="exact-match"></a>
+**Exact-match** entities use the text provided in the entity to make an exact text match.
+
+## Data matching multiple entities
+If a word or phrase matches more than one entity, the endpoint query returns each entity. If you add both prebuilt number entity and prebuild datetimeV2, and have an utterance `create meeting on 2018/03/12 for lunch with wayne`, LUIS recognizes all the entities and returns an array of entities as part of the JSON endpoint response: 
+
+```JSON
+{
+  "query": "create meeting on 2018/03/12 for lunch with wayne",
+  "topScoringIntent": {
+    "intent": "Calendar.Add",
+    "score": 0.9333419
+  },
+  "entities": [
+    {
+      "entity": "2018/03/12",
+      "type": "builtin.datetimeV2.date",
+      "startIndex": 18,
+      "endIndex": 27,
+      "resolution": {
+        "values": [
+          {
+            "timex": "2018-03-12",
+            "type": "date",
+            "value": "2018-03-12"
+          }
+        ]
+      }
+    },
+    {
+      "entity": "2018",
+      "type": "builtin.number",
+      "startIndex": 18,
+      "endIndex": 21,
+      "resolution": {
+        "value": "2018"
+      }
+    },
+    {
+      "entity": "03/12",
+      "type": "builtin.number",
+      "startIndex": 23,
+      "endIndex": 27,
+      "resolution": {
+        "value": "0.25"
+      }
+    }
+  ]
+}
+```
+
+## Data matching multiple List entities
+If a word or phrase matches more than one list entity, the endpoint query returns each List entity.
+
+For the query `when is the best time to go to red rock?`, and the app has the word `red` in more than one list, LUIS recognizes all the entities and returns an array of entities as part of the JSON endpoint response: 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
+    }
+  ]
+}
+```
+
+## Best practices
+Create an entity when the calling application or bot needs some parameters required to execute an action.
 
 ## Next steps
 

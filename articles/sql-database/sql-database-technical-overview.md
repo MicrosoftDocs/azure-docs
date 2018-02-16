@@ -9,11 +9,11 @@ manager: jhubbard
 editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
+ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 12/13/2017
+ms.date: 02/12/2018
 ms.workload: "Active"
 ms.author: carlrab
 ms.reviewer: carlrab
@@ -27,6 +27,9 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
 - **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)**: A place to find out what’s new and what’s coming next. 
 - **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)**: A place where SQL Server product team members blog about SQL Database news and features. 
 
+> [!IMPORTANT]
+> To understand the feature differences between SQL Database and SQL Server, see [SQL features](sql-database-features.md). 
+
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
 > [!NOTE]
@@ -39,7 +42,7 @@ With SQL Database, each database is isolated from each other and portable, each 
 
 ### Adjust performance and scale without downtime
 
-SQL Database offers four service tiers to support lightweight to heavyweight database workloads: Basic, Standard, Premium, and Premium RS. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+SQL Database offers three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
    ![scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
@@ -151,7 +154,7 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ask development questions
 - [MSDN Forums](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Ask technical questions
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Report bugs and request feature
+- [Feedback](http://aka.ms/sqlfeedback): Report bugs and request feature
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server
 
 ## Next steps
