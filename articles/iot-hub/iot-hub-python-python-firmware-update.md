@@ -86,12 +86,25 @@ In this section, you create a Python console app that initiates a remote firmwar
             response = iothub_device_method.invoke(DEVICE_ID, METHOD_NAME, METHOD_PAYLOAD, TIMEOUT)
             print ( response.payload )
 		
+            print ( "" )
+            print ( "Device Twin queried, press Ctrl-C to exit" )
             while True:
                 twin_info = iothub_twin_method.get_twin(DEVICE_ID)
-			
-                print ( "" )
-                print ( "Device Twin queried, press Ctrl-C to exit" )
-                print ( "..." + twin_info[twin_info.find("reported")+11:twin_info.find("firmwareStatus")+30] )
+
+                if "\"firmwareStatus\":\"standBy\"" in twin_info:
+                    print ( "Waiting on device..." )
+                elif "\"firmwareStatus\":\"downloading\"" in twin_info:
+                    print ( "Downloading firmware..." )
+                elif "\"firmwareStatus\":\"applying\"" in twin_info:
+                    print ( "Download complete, applying firmware..." )
+                elif "\"firmwareStatus\":\"completed\"" in twin_info:
+                    print ( "Firmware applied" )
+                    print ( "" )
+                    print ( "Get reported properties from device twin:" )
+                    print ( twin_info )
+                    break
+                else:
+                    print ( "Unknown status" )
 
                 status_counter = 0
                 while status_counter <= MESSAGE_COUNT:
@@ -179,7 +192,7 @@ In this section, you:
         time.sleep(15)
         print ( "Downloading image from: " + image_url )
 
-        reported_state = "{\"firmwareStatus\":\"downloading\", \"logTime\":\"" + str(datetime.datetime.now()) + "\"}"
+        reported_state = "{\"firmwareStatus\":\"downloading\", \"downloadComplete\":\"" + str(datetime.datetime.now()) + "\"}"
         CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
         time.sleep(15)
 	
@@ -188,7 +201,7 @@ In this section, you:
     def simulate_apply_image(image_url):
         print ( "Applying image from: " + image_url )
 
-        reported_state = "{\"firmwareStatus\":\"applying\", \"logTime\":\"" + str(datetime.datetime.now()) + "\"}"
+        reported_state = "{\"firmwareStatus\":\"applying\", \"startedApplyingImage\":\"" + str(datetime.datetime.now()) + "\"}"
         CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
         time.sleep(15)
 	
@@ -197,7 +210,7 @@ In this section, you:
     def simulate_complete_image():
         print ( "Image applied." )
 
-        reported_state = "{\"firmwareStatus\":\"completed\", \"logTime\":\"" + str(datetime.datetime.now()) + "\"}"
+        reported_state = "{\"firmwareStatus\":\"completed\", \"lastFirmwareUpdate\":\"" + str(datetime.datetime.now()) + "\"}"
         CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
     ```
 
