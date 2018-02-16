@@ -1,5 +1,5 @@
 ---
-title: Create and manage policies with REST API | Microsoft Docs
+title: Create and manage Azure policies with REST API | Microsoft Docs
 description: Describes how Policy Insights resource types are used with REST API to create and manage policy.
 services: azure-policy
 keywords:
@@ -42,7 +42,7 @@ Now that you understand policy concepts, you can use the Policy Insights resourc
 
 Before you get started, do the following:
 
-1. Install the [ARMClient](https://github.com/projectkudu/ARMClient) if you haven't already. It is one of many tools that makes it easy to send HTTP requests to ARM-based APIs.
+1. Install the [ARMClient](https://github.com/projectkudu/ARMClient) if you haven't already. It is one of many tools that makes it easy to send HTTP requests to Azure Resource Manager-based APIs.
 
 2. To ensure that your subscription works with the resource provider, register the Policy Insights resource provider. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the **Contributor** and **Owner** roles.
 
@@ -120,7 +120,7 @@ New-AzureRmPolicyAssignment -Name "Audit Storage Accounts Open to Public Network
 
     A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. In this example, you are assigning the policy definition to the _ContosoRG_ resource group.
 
-For more information about managing resource policies using the ARM PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies).
+For more information about managing resource policies using the Azure Resource Manager PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies).
 
 #### Create and assign a policy definition with REST API
 
