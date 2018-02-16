@@ -183,4 +183,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 In this quickstart, you created a Windows scale set with an Azure template and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets]()
+> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)

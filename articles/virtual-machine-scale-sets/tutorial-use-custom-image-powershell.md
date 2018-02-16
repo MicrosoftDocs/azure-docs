@@ -258,4 +258,4 @@ In this tutorial, you learned how to create and use a custom VM image for your s
 Advance to the next tutorial to learn how to deploy applications to your scale set.
 
 > [!div class="nextstepaction"]
-> [Deploy applications to your scale sets]()
+> [Deploy applications to your scale sets](tutorial-install-apps-powershell.md)
