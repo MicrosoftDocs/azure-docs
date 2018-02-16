@@ -337,7 +337,7 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 ## Monitor pipeline
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your Azure account.
-2. Click **Data factories** on the left menu (or) click **More services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
+2. Click **Data factories** on the left menu (or) click **All services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
    
     ![Data factories menu](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. In the **Data factories** page, search for and find your data factory (AzureBlobToAzureSQLDatabaseDF). 

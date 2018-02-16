@@ -29,7 +29,7 @@ When you create a SQL Server virtual machine, you can select one of several pre-
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 
-1. On the Azure portal, click **New**. The portal opens the **New** window.
+1. On the Azure portal, click **Create a resource**. The portal opens the **New** window.
 
 1. In the **New** window, click **Compute** and then click **See all**.
 
