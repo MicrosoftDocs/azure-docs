@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a Logic App
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Search for and select **Logic App**. Create a new resource group named **myResourceGroup** Use the default location. Click the **Create** button.
 

@@ -49,7 +49,7 @@ Following are the requirements for the Azure resources used in this scenario.
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. In the Azure portal, select **New**> **Internet of Things** > **Event Hubs**.
+1. In the Azure portal, select **Create a resource** > **Internet of Things** > **Event Hubs**.
 
    ![Marketplace new event hub](media/log-analytics-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
