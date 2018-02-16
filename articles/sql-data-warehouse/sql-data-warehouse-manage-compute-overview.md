@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 02/15/2018
+ms.date: 02/16/2018
 ms.author: elbutter
 
 ---
@@ -25,7 +25,7 @@ Learn about managing compute resources in Azure SQL Data Warehouse. The compute 
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
 
 ## Scaling compute
-You can scale out or scale back compute by adjusting the data warehouse units setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. SQL Data Warehouse offers service levels for data warehouse units that ensure a noticeable change in performance when you scale out or back. 
+You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. SQL Data Warehouse offers [service levels](performance-tiers.md#service-levels) for data warehouse units that ensure a noticeable change in performance when you scale out or back. 
 
 For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -51,13 +51,13 @@ The following table shows how the number of distributions per Compute node chang
 
 ## Finding the right size of data warehouse units
 
-To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1 TB data set. To find the best number of data warehouse units for your data warehouse, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less. 
+To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of data warehouse units for your data warehouse, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less. 
 
 Recommendations for finding the best number of data warehouse units:
 
 1. For a data warehouse in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400 or DW200.
 2. Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
-3. Assume a linear scale. Increase or decrease the number of data warehouse units in proportion to how much faster or slower you want your workload to perform. 
+3. Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units. 
 5. Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 ## When to scale out
@@ -74,38 +74,40 @@ Recommendations for when to scale out data warehouse units:
 
 ## What if scaling out does not improve performance?
 
-Adding data warehouse units increasing the parallelism. The additional parallelism improves query performance if the work is evenly split between the Compute nodes. If scaling out is not changing your performance, your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](sql-data-warehouse-troubleshoot.md#performance). 
+Adding data warehouse units increasing the parallelism. If the work is evenly split between the Compute nodes, the additional parallelism improves query performance. If scaling out is not changing your performance, there are some reasons why this might happen. Your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](sql-data-warehouse-troubleshoot.md#performance). 
 
 ## Pausing and resuming compute
 Pausing compute causes the storage layer to detach from the Compute nodes. The Compute resources are released from your account. You are not charged for compute while compute is paused. Resuming compute reattaches storage to the Compute nodes, and resumes charges for Compute.  
 
-When you pause a database:
+When you pause a data warehouse:
 
 * Compute and memory resources are returned to the pool of available resources in the data center
 * Data warehouse unit costs are zero for the duration of the pause.
 * Data storage is not affected and your data stays intact. 
 * SQL Data Warehouse cancels all running or queued operations.
 
-When you resume a database:
+When you resume a data warehouse:
 
 * SQL Data Warehouse acquires compute and memory resources for your data warehouse units setting.
 * Compute charges for your data warehouse units resume.
 * Your data becomes available.
-* You will need to restart your workload queries.
+* After the data warehouse is online, you need to restart your workload queries.
 
 For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
 
-## Checking the database state
-Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the database state through various endpoints allows you to correctly implement automation of such operations. 
+## Automating compute management
+To automate the compute management operations, see [Manage compute with Azure functions](manage-compute-with-azure-functions.md).
 
-To check the database state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) quickstart. You can also check the database state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the data warehouse state through various endpoints allows you to correctly implement automation of such operations. 
+
+To check the data warehouse state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) quickstart. You can also check the data warehouse state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## Permissions
 
-Scaling the database requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Pause and Resume require the [SQL DB Contributor](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
+Scaling the data warehouse requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Pause and Resume require the [SQL DB Contributor](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
 
 
 ## Next steps
-
+Another aspect of managing compute resources is allocating different compute resources for individual queries. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).
