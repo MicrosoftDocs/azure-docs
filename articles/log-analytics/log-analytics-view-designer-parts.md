@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Reference guide to View Designer visualization parts in Log Analytics
-By using View Designer in Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations from your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
+By using View Designer in Azure Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations from your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
 
 For more information about View Designer, see:
 
@@ -33,13 +33,13 @@ The available View Designer tile types are described in the following table:
 | View type | Description |
 |:--- |:--- |
 | [List of queries](#list-of-queries-part) |Displays a list of log search queries. You can select each query to display its results. |
-| [Number & list](#number-amp-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Two numbers & list](#two-numbers-amp-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Donut & list](#donut-amp-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
-| [Two timelines & list](#two-timelines-amp-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Number and list](#number-amp-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Two numbers and list](#two-numbers-amp-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Donut and list](#donut-amp-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
+| [Two timelines and list](#two-timelines-amp-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Information](#information-part) |The header displays static text and an optional link. The list displays one or more items with a static title and text. |
-| [Line chart, callout, & list](#line-chart-callout-amp-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Line chart & list](#line-chart-amp-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Line chart, callout, and list](#line-chart-callout-amp-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Line chart and list](#line-chart-amp-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Stack of line charts part](#stack-of-line-charts-part) |Displays three separate line charts, with multiple series from a log query over time. |
 
 The next sections describe the tile types and their properties in detail.
@@ -52,7 +52,7 @@ The list of queries part displays a list of log search queries. You can select e
 | Setting | Description |
 |:--- |:--- |
 | **General** | |
-| title |The text that's displayed at the top of the view. |
+| Title |The text that's displayed at the top of the view. |
 | New Group |Select this link to create a new group in the view, starting at the current view. |
 | Pre-selected filters |A comma-delimited list of properties to include in the left filter pane when you select a query. |
 | Render mode |The initial view that's displayed when the query is selected. You can select any available views after they open the query. |
@@ -60,7 +60,7 @@ The list of queries part displays a list of log search queries. You can select e
 | Search query |The query to run. |
 | Friendly name | The descriptive name that's displayed. |
 
-## Number & list part
+## Number and list part
 The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![List of queries view](media/log-analytics-view-designer/view-number-list.png)
@@ -80,7 +80,7 @@ The header displays a single number that shows a count of records from a log sea
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
-| Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
+| Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
@@ -88,7 +88,7 @@ The header displays a single number that shows a count of records from a log sea
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
-## Two Numbers & list part
+## Two numbers and list part
 The header has two numbers that display a count of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![Two Numbers & list view](media/log-analytics-view-designer/view-two-numbers-list.png)
@@ -109,7 +109,7 @@ The header has two numbers that display a count of records from separate log sea
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
-| Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
+| Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
@@ -117,7 +117,7 @@ The header has two numbers that display a count of records from separate log sea
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
-## Donut & list part
+## Donut and list part
 The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records.
 
 ![Donut & list view](media/log-analytics-view-designer/view-donut-list.png)
@@ -157,7 +157,7 @@ The header displays a single number that summarizes a value column in a log quer
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
-## Two timelines & list part
+## Two timelines and list part
 The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![Two timelines & list view](media/log-analytics-view-designer/view-two-timelines-list.png)
@@ -208,7 +208,7 @@ The header displays static text and an optional link. The list displays one or m
 | Title |The text that's displayed for the title of each item. |
 | Content |The text that's displayed for each item. |
 
-## Line chart, callout, & list part
+## Line chart, callout, and list part
 The header displays a line chart with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![Line chart, callout, & list view](media/log-analytics-view-designer/view-line-chart-callout-list.png)
@@ -239,7 +239,7 @@ The header displays a line chart with multiple series from a log query over time
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
-| Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
+| Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
@@ -247,10 +247,10 @@ The header displays a line chart with multiple series from a log query over time
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
-## Line chart & list part
+## Line chart and list part
 The header displays a line chart with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![Line chart & list view](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Line chart and list view](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -274,7 +274,7 @@ The header displays a line chart with multiple series from a log query over time
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
-| Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
+| Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
@@ -306,15 +306,15 @@ The stack of line chart displays three separate line charts, with multiple serie
 ## Common settings
 The following sections describe settings that are common to several visualization parts.
 
-### <a name="name-value-separator"></a>Name & value separator
-The name & value separator is the single-character delimiter to use to parse the text property from a list query into multiple values. If you specify a delimiter, you can provide names for each field, separated by the same delimiter in the **Name** box.
+### <a name="name-value-separator"></a>Name and value separator
+The name and value separator is the single-character delimiter to use to parse the text property from a list query into multiple values. If you specify a delimiter, you can provide names for each field, separated by the same delimiter in the **Name** box.
 
-For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name & value separator and *City-Building* for the Name. This approach parses each value into two properties called *City* and *Building*.
+For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
 ### <a name="navigation-query"></a>Navigation query
 The navigation query is the query to run when you select an item in the list. Use *{selected item}* to include the syntax for the item that the user selected.
 
-For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* would be run.
+For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run.
 
 ### <a name="sparklines"></a>Sparklines
 A sparkline is a small line chart that illustrates the value of a list entry over time. For visualization parts with a list, you can select whether to display a horizontal bar, which indicates the relative value of a numeric column, or a sparkline, which indicates its value over time.
@@ -340,7 +340,7 @@ The following table describes the settings for thresholds:
 | Enable Thresholds |Select this link to display a color icon at the left of each value. The icon indicates the value's health relative to specified thresholds. |
 | Name |The name of the threshold value. |
 | Threshold |The value for the threshold. The health color for each list item is set to the color of the highest threshold value that's exceeded by the item's value. If no threshold values are exceeded, a default color is used. |
-| Color |The color for the threshold value. |
+| Color |The color that indicates the threshold value. |
 
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to support the queries in visualization parts.
