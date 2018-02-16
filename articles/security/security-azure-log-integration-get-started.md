@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/14/2018
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
 
@@ -23,10 +23,10 @@ ms.custom: azlog
 Azure Log Integration (AzLog) provides customers with an alternative in the event that an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is not available from their SIEM vendor. Azure Log integration makes Azure logs available to your SIEM and enables you to create a unified security dashboard for all your assets.
 
 >[!NOTE]
-For more information on Azure Monitor, you can review [Get started with Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) For more information on the status of an Azure monitor connector contact your SIEM vendor.
+>For more information on Azure Monitor, you can review [Get started with Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) For more information on the status of an Azure monitor connector contact your SIEM vendor.
 
-[!IMPORTANT]
-If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution. Using the SIEM vendor's connector should always be the preferred alternative.
+>[!IMPORTANT]
+>If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution. Using the SIEM vendor's connector should always be the preferred alternative.
 
 This article helps you get started with Azure Log Integration by focusing on the installation of the AzLog service and integrating the service with Azure Diagnostics. The Azure Log Integration service will then be able to collect Windows Event Log information from the Windows Security Event Channel from virtual machines deployed in Azure IaaS. This is similar to “Event Forwarding” that you may have used on-premises.
 
@@ -69,7 +69,7 @@ During testing you can use any system that meets the minimum operating system re
 You can run multiple instances of the Azure Log Integration service. This is limited to one instance per physical or virtual machine. In addition, you can load balance Azure Diagnostics storage accounts for Windows (WAD) and the number of subscriptions to provide to the instances should be based on your capacity.
 
 >[!NOTE]
-At this time, we do not have specific recommendations for when to scale out instances of Azure log integration machines (that is, machines that are running the Azure log integration service), or for storage accounts or subscriptions. Scaling decisions should be based on your performance observations in each of these areas.
+>At this time, we do not have specific recommendations for when to scale out instances of Azure log integration machines (that is, machines that are running the Azure log integration service), or for storage accounts or subscriptions. Scaling decisions should be based on your performance observations in each of these areas.
 
 You also have the option to scale up the Azure Log Integration service to help improve performance. The following performance metrics can help you in sizing the machines that you choose to run the Azure log integration service:
 
@@ -82,7 +82,6 @@ To install Azure Log Integration, you need to download the [Azure log integratio
 
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/telemetry.png)
 
-*
 > [!NOTE]
 > We recommend that you allow Microsoft to collect telemetry data. You can turn off collection of telemetry data by unchecking this option.
 >
@@ -106,27 +105,27 @@ The installation process is covered in the video below.
 After completing the basic setup routine, you're ready step to perform post installation and validation steps:
 
 1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
-2. The first step you need to take is to get the AzLog Cmdlets imported. You can do that by running the script **LoadAzlogModule.ps1** (notice the “.\” in the following command). Type **.\LoadAzlogModule.ps1** and press **ENTER. You should see something like what appears in the figure below. </br></br>
+2. The first step you need to take is to get the AzLog Cmdlets imported. You can do that by running the script **LoadAzlogModule.ps1** (notice the “.\” in the following command). Type **.\LoadAzlogModule.ps1** and press **ENTER**. You should see something like what appears in the figure below. </br></br>
 ![Installation Screen with telemetry box checked](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
 3. Now you need to configure AzLog to use a specific Azure environment. An “Azure environment” is the “type” of Azure cloud data center you want to work with. While there are several Azure environments at this time, the currently relevant options are either **AzureCloud** or **AzureUSGovernment**.   In your elevated PowerShell environment, make sure that you are in **c:\program files\Microsoft Azure Log Integration\** </br></br>
     Once there, run the command: </br>
     ``Set-AzlogAzureEnvironment -Name AzureCloud`` (for Azure commercial)
 
       >[!NOTE]
-      When the command succeeds, you will not receive any feedback.  If you want to use the US Government Azure cloud, you would use **AzureUSGovernment** (for the -Name variable) for the USA government cloud. Other Azure clouds are not supported at this time.  
+      >When the command succeeds, you will not receive any feedback.  If you want to use the US Government Azure cloud, you would use **AzureUSGovernment** (for the -Name variable) for the USA government cloud. Other Azure clouds are not supported at this time.  
 4. Before you can monitor a system you need the name of the storage account in use for Azure Diagnostics.  In the Azure portal navigate to **Virtual machines** and look for the virtual machine that you monitor. In the **Properties** section, choose **Diagnostic Settings**.  Click on **Agent** and make note of the storage account name specified. You need this account name for a later step.
 ![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/storage-account-large.png) </br></br>
 
       ![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
       >[!NOTE]
-      If Monitoring was not enabled during virtual machine creation, you will be given the option to enable it as shown above.
+      >If Monitoring was not enabled during virtual machine creation, you will be given the option to enable it as shown above.
 5. Now we’ll switch our attention back to the Azure log integration machine. We need to verify that you have connectivity to the Storage Account from the system where you installed Azure Log Integration. The computer running the Azure Log Integration service needs access to the storage account to retrieve information logged by Azure Diagnostics as configured on each of the monitored systems.  
     a. You can download Azure Storage Explorer [here](http://storageexplorer.com/).
     b. Run through the setup routine
     c. Once the installation completes click **Next** and leave the check box **Launch Microsoft Azure Storage Explorer** checked.  
     d. Log in to Azure.
-    e. Verify that you can see the storage account that you configured for Azure Diagnostics.  
-![Storage accounts](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
+    e. Verify that you can see the storage account that you configured for Azure Diagnostics. 
+        ![Storage accounts](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
    6. Notice that there are a few options under storage accounts. One of them is **Tables**. Under **Tables** you should see one called **WADWindowsEventLogsTable**. </br></br>
    ![Storage accounts](./media/security-azure-log-integration-get-started/storage-explorer.png) </br>
 
@@ -161,10 +160,11 @@ If you would like the subscription ID to show up in the event XML, append the su
 ``Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`` or for example, ``Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``
 
 >[!NOTE]
-Wait up to 60 minutes, then view the events that are pulled from the storage account. To view, open **Event Viewer > Windows Logs > Forwarded Events** on the AzLog Integrator.
+>Wait up to 60 minutes, then view the events that are pulled from the storage account. To view, open **Event Viewer > Windows Logs > Forwarded Events** on the AzLog Integrator.
 
 Here you can see a video going over the steps covered above.
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
 
 
 ## What if data is not showing up in the Forwarded Events folder?

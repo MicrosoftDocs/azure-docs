@@ -24,8 +24,8 @@ Azure log integration enables you to integrate raw logs from your Azure resource
 
 The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
-[!IMPORTANT]
-If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution. Using the SIEM vendor's connector should always be the preferred alternative.
+>[!IMPORTANT]
+>If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution. Using the SIEM vendor's connector should always be the preferred alternative.
 
 Azure log integration collects Windows events from Windows Event Viewer logs, [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md), and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration helps your SIEM solution provide a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
@@ -52,8 +52,9 @@ If there are no other options available, Azure Log Integration may be considered
 |**IBM QRADAR** | Migrate to or begin using the QRadar connector documented at the end of http://aka.ms/azmoneventhub | Use the QRadar connector documented at the end of http://aka.ms/azmoneventhub  |
 |**ARCSIGHT** | Continue to use the Log Integrator until a connector is available, then migrate to the connector-based solution.  | Consider Azure Log Analytics as an alternative. Do not onboard to Azure Log Integration unless you are willing to go through the migration process when the connector becomes available. |
 
-[!NOTE]
-While Azure Log Integration is a free solution, there are Azure storage costs resulting from the log file information storage.
+>[!NOTE]
+>While Azure Log Integration is a free solution, there are Azure storage costs resulting from the log file information storage.
+
 If you need assistance you can open a [support request](../azure-supportability/how-to-create-azure-support-request.md). To do this, select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
