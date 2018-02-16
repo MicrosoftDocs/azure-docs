@@ -24,8 +24,8 @@ ms.custom: mvc
 
 ## Prerequisites
 
-* Understanding of docker and docker images
-* Understanding of Go lang
+* Understanding of Docker and Docker images
+* Understanding of Go Programming Language
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
