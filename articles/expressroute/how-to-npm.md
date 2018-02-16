@@ -211,13 +211,13 @@ The NPM page contains a page for ExpressRoute that shows an overview of the heal
 
   ![Dashboard](.\media\how-to-npm\dashboard.png)
 
-### <a name="circuits"></a>Circuits list
+### <a name="circuits"></a>List of circuits
 
 To see a list of all monitored ExpressRoute circuits, click on the **ExpressRoute circuits** tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. You can drag the mouse over an area on the chart to zoom in and see fine-grained data points.
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Trend of Loss, Latency, and Throughput
+#### <a name="trend"></a>Trend of Loss, Latency and Throughput
 
 The bandwidth, latency, and loss charts are interactive. You can zoom into any section of these charts, using mouse controls. You can also see the bandwidth, latency, and loss data for other intervals by clicking **Date/Time**, located below the Actions button on the upper left.
 
