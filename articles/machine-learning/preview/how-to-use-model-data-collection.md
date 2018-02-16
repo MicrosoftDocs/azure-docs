@@ -84,7 +84,7 @@ To use model data collection, make the following changes to your scoring file:
 To view the collected data in blob storage:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **More Services**.
+2. Select **All Services**.
 3. In the search box, type **Storage accounts** and select the Enter key.
 4. From the **Storage accounts** search blade, select the **Storage account** resource. To determine your storage account, use the following steps:
 

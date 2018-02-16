@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2018
+ms.date: 02/16/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
@@ -283,7 +283,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-neotalogicstudio-tutorial.png)| [Neota Logic Studio](active-directory-saas-neotalogicstudio-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-netdocuments-tutorial.png)| [NetDocuments](active-directory-saas-netdocuments-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-netsuite-tutorial.png)| [Netsuite](active-directory-saas-netsuite-tutorial.md)|[Netsuite - User Provisioning](active-directory-saas-netsuite-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-new-relic-tutorial.png)| [New Relic](active-directory-saas-new-relic-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nexonia-tutorial.png)| [Nexonia](active-directory-saas-nexonia-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nomadesk-tutorial.png)| [Nomadesk](active-directory-saas-nomadesk-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nomadic-tutorial.png)| [Nomadic](active-directory-saas-nomadic-tutorial.md)|
@@ -473,6 +472,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscalerprivateaccessadministrator-tutorial.png)| [Zscaler Private Access Administrator](active-directory-saas-zscalerprivateaccessadministrator-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](active-directory-saas-zscaler-two-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](active-directory-saas-zscaler-zscloud-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zwayamsso-tutorial.png)| [ZwayamSSO](active-directory-saas-zwayamsso-tutorial.md)|
 
 
 

@@ -55,7 +55,7 @@ The App Service plan is a container of apps. When you create an app in App Servi
 
 To create an ASE while you create an App Service plan:
 
-1. In the [Azure portal](https://portal.azure.com/), select **New** > **Web + Mobile** > **Web App**.
+1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Web + Mobile** > **Web App**.
 
     ![Web app creation][1]
 
@@ -93,7 +93,7 @@ To create an ASE while you create an App Service plan:
 
 If you create an ASE standalone, it has nothing in it. An empty ASE still incurs a monthly charge for the infrastructure. Follow these steps to create an ASE with an ILB or to create an ASE in its own resource group. After you create your ASE, you can create apps in it by using the normal process. Select your new ASE as the location.
 
-1. Search the Azure Marketplace for **App Service Environment**, or select **New** > **Web Mobile** > **App Service Environment**. 
+1. Search the Azure Marketplace for **App Service Environment**, or select **Create a resource** > **Web Mobile** > **App Service Environment**. 
 
 2. Enter the name of your ASE. This name is used for the apps created in the ASE. If the name is *mynewdemoase*, the subdomain name is *.mynewdemoase.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.mynewdemoase.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of the name. If you use an ILB, your ASE name isn't used in your subdomain but is instead explicitly stated during ASE creation.
 
