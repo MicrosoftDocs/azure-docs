@@ -1,15 +1,14 @@
 
 # [Azure Security Documentation](index.md)
 # [Architecture and design](azure-security.md)
-## [Isolation in the Azure cloud](azure-isolation.md)
-## [Azure logging and auditing](azure-log-audit.md)
-## [Security technical capabilities](azure-security-technical-capabilities.md)
-## [Azure network security](azure-network-security.md)
-## [Secure hybrid network architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
-## [Enabling operational security](azure-operational-security.md)
 ## [Advanced threat detection](azure-threat-detection.md)
+## [Azure logging and auditing](azure-log-audit.md)
+## [Azure network security](azure-network-security.md)
+## [Enabling operational security](azure-operational-security.md)
 ## [Governance in Azure](governance-in-azure.md)
-
+## [Isolation in the Azure cloud](azure-isolation.md)
+## [Secure hybrid network architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Security technical capabilities](azure-security-technical-capabilities.md)
 
 # [Data security and encryption](security-azure-encryption-overview.md)
 ## [Database security](azure-database-security-overview.md)
@@ -42,8 +41,6 @@
 ### [Azure App Service for PaaS](security-paas-applications-using-app-services.md)
 ### [Azure Storage for PaaS](security-paas-applications-using-storage.md)
 ### [DB best practices for PaaS](security-paas-applications-using-sql.md)
-#### [SQL DB best practices](azure-database-security-best-practices.md)
-#### [SQL DB checklist](azure-database-security-checklist.md)
 ### [IoT](security-internet-of-things-overview.md)
 #### [IoT security best practices](../iot-suite/iot-security-best-practices.md)
 #### [IoT security](../iot-suite/iot-security-architecture.md#security-in-iot)
@@ -56,7 +53,6 @@
 # [Monitoring, auditing, and operations](security-management-and-monitoring-overview.md)
 ## Auditing and logging
 ### [Security management](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Remote management security](azure-security-management.md)
 ### Azure log integration
 #### [Introduction](security-azure-log-integration-overview.md)
@@ -122,10 +118,9 @@
 # [Best practices](security-best-practices-and-patterns.md)
 
 # Resources
-## [Azure roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
-## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Log a security event support ticket](azure-security-event-support-ticket.md)
 ## [Pen testing](azure-security-pen-testing.md)
 ## [Microsoft Threat Modeling tool](azure-security-threat-modeling-tool.md)
@@ -144,20 +139,4 @@
 #### [Sensitive data](azure-security-threat-modeling-tool-sensitive-data.md)
 #### [Session management](azure-security-threat-modeling-tool-session-management.md)
 
-<!--- # Not accounted for in this TOC
 
-## [Security services and technologies](azure-security-services-technologies.md) compare to tom's new page.
-### [Data classification](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
-### [Disaster recovery and high availability for applications built on Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Trust Center](security-microsoft-trust-center.md)
-## [Microsoft Security Response Center](azure-security-response-center.md)
-## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Key Vault](../key-vault/key-vault-whatis.md)
-## [Log Analytics](../log-analytics/log-analytics-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
-## [Azure Active Directory](../active-directory/active-directory-whatis.md)
-## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
-## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
-## [Security videos on Channel 9](security-channel-nine.md)
---->
