@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
-ms.author: chwolf
+ms.author: sethm
 
 ---
 # Azure Service Bus to Azure Event Grid integration
 
 ## Feature Overview
 
-Azure Service Bus launched a new integration to Azure Event Grid. The key scenario this feature enables is that Service Bus Queues or Subscriptions that have a very low volume of messages, do not have to have a receiver polling for messages at all times. Service Bus will now send events to Azure Event Grid when there are messages in a Queue or Subscription if no receivers are present. You can create Azure Event Grid subscriptions to your Service Bus namespaces and listen to these events and react to the events by starting a receiver. With this feature, Service Bus can be used in reactive programming models.
+Azure Service Bus launched a new integration to Azure Event Grid. The key scenario this feature enables is that Service Bus Queues or Subscriptions that have a low volume of messages, do not have to have a receiver polling for messages at all times. Service Bus can now emit events to Azure Event Grid when there are messages in a Queue or Subscription when no receivers are present. You can create Azure Event Grid subscriptions to your Service Bus namespaces and listen to these events and react to the events by starting a receiver. With this feature, Service Bus can be used in reactive programming models.
 
-To enable the feature you need the following:
+To enable the feature, you need the following things:
 
-1. An Azure Service Bus Premium namespace with at least one Queue or a Topic with at least one Subscription.
+1. An Azure Service Bus Premium namespace with at least one Service Bus Queue or a Service Bus Topic with at least one Subscription.
 2. Contributor access to the Azure Service Bus Namespace.
-3. Additionally, you will need an Azure Event Grid subscription for the Service Bus Namespace. This subscription is getting the notification from Azure Event Grid that there are messages to be picked up. Typical subscribers could be Logic Apps, Azure Functions or a Web Hook contacting a Web App which then process the messages. 
+3. Additionally, you need an Azure Event Grid subscription for the Service Bus Namespace. This subscription is getting the notification from Azure Event Grid that there are messages to be picked up. Typical subscribers could be Logic Apps, Azure Functions, or a Web Hook contacting a Web App, which then process the messages. 
 
 ![19][]
 
 ### Verify that you have contributor access
 
-Navigate to your Service Bus Namesspace and select "Access control (IAM)" as shown below:
+Navigate to your Service Bus Namespace and select "Access control (IAM)" as shown below:
 
 ![1][]
 
@@ -46,7 +46,7 @@ Azure Service Bus today sends events for two scenarios.
 
 Additionally it uses the standard Azure Event Grid Security and [authentication mechanisms](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
 
-To get more details on Event Grid Event Schemas please follow [this](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) link.
+To get more details on Event Grid Event Schemas, follow [this](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) link.
 
 #### Active Messages Available Event
 
@@ -76,7 +76,7 @@ The schema for this Event is as follows:
 
 #### Dead lettered Messages Available Event
 
-You will get at least one event per Dead Letter Queue which has messages and no active receivers.
+You get at least one event per Dead Letter Queue, which has messages and no active receivers.
 
 The schema for this Event is as follows:
 
@@ -102,37 +102,37 @@ The schema for this Event is as follows:
 
 ### How often and how many events are emitted?
 
-If you have multiple Queues and Topics / Subscriptions in the namespace you will get at least one event per Queue and one per Subscription. The events will be emitted immediately if there is no messages in the Service Bus entity and a new message arrives or every 2 minutes unless Azure Service Bus detects an active receiver. Message browsing will not interrupt the events.
+If you have multiple Queues and Topics / Subscriptions in the namespace, you get at least one event per Queue and one per Subscription. The events are emitted immediately if there is no messages in the Service Bus entity and a new message arrives or every two minutes unless Azure Service Bus detects an active receiver. Message browsing does not interrupt the events.
 
-By default Azure Service Bus emits events for all entities in the namespace. If you want to get events for specific entities only, please see the filtering section below.
+By default Azure Service Bus emits events for all entities in the namespace. If you want to get events for specific entities only,  see the following filtering section.
 
 ### Filtering, limiting from where you get events
 
-If you want to get events only for e.g. one Queue or one Subscription within your namespace, you can use the "Begins with" or "Ends with" filters provided by Azure Event Grid. In some interfaces the filters are called “Pre” and “Suffix” filters. If you would want to get events for multiple but not all Queues and Subscriptions you can create multiple different Azure Event Grid Subscriptions and provide a filter for each.
+If you want to get events only for e.g. one Queue or one Subscription within your namespace, you can use the "Begins with" or "Ends with" filters provided by Azure Event Grid. In some interfaces, the filters are called “Pre” and “Suffix” filters. If you would want to get events for multiple but not all Queues and Subscriptions, you can create multiple different Azure Event Grid Subscriptions and provide a filter for each.
 
 ## How to create Azure Event Grid Subscriptions for Service Bus Namespaces
 
 There are three different ways of creating Event Grid Subscriptions for Service Bus Namespaces.
 
-1. [The Azure Portal](#1-portal-instructions)
+1. [The Azure portal](#1-portal-instructions)
 2. [Azure CLI](#2-azure-cli-instructions)
 3. [PowerShell](#3-powershell-instructions)
 
 ## 1. Portal instructions
 
-To create a new Azure Event Grid subscription navigate to your namespace in the Azure Portal and select the Event Grid blade. Click on “+ Event Subscription” Below shows a namespace which already has a few Event Grid subscriptions.
+To create a new Azure Event Grid subscription, navigate to your namespace in the Azure portal and select the Event Grid blade. Click on “+ Event Subscription” Below shows a namespace, which already has a few Event Grid subscriptions.
 
 ![20][]
 
-Below is a sample for how to subscribe to an Azure Function or a Web Hook without any specific filtering:
+The following screenshot shows a sample for how to subscribe to an Azure Function or a Web Hook without any specific filtering:
 
 ![21][]
 
 ## 2. Azure CLI instructions
 
-First make sure you have at least Azure CLI version 2.0 installed. You can download the installer here. Then press “Windows + X” and open a new PowerShell console with Administrator permissions. Alternatively you can also use a command shell within the Azure Portal.
+First make sure you have at least Azure CLI version 2.0 installed. You can download the installer here. Then press “Windows + X” and open a new PowerShell console with Administrator permissions. Alternatively you can also use a command shell within the Azure portal.
 
-Execute the below code:
+Execute the following code:
 
 ```PowerShell
 Az login
@@ -146,7 +146,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## 3. PowerShell instructions
 
-Make sure you have Azure PowerShell installed. You can find it here. Then press “Windows + X” and open a new PowerShell console with Administrator permissions. Alternatively you can also use a command shell within the Azure Portal.
+Make sure you have Azure PowerShell installed. You can find it here. Then press “Windows + X” and open a new PowerShell console with Administrator permissions. Alternatively you can also use a command shell within the Azure portal.
 
 ```PowerShell
 Login-AzureRmAccount
@@ -162,7 +162,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-From here you can explore the other setup options or [test that events are flowing](#test-that-events-are-flowing).
+From here, you can explore the other setup options or [test that events are flowing](#test-that-events-are-flowing).
 
 ## Next steps
 
