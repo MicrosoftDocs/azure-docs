@@ -31,7 +31,6 @@
 ## [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 
 # How-to guides
-## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
