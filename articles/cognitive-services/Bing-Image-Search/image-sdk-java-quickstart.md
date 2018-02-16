@@ -156,7 +156,7 @@ public static void imageSearch(String subscriptionKey)
 }
 
 ```
-Search search images for "Gibraltar", filtered for animated gifs and wide aspect.  Verify number of results, and print out `insightsToken`, `thumbnailUrl` and `webUrl` of first result:
+Search search images for "Gibraltar", filtered for animated gifs and wide aspect.  Verify number of results. Print out `insightsToken`, `thumbnailUrl`, and `webUrl` of first result:
 ```
 public static void imageSearchWithFilters(String subscriptionKey)
 {
@@ -252,12 +252,8 @@ public static void imageTrending(String subscriptionKey)
 }
 
 ```
-Search images for "Degas" and then search for image `details` of the first image.
+Search images for "Degas", and then search for image `details` of the first image.
 ```
-/**
- * This will search images for (degas) and then search for image details of the first image
- * @param subscriptionKey cognitive services subscription key
- */
 public static void imageDetail(String subscriptionKey)
 {
     ImageSearchAPIImpl client = ImageSrchSDK.getClient(subscriptionKey);
