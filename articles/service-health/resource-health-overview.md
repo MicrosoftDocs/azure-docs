@@ -60,6 +60,12 @@ This health status indicates that resource health has not received information a
 
 ![Resource health Unknown virtual machine](./media/resource-health-overview/Unknown.png)
 
+### Degraded
+This health status indicates that your resource has detected a loss in performance, although it is still available for usage.
+Different resources have their own criteria for when they specify a resource is degraded.
+
+![Resource health Degraded virtual machine](./media/resource-health-overview/degraded.png)
+
 ## Report an incorrect status
 If at any point you believe the current health status is incorrect, you can let us know by clicking **Report incorrect health status**. In cases where you are impacted by an Azure problem, we encourage you to contact support from the resource health blade. 
 
