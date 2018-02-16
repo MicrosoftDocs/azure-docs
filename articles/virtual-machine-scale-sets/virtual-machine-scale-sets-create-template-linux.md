@@ -175,4 +175,4 @@ az group delete --name myResourceGroup
 In this quickstart, you created a Linux scale set with an Azure template and used the Custom Script Extension to install a basic Python web server on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets]()
+> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-cli.md)
