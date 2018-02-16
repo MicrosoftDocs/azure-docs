@@ -53,6 +53,13 @@ C:\> Add-AzureRmManagementGroup -GroupName <YourGroupName> -DisplayName "<YourDi
 ``` 
 Use the **ParentId** parameter to have this management group be created under a different management.  
 
+# [Azure CLI](*tab/azure-cli)
+On Azure CLI, you use the **az account management-group create command. 
+
+```azure-cli
+C:\ az account management-group create --group-name <YourGroupName>
+``` 
+
 ---
 
 ## Next steps 
