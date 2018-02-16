@@ -41,7 +41,7 @@ This article covers the Resource Manager deployment model. You can also [manage 
 The sample steps below expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-pportal.md).
 
 ## How to create a VM for testing static private IP addresses
-You cannot set a static private IP address during the creation of a VM in the Resource Manager deployment mode by using the Azure portal. You must create the VM first, tehn set its private IP to be static.
+You cannot set a static private IP address during the creation of a VM in the Resource Manager deployment mode by using the Azure portal. You must create the VM first, then set its private IP to be static.
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*, follow the steps below.
 
@@ -58,7 +58,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 5. In the **Choose a size** blade, select **A1 Standard**, and then click **Select**.
    
     ![Choose a size blade](./media/virtual-networks-static-ip-arm-pportal/figure04.png)    
-6. In teh **Settings** blade, make sure the following properties are set are set with the values below, and then click **OK**.
+6. In the **Settings** blade, make sure the following properties are set are set with the values below, and then click **OK**.
    
     -**Storage account**: *vnetstorage*
    
@@ -81,7 +81,7 @@ To view the static private IP address information for the VM created with the st
     ![Deploying VM tile](./media/virtual-networks-static-ip-arm-pportal/figure08.png)
 
 ## How to add a static private IP address to an existing VM
-To add a static private IP address to the VM created using the steps above, follow the steps below:
+Network connection properties, such as DNS server IP addresses, should not be edited directly within Windows VMs as they may get erased during service heal, when the virtual network adaptor gets replaced, and cause VM connectivity/RDP issues. To add a static private IP address to the VM created using the steps above, follow the steps below:
 
 1. From the **IP addresses** blade shown above, click **Static** under **Assignment**.
 2. Type *192.168.1.101* for **IP address**, and then click **Save**.
