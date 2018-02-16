@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Reference guide to View Designer tiles in Log Analytics
-By using View Designer in Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations in your Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
+By using View Designer in Azure Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations in your Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
 
 For more information about View Designer, see:
 
@@ -35,7 +35,7 @@ The available View Designer tiles are described in the following table:
 | [Number](#number-tile) |The count of records from a query. |
 | [Two numbers](#two-numbers-tile) |The counts of records from two different queries. |
 | [Donut](#donut-tile) | A chart that's based on a query, with a summary value in the center. |
-| [Line chart & callout](#line-chart-amp-callout-tile) | A line chart that's based on a query, and a callout with a summary value. |
+| [Line chart and callout](#line-chart-amp-callout-tile) | A line chart that's based on a query, and a callout with a summary value. |
 | [Line chart](#line-chart-tile) |A line chart that's based on a query. |
 | [Two timelines](#two-timelines-tile) | A column chart with two series, each based on a separate query. |
 
@@ -107,7 +107,7 @@ The **Donut** tile displays a single number that summarizes a value column in a 
 ## Line chart tile
 This tile is a line chart that displays multiple series from a log query over time. 
 
-![Line chart & callout tile](media/log-analytics-view-designer/tile-line-chart.png)
+![Line chart and callout tile](media/log-analytics-view-designer/tile-line-chart.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -125,10 +125,10 @@ This tile is a line chart that displays multiple series from a log query over ti
 | Message |The message that's displayed if the data-flow verification query returns no data. If you provide no message, a *Performing Assessment* status message is displayed. |
 
 
-## Line chart & callout tile
+## Line chart and callout tile
 This tile has both a line chart that displays multiple series from a log query over time and a callout with a summarized value. 
 
-![Line chart & callout tile](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Line chart and callout tile](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
 | Setting | Description |
 |:--- |:--- |
