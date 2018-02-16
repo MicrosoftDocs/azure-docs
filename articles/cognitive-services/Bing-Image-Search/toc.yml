@@ -30,6 +30,8 @@
     href: image-search-sdk-quickstart.md
   - name: Image search SDK Node.js quickstart (preview)
     href: image-search-sdk-node-quickstart.md
+  - name: Image Search SDK Python quickstart (preview)
+    href: image-sdk-python-quickstart.md
 - name: How To Guides
   items:
   - name: Use and display results
