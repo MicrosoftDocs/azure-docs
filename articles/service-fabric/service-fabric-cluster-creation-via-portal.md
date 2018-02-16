@@ -80,7 +80,7 @@ Creating a production cluster to meet your application needs involves some plann
 ![search for Service Fabric cluster template on the Azure portal.][SearchforServiceFabricClusterTemplate]
 
 1. Sign in to the [Azure portal][azure-portal].
-2. Click **New** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
+2. Click **Create a resource** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
 3. Select **Service Fabric Cluster** from the list.
 4. Navigate to the **Service Fabric Cluster** blade, click **Create**,
 5. The **Create Service Fabric cluster** blade has the following four steps:

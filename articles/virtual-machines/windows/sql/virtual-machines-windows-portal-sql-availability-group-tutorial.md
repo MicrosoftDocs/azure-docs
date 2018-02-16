@@ -4,7 +4,7 @@ description: "This tutorial shows how to create a SQL Server Always On Availabil
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 
