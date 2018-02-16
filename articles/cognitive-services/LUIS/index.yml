@@ -40,7 +40,13 @@ sections:
       - image:
           src: media/index/logo_ruby.svg
     rows:
-      - title: Create a LUIS app
+      - title: Create app with intents
+        values:
+        - href: luis-quickstart-intents-only
+      - title: Create app with intents and entities
+        values:
+        - href: luis-quickstart-primary-and-secondary-data
+      - title: Create app from Prebuilt domain
         values:
         - href: luis-get-started-create-app
       - title: Endpoint API
@@ -86,7 +92,7 @@ sections:
     - title: SDKs
       html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
     - title: Package Managers
-      html: <p><a href="https://www.npmjs.com/package/botframework-luis"> NPM</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Bot.Builder.Ai/"> NuGet</a></p>
+      html: <p><a href="https://aka.ms/bf-v4-NPM-package"> NPM</a></p><p><a href="https://aka.ms/bf-v4-nuget-package">NuGet</a></p>
     - title: Code Samples
       html: <p><a href="https://aka.ms/luis-code-samples"> Code Samples</a></p>
       
