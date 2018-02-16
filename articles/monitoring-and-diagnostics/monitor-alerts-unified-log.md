@@ -13,16 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
 
 ---
 # Log alerts in Azure Monitor - Alerts (Preview)
 This article provides details of how alert rules in Analytics queries work in Azure Alerts (Preview) and describes the differences between different types of log alert rules.
-Currently Azure Alerts (Preview), only supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) written in [new Log Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md)
+
+Currently Azure Alerts (Preview), supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Azure Alerts (Preview) - Log Alerts, currently doesn't support cross-workspace or cross-app queries. 
+
+> Currently, log alerts in Azure Alerts (Preview) doesn't support cross-workspace or cross-app queries.
 
 ## Log Alert rules
 
@@ -67,7 +69,16 @@ In some cases, you may want to create an alert in the absence of an event.  For 
 
 **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval.
 
+> [!NOTE]
+
+> Aggregate function in query must be named/called: AggregatedValue and provide a numeric value.
+
+
 **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**   
+
+> [!NOTE]
+
+> For Metric measurement alert rules that are based on Application Insights, you can specify the field for grouping the data. To do this, use the **Aggregate on** option in the rule definition.   
 
 **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time window specified for the alert.
 
@@ -90,6 +101,6 @@ In this example, separate alerts would be created for srv02 and srv03 since they
 
 
 ## Next steps
-* [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified-alerts.md) 
+* [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified-alerts.md)
 * Learn about [Using Azure Alerts (preview)](monitor-alerts-unified-usage.md)
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    

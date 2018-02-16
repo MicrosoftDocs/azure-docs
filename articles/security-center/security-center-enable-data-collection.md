@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/12/2018
 ms.author: terrylan
 
 ---
@@ -76,7 +76,7 @@ To select an existing Log Analytics workspace:
 Security Center can reduce the volume of events while maintaining enough events for investigation, auditing, and threat detection. You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be collected by the agent.
 
 - **All events** – For customers who want to make sure all events are collected. This is the default.
-- **Common** – This is a set of events that satisfies most customers and allows them a full audit trial.
+- **Common** – This is a set of events that satisfies most customers and allows them a full audit trail.
 - **Minimal** – A smaller set of events for customers who want to minimize the event volume.
 - **None** – Disable security event collection from security and App Locker logs. For customers who choose this option, their security dashboards have only Windows Firewall logs and proactive assessments like antimalware, baseline, and update.
 
@@ -87,7 +87,7 @@ Security Center can reduce the volume of events while maintaining enough events 
 
 To determine the events that will belong to the **Common** and **Minimal** event sets, we worked with customers and industry standards to learn about the unfiltered frequency of each event and their usage. We used the following guidelines in this process:
 
-- **Minimal** - Make sure that this set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain logout which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688, see Security Center's [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled) for more information on process creation event 4688).
+- **Minimal** - Make sure that this set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain logout which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
 - **Common** - Provide a full user audit trail in this set. For example, this set contains both user logins and user logoff (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
 
 Events that have very low volume were included in the Common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
@@ -105,6 +105,11 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 | | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
 | | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). For more information about these audit policies, see [Audit Policy Recommendations](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
 
 To choose your filtering policy:
 1. On the **Security policy & settings** blade, select your filtering policy under **Security Events**.
