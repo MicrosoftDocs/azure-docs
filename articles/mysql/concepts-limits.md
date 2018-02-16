@@ -20,7 +20,7 @@ There is a maximum number of connections, Compute Units, and storage in each ser
 
 |**Pricing Tier**| **Compute Generation**|**vCore(s)**| **Max Connections**|
 |---|---|---|---|
-|Basic| Gen 4| 1| 200|
+|Basic| Gen 4| 1| 50|
 |Basic| Gen 4| 2| 100|
 |Basic| Gen 5| 1| 50|
 |Basic| Gen 5| 2| 100|
