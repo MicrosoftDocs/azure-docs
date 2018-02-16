@@ -194,7 +194,7 @@ Now you're ready to create the real-time web service.
    * `-n`: The app name, which must be all lowercase.
    * `-f`: The scoring script file name.
    * `--model-file`: The model file. In this case, it's the pickled model.pkl file.
-   * `-r`: The type of model. In this case, it's a Python model.
+   * `-r`: The runtime of the model. In this case, it's a Python model. Valid runtimes are `python` and `spark-py`.
    * `--collect-model-data true`: This enables data collection.
    * `-c`: Path to the conda dependencies file where additional packages are specified.
 
@@ -281,7 +281,7 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Locate your storage accounts. To do so, select **More Services**.
+2. Locate your storage accounts. To do so, select **All Services**.
 
 3. In the search box, enter **Storage accounts**, and then select **Enter**.
 
