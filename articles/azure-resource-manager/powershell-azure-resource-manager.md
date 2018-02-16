@@ -209,8 +209,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## Next steps
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
-* To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
+* To learn about monitoring your virtual machines, see [Monitor and update a Windows Virtual Machine with Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
+* To learn about using Azure Security Center to implement recommended security practices, [Monitor virtual machine security by using Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
-

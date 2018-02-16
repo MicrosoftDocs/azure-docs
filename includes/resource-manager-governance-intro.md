@@ -12,4 +12,4 @@ This article addresses those questions. Specifically, you:
 * Apply policies that prescribe conventions for resources in your subscription.
 * Lock resources that are critical to your system.
 
-This article focuses on the tasks you take to implement governance. For a broader discussion of the concepts, see [Governance in Azure](../security/governance-in-azure.md). 
+This article focuses on the tasks you take to implement governance. For a broader discussion of the concepts, see [Governance in Azure](../articles/security/governance-in-azure.md). 
