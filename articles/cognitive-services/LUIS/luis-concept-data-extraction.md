@@ -23,7 +23,7 @@ The HTTPS request (POST or GET) contains the utterance as well as some optional 
 The response contains all the information LUIS can determine based on the current published model at either the staging or production endpoint. 
 
 ## Data from intents
-The primary, required data is the top scoring **intent name**. If you have the request parameter of verbose set to false using the `MyStore` [quickstart](luis-quickstart-intents-only), the response is:
+The primary, required data is the top scoring **intent name**. If you have the request parameter of verbose set to false using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the response is:
 
 ```JSON
 {
