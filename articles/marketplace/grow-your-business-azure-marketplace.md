@@ -1,3 +1,25 @@
+---
+title: Azure Marketplace and AppSource Publisher Guide
+description: Step by step guide and publishing checklists for new publishers to Azure Marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+documentationcenter:
+author: ellacroi
+manager: msmbaldwin
+editor:
+
+ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
+ms.service: marketplace
+ms.workload: 
+ms.tgt_pltfrm: 
+ms.devlang: 
+ms.topic: article
+ms.date: 01/18/2018
+ms.author: ellacroi
+
+---
+
+
+
 #Grow your business with Azure Marketplace
 
 Once you have developed the technical assets for your marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product in by followng marketing best practices. 
