@@ -1,8 +1,8 @@
 ---
 title: Create action groups with Resource Manager templates | Microsoft Docs
 description: Learn how to create an action group by using an Azure Resource Manager template.
-author: anirudhcavale
-manager: orenr
+author: dukekamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
+ms.date: 02/16/2018
+ms.author: dukek
 
 ---
 
@@ -31,7 +31,7 @@ First, we describe how to create a Resource Manager template for an action group
 
 ## Resource Manager templates for an action group
 
-To create an action group by using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
+To create an action group using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
 
 ```json
 {
