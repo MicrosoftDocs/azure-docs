@@ -64,7 +64,7 @@
   - name: Servers and databases
     href: sql-database-servers-databases.md
   - name: Managed instance
-    href: sql-database-managed-instance
+    href: sql-database-managed-instance.md
   - name: Service tiers
     href: sql-database-service-tiers.md
   - name: Resource limits
