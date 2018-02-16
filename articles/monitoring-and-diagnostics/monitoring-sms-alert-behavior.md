@@ -19,16 +19,16 @@ ms.author: dukek
 ---
 # SMS Alert Behavior in Action Groups
 ## Overview ##
-Action groups enable you to configure a list of actions. These groups can then be leveraged when defining alerts; ensuring that a particular action group is notified when the alert is triggered. One of the actions supported is SMS; SMS notifications support bi-directional communication. A user can respond to an SMS to:
+Action groups enable you to configure a list of actions. These groups are used when defining alerts; ensuring that a particular action group is notified when the alert is triggered. One of the actions supported is SMS; SMS notifications support bi-directional communication. A user may respond to an SMS to:
 
 - **Unsubscribe from alerts:** A user may unsubscribe from all SMS alerts for all action groups, or a single action group.
 - **Resubscribe to alerts:** A user may resubscribe to all SMS alerts for all action groups, or a single action group.  
-- **Request help:** A user may ask for more information on the SMS. They will be redirected to this article
+- **Request help:** A user may ask for more information on the SMS. They are redirected to this article.
 
 This article covers the behavior of the SMS alerts and the response actions the user can take based on the locale of the user:
 
 ## Receiving an SMS Alert
-An SMS receiver configured as part of an action group will receive an SMS when an alert fires. The SMS will carry the following information:
+An SMS receiver configured as part of an action group receives an SMS when an alert is triggered. The SMS contains the following information:
 * Shortname of the action group this alert was sent to
 - Title of the alert
 
@@ -38,7 +38,7 @@ An SMS receiver configured as part of an action group will receive an SMS when a
 | ENABLE <Action Group Short name> | Re-enables SMS from the Action Group |
 | STOP | Disables further SMS from all Action Groups |
 | START | Re-enables SMS from ALL Action Groups |
-| HELP | A response will be sent to the user with a link to this article. |
+| HELP | A response is sent to the user with a link to this article. |
 
 >[!NOTE]
 >If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
