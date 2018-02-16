@@ -114,11 +114,11 @@ If you want to get events only for e.g. one Queue or one Subscription within you
 
 There are three different ways of creating Event Grid Subscriptions for Service Bus Namespaces.
 
-1. [The Azure portal](#1-portal-instructions)
-2. [Azure CLI](#2-azure-cli-instructions)
-3. [PowerShell](#3-powershell-instructions)
+1. [The Azure portal](#portal-instructions)
+2. [Azure CLI](#azure-cli-instructions)
+3. [PowerShell](#powershell-instructions)
 
-## 1. Portal instructions
+## Portal instructions
 
 To create a new Azure Event Grid subscription, navigate to your namespace in the Azure portal and select the Event Grid blade. Click on “+ Event Subscription” Below shows a namespace, which already has a few Event Grid subscriptions.
 
@@ -128,7 +128,7 @@ The following screenshot shows a sample for how to subscribe to an Azure Functio
 
 ![21][]
 
-## 2. Azure CLI instructions
+## Azure CLI instructions
 
 First make sure you have at least Azure CLI version 2.0 installed. You can download the installer here. Then press “Windows + X” and open a new PowerShell console with Administrator permissions. Alternatively you can also use a command shell within the Azure portal.
 
@@ -144,7 +144,7 @@ $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type 
 az eventgrid event-subscription create --resource-id $namespaceid --name “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” --endpoint “<your_function_url>” --subject-ends-with “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-## 3. PowerShell instructions
+## PowerShell instructions
 
 Make sure you have Azure PowerShell installed. You can find it here. Then press “Windows + X” and open a new PowerShell console with Administrator permissions. Alternatively you can also use a command shell within the Azure portal.
 
