@@ -30,24 +30,24 @@ The following video shows how to build a Web API backend and protect it using OA
 > 
 
 ## Create an Azure AD directory
-To secure your Web API backend using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
+To secure your Web API backend using Azure Active Directory you must first have a an AAD tenant. In this video, a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-In this example a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. This directory is used throughout the video.
+In this example, a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. This directory is used throughout the video.
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## Create a Web API service secured by Azure Active Directory
-In this step, a Web API backend is created using Visual Studio 2013. This step of the video starts at 1:30. To create Web API backend project in Visual Studio click **File**->**New**->**Project**, and choose **ASP.NET Web Application** from the **Web** templates list. In this video the project is named **APIMAADDemo**. Click **OK** to create the project. 
+In this step, a Web API backend is created using Visual Studio 2013. This step of the video starts at 1:30. To create Web API backend project in Visual Studio click **File**->**New**->**Project**, and choose **ASP.NET Web Application** from the **Web** templates list. In this video, the project is named **APIMAADDemo**. Click **OK** to create the project. 
 
 ![Visual Studio][api-management-new-web-app]
 
-Click **Web API** from the **Select a template list** to create a Web API project. To configure Azure Directory Authentication click **Change Authentication**.
+Click **Web API** from the **Select a template list** to create a Web API project. To configure Azure Directory Authentication, click **Change Authentication**.
 
 ![New project][api-management-new-project]
 
-Click **Organizational Accounts**, and specify the **Domain** of your AAD tenant. In this example the domain is **DemoAPIM.onmicrosoft.com**. The domain of your directory can be obtained from the **Domains** tab of your directory.
+Click **Organizational Accounts**, and specify the **Domain** of your AAD tenant. In this example,  the domain is **DemoAPIM.onmicrosoft.com**. The domain of your directory can be obtained from the **Domains** tab of your directory.
 
 ![Domains][api-management-aad-domains]
 
@@ -67,14 +67,14 @@ You may be prompted to sign in to Azure, and then you can configure the Web App.
 
 ![Configure][api-management-configure-web-app]
 
-In this example a new **App Service plan** named **APIMAADDemo** is specified.
+In this example,  a new **App Service plan** named **APIMAADDemo** is specified.
 
 Click **OK** to configure the Web App and create the project.
 
 ## Add the code to the Web API project
 The next step in the video adds the code to the Web API project. This step starts at 4:35.
 
-The Web API in this example implements a basic calculator service using a model and a controller. To add the model for the service, right-click **Models** in **Solution Explorer** and choose **Add**, **Class**. Name the class `CalcInput` and click **Add**.
+The Web API in this example,  implements a basic calculator service using a model and a controller. To add the model for the service, right-click **Models** in **Solution Explorer** and choose **Add**, **Class**. Name the class `CalcInput` and click **Add**.
 
 Add the following `using` statement to the top of the `CalcInput.cs` file.
 
@@ -189,7 +189,7 @@ APIs are configured from the API publisher portal, which is accessed through the
 
 Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported. In this video, operations are imported in Swagger format starting at 6:40.
 
-Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example `"host": "apimaaddemo.azurewebsites.net"` is used.
+Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example,  `"host": "apimaaddemo.azurewebsites.net"` is used.
 
 ```json
 {
@@ -372,7 +372,7 @@ The request is unauthorized because the backend API is protected by Azure Active
 ## Register the developer portal as an AAD application
 The first step in configuring the developer portal to authorize developers using OAuth 2.0 is to register the developer portal as an AAD application. This is demonstrated starting at 8:27 in the video.
 
-Navigate to the Azure AD tenant from the first step of this video, in this example **APIMDemo** and navigate to the **Applications** tab.
+Navigate to the Azure AD tenant from the first step of this video, In this example,  **APIMDemo** and navigate to the **Applications** tab.
 
 ![New application][api-management-aad-new-application-devportal]
 
@@ -380,13 +380,13 @@ Click the **Add** button to create a new Azure Active Directory application, and
 
 ![New application][api-management-new-aad-application-menu]
 
-Choose **Web application and/or Web API**, enter a name, and click the next arrow. In this example **APIMDeveloperPortal** is used.
+Choose **Web application and/or Web API**, enter a name, and click the next arrow. In this example,  **APIMDeveloperPortal** is used.
 
 ![New application][api-management-aad-new-application-devportal-1]
 
-For **Sign-on URL** enter the URL of your API Management service and append `/signin`. In this example `https://contoso5.portal.azure-api.net/signin` is used.
+For **Sign-on URL** enter the URL of your API Management service and append `/signin`. In this example,  `https://contoso5.portal.azure-api.net/signin` is used.
 
-For **App Id URL** enter the URL of your API Management service and append some unique characters. These can be any desired characters and in this example `https://contoso5.portal.azure-api.net/dp` is used. When the  desired **App properties** are configured, click the check mark to create the application.
+For **App Id URL** enter the URL of your API Management service and append some unique characters. These can be any desired characters and In this example,  `https://contoso5.portal.azure-api.net/dp` is used. When the  desired **App properties** are configured, click the check mark to create the application.
 
 ![New application][api-management-aad-new-application-devportal-2]
 
@@ -397,9 +397,9 @@ Click **Security** from the API Management menu on the left, click **OAuth 2.0**
 
 ![Add authorization server][api-management-add-authorization-server]
 
-Enter a name and an optional description in the **Name** and **Description** fields. These fields are used to identify the OAuth 2.0 authorization server within the API Management service instance. In this example **Authorization server demo** is used. Later when you specify an OAuth 2.0 server to be used for authentication for an API, you will select this name.
+Enter a name and an optional description in the **Name** and **Description** fields. These fields are used to identify the OAuth 2.0 authorization server within the API Management service instance. In this example,  **Authorization server demo** is used. Later when you specify an OAuth 2.0 server to be used for authentication for an API, you will select this name.
 
-For the **Client registration page URL** enter a placeholder value such as `http://localhost`.  The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. In this example users do not create and configure their own accounts so a placeholder is used.
+For the **Client registration page URL** enter a placeholder value such as `http://localhost`.  The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. In this example,  users do not create and configure their own accounts so a placeholder is used.
 
 ![Add authorization server][api-management-add-authorization-server-1]
 
@@ -407,7 +407,7 @@ Next, specify **Authorization endpoint URL** and **Token endpoint URL**.
 
 ![Authorization server][api-management-add-authorization-server-1a]
 
-These values can be retrieved from the **App Endpoints** page of the AAD application you created for the developer portal. To access the endpoints navigate to the **Configure** tab for the AAD application and click **View endpoints**.
+These values can be retrieved from the **App Endpoints** page of the AAD application you created for the developer portal. To access the endpoints, navigate to the **Configure** tab for the AAD application and click **View endpoints**.
 
 ![Application][api-management-aad-devportal-application]
 
@@ -431,7 +431,7 @@ Next, specify the client credentials. These are the credentials for the resource
 
 To get the **Client Id**, navigate to the **Configure** tab of the AAD application for the developer portal and copy the **Client Id**.
 
-To get the **Client Secret** click the **Select duration** drop-down in the **Keys** section and specify an interval. In this example 1 year is used.
+To get the **Client Secret** click the **Select duration** drop-down in the **Keys** section and specify an interval. In this example,  1 year is used.
 
 ![Client ID][api-management-aad-client-id]
 
@@ -492,7 +492,7 @@ Click **Send** and note the **Response status** of **200 OK** and the results of
 The next procedure in the video starts at 16:30 and configures a simple desktop application to call the API. The first step is to register the desktop application in Azure AD and give it access to the directory and to the backend service. At 18:25 there is a demonstration of the desktop application calling an operation on the calculator API.
 
 ## Configure a JWT validation policy to pre-authorize requests
-The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
+The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
