@@ -1,7 +1,6 @@
 ---
 title: Create and manage policies with REST API | Microsoft Docs
-description: Describes how Policy Insights resource types are
-used with REST API to create and manage policy.
+description: Describes how Policy Insights resource types are used with REST API to create and manage policy.
 services: azure-policy
 keywords:
 author: bandersmsft
@@ -197,7 +196,7 @@ You can use the following valid scopes with the preceding query:
 - Resource Group, for example: `/subscriptions/<subid>/resourceGroups/<rg>`
 - Resource, for example: `/subscriptions/<subid>/resourceGroups/<rg>/providers/<namespace>/<type>/<id>`
 
-You can view policy evaluations in [Azure Activity Logs](../azure/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+You can view policy evaluations in [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 ### View all compliance states for resources in a scope
 
