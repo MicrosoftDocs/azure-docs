@@ -28,11 +28,11 @@ ms.author:
 * [Azure PaaS Best Practices](https://docs.microsoft.com/azure/security/security-paas-deployments) 
 * [Azure Service Fabric security best practices](security-best-practices-and-patterns.md)
 * [Best practices for Azure VM security](azure-service-fabric-security-best-practices.md)
-* [Securing PaaS databases in Azure](security-paas-applications-using-sql.md)
+* [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Internet of Things security best practices](azure-security-iot-best-practices.md)* [Securing PaaS databases in Azure](security-paas-applications-using-sql.md)
 * [Securing PaaS web and mobile applications using Azure App Service](security-paas-applications-using-app-services.md)
 * [Securing PaaS web and mobile applications using Azure Storage](security-paas-applications-using-storage.md)
 * [Security best practices for IaaS workloads in Azure](azure-security-iaas.md)
 
-<!---* [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md) (not in Sec docset; title is not the same as link; doesn't follow bp format. is reference architecture or white paper)
-* [Internet of Things security best practices](azure-security-iot-best-practices.md) (There are 2 IoT BP topics, this one, and another in the IoT docset.) >
+
 
