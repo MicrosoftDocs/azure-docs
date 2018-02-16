@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
 ---
-# Web Search SDK Python quickstart
+# Web Search SDK Java quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 

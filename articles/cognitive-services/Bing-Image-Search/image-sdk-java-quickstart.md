@@ -1,7 +1,7 @@
 ---
 title: Image Search SDK Java quickstart | Microsoft Docs
 description: Setup for Image Search SDK console application.
-titleSuffix: Azure Cognitive Services Image search SDK Java quickstart
+titleSuffix: Azure Cognitive Services Image Search SDK Java quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
 ---
-# Image Search SDK Python quickstart
+# Image Search SDK Java quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
@@ -71,7 +71,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search images for "canadian rockies". Verify the number of results, and print first image result, pivot suggestion, and query expansion.
+Search images for "Canadian Rockies". Verify the number of results.  Print `firstImageResult`, `pivotSuggestion`, and `queryExpansion`.
 ```
 public static void imageSearch(String subscriptionKey)
 {
