@@ -25,7 +25,7 @@ Azure log integration enables you to integrate raw logs from your Azure resource
 The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
 [!IMPORTANT]
-If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution and so would not be required to use Azure Log Integration. 
+If your primary interest is in collecting virtual machine logs, most SIEM vendors include this in their solution. Using the SIEM vendor's connector should always be the preferred alternative.
 
 Azure log integration collects Windows events from Windows Event Viewer logs, [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md), and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration helps your SIEM solution provide a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
@@ -46,7 +46,7 @@ Azure Log Integration supports ArcSight, QRadar, and Splunk. In all circumstance
 
 If there are no other options available, Azure Log Integration may be considered. The following table includes our recommendations.
 
-|**SIEM** | **Using log integrator** | **Investigating SIEM integration options**|
+|**SIEM** | **Customer already using log integrator** | **Customer investigating SIEM integration options**|
 |---------|--------------------------|-------------------------------------------|
 |**SPLUNK** | Begin migrating to the [Azure monitor add-on for Splunk](https://splunkbase.splunk.com/app/3534/) | Use [SPLUNK connector](https://splunkbase.splunk.com/app/3534/) |
 |**IBM QRADAR** | Migrate to or begin using the QRadar connector documented at the end of http://aka.ms/azmoneventhub | Use the QRadar connector documented at the end of http://aka.ms/azmoneventhub  |
