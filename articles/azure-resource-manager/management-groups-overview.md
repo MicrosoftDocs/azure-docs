@@ -28,9 +28,9 @@ The management group feature is available in a public preview. To start using ma
 You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management. 
 The following diagram shows an example hierarchy that consists of management groups and subscriptions organized by departments.    
 
-![hierarchy tree](media/management-groups/MG_overview.png)
+![hierarchy](media/management-groups/MG_overview.png)
 
-By creating a hierarchy that is grouped by departments, you are able to assign [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
+By creating a hierarchy that is grouped by departments, you are able to assign [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
 
 ### Important facts about management groups
 - 10,000 management groups can be supported in a single directory. 
@@ -53,21 +53,20 @@ Each directory is given a single top-level management group called the "Root" ma
   
 ## Management Group Access
 
-Azure Management Groups supports [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
+Azure Management Groups supports [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
 
-While any [built-in RBAC role](../active-directory/role-based-access-control-what-is#built-in-roles) can be assigned to a management group, there are four roles that are commonly used: 
+While any [built-in RBAC role](../active-directory/role-based-access-control-what-is.md#built-in-roles) can be assigned to a management group, there are four roles that are commonly used: 
 - **Owner** has full access to all resources including the right to delegate access to others. 
 - **Contributor** can create and manage all types of Azure resources but can't grant access to others.
 - **Resource Policy Contributor** can create and manage policies in the directory on the resources.     
-- **Reader** can view existing Azure resources.
-
-For the public preview, custom RBAC roles do not work with management groups. 
+- **Reader** can view existing Azure resources. 
 
 
 ## Next steps 
-### [Learn how to create a management group](management-groups-create.md)
-### [Learn how to maintain management groups](management-groups-manage.md)
-### [Review the Azure Powershell]()
-### [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-### [Review the command-line tool spec]()
+To Learn more about management groups, see: 
+- [Create management groups to organize Azure resources](management-groups-create.md)
+- [How to change, delete, or manage your management groups](management-groups-manage.md)
+- [Review the Azure Powershell module]()
+- [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
+- [Review the command-line tool spec]()
 
