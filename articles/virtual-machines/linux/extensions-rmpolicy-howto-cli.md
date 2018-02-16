@@ -54,7 +54,7 @@ In this example, the rules file looks like this:
 }
 ```
 
-The parameters list the extensions to be blocked.
+The parameters file lists the extensions to be blocked.
 
 ```json
 {
@@ -82,18 +82,15 @@ az policy definition create \
    --display-name 'Block VM Extensions' \
    --description 'This policy governs which VM extensions that are blocked.' \
    --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' \
-   --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.parameters.json' \
    --mode All
 ```
 
 
-
-
-
-
 ## Assign the policy
 
-This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az_policy_assignment_create). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access or Custom Script extensions. Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) to get your subscription ID to use in place of the one in the example.
+This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access or Custom Script extensions. 
+
+Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) to get your subscription ID to use in place of the one in the example.
 
 
 ```azurecli-interactive
@@ -101,6 +98,14 @@ az policy assignment create \
    --name 'not-allowed-vmextension' \
    --scope /subscriptions/<subscription Id>/resourceGroups/myResourceGroup \
    --policy "not-allowed-vmextension" 
+   --params '{
+		"notAllowedExtensions": {
+			"value": [
+				"VMAccessAgent",
+				"CustomScriptExtension"
+			]
+		}
+	}'
 ```
 
 ## Test the policy
