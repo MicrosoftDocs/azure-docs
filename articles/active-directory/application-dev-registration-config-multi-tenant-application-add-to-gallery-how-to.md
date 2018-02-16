@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/16/2018
 ms.author: jeedes
 
 ---
@@ -37,7 +37,7 @@ Even if your application does not support one of these modes, we can still integ
 
 **Password SSO** – Create a web application that has an HTML sign-in page to configure [password-based single sign-on](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
 
-If you'd like to list your application with this technology then please submit the request as described in [this](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) article.
+If you'd like to list your application with this technology then, please submit the request as described in [this](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) article.
 
 ## Escalations
 
