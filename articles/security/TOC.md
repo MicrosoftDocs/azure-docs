@@ -66,6 +66,7 @@
 ### [Security checklist](azure-operational-security-checklist.md)
 
 # Governance and compliance
+## [Financial services for regulated workloads](./blueprints/financial-services-regulated-workloads.md)
 ## GDPR
 ### [Manage personal data](manage-personal-data-azure.md)
 ### [Discover, identify, classify personal data](how-to-discover-classify-personal-data-azure.md)
@@ -109,7 +110,7 @@
 ### [Requirement 10 - monitoring](./blueprints/pci-dss-requirement-10-monitoring.md)
 ### [Requirement 11 - testing](./blueprints/pci-dss-requirement-11-testing.md)
 ### [Requirement 12 - policy](./blueprints/pci-dss-requirement-12-policy.md)
-## [Financial services for regulated workloads](./blueprints/financial-services-regulated-workloads.md)
+
 ## [UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ### [Principles overview](./blueprints/uk-official-three-tier-applications-principles-overview.md)
 
