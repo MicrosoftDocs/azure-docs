@@ -28,6 +28,8 @@
     href: entity-search-sdk-quickstart.md
   - name: Entity Search Node.js quickstart (preview)
     href: entity-search-sdk-node-quickstart.md  
+  - name: Entity Search Python quickstart (preview)
+    href: entity-sdk-python-quickstart.md  
 - name: How To Guides
   items:
   - name: Use and display requirements
