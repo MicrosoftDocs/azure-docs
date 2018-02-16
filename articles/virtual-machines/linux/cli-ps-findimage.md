@@ -24,16 +24,10 @@ This topic describes how to use the Azure CLI 2.0 to find VM images in the Azure
 
 Make sure that you installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and are logged in to an Azure account (`az login`).
 
-## Terminology
+[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
-Marketplace images are identified in the CLI and other Azure tools according to a hierarchy:
 
-* **Publisher** - The organization that created the image. Example: Canonical
-* **Offer** - A group of related images created by a publisher. Example: Ubuntu Server
-* **SKU** - An instance of an offer, such as a major release of a distribution. Example: 16.04-LTS
-* **Version** - The version number of an image SKU. When specifying the image, you can replace the version number with "latest", which selects the latest version of the distribution.
-
-To specify a Marketplace image, you typically use the image *URN*. The URN combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. 
+To specify common images with the Azure CLI, you typically use the image *URN*. The URN combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. Some popular images have a shortened URN alias, such as *UbuntuLTS*.
 
 
 ## List popular images
@@ -44,7 +38,7 @@ Run the [az vm image list](/cli/azure/vm/image#az_vm_image_list) command, withou
 az vm image list --output table
 ```
 
-The output includes the URN (the value in the *Urn* column), which you use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the URN alias, such as *UbuntuLTS*.
+The output includes the URN (the value in the *Urn* column), which you use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list

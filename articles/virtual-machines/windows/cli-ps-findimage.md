@@ -24,7 +24,7 @@ This topic describes how to use Azure PowerShell to find VM images in the Azure 
 
 Make sure that you installed and configured the latest [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-
+[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## Table of commonly used Windows images
 | PublisherName | Offer | Sku |
@@ -51,7 +51,7 @@ When creating a new virtual machine with Azure Resource Manager, in some cases y
 * Offer
 * SKU
 
-For example, use these values with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet, or with a resource group template in which you must specify the type of VM to be created.
+For example, use these values with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet, or with a Resource Manager template in which you must specify the type of VM to be created.
 
 If you need to determine these values, you can run the [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), and [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlets to navigate the images. You determine these values:
 
@@ -122,7 +122,7 @@ Offer
 -----
 Windows-HUB
 WindowsServer
-WindowsServer-HUB
+WindowsServerSemiAnnual
 ```
 
 For the "WindowsServer" offer:
