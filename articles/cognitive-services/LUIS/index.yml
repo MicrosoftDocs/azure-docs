@@ -44,7 +44,6 @@ sections:
         values:
         - href: luis-get-started-create-app
       - title: Endpoint API
-        href: https://aka.ms/luis-endpoint-apis
         values:
         - href: 
         - href: luis-get-started-cs-get-intent
@@ -55,7 +54,6 @@ sections:
         - href: luis-get-started-php-get-intent
         - href: luis-get-started-ruby-get-intent
       - title: Authoring API
-        href: https://aka.ms/luis-authoring-apis
         values:
         - href:
         - href: luis-quickstart-cs-add-utterance
