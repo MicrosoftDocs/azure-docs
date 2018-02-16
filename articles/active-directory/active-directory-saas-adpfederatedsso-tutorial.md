@@ -194,8 +194,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 	![Configure single sign-on link][4]
 
-7. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on** to link your application to **ADP Federated SSO**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
+7. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on**. to link your application to **ADP Federated SSO**.
 
 	![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
