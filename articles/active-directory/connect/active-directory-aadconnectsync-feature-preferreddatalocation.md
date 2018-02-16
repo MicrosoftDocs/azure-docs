@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Configure preferred data location for Multi-Geo capabilities in Office 365 | Microsoft Docs'
-description: Describes how to put your Office 365 user resources close to the user with Azure AD Connect sync.
+title: 'Azure Active Directory Connect sync: Configure preferred data location for Multi-Geo capabilities in Office 365 | Microsoft Docs'
+description: Describes how to put your Office 365 user resources close to the user with Azure Active Directory Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,25 +16,25 @@ ms.date: 01/31/2018
 ms.author: billmath
 
 ---
-# Azure AD Connect sync: Configure preferred data location for Office 365 resources
-The purpose of this topic is to walk you through how to configure PreferredDataLocation in Azure AD Connect Sync. When a customer uses Multi-Geo capabilities in Office 365, this attribute is used to designate the geo-location of the user’s Office 365 data. The terms **region** and **Geo** are used interchangeable.
+# Azure Active Directory Connect sync: Configure preferred data location for Office 365 resources
+The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect Sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
 
 > [!IMPORTANT]
-> Multi-Geo is currently in preview. If you would like to join the preview program, please contact your Microsoft representative.
+> Multi-Geo is currently in preview. If you would like to join the preview program, contact your Microsoft representative.
 >
 >
 
-## Enable synchronization of PreferredDataLocation
-By default, Office 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if your tenant is located in North America then the users Exchange mailboxes are also located in North America. For a multi-national organization this might not be optimal. By setting the attribute preferredDataLocation the user's geo can be defined.
+## Enable synchronization of preferred data location
+By default, Office 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if your tenant is located in North America, then the users' Exchange mailboxes are also located in North America. For a multinational organization, this might not be optimal.
 
-By settings this attribute, you can have the user's Office 365 resources, such as the mailbox and OneDrive, in the same geo as the user and still have one tenant for your entire organization.
+By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Office 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
 
 > [!IMPORTANT]
-> To be eligible for Multi-Geo, you must have at least 5000 seats in your Office 365 subscription
+> To be eligible for Multi-Geo, you must have at least 5000 seats in your Office 365 subscription.
 >
 >
 
-A list of all Geos for Office 365 can be found in [where is your data located](https://aka.ms/datamaps).
+A list of all geos for Office 365 can be found in [where is your data located](https://aka.ms/datamaps).
 
 The geos in Office 365 available for Multi-Geo are:
 
@@ -50,46 +50,36 @@ The geos in Office 365 available for Multi-Geo are:
 | United Kingdom | GBR |
 | United States | NAM |
 
-* If a geo is not listed in this table, for example South America, then it cannot be used for Multi-Geo.
+* If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
 * India and South Korea geos are only available to customers with billing addresses and licenses purchased in those geos.
-* Not all Office 365 workloads supports the use of setting a user's geo.
+* Not all Office 365 workloads support the use of setting a user's geo.
 
-Azure AD Connect supports synchronization of the **PreferredDataLocation** attribute for **User** objects in version 1.1.524.0 and after. More specifically, following changes have been introduced:
+### Azure AD Connect support for synchronization
 
-* The schema of the object type **User** in the Azure AD Connector is extended to include PreferredDataLocation attribute, which is of type single-valued string.
-* The schema of the object type **Person** in the Metaverse is extended to include PreferredDataLocation attribute, which is of type string and is single-valued.
+Azure AD Connect supports synchronization of the **preferredDataLocation** attribute for **User** objects in version 1.1.524.0 and later. Specifically:
 
-By default, the PreferredDataLocation attribute is not enabled for synchronization. This feature is intended for larger organizations and not everyone would benefit from it. You must also identify an attribute to hold the Office 365 geo for your users since there is no PreferredDataLocation attribute in on-premises Active Directory. This is going to be different for each organization.
+* The schema of the object type **User** in the Azure AD Connector is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
+* The schema of the object type **Person** in the Metaverse is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
+
+By default, **preferredDataLocation** is not enabled for synchronization. This feature is intended for larger organizations. You must also identify an attribute to hold the Office 365 geo for your users, because there is no **preferredDataLocation** attribute in on-premises Active Directory. This is going to be different for each organization.
 
 > [!IMPORTANT]
-> Currently, Azure AD allows the PreferredDataLocation attribute on both synchronized User objects and cloud User objects to be directly configured using Azure AD PowerShell. Once you have enabled synchronization of the PreferredDataLocation attribute, you must stop using Azure AD PowerShell to configure the attribute on **synchronized User objects** as Azure AD Connect will override them based on the source attribute values in on-premises Active Directory.
+> Azure AD allows the **preferredDataLocation** attribute on **cloud User objects** to be directly configured by using Azure AD PowerShell. Azure AD no longer allows the **preferredDataLocation** attribute on **synchronized User objects** to be directly configured by using Azure AD PowerShell. To configure this attribute on **synchronized User objects**, you must use Azure AD Connect.
 
-> [!IMPORTANT]
-> Since September 1, 2017, Azure AD no longer allows the PreferredDataLocation attribute on **synchronized User objects** to be directly configured using Azure AD PowerShell. To configure PreferredLocation attribute on synchronized User objects, you must use Azure AD Connect.
+Before enabling synchronization:
 
-Before enabling synchronization of the PreferredDataLocation attribute, you must:
-
-* First, decide which on-premises Active Directory attribute to be used as the source attribute. It should be of type **single-valued string**. In the steps below one of the extensionAttributes is used.
-* If you have previously configured the PreferredDataLocation attribute on existing synchronized User objects in Azure AD using Azure AD PowerShell, you must **backport** the attribute values to the corresponding User objects in on-premises Active Directory.
+* Decide which on-premises Active Directory attribute to be used as the source attribute. It should be of the type, **single-valued string**. In the steps that follow, one of the **extensionAttributes** is used.
+* If you have previously configured the **preferredDataLocation** attribute on existing **synchronized User objects** in Azure AD by using Azure AD PowerShell, you must backport the attribute values to the corresponding **User** objects in on-premises Active Directory.
 
     > [!IMPORTANT]
-    > If you do not backport the attribute values to the corresponding User objects in on-premises Active Directory, Azure AD Connect will remove the existing attribute values in Azure AD when synchronization for the PreferredDataLocation attribute is enabled.
+    > If you do not backport these values, Azure AD Connect removes the existing attribute values in Azure AD when synchronization for the **preferredDataLocation** attribute is enabled.
 
-* It is recommended you configure the source attribute on at least a couple of on-premises AD User objects now, which can be used for verification later.
+* Configure the source attribute on at least a couple of on-premises AD User objects now. You can use this for verification later.
 
-The steps to enable synchronization of the PreferredDataLocation attribute can be summarized as:
-
-1. Disable sync scheduler and verify there is no synchronization in progress
-2. Add the source attribute to the on-premises ADDS connector schema
-3. Add PreferredDataLocation to the Azure AD connector schema
-4. Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory
-5. Create an outbound synchronization rule to flow the attribute value to Azure AD
-6. Run Full Synchronization cycle
-7. Enable sync scheduler
-8. Verify the result
+The following sections provide the steps to enable synchronization of the **preferredDataLocation** attribute.
 
 > [!NOTE]
-> The rest of this section covers these steps in details. They are described in the context of an Azure AD deployment with single-forest topology and without custom synchronization rules. If you have a multi-forest topology, custom synchronization rules configured or have a staging server, you need to adjust the steps accordingly.
+> The steps are described in the context of an Azure AD deployment with single-forest topology, and without custom synchronization rules. If you have a multi-forest topology, custom synchronization rules configured, or have a staging server, you should adjust the steps accordingly.
 
 ## Step 1: Disable sync scheduler and verify there is no synchronization in progress
 Ensure no synchronization takes place while you are in the middle of updating synchronization rules to avoid unintended changes being exported to Azure AD. To disable the built-in sync scheduler:
