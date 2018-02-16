@@ -285,8 +285,8 @@ If an availability group participates in a distributed availability group, the l
    |**Name** |A name to identify the load balancing rule for the distributed availability group. 
    |**Frontend IP address** |Use the same frontend IP address as the availability group.
    |**Protocol** |TCP
-   |**Port** |Use the port for the distributed availability group. 
-   |**Backend port** |Use the same value as **Port**.
+   |**Port** |5022 - The port for the [distributed availability group endpoint listener](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Can be any available port.  
+   |**Backend port** | 5022 - Use the same value as **Port**.
    |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
    |**Health probe** |Choose the probe you created.
    |**Session persistence** |None
