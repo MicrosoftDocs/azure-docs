@@ -1,10 +1,10 @@
 ---
 title: 'VPN Gateway Overview: Create cross-premises VPN connections to Azure virtual networks | Microsoft Docs'
-description: This VPN Gateway Overview explains the ways to connect to Azure virtual networks using a VPN connection over the Internet. Included are diagrams of basic connection configurations.
+description: This article explains what a VPN Gateway is and shows the ways you can connect to Azure virtual networks using a VPN connection over the Internet. Included are diagrams of basic connection configurations.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
 
 ---
@@ -24,15 +24,11 @@ A VPN gateway is a type of virtual network gateway that sends encrypted traffic 
 
 Each virtual network can have only one VPN gateway, however, you can create multiple connections to the same VPN gateway. An example of this is a Multi-Site connection configuration. When you create multiple connections to the same VPN gateway, all VPN tunnels, including Point-to-Site VPNs, share the bandwidth that is available for the gateway.
 
-### <a name="whatis"></a>What is a virtual network gateway?
+## <a name="whatis"></a>What is a virtual network gateway?
 
 A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet called the GatewaySubnet. The VMs that are located in the GatewaySubnet are created when you create the virtual network gateway. Virtual network gateway VMs are configured to contain routing tables and gateway services specific to the gateway. You can't directly configure the VMs that are part of the virtual network gateway and you should never deploy additional resources to the GatewaySubnet.
 
 When you create a virtual network gateway using the gateway type 'Vpn', it creates a specific type of virtual network gateway that encrypts traffic; a VPN gateway. A VPN gateway can take up to 45 minutes to create. This is because the VMs for the VPN gateway are being deployed to the GatewaySubnet and configured with the settings that you specified. The Gateway SKU that you select determines how powerful the VMs are.
-
-## <a name="gwsku"></a>Gateway SKUs
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>Configuring a VPN Gateway
 
@@ -49,6 +45,10 @@ You can start out creating and configuring resources using one configuration too
 ### <a name="models"></a>Deployment model
 
 When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="gwsku"></a>Gateway SKUs
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>Connection topology diagrams
 

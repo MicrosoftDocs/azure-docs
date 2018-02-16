@@ -81,6 +81,7 @@
 ### [Connectivity](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Object sync using the troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [LargeObject error caused by userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

@@ -51,7 +51,7 @@ There are some things that you can't do when you use an ILB ASE:
 
 To create an ILB ASE:
 
-1. In the Azure portal, select **New** > **Web + Mobile** > **App Service Environment**.
+1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **App Service Environment**.
 
 2. Select your subscription.
 
@@ -102,7 +102,7 @@ If you set **VIP Type** to **Internal**, your ASE name is not used in the domain
 
 You create an app in an ILB ASE in the same way that you create an app in an ASE normally.
 
-1. In the Azure portal, select **New** > **Web + Mobile** > **Web** or **Mobile** or **API App**.
+1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web** or **Mobile** or **API App**.
 
 2. Enter the name of the app.
 
