@@ -273,4 +273,4 @@ In this tutorial, you learned how to automatically install and update applicatio
 Advance to the next tutorial to learn how to automatically scale your scale set.
 
 > [!div class="nextstepaction"]
-> [Automatically scale your scale sets]()
+> [Automatically scale your scale sets](tutorial-autoscale-powershell.md)

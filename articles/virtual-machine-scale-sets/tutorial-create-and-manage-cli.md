@@ -311,4 +311,4 @@ In this tutorial, you learned how to perform some basic scale set creation and m
 Advance to the next tutorial to learn about scale set disks.
 
 > [!div class="nextstepaction"]
-> [Use data disks with scale sets]()
+> [Use data disks with scale sets](tutorial-use-disks-cli.md)

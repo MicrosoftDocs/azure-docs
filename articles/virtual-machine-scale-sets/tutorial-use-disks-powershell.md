@@ -416,4 +416,4 @@ In this tutorial, you learned how to create and use disks with scale sets using 
 Advance to the next tutorial to learn how to use a custom image for your scale set VM instances.
 
 > [!div class="nextstepaction"]
-> [Use a custom image for scale set VM instances]()
+> [Use a custom image for scale set VM instances](tutorial-use-custom-image-powershell.md)
