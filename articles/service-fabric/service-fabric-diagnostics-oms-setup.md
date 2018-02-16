@@ -23,15 +23,15 @@ ms.author: dekapur
 You can set up an Operations Management Suite (OMS) workspace through Azure Resource Manager, PowerShell, or Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your OMS environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying OMS, deploy by using PowerShell or the Resource Manager template.
 
 > [!NOTE]
-> To set up OMS to monitor your cluster, you need to have diagnostics enabled to view cluster- or platform-level events.
+> To set up OMS to monitor your cluster, you need to have diagnostics enabled to view cluster-level or platform-level events.
 
 ## Deploy OMS by using Azure Marketplace
 
-If you want to add an OMS workspace after you have deployed a cluster, go to Azure Marketplace in the portal and look for *Service Fabric Analytics*:
+If you want to add an OMS workspace after you have deployed a cluster, go to Azure Marketplace in the portal and look for **Service Fabric Analytics**:
 
 1. Select **New** on the left navigation menu. 
 
-2. Search for *Service Fabric Analytics*. Select the resource that appears.
+2. Search for **Service Fabric Analytics**. Select the resource that appears.
 
 3. Select **Create**.
 
@@ -44,7 +44,7 @@ If you want to add an OMS workspace after you have deployed a cluster, go to Azu
 If you are using Windows, continue with the following steps to connect OMS to the storage account where your cluster events are stored. 
 
 >[!NOTE]
-Enabling this experience for Linux clusters is not yet available. 
+>Enabling this experience for Linux clusters is not yet available. 
 
 ### Add the OMS Agent to your cluster 
 
@@ -54,7 +54,7 @@ Enabling this experience for Linux clusters is not yet available.
 
 3. On the **Storage account logs** page, select **Add** at the top to add your cluster's logs to the workspace.
 
-4. Select **Storage account** to add the appropriate account created in your cluster. If you used the default name, the storage account is **sfdg\<resourceGroupName\>**. You can also confirm this with the Azure Resource Manager template used to deploy your cluster, by checking the value used for the **applicationDiagnosticsStorageAccountName**. If the name does not show up, scroll down and select **Load more**. Select the storage account name.
+4. Select **Storage account** to add the appropriate account created in your cluster. If you used the default name, the storage account is **sfdg\<resourceGroupName\>**. You can also confirm this with the Azure Resource Manager template used to deploy your cluster, by checking the value used for **applicationDiagnosticsStorageAccountName**. If the name does not show up, scroll down and select **Load more**. Select the storage account name.
 
 5. Specify the Data Type. Set it to **Service Fabric Events**.
 
@@ -73,7 +73,7 @@ You have added the Service Fabric Analytics solution in an OMS Log Analytics wor
 
 When you deploy a cluster by using a Resource Manager template, the template creates a new OMS workspace, adds the Service Fabric solution to the workspace, and configures it to read data from the appropriate storage tables.
 
-You can use and modify this [sample template](https://azure.microsoft.com/resources/templates/service-fabric-oms/) to meet your requirements. Templates that give you different options for setting up an OMS workspace can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+You can use and modify [this sample template](https://azure.microsoft.com/resources/templates/service-fabric-oms/) to meet your requirements. Templates that give you different options for setting up an OMS workspace can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
 Make the following modifications:
 1. Add `omsWorkspaceName` and `omsRegion` to your parameters by adding the following snippet to the parameters defined in your *template.json* file. Feel free to modify the default values as you see fit. Also, add the two new parameters in your *parameters.json* file to define their values for the resource deployment:
@@ -213,7 +213,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-When done, follow the steps in the preceding section to connect OMS Log Analytics to the appropriate storage account.
+When you're done, follow the steps in the preceding section to connect OMS Log Analytics to the appropriate storage account.
 
 You can also add other solutions or make other modifications to your OMS workspace by using PowerShell. To learn more, see [Manage Log Analytics using PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
