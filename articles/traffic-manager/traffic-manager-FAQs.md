@@ -4,7 +4,7 @@ description: This article provides answers to frequently asked questions about T
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 02/01/2018
 ms.author: kumud
 ---
 
@@ -320,42 +320,7 @@ Traffic Manager uses host headers in HTTP and HTTPS health checks. The host head
 
 ### What are the IP addresses from which the health checks originate?
 
-The following list contains the IP addresses from which Traffic Manager health checks can originate. You may use this list to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
-* 52.173.90.107
-* 52.173.250.232
-* 104.45.149.110
-* 40.114.5.197
-* 52.240.151.125
-* 52.240.144.45
-* 13.65.95.152
-* 13.65.92.252
-* 40.78.67.110
-* 104.42.192.195
+Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view the JSON file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 

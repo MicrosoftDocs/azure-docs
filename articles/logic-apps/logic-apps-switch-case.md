@@ -3,7 +3,7 @@ title: Switch statement for different actions in Azure Logic Apps | Microsoft Do
 description: Choose different actions to perform in logic apps based on expression values by using a switch statement
 services: logic-apps
 keywords: switch statement
-author: derek1ee
+author: ecfan
 manager: anneta
 editor: ''
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: LADocs; deli
+ms.author: LADocs; estfan
 ---
 
 # Perform different actions in logic apps with a switch statement

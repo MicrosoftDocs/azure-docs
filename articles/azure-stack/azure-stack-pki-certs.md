@@ -13,9 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.reviewer: ppacent
 ---
 
 # Azure Stack Public Key Infrastructure certificate requirements
@@ -24,6 +24,8 @@ Azure Stack has a public infrastructure network using externally accessible publ
 - What certificates are required to deploy Azure Stack
 - The process of obtaining certificates matching those specifications
 - How to prepare, validate, and use those certificates during deployment
+> [!NOTE]
+> During deployment you must copy certificates to the deployment folder that matches the identity provider you are deploying against (Azure AD or AD FS). If you use a single certificate for all endpoints, you must copy that certificate file into each deployment folder as outlined in the tables below. The folder structure is pre-built in the deployment virtual machine and can be found at: C:\CloudDeployment\Setup\Certificates. 
 
 ## Certificate requirements
 The following list describes the certificate requirements that are needed to deploy Azure Stack: 
@@ -88,8 +90,9 @@ The following table describes the endpoints and certificates required for the SQ
 
 <sup>2</sup> A &#42;.appservice.*&lt;region>.&lt;fqdn>* wild card certificate cannot be used in place of these three certificates (api.appservice.*&lt;region>.&lt;fqdn>*, ftp.appservice.*&lt;region>.&lt;fqdn>*, and sso.appservice.*&lt;region>.&lt;fqdn>*. Appservice explicitly requires the use of separate certificates for these endpoints. 
 
+## Learn more
+Learn how to [generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md). 
 
 ## Next steps
-[Generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md) 
-
+[Identity integration](azure-stack-integrate-identity.md)
 

@@ -24,7 +24,7 @@ ACU: 195 - 210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | High                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremely High                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremely High                                 |
-| Standard_F72s_v2<sup>2,</sup><sup>3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremely High                                 |
+| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremely High                                 |
 
 <sup>1</sup> Fsv2-series VM’s feature Intel® Hyper-Threading Technology
 

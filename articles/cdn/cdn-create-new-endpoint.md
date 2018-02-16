@@ -13,17 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 01/25/2018
 ms.author: mazha
 
 ---
 # Getting started with Azure CDN
-This article describes how to enable Azure CDN by creating a new CDN profile and endpoint.
-
-> [!IMPORTANT]
-> For an introduction to CDN and a list of features, see [CDN Overview](cdn-overview.md).
-> 
-> 
+This article describes how to enable Azure [Content Delivery Network (CDN)](cdn-overview.md) by creating a new CDN profile and endpoint.
 
 ## Create a new CDN profile
 A CDN profile is a collection of CDN endpoints. Each profile can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles.
