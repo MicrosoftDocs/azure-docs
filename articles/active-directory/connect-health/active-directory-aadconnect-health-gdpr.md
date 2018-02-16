@@ -19,7 +19,7 @@ ms.author: billmath
 
 In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
 
-Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
+Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 Azure AD Connect Health provides monitoring, insights, and alert functionality for your on-premises identity infrastructure and synchronization service. Microsoft is committed to GDPR-compliance across cloud services when enforcement begins May 2018 and to provide GDPR-related assurances in its contractual commitments. 
 
@@ -52,7 +52,7 @@ The following information is important with regard to deletion actions.
 Use the following steps [here](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service) to remove a server from Azure AD Connect Health data collection.
 
 ### To delete in service-instance-level
-Use the following steps [here](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service)to remove a service instance from Azure AD Connect Health data collection.
+Use the following steps [here] (active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service)to remove a service instance from Azure AD Connect Health data collection.
 
 
 ## Next Steps
