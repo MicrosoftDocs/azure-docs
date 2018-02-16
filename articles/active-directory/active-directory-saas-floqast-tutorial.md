@@ -100,23 +100,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_samlbase.png)
 
-3. On the **FloQast Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **FloQast Domain and URLs** section, type the following URL in the **Identifier** textbox: `https://go.floqast.com/`:
 
 	![FloQast Domain and URLs single sign-on information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.floqast.com/`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.floqast.com/api/sso/saml/azure`
-
+ 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![FloQast Domain and URLs single sign-on information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.floqast.com/login/sso`
+    a. In the **Sign-on URL** textbox, type the following URL: `https://go.floqast.com/login/sso`
+    
+    b. Leave **Relay State** blank
 	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [FloQast Client support team](mailto:support@floqast.com) to get these values.
-
 5. FloQast application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On attb](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)

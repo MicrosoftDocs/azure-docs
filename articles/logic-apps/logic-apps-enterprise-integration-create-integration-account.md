@@ -28,9 +28,9 @@ maps, certificates, and so on.
 ## Create an integration account
 
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
-From the left menu, select **More services**.
+From the left menu, select **All services**.
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+	![Select "All services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.
@@ -97,9 +97,9 @@ Some common B2B connectors include XML validation and flat file encode/decode.
 
 ## Delete your integration account
 
-1. Select **More services**.
+1. Select **All services**.
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+	![Select "All services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.
@@ -123,9 +123,9 @@ To move an integration account to another Azure subscription or resource group, 
 > [!IMPORTANT]
 > You must update all scripts to use the new resource IDs after you move an integration account.
 
-1. Select **More services**.
+1. Select **All services**.
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+	![Select "All services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.
