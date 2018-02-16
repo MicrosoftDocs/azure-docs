@@ -17,7 +17,7 @@ ms.date: 02/15/2018
 ms.author: alkohli
 
 ---
-# **StorSimple solution support**
+# StorSimple solution support
 
 ## StorSimple support
 
@@ -52,7 +52,7 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 | Hardware parts replacement (StorSimple 8000 series only) <sup>6       |
 | Free software updates                                                 |
 
-<sup>1</sup> Support provided to customer until next EA anniversary. Customers must renew support at EA anniversary to be eligible for StorSimple support. Please contact Microsoft for geographical coverage. Premium coverage may vary by city. Please contact Microsoft account/sales team for geographical coverage before purchasing StorSimple Premium Support.
+<sup>1</sup> Support provided to customer until next EA anniversary. Customers must renew support at EA anniversary to be eligible for StorSimple support. Contact Microsoft for geographical coverage. Premium coverage may vary by city. Contact Microsoft account/sales team for geographical coverage before purchasing StorSimple Premium Support.
 
 <sup>2</sup> Severity defined as follows: 
 
@@ -73,15 +73,15 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 <sup>5</sup> Customers using only StorSimple Virtual Arrays must purchase either StorSimple Standard or Premium support plans. Please contact your Microsoft account/sales team to purchase StorSimple support.
 
 <sup>6</sup> 
-To expedite hardware warranty claims, replacement parts will be shipped to the customer before receiving defective parts. Customer is responsible for timely return shipment of defective parts. 
+To expedite hardware warranty claims, replacement parts are shipped to the customer before receiving defective parts. Customer is responsible for timely return shipment of defective parts. 
 
-If your support contract has expired, please be aware, depending on how long the support contract has been expired, it may take up to three weeks after the renewal processing has completed before a part is delivered as the local stocking location for your contract will not be stocked with replacement parts for your device until after your contract is processed.
+If your support contract has expired, be aware, depending on how long the support contract has been expired, it may take up to three weeks after the renewal processing has completed before a part is delivered as the local stocking location for your contract will not be stocked with replacement parts for your device until after your contract is processed.
 
 ## Local language support
 In addition to English, local language support is provided in the following languages during business hours: Japanese, Korean, Taiwanese, and Traditional Chinese.
 
 ## Support scope 
-Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer will need to be enrolled in an appropriate Azure support plan. Please refer [here](https://azure.microsoft.com/en-us/support/plans/) for details. The support team will refer non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 
+Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer will need to be enrolled in an appropriate Azure support plan. Please refer [here](https://azure.microsoft.com/en-us/support/plans/) for details. The support team refers non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 
 
 
 | **SEVERITY** |**CUSTOMER'S SITUATION**                                                                                                                                | EXPECTED MICROSOFT RESPONSE <sup>2                                                                                       | EXPECTED CUSTOMER RESPONSE                                                                                                                                                       |
@@ -95,7 +95,7 @@ Support for billing and subscription management-related issues is available at a
 <sup>2</sup> Expected response times are based on 24x7 support in English for Severity A and local business hours for Severity B and C, and local business hours support in the remaining local languages: Japanese, Taiwanese, Traditional Chinese, and Korean.
 
 ## Cancellation policy
-In order to receive StorSimple support, customer must purchase Standard or Premium support plans for the duration of the subscription term. Cancellation does not result in a prorated refund. StorSimple support plans are reduction eligible at EA anniversary. However, Microsoft will be unable to provide support to StorSimple customers without valid support contracts.
+In order to receive StorSimple support, customer must purchase Standard or Premium support plans for the duration of the subscription term. Cancellation does not result in a prorated refund. StorSimple support plans are reduction eligible at EA anniversary. However, Microsoft is unable to provide support to StorSimple customers without valid support contracts.
 
 ## Renewal policy
 
