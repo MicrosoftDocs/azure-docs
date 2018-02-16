@@ -26,7 +26,7 @@ This article explains how to change the settings for a group in Azure Active Dir
 
 ## How do I find and change the settings?
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening users and groups blade](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. On the **Users and groups** blade, select **All groups**.
