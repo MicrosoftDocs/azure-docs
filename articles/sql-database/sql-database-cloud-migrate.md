@@ -20,7 +20,7 @@ ms.author: carlrab
 
 ---
 # SQL Server database migration to Azure SQL Database
-In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database and to a database in [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
+In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. For information on migrating to a Managed Instance, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
 
 ## Migrate to a single database or a pooled database
 There are two primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
@@ -95,12 +95,12 @@ With transactional replication, all changes to your data or schema show up in yo
 
 Some tips and differences for migrating to SQL Database
 
-1. Use a local distributor 
+- Use a local distributor 
    - Doing so causes a performance impact on the server. 
    - If the performance impact is unacceptable, you can use another server but it adds complexity in management and administration.
-2. When selecting a snapshot folder, make sure the folder you select is large enough to hold a BCP of every table you want to replicate. 
-3. Snapshot creation locks the associated tables until it is complete, so schedule your snapshot appropriately. 
-4. Only push subscriptions are supported in Azure SQL Database. You can only add subscribers from the source database.
+- When selecting a snapshot folder, make sure the folder you select is large enough to hold a BCP of every table you want to replicate. 
+- Snapshot creation locks the associated tables until it is complete, so schedule your snapshot appropriately. 
+- Only push subscriptions are supported in Azure SQL Database. You can only add subscribers from the source database.
 
 ### Resolving database migration compatibility issues
 There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you are migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
@@ -117,46 +117,6 @@ In addition to searching the Internet and using these resources, use the [MSDN S
 > [!IMPORTANT]
 > SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibilty issues. See [What is an Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
-## Migration to Azure SQL Database Managed Instance
-
-[Azure SQL Database Managed Instance](sql-database-managed-instance.md) targets user scenarios with mass database migration from on-premises or IaaS database implementations.  Azure SQL Database – Managed Instance supports several database migration options: 
-
-### Data Migration Service
-
-[Data Migration Service (DMS)](/sql/dma/dma-overview) is a new offering to help with mass migration of existing on-premises databases to the Azure SQL Database – Managed Instance. Key features of the Data Migration Service are: 
-
-- Fully managed database migration service for both operational databases and data warehouses 
-- Supports for minimal down time migrations • Supports both homogeneous and heterogeneous source-target pairs 
-- Initial focus on reliability and performance - Iterative addition of source-target pairs 
-- Friction-free competitive database conversions 
-
-### Backup and restore  
-
-The migration approach leverages SQL backups to Azure blob storage - both direct backup to URL or indirect backup to the Azure storage blob are supported. Backups stored in Azure storage blob can be directly restored into Azure SQL Database – Managed Instance. 
-
-### Migration to SQL Database using Transaction Replication workflow
-
-> [!IMPORTANT]
-> Use the latest version of SQL Server Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-
-1. Set up Distribution
-   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
-   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
-2. Create Publication
-   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
-3. Create Subscription
-   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
-
-Some tips and differences for migrating to SQL Database
-
-1. Use a local distributor 
-   - Doing so causes a performance impact on the server. 
-   - If the performance impact is unacceptable, you can use another server but it adds complexity in management and administration.
-2. When selecting a snapshot folder, make sure the folder you select is large enough to hold a BCP of every table you want to replicate. 
-3. Snapshot creation locks the associated tables until it is complete, so schedule your snapshot appropriately. 
 
 ## Next steps
 * Use the script on the Azure SQL EMEA Engineers blog to [Monitor tempdb usage during migration](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
