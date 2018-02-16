@@ -35,7 +35,18 @@ This tutorial shows how to write a .NET Core console application that receives m
 
 ## Create an Event Hubs namespace and an event hub  
 
-To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-portal.md), and then proceed with this tutorial.
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with this tutorial.  
+
+## Create an Azure Storage account  
+
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+2. In the left navigation pane of the portal, click **Create a resource**, click **Storage**, and then click **Storage Account**.  
+3. Complete the fields in the storage account window, and then click **Create**.
+
+	![Create storage account][1]
+
+4. After you see the **Deployments Succeeded** message, click the name of the new storage account. In the **Essentials** window, click **Blobs**. When the **Blob service** dialog box opens, click **+ Container** at the top. Give the container a name, and then close **Blob service**.  
+5. Click **Access keys** in the left-hand window and copy the name of the storage container, the storage account, and the value of **key1**. Save these values to Notepad or some other temporary location.  
 
 ## Create a console application
 

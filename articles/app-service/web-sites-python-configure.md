@@ -33,7 +33,7 @@ The Azure Marketplace contains templates for the Bottle, Django, and Flask frame
 ## Web app creation on Azure portal
 This tutorial assumes an existing Azure subscription and access to the Azure portal.
 
-If you do not have an existing web app, you can create one from the [Azure portal](https://portal.azure.com).  Click the NEW button in the top left corner, then click **Web + Mobile** > **Web app**.
+If you do not have an existing web app, you can create one from the [Azure portal](https://portal.azure.com). In the top left corner, click **Create a resource** > **Web + Mobile** > **Web app**.
 
 ## Git Publishing
 Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md). This tutorial uses Git to create, manage, and publish your Python web app to Azure App Service.
