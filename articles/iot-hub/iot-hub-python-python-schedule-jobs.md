@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: v-masebo
 
 ---
@@ -83,6 +83,7 @@ In this section, you create a Python console app that responds to a direct metho
     from iothub_client import IoTHubError, DeviceMethodReturnValue
 
     METHOD_CONTEXT = 0
+    TWIN_CONTEXT = 0
     WAIT_COUNT = 10
 
     PROTOCOL = IoTHubTransportProvider.MQTT
@@ -102,6 +103,15 @@ In this section, you create a Python console app that responds to a direct metho
             return device_method_return_value
     ```
 
+1. Add another function callback to handle device twins updates:
+
+    ```python
+    def device_twin_callback(update_state, payload, user_context):
+        print ( "")
+        print ( "Twin callback called with:")
+        print ( "payload: %s" % payload )
+    ```
+
 1. Add the following code to register the handler for the **lockDoor** method. Also include the `main` routine:
    
     ```python
@@ -109,8 +119,10 @@ In this section, you create a Python console app that responds to a direct metho
         try:
             client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
             client.set_device_method_callback(device_method_callback, METHOD_CONTEXT)
+            client.set_device_twin_callback(device_twin_callback, TWIN_CONTEXT)
 
             print ( "Direct method initialized." )
+            print ( "Device twin callback initialized." )
             print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
 		
             while True:
@@ -294,7 +306,11 @@ You are now ready to run the applications.
     python scheduleJobService.py
     ```
 
-1. You see the device response to the direct method in the console.
+1. You see the device responses to the direct method and device twins update in the console.
+
+    ![device output][1]
+
+    ![service output][2]
 
 
 ## Next steps
@@ -317,4 +333,7 @@ To continue getting started with IoT Hub, see [Getting started with Azure IoT Ed
 [lnk-python-download]: https://www.python.org/downloads/
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
+
+[1]: ./media/iot-hub-python-python-schedule-jobs/1.png
+[2]: ./media/iot-hub-python-python-schedule-jobs/2.png
