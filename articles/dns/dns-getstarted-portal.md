@@ -31,8 +31,8 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 ## Create a DNS zone
 
-1. Sign in to the Azure portal
-2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the **Create DNS zone** page.
+1. Sign in to the Azure portal.
+2. On the Hub menu, click **Create a resource > Networking >** and then click **DNS zone** to open the **Create DNS zone** page.
 
     ![DNS zone](./media/dns-getstarted-portal/openzone650.png)
 

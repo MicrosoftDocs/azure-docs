@@ -38,6 +38,8 @@ You need to create an Azure AD DS before you can create an HDInsight cluster. To
 
 After the domain service has been provisioned, you need to create a service account in the **Azure AD DC Administrators** group to create the HDInsight cluster. The service account must be a global administrator on the Azure AD.
 
+You must enable Secure LDAP for Azure AD Domain Services Managed Domain. To enable Secure LDAP, see [Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+
 ## Create a Domain-joined HDInsight cluster
 
 The next step is to create the HDInsight cluster using the AAD DS and the service account created in the previous section.
