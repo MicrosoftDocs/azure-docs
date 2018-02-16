@@ -1,7 +1,7 @@
 ---
-title: News search SDK Python quickstart | Microsoft Docs
-description: Setup for News search SDK console application.
-titleSuffix: Azure News search SDK Python quickstart
+title: News Search SDK Python quickstart | Microsoft Docs
+description: Setup for News Search SDK console application.
+titleSuffix: Azure News Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -13,7 +13,7 @@ ms.author: v-gedod
 ---
 # News Search SDK Python quickstart
 
-The News Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The News Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6.
@@ -30,14 +30,14 @@ python -m pip install azure-cognitiveservices-search-newssearch
 ```
 ## News Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Add imports, and create an instance of the `CognitiveServicesCredentials`:
+Add imports:
 ```
 from azure.cognitiveservices.search.newssearch import NewsSearchAPI
 from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Then, instantiate the client:
+Create an instance of `CognitiveServicesCredentials`. Instantiate the client:
 ```
 client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
