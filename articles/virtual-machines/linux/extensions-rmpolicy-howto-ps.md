@@ -104,13 +104,13 @@ In the portal, the VM should fail validation and list what extension is causing 
 ## Removing the assignment
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name $assignmentName -Scope $scope
+Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension -Scope $scope
 ```
 
 ## Removing the policy
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name $policyDefinitionName 
+Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension
 ```
 	
 ## Next Steps

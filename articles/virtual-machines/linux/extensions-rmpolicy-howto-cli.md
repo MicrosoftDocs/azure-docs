@@ -82,13 +82,14 @@ az policy definition create \
    --display-name 'Block VM Extensions' \
    --description 'This policy governs which VM extensions that are blocked.' \
    --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' \
+   --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.parameters.json' \
    --mode All
 ```
 
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access or Custom Script extensions. 
+This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access or Custom Script extensions. The resource group must exist before you can assign the policy.
 
 Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) to get your subscription ID to use in place of the one in the example.
 
@@ -97,7 +98,7 @@ Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) 
 az policy assignment create \
    --name 'not-allowed-vmextension' \
    --scope /subscriptions/<subscription Id>/resourceGroups/myResourceGroup \
-   --policy "not-allowed-vmextension" 
+   --policy "not-allowed-vmextension" \
    --params '{
 		"notAllowedExtensions": {
 			"value": [
@@ -130,7 +131,7 @@ az vm user update \
 
 ## Removing the assignment
 ```azurecli-interactive
-az policy assignment delete --name 'not-allowed-vmextension' --resource-group myVMs
+az policy assignment delete --name 'not-allowed-vmextension' --resource-group myResourceGroup
 ```
 ## Removing the policy
 ```azurecli-interactive
