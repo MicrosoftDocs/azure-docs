@@ -37,7 +37,7 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 
 |**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
 |---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 200 |
+|Basic| Gen 4| 1| 1024| 50 |
 |Basic| Gen 4| 2| 2560| 100 |
 |Basic| Gen 5| 1| 1024| 50 |
 |Basic| Gen 5| 2| 2560| 100 |
