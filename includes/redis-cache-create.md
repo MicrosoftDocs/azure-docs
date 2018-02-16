@@ -1,4 +1,4 @@
-To create a cache, first sign in to the [Azure portal](https://portal.azure.com), and click **New** > **Databases** > **Redis Cache**.
+To create a cache, first sign in to the [Azure portal](https://portal.azure.com), and click **Create a resource** > **Databases** > **Redis Cache**.
 
 > [!NOTE]
 > If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
@@ -16,12 +16,12 @@ To create a cache, first sign in to the [Azure portal](https://portal.azure.com)
 > 
 > 
 
-In the **New Redis Cache** blade, specify the desired configuration for the cache.
+In **New Redis Cache**, specify the desired configuration for the cache.
 
 ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * In **Dns name**, enter a unique cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
-* For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
+* For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it is automatically selected and the **Subscription** drop-down isn't displayed.
 * In **Resource group**, select or create a resource group for your cache. For more information, see [Using Resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-overview.md). 
 * Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
 * Use **Pricing tier** to select the desired cache size and features.
