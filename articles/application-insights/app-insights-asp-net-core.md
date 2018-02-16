@@ -97,7 +97,102 @@ Launching your app, and then clicking around on links manually can be used to ge
    ```
 ## Open Application Insights Portal
 
-Project > Application Insights > Open Application Insights Portal
+After running the PowerShell from the previous section, launch Application Insights to view the transactions and confirm that data is being collected. 
+
+From the Visual Studio menu select **Project** > **Application Insights** > **Open Application Insights Portal**
+
+   ![Screenshot of Application Insights Overview](./media/app-insights-asp-net-core/0014-portal-01.png)
+
+> [!NOTE]
+> In the example screenshot above **Live Stream**, **Page View Load Time**, and **Failed Requests** are currently not collected. The next section will walk through adding each. If you are already collecting **Live Stream** , and **Page View Load Time**, then only follow the steps for **Failed Requests**.
+
+## Collect Failed Requests, Live Stream, & Page View Load Time
+
+### Failed Requests
+
+Technically **Failed Requests** are being collected, but none have occurred yet. To speed the process along a custom exception can be added to the existing project to simlulate a real-world exception. If your app is still running in Visual Studio before proceeding **Stop Debugging** (Shift+F5)
+
+1. In **Solution Explorer** > expand **Pages** > **About.cshtml** > open **About.cshtml.cs**.
+
+   ![Screenshot of Visual Studio Solution Explorer](./media/app-insights-asp-net-core/0015-solution-explorer-about.png)
+
+2. Add a simple Exception under _Message=_ > save the change to the file.
+
+   ```C#
+   throw new Exception("Fatal Exception: Scott Guthrie spotted wearing a blue shirt");
+   ```
+
+   ![Screenshot of exception code](./media/app-insights-asp-net-core/0016-exception.png)
+
+### Live Stream
+
+To access the Live Stream functionality of Application Insights with ASP.NET Core update to the  **Microsoft.ApplicationInsights.AspNetCore 2.2.0** NuGet packages.
+
+From Visual Studio select **Project** > **Manage NuGet Packages** > **Microsoft.ApplicationInsights.AspNetCore** > Version **2.2.0** > **Update**.
+
+  ![Screenshot of NuGet Package Manager](./media/app-insights-asp-net-core/0017-update-nuget.png)
+
+Multiple confirmation prompts will occur, read and accept if you agree with the changes.
+
+### Page View Load Time
+
+1. In Visual Studio navigate to **Solution Explorer** > **Pages** > two files will need to be modified: **_Layout.cshtml**, and **_ViewImports.cshtml**
+
+2. In **_ViewImports.cshtml**, add:
+
+   ```C#
+   @using Microsoft.ApplicationInsights.AspNetCore
+   @inject JavaScriptSnippet snippet
+   ```
+     ![Screenshot of code change to _ViewImports.cshtml](./media/app-insights-asp-net-core/0018-view-imports.png)
+
+3. In **Layout.cshtml** add the line below before </head>, but prior to any other scripts.
+
+    ```C#
+    @Html.Raw(snippet.FullScript)
+    ```
+### Test Failed Requests, Page View Load Time, Live Stream
+
+Now that you have completed the previous steps you can test out and confirm that everything is working.
+
+1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0012-iis-express.png) 
+
+2. Navigate to the **About** page to trigger the test exception. (If you are running in Debug mode, you will need to click **Continue** in Visual Studio before the exception will be picked up by Application Insights.)
+
+3. Re-run the simulated Powershell transaction script from earlier (You may need to adjust the port number in the script.)
+
+4. If the Applications Insights Overview is not still open, from Visual Studio menu select **Project** > **Application Insights** > **Open Application Insights Portal**. 
+
+   > [!TIP]
+   > If you aren't seeing your new traffic yet, check the **Time range** and click **Refresh**.
+
+   ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0019-overview-updated.png)
+
+5. Select Live Stream
+
+   ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
+
+   (If your PowerShell script is still running you should see live metrics, if has stopped run the script aagain with Live Stream open.)
+
+## 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -106,23 +201,6 @@ Project > Application Insights > Open Application Insights Portal
 
 [Application Insights](app-insights-overview.md) lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
-![Example](./media/app-insights-asp-net-core/sample.png)
-
-You'll need a subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
-
-## Getting started
-
-* In Visual Studio Solution Explorer, right-click your project and select **Configure Application Insights**, or **Add > Application Insights**. [Learn more](app-insights-asp-net.md).
-* If you don't see those menu commands, follow the [manual getting Started guide](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started). You may need to do this if your project was created with a version of Visual Studio before 2017.
-
-## Using Application Insights
-Sign into the [Microsoft Azure portal](https://portal.azure.com), select **All Resources** or **Application Insights**, and then select the resource you created to monitor your app.
-
-In a separate browser window, use your app for a while. You'll see data appearing in the Application Insights charts. (You might have to click Refresh.) There will be only a small amount of data while you're developing, but these charts really come alive when you publish your app and have many users. 
-
-The overview page shows key performance charts: server response time,  page load time, and counts of failed requests. Click any chart to see more charts and data.
-
-Views in the portal fall into three main categories:
 
 * [Metrics Explorer](app-insights-metrics-explorer.md) shows graphs and tables of metrics and counts, such as response times, failure rates, or metrics you create yourself with the [API](app-insights-api-custom-events-metrics.md). Filter and segment the data by property values to get a better understanding of your app and its users.
 * [Search Explorer](app-insights-diagnostic-search.md) lists individual events, such as specific requests, exceptions, log traces, or events you created yourself with the [API](app-insights-api-custom-events-metrics.md). Filter and search in the events, and navigate among related events to investigate issues.
