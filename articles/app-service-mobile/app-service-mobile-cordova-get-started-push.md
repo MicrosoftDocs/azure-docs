@@ -21,7 +21,7 @@ ms.author: crdun
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Overview
-In this tutorial, you add push notifications to the [Apache Cordova quickstart] project so that a push
+In this tutorial, you add push notifications to the [Apache Cordova quickstart][5] project so that a push
 notification is sent to the device every time a record is inserted.
 
 If you do not use the downloaded quickstart server project, you need the push notification extension
@@ -89,8 +89,7 @@ Run the following command:
     this value in the config.xml file later.
 
     >[!NOTE]
-    >As of version 2.0.0, the SENDER_ID has been removed from install time and google-services.json needs
-    to be installed in the root folder of your project. For more information, see the [installation documention.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
+    >As of version 2.0.0, google-services.json needs to be installed in the root folder of your project to configure the sender ID. For more information, see the [installation documentation.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 5. Select **Add**.
 
 The push plugin is now installed.
