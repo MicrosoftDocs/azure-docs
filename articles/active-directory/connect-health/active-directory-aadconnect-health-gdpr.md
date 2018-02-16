@@ -21,7 +21,7 @@ In May 2018, a European privacy law, the [General Data Protection Regulation (GD
 
 Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
 
-Azure AD Connect Health provides monitoring, insights, and alert functionality for your on-premises identity infrastructure and synchronization service. Microsoft is committed to GDPR-compliance across cloud services when enforcement begins May 2018 and will provide GDPR-related assurances in our contractual commitments. 
+Azure AD Connect Health provides monitoring, insights, and alert functionality for your on-premises identity infrastructure and synchronization service. Microsoft is committed to GDPR-compliance across cloud services when enforcement begins May 2018 and to provide GDPR-related assurances in its contractual commitments. 
 
 >[!NOTE] 
 >This article deals with Azure AD Connect Health and GDPR compliance.  For information on Azure AD Connect and GDPR compliance, see [GDPR compliance and Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
@@ -41,15 +41,15 @@ Azure AD Connect Health provides capabilities to stop data collection at the ser
 >The delete services action cannot be reverted.
 
 ### Deletion actions
-You need to understand the following information with regard to deletion actions.
+The following information is important with regard to deletion actions.
 
 - Deleting removes the targeted service instances from the Azure AD Connect Health monitoring service list and stops Azure AD Connect Health from collecting data. 
 - Deletion actions do NOT uninstall or remove the Health Agent from your servers. If you have not uninstalled the Health Agent before performing this step, you may see error events on the server(s) related to the Health Agent.
-- All data from this service instance will be deleted as per the Microsoft Azure Data Retention Policy.
-- After performing this action, if you wish to start monitoring the service, please uninstall and [reinstall the health agent](active-directory-aadconnect-health-agent-install.md) on all the servers that will be monitored.
+- All data from this service instance is deleted as per the Microsoft Azure Data Retention Policy.
+- After performing this action, if you wish to start monitoring the service, uninstall and [reinstall the health agent](active-directory-aadconnect-health-agent-install.md) on all the servers that will be monitored.
 
 ### To delete in server-level
-Use the following steps [here](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service) to remove a server from Azure AD Connect Health data collection .
+Use the following steps [here](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service) to remove a server from Azure AD Connect Health data collection.
 
 ### To delete in service-instance-level
 Use the following steps [here](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service)to remove a service instance from Azure AD Connect Health data collection.
