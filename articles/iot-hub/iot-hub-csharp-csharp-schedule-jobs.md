@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 012/16/2018
 ms.author: v-masebo
 
 ---
@@ -52,7 +52,7 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 
 ## Create a simulated device app
@@ -73,12 +73,14 @@ In this section, you create a .NET console app that responds to a direct method 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
+
+    using Newtonsoft.Json;
     ```
 
 1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section:
 
     ```csharp
-    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "<yourDeviceConnectionString>";
     static DeviceClient Client = null;
 
 1. Add the following to implement the direct method on the device:
@@ -94,6 +96,16 @@ In this section, you create a .NET console app that responds to a direct method 
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
 
+1. Add the following to implement the device twins listener on the device:
+
+    ```csharp
+    private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
+    {
+        Console.WriteLine("Desired property change:");
+        Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+    }
+    ```
+
 1. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    
     ```csharp
@@ -102,15 +114,15 @@ In this section, you create a .NET console app that responds to a direct method 
         Console.WriteLine("Connecting to hub");
         Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
 
-        // setup callback for "LockDoor" method
-        Client.SetMethodHandlerAsync("LockDoor", LockDoor, null).Wait();
-        Console.WriteLine("Waiting for direct method call\n Press enter to exit.");
+        Client.SetMethodHandlerAsync("LockDoor", LockDoor, null);
+        Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
+
+        Console.WriteLine("Waiting for direct method call and device twin update\n Press enter to exit.");
         Console.ReadLine();
 
         Console.WriteLine("Exiting...");
 
-        // as a good practice, remove the "LockDoor" handler
-        Client.SetMethodHandlerAsync("writeLine", null, null).Wait();
+        Client.SetMethodHandlerAsync("LockDoor", null, null).Wait();
         Client.CloseAsync().Wait();
     }
     catch (Exception ex)
@@ -194,7 +206,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
     }
     ```
 
-1. Add the following method to the **Program** class:
+1. Add another method to the **Program** class:
 
     ```csharp
     public static async Task StartTwinUpdateJob(string jobId)
@@ -204,6 +216,8 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
         twin.Tags["Building"] = "43";
         twin.Tags["Floor"] = "3";
         twin.ETag = "*";
+
+        twin.Properties.Desired["LocationUpdate"] = DateTime.UtcNow;
 
         JobResponse createJobResponse = jobClient.ScheduleTwinUpdateAsync(
             jobId,
@@ -215,6 +229,10 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
         Console.WriteLine("Started Twin Update Job");
     }
     ```
+
+    > [!NOTE]
+    > For more information about query syntax, see [IoT Hub query language][lnk-query].
+    > 
 
 1. Finally, add the following lines to the **Main** method:
 
@@ -278,6 +296,7 @@ To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting st
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-query]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language
