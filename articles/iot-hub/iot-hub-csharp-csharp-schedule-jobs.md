@@ -115,14 +115,14 @@ In this section, you create a .NET console app that responds to a direct method 
         Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
 
         Client.SetMethodHandlerAsync("LockDoor", LockDoor, null);
-        Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
+        Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null);
 
         Console.WriteLine("Waiting for direct method call and device twin update\n Press enter to exit.");
         Console.ReadLine();
 
         Console.WriteLine("Exiting...");
 
-        Client.SetMethodHandlerAsync("LockDoor", null, null).Wait();
+        Client.SetMethodHandlerAsync("LockDoor", null, null);
         Client.CloseAsync().Wait();
     }
     catch (Exception ex)
