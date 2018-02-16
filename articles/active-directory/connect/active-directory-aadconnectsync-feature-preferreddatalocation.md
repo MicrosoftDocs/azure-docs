@@ -82,65 +82,65 @@ The following sections provide the steps to enable synchronization of the **pref
 > The steps are described in the context of an Azure AD deployment with single-forest topology, and without custom synchronization rules. If you have a multi-forest topology, custom synchronization rules configured, or have a staging server, you should adjust the steps accordingly.
 
 ## Step 1: Disable sync scheduler and verify there is no synchronization in progress
-Ensure no synchronization takes place while you are in the middle of updating synchronization rules to avoid unintended changes being exported to Azure AD. To disable the built-in sync scheduler:
+To avoid unintended changes being exported to Azure AD, ensure that no synchronization takes place while you are in the middle of updating synchronization rules. To disable the built-in sync scheduler:
 
 1. Start a PowerShell session on the Azure AD Connect server.
-2. Disable scheduled synchronization by running the cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+2. Disable scheduled synchronization by running this cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 3. Start the **Synchronization Service Manager** by going to **START** > **Synchronization Service**.
-4. Go to the **Operations** tab and confirm there is no operation with the status *in progress*.
+4. Select the **Operations** tab, and confirm there is no operation with the status *in progress*.
 
-![Synchronization Service Manager - check no operations in progress](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
+![Screenshot of Synchronization Service Manager](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## Step 2: Add the source attribute to the on-premises ADDS connector schema
-Not all AD attributes are imported into the on-premises AD Connector Space. If you have selected to use an attribute not synchronized by default, then you need to import it. To add the source attribute to the list of the imported attributes:
+## Step 2: Add the source attribute to the on-premises Azure Active Directory Domain Services connector schema
+Not all Azure AD attributes are imported into the on-premises Azure AD Connector space. If you have selected to use an attribute that is not synchronized by default, then you need to import it. To add the source attribute to the list of the imported attributes:
 
-1. Go to the **Connectors** tab in the Synchronization Service Manager.
-2. Right-click the **on-premises AD Connector** and select **Properties**.
-3. In the pop-up dialog, go to the **Select Attributes** tab.
-4. Make sure the source attribute you selected to use is checked in the attribute list. If you do not see your attribute, then click the "Show All" checkbox.
-5. Click **OK** to save.
+1. Select the **Connectors** tab in the Synchronization Service Manager.
+2. Right-click the on-premises AD Connector, and select **Properties**.
+3. In the pop-up dialog box, go to the **Select Attributes** tab.
+4. Make sure the source attribute you selected to use is checked in the attribute list. If you do not see your attribute, select the **Show All** check box.
+5. To save, select **OK**.
 
-![Add source attribute to on-premises AD Connector schema](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Screenshot of Synchronization Service Manager and Properties dialog box](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
-## Step 3: Add PreferredDataLocation to the Azure AD connector schema
-By default, the PreferredDataLocation attribute is not imported into the Azure AD connector space. To add the PreferredDataLocation attribute to the list of imported attributes:
+## Step 3: Add **preferredDataLocation** to the Azure AD Connector schema
+By default, the **preferredDataLocation** attribute is not imported into the Azure AD Connector space. To add it to the list of imported attributes:
 
-1. Go to the **Connectors** tab in the Synchronization Service Manager.
-2. Right-click the **Azure AD connector** and select **Properties**.
-3. In the pop-up dialog, go to the **Select Attributes** tab.
-4. Select the preferredDataLocation attribute in the attribute list.
-5. Click **OK** to save.
+1. Select the **Connectors** tab in the Synchronization Service Manager.
+2. Right-click the Azure AD connector, and select **Properties**.
+3. In the pop-up dialog box, go to the **Select Attributes** tab.
+4. Select the **preferredDataLocation** attribute in the list.
+5. To save, select **OK**.
 
-![Add source attribute to Azure AD Connector schema](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
+![Screenshot of Synchronization Service Manager and Properties dialog box](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-## Step 4: Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory
-The inbound synchronization rule permits the attribute value to flow from the source attribute from on-premises Active Directory to the Metaverse:
+## Step 4: Create an inbound synchronization rule
+The inbound synchronization rule permits the attribute value to flow from the source attribute in the on-premises Active Directory to the Metaverse.
 
 1. Start the **Synchronization Rules Editor** by going to **START** > **Synchronization Rules Editor**.
 2. Set the search filter **Direction** to be **Inbound**.
-3. Click **Add new rule** button to create a new inbound rule.
+3. To create a new inbound rule, select **Add new rule**.
 4. Under the **Description** tab, provide the following configuration:
 
     | Attribute | Value | Details |
     | --- | --- | --- |
-    | Name | *Provide a name* | For example, *“In from AD – User PreferredDataLocation”* |
+    | Name | *Provide a name* | For example, *“In from AD – User preferredDataLocation”* |
     | Description | *Provide a custom description* |  |
-    | Connected System | *Pick the on-premises AD connector* |  |
+    | Connected System | *Pick the on-premises Active Directory connector* |  |
     | Connected System Object Type | **User** |  |
     | Metaverse Object Type | **Person** |  |
     | Link Type | **Join** |  |
-    | Precedence | *Choose a number between 1 – 99* | 1 – 99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
+    | Precedence | *Choose a number between 1–99* | 1–99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
 
-5. Keep the **Scoping filter** empty to include all objects. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
-6. Go to the **Transformation tab** and implement the following transformation rule:
+5. Keep the **Scoping filter** empty, to include all objects. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
+6. Go to the **Transformation tab**, and implement the following transformation rule:
 
-    | Flow Type | Target Attribute | Source | Apply Once | Merge Type |
+    | Flow type | Target attribute | Source | Apply once | Merge type |
     | --- | --- | --- | --- | --- |
-    |Direct | PreferredDataLocation | Pick the source attribute | Unchecked | Update |
+    |Direct | preferredDataLocation | Pick the source attribute | Unchecked | Update |
 
-7. Click **Add** to create the inbound rule.
+7. To create the inbound rule, select **Add**.
 
-![Create inbound synchronization rule](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step4.png)
+![Screenshot of Create inbound synchronization rule](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
 ## Step 5: Create an outbound synchronization rule to flow the attribute value to Azure AD
 The outbound synchronization rule permits the attribute value to flow from the Metaverse to the PreferredDataLocation attribute in Azure AD:
