@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/30/2018
 ms.author: brenduns
-
+ms.reviewer: jeffgo
 ---
 # Download marketplace items from Azure to Azure Stack
 
