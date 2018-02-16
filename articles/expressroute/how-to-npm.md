@@ -65,6 +65,10 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 1. In the [Azure portal](https://portal.azure.com), select the Subscription that has the VNETs peered to your ExpressRoute circuit. Then search the list of services in the **Marketplace** for 'Network Performance Monitor'. In the return, click to open the **Network Performance Monitor** page.
 
+>[!NOTE]
+>You may create a new workspace or use an existing workspace.  If you wish to use an existing workspace, you must ensure that the workspace has been migrated to the new query language. [More information...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
+
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. At the bottom of the main **Network Performance Monitor** page, click **Create** to open **Network Performance Monitor - Create new solution** page. Click **OMS Workspace - select a workspace** to open the Workspaces page. Click **+ Create New Workspace** to open the Workspace page.
 3. On the **OMS Workspace** page, select **Create New** and configure the following settings:
@@ -207,13 +211,13 @@ The NPM page contains a page for ExpressRoute that shows an overview of the heal
 
   ![Dashboard](.\media\how-to-npm\dashboard.png)
 
-### <a name="circuits"></a>Circuits list
+### <a name="circuits"></a>List of circuits
 
 To see a list of all monitored ExpressRoute circuits, click on the **ExpressRoute circuits** tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. You can drag the mouse over an area on the chart to zoom in and see fine-grained data points.
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Trend of Loss, Latency, and Throughput
+#### <a name="trend"></a>Trend of Loss, Latency and Throughput
 
 The bandwidth, latency, and loss charts are interactive. You can zoom into any section of these charts, using mouse controls. You can also see the bandwidth, latency, and loss data for other intervals by clicking **Date/Time**, located below the Actions button on the upper left.
 
