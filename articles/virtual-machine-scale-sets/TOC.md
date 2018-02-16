@@ -28,6 +28,10 @@
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Template](tutorial-autoscale-template.md)
 
+# Samples
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
+
 # How To
 ## Plan and design
 ### [Design considerations](virtual-machine-scale-sets-design-overview.md)
