@@ -39,6 +39,8 @@ Next, add the Platforms that your app will use.
 
 * For web based apps, provide a **Redirect URI** where sign-in messages can be sent.
 * For mobile apps, copy down the default redirect uri automatically created for you.
+* For web APIs, a default scope to access the Web API is automatically created for you. You can choose to add additional scopes using the **Add Scope** button. You can also add any applications that are pre-authorized to use your Web API using the **Pre-authorizaed applications** form. 
+
 
 Optionally, you can customize the look and feel of your sign-in page in the Profile section.  Make sure to click **Save** before moving on.
 
