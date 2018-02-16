@@ -16,7 +16,8 @@ ms.author: v-gedod
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
 ## Application dependencies
-Install Bing Web Search SDK dependencies using Maven, Gradle, or another dependency manaagement system. The Maven POM file will require:
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
+Install Bing Web Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
 ```
   <dependencies>
   	<dependency>
@@ -27,7 +28,6 @@ Install Bing Web Search SDK dependencies using Maven, Gradle, or another depende
   </dependencies>
 ```
 ## Web Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
 Add imports to the class implementation:
 ```
 import com.microsoft.azure.cognitiveservices.websearch.*;
@@ -43,7 +43,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Then, implement the `WebSearchAPIImpl` client, using `ServiceClientCredentials`:
+Implement the `WebSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
 ```
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 
@@ -70,7 +70,7 @@ public static WebSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for results.  The following method searches using a single query (Xbox) and prints out `name` and `URL` for first web, image, news, and videos results.
+Search for results.  The following method searches using a single query, "Xbox", and prints `name` and `URL` for first web, image, news, and videos results.
 ```
 public static void WebSearchResultTypesLookup(String subscriptionKey)
 {
@@ -178,7 +178,7 @@ public static void WebSearchResultTypesLookup(String subscriptionKey)
 }
 
 ```
-Search for "Best restaurants in Seattle", verify number of results and print out `name` and `URL` of the first result:
+Search for "Best restaurants in Seattle", verify number of results, and print out `name` and `URL` of the first result:
 ```
 public static void WebResultsWithCountAndOffset(String subscriptionKey)
 {
