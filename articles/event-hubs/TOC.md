@@ -3,6 +3,9 @@
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
 
 # Quickstarts
+## [Send and receive events - Portal](event-hubs-quickstart-portal.md)
+## [Send and receive events - Azure CLI](event-hubs-quickstart-cli.md)
+## [Send and receive events - Azure PowerShell](event-hubs-quickstart-powershell.md)
 ## [Create an event hub](event-hubs-create.md)
 
 # Tutorials
