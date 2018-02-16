@@ -113,8 +113,11 @@ New-AzureRmPolicyAssignment -Name "Audit Storage Accounts Open to Public Network
 ```
 
     The preceding commands use the following information:
+
     **Name** – The display **Name** for the policy assignment. In this case, it is _Audit Storage Accounts Open to Public Networks_.
+
     **Policy** – The policy definition, based off which you're using to create the assignment. In this case, it is the policy definition _Audit Storage Accounts Open to Public Networks._
+
     A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. In this example, you are assigning the policy definition to the _ContosoRG_ resource group.
 
 For more information about managing resource policies using the ARM PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies).
