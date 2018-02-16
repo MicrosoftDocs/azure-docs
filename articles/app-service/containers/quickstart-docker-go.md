@@ -1,5 +1,5 @@
 ---
-title: Create Docker/Go app | Microsoft Docs
+title: Create Docker/Go app
 description: How to deploy a Docker image running a Go application for Azure Web Apps for Containers.
 keywords: azure app service, web app, go, docker, container
 services: app-service
