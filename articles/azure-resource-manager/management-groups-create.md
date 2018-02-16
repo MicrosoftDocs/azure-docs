@@ -16,7 +16,7 @@ ms.author: rithorn
 ---
 
 
-# Create management groups for organization and management
+# Create management groups for resource organization and management
 [Management groups](management-groups-overview.md) are containers that help you manage access, policy, and compliance across multiple subscriptions. Create these containers to build an effective and efficient hierarchy that can be used with [Azure Policy](../azure-policy/azure-policy-introduction.md) and [Azure Role Based Access Controls](../active-directory/role-based-access-control-what-is.md).  
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or  you can use [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [command-line tool](/cli/azure/install-azure-cli?view=azure-cli-latest), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to create management groups.   
