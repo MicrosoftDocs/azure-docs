@@ -33,7 +33,7 @@ In this article, you apply all management settings to a resource group so you ca
 
 Let's create the resource group.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmContext -Subscription <subscription-name>
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
@@ -56,7 +56,7 @@ Instead of assigning roles to individual users, it's often easier to [create an 
 
 The following example creates a group and assigns it to the Virtual Machine Contributor role for the resource group. To run the `New-AzureAdGroup` command, you must either use the [Azure Cloud Shell](/azure/cloud-shell/overview) or [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
 
-```powershell
+```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
@@ -76,7 +76,7 @@ Typically, you repeat the process for **Network Contributor** and **Storage Acco
 
 Your subscription already has several policy definitions. To see the available policy definitions, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
@@ -86,7 +86,7 @@ You see the existing policy definitions. The policy type is either **BuiltIn** o
 * limit the SKUs for virtual machines
 * audit virtual machines that do not use managed disks
 
-```powershell
+```azurepowershell-interactive
 $locations ="eastus", "eastus2"
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
@@ -111,9 +111,9 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## Deploy the virtual machine
 
-You have assigned roles and policies, so you're ready to deploy your solution. The default size is Standard_DS1_v2, which is one of your allowed SKUs.
+You have assigned roles and policies, so you're ready to deploy your solution. The default size is Standard_DS1_v2, which is one of your allowed SKUs. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
@@ -134,7 +134,7 @@ After your deployment finishes, you can apply more management settings to the so
 
 To lock the virtual machine and network security group, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
@@ -143,7 +143,7 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 New-AzureRmResourceLock -LockLevel CanNotDelete `
   -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
-  -ResourceType Microsoft.Network/networkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
   -ResourceGroupName myResourceGroup
 ```
 
@@ -159,7 +159,7 @@ The virtual machine can only be deleted if you specifically remove the lock. Tha
 
 To apply tags to a virtual machine, use:
 
-```powershell
+```azurepowershell-interactive
 $r = Get-AzureRmResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
@@ -170,13 +170,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 To find resources with a tag name and value, use:
 
-```powershell
+```azurepowershell-interactive
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
 You can use the returned values for management tasks like stopping all virtual machines with a tag value.
 
-```powershell
+```azurepowershell-interactive
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
@@ -198,10 +198,14 @@ You can also use the [Azure Billing APIs](../billing/billing-usage-rate-card-ove
 
 The locked network security group can't be deleted until the lock is removed. To remove the lock, use:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+Remove-AzureRmResourceLock -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
   -ResourceGroupName myResourceGroup
 ```
 
