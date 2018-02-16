@@ -283,7 +283,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-neotalogicstudio-tutorial.png)| [Neota Logic Studio](active-directory-saas-neotalogicstudio-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-netdocuments-tutorial.png)| [NetDocuments](active-directory-saas-netdocuments-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-netsuite-tutorial.png)| [Netsuite](active-directory-saas-netsuite-tutorial.md)|[Netsuite - User Provisioning](active-directory-saas-netsuite-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-new-relic-tutorial.png)| [New Relic](active-directory-saas-new-relic-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nexonia-tutorial.png)| [Nexonia](active-directory-saas-nexonia-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nomadesk-tutorial.png)| [Nomadesk](active-directory-saas-nomadesk-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nomadic-tutorial.png)| [Nomadic](active-directory-saas-nomadic-tutorial.md)|
