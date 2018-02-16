@@ -1,7 +1,7 @@
 ---
 title: Image Search SDK Python quickstart | Microsoft Docs
 description: Setup for Image Search SDK console application.
-titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
+titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -30,7 +30,7 @@ python -m pip install azure-cognitiveservices-search-imagesearch
 ```
 ## Image Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Add imports, and create an instance of the `CognitiveServicesCredentials`:
+Add imports:
 ```
 from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
 from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
@@ -38,7 +38,7 @@ from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Then, instantiate the client:
+Create an instance of the `CognitiveServicesCredentials`, and instantiate the client:
 ```
 client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
