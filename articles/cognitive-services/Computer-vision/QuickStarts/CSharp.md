@@ -23,7 +23,6 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 
-* Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
 * To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
 ## Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
@@ -45,6 +44,7 @@ Create a new Console solution in Visual Studio, then replace Program.cs with the
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -1425,3 +1425,5 @@ A successful response is returned in JSON. Following is an example of a successf
    }
 }
 ```
+### <a name="Related">Related Topics</a>
+ * [Windows SDK for the Microsoft Computer Vision API](https://github.com/Microsoft/Cognitive-vision-windows)
