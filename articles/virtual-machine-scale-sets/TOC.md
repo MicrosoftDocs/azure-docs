@@ -26,7 +26,7 @@
 ## 5 - Autoscale a scale set
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
-### Template
+### [Template](tutorial-autoscale-template.md)
 
 # How To
 ## Plan and design
