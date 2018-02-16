@@ -100,7 +100,7 @@ Make the following modifications:
     }
     ```
 
-    The `omsRegion` values have to conform to a specific set of the values. Choose the set that is closest to the deployment of your cluster.
+    The `omsRegion` values have to conform to a specific set of the values. Choose the one that is closest to the deployment of your cluster.
 
 2. If you send any application logs to OMS, first confirm that the `applicationDiagnosticsStorageAccountType` and `applicationDiagnosticsStorageAccountName` are included as parameters in your template. If they are not included, add them to the variables section and edit their values as needed. You can also include them as parameters by following the preceding format.
 
@@ -116,7 +116,7 @@ Make the following modifications:
     "solutionName": "ServiceFabric"
     ```
 
-4. Add the following to the end of your Service Fabric cluster resources section:
+4. Add the following to the end of your resources section, after where the Service Fabric cluster resource is declared:
 
     ```json
     {
