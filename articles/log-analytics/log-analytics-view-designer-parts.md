@@ -160,7 +160,7 @@ The header displays a single number that summarizes a value column in a log quer
 ## Two timelines and list part
 The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![Two timelines & list view](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Two timelines and list view](media/log-analytics-view-designer/view-two-timelines-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -211,7 +211,7 @@ The header displays static text and an optional link. The list displays one or m
 ## Line chart, callout, and list part
 The header displays a line chart with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![Line chart, callout, & list view](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Line chart, callout, and list view](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
 | Setting | Description |
 |:--- |:--- |
