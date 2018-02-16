@@ -492,7 +492,7 @@ Click **Send** and note the **Response status** of **200 OK** and the results of
 The next procedure in the video starts at 16:30 and configures a simple desktop application to call the API. The first step is to register the desktop application in Azure AD and give it access to the directory and to the backend service. At 18:25 there is a demonstration of the desktop application calling an operation on the calculator API.
 
 ## Configure a JWT validation policy to pre-authorize requests
-The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
+The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
