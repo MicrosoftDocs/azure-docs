@@ -251,7 +251,7 @@
       - name: Overview
         href: azure-stack-billing-and-chargeback.md
       - name: Manage usage and billing as a CSP
-        href: zure-stack-add-manage-billing-as-a-csp.md
+        href: azure-stack-add-manage-billing-as-a-csp.md
       - name: Register to track billing usage
         href: azure-stack-csp-register-azure-stack.md
       - name: Add tenants for usage and billing 

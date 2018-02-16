@@ -47,7 +47,7 @@ The Azure billing portal shows the usage data only for the chargeable resources.
 
 ## Next steps
 
-[Register with Azure Stack](azure-stack/azure-stack-registration.md)
+[Register with Azure Stack](azure-stack-registration.md)
 
 [Report Azure Stack usage data to Azure](azure-stack-usage-reporting.md)
 
