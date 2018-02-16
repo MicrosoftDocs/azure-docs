@@ -4,7 +4,7 @@ description: Explains the Automated Patching feature for SQL Server Virtual Mach
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

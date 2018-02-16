@@ -23,7 +23,7 @@ This article shows how to enable Azure Active Directory Domain Services (Azure A
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. In the left pane, click on **New**.
+2. In the left pane, click **Create a resource**.
 3. In the **New** page, type **Domain Services** into the search bar.
 
     ![Search for domain services](./media/getting-started/search-domain-services.png)
