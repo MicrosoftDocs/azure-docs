@@ -46,14 +46,18 @@ You can use PowerShell scripts in your recovery plans. To be accessible from the
 
   If your library share path is remote (or if it's local but not shared with MSCVMMLibrary), configure the share as follows, using \\libserver2.contoso.com\share\ as an example:
   
-  * Open the Registry Editor, and then go to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-  * Change the value for **ScriptLibraryPath** to **\\\libserver2.contoso.com\share\\**. Specify the full FQDN. Provide permissions to the share location. This is the root node of the share. To check for the root node, in VMM, go to the root node in the library. The path that opens is the root of the path. This is the path that you must use in the variable.
-  * Ensure that you test the script by using a user account that has the same level of user rights as the VMM service account. Using these user rights verifies that standalone, tested scripts run the same way that they run in recovery plans. On the VMM server, set the execution policy to bypass, as follows:
-    1. Open the **64-bit Windows PowerShell** console as an administrator.
-    2. Enter **Set-executionpolicy bypass**. For more information, see [Using the Set-ExecutionPolicy cmdlet](https://technet.microsoft.com/library/ee176961.aspx).
+  1. Open the Registry Editor, and then go to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-    > [!IMPORTANT]
-    > Set **Set-executionpolicy bypass** only in the 64-bit PowerShell console. If you set it for the 32-bit PowerShell console, the scripts don't run.
+  2. Change the value for **ScriptLibraryPath** to **\\\libserver2.contoso.com\share\\**. Specify the full FQDN. Provide permissions to the share location. This is the root node of the share. To check for the root node, in VMM, go to the root node in the library. The path that opens is the root of the path. This is the path that you must use in the variable.
+
+  3. Test the script by using a user account that has the same level of user rights as the VMM service account. Using these user rights verifies that standalone, tested scripts run the same way that they run in recovery plans. On the VMM server, set the execution policy to bypass, as follows:
+
+     a. Open the **64-bit Windows PowerShell** console as an administrator.
+     
+     b. Enter **Set-executionpolicy bypass**. For more information, see [Using the Set-ExecutionPolicy cmdlet](https://technet.microsoft.com/library/ee176961.aspx).
+
+     > [!IMPORTANT]
+     > Set **Set-executionpolicy bypass** only in the 64-bit PowerShell console. If you set it for the 32-bit PowerShell console, the scripts don't run.
 
 ## Add the script to the VMM library
 
