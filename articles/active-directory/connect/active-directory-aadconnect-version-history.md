@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/16/2018
 ms.author: billmath
 
 ---
@@ -34,7 +34,7 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-## x.x.xxx.x
+## 1.1.749.0
 Status: Released to select customers
 
 >[!NOTE]
