@@ -19,21 +19,7 @@ ms.author: tomfitz
 ---
 # Manage resources with Azure PowerShell
 
-When deploying resources to Azure, you have tremendous flexibility when deciding what types of resources to deploy, where they are located, and how to set them up. However, that flexibility may open more options than you would like to allow in your organization. As you consider deploying resources to Azure, you might be wondering:
-
-* How do I meet legal requirements for data sovereignty in certain countries?
-* How do I control costs?
-* How do I ensure that someone does not inadvertently change a critical system?
-* How do I track resource costs and bill it accurately?
-
-This article addresses those questions. Specifically, you:
-
-* Assign users to roles and assign the roles to a scope so users have permission to perform expected actions but not more actions.
-* Tag resources so you can track them by values that make sense to your organization.
-* Apply policies that prescribe conventions for resources in your subscription.
-* Lock resources that are critical to your system.
-
-This article focuses on the tasks you take to implement governance. For a broader discussion of the concepts, see [Governance in Azure](../security/governance-in-azure.md). You deploy a virtual machine and its related virtual network.
+[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 ## Understand scope
 
@@ -57,7 +43,7 @@ Currently, the resource group is empty.
 
 ### Assign a role
 
-For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
+In this article, you deploy a virtual machine and its related virtual network. For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
 * [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
 * [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor)
@@ -143,13 +129,18 @@ After your deployment finishes, you can apply more management settings to the so
 
 ### Lock a resource
 
-To lock the virtual machine, use:
+To lock the virtual machine and network security group, use:
 
 ```powershell
 New-AzureRmResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+New-AzureRmResourceLock -LockLevel CanNotDelete `
+  -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
@@ -192,11 +183,11 @@ After applying tags to resources, you can view costs for resources with those ta
 
 To view costs by tag in the portal, select your subscription and select **Cost Analysis**.
 
-![Cost analysis](./media/govern-resources/select-cost-analysis.png)
+![Cost analysis](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
 Then, filter by the tag value, and select **Apply**.
 
-![View cost by tag](./media/govern-resources/view-costs-by-tag.png)
+![View cost by tag](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
 You can also use the [Azure Billing APIs](../billing/billing-usage-rate-card-overview.md) to programmatically view costs.
 

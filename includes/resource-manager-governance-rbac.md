@@ -4,9 +4,9 @@ When planning your access control strategy, grant users the least privilege to g
 
 ![Scope](./media/resource-manager-governance-rbac/role-examples.png)
 
-There are three roles that apply to all resources - Owner, Contributor, and Reader. Any accounts assigned to the Owner role should be tightly controlled and rarely used. 
+There are three roles that apply to all resources - Owner, Contributor, and Reader. Any accounts assigned to the Owner role should be tightly controlled and rarely used. Users that only need to observe the state of solutions should be granted the Reader role.
 
-Most users are granted [resource-specific roles](../articles/active-directory/role-based-access-built-in-roles.md) or [custom roles](../articles/active-directory/role-based-access-control-custom-roles.md) that tightly define the permitted actions. By assigning users to these roles, you grant the required access for users without permitting too much control. You can assign an account to more than one role, and that user gets the combined permissions of the roles.
+Most users are granted [resource-specific roles](../articles/active-directory/role-based-access-built-in-roles.md) or [custom roles](../articles/active-directory/role-based-access-control-custom-roles.md) at either the subscription or resource group level. These roles tightly define the permitted actions. By assigning users to these roles, you grant the required access for users without permitting too much control. You can assign an account to more than one role, and that user gets the combined permissions of the roles. Granting access at the resource level is often too restrictive for users, but may work for an automated process designed for specific task.
 
 ### Who can assign roles
 
