@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # How to perform queries across multiple Log Analytics workspaces
 
-Previously with Azure Log Analytics, you could only analyze data from within the current workspace and this limited your ability to query across multiple workspaces defined in your subscription.  
+Previously with Azure Log Analytics, you could only analyze data from within the current workspace and it limited your ability to query across multiple workspaces defined in your subscription.  
 
 Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform this type of query in the [Advanced portal](log-analytics-log-search-portals.md#advanced-analytics-portal), not in the Azure portal.  
 
@@ -36,9 +36,9 @@ Identifying a workspace can be performed one of several ways:
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case you must use one of the other identifiers.
+    >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
-* Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: *subscriptionName/resourceGroup/componentName*. 
+* Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/development').requests | count `
 
@@ -50,7 +50,7 @@ Identifying a workspace can be performed one of several ways:
 
     `workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count`
 
-* Azure Resource ID – the Azure-defined unique identity of the workspace. You use this when the resource name is ambiguous.  For workspaces, the format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
+* Azure Resource ID – the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous.  For workspaces, the format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
     For example:
     ``` 
@@ -65,7 +65,7 @@ Identifying an application in Application Insights can be performed with the *ap
 
     `app("fabrikamapp")`
 
-* Qualified name - is the “full name” of the app, composed of the subscription name, resource group and component name in this format: *subscriptionName/resourceGroup/componentName*. 
+* Qualified name - is the “full name” of the app, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
     `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
 
@@ -77,7 +77,7 @@ Identifying an application in Application Insights can be performed with the *ap
 
     `app("b438b4f6-912a-46d5-9cb1-b44069212ab4").requests | count`
 
-* Azure Resource ID - the Azure-defined unique identity of the app. You use this when the resource name is ambiguous. The format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.  
+* Azure Resource ID - the Azure-defined unique identity of the app. You use the Resource ID when the resource name is ambiguous. The format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.  
 
     For example:
     ```
