@@ -22,7 +22,7 @@ Azure Event Hubs is a highly scalable data streaming platform and event ingestio
 ## What will I learn?
 This article gives you a step-by-step illustration to provision the required resources and a sample client that shows you how to get started with Event Hubs. 
 
-## Part 1: Set up your resources
+## Set up your resources
 ### Prerequisites
 
 You need an Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/) before you begin
@@ -95,7 +95,7 @@ Run the following command to remove the resource group, namespace, storage accou
 Remove-AzureRmResourceGroup -Name eventhubsResourceGroup   
 ```
 
-## Part 2: Stream into Event Hubs
+## Stream into Event Hubs
 You can now start streaming into your Event Hubs. The samples can be downloaded or Git cloned from the [Event Hubs repo](https://github.com/Azure/azure-event-hubs).
 
 The [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), describes how to ingest into Event Hubs. Following steps show how you can achieve this.
