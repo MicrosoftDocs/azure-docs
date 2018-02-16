@@ -41,7 +41,7 @@ Log in to the Azure portal at https://portal.azure.com.
 ## Create a zone redundant load balancer
 
 1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
-2. On the top left-hand side of the screen, select **New** > **Networking** > **Load Balancer.**
+2. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer.**
 3. In the **Create load balancer, under **Name** type **myPublicLB**.
 4. Under **Type**, select **Public**.
 5. Under SKU, select **Standard (Preview)**.
