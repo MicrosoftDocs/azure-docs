@@ -25,9 +25,9 @@ Learn how to build an Apache Spark machine learning application using a Spark cl
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) is Spark’s scalable machine learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
 
-**Prerequisites:**
+## Prerequisites:
 
-You must have the following:
+You must have the following item:
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
@@ -178,8 +178,8 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building will be hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
-10. Shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
+   From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building is hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
+10. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shut down and close the notebook.
 
 ## <a name="anaconda"></a>Use Anaconda scikit-learn library for Spark machine learning
 Apache Spark clusters on HDInsight include Anaconda libraries. This also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook. For examples on using the scikit-learn library, see [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
@@ -190,7 +190,6 @@ Apache Spark clusters on HDInsight include Anaconda libraries. This also include
 ### Scenarios
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
@@ -198,7 +197,7 @@ Apache Spark clusters on HDInsight include Anaconda libraries. This also include
 * [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
