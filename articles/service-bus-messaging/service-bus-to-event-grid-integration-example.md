@@ -23,8 +23,8 @@ In this document, we will demonstrate how to setup azure functions and a logic a
 
 1. [Prerequisites](#1-prerequisites)
 2. We create a [simple test Azure Function](#2-test-function-setup) for debugging and seeing initial flow of events from Event Grid. **Note:** This should be done regardless of executing 3. or 4.
-3. We create a [Azure Function to receive and process service bus messages](#2-receive-messages-using-azure-function) based on event grid events.
-4. We show an alternate implementation utilizing [Logic Apps](#3-receive-messages-using-azure-logic-app).
+3. We create a [Azure Function to receive and process service bus messages](#3-receive-messages-using-azure-function) based on event grid events.
+4. We show an alternate implementation utilizing [Logic Apps](#4-receive-messages-using-azure-logic-app).
 
 ## 1. Prerequisites
 
