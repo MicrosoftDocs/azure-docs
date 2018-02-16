@@ -24,49 +24,72 @@ If you want to prevent extension installation, or certain extensions being insta
 
 This tutorial requires that you are running the Azure CLI version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
+## Policy and parameters
+
+In this example, we are going to block the installation of the VM agent that allows you to reset passwords and the Custom Script Extension that can be used to run scripts and commands on a VM. In order to restrict what extensions can be installed, you need to have a rule to provide the logic to identify the extension and a set of parameters that includes a list of the extensions to block.
+
+In this example, the rules file looks like this:
+
+```json
+{
+	"if": {
+		"allOf": [
+			{
+				"field": "type",
+				"equals": "Microsoft.Compute/virtualMachines/extensions"
+			},
+			{
+				"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+				"equals": "Microsoft.Compute"
+			},
+			{
+				"field": "Microsoft.Compute/virtualMachines/extensions/type",
+				"in": "[parameters('notAllowedExtensions')]"
+			}
+		]
+	},
+	"then": {
+		"effect": "deny"
+	}
+}
+```
+
+The parameters list the extensions to be blocked.
+
+```json
+{
+	"notAllowedExtensions": {
+		"type": "Array",
+		"metadata": {
+			"description": "The list of extensions that will be denied. Example: BGInfo, CustomScriptExtension, JsonAADDomainExtension, VMAccessAgent.",
+			"strongType": "type",
+			"displayName": "Denied extension"
+		}
+	}
+}
+```
+
 
 ## Create the policy
 
 A policy definition is an object used to store the configuration that you would like to use. Create a policy definition using [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
 
-In this example, we are going to block the installation of the VM agent that allows you to reset passwords and the Custom Script Extension that can be used to run scripts and commands on a VM. The extensions to block are listed in .json format in the **--rules** parameter.
-
+The rules and parameters are expressed in .json and can be passed in as files. In this example, the rules and parameters have been saved as .json files on GitHub and the raw files are passed into the command.
 
 ```azurecli-interactive
-	az policy definition create \
+az policy definition create \
    --name 'not-allowed-vmextension' \
    --display-name 'Block VM Extensions' \
    --description 'This policy governs which VM extensions that are blocked.' \
-   --rules '{
-			"if": {
-				"allOf": [
-					{
-						"field": "type",
-						"equals": "Microsoft.Compute/virtualMachines/extensions"
-					},
-					{
-						"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
-						"equals": "Microsoft.Compute"
-					},
-					{
-						"field": "Microsoft.Compute/virtualMachines/extensions/type",
-						"in": "[parameters('notAllowedExtensions')]"
-					}
-				]
-			},
-			"then": {
-				"effect": "deny"
-			}
-		}'
-   --params '{
-			"notAllowedExtensions": {
-				"value": [
-					"VMAccessAgent",
-					"CustomScriptExtension"
-				]
-			}
-		}'
+   --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' \
+   --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.parameters.json' \
+   --mode All
 ```
+
+
+
+
+
 
 ## Assign the policy
 
