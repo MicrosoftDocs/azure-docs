@@ -110,7 +110,7 @@ This issue occurs if the server is offline or doesn’t have network connectivit
 
 <a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**
 
-This issue can occur if the management operation on server endpoint fails. Azure portal will seem to get stuck and server endpoint properties page does not open. To work around this issue, try updating server endpoint using PowerShell commands from the server. 
+This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
