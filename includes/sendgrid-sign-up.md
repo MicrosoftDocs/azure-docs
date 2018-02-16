@@ -45,7 +45,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
     ![api-keys][api-keys]
 
-3. Click the **Create API Key** dropdown and select **General API Key**.
+3. Click the **Create API Key**.
 
     ![general-api-key][general-api-key]
 4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
