@@ -73,7 +73,7 @@
     items: 
     - name: Overview
       href: concepts-business-continuity.md
-    - name: Backup
+    - name: Backup & restore
       href: concepts-backup.md
   - name: Monitor
     href: concepts-monitoring.md
