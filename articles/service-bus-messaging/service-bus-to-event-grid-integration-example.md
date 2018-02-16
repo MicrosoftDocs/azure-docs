@@ -59,7 +59,7 @@ Before working through the entire end to end scenario you want to have at least 
 
 In the portal, create a new Azure Function Application. Follow this [link](https://docs.microsoft.com/en-us/azure/azure-functions/) to learn the basics of Azure Functions.
 
-In your newly created function click the little plus to add a http trigger function:
+In your newly created function click the little plus to add an http trigger function:
 
 ![2][]
 
@@ -123,7 +123,7 @@ Following screenshot, shows a namespace, which already has a few Event Grid subs
 
 ![20][]
 
-Following screenshot, shows how to subscribe to an Azure Function or a Web Hook without any specific filtering. Remember to add the regarding filter for you Service Bus subscription as "Suffix Filter":
+Following screenshot, shows how to subscribe to an Azure Function or a Web Hook without any specific filtering. Remember to add the regarding filter for your Service Bus subscription as "Suffix Filter":
 
 ![21][]
 
@@ -135,7 +135,7 @@ Send a message to your Service Bus topic as mentioned in the pre-requisites and 
 
 In the previous section, you looked at a simple test and debugging scenario and ensured that events are flowing. In this part of the documentation you will look at how to receive and process messages upon receiving an event.
 
-The reason for adding a Azure Function in the following way, is because the Service Bus Functions within Azure Functions itself are not natively supporting the new Event Grid integration yet.
+The reason for adding an Azure Function in the following way, is because the Service Bus Functions within Azure Functions itself are not natively supporting the new Event Grid integration yet.
 
 In the same Visual Studio Solution you opened in the prerequisites, select ReceiveMessagesOnEvent.cs. Enter your connection string in the code:
 
