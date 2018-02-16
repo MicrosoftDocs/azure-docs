@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 02/16/2018
 ms.author: owend
 
 ---
@@ -41,9 +41,9 @@ Analysis Services Management Objects (AMO) and ADOMD client libraries are availa
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
 
-It's recommended you migrate to NuGet references instead of using the MSI installer. 
+It's recommended you migrate to NuGet references instead of using MSI installer. 
 
-NuGet package assemblies AssemblyVersion will follow semantic versioning: MAJOR.MINOR.PATCH. This ensures NuGet references load the expected version even if there is a different version in the GAC (resulting from MSI install). At least PATCH will be incremented for each public release. AMO and ADOMD versions will be kept in-sync.
+NuGet package assemblies AssemblyVersion follow semantic versioning: MAJOR.MINOR.PATCH. NuGet references load the expected version even if there is a different version in the GAC (resulting from MSI install). PATCH is incremented for each release. AMO and ADOMD versions are kept in-sync.
 
 ## Understanding client libraries
 
