@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Suite remote monitoring FAQ | Microsoft Docs
 description: Frequently asked questions for IoT Suite remote monitoring preconfigured solution
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

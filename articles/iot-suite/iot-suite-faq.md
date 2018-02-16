@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Suite FAQ | Microsoft Docs
 description: Frequently asked questions for IoT Suite
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
