@@ -28,7 +28,7 @@ This script creates a virtual machine scale set running Windows Server 2016 and 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/auto-scale-host-metrics/auto-scale-host-metrics.ps1 "Automatically scale a virtual machine scale set")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/auto-scale-host-metrics/auto-scale-host-metrics.ps1 "Automatically scale a virtual machine scale set")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.

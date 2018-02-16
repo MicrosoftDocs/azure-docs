@@ -28,7 +28,7 @@ This script creates a virtual machine scale set that uses a custom VM image as t
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/use-custom-vm-image/use-custom-vm-image.ps1 "Create a virtual machine scale set with a custom VM image")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/use-custom-vm-image/use-custom-vm-image.ps1 "Create a virtual machine scale set with a custom VM image")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.

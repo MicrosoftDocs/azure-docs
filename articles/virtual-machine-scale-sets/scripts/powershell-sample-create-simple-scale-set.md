@@ -28,7 +28,7 @@ This script creates a virtual machine scale set running Windows Server 2016. Aft
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/simple-scale-set/simple-scale-set.ps1 "Create a simple virtual machine scale set")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.ps1 "Create a simple virtual machine scale set")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.

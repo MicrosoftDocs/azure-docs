@@ -28,7 +28,7 @@ This script creates a virtual machine scale set running Windows Server 2016 in a
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-single-availability-zone/create-single-availability-zone.ps1 "Create single-zone scale set")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1 "Create single-zone scale set")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.
