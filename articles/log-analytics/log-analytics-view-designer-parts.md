@@ -120,7 +120,7 @@ The header has two numbers that display a count of records from separate log sea
 ## Donut and list part
 The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records.
 
-![Donut & list view](media/log-analytics-view-designer/view-donut-list.png)
+![Donut and list view](media/log-analytics-view-designer/view-donut-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -149,7 +149,7 @@ The header displays a single number that summarizes a value column in a log quer
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
-| Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
+| Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
