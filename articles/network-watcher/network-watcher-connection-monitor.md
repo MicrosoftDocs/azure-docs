@@ -18,7 +18,7 @@ ms.author: jdial
 
 # Monitor network connections with Azure Network Watcher using the Azure portal
 
-Learn how to use connection monitor to monitor network connectivity between an Azure virtual machine and an IP address. The IP address can be assigned to another Azure resoure, or an Internet or on-premises resource.
+Learn how to use connection monitor to monitor network connectivity between an Azure virtual machine and an IP address. The IP address can be assigned to another Azure resource, or an Internet or on-premises resource.
 
 ## Before you begin
 
@@ -36,7 +36,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. On the left side of the portal, select **More services >**.
 2. Start typing *network watcher*. When **Network Watcher** appears in the search results, select it.
-3. Under **MONITORING**, select **Connection monitor (Preview)**. Features in preview release do not have the same level of reliability or region availability as features in general relase.
+3. Under **MONITORING**, select **Connection monitor (Preview)**. Features in preview release do not have the same level of reliability or region availability as features in general release.
 4. Select **+ Add**.
 5. Enter or select the appropriate information for the connection you want to monitor, and then select **Add**. In this example, a connection between the *myVmSource* and *myVmDestination* virtual machines is monitored over port 80.
     
