@@ -1,6 +1,6 @@
 ---
 title: Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial
-description: Tutorial on how to use Azure Active Directory B2C to sign-in and sign-up users in an ASP.NET web app.
+description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web app.
 services: active-directory-b2c
 author: PatAltimore
 
@@ -144,9 +144,9 @@ The sample ASP.NET web app is a simple task list app for creating and updating a
 
 There are two projects in the sample solution:
 
-**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** policy to sign up or sign in users with an email address.
+**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** policy to sign up or sign in users.
 
-**Web API sample app (TaskService):** Web API that supports the create, read,  update, and delete task list functionality. The web API is secured by Azure AD B2C and called by the web app.
+**Web API sample app (TaskService):** Web API that supports the create, read, update, and delete task list functionality. The web API is protected by Azure AD B2C and called by the web app.
 
 You need to change the app to use the app registration in your tenant. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
 

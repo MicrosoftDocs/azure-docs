@@ -1,37 +1,34 @@
 ---
-title: Test drive an Azure AD B2C desktop application | Microsoft Docs
-description: Test drive sign in, sign up, edit profile, and reset password user journeys using a test Azure AD B2C environment
+title: Test drive an Azure AD B2C enabled desktop app
+description: Quickstart to try a sample ASP.NET desktop app that uses Azure Active Directory B2C to authenticate and sign-up users.
 services: active-directory-b2c
-documentationcenter: .net
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
 
-ms.assetid: 86293627-26fb-4e96-a76b-f263f9a945bd
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 2/13/2018
+ms.author: PatAltimore
 
 ---
-# Test drive a desktop application configured with Azure AD B2C
+# Quickstart: Test drive an Azure AD B2C enabled desktop app
 
 Azure Active Directory B2C provides cloud identity management to keep your application, business, and customers protected.  This quickstart uses a sample Windows Presentation Foundation (WPF) desktop app to demonstrate:
 
 * Using the **Sign Up or Sign In** policy to create or sign in with a social identity provider or a local account using an email address. 
 * **Calling an API** to retrieve your display name from an Azure AD B2C secured resource.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     - **.NET desktop development**
-
 * A social account from either Facebook, Google, Microsoft, or Twitter. If you don't have a social account, a valid email address is required.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -116,6 +113,10 @@ Click **Call API** to make a request to the Azure AD B2C secured resource https:
 ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
 The application includes the access token displayed in the *Token info* text box in the request. The API sends back the display name contained in the access token.
+
+## Clean up resources
+
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## Next steps
 

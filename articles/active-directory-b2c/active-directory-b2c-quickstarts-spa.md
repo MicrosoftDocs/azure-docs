@@ -1,41 +1,36 @@
 ---
-title: Test drive an Azure AD B2C single-page application | Microsoft Docs
-description: Test drive sign in, sign up, edit profile, and reset password user journeys using a test Azure AD B2C environment
+title: Test drive an Azure AD B2C enabled single-page app
+description: Quickstart to try a sample single-page app that uses Azure Active Directory B2C to authenticate and sign-up users.
 services: active-directory-b2c
 documentationcenter: ''
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
 
-ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
+ms.reviewer: saraford
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
+ms.topic: quickstart
+ms.date: 2/13/2018
+ms.author: patricka
 
 ---
-# Test drive a single-page application configured with Azure AD B2C
-
-## About this sample
+# Quickstart: Test drive an Azure AD B2C enabled single-page app
 
 Azure Active Directory B2C provides cloud identity management to keep your application, business, and customers protected.  This quickstart uses a sample single page application to demonstrate:
 
 * Using the **Sign Up or Sign In** policy to create or sign in with a social identity provider or a local account using an email address. 
 * **Calling an API** to retrieve your display name from an Azure AD B2C secured resource.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     - **ASP.NET and web development**
-
 * Install [Node.js](https://nodejs.org/en/download/)
-
 * A social account from either Facebook, Google, Microsoft, or Twitter. If you don't have a social account, a valid email address is required.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -111,6 +106,10 @@ You have successfully created a new Azure AD B2C local user account.
 Once signed in, you can click the **Call Web API** button to have your display name returned from the Web API call as a JSON object. 
 
 ![Web API response](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+
+## Clean up resources
+
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## Next steps
 
