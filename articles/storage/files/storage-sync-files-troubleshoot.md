@@ -100,7 +100,6 @@ To create a cloud endpoint, your user account must have the following Microsoft 
 The following built-in roles have the required Microsoft Authorization permissions:  
 * Owner
 * User Access Administrator
-
 To determine whether your user account role has the required permissions:  
 1. In the Azure portal, select **Resource Groups**.
 2. Select the resource group where the storage account is located, and then select **Access control (IAM)**.
@@ -120,12 +119,12 @@ This issue occurs if the server is offline or doesn’t have network connectivit
 This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
 
 ```PowerShell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-# Get the server endpoint id corresponding for the server endpoint
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
 Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
 
 # Update the free space percent policy for the server endpoint
-Set-AzureRmStorageSyncServerEndpoint -Id serverendpointguid -CloudTiering true -VolumeFreeSpacePercent 60
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
 ```
 
 ## Sync
