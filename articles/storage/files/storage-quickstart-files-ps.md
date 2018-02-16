@@ -15,169 +15,165 @@ ms.topic: get-started-article
 ms.date: 02/01/2018
 ms.author: cynthn
 ---
-# Quickstart: Managing file shares with Azure PowerShell 
 
-This quickstart walks you through the basics of working with Azure file shares using PowerShell. Learn how to create a share, a directory within the share, upload files, and copy files between shares.
+# Managing file shares with Azure PowerShell 
+This guide walks you through the basics of working with Azure file shares using PowerShell: learn how to create a share, a directory within the share, upload files, and copy files between shares.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
-
-
+If would like choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
-
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
-
-This example creates a resource group named *myResourceGroup* in *East US*. 
+A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with [`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resourc group named *myResourceGroup* in the East US region:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## Create a storage account
+## Create or get a storage account
+A storage account is a shared pool of storage for which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-Create a new storage account, within the resource group that you created, that will be used to host the file share using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named *mystorage<10 random digits>* using locally redundant storage. Storage account names must be unique, so we use **Get-Random** to append 10 random digit to the end to make it unique.
+If you don't already have an existing storage account, you can create a new one using [`New-AzureRmStorageAccount`](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named *mystorage<10 random digits>* and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so we use **Get-Random** to append 10 random digit to the end to make it unique. 
 
-```azurecli-interactive 
-$storageName = "mystorage$(Get-Random)"
-New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
-  -Name $storageName `
-  -Location eastus `
-  -SkuName Standard_LRS 
+```azurepowershell-interactive 
+$storageAcct = New-AzureRmStorageAccount `
+                  -ResourceGroupName "myResourceGroup" `
+                  -Name "mystorage$(Get-Random)" `
+                  -Location eastus `
+                  -SkuName Standard_LRS 
 ```
 
-## Get the storage account key
-
-Storage account keys are used to control access to resources in a storage account. They are automatically created when you create a storage account. View the storage account keys using the [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey) cmdlet. This example displays the storage account keys for *mystorageaccount* in table format.
-
-```azurecli-interactive 
-Get-AzureRmStorageAccountKey `
-   -ResourceGroupName myResourceGroup `
-   -AccountName $storageName | Format-table
-```
-
-Copy *key 1* where you can get to it easily to use in next step.
-
-## Create a context
-
-Create the storage account context. The context encapsulates the storage account name and account key. 
-
-Replace `<storage-account-key>` with the key you copied in the previous step.
+If you already have an existing storage account you'd like to use for this tutorial, you can get a reference to the storage account using [`Get-AzureRmStorageAccount`](/powershell/module/azurerm.storage/get-azurermstorageaccount).
 
 ```azurepowershell-interactive
-$myContext = New-AzureStorageContext $storageName <storage-account-key>
+$storageAcct = Get-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -StorageAccountName "<my-storage-account-name>"
 ```
 
+> [!Note]  
+> You only need to run one of these cmdlets: if you executed `New-AzureRmStorageAccount`, you don't need to execute `Get-AzureRmStorageAccount`, the variable `$storageAcct` already has a reference to the storage account.
+
 ## Create a file share
-
-Now you can create your first file share. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-Create file shares using [az storage share create](/cli/azure/storage/share#create). This example creates a share named *myshare* with a 10 GiB quota. Be sure to enter your own storage account key in the last line.
+Now you can create your first Azure file share. You can create a file share using [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare). This example creates a share named *myshare* with a 10 GiB quota.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
    -Name myshare `
-   -Context $myContext
+   -Context $storageAcct.Context
 ```
 
-## Create a directory
+> [!Important]  
+> Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-Adding a directory provides a hierarchical structure for managing your file share. You can create multiple levels, but you must ensure that all parent directories exist before creating a subdirectory. For example, for path *myDirectory/mySubDirectory*, you must first create directory *myDirectory*, then create *mySubDirectory*.
+## Maniuplating the content of the Azure file share
+Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can maniuplate your Azure file share with the Azure PowerShell module. This is advantageous over mounting the file share with SMB, because all requests made with PowerShell are made with the File REST API enabling you to create, modify, and delete files and directories in your file share from:
 
-This example use the [New-AzureStorageDirectory]() to create a directory named *myDirectory* in the file share called *myshare*.
+- The PowerShell Cloud Shell (which cannot mount file shares over SMB)
+- Clients which cannot mount SMB shares, such as on-premises clients which do not have port 445 unblocked.
+- Serverless scenarios, such as in [Azure Functions](../../azure-functions/functions-overview.md). 
 
+### Create directory
+To create a new directory named *myDirectory* at the root at your Azure file share, use the [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet.
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
-   -Context $myContext `
-   -ShareName myshare `
-   -Path myDirectory
+   -Context $storageAcct.Context `
+   -ShareName "myshare" `
+   -Path "myDirectory"
 ```
 
-## Create a file
-
-Create a file in your Cloud Shell session by piping the output of Get-AzureFileStorage to a .txt file.
-
-```azurepowershell-interactive
-Get-AzureStorageFile -Context $myContext -ShareName myshare -Path myDirectory | Out-File C:\Users\ContainerAdministrator\clouddrive\output.txt
-```
-
-You can use Vim to check the contents of the file. 
+### Upload the file to Azure
+To demostrate how to upload a file using the [`Set-AzureStorageFileContent`](/powershell/module/azure.storage/set-azurestoragefilecontent) cmdlet, we first need to create a file inside your PowerShell Cloud Shell's scratch drive to upload. The following commands will create and then upload the file: 
 
 ```azurepowershell-interactive
-vim C:\Users\ContainerAdministrator\clouddrive\output.txt
-```
+# this expression will put the current date and time into a new file on your scratch drive
+Get-Date | Out-File -FilePath "C:\Users\ContainerAdministrator\CloudDrive\SampleUpload.txt" -Force
 
-You may have to scroll the Cloud Shell windows to see the contents.
-
-To close out of Vim, hit the **Esc** key and type `:x`.
-
-## Upload the file to Azure
-
-Upload the file from your Cloud Shell session to your new Azure file share using [Set-AzureStorageFileContent](/powershell/module/azure.storage/set-azurestoragefilecontent)
-
-```azurepowershell-interactive
+# this expression will upload that newly created file to your Azure file share
 Set-AzureStorageFileContent `
-   -Context $myContext `
-   -ShareName myshare `
-   -Source C:\Users\ContainerAdministrator\clouddrive\output.txt `
-   -Path myDirectory/output.txt
+   -Context $storageAcct.Context `
+   -ShareName "myshare" `
+   -Source "C:\Users\ContainerAdministrator\CloudDrive\SampleUpload.txt" `
+   -Path "myDirectory\SampleUpload.txt"
 ```   
 
-Check to make sure the file was uploaded by using [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile) to list the contents of the file share. This example lists the files in *myshare/myDirectory* and returns the name of the file that you uploaded.
+If you're running PowerShell locally, you should substitute `C:\Users\ContainerAdministrator\CloudDrive\SampleUpload.txt` with a path that exists on your machine.
 
+After uploading the file, you can use [`Get-AzureStorageFile`](/powershell/module/Azure.Storage/Get-AzureStorageFile) to check to make sure the file was uploaded to your Azure file share. 
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Context myContext -ShareName myshare -Path myDirectory 
+Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
+### Download a file
+You can use the [`Get-AzureStorageFileContent`](/powershell/module/azure.storage/get-azurestoragefilecontent) to download a copy of the file you just uploaded to your scratch drive.
 
-## Copy files
+```azurepowershell-interactive
+# Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
+Remove-Item 
+    `-Path "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt" `
+     -Force `
+     -ErrorAction SilentlyContinue
 
-Now, create a new share and copy the file you uploaded over to this new share. To copy files, use [az storage file copy](/cli/azure/storage/file/copy). You can copy a file to another file, a file to a blob, or a blob to a file.  This example creates a second share named *myshare2* and copies *samplefile.txt* to the root of the new share. 
+Get-AzureStorageFileContent `
+    -Context $storageAcct.Context `
+    -ShareName "myshare" `
+    -Path "myDirectory\SampleUpload.txt" ` 
+    -Destination "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt"
+```
+
+### Copy files
+One common task is to copy files from one file share to another file share, or to/from a Azure Blob storage container. To demonstrate this functionality, you can create a new share and copy the file you just uploaded over to this new share using the [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. 
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
-   -Name myshare2 `
-   -Context $myContext
+    -Name "myshare2" `
+    -Context $storageAcct.Context
+  
+New-AzureStorageDirectory `
+   -Context $storageAcct.Context `
+   -ShareName "myshare2" `
+   -Path "myDirectory2"
 
 Start-AzureStorageFileCopy 
-   -SrcShareName myshare `
-   -SrcFilePath myshare/file.txt `
-   -DestShareName myshare2 `
-   -DestFilePath myshare2/file.txt `
-   -Context $myContext `
-   -DestContext $myContext
+    -Context $storageAcct.Context `
+    -SrcShareName "myshare" `
+    -SrcFilePath "myDirectory\SampleUpload.txt" `
+    -DestShareName "myshare2" `
+    -DestFilePath "myDirectory2\file.txt" `
+    -DestContext $storageAcct.Context
 ```
-
 
 Now, if you list the files in the new share, you should see your file.
 
-```azurecli-interactive
-Get-AzureStorageFile -Share myshare2 -Path myshare2 | Get-AzureStorageFile
+```azurepowershell-interactive
+Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDirectory2" 
 ```
 
+While the `Start-AzureStorageFileCopy` is a convenient cmdlet for ad-hoc file moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves (in terms of number or size of files being moved). Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell 
 
 ## Clean up resources
-
-When you are done, you can use [az group delete](/cli/azure/group#delete) to remove the resource group and all related resources. 
+When you are done, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) to remove the resource group and all related resources. 
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
+You can alternatively remove resources one by one:
+
+- To remove the Azure file shares we created for this quickstart.
+  ```azurepowershell-interactive
+  Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
+      Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
+  }
+  ```
+- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).
+  ```azurepowershell-interactive
+  Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
+  ```
 
 ## Next steps
-In this quickstart, you've learned to create a share, a directory within the share, upload files, and copy files between shares.
-
-Advance to the next article to learn more
-> [!div class="nextstepaction"]
-> [Next steps button](storage-sync-files-server-endpoint.md)
-
-
-
-
-
+- [Managing file shares with Azure CLI](storage-quickstart-files-cli.md)
+- [Managing file shares with the Azure portal](storage-how-to-use-files-powershell.md)
+- [Planning for an Azure Files deployment](storage-files-planning.md)
