@@ -17,6 +17,7 @@
 ### [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade from a previous version](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Install using an existing ADSync database](active-directory-aadconnect-existing-database.md)
+### [Install using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md)
 
 # How to
 ## Plan and design
@@ -51,6 +52,7 @@
 
 
 ## Manage Azure AD Connect Sync
+### [GDPR compliance and Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
