@@ -52,7 +52,7 @@ The completed application is provided at the end of this tutorial as well.
 5. Follow the prompts to create a **Web Application** and/or **WebAPI**.
   * The **name** of the application describes your application to users.
 
-  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
+  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return`.
 
 6. After you register, Azure AD assigns your app a unique application ID. You need this value in the following sections, so copy it from the application page.
 7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
