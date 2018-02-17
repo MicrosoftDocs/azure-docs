@@ -117,41 +117,7 @@ spec:
 ## Run application
 
 ```
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  labels:
-    app: kube-aci-demo
-  name: kube-aci-demo
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: kube-aci-demo
-  template:
-    metadata:
-      labels:
-        app: kube-aci-demo
-    spec:
-      containers:
-      - image: microsoft/aci-helloworld
-        name: kube-aci-demo
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: kube-aci-demo
-  name: kube-aci-demo
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 80
-  selector:
-    app: kube-aci-demo
-  sessionAffinity: None
-  type: ClusterIP  
+ helm install azure-vote
 ```
 
 ## Update ingress route
@@ -181,7 +147,7 @@ spec:
   - host: demo-aks-ingress.eastus.cloudapp.azure.com
     http:
       paths:
-      - path: /azure-vote
+      - path: /route-two
         backend:
           serviceName: azure-vote-front
           servicePort: 80
@@ -190,10 +156,5 @@ spec:
 ## Run second application
 
 ```console
-$ kubectl create -f https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
-
-deployment "azure-vote-back" created
-service "azure-vote-back" created
-deployment "azure-vote-front" created
-service "azure-vote-front" created
+helm install azure-vote --set title="Ingress route two"
 ```
