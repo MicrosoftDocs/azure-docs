@@ -45,7 +45,7 @@ This article talks about the steps to back up and restore virtual machines (VMs)
 Use the following steps to set a backup goal, define a policy, configure items, and trigger a backup.
 
 ### Configure backup
-1. If you already have a Recovery Services vault open, proceed to the next step. If you don't have a Recovery Services vault open but you're in the Azure portal, on the **Hub** menu, select **Browse**.
+1. If you already have a Recovery Services vault open, proceed to the next step. If you don't have a Recovery Services vault open but you're in the Azure portal, select **All services**.
 
    a. In the list of resources, type **Recovery Services**.
 
@@ -95,7 +95,7 @@ If you have VMs already being backed up in a Recovery Services vault that are en
 
 ## Provide permissions to Backup
 Use the following steps to provide relevant permissions to Backup to access the key vault and perform backup of encrypted VMs.
-1. Select **More services**, and search for **Key vaults**.
+1. Select **All services**, and search for **Key vaults**.
 
     ![Key vaults](./media/backup-azure-vms-encryption/search-key-vault.png)
     
