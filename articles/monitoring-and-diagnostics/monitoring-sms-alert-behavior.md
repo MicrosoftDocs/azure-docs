@@ -1,7 +1,7 @@
 ---
 title: SMS Alert behavior in Action Groups | Microsoft Docs
 description: SMS message format and responding to SMS messages to unsubscribe, resubscribe or request help.
-author: dukekamstra
+author: dkamstra
 manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
