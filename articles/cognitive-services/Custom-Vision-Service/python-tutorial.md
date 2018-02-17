@@ -13,7 +13,7 @@ ms.author: areddish
 ---
 
 # Custom Vision API Python tutorial
-Explore a basic Python script that uses the Computer Vision API to create a project. You can add tags to it, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. You can use this open-source example as a template for building your own app using the Custom Vision API.
+Explore a basic Python script that uses the Computer Vision API to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
 
 ## Prerequisites
 
@@ -28,21 +28,21 @@ This example has been developed for Python.
 
 ### Get the Custom Vision SDK
 
-- Install the Preview Python SDK for the Custom Vision API as follows from GitHub:
+To build this example, you need to install the Preview Python SDK for the Custom Vision API from GitHub as follows:
 
 ```
 pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"
 ```
 
-If you encounter a *Filename too long* error, make sure you have long-path support in Git enabled.
+If you encounter a *Filename too long* error, make sure you have longpath support in Git enabled:
 
 ```
 git config --system core.longpaths true
 ```
 
-## Step 1: Prepare the keys and the images needed for the example
+## Step 1: Prepare the keys and images needed for the example
 
-You can find Custom Vision Service here: https://customvision.ai
+You can find Custom Vision Service here: https://customvision.ai.
 
 Obtain your training and prediction key by signing in to the Custom Vision Service and going to your account settings.
 
@@ -51,7 +51,7 @@ This example uses the images from [this sample](https://github.com/Microsoft/Cog
 
 ## Step 2: Create a Custom Vision Service project
 
-Begin by creating a sample.py script file and adding the following contents:
+To create a new Custom Vision Service project, create a sample.py script file and add the following contents:
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -80,7 +80,7 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ## Step 4: Upload images to the project
 
-To add the images you have to the project, insert the following code after the tag creation. This uploads the image with the corresponding tag:
+To add the sample images to the project, insert the following code after the tag creation. This uploads the image with the corresponding tag:
 
 ```Python
 base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
@@ -112,7 +112,10 @@ for image_num in range(1,10):
 
 ## Step 5: Train the project
 
-Now that you've added tags and images to the project, you can train it. This creates the first iteration in the project. You can then mark this iteration as the default iteration.
+Now that you've added tags and images to the project, you can train it: 
+
+1. Insert the following code. This creates the first iteration in the project. 
+2. Mark this iteration as the default iteration.
 
 ```Python
 import time
@@ -131,7 +134,10 @@ print ("Done!")
 
 ## Step 6: Get and use the default prediction endpoint
 
-You're now ready to use the model for prediction. First, you obtain the endpoint associated with the default iteration. Then you send a test image to the project using that endpoint.
+You're now ready to use the model for prediction: 
+
+1. Obtain the endpoint associated with the default iteration. 
+2. Send a test image to the project using that endpoint.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -158,7 +164,7 @@ for prediction in results.predictions:
 
 ## Step 7: Run the example
 
-The prediction results appear on the console.
+Build and run the solution. The prediction results appear on the console.
 
 ```
 python sample.py

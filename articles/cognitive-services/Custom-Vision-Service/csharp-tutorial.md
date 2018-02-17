@@ -13,7 +13,7 @@ ms.author: gitbeams
 ---
 
 # Custom Vision API C&#35; tutorial
-Explore a basic Windows application that uses the Computer Vision API to create a project. You can add tags to it, upload images, train the project, obtain the project's  default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision API.
+Explore a basic Windows application that uses the Computer Vision API to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's  default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision API.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To build this example, you need the Custom Vision API, which you can find at [SD
 
 ## Step 1: Create a console application
 
-In this step, you create a console application and prepare the training key and the images needed for the example.
+In this step, you create a console application and prepare the training key and the images needed for the example:
 
 1. Start Visual Studio 2015, Community Edition. 
 2. Create a new console application by replacing the contents of **Program.cs** with the code that follows.
@@ -117,7 +117,7 @@ To add the images that you loaded into memory, insert the following code at the 
 
 ## Step 5: Train the project
 
-Now that you've added tags and images to the project, you can train it. 
+Now that you've added tags and images to the project, you can train it: 
 
 1. Insert the following code at the end of **Main()**. This creates the first iteration in the project.
 2. Mark this iteration as the default iteration.
@@ -144,7 +144,7 @@ Now that you've added tags and images to the project, you can train it.
 
 ## Step 6: Get and use the default prediction endpoint
 
-You're now ready to use the model for prediction. 
+You're now ready to use the model for prediction: 
 
 1. Obtain the endpoint associated with the default iteration by inserting the following code at the end of **Main()**. 
 2. Send a test image to the project by using that endpoint.
