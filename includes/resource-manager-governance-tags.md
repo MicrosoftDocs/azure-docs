@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: azure-resource-manager
+ author: tfitzmac
+ ms.service: azure-resource-manager
+ ms.topic: include
+ ms.date: 02/16/2018
+ ms.author: tomfitz
+ ms.custom: include file
+---
+
 You apply tags to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
 After you apply tags, you can retrieve all the resources in your subscription with that tag name and value. Tags enable you to retrieve related resources from different resource groups. This approach is helpful when you need to organize resources for billing or management.

@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: azure-resource-manager
+ author: tfitzmac
+ ms.service: azure-resource-manager
+ ms.topic: include
+ ms.date: 02/16/2018
+ ms.author: tomfitz
+ ms.custom: include file
+---
+
 Before creating any items, let's review the concept of scope. Azure provides four levels of management: management groups, subscription, resource group, and resource. [Management groups](../articles/billing/billing-enterprise-mgmt-group-overview.md) are in a preview release. The following image shows an example of these layers.
 
 ![Scope](./media/resource-manager-governance-scope/scope-levels.png)

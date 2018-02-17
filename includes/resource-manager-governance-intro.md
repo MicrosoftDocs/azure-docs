@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: azure-resource-manager
+ author: tfitzmac
+ ms.service: azure-resource-manager
+ ms.topic: include
+ ms.date: 02/16/2018
+ ms.author: tomfitz
+ ms.custom: include file
+---
+
 When deploying resources to Azure, you have tremendous flexibility when deciding what types of resources to deploy, where they are located, and how to set them up. However, that flexibility may open more options than you would like to allow in your organization. As you consider deploying resources to Azure, you might be wondering:
 
 * How do I meet legal requirements for data sovereignty in certain countries?

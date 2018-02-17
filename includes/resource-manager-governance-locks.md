@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: azure-resource-manager
+ author: tfitzmac
+ ms.service: azure-resource-manager
+ ms.topic: include
+ ms.date: 02/16/2018
+ ms.author: tomfitz
+ ms.custom: include file
+---
+
 Resource locks prevent users in your organization from accidentally deleting or modifying critical resources. Unlike role-based access control, resource locks apply a restriction across all users and roles. 
 
 You can set the lock level to **CanNotDelete** or **ReadOnly**. In the portal, the locks levels are displayed as **Delete** and **Read-only** respectively.

@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: azure-resource-manager
+ author: tfitzmac
+ ms.service: azure-resource-manager
+ ms.topic: include
+ ms.date: 02/16/2018
+ ms.author: tomfitz
+ ms.custom: include file
+---
+
 To add two tags to a resource group, use:
 
 ```powershell
