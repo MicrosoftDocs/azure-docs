@@ -85,7 +85,7 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
    | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
    | logs |`%%logs` |Outputs the logs for the current Livy session. |
-   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
+   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. You cannot delete the session that is initiated for the kernel itself. |
    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
 
    > [!NOTE]
@@ -157,7 +157,6 @@ The new kernels are in evolving stage and will mature over time. This could also
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications

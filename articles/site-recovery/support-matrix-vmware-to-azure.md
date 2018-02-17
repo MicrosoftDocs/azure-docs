@@ -18,8 +18,8 @@ This article summarizes supported components and settings for disaster recovery 
 
 ## Supported scenarios
 
-**Scenario** | **Details** 
---- | --- 
+**Scenario** | **Details**
+--- | ---
 **VMware VMs** | You can perform disaster recovery to Azure for on-premises VMware VMs. You can deploy this scenario in the Azure portal or by using PowerShell.
 **Physical servers** | You can perform disaster recovery to Azure for on-premises Windows/Linux physical servers. You can deploy this scenario in the Azure portal.
 
@@ -79,93 +79,88 @@ XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are suppo
 
 ## Network
 
-**Component** | **Supported** 
---- | --- 
+**Component** | **Supported**
+--- | ---
 Host network NIC teaming | Supported for VMware VMs. <br/><br/>Not supported for physical machine replication.
-Host network VLAN | Yes 
-Host network IPv4 | Yes 
-Host network IPv6 | No 
-Guest/server network NIC teaming | No 
-Guest/server network IPv4 | Yes 
-Guest/server network IPv6 | No 
-Guest/server network static IP (Windows) | Yes 
-Guest/server network static IP (Linux) | Yes <br/><br/>VMs are configured to use DHCP on failback. 
-Guest/server network multiple NICs | Yes 
+Host network VLAN | Yes
+Host network IPv4 | Yes
+Host network IPv6 | No
+Guest/server network NIC teaming | No
+Guest/server network IPv4 | Yes
+Guest/server network IPv6 | No
+Guest/server network static IP (Windows) | Yes
+Guest/server network static IP (Linux) | Yes <br/><br/>VMs are configured to use DHCP on failback.  
+Guest/server network multiple NICs | Yes
 
 
 ## Azure VM network (after failover)
 
-**Component** | **Supported** 
---- | --- 
-Azure ExpressRoute | Yes 
-ILB | Yes 
-ELB | Yes 
-Azure Traffic Manager | Yes 
-Multi-NIC | Yes 
-Reserved IP address | Yes 
-IPv4 | Yes 
-Retain source IP address | Yes 
-Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and virtual networks) | No 
-
+**Component** | **Supported**
+--- | ---
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Azure Traffic Manager | Yes
+Multi-NIC | Yes
+Reserved IP address | Yes
+IPv4 | Yes
+Retain source IP address | Yes
+Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and virtual networks) | No
 
 ## Storage
 
-
-**Component** | **Supported** 
---- | --- 
-Host NFS | Yes for VMware<br/><br/> No for physical servers 
+**Component** | **Supported**
+--- | ---
+Host NFS | Yes for VMware<br/><br/> No for physical servers.
 Host SAN (ISCSI) | Yes
 Host Multi-path (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
-Guest/server VMDK | Yes 
-Guest/server EFI/UEFI| Partial (Migration to Azure for Windows Server 2012 and later only) </br></br> See note at the end of the table.
-Guest/server shared cluster disk | No 
-Guest/server encrypted disk | No 
-Guest/server NFS | No 
+Guest/server VMDK | Yes
+Guest/server EFI/UEFI| Partial (Migration to Azure for Windows Server 2012 and later VMware virtual machines only) </br></br> ** See note at the end of the table.
+Guest/server shared cluster disk | No
+Guest/server encrypted disk | No
+Guest/server NFS | No
 Guest/server SMB 3.0 | No
-Guest/server RDM | Yes<br/><br/> N/A for physical servers 
-Guest/server disk >1 TB | Yes<br/><br/>Up to 4095 GB 
-Guest/server disk with 4K logical and 4K physical sector size | Yes
-Guest/server disk with 4K logical and 512 bytes physical sector size | Yes 
-Guest/server volume with striped disk >4 TB <br><br/>LVM-Logical Volume Management | Yes
-Guest/server - Storage Spaces | No 
-Guest/server hot add/remove disk | No 
-Guest/server - exclude disk | Yes 
+Guest/server RDM | Yes<br/><br/> N/A for physical servers
+Guest/server disk > 1 TB | Yes<br/><br/>Up to 4095 GB
+Guest/server disk with 4K logical and 4k physical sector size | Yes
+Guest/server disk with 4K logical and 512 bytes physical sector size | Yes
+Guest/server volume with striped disk > 4 TB <br><br/>LVM-Logical Volume Management | Yes
+Guest/server - Storage Spaces | No
+Guest/server hot add/remove disk | No
+Guest/server - exclude disk | Yes
 Guest/server multi-path (MPIO) | N/A
 
 > [!NOTE]
-> UEFI boot VMware virtual machines or physical servers running Windows Server 2012 or later can be migrated to Azure. The following restrictions apply:
+> UEFI boot VMware virtual machines running Windows Server 2012 or later can be migrated to Azure. The following restrictions apply:
 
-> - Only migration to Azure is supported. Failback to an on-premises VMware site isn't supported.
-
+> - Only migration to Azure is supported. Failback to on-premises VMware site isn't supported.
 > - The server shouldn't have more than four partitions on the OS disk.
-
 > - Requires Mobility Service version 9.13 or later.
-
+> - Not supported for physical servers.
 
 ## Azure storage
 
-**Component** | **Supported** 
---- | --- 
-LRS | Yes 
-GRS | Yes 
-RA-GRS | Yes 
-Cool storage | No 
-Hot storage| No 
-Block blobs | No 
-Encryption at rest (SSE)| Yes 
-Premium storage | Yes 
-Import/export service | No 
-Virtual Network service endpoints<br/><br/> Storage firewalls and virtual networks configured on target storage/cache storage account (used to store replication data) | No 
-General-purpose V2 storage accounts (both hot and cool tiers) | No 
-
+**Component** | **Supported**
+--- | ---
+LRS | Yes
+GRS | Yes
+RA-GRS | Yes
+Cool storage | No
+Hot storage| No
+Block blobs | No
+Encryption at rest (SSE)| Yes
+Premium storage | Yes
+Import/export service | No
+Virtual Network service endpoints<br/><br/> Storage firewalls and virtual networks configured on target storage/cache storage account (used to store replication data) | No
+General-purpose V2 storage accounts (both hot and cool tiers) | No
 
 ## Azure compute
 
-**Feature** | **Supported** 
---- | --- 
-Availability sets | Yes 
-HUB | Yes 
-Managed disks | Yes 
+**Feature** | **Supported**
+--- | ---
+Availability sets | Yes
+HUB | Yes   
+Managed disks | Yes
 
 ## Azure VM requirements
 
@@ -173,13 +168,13 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-**Guest operating system** | Verify [supported operating systems](#replicated-machines). | Prerequisites check fails if unsupported.
+**Guest operating system** | Verify [supported operating systems](#replicated machines). | Prerequisites check fails if unsupported.
 **Guest operating system architecture** | 64-bit | Prerequisites check fails if unsupported.
-**Operating system disk size** | Up to 2048 GB. | Prerequisites check fails if unsupported.
+**Operating system disk size** | Up to 2048 GB | Prerequisites check fails if unsupported.
 **Operating system disk count** | 1 | Prerequisites check fails if unsupported.
 **Data disk count** | Count is 64 or less if you're replicating *VMware VMs to Azure*. Count is 16 or less if you're replicating *Hyper-V VMs to Azure*. | Prerequisites check fails if unsupported.
-**Data disk VHD size** | Up to 4095 GB. | Prerequisites check fails if unsupported.
-**Network adapters** | Multiple adapters are supported. | 
+**Data disk VHD size** | Up to 4,095 GB | Prerequisites check fails if unsupported.
+**Network adapters** | Multiple adapters are supported. |
 **Shared VHD** | Not supported. | Prerequisites check fails if unsupported.
 **FC disk** | Not supported. | Prerequisites check fails if unsupported.
 **Hard disk format** | VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises, the virtual machines continue to use the VHDX format.
@@ -189,10 +184,10 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 
 ## Vault tasks
 
-**Action** | **Supported** 
---- | --- 
-Move vault across resource groups<br/><br/> Within and across subscriptions | No 
-Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No 
+**Action** | **Supported**
+--- | ---
+Move vault across resource groups<br/><br/> Within and across subscriptions | No
+Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No
 
 
 ## Mobility Service
