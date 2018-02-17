@@ -60,8 +60,7 @@ when you fail over from on-premises to Azure.
 
 ## Create a vault
 
-1. On the Azure portal menu, select **New** > **Monitoring & Management** >
-   **Backup and Site Recovery**.
+1. In the Azure portal, select **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
 2. In **Name**, enter a friendly name to identify the vault. For this tutorial, use **ContosoVMVault**.
 3. In **Resource group**, select the existing resource group named **contosoRG**.
 4. In **Location**, enter the Azure region **West Europe** that is used in this set of tutorials.
@@ -75,8 +74,7 @@ when you fail over from on-premises to Azure.
 
 When Azure VMs are created from storage after failover, they're joined to this network.
 
-1. On the [Azure portal](https://portal.azure.com) menu, select **New** > **Networking** >
-   **Virtual network**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**.
 2. Leave **Resource Manager** selected as the deployment model. Resource Manager is the preferred
    deployment model. Then take these steps:
 

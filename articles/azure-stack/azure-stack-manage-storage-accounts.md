@@ -3,8 +3,8 @@ title: Manage Azure Stack storage accounts  | Microsoft Docs
 description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
 services: azure-stack
 documentationcenter: ''
-author: AniAnirudh
-manager: darmour
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
-ms.author: anirudha
+ms.date: 4/6/2017 
+ms.author: brenduns
+ms.reviewer: anirudha
 
 ---
 # Manage Storage Accounts in Azure Stack

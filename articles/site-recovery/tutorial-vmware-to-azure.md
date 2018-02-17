@@ -103,12 +103,12 @@ To add an additional NIC to the configuration server, add it before you register
 1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC to receive replication traffic. Then select **Save**. You can't change this setting after it's configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
-4. Select **Install VMware PowerLCI**. Make sure all browser windows are closed before you do this step. Then select **Continue**
+4. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
 5. In **Validate appliance configuration**, prerequisites are verified before you continue.
 6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
 7. Enter credentials to be used by the configuration server to connect to the VMware server. Site Recovery uses these credentials to automatically discover VMware VMs that are available for replication. Select **Add**, and then select **Continue**.
 8. In **Configure virtual machine credentials**, enter the user name and password to be used to automatically install Mobility Service on machines, when replication is enabled. For Windows machines, the account needs local administrator privileges on the machines you want to replicate. For Linux, provide details for the root account.
-9. Select **Finalize configuration** to finish registration. 
+9. Select **Finalize configuration** to complete registration. 
 10. After registration finishes, in the Azure portal, verify that the configuration server and VMware server are listed on the **Source** page in the vault. Then select **OK** to configure target settings.
 
 
