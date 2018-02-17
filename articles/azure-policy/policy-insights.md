@@ -101,7 +101,7 @@ PS C:\>New-AzureRmPolicyDefinition -Name "Audit Storage Accounts Open to Public 
 3. After you create your policy definition, you can create a policy assignment by running the following commands:
 
    ```powershell
-$rg = Get-AzureRmResourceGroup -Name “ContosoRG”
+$rg = Get-AzureRmResourceGroup -Name "ContosoRG
 ```
 
    ```powershell
@@ -139,7 +139,7 @@ To assign the policy definition you just created, run the following command:
 PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{Audit Storage Accounts Open to Public Networks}?api-version=2016-12-01
 ```
 
-For more information about managing resource policies with the REST API, see [Azure Resource Manager.](/rest/api/resources/policydefinitions/createorupdate)
+For more information about managing resource policies with the REST API, see [Azure Resource Manager](/rest/api/resources/).
 
 #### Create and assign a policy definition with Azure CLI
 
