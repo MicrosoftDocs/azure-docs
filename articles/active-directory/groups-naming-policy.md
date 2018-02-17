@@ -89,7 +89,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
   ````
 If you are prompted about accessing an untrusted repository, type **Y**. It might take few minutes for the new module to install.
 
-## How to set up the group naming policy for a tenant using Azure AD PowerShell
+## Configure the group naming policy for a tenant using Azure AD PowerShell
 
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
 
