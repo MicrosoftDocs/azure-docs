@@ -48,7 +48,6 @@ The first thing we want to do is handle `Microsoft.EventGrid.SubscriptionValidat
 
 Use the following code to handle subscription validation:
 
-> [!div class="tabbedCodeSnippets"]
 ```csharp
 using System.Net; 
 using Newtonsoft.Json; 
@@ -96,6 +95,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 } 
 
 ```
+
 ```javascript
 var http = require('http');
 
@@ -145,7 +145,6 @@ When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d
 
 We can now extend the function to handle `Microsoft.Storage.BlobCreated`:
 
-> [!div class="tabbedCodeSnippets"]
 ```cs
 using System.Net; 
 using Newtonsoft.Json; 
@@ -201,6 +200,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 
 ```
+
 ```javascript
 var http = require('http');
 
@@ -272,7 +272,6 @@ You can also test this out live by creating a Blob Storage account or General Pu
 
 Finally, lets extend the function once more so that it can also handle custom events. We add a check for our own event `Contoso.Items.ItemReceived`. Your final code should look like this:
 
-> [!div class="tabbedCodeSnippets"]
 ```cs
 using System.Net; 
 using Newtonsoft.Json; 
@@ -341,6 +340,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 
 ```
+
 ```javascript
 var http = require('http');
 var t = require('tcomb');
