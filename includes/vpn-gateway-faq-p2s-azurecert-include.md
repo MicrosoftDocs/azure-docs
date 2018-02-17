@@ -14,7 +14,7 @@ You can use your Enterprise PKI solution (your internal PKI), Azure PowerShell, 
 
 * **Azure PowerShell:** See the [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) article for steps.
 
-* **MakeCert:** See the [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) article for steps.
+* **MakeCert (deprecated):** See the [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) article for steps.
 
 * **OpenSSL:** 
 
@@ -24,3 +24,4 @@ You can use your Enterprise PKI solution (your internal PKI), Azure PowerShell, 
 
       * When creating the private key, specify the length as 4096.
       * When creating the certificate, for the *-extensions* parameter, specify *usr_cert*.
+      * When creating the certificate, make sure you use Subject Alternative Name (SAN) extenstion with the same value, which is used for Common Name (CN)

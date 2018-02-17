@@ -111,6 +111,76 @@ Click **Add** to import.
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. On the **Network** dialog, click **Apply** to save all changes. Then, click **Connect** to start the P2S connection to the Azure VNet.
 
+## <a name="installlinux"></a>Linux VPN client configuration using strongSwan CLI (no GUI)
+
+The following instructions were created using strongSwan 5.3.5 on Ubuntu 16.04 LTS. Network Manager based GUI not yet supported, as it doesn't allow to specify local user ID. Additionaly please ensure that your client certificates contain **Subject Alternative Name** (SAN) extension, which contains the same value as Common Name (CN) value. SAN value should be used as **leftid** value in the "/etc/ipsec.conf" configuration file.
+
+1. Open the **Terminal** to install **strongSwan** by running the command in the example.
+
+  ```Terminal
+  sudo apt-get install strongswan strongswan-plugin-eap-tls libstrongswan-standard-plugins moreutils iptables-persistent
+  ```
+2. Open the **VpnSettings.xml** file from the **Generic** folder of the downloaded client configuration files. Find the tag called **VpnServer** and copy the name, beginning with "azuregateway" and ending with ".cloudapp.net".
+
+  ![vpn settings](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
+
+3. In the **Terminal** open the "/etc/ipsec.conf" file using your favourite text editor or default GUI text editor ("gedit" for Gnome or "kate" for KDE).
+
+  ```Terminal
+  SUDO_EDITOR=gedit sudoedit /etc/ipsec.conf
+  ```
+
+  ```Terminal
+  SUDO_EDITOR=kate sudoedit /etc/ipsec.conf
+  ```
+
+4. Paste there the configuration below and use the name copied on 2nd step in the **right** value. Use the SAN DNS name of your user's certificate prefixed with "%".
+
+  ```
+  conn azure
+    keyexchange=ikev2
+    type=tunnel
+    leftfirewall=yes
+    left=%any
+    leftauth=eap-tls
+    leftid=%user1 # use the SAN DNS name prefixed with the %
+    right=azuregateway-00112233-4455-6677-8899-aabbccddeeff-01234567890a.cloudapp.net # Azure VPN gateway IP
+    rightid=%any # Azure VPN gateway name, prefixed with %, i.e. "%00112233-4455-6677-8899-aabbccddeeff.cloudapp.net", or just "%any"
+    rightsubnet=0.0.0.0/0
+    leftsourceip=%config
+    auto=add
+  ```
+
+5. In the **Terminal** copy the user's p12 certificate bundle into "/etc/ipsec.d/private" directory and **VpnServerRoot** from the "Generic" folder of the downloaded client configuration files.
+
+  ```Terminal
+  sudo cp user1.p12 /etc/ipsec.d/private
+  sudo cp VpnServerRoot.cer /etc/ipsec.d/cacerts
+  ```
+
+6. In the **Terminal** open the "/etc/ipsec.secrets" file using your favourite text editor or default GUI text editor ("gedit" for Gnome or "kate" for KDE).
+
+  ```Terminal
+  SUDO_EDITOR=gedit sudoedit /etc/ipsec.secrets
+  ```
+
+  ```Terminal
+  SUDO_EDITOR=kate sudoedit /etc/ipsec.secrets
+  ```
+
+7. Paste there the configuration below, where "password" is a password for the p12 certificate bundle.
+
+  ```
+  : P12 user1.p12 'password' # key filename inside /etc/ipsec.d/private directory
+  ```
+
+8. In the **Terminal** restart the **ipsec** daemon reread the configuration and establish the connection.
+
+  ```Terminal
+  sudo ipsec restart
+  sudo sudo ipsec up azure
+  ```
+
 ## Next Steps
 
 Return to the article to [complete your P2S configuration](vpn-gateway-howto-point-to-site-rm-ps.md).
