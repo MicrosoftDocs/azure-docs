@@ -29,6 +29,8 @@ ms.custom: mvc
 
 You can follow the steps in this tutorial using a Mac, Windows, or Linux machine.
 
+[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
