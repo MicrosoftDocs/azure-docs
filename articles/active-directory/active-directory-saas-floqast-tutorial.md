@@ -100,7 +100,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_samlbase.png)
 
-3. On the **FloQast Domain and URLs** section, type the following URL in the **Identifier** textbox: `https://go.floqast.com/`:
+3. On the **FloQast Domain and URLs** section, type the following URL in the **Identifier** textbox: `https://go.floqast.com/`
 
 	![FloQast Domain and URLs single sign-on information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
  
