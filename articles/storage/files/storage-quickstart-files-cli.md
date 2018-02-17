@@ -217,7 +217,7 @@ az storage file list \
 	--output table
 ```
 
-While the `az storage file copy start` command is convenient for ad-hoc file moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves (in terms of number or size of files being moved). Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell 
+While the `az storage file copy start` command is convenient for ad-hoc file moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves (in terms of number or size of files being moved). Learn more about [AzCopy for Linux](../common/storage-use-azcopy-linux.md) and [AzCopy for Windows](../common/storage-use-azcopy.md). AzCopy must be installed locally - it is not available in Cloud Shell 
 
 ## Clean up resources
 When you are done, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group and all related resources. 
