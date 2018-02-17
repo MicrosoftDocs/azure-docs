@@ -1,6 +1,6 @@
 ---
-title: Recieve events to a HTTP endpoint
-description: Describes how to validate an HTTP endpoint, recieve events, and deserialize them
+title: Receive events to an HTTP endpoint
+description: Describes how to validate an HTTP endpoint, receive events, and deserialize them
 services: event-grid
 author: babanisa
 manager: darosa
@@ -11,9 +11,9 @@ ms.date: 02/16/2018
 ms.author: babanisa
 ---
 
-# Recieve events to a HTTP endpoint
+# Receive events to an HTTP endpoint
 
-This article describes how to [validate a HTTP endpoint](security-authentication.md#webhook-event-delivery) to recieve events from an Event Subscription and then receive and deserialize events. This article uses an Azure Function for demonstration purposes, however the same concepts apply regarless of where the application is hosted.
+This article describes how to [validate an HTTP endpoint](security-authentication.md#webhook-event-delivery) to receive events from an Event Subscription and then receive and deserialize events. This article uses an Azure Function for demonstration purposes, however the same concepts apply regardless of where the application is hosted.
 
 > [!NOTE]
 > It is **strongly** recommended that you use an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) when triggering an Azure Function with Event Grid. The use of a generic WebHook trigger here is demonstrative.
@@ -40,11 +40,11 @@ To do this, click on the "View Files" link in your Azure Function (right most pa
 } 
 ```
 
-![Added Nuget package](./media/recieve-events/add-dependencies.png)
+![Added Nuget package](./media/receive-events/add-dependencies.png)
 
 ## Endpoint validation
 
-The first thing we want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events because every time a new Event Subscription is created, Event Grid will send a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](security-authentication.md#webhook-event-delivery). If you are using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, this is handled for you.
+The first thing we want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time a new Event Subscription is created, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](security-authentication.md#webhook-event-delivery). If you are using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you.
 
 Use the following code to handle subscription validation:
 
@@ -120,7 +120,7 @@ module.exports = function (context, req) {
 
 ### Test validation response
 
-Test the validation reponse function by pasting the sample event into the test field for the function:
+Test the validation response function by pasting the sample event into the test field for the function:
 
 ```json
 [{
@@ -139,7 +139,7 @@ Test the validation reponse function by pasting the sample event into the test f
 
 When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
 
-![Validation response](./media/recieve-events/validation-response.png)
+![validation response](./media/receive-events/validation-response.png)
 
 ## Handle Blob Storage events
 
@@ -262,15 +262,15 @@ Test the new functionality of the function by putting a [Blob Storage event](./e
 
 You should see the blob URL output in the function log:
 
-![Output log](./media/recieve-events/blob-event-response.png)
+![Output log](./media/receive-events/blob-event-response.png)
 
 You can also test this out live by creating a Blob Storage account or General Purpose V2 (GPv2) Storage account, [adding and event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
 
-![Function URL](./media/recieve-events/function-url.png)
+![function URL](./media/receive-events/function-url.png)
 
 ## Handle Custom events
 
-Finally, lets extend the function once more so that it can also handle custom events. We’ll add a check for our own event "Contoso.Items.ItemReceived". Your final code should look like this:
+Finally, lets extend the function once more so that it can also handle custom events. We add a check for our own event `Contoso.Items.ItemReceived`. Your final code should look like this:
 
 > [!div class="tabbedCodeSnippets"]
 ```cs
@@ -402,7 +402,7 @@ Finally, test that your extented function can now handle your custom event type:
 }]
 ```
 
-You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Simply create a custom topic and an event subscription with the endpoint set as the Function URL.
+You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.
 
 ## Next steps
 
