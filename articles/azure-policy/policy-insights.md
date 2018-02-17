@@ -101,7 +101,7 @@ PS C:\>New-AzureRmPolicyDefinition -Name "Audit Storage Accounts Open to Public 
 3. After you create your policy definition, you can create a policy assignment by running the following commands:
 
    ```powershell
-$rg = Get-AzureRmResourceGroup -Name "ContosoRG
+$rg = Get-AzureRmResourceGroup -Name "ContosoRG"
 ```
 
    ```powershell
