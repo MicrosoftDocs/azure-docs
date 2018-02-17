@@ -120,13 +120,13 @@ need to create 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Ins
 
    ![set route table-save](./media/sql-database-managed-instance-quickstart/set-route-table-save.png)
 
+## Create a virtual machine in the same VNET but different subnet
+
 ## Configure Custom DNS to forward requests to Azure DNS
 
 ## Setup Custom DNS as primary and Azure DNS as secondary for the VNet
 
 ## Create a Managed Instance
-
-## Create a virtual machine in the same VNET but different subnet
 
 ## Install SSMS and connect to the Managed Instance
 
