@@ -1,5 +1,5 @@
 ---
-title: Recieve events to an HTTP endpoint
+title: Recieve events to a HTTP endpoint
 description: Describes how to validate an HTTP endpoint, recieve events, and deserialize them
 services: event-grid
 author: babanisa
@@ -7,89 +7,405 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/16/2018
 ms.author: babanisa
 ---
 
-# Post to custom topic for Azure Event Grid
+# Recieve events to a HTTP endpoint
 
-This article describes how to post an event to a custom topic. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
+This article describes how to [validate a HTTP endpoint](security-authentication.md#webhook-event-delivery) to recieve events from an Event Subscription and then receive and deserialize events. This article uses an Azure Function for demonstration purposes, however the same concepts apply regarless of where the application is hosted.
 
-## Endpoint
+> [!NOTE]
+> It is **strongly** recommended that you use an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) when triggering an Azure Function with Event Grid. The use of a generic WebHook trigger here is demonstrative.
 
-When sending the HTTP POST to a custom topic, use the URI format: `https://<topic-endpoint>?api-version=2018-01-01`.
+## Prerequisites
 
-For example, a valid URI is: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
+* You will need a function app with a [HTTP triggered function](../azure-functions/functions-create-generic-webhook-triggered-function.md)
 
-To get the endpoint for a custom topic with Azure CLI, use:
+## Add dependencies
 
-```azurecli-interactive
-az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "endpoint"
+If you are developing in .Net, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Microsoft.Azure.EventGrid` [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#publish-sdks) reference. These packages contain the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
+
+To do this, click on the "View Files" link in your Azure Function (right most pane in the Azure functions portal), and create a file called project.json. Add the following contents to the `project.json` file and save it: 
+ 
+ ```json
+{ 
+  "frameworks": { 
+    "net46":{ 
+      "dependencies": { 
+        "Microsoft.Azure.EventGrid": "1.1.0-preview" 
+      } 
+    } 
+   } 
+} 
 ```
 
-To get the endpoint for a custom topic with Azure PowerShell, use:
+![Added Nuget package](./media/recieve-events/add-dependencies.png)
 
-```powershell
-(Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
+## Endpoint validation
+
+The first thing we want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events because every time a new Event Subscription is created, Event Grid will send a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](security-authentication.md#webhook-event-delivery). If you are using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, this is handled for you.
+
+Use the following code to handle subscription validation:
+
+> [!div class="tabbedCodeSnippets"]
+```csharp
+using System.Net; 
+using Newtonsoft.Json; 
+using Newtonsoft.Json.Linq; 
+using Newtonsoft.Json.Serialization; 
+using Microsoft.Azure.EventGrid.Models; 
+ 
+class SubscriptionValidationEventData 
+{ 
+    public string ValidationCode { get; set; } 
+} 
+ 
+class SubscriptionValidationResponseData 
+{ 
+    public string ValidationResponse { get; set; } 
+} 
+ 
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log) 
+{ 
+
+    log.Info($"C# HTTP trigger function begun");  
+    string response = string.Empty; 
+    const string SubscriptionValidationEvent = "Microsoft.EventGrid.SubscriptionValidationEvent"; 
+ 
+    string requestContent = await req.Content.ReadAsStringAsync(); 
+    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent); 
+ 
+    foreach (EventGridEvent eventGridEvent in eventGridEvents) 
+    { 
+        JObject dataObject = eventGridEvent.Data as JObject; 
+       
+        // Deserialize the event data into the appropriate type based on event type 
+        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase)) 
+        { 
+            var eventData = dataObject.ToObject<SubscriptionValidationEventData>(); 
+            log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}"); 
+            // Do any additional validation (as required) and then return back the below response 
+            var responseData = new SubscriptionValidationResponseData(); 
+            responseData.ValidationResponse = eventData.ValidationCode; 
+            return req.CreateResponse(HttpStatusCode.OK, responseData);    
+        }             
+    } 
+     
+    return req.CreateResponse(HttpStatusCode.OK, response);     
+} 
+
+```
+```javascript
+var http = require('http');
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function begun');
+    var validationEventType = "Microsoft.EventGrid.SubscriptionValidationEvent";
+
+    for (var events in req.body) {
+        var body = req.body[events];
+        // Deserialize the event data into the appropriate type based on event type  
+        if (body.data && body.eventType == validationEventType) {
+            context.log("Got SubscriptionValidation event data, validation code: " + body.data.validationCode + " topic: " + body.topic);
+
+            // Do any additional validation (as required) and then return back the below response
+            var code = body.data.validationCode;
+            context.res = { status: 200, body: { "ValidationResponse": code } };
+        }
+    }
+    context.done();
+}; 
 ```
 
-## Header
+### Test validation response
 
-In the request, include a header value named `aeg-sas-key` that contains a key for authentication.
-
-For example, a valid header value is `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`.
-
-To get the key for a custom topic with Azure CLI, use:
-
-```azurecli
-az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --query "key1"
-```
-
-To get the key for a custom topic with PowerShell, use:
-
-```powershell
-(Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
-```
-
-## Event data
-
-For custom topics, the top-level data contains the same fields as standard resource-defined events. One of those properties is a data property that contains properties unique to the custom topic. As event publisher, you determine the properties for that data object. Use the following schema:
-
-```json
-[
-  {
-    "id": string,    
-    "eventType": string,
-    "subject": string,
-    "eventTime": string-in-date-time-format,
-    "data":{
-      object-unique-to-each-publisher
-    },
-    "dataVersion": string
-  }
-]
-```
-
-For a description of these properties, see [Azure Event Grid event schema](event-schema.md).
-
-For example, a valid event data schema is:
+Test the validation reponse function by pasting the sample event into the test field for the function:
 
 ```json
 [{
-  "id": "1807",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
+  "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "subject": "",
   "data": {
-    "make": "Ducati",
-    "model": "Monster"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
-  "dataVersion": "1.0"
+  "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+  "eventTime": "2018-01-25T22:12:19.4556811Z",
+  "metadataVersion": "1",
+  "dataVersion": "1"
 }]
 ```
 
+When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
+
+![Validation response](./media/recieve-events/validation-response.png)
+
+## Handle Blob Storage events
+
+We can now extend the function to handle `Microsoft.Storage.BlobCreated`:
+
+> [!div class="tabbedCodeSnippets"]
+```cs
+using System.Net; 
+using Newtonsoft.Json; 
+using Newtonsoft.Json.Linq; 
+using Newtonsoft.Json.Serialization; 
+using Microsoft.Azure.EventGrid.Models; 
+ 
+class SubscriptionValidationEventData 
+{ 
+    public string ValidationCode { get; set; } 
+} 
+ 
+class SubscriptionValidationResponseData 
+{ 
+    public string ValidationResponse { get; set; } 
+} 
+ 
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log) 
+{ 
+    log.Info($"C# HTTP trigger function begun");  
+    string response = string.Empty; 
+    const string SubscriptionValidationEvent = "Microsoft.EventGrid.SubscriptionValidationEvent";
+    const string StorageBlobCreatedEvent = "Microsoft.Storage.BlobCreated"; 
+ 
+ 
+    string requestContent = await req.Content.ReadAsStringAsync(); 
+    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent); 
+ 
+    foreach (EventGridEvent eventGridEvent in eventGridEvents) 
+    { 
+        JObject dataObject = eventGridEvent.Data as JObject; 
+       
+        // Deserialize the event data into the appropriate type based on event type 
+        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase)) 
+        { 
+            var eventData = dataObject.ToObject<SubscriptionValidationEventData>(); 
+            log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
+
+            // Do any additional validation (as required) and then return back the below response 
+            var responseData = new SubscriptionValidationResponseData(); 
+            responseData.ValidationResponse = eventData.ValidationCode; 
+            return req.CreateResponse(HttpStatusCode.OK, responseData);    
+        }
+
+        else if (string.Equals(eventGridEvent.EventType, StorageBlobCreatedEvent, StringComparison.OrdinalIgnoreCase)) 
+        { 
+            var eventData = dataObject.ToObject<StorageBlobCreatedEventData>(); 
+            log.Info($"Got BlobCreated event data, blob URI {eventData.Url}"); 
+        }    
+    } 
+     
+    return req.CreateResponse(HttpStatusCode.OK, response);     
+}
+
+```
+```javascript
+var http = require('http');
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function begun');
+    var validationEventType = "Microsoft.EventGrid.SubscriptionValidationEvent";
+    var storageBlobCreatedEvent = "Microsoft.Storage.BlobCreated";
+
+    for (var events in req.body) {
+        var body = req.body[events];
+        // Deserialize the event data into the appropriate type based on event type  
+        if (body.data && body.eventType == validationEventType) {
+            context.log("Got SubscriptionValidation event data, validation code: " + body.data.validationCode + " topic: " + body.topic);
+
+            // Do any additional validation (as required) and then return back the below response
+            var code = body.data.validationCode;
+            context.res = { status: 200, body: { "ValidationResponse": code } };
+        }
+
+        else if (body.data && body.eventType == storageBlobCreatedEvent) {
+            var blobCreatedEventData = body.data;
+            context.log("Relaying received blob created event payload:" + JSON.stringify(blobCreatedEventData));
+        }
+    }
+    context.done();
+};
+```
+
+### Test Blob Created event handling
+
+Test the new functionality of the function by putting a [Blob Storage event](./event-schema-blob-storage.md#example-event) into the test field and running:
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
+  "eventType": "Microsoft.Storage.BlobCreated",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "PutBlockList",
+    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "eTag": "0x8D4BCC2E4835CD0",
+    "contentType": "text/plain",
+    "contentLength": 524288,
+    "blobType": "BlockBlob",
+    "url": "https://example.blob.core.windows.net/testcontainer/testfile.txt",
+    "sequencer": "00000000000004420000000000028963",
+    "storageDiagnostics": {
+      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+
+```
+
+You should see the blob URL output in the function log:
+
+![Output log](./media/recieve-events/blob-event-response.png)
+
+You can also test this out live by creating a Blob Storage account or General Purpose V2 (GPv2) Storage account, [adding and event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
+
+![Function URL](./media/recieve-events/function-url.png)
+
+## Handle Custom events
+
+Finally, lets extend the function once more so that it can also handle custom events. We’ll add a check for our own event "Contoso.Items.ItemReceived". Your final code should look like this:
+
+> [!div class="tabbedCodeSnippets"]
+```cs
+using System.Net; 
+using Newtonsoft.Json; 
+using Newtonsoft.Json.Linq; 
+using Newtonsoft.Json.Serialization; 
+using Microsoft.Azure.EventGrid.Models; 
+ 
+class SubscriptionValidationEventData 
+{ 
+    public string ValidationCode { get; set; } 
+} 
+ 
+class SubscriptionValidationResponseData 
+{ 
+    public string ValidationResponse { get; set; } 
+} 
+
+class ContosoItemReceivedEventData 
+{ 
+    public string id { get; set; }     
+    public string message { get; set; }   
+    public string time { get; set; }
+} 
+ 
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log) 
+{ 
+    log.Info($"C# HTTP trigger function begun");
+    string response = string.Empty; 
+    const string SubscriptionValidationEvent = "Microsoft.EventGrid.SubscriptionValidationEvent";
+    const string StorageBlobCreatedEvent = "Microsoft.Storage.BlobCreated"; 
+    const string CustomTopicEvent = "Contoso.Items.ItemReceived";
+ 
+ 
+    string requestContent = await req.Content.ReadAsStringAsync(); 
+    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent); 
+ 
+    foreach (EventGridEvent eventGridEvent in eventGridEvents) 
+    { 
+        JObject dataObject = eventGridEvent.Data as JObject; 
+       
+        // Deserialize the event data into the appropriate type based on event type 
+        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase)) 
+        { 
+            var eventData = dataObject.ToObject<SubscriptionValidationEventData>(); 
+            log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}"); 
+            // Do any additional validation (as required) and then return back the below response 
+            var responseData = new SubscriptionValidationResponseData(); 
+            responseData.ValidationResponse = eventData.ValidationCode; 
+            return req.CreateResponse(HttpStatusCode.OK, responseData);    
+        }
+
+        else if (string.Equals(eventGridEvent.EventType, StorageBlobCreatedEvent, StringComparison.OrdinalIgnoreCase)) 
+        { 
+            var eventData = dataObject.ToObject<StorageBlobCreatedEventData>(); 
+            log.Info($"Got BlobCreated event data, blob URI {eventData.Url}"); 
+        }
+
+        else if (string.Equals(eventGridEvent.EventType, CustomTopicEvent, StringComparison.OrdinalIgnoreCase)) 
+        { 
+            var eventData = dataObject.ToObject<ContosoItemReceivedEventData>(); 
+            log.Info($"Got ContosoItemReceived event data, item URI {eventData.id}"); 
+        } 
+    } 
+     
+    return req.CreateResponse(HttpStatusCode.OK, response);     
+}
+
+```
+```javascript
+var http = require('http');
+var t = require('tcomb');
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function begun');
+    var validationEventType = "Microsoft.EventGrid.SubscriptionValidationEvent";
+    var storageBlobCreatedEvent = "Microsoft.Storage.BlobCreated";
+    var customEventType = "Contoso.Items.ItemReceived";
+    var ContosoItemReceivedEventData = t.struct({
+        id: t.Str,
+        message: t.Str,
+        time: t.Str,
+    })
+
+    for (var events in req.body) {
+        var body = req.body[events];
+        // Deserialize the event data into the appropriate type based on event type  
+        if (body.data && body.eventType == validationEventType) {
+            context.log("Got SubscriptionValidation event data, validation code: " + body.data.validationCode + " topic: " + body.topic);
+
+            // Do any additional validation (as required) and then return back the below response
+            var code = body.data.validationCode;
+            context.res = { status: 200, body: { "ValidationResponse": code } };
+        }
+
+        else if (body.data && body.eventType == storageBlobCreatedEvent) {
+            var blobCreatedEventData = body.data;
+            context.log("Relaying received blob created event payload:" + JSON.stringify(blobCreatedEventData));
+        }
+
+        else if (body.data && body.eventType == customEventType) {
+            var payload = new ContosoItemReceivedEventData(body.data);
+            context.log("Relaying received custom payload:" + JSON.stringify(payload));
+            context.log(payload instanceof ContosoItemReceivedEventData);
+        }
+    }
+    context.done();
+};
+```
+
+### Test custom event handling
+
+Finally, test that your extented function can now handle your custom event type:
+
+```json
+[{
+	"subject": "Contoso/foo/bar/items",
+	"eventType": "Microsoft.EventGrid.CustomEventType",
+	"eventTime": "2017-08-16T01:57:26.005121Z",
+	"id": "602a88ef-0001-00e6-1233-1646070610ea",
+	"data": { 
+			"id": "831e1650-001e-001b-66ab-eeb76e069631",
+			"message": "Contoso item Foo",
+			"time": "2017-06-26T18:41:00.9584103Z"
+		    },
+	"dataVersion": "",
+	"metadataVersion": "1"
+}]
+```
+
+You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Simply create a custom topic and an event subscription with the endpoint set as the Function URL.
+
 ## Next steps
 
-* For an introduction to routing custom events, see [Create and route custom events with Azure CLI and Event Grid](custom-event-quickstart.md) or [Create and route custom events with Azure PowerShell and Event Grid](custom-event-quickstart-powershell.md).
-* For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
-* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* Explore the [Azure Event Grid Mangement and Publish SDKs](./sdk-overview.md)
+* Learn how to [post to a custom topic](./post-to-custom-topic.md)
+* Try one of the in-depth Event Grid and Functions tutorials such as [resizing images uploaded to Blob Storage](resize-images-on-storage-blob-upload-event.md)
