@@ -2,7 +2,7 @@
 title: Receive events to an HTTP endpoint
 description: Describes how to validate an HTTP endpoint, receive events, and deserialize them
 services: event-grid
-author: babanisa
+author: banisadr
 manager: darosa
 
 ms.service: event-grid
