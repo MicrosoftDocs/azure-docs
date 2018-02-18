@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/18/2018
 ms.author: billmath
 ---
 
@@ -43,9 +43,10 @@ Azure AD Connect Health enables you to stop data collection for each individual 
 ### Deletion actions
 The following information is important with regard to deletion actions.
 
-- Deleting removes the targeted service instances from the Azure AD Connect Health monitoring service list and stops Azure AD Connect Health from collecting data. 
-- Deletion actions do NOT uninstall or remove the Health Agent from your servers. If you have not uninstalled the Health Agent before performing this step, you may see error events on the server(s) related to the Health Agent.
-- All data from this service instance is deleted as per the Microsoft Azure Data Retention Policy.
+- When you delete an instance of a monitored service, the instance is removed from the Azure AD Connect Health monitoring service list in the portal. 
+- When you delete a monitored server or an instance of a monitored service, the Health Agent is NOT uninstalled or removed from your servers. The Health Agent is configured not to send data to Azure AD Connect Health. You need to manually uninstall the Health Agent on previously monitored servers.
+- If you have not uninstalled the Health Agent before performing this step, you may see error events on the server(s) related to the Health Agent.
+- All data belonging to the instance of the monitored service is deleted as per the Microsoft Azure Data Retention Policy.
 
 ### Disable data collection and monitoring for a monitored server
 See [how to remove a server from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
@@ -59,5 +60,6 @@ If you wish to re-enable monitoring in Azure AD Connect Health for a previously 
 
 
 ## Next Steps
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
 * [Azure AD Connect and GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
 * [Azure AD Connect Health operations](active-directory-aadconnect-health-operations.md)
