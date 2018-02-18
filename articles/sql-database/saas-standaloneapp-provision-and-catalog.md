@@ -143,3 +143,5 @@ In this tutorial you learned:
 > * How to deploy the Wingtip Tickets SaaS Standalone Application.
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
+
+You can explore how the catalog is used to support various cross-tenant scenarios using the database-per-tenant version of the [Wingtip Tickets SaaS application](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

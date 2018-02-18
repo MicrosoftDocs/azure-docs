@@ -19,7 +19,7 @@ ms.date: 07/28/2017
 ms.author: billgib; sstein
 
 ---
-# Manage schema in a SaaS application using  database-per-tenant pattern with Azure SQL Database
+# Manage schema in a SaaS application using a database-per-tenant pattern with Azure SQL Database
 
 The [first Wingtip Tickets SaaS database per tenant tutorial](saas-dbpertenant-get-started-deploy.md) shows how to provision a tenant database and register it in the catalog. Like any application, the Wingtip Tickets SaaS database per tenant app will evolve over time, and at times will require changes to the database. Changes may impact schema or reference data, or apply database maintenance tasks to ensure optimal database performance. With a SaaS application using a database per tenant pattern, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. These changes must also be incorporated into the provisioning process to ensure they are included in new databases as they are created.
 
@@ -46,9 +46,9 @@ To complete this tutorial, make sure the following prerequisites are met:
 
 ## Introduction to SaaS schema management patterns
 
-The single tenant per database SaaS pattern benefits in many ways from the data isolation that results, but at the same time introduces the additional complexity of maintaining and managing many databases. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of the SQL data tier. Jobs enable you to securely and reliably, run tasks (T-SQL scripts) independent of user interaction or input, against a group of databases. This method can be used to deploy schema and common reference data changes across all tenants in an application. Elastic Jobs can also be used to maintain a *golden* copy of the database used to create new tenants, ensuring it always has the latest schema and reference data.
+The single tenant per database SaaS pattern benefits in many ways from the data isolation that results, but at the same time introduces the additional complexity of maintaining and managing many databases. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of the SQL data tier. Jobs enable you to securely and reliably, run tasks (T-SQL scripts) independent of user interaction or input, against a group of databases. This method can be used to deploy schema and common reference data changes across all tenants in an application. Elastic Jobs can also be used to maintain a *template* database that is used to create new tenants, ensuring it always has the latest schema and reference data.
 
-![screen](media/saas-tenancy-schema-management/schema-management.png)
+![screen](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
 ## Elastic Jobs limited preview
@@ -58,32 +58,33 @@ There is a new version of Elastic Jobs that is now an integrated feature of Azur
 > [!NOTE]
 > This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
 
-## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
+## Get the Wingtip Tickets SaaS database per tenant application scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
+The Wingtip Tickets SaaS database per tenant scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 ## Create a job account database and new job account
 
-This tutorial requires you use PowerShell to create the job account database and job account. Like MSDB and SQL Agent, Elastic Jobs uses an Azure SQL database to store job definitions, job status, and history. Once the job account is created, you can create and monitor jobs immediately.
+This tutorial requires you use PowerShell to create a job account database and job account. Like MSDB and SQL Agent in SQL Server, Elastic Jobs uses an Azure SQL database to store job definitions, job status, and history. Once the job account is created, you can create and monitor jobs immediately.
 
 1. **In PowerShell ISE**, open …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Press **F5** to run the script.
 
-The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create an *S2* database named **jobaccount** on the catalog server. It then creates the job account, passing the jobaccount database as a parameter to the job account creation call.
+The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create an *S2* SQL database named **jobaccount** on the catalog server. It then creates the job account, passing the jobaccount database as a parameter to the job account creation call.
 
 ## Create a job to deploy new reference data to all tenants
 
-Each tenant database includes a set of venue types that define the kind of events that are hosted at a venue. In this exercise, you deploy an update to all the tenant databases to add two additional venue types: *Motorcycle Racing* and *Swimming Club*. These venue types correspond to the background image you see in the tenant events app.
+Each tenant database includes a set of venue types that define the kind of events that are hosted at a venue. These venue types correspond to the background images you see in the venue events app.  In this exercise, you deploy an update to all the tenant databases to add two additional venue types: *Motorcycle Racing* and *Swimming Club*.
 
-Click the Venue Type drop down menu and validate that only 10 venue type options are available, and specifically that ‘Motorcycle Racing’ and ‘Swimming Club’ are not included in the list.
+First, let's review the current set of venue types that are included in each tenant database. Do this by connecting to any one of the tenant databases in SQL Server Management Studio (SSMS) and inspecting the VenueTypes table.  You can also do this in the Query editor in the Azure portal, accessed from the database page. 
 
-Now let’s create a job to update the *VenueTypes* table in all the tenant databases and add the new venue types.
+1. Open SSMS and connect to the tenant server: *tenants1-dpt-\<user\>.database.windows.net*
+1. Browse to the *contosoconcerthall* database on the *tenants1-dpt-\<user\>* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
+
+Now let’s create a job to update the *VenueTypes* table in all the tenant databases to add the new venue types.
 
 To create a new job, we use a set of jobs system stored procedures created in the jobaccount database when the job account was created.
 
-1. Open SSMS and connect to the catalog server: catalog-dpt-\<user\>.database.windows.net server
-1. Also connect to the tenant server: tenants1-dpt-\<user\>.database.windows.net
-1. Browse to the *contosoconcerthall* database on the *tenants1-dpt-\<user\>* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
+1. In SSMS, connect to the catalog server: *catalog-dpt-\<user\>.database.windows.net* server 
 1. In SSMS, open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
 1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip Tickets SaaS Database Per Tenant app
 1. Ensure you are connected to the jobaccount database and press **F5** to run the script
