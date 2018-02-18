@@ -117,7 +117,26 @@ spec:
 ## Run application
 
 ```
- helm install azure-vote
+helm repo add azure-samples https://azure-samples.github.io/helm-charts/
+```
+
+```
+helm install azure-samples/azure-vote
+```
+
+```
+NOTES:
+
+The Azure Vote application has been started on your Kubernetes cluster.
+
+Title: Azure Vote App
+Vote 1 value: Cats
+Vote 2 value: Dogs
+
+The externally accessible IP address can take a minute or so to provision. Run the following command to monitor the provisioning status. Once an External IP address has been provisioned, brows to t
+his IP address to access the Azure Vote application.
+
+kubectl get service -l name=vote-front-lopsided-macaw -w
 ```
 
 ## Update ingress route
@@ -156,5 +175,5 @@ spec:
 ## Run second application
 
 ```console
-helm install azure-vote --set title="Ingress route two"
+helm install azure-samples/azure-vote --set title="Azure Vote App Two"
 ```
