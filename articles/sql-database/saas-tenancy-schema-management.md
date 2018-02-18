@@ -19,9 +19,9 @@ ms.date: 07/28/2017
 ms.author: billgib; sstein
 
 ---
-# Manage schema for multiple tenants in a multi-tenant application that uses Azure SQL Database
+# Manage schema in a SaaS application using  database-per-tenant pattern with Azure SQL Database
 
-The [first Wingtip Tickets SaaS Database Per Tenant tutorial](saas-dbpertenant-get-started-deploy.md) shows how the app can provision a tenant database and register it in the catalog. Like any application, the Wingtip Tickets SaaS Database Per Tenant app will evolve over time, and at times will require changes to the database. Changes may include new or changed schema, new or changed reference data, and routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. For these changes to be in future tenant databases, they need to be incorporated into the provisioning process.
+The [first Wingtip Tickets SaaS database per tenant tutorial](saas-dbpertenant-get-started-deploy.md) shows how to provision a tenant database and register it in the catalog. Like any application, the Wingtip Tickets SaaS database per tenant app will evolve over time, and at times will require changes to the database. Changes may impact schema or reference data, or apply database maintenance tasks to ensure optimal database performance. With a SaaS application using a database per tenant pattern, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. These changes must also be incorporated into the provisioning process to ensure they are included in new databases as they are created.
 
 This tutorial explores two scenarios - deploying reference data updates for all tenants, and retuning an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these operations across all tenants, and the *golden* tenant database that is used as a template for new databases.
 

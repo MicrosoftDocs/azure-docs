@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip Tickets SaaS Database Database per Tenant app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Database per Tenant application](saas-dbpertenant-get-started-deploy.md)
+* The Wingtip Tickets SaaS Database per Tenant app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Database per Tenant application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to the SaaS Catalog pattern
@@ -48,38 +48,38 @@ In addition, the catalog, which is in effect a management database for a SaaS ap
 
 Beyond the SaaS application, the catalog can enable database tools.  In the Wingtip Tickets SaaS Database per Tenant sample, the catalog is used to enable cross-tenant query, explored in the [ad hoc analytics tutorial](saas-tenancy-adhoc-analytics.md). Cross-database job management is explored in the [schema management](saas-tenancy-schema-management.md) and [tenant analytics](saas-tenancy-tenant-analytics.md) tutorials. 
 
-In the Wingtip Tickets SaaS samples, the catalog is implemented using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL is available in Java and .Net Framework. The EDCL enables an application to create, manage, and use a database-backed shard map. A shard map contains a list of shards (databases) and the mapping between keys (tenants) and shards.  EDCL functions can be used from applications or PowerShell scripts during tenant provisioning to create the entries in the shard map, and from applications to efficiently connect to the correct database. EDCL caches connection information to minimize the traffic to the catalog database and speed up the application.  
+In the Wingtip Tickets SaaS samples, the catalog is implemented using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL is available in Java and .Net Framework. The EDCL enables an application to create, manage, and use a database-backed shard map. A shard map contains a list of shards (databases) and the mapping between keys (tenants) and shards.  EDCL functions can be used from applications or PowerShell scripts during tenant provisioning to create the entries in the shard map, and from applications to efficiently connect to the correct database. EDCL caches connection information to minimize traffic to the catalog database and speed up the application.  
 
 > [!IMPORTANT]
 > The mapping data is accessible in the catalog database, but *don't edit it*! Edit mapping data using Elastic Database Client Library APIs only. Directly manipulating the mapping data risks corrupting the catalog and is not supported.
 
 
-## Introduction to the SaaS Provisioning pattern
+## Introduction to the SaaS provisioning pattern
 
-When onboarding a new tenant in a SaaS application that uses a single-tenant database model a new tenant database must be provisioned.  It must be created in the appropriate location and service tier, initialized with appropriate schema and reference data, and then registered in the catalog under the appropriate tenant key.  
+When onboarding a new tenant in a SaaS application that uses a single-tenant database model, a new tenant database must be provisioned.  It must be created in the appropriate location and service tier, initialized with appropriate schema and reference data, and then registered in the catalog under the appropriate tenant key.  
 
-Different approaches can be used to database provisioning, which could include executing SQL scripts, deploying a bacpac, or copying a template database.  
+Different approaches to database provisioning can be used, which include executing SQL scripts, deploying a bacpac, or copying a template database.  
 
 The provisioning approach you use must be comprehended in your overall schema management strategy, which must ensure that new databases are provisioned with the latest schema.  This is explored in the [schema management tutorial](saas-tenancy-schema-management.md).  
 
-The Wingtip Tickets SaaS Database per Tenant app provisions new tenants by copying a template database named _basetenantdb_, deployed on the catalog server.  Provisioning could be integrated into the application as part of a sign-up experience, and/or supported offline using scripts. This tutorial  explores provisioning using PowerShell. The provisioning scripts copy the basetenantdb database to create a new tenant database in an elastic pool, then initialize it with tenant-specific info and register it in the catalog shard map.  In Wingtip Tickets SaaS Database Per tenant app, tenant databases are given names based on the tenant name, but this is not a critical part of the pattern – the use of the catalog allows any name to be assigned to tenant databases.+ 
+The Wingtip Tickets SaaS Database per Tenant app provisions new tenants by copying a template database named _basetenantdb_, deployed on the catalog server.  Provisioning could be integrated into the application as part of a sign-up experience, and/or supported offline using scripts. This tutorial  explores provisioning using PowerShell. The provisioning scripts copy the basetenantdb database to create a new tenant database in an elastic pool, then initialize it with tenant-specific info and register it in the catalog shard map.  In the Wingtip Tickets SaaS Database Per tenant app, tenant databases are given names based on the tenant name, but this is not a critical part of the pattern – the use of the catalog allows any name to be assigned to a tenant database. 
 
 
 ## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
+The Wingtip Tickets SaaS scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 
 ## Provision and catalog detailed walkthrough
 
-To understand how the Wingtip application implements new tenant provisioning, add a breakpoint and step through the workflow while provisioning a tenant:
+To understand how the Wingtip Tickets application implements new tenant provisioning, add a breakpoint and step through the workflow while provisioning a tenant:
 
 1. In _PowerShell ISE_, open ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ and set the following parameters:
    * **$TenantName** = the name of the new venue (for example, *Bushwillow Blues*).
    * **$VenueType** = one of the pre-defined venue types: *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
    * **$DemoScenario** = **1**, to *Provision a single tenant*.
 
-1. Add a breakpoint by putting your cursor anywhere on line 48, the line that says: *New-Tenant `*, and press **F9**.
+1. Add a breakpoint by putting your cursor anywhere on the line that says: *New-Tenant `*, and press **F9**.
 
    ![break point](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
@@ -120,7 +120,7 @@ The following are not steps to explicitly follow, but an explanation of the work
 
     * The catalog database is added to the shard map (the list of known databases).
     * The mapping that links the key value to the shard is created.
-    * Additional meta data about the tenant (the venue's name) is added to the Tenants table in the catalog.  The Tenants table is not part of the ShardManagement schema and is not installed by the EDCL.  This table illustrates how the Catalog database can be extended to support additional application-specific data.   
+    * Additional meta data about the tenant (the venue's name) is added to the *Tenants* table in the catalog.  The Tenants table is not part of the ShardManagement schema and is not installed by the EDCL.  This table illustrates how the Catalog database can be extended to support additional application-specific data.   
 
 
 After provisioning completes, execution returns to the original *Demo-ProvisionAndCatalog* script, which opens the **Events** page for the new tenant in the browser:
@@ -136,7 +136,7 @@ This exercise provisions a batch of 17 tenants. It’s recommended you provision
    * **$DemoScenario** = **3**, to *Provision a batch of tenants*.
 1. Press **F5** to run the script.
 
-The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and then delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. Templates provision databases in parallel where it can, and handles retries if needed, optimizing the overall process. The script is idempotent so if it fails or stops for any reason, run it again.
+The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and which delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. The templates provision databases in parallel, and handles retries if needed, optimizing the overall process. The script is idempotent, so if it fails or stops for any reason, run it again.
 
 ### Verify the batch of tenants successfully deployed
 
@@ -153,7 +153,6 @@ Other provisioning patterns not included in this tutorial include:
 **Pre-provisioning databases.** The pre-provisioning pattern exploits the fact that databases in an elastic pool do not add extra cost. Billing is for the elastic pool, not the databases, and idle databases consume no resources. By pre-provisioning databases in a pool and allocating them when needed, tenant onboarding time can be reduced significantly. The number of databases pre-provisioned can be adjusted as needed to keep a buffer suitable for the anticipated provisioning rate.
 
 **Auto-provisioning.** In the auto-provisioning pattern, a provisioning service provisions servers, pools, and databases automatically as needed – including pre-provisioning databases in elastic pools if desired. And if databases are de-commissioned and deleted, gaps in elastic pools can be filled by the provisioning service. Such a service could be simple or complex – for example, handling provisioning across multiple geographies, and could set up geo-replication for disaster recovery. With the auto-provisioning pattern, a client application or script submits a provisioning request to a queue to be processed by the provisioning service, and then polls the service to determine completion. If pre-provisioning is used, requests would be handled quickly, with the service provisioning a replacement database in the background.
-
 
 
 ## Next steps

@@ -55,11 +55,11 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 #### Plan the names
 
-In the steps of this section, there are two places where you must enter names for you as a *user* and for your new *resource group*. For a person named *Ann Finley*, we suggest the following names:
-- *User:* &nbsp; **af1** &nbsp; *(Her initials, plus a digit.)*
-- *Resource group:* &nbsp; **wingtip-af1** &nbsp; *(We recommend all lowercase. Append a hyphen then the user name.)*
+In the steps of this section, you provide a *user* value that is used to ensure resource names are globally unique, and a name for the *resource group* which contains all the resources created by a deployment of the app. For a person named *Ann Finley*, we suggest:
+- *User:* **af1**  *(Her initials, plus a digit. Use a different value (e.g. af2) if you deploy the app a second time.)*
+- *Resource group:* **wingtip-dpt-af1** *(wingtip-dpt indicates this is the database-per-tenant app. Appending the user name af1 correlates the resource group name with the names of the resources it contains.)*
 
-Choose your names now, and write them down.
+Choose your names now, and write them down. 
 
 #### Steps
 
@@ -68,7 +68,7 @@ Choose your names now, and write them down.
 
     [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Enter the required parameter values for the deployment.
+1. Enter the required parameter values for the deployment.
 
     > [!IMPORTANT]
     > For this demonstration, do not use any pre-existing resource groups, servers, or pools. Instead, choose **Create a new resource group**. Delete this resource group when you are finished with the application to stop related billing.
@@ -78,12 +78,12 @@ Choose your names now, and write them down.
         - Select a **Location** from the drop-down list.
     - For **User** - We recommend that you choose a short **User** value.
 
-3. **Deploy the application**.
+1. **Deploy the application**.
 
     - Click to agree to the terms and conditions.
     - Click **Purchase**.
 
-4. Monitor deployment status by clicking **Notifications**, which is the bell icon to the right of the search box. Deploying the Wingtip app takes approximately five minutes.
+1. Monitor deployment status by clicking **Notifications**, which is the bell icon to the right of the search box. Deploying the Wingtip app takes approximately five minutes.
 
    ![deployment succeeded](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 

@@ -18,11 +18,11 @@ ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
 ---
-# Manage schema for multiple tenants in a multi-tenant application that uses Azure SQL Database
+# Manage schema in a SaaS application using sharded multi-tenant SQL databases
 
-This tutorial examines the challenges in maintaining a potentially massive fleet of databases in a Software as a Service (SaaS) application in the cloud. Solutions are demonstrated for managing the schema enhancements that are developed and implemented during the life of an app.
+This tutorial examines the challenges in maintaining a fleet of databases in a Software as a Service (SaaS) application in the cloud. Solutions are demonstrated for fanning out schema changes that may be required during the life of an app across the fleet of databases.
 
-As any application evolves, changes might occur to its table columns or other schema, or to its reference data, or to performance related items. With a SaaS app, these changes must be deployed in a coordinated manner across numerous existing tenant databases. And these changes must be included in future tenant databases that will be added to the app. Therefore the changes also must be incorporated into the process that provisions new databases.
+As any application evolves, changes might occur to its table columns or other schema elements, or to its reference data, or to performance related items. With a SaaS app, these changes must be deployed in a coordinated manner across numerous existing tenant databases. These changes must also be included in future tenant databases that will be added to the app. Therefore the changes also must be incorporated into the process that provisions new databases.
 
 #### Two scenarios
 
@@ -30,22 +30,22 @@ This tutorial explores the following two scenarios:
 - Deploy reference data updates for all tenants.
 - Retuning an index on the table that contains the reference data.
 
-The [Elastic Jobs](sql-database-elastic-jobs-overview.md) feature of Azure SQL Database is used to execute these operations across tenant databases. The jobs also operate on the golden template tenant database. This template is used when new databases are provisioned.
+The [Elastic Jobs](sql-database-elastic-jobs-overview.md) feature of Azure SQL Database is used to execute these operations across tenant databases. The jobs also operate on the 'template' tenant database. In the Wingtip Tickets sample app, this template database is copied to provision a new tenant database.
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a job account.
-> * Query across multiple tenants.
-> * Update data in all tenant databases.
+> * Execute a T-SQL query on multiple tenant databases.
+> * Update reference data in all tenant databases.
 > * Create an index on a table in all tenant databases.
 
 ## Prerequisites
 
-- The Wingtip Tickets app must already be deployed:
-    - For instructions, see the first tutorial, which introduces the *Wingtip Tickets* SaaS multi-tenant database app:<br />[Deploy and explore a sharded multi-tenant application that uses Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
+- The Wingtip Tickets multi-tenant database app must already be deployed:
+    - For instructions, see the first tutorial, which introduces the Wingtip Tickets SaaS multi-tenant database app:<br />[Deploy and explore a sharded multi-tenant application that uses Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
         - The deploy process runs for less than five minutes.
-    - You must have the *sharded multi-tenant* version of Wingtip installed. The versions for *Standalone* and *Database per tenant* do not support the present tutorial.
+    - You must have the *sharded multi-tenant* version of Wingtip installed. The versions for *Standalone* and *Database per tenant* do not support this tutorial.
 
 - The latest version of SQL Server Management Studio (SSMS) must be installed. [Download and Install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -63,6 +63,8 @@ The sharded multi-tenant database model used in this sample enables a tenants da
 ## Elastic Jobs limited preview
 
 There is a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. By integrated we mean it requires no additional services or components. This new version of Elastic Jobs is currently in limited preview. The limited preview currently supports PowerShell to create job accounts, and T-SQL to create and manage jobs.
+> [!NOTE] 
+> This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, download and install the latest pre-release jobs cmdlets. This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
