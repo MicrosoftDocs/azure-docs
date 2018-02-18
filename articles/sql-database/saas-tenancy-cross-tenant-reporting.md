@@ -43,7 +43,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Cross-tenant ad hoc reporting pattern
 
-![cross-tenant distributed query pattern](media/saas-tenancy-cross-tenant-query/cross-tenant-distributed-query.png)
+![cross-tenant distributed query pattern](media/saas-tenancy-cross-tenant-reporting/cross-tenant-distributed-query.png)
 
 One of the great opportunities with SaaS applications is the ability to use the vast amount of tenant data stored centrally in the cloud to gain insights into the operation and usage of your application. These insights can guide feature development, usability improvements, and other investments in your apps and services.
 
@@ -93,7 +93,7 @@ To examine the definition of the *Venues* view:
 
 1. In **Object Explorer**, expand **contosoconcerthall** > **Views**:
 
-   ![views](media/saas-tenancy-cross-tenant-query/views.png)
+   ![views](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Right-click **dbo.Venues**.
 3. Select **Script View as** > **CREATE To** > **New Query Editor Window**
@@ -121,19 +121,19 @@ This exercise adds schema (the external data source and external table definitio
 
    Elastic Query uses a database-scoped credential to access each of the tenant databases. This credential needs to be available in all the databases and should normally be granted the minimum rights required to enable these ad hoc queries.
 
-    ![create credential](media/saas-tenancy-cross-tenant-query/create-credential.png)
+    ![create credential](media/saas-tenancy-cross-tenant-reporting/create-credential.png)
 
    By using the catalog database as the external data source, queries are distributed to all databases registered in the catalog when the query is run. Because server names are different for each deployment, this initialization script gets the location of the catalog database by retrieving the current server (@@servername) where the script is executed.
 
-    ![create external data source](media/saas-tenancy-cross-tenant-query/create-external-data-source.png)
+    ![create external data source](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
    The external tables that reference the global views described in the previous section, and defined with **DISTRIBUTION = SHARDED(VenueId)**. Because each *VenueId* maps to a single database, this improves performance for many scenarios as shown in the next section.
 
-    ![create external tables](media/saas-tenancy-cross-tenant-query/external-tables.png)
+    ![create external tables](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
    The local table *VenueTypes* that is created and populated. This reference data table is common in all tenant databases, so it can be represented here as a local table and populated with the common data. For some queries, this may reduce the amount of data moved between the tenant databases and the *adhocreporting* database.
 
-    ![create table](media/saas-tenancy-cross-tenant-query/create-table.png)
+    ![create table](media/saas-tenancy-cross-tenant-reporting/create-table.png)
 
    If you include reference tables in this manner, be sure to update the table schema and data whenever you update the tenant databases.
 
@@ -158,7 +158,7 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the 
 
    Inspect the plan and see that the entire cost is the remote query because each tenant database handles its own query and returns its venue information.
 
-   ![SELECT * FROM dbo.Venues](media/saas-tenancy-cross-tenant-query/query1-plan.png)
+   ![SELECT * FROM dbo.Venues](media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
 
 5. Select the next query, and press **F5**.
 
@@ -166,13 +166,13 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the 
 
    Inspect the plan and see that the majority of cost is the remote query. Each tenant database returns its venue info and performs a local join with the local *VenueTypes* table to display the friendly name.
 
-   ![Join on remote and local data](media/saas-tenancy-cross-tenant-query/query2-plan.png)
+   ![Join on remote and local data](media/saas-tenancy-cross-tenant-reporting/query2-plan.png)
 
 6. Now select the *On which day were the most tickets sold?* query, and press **F5**.
 
    This query does a bit more complex joining and aggregation. What's important to note is that most of the processing is done remotely, and once again, returns only the rows needed, a single row for each venue's aggregate ticket sale count per day.
 
-   ![query](media/saas-tenancy-cross-tenant-query/query3-plan.png)
+   ![query](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
 
 
 ## Next steps
