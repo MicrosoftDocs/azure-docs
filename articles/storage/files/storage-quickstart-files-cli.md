@@ -107,7 +107,7 @@ STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT | \
 jq ".[0].value" | \
-tr -d '"'
+tr -d '"')
 ```
 
 ## Create a file share
