@@ -42,7 +42,7 @@ On **Ubuntu** and **Debian-based** distributions, use the `apt-get` package mana
 sudo apt-get install jq
 ```
 
-On **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package maanger:
+On **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
 
 ```bash
 sudo yum install jq
@@ -55,7 +55,7 @@ sudo zypper install jq
 ```
 
 ### Install jq on macOS
-The preferred way to install jq on macOS is using the Homebrew package management system. If you don't alreaady have Homebrew installed, you can install Homebrew by following the [instructions from the Homebrew project](https://brew.sh/). You can install jq with the following command:
+The preferred way to install jq on macOS is using the Homebrew package management system. If you don't already have Homebrew installed, you can install Homebrew by following the [instructions from the Homebrew project](https://brew.sh/). You can install jq with the following command:
 
 ```bash
 brew install jq
@@ -111,7 +111,7 @@ tr -d '"')
 ```
 
 ## Create a file share
-Now you can create your first Azure file share. You can create file shares using [az storage share create](/cli/azure/storage/share#create) command. This example creates a share named *myshare*. 
+Now you can create your first Azure file share. You can create file shares using [az storage share create](/cli/azure/storage/share#create) command. This example creates a share named `myshare`. 
 
 ```azurecli-interactive
 az storage share create \
@@ -142,7 +142,7 @@ az storage directory create \
 ```
 
 ### Upload a file
-To demostrate how to upload a file using the [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) command, we first need to create a file inside your Azure CLI Cloud Shell's scratch drive to upload. The following commands will create and then upload the file.
+To demonstrate how to upload a file using the [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) command, we first need to create a file inside your Azure CLI Cloud Shell's scratch drive to upload. The following commands will create and then upload the file.
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -323,7 +323,7 @@ You can alternatively remove resources one by one:
             --delete-snapshots include
     done
     ```
-- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any othe rstorage resources you may have created such as an Azure Blob storage container).
+- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).
     ```azurecli-interactive
     az storage account delete \
         --resource-group "myResourceGroup" \
