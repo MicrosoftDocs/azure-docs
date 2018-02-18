@@ -13,11 +13,11 @@ ms.author: v-gedod
 ---
 # Image Search SDK Java quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Install Bing Web Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
+Install Bing Image Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
 ```
  <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>

@@ -70,7 +70,7 @@ public static WebSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for results.  The following method searches using a single query, "Xbox", and prints `name` and `URL` for first web, image, news, and videos results.
+Search for results.  The following method searches using a single query, "Xbox", and prints `name`, and `URL` for first web, image, news, and videos results.
 ```
 public static void WebSearchResultTypesLookup(String subscriptionKey)
 {
