@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ## Create or get a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-If you don't already have an existing storage account, you can create a new one using [`New-AzureRmStorageAccount`](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named *mystorage<10 random digits>* and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so we use **Get-Random** to append 10 random digit to the end to make it unique. 
+If you don't already have an existing storage account, you can create a new one using [`New-AzureRmStorageAccount`](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named *mystorage&lt;10 random digits&gt;* and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so we use `Get-Random` to append a pseudorandom number to the end to make it unique. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzureRmStorageAccount `
@@ -160,10 +160,13 @@ Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDi
 
 While the `Start-AzureStorageFileCopy` cmdlet is convenient for ad-hoc file moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves (in terms of number or size of files being moved). Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell 
 
-## Create and modify share snapshots
-One additional useful task you can do with an Azure file share is to create share snapshots. A snapshot preserves a point in time for an Azure file share. If you have background with Windows File Servers, this is analogous with [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636).
+## Create and modify share snapshots (preview)
+One additional useful task you can do with an Azure file share is to create share snapshots (preview). A snapshot preserves a point in time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
+- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
+- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
 
-You can create a share snapshot by using the `Snapshot` method on the CloudFileShare object, which is retrived with the [`Get-AzureStorageShare`](/powershell/module/azure.storage/get-azurestorageshare) cmdlet. 
+You can create a share snapshot for a share by using the `Snapshot` method on PowerShell object for a file share, which is retrived with the [`Get-AzureStorageShare`](/powershell/module/azure.storage/get-azurestorageshare) cmdlet. 
 
 ```azurepowershell-interactive
 $share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -171,7 +174,7 @@ $snapshot = $share.Snapshot()
 ```
 
 ### Browse share snapshots
-You browse the contents of a share snapshot we just take by passing the snapshot reference (`$snapshot`) to the `-Share` parameter of the `Get-AzureStorageFile` cmdlet.
+You can browse the contents of the share snapshot we just took by passing the snapshot reference (`$snapshot`) to the `-Share` parameter of the `Get-AzureStorageFile` cmdlet.
 
 ```azurepowershell-interactive
 Get-AzureStorageFile -Share $snapshot
@@ -184,12 +187,15 @@ You can see the list of snapshots you've taken for your share with the following
 Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
 ```
 
-## Restore from share snapshots
+### Restore from share snapshots
 You can restore a file by using the `Start-AzureStorageFileCopy` command we used before. For the purposes of this quickstart, we'll first delete our `SampleUpload.txt` file we previously uploaded so we can restore it from the snapshot.
 
 ```azurepowershell-interactive
 # Delete SampleUpload.txt
-Remove-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory\SampleUpload.txt"
+Remove-AzureStorageFile `
+    -Context $storageAcct.Context `
+    -ShareName "myshare" `
+    -Path "myDirectory\SampleUpload.txt"
 
 # Restore SampleUpload.txt from the share snapshot
 Start-AzureStorageFileCopy `
@@ -200,8 +206,8 @@ Start-AzureStorageFileCopy `
     -DestFilePath "myDirectory\SampleUpload.txt"
 ```
 
-## Delete a share snapshot
-You can delete a share snapshot by using the [`Remove-AzureStorageShare`](/powershell/module/azure.storage/remove-azurestorageshare) cmdlet, with the variable containing the `$snapshot` reference to the `-Share` parameter:
+### Delete a share snapshot
+You can delete a share snapshot by using the [`Remove-AzureStorageShare`](/powershell/module/azure.storage/remove-azurestorageshare) cmdlet, with the variable containing the `$snapshot` reference to the `-Share` parameter.
 
 ```azurepowershell-interactive
 Remove-AzureStorageShare -Share $snapshot
