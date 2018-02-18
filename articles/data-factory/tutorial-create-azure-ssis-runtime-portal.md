@@ -37,7 +37,7 @@ In this tutorial, you complete the following steps:
 - Confirm that your Azure SQL Database server does not have an SSIS Catalog (SSISDB database). The provisioning of an Azure-SSIS IR does not support using an existing SSIS Catalog.
 
 > [!NOTE]
-> - You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+> - You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 > - You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, and Australia East. 
 
 ## Create a data factory

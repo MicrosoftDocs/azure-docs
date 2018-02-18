@@ -42,7 +42,7 @@ This tutorial provides steps for provisioning an Azure-SSIS integration runtime 
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision an Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
 
 > [!NOTE]
-> - You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+> - You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 > - You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, and Australia East.
 
 ## Launch Windows PowerShell ISE
