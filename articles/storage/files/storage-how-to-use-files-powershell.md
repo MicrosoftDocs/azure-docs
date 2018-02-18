@@ -47,7 +47,7 @@ If you don't already have an existing storage account, you can create a new one 
 ```azurepowershell-interactive 
 $storageAcct = New-AzureRmStorageAccount `
                   -ResourceGroupName "myResourceGroup" `
-                  -Name "mystorage$(Get-Random)" `
+                  -Name "mystorageaccount$(Get-Random)" `
                   -Location eastus `
                   -SkuName Standard_LRS 
 ```

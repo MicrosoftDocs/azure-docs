@@ -304,7 +304,7 @@ az storage share delete \
 When you are done, you can use the [`az group delete`](/cli/azure/group#delete) command to remove the resource group and all related resources. 
 
 ```azurecli-interactive 
-az group delete --name myResourceGroup
+az group delete --name "myResourceGroup"
 ```
 
 You can alternatively remove resources one by one:
