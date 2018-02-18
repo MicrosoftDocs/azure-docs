@@ -88,32 +88,6 @@ To install the Kube-Lego controller, use the following Helm install command.
 helm install --name my-release stable/kube-lego --set config.LEGO_EMAIL=nepeters@microsoft.com --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
 ```
 
-## Create ingress route
-
-```
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: kube-aci-demo
-  annotations:
-    kubernetes.io/tls-acme: "true"
-    kubernetes.io/ingress.class: nginx
-    ingress.kubernetes.io/ssl-redirect: "true"
-spec:
-  tls:
-  - hosts:
-    - demo-aks-ingress.eastus.cloudapp.azure.com
-    secretName: tls-secret
-  rules:
-  - host: demo-aks-ingress.eastus.cloudapp.azure.com
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: kube-aci-demo
-          servicePort: 80
-```
-
 ## Run application
 
 ```
@@ -121,35 +95,25 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
 ```
-helm install azure-samples/azure-vote
+helm install azure-samples/azure-vote --set serviceType=ClusterIP
 ```
 
-```
-NOTES:
+## Run second application
 
-The Azure Vote application has been started on your Kubernetes cluster.
-
-Title: Azure Vote App
-Vote 1 value: Cats
-Vote 2 value: Dogs
-
-The externally accessible IP address can take a minute or so to provision. Run the following command to monitor the provisioning status. Once an External IP address has been provisioned, brows to t
-his IP address to access the Azure Vote application.
-
-kubectl get service -l name=vote-front-lopsided-macaw -w
+```console
+helm install azure-samples/azure-vote --set title="Azure Vote App Two" --set serviceType=ClusterIP --set serviceNameFront=azure-vote-front-two
 ```
 
-## Update ingress route
+## Create ingress route
 
 ```
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: kube-aci-demo
+  name: azure-vote
   annotations:
     kubernetes.io/tls-acme: "true"
-    kubernetes.io/ingress.class: nginx
-    ingress.kubernetes.io/ssl-redirect: "true"
+    ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:
@@ -161,19 +125,11 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: kube-aci-demo
-          servicePort: 80
-  - host: demo-aks-ingress.eastus.cloudapp.azure.com
-    http:
-      paths:
-      - path: /route-two
-        backend:
           serviceName: azure-vote-front
           servicePort: 80
+      - path: /azure-vote-front-two
+        backend:
+          serviceName: azure-vote-front-two
+          servicePort: 80
 ```
 
-## Run second application
-
-```console
-helm install azure-samples/azure-vote --set title="Azure Vote App Two"
-```
