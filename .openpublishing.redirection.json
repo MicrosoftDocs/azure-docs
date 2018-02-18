@@ -16828,11 +16828,6 @@
             "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-tutorial",
             "redirect_document_id": false
-    },
-	{
-            "source_path": "articles/active-directory/active-directory-saas-new-relic-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
-            "redirect_document_id": false
     }
    ]
 }
