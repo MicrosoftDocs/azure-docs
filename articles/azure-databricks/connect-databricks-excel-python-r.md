@@ -70,7 +70,7 @@ A data source name (DSN) contains the information about a specific data source. 
 
 In this section, you pull data from Azure Databricks into Microsoft Excel using the DSN you created earlier.
 
-1. Open a blank workbook in Microsoft Excel. From the **Data** ribbon, click **Get Data**.
+1. Open a blank workbook in Microsoft Excel. From the **Data** ribbon, click **Get Data**. Click **From Other Sources** and then click **From ODBC**.
 
     ![Launch ODBC from Excel](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "Launch ODBC from Excel")
 
