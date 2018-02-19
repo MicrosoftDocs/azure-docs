@@ -14,10 +14,10 @@ After applying tags to resources, you can view costs for resources with those ta
 
 To view costs by tag in the portal, select your subscription and select **Cost Analysis**.
 
-![Cost analysis](./media/powershell-azure-resource-manager/select-cost-analysis.png)
+![Cost analysis](./media/resource-manager-governance-tags-billing/select-cost-analysis.png)
 
 Then, filter by the tag value, and select **Apply**.
 
-![View cost by tag](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![View cost by tag](./media/resource-manager-governance-tags-billing/view-costs-by-tag.png)
 
-You can also use the [Azure Billing APIs](../../billing/billing-usage-rate-card-overview.md) to programmatically view costs.
+You can also use the [Azure Billing APIs](../articles/billing/billing-usage-rate-card-overview.md) to programmatically view costs.
