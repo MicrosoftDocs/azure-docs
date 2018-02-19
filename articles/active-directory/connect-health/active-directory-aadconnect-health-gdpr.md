@@ -59,7 +59,7 @@ See [how to remove a service instance from Azure AD Connect Health](active-direc
 To re-enable monitoring in Azure AD Connect Health for a previously deleted monitored service, you must uninstall and [reinstall the health agent](active-directory-aadconnect-health-agent-install.md) on all the servers.
 
 
-## Next Steps
+## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
 * [Azure AD Connect and GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
 * [Azure AD Connect Health operations](active-directory-aadconnect-health-operations.md)
