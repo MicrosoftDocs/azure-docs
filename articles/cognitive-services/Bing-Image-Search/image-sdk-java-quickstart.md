@@ -394,10 +394,10 @@ public class ImageSrchSDK {
 
 	public static void main(String[] args) {
 		
-		imageSearch("19aa718a79d6444daaa415981d9f54ad");
-		imageSearchWithFilters("19aa718a79d6444daaa415981d9f54ad");
-		imageTrending("19aa718a79d6444daaa415981d9f54ad");
-		imageDetail("19aa718a79d6444daaa415981d9f54ad");
+		imageSearch("YOUR-SUBSCRIPTION-KEY");
+		imageSearchWithFilters("YOUR-SUBSCRIPTION-KEY");
+		imageTrending("YOUR-SUBSCRIPTION-KEY");
+		imageDetail("YOUR-SUBSCRIPTION-KEY");
 	}
 	
     // Include methods documented previously.

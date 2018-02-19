@@ -34,8 +34,6 @@ Add imports to the class implementation:
 ```
 Implement the `EntitySearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
 ```
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-
 public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
     return new EntitySearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
             new ServiceClientCredentials() {
@@ -266,10 +264,10 @@ public class EntitySearchSDK {
 
 	public static void main(String[] args) {
 		
-		dominantEntityLookup("19aa718a79d6444daaa415981d9f54ad");
-		handlingDisambiguation("19aa718a79d6444daaa415981d9f54ad");
-		restaurantLookup("19aa718a79d6444daaa415981d9f54ad");
-		multipleRestaurantLookup("19aa718a79d6444daaa415981d9f54ad");
+		dominantEntityLookup("YOUR-SUBSCRIPTION-KEY");
+		handlingDisambiguation("YOUR-SUBSCRIPTION-KEY");
+		restaurantLookup("YOUR-SUBSCRIPTION-KEY");
+		multipleRestaurantLookup("YOUR-SUBSCRIPTION-KEY");
 
 	}
     // Include methods documented previously.

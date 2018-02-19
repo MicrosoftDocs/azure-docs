@@ -45,8 +45,6 @@ import java.util.List;
 ```
 Implement the `WebSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
 ```
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-
 public static WebSearchAPIImpl getClient(final String subscriptionKey) {
     return new WebSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
             new ServiceClientCredentials() {
@@ -313,10 +311,10 @@ public class webSDK{
 	
 	public static void main(String [ ] args) {
 		
-		WebSearchResultTypesLookup("19aa718a79d6444daaa415981d9f54ad");
-		WebResultsWithCountAndOffset("19aa718a79d6444daaa415981d9f54ad");
-		WebSearchWithResponseFilter("19aa718a79d6444daaa415981d9f54ad");
-		WebSearchWithAnswerCountPromoteAndSafeSearch("19aa718a79d6444daaa415981d9f54ad");
+		WebSearchResultTypesLookup("YOUR-SUBSCRIPTION-KEY");
+		WebResultsWithCountAndOffset("YOUR-SUBSCRIPTION-KEY");
+		WebSearchWithResponseFilter("YOUR-SUBSCRIPTION-KEY");
+		WebSearchWithAnswerCountPromoteAndSafeSearch("YOUR-SUBSCRIPTION-KEY");
 		
 	}
     // Add methods previoiusly documented.
