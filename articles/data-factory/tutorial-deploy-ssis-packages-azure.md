@@ -57,7 +57,8 @@ Copy and paste the following script: Specify values for the variables. For a lis
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
-$DataFactoryName = "<Data factory name>" 
+$DataFactoryName = "<Data factory name>"
+# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
