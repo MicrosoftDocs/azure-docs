@@ -19,6 +19,7 @@ When deploying resources to Azure, you have tremendous flexibility when deciding
 
 This article addresses those questions. Specifically, you:
 
+> [!div class="checklist"]
 * Assign users to roles and assign the roles to a scope so users have permission to perform expected actions but not more actions.
 * Tag resources so you can track them by values that make sense to your organization.
 * Apply policies that prescribe conventions for resources in your subscription.
