@@ -23,6 +23,7 @@ A key allows you to author and publish your LUIS app, or query your endpoint. LU
 
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you also want to publish and query.
 
+<a name="programmatic-key" >
 ## Authoring key
 
 A authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps. The authoring key is provided to author your LUIS app or to test endpoint queries. 
