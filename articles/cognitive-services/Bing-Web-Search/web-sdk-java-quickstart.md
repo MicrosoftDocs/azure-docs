@@ -307,6 +307,15 @@ public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscript
 }
 
 ```
+Add the previous methods to a class with main function to run the code:
+```
+		WebSearchResultTypesLookup("YOUR-SUBSCRIPTION-KEY");
+		WebResultsWithCountAndOffset("YOUR-SUBSCRIPTION-KEY");
+		WebSearchWithResponseFilter("YOUR-SUBSCRIPTION-KEY");
+		WebSearchWithAnswerCountPromoteAndSafeSearch("YOUR-SUBSCRIPTION-KEY");
+
+	// Add methods previously documented.
+```
 ## Next steps
 
 [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
