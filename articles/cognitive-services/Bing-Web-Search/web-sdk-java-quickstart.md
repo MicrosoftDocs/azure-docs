@@ -307,6 +307,22 @@ public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscript
 }
 
 ```
+Add the previous methods to a class with main function to run the code:
+```
+public class webSDK{
+	
+	public static void main(String [ ] args) {
+		
+		WebSearchResultTypesLookup("19aa718a79d6444daaa415981d9f54ad");
+		WebResultsWithCountAndOffset("19aa718a79d6444daaa415981d9f54ad");
+		WebSearchWithResponseFilter("19aa718a79d6444daaa415981d9f54ad");
+		WebSearchWithAnswerCountPromoteAndSafeSearch("19aa718a79d6444daaa415981d9f54ad");
+		
+	}
+    // Add methods previoiusly documented.
+}
+```
+	
 ## Next steps
 
 [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

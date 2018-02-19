@@ -388,6 +388,21 @@ public static void imageDetail(String subscriptionKey)
     }
 }
 ```
+Add the previous methods to a class with main function to run the code:
+```
+public class ImageSrchSDK {
+
+	public static void main(String[] args) {
+		
+		imageSearch("19aa718a79d6444daaa415981d9f54ad");
+		imageSearchWithFilters("19aa718a79d6444daaa415981d9f54ad");
+		imageTrending("19aa718a79d6444daaa415981d9f54ad");
+		imageDetail("19aa718a79d6444daaa415981d9f54ad");
+	}
+	
+    // Include methods documented previously.
+}
+```
 ## Next steps
 
 [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
