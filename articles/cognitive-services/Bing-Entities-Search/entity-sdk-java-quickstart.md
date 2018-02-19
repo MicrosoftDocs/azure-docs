@@ -30,7 +30,18 @@ Install Bing Entity Search SDK dependencies using Maven, Gradle, or another depe
 ## Entity Search client
 Add imports to the class implementation:
 ```
+import com.microsoft.azure.cognitiveservices.entitysearch.*;
+import com.microsoft.azure.cognitiveservices.entitysearch.implementation.EntitySearchAPIImpl;
+import com.microsoft.azure.cognitiveservices.entitysearch.implementation.SearchResponseInner;
+import com.microsoft.rest.credentials.ServiceClientCredentials;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 ```
 Implement the `EntitySearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
 ```
@@ -57,7 +68,7 @@ public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for a single entity "tom cruise" and print out a short description.
+Search for a single entity "tom cruise" and print a short description.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
 {
