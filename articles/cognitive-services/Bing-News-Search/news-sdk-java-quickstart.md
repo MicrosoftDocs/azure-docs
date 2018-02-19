@@ -43,8 +43,6 @@ import java.io.IOException;
 ```
 Implement the `NewsSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
 ```
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-
 public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
     return new NewsSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
             new ServiceClientCredentials() {
@@ -266,11 +264,11 @@ public class NewsSearchSDK {
 	
 
 	public static void main(String[] args) {
-		String subscriptionKey = "19aa718a79d6444daaa415981d9f54ad";
-		NewsSearchSDK.newsSearch(subscriptionKey);
-		NewsSearchSDK.newsSearchWithFilters(subscriptionKey);
-		NewsSearchSDK.newsCategory(subscriptionKey);
-		NewsSearchSDK.trendingTopics(subscriptionKey);
+		String subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+		NewsSearchSDK.newsSearch("YOUR-SUBSCRIPTION-KEY");
+		NewsSearchSDK.newsSearchWithFilters("YOUR-SUBSCRIPTION-KEY");
+		NewsSearchSDK.newsCategory("YOUR-SUBSCRIPTION-KEY");
+		NewsSearchSDK.trendingTopics("YOUR-SUBSCRIPTION-KEY");
 	}
 
 	// Add methods previously documented.
