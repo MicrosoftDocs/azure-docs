@@ -14,22 +14,23 @@ ms.author: v-geberr
 ---
 
 # Manage your LUIS keys
-A key allows you to author and publish your LUIS app, or query your endpoint. LUIS has two different types of keys: [programmatic](#programmatic-key) and [endpoint](#endpoint-key) keys. 
+A key allows you to author and publish your LUIS app, or query your endpoint. LUIS has two different types of keys: [authoring](#programmatic-key) and [endpoint](#endpoint-key) keys. 
 
 |Key|Purpose|
 |--|--|
-|[Programmatic key](#programmatic-key)|Authoring|
+|[Authoring key](#programmatic-key)|Authoring|
 |[Endpoint key](#endpoint-key)| Querying|
 
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you also want to publish and query.
 
-## Programmatic key
+<a name="programmatic-key" ></a>
+## Authoring key
 
-A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one programmatic key across all your LUIS apps. The programmatic key is provided to author your LUIS app or to test endpoint queries. 
+A authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps. The authoring key is provided to author your LUIS app or to test endpoint queries. 
 
-To find the Programmatic Key, log in to [LUIS][LUIS] and click on the account name in the upper-right navigation bar to open **Account Settings**.
+To find the authoring Key, log in to [LUIS][LUIS] and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
-![Programmatic Key](./media/luis-manage-keys/programatic-key.png)
+![authoring Key](./media/luis-manage-keys/programatic-key.png)
 
 When you want to make **production endpoint queries**, create an Azure [LUIS subscription](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
@@ -42,7 +43,7 @@ An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint
 Do not use the endpoint key for authoring LUIS apps.
 
 ## Key limits
-See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-reference-regions.md). The programmatic key is free and used for authoring. The LUIS subscription key has a free tier but must be created by you and associated with your LUIS app on the **Publish** page. It can not be used for authoring, but only endpoint queries.
+See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-reference-regions.md). The authoring key is free and used for authoring. The LUIS subscription key has a free tier but must be created by you and associated with your LUIS app on the **Publish** page. It can not be used for authoring, but only endpoint queries.
 
 Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want.
 
@@ -50,7 +51,7 @@ Publishing regions are different from authoring regions. Make sure you create an
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
 
 ## Create and use an endpoint key
-On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the programmatic (starter) key. 
+On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the authoring (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
  
