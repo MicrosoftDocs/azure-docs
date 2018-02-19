@@ -17,7 +17,6 @@ ms.author: rithorn
 
 
 # Organize your resources with Azure Management Groups 
-## Management group overview
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 

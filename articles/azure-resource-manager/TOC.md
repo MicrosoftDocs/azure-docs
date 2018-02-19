@@ -21,8 +21,6 @@
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
 ### [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Create management groups](management-groups-create.md)
-### [Manage your management groups](management-groups-manage.md)
 
 ## Deploy
 ### Azure PowerShell
@@ -48,6 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
+### [Create management groups](management-groups-create.md)
+### [Manage your management groups](management-groups-manage.md)
 ### [Governance examples](resource-manager-subscription-examples.md)
 ### [Managed applications](../managed-applications/overview.md)
 
