@@ -14,13 +14,13 @@ ms.custom: mvc
 
 # HTTP load balancing and TLS termination with Ingress
 
-An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress resources or rules, a single external address can be used to route traffic to multiple applications in a Kuebrentes cluster.
+An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress resources or rules, a single external address can be used to route traffic to multiple applications in a Kubernetes cluster.
 
 This document walks through a sample deployment of the [NGIX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [kube-lego][kube-lego] project is used to automatically generate and configure TLS certificates from [Let's Encrypt][lets-encrypt]. Finally, several applications are run in the AKS cluster, each of which is accessible over a single Azure Public IP Address.
 
 ## Install the ingress controller
 
-Use Helm to install the NGINX ingress controller. This provides an out of the box / default configuration for the NGINX ingress controller. See the [NGINX ingress controller documentation][nginx-ingress] for detailed information. 
+Use Helm to install the NGINX ingress controller. This deployment provides a default configuration for the NGINX ingress controller. See the [NGINX ingress controller documentation][nginx-ingress] for detailed information. 
 
 ```
 helm install stable/nginx-ingress
@@ -78,7 +78,7 @@ At this point, the ingress controller is accessible through the DNS name. Becaus
 
 The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [kube-lego][kube-lego]. kube-lego provides automatic [Lets Encrypt] [lets-encrypt] certificate generation and management functionality for the ingress controller.
 
-To install the kube-Lego controller, use the following Helm install command. Update the email address with one from your organization. For more information on kube-lego configuration, see the [kube-lego documentation] [kube-lego].
+To install the kube-lego controller, use the following Helm install command. Update the email address with one from your organization. For more information on kube-lego configuration, see the [kube-lego documentation] [kube-lego].
 
 ```
 helm install stable/kube-lego \
