@@ -26,12 +26,12 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 ## If your application supports SAML or OpenIDConnect
 If you have a multitenant application you'd like listed in the Azure AD Application Gallery, you must first make sure that your application supports one of the following single sign-on technologies:
 
-- **OpenID Connect**: To have your app listed, create the multitenant application in Azure AD and implement the [Azure AD consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control a user's access based on the tenant ID and the user's UPN received in the token. Submit the application by using the process in [Listing your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: To have your app listed, create the multitenant application in Azure AD and implement the [Azure AD consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control a user's access based on the tenant ID and the user's UPN received in the token. Submit the application by using the process outlined in [Listing your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: If your application supports SAML 2.0, Microsoft can list your application in the gallery. Follow the instructions in [Listing your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: If your application supports SAML 2.0, the app can be listed in the gallery. Follow the instructions in [Listing your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## If your application does not support SAML or OpenIDConnect
-If your application does not support SAML or OpenIDConnect, Microsoft can still integrate it into our gallery by using Password Single Sign-on technology.
+If your application does not support SAML or OpenIDConnect, it can still be integrated into the app gallery by using Password Single Sign-on technology.
 
 - **Password SSO**: Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts. 
 
@@ -41,7 +41,7 @@ If you'd like to list your application with this technology:
 
 ## Escalations
 
-For any escalations, drop an email to [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and we get back to you ASAP.
+For any escalations, send email to [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and we'll get back to you as soon as possible.
 
 ## Next steps
-Learn how to [List your application in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+Learn how to [list your application in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
