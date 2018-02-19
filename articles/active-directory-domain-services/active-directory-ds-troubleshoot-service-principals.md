@@ -26,6 +26,7 @@ This article helps you troubleshoot and resolve service principal-related config
 
 [Service principals](../active-directory/develop/active-directory-application-objects.md) are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain. 
 
+
 ## Check for missing service principals
 Use the following steps to determine which service principals need to be recreated:
 
@@ -48,18 +49,24 @@ You need Azure AD PowerShell to complete these steps. For information on install
 
 To address this issue, type the following commands in a PowerShell window:
 1. Install the Azure AD PowerShell module and import it.
+    
     ```powershell 
     Install-Module AzureAD
     Import-Module AzureAD
     ```
+    
 2. Check whether the service principal required for Azure AD Domain Services is missing in your directory by executing the following PowerShell command:
+    
     ```powershell
     Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
     ```
+    
 3. Create the service principal by typing the following PowerShell command:
+
     ```powershell
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
+    
 4. After you have created the missing service principal, wait two hours and check your managed domain's health.
 
 
