@@ -260,6 +260,22 @@ public static void trendingTopics(String subscriptionKey)
     }
 }
 ```
+Add the previous methods to a class with main function to run the code:
+```
+public class NewsSearchSDK {
+	
+
+	public static void main(String[] args) {
+		String subscriptionKey = "19aa718a79d6444daaa415981d9f54ad";
+		NewsSearchSDK.newsSearch(subscriptionKey);
+		NewsSearchSDK.newsSearchWithFilters(subscriptionKey);
+		NewsSearchSDK.newsCategory(subscriptionKey);
+		NewsSearchSDK.trendingTopics(subscriptionKey);
+	}
+
+	// Add methods previously documented.
+}
+```
 ## Next steps
 
 [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
