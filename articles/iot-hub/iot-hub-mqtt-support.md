@@ -55,7 +55,7 @@ When doing so, make sure to check the following items:
 If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883. In the **CONNECT** packet the device should use the following values:
 
 * For the **ClientId** field, use the **deviceId**.
-* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2016-11-14`, where {iothubhostname} is the full CName of the IoT hub.
+* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2016-11-14`, where `{iothubhostname}` is the full CName of the IoT hub.
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
@@ -82,7 +82,7 @@ For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operat
 
 ### TLS/SSL configuration
 
-To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this will fail with connection errors.
+To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this step fail with connection errors.
 
 In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This is the certificate that Azure uses to secure the connection, and can be found in the [Azure-iot-sdk-c repository][lnk-sdk-c-certs]. More information about these certificates can be found on [Digicert's website][lnk-digicert-root-certs].
 
@@ -90,37 +90,55 @@ An example of how to implement this using the Python version of the [Paho MQTT l
 
 First, install the Paho library from your command-line environment:
 
-```
->pip install paho-mqtt
+```cmd/sh
+pip install paho-mqtt
 ```
 
-Then, implement the client in a Python script:
+Then, implement the client in a Python script. Replace the placeholders as follows:
 
-```
+* `<local path to digicert.cer>` is the path to a local file that contains the DigiCert Baltimore Root certificate. You can create this file by copying the certificate information from [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) in the Azure IoT SDK for C. Include the lines `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, remove the `"` marks at the beginning and end of every line, and remove the `\r\n` characters at the end of every line.
+* `<device id from device registry>` is the ID of a device you added to your IoT hub.
+* `<generated SAS token>` is a SAS token for the device created as described previously in this article.
+* `<iot hub name>` the name of your IoT hub.
+
+```python
 from paho.mqtt import client as mqtt
 import ssl
-  
-path_to_root_cer = "...local\\path\\to\\digicert.cer"
+
+path_to_root_cert = "<local path to digicert.cer>"
 device_id = "<device id from device registry>"
 sas_token = "<generated SAS token>"
-subdomain = "<iothub subdomain>"
+iot_hub_name = "<iot hub name>"
+
+def on_connect(client, userdata, flags, rc):
+  print ("Device connected with result code: " + str(rc))
+def on_disconnect(client, userdata, rc):
+  print ("Device disconnected with result code: " + str(rc))
+def on_publish(client, userdata, mid):
+  print ("Device sent message")
 
 client = mqtt.Client(client_id=device_id, protocol=mqtt.MQTTv311)
 
-client.username_pw_set(username=subdomain+".azure-devices.net/" + device_id, password=sas_token)
+client.on_connect = on_connect
+client.on_disconnect = on_disconnect
+client.on_publish = on_publish
+
+client.username_pw_set(username=iot_hub_name+".azure-devices.net/" + device_id, password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
 client.tls_insecure_set(False)
 
-client.connect(subdomain+".azure-devices.net", port=8883)
-```
+client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
+client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
+client.loop_forever()
+```
 
 ### Sending device-to-cloud messages
 
 After making a successful connection, a device can send messages to IoT Hub using `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as a **Topic Name**. The `{property_bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
 
-```
+```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
@@ -139,7 +157,7 @@ For more information, see [Messaging developer's guide][lnk-messaging].
 
 ### Receiving cloud-to-device messages
 
-To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the `#` or `?` wildcards for filtering of sub-topics. Since IoT Hub is not a general purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
+To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
 The device does not receive any messages from IoT Hub, until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After successful subscription has been established, the device starts receiving only cloud-to-device messages that have been sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time it connects with **CleanSession 0** the device receives outstanding messages that have been sent to it while it was disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
@@ -156,19 +174,21 @@ The response body contains the properties section of the device twin:
 
 The body of the identity registry entry limited to the “properties” member, for example:
 
-        {
-            "properties": {
-                "desired": {
-                    "telemetrySendFrequency": "5m",
-                    "$version": 12
-                },
-                "reported": {
-                    "telemetrySendFrequency": "5m",
-                    "batteryLevel": 55,
-                    "$version": 123
-                }
-            }
+```json
+{
+    "properties": {
+        "desired": {
+            "telemetrySendFrequency": "5m",
+            "$version": 12
+        },
+        "reported": {
+            "telemetrySendFrequency": "5m",
+            "batteryLevel": 55,
+            "$version": 123
         }
+    }
+}
+```
 
 The possible status codes are:
 
@@ -193,10 +213,12 @@ The following sequence describes how a device updates the reported properties in
 The request message body contains a JSON document, which provides new values for reported properties (no other property or metadata can be modified).
 Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. For example:
 
-        {
-            "telemetrySendFrequency": "35m",
-            "batteryLevel": 60
-        }
+```json
+{
+    "telemetrySendFrequency": "35m",
+    "batteryLevel": 60
+}
+```
 
 The possible status codes are:
 
@@ -213,10 +235,12 @@ For more information, see [Device twins developer's guide][lnk-devguide-twin].
 
 When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the solution back end. For example:
 
-        {
-            "telemetrySendFrequency": "5m",
-            "route": null
-        }
+```json
+{
+    "telemetrySendFrequency": "5m",
+    "route": null
+}
+```
 
 As for property updates, `null` values means that the JSON object member is being deleted.
 
