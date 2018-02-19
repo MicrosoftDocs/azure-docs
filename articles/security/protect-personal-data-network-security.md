@@ -65,19 +65,10 @@ You can create an application gateway with WAF, or add WAF to an existing applic
 
 To create a new application gateway with WAF enabled, do the following:
 
-1. Log in to the Azure portal and in the **Favorites** pane of the portal, click **New**
-
-2. In the **New** blade, click **Networking**.
-
-3. Click **Application Gateway**.
-
-4. Navigate to the Azure portal, **click New \> Networking \> Application Gateway.**
-
-   ![creating application gateways](media/protect-netsec/app-gateway-01.png)
-
+1. Log in to the [Azure portal](https://portal.azure.com).
+2. Select **Create a resource** > **Networking** > **Application Gateway**.
 5. In the **Basics** blade that appears, enter the values for the following fields: Name, Tier (Standard or WAF), SKU size (Small, Medium, or Large),
     Instance count (2 for high availability), Subscription, Resource group, and Location.
-
 6. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This step opens enter the Choose virtual
     network blade.
 
@@ -135,7 +126,7 @@ For more guidance in planning and implementing NSGs, and a sample deployment sce
 
 To create inbound rules in an existing NSG, do the following:
 
-1. Click **Browse**, and then **Network security groups**.
+1. Click **All services**, and then **Network security groups**.
 
 2. In the list of NSGs, click **NSG-FrontEnd**, and then **Inbound security rules.**
 
