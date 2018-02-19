@@ -308,6 +308,23 @@ public static void VideoDetail(String subscriptionKey)
     }
 }
 ```
+Add the previous methods to a class with main function to run the code:
+```
+public class VideoSDK {
+
+	public static void main(String[] args) {
+		
+		
+		VideoSDK.VideoSearch("YOUR-SUBSCRIPTION-KEY");
+		VideoSDK.VideoSearchWithFilters("YOUR-SUBSCRIPTION-KEY");
+		VideoSDK.VideoTrending("YOUR-SUBSCRIPTION-KEY");
+		VideoSDK.VideoDetail("YOUR-SUBSCRIPTION-KEY");
+
+	}
+
+	// Add methods previously documented.
+}
+```
 ## Next steps
 
 [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
