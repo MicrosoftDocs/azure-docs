@@ -33,7 +33,7 @@ To perform a scale operation, SQL Data Warehouse first kills all incoming querie
 
 The following table shows how the number of distributions per Compute node changes as the data warehouse units change.  DWU6000 provides 60 Compute nodes and achieves much higher query performance than DWU100. 
 
-| Data warehouse units  | \#of Compute nodes | \# of distributions per node |
+| Data warehouse units  | \# of Compute nodes | \# of distributions per node |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -55,22 +55,22 @@ To see the performance benefits of scaling out, especially for larger data wareh
 
 Recommendations for finding the best number of data warehouse units:
 
-1. For a data warehouse in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400 or DW200.
-2. Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
-3. Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units. 
-5. Continue making adjustments until you reach an optimum performance level for your business requirements.
+- For a data warehouse in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400 or DW200.
+- Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
+- Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units. 
+- Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 ## When to scale out
 Scaling out data warehouse units impacts these aspects of performance:
 
-1. Linearly improves performance of the system for scans, aggregations, and CTAS statements.
-2. Increases the number of readers and writers for loading data.
-3. Maximum number of concurrent queries and concurrency slots.
+- Linearly improves performance of the system for scans, aggregations, and CTAS statements.
+- Increases the number of readers and writers for loading data.
+- Maximum number of concurrent queries and concurrency slots.
 
 Recommendations for when to scale out data warehouse units:
 
-1. Before you perform a heavy data loading or transformation operation, scale out to make the data available more quickly.
-2. During peak business hours, scale out to accommodate larger numbers of concurrent queries. 
+- Before you perform a heavy data loading or transformation operation, scale out to make the data available more quickly.
+- During peak business hours, scale out to accommodate larger numbers of concurrent queries. 
 
 ## What if scaling out does not improve performance?
 
