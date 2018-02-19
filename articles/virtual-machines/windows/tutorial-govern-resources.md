@@ -1,6 +1,6 @@
 ﻿---
 title: Govern Azure virtual machines with PowerShell | Microsoft Docs
-description: Tutorial - Govern virtual machines and related resources using the Azure PowerShell.
+description: Tutorial - Manage virtual machines by applying RBAC, polices, locks and tags with Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -16,7 +16,7 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 
 ---
-# Manage resources with Azure PowerShell
+# Virtual machine governance with Azure PowerShell
 
 [!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -28,7 +28,7 @@ If you choose to install and use the PowerShell locally, see [Install Azure Powe
 
 [!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
-In this article, you deploy a virtual machine and its related virtual network. You apply all management settings to a resource group so you can easily remove those settings when done.
+In this article, you apply all management settings to a resource group so you can easily remove those settings when done.
 
 Let's create the resource group.
 
@@ -42,6 +42,8 @@ Currently, the resource group is empty.
 ## Role-based access control
 
 You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../active-directory/role-based-access-control-what-is.md) enables you to manage which users have permission to complete specific actions at a scope.
+
+To create and remove role assignments, users must have `Microsoft.Authorization/roleAssignments/*` access. This access is granted through the Owner or User Access Administrator roles.
 
 For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
@@ -130,9 +132,9 @@ After your deployment finishes, you can apply more management settings to the so
 
 ## Lock resources
 
-[Resource locks](../../azure-resource-manager/resource-group-lock-resources.md) prevent users in your organization from accidentally deleting or modifying critical resources. Unlike role-based access control, resource locks apply a restriction across all users and roles. 
+[Resource locks](../../azure-resource-manager/resource-group-lock-resources.md) prevent users in your organization from accidentally deleting or modifying critical resources. Unlike role-based access control, resource locks apply a restriction across all users and roles. You can set the lock level to CanNotDelete or ReadOnly.
 
-You can set the lock level to CanNotDelete or ReadOnly.
+To create or delete management locks, you must have access to `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
 
 To lock the virtual machine and network security group, use:
 
@@ -154,8 +156,6 @@ The virtual machine can only be deleted if you specifically remove the lock. Tha
 ## Tag resources
 
 You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
-
-### Tag resources
 
 [!include[Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
