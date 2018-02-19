@@ -389,6 +389,15 @@ public static void imageDetail(String subscriptionKey)
     }
 }
 ```
+Add the previous methods to a class with main function to run the code:
+```
+		imageSearch("YOUR-SUBSCRIPTION-KEY");
+		imageSearchWithFilters("YOUR-SUBSCRIPTION-KEY");
+		imageTrending("YOUR-SUBSCRIPTION-KEY");
+		imageDetail("YOUR-SUBSCRIPTION-KEY");
+
+	// Add methods previously documented.
+```
 ## Next steps
 
 [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
