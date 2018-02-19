@@ -33,7 +33,7 @@ With this flexibility, you can use Scheduler for a wide variety of business scen
 In this article, we walk through example jobs that you can create by using Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON to [create a Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## Supported scenarios
-The examples in this article illustrate the breadth of scenarios that Scheduler supports. Broadly, these examples illustrate how to create schedules for many behavior patterns, including:
+The examples in this article illustrate the breadth of scenarios that Scheduler supports. The examples broadly illustrate how to create schedules for many behavior patterns, including:
 
 * Run once at a specific date and time.
 * Run and recur a specific number of times.
@@ -76,11 +76,11 @@ The following table provides a high-level overview of the major elements that yo
 | JSON name | Description |
 |:--- |:--- |
 | **startTime** |A date-time value. For basic schedules, **startTime** is the first occurrence. For complex schedules, the job starts no sooner than **startTime**. |
-| **recurrence** |Specifies recurrence rules for the job, and the recurrence at which the job runs. The **recurrence** object supports the elements **frequency**, **interval**, **endTime**, **count**, and **schedule**. If **recurrence** is defined, **frequency** is required. The other elements of **recurrence** are optional. |
+| **recurrence** |Specifies recurrence rules for the job, and the recurrence at which the job runs. The **recurrence** object supports the elements **frequency**, **interval**, **endTime**, **count**, and **schedule**. If **recurrence** is defined, **frequency** is required. Other **recurrence** elements are optional. |
 | **frequency** |A string that represents the frequency unit at which the job recurs. Supported values are "minute", "hour", "day", "week", and "month". |
-| **interval** |A positive integer. **interval** denotes the interval for the **frequency** value that determines how often the job runs. For example, if **interval** is 3 and **frequency** is "week", the job recurs every 3 weeks.<br /><br /> Scheduler supports a maximum **interval** of 18 for monthly frequency, 78 for weekly frequency, and 548 for daily frequency. For hour and minute frequency, the supported range is 1 <= **interval** <= 1000. |
-| **endTime** |A string specifies the date-time beyond which the job doesn't run. You can set a value for **endTime** that's in the past. If **endTime** and **count** aren't specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
-| **count** |A positive integer (greater than zero) that specifies the number of times the job runs before it is finished.<br /><br />**count** represents the number of times the job runs before being determined as finished. For example, for a job that's executed daily with a **count** of 5 and start date of Monday, the job finishes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.<br /><br />If no **endTime** or **count** is specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
+| **interval** |A positive integer. **interval** denotes the interval for the **frequency** value that determines how often the job runs. For example, if **interval** is 3 and **frequency** is "week", the job recurs every three weeks.<br /><br /> Scheduler supports a maximum **interval** of 18 for monthly frequency, 78 for weekly frequency, and 548 for daily frequency. For hour and minute frequency, the supported range is 1 <= **interval** <= 1000. |
+| **endTime** |A string that specifies the date-time beyond which the job doesn't run. You can set a value for **endTime** that's in the past. If **endTime** and **count** aren't specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
+| **count** |A positive integer (greater than zero) that specifies the number of times the job runs before it's completed.<br /><br />**count** represents the number of times the job runs before being determined completed. For example, for a job that's executed daily with a **count** of 5 and a start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.<br /><br />If no **endTime** or **count** is specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
 | **schedule** |A job with a specified frequency alters its recurrence based on a recurrence schedule. A **schedule** value contains modifications based on minutes, hours, week days, month days, and week number. |
 
 ## Job schema defaults, limits, and examples
@@ -97,7 +97,7 @@ Later in the article, we discuss each of the following elements in detail:
 | **schedule** |Object |No |None |**schedule** object |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ## Deep dive: startTime
-The following table describes how **startTime** controls the way that a job runs.
+The following table describes how **startTime** controls the way that a job runs:
 
 | startTime value | No recurrence | Recurrence, no schedule | Recurrence with schedule |
 |:--- |:--- |:--- |:--- |
@@ -107,14 +107,14 @@ The following table describes how **startTime** controls the way that a job runs
 
 Let's look at an example of what happens when **startTime** is in the past, with recurrence, but with no schedule.  Assume that the current time is 2015-04-08 13:00, **startTime** is 2015-04-07 14:00, and **recurrence** is every two days (defined with **frequency**: day and **interval**: 2.) Note that **startTime** is in the past, and occurs before the current time.
 
-Under these conditions, the first execution will be on 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time. Any instances in the past are discarded. The engine uses the next instance in the future. In this case, **startTime** is 2015-04-07 at 2:00 PM, so the next instance is two days from that time, which is 2015-04-09 at 2:00 PM.
+Under these conditions, the first execution will be on 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time. Any instances in the past are discarded. The engine uses the next instance that occurs in the future. In this case, **startTime** is 2015-04-07 at 2:00 PM, so the next instance is two days from that time, which is 2015-04-09 at 2:00 PM.
 
 Note that the first execution would be the same whether **startTime** is 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated by using the schedule. They will be on 2015-04-11 at 2:00 PM, then on 2015-04-13 at 2:00 PM, then on 2015-04-15 at 2:00 PM, and so on.
 
 Finally, when a job has a schedule, if hours and minutes aren’t set in the schedule, the values default to the hours and minutes of the first execution, respectively.
 
 ## Deep dive: schedule
-You can use a **schedule** value to *limit* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs only on day 31, the job runs only in months that have a thirty-first day.
+You can use **schedule** to *limit* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs only on day 31, the job runs only in months that have a thirty-first day.
 
 You can also use **schedule** to *expand* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs on month days 1 and 2, the job runs on the first and second days of the month instead of only once a month.
 
@@ -142,8 +142,8 @@ These schedules assume that **interval** is set to 1\. The examples also assume 
 | `{"minutes":[15], "hours":[5,17]}` |Run at 5:15 AM and 5:15 PM every day. |
 | `{"minutes":[15,45], "hours":[5,17]}` |Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM every day. |
 | `{"minutes":[0,15,30,45]}` |Run every 15 minutes. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Run every hour.<br /><br />This job runs every hour. The minute is controlled by the value for **startTime**, if one is specified. If no **startTime** value is specified, the minute is controlled by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job runs at 00:25, 01:25, 02:25, …, 23:25.<br /><br />The schedule is equivalent to a job with a **frequency** of "hour", an **interval** of 1, and no **schedule** value. The difference is that you can use this schedule with different **frequency** and **interval** values to create other jobs. For example, if **frequency** is "month", the schedule runs only once a month instead of every day (if **frequency** is "day"). |
-| `{minutes:[0]}` |Run every hour on the hour.<br /><br />This job also runs every hour, but on the hour (12 AM, 1 AM, 2 AM, and so on). This is equivalent to a job with a **frequency** of "hour", a **startTime** value of zero minutes, and no **schedule**, if the frequency is "day". However, if the **frequency** is "week" or "month", the schedule would execute only one day a week or one day a month, respectively. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Run every hour.<br /><br />This job runs every hour. The minute is controlled by the value for **startTime**, if it is specified. If no **startTime** value is specified, the minute is controlled by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job runs at 00:25, 01:25, 02:25, …, 23:25.<br /><br />The schedule is equivalent to a job with a **frequency** of "hour", an **interval** of 1, and no **schedule** value. The difference is that you can use this schedule with different **frequency** and **interval** values to create other jobs. For example, if **frequency** is "month", the schedule runs only once a month instead of every day (if **frequency** is "day"). |
+| `{minutes:[0]}` |Run every hour on the hour.<br /><br />This job also runs every hour, but on the hour (12 AM, 1 AM, 2 AM, and so on). This is equivalent to a job with a **frequency** of "hour", a **startTime** value of zero minutes, and no **schedule**, if the frequency is "day". However, if the **frequency** is "week" or "month", the schedule executes only one day a week or one day a month, respectively. |
 | `{"minutes":[15]}` |Run at 15 minutes past the hour every hour.<br /><br />Runs every hour, starting at 00:15 AM, 1:15 AM, 2:15 AM, and so on. It ends at 11:15 PM. |
 | `{"hours":[17], "weekDays":["saturday"]}` |Run at 5 PM on Saturday every week. |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Run at 5 PM on Monday, Wednesday, and Friday every week. |
@@ -165,7 +165,7 @@ These schedules assume that **interval** is set to 1\. The examples also assume 
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` |Run on the third Friday from the end of the month, every month, at start time. |
 | `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Run on the first and last Friday of every month at 5:15 AM. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Run on the first and last Friday of every month at start time. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Run on the fifth Friday of every month at start time.<br /><br />If there is no fifth Friday in a month, it doesn't run. You might consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Run on the fifth Friday of every month at start time.<br /><br />If there is no fifth Friday in a month, the job doesn't run. You might consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month. |
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Run every 15 minutes on the last Friday of the month. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
