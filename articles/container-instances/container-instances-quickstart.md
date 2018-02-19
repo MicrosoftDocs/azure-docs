@@ -42,7 +42,7 @@ You can create a container by providing a name, a Docker image, and an Azure res
 Execute the following command to start a container instance. The `--dns-name-label` value must be unique within the Azure region you create the instance, so you might need to modify this value to ensure uniqueness.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aciquickstart --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 Within a few seconds, you should get a response to your request. Initially, the container is in the **Creating** state, but it should start within a few seconds. You can check the status using the [az container show][az-container-show] command:

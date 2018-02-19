@@ -50,7 +50,7 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrLoginServer> --registry-password <acrPassword> --dns-name-label aci-tutorial --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrLoginServer> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
 Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding example if you receive a `DNS name label` error message when you execute the command.
