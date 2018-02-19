@@ -24,7 +24,7 @@ This article helps you troubleshoot and resolve service principal-related config
 ## Alert AADDS102: Service Principal not found
 **Alert message:** *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
-[Service Principals](../active-directory/develop/active-directory-application-objects.md) are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain. Use the following steps to determine which service principals need to be recreated.
+[Service principals](../active-directory/develop/active-directory-application-objects.md) are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain. Use the following steps to determine which service principals need to be recreated.
 
 1. Navigate to the [Enterprise Applications - All Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) page in the Azure portal.
 2. In the **Show** dropdown, select **All Applications** and click **Apply**.
@@ -54,7 +54,7 @@ To address this issue, type the following commands in a PowerShell window:
      ```PowerShell
      New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
      ```
-5. After you have created the missing Service Principal, wait two hours and check your domain's health.
+5. After you have created the missing service principal, wait two hours and check your domain's health.
 
 
 ### Re-register to the Microsoft AAD namespace using the Azure portal
@@ -74,7 +74,7 @@ Use the following steps to restore Domain Services on your directory:
 Follow these steps if a service principal with the ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` is missing from your Azure AD directory.
 
 **Remediation:**
-Microsoft can identify when specific Service Principals are missing, misconfigured, or deleted. To remedy the service quickly, Microsoft will recreate the Service Principals itself. Check your domain's health after two hours to ensure that the principal has been recreated.
+Azure AD Domain Services can detect when this specific service principal is missing, misconfigured, or deleted. The service automatically recreates this service principal. Check your managed domain's health after two hours to ensure that the service principal has been recreated.
 
 
 ## Contact Us
