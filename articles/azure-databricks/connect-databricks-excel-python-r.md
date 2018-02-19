@@ -32,7 +32,7 @@ In this article, you learn how to use the Databricks ODBC driver to connect Azur
 
 ## Set up the DSN
 
-A data source name (DSN) contains the information about a specific data source that an ODBC driver needs in order to connect to it. In this section, we set up a DSN that can be used with the Databricks ODBC driver to connect to Azure Databricks from clients like Microsoft Excel, Python, etc.
+A data source name (DSN) contains the information about a specific data source. An ODBC driver needs this DSN in order to connect to a data source. In this section, set up a DSN that can be used with the Databricks ODBC driver to connect to Azure Databricks from clients like Microsoft Excel, Python, etc.
 
 1. From the Azure Databricks workspace, navigate to the Databricks cluster.
 
@@ -50,7 +50,7 @@ A data source name (DSN) contains the information about a specific data source t
 
     ![Launch ODBC](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "Launch ODBC app")
 
-5. In the **Simba Spark ODBC Driver** dialog box, provide the following values.
+5. In the **Simba Spark ODBC Driver** dialog box, provide the following values:
 
     ![Configure DSN](./media/connect-databricks-excel-python-r/odbc-dsn-setup.png "Configure DSN")
 
@@ -60,8 +60,8 @@ A data source name (DSN) contains the information about a specific data source t
     * Under **Authentication**, for **Mechanism**, select *User name and password*.
     * For **User name**, enter *token*.
     * For **Password**, enter the token value that you copied from the Databricks workspace.
-    * Click **HTTP Options** and in the dialog box that opens up, paste the value for *HTTP Path* that you copied from Databricks workspace. Click **OK**.
-    * Click **SSL Options** and in the dialog box that opens up, select the **Enable SSL** check box. Click **OK**.
+    * Click **HTTP Options**. In the dialog box that opens up, paste the value for *HTTP Path* that you copied from Databricks workspace. Click **OK**.
+    * Click **SSL Options**. In the dialog box that opens up, select the **Enable SSL** check box. Click **OK**.
     * If you want, you can click **Test** to test the connection to Azure Databricks. Click **OK** to save the configuration.
     * In the **ODBC Data Source Administrator** dialog box, click **OK**.
 
@@ -70,7 +70,7 @@ A data source name (DSN) contains the information about a specific data source t
 
 In this section, you pull data from Azure Databricks into Microsoft Excel using the DSN you created earlier.
 
-1. Open a blank workbook in Microsoft Excel. From the Data ribbon, click Get Data, .
+1. Open a blank workbook in Microsoft Excel. From the **Data** ribbon, click **Get Data**.
 
     ![Launch ODBC from Excel](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "Launch ODBC from Excel")
 
@@ -78,7 +78,7 @@ In this section, you pull data from Azure Databricks into Microsoft Excel using 
 
     ![Select DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Select DSN")
 
-3. If you are prompted for credentials, for user name enter **token** and for password provide the token value that you retrieved from the Databricks workspace.
+3. If you are prompted for credentials, for user name enter **token**. For password provide the token value that you retrieved from the Databricks workspace.
 
 4. From the navigator window, select the table in Databricks that you want to load to Excel, and then click **Load**. 
 
@@ -101,11 +101,11 @@ Open RStudio and perform the following steps:
 
        conn <- odbcConnect("<ENTER DSN NAME HERE>")
 
-3. Run a SQL query on the data in Azure Databricks using the connection you created. In the snippet below, *radio_sample_data* is a table that already exists in Azure Databricks.
+3. Run a SQL query on the data in Azure Databricks using the connection you created. In the following snippet, *radio_sample_data* is a table that already exists in Azure Databricks.
 
        res <- sqlQuery(conn, "SELECT * FROM radio_sample_data")
 
-4. You can now perform operations like the following:
+4. You can now perform operations as shown in the following snippet:
 
        # print out the column names
        names(res) 
@@ -115,7 +115,7 @@ Open RStudio and perform the following steps:
 
 ## Connect from Python
 
-In this section, you use Python IDE (such as IDLE) to reference data available in Azure Databricks. Before you begin, you must complete the following:
+In this section, you use Python IDE (such as IDLE) to reference data available in Azure Databricks. Before you begin, you must complete the following prerequisites:
 
 * Install Python from [here](https://www.python.org/downloads/). Installing Python from this link also installs IDLE.
 
@@ -133,7 +133,7 @@ Open IDLE and perform the following steps:
 
        conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit = True)
 
-3. Run a SQL query using the connection you created. In the snippet below, *radio_sample_data* is a table that already exists in Azure Databricks.
+3. Run a SQL query using the connection you created. In the following snippet, *radio_sample_data* is a table that already exists in Azure Databricks.
 
        cursor = conn.cursor()
        cursor.execute("SELECT * FROM radio_sample_data")
