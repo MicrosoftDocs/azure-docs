@@ -59,7 +59,9 @@ There are two methods you can use to register the connector:
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 ### Register the connector using a token created offline
-1. Create an offline token using the AuthenticationContext class using the values in this code snippet:
+1. Create an offline token using the AuthenticationContext class using the values in this code snippet or PowerShell cmdlets below:
+
+**Using C#:**
 
         using System;
         using System.Diagnostics;
@@ -114,6 +116,55 @@ There are two methods you can use to register the connector:
             tenantID = authResult.TenantId;
         }
 
+**Using PowerShell:**
+
+        # Locate AzureAD/AzureADPreview PowerShell Module
+        # Change Name of Module to AzureAD or AzureADPreview after what you have installed
+        $AADPoshPath = (Get-InstalledModule -Name AzureADPreview).InstalledLocation
+        # Set Location for ADAL Helper Library
+        $ADALPath = $(Get-ChildItem -Path $($AADPoshPath) -Filter Microsoft.IdentityModel.Clients.ActiveDirectory.dll -Recurse ).FullName | Select-Object -Last 1
+        
+        # Add ADAL Helper Library
+        Add-Type -Path $ADALPath
+        
+        #region constants
+        
+        # The AAD authentication endpoint uri
+        [uri]$AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/token?api-version=1.0/" 
+        
+        # The application ID of the connector in AAD
+        [string]$ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489"
+        
+        # The reply address of the connector application in AAD
+        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob" 
+        
+        # The AppIdUri of the registration service in AAD
+        [uri]$RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp"
+        
+        #endregion
+        
+        #region GetAuthenticationToken
+        
+        # Set AuthN context
+        $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $AadAuthenticationEndpoint
+        
+        # Build platform parameters
+        $promptBehavior = [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Always
+        $platformParam = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList $promptBehavior
+        
+        # Do AuthN and get token
+        $authResult = $authContext.AcquireTokenAsync($RegistrationServiceAppIdUri.AbsoluteUri, $ConnectorAppId, $ConnectorRedirectAddress, $platformParam).Result
+        
+        # Check AuthN result
+        If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId) ) {
+        $token = $authResult.AccessToken
+        $tenantId = $authResult.TenantId
+        }
+        Else {
+        Write-Output "Authentication result, token or tenant id returned are null"
+        }
+        
+        #endregion
 
 2. Once you have the token, create a SecureString using the token:
 
