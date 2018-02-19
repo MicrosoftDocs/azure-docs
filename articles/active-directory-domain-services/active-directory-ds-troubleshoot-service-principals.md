@@ -44,17 +44,20 @@ Follow these steps if a service principal with the ID ```2565bd9d-da50-47d4-8b85
 You need Azure AD PowerShell to complete these steps. For information on installing Azure AD PowerShell, see [this article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 To address this issue, type the following commands in a PowerShell window:
-1. Install-Module AzureAD
-2. Import-Module AzureAD
-3. Check whether the service principal required for Azure AD Domain Services is missing in your directory by executing the following PowerShell command:
-      ```PowerShell
-      Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
-      ```
-4. Create the service principal by typing the following PowerShell command:
-     ```PowerShell
-     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
-     ```
-5. After you have created the missing service principal, wait two hours and check your domain's health.
+1. Install the Azure AD PowerShell module and import it.
+    ```powershell 
+    Install-Module AzureAD
+    Import-Module AzureAD
+    ```
+2. Check whether the service principal required for Azure AD Domain Services is missing in your directory by executing the following PowerShell command:
+    ```powershell
+    Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
+    ```
+3. Create the service principal by typing the following PowerShell command:
+    ```powershell
+    New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+    ```
+4. After you have created the missing service principal, wait two hours and check your managed domain's health.
 
 
 ### Re-register to the Microsoft AAD namespace using the Azure portal
