@@ -29,9 +29,9 @@ In this tutorial, you use Machine Learning (preview) to learn how to:
 
 
 ## Prerequisites
-* Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation quickstart](quickstart-installation.md).
+* A local installation of Azure Machine Learning Workbench. For more information, follow the [installation quickstart](quickstart-installation.md).
 * If you don't have the Azure CLI installed, follow the instructions to [install the latest Azure CLI version](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
-* An [HDInsights Spark cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) needs to be created in Azure.
+* An [HDInsights Spark cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) created in Azure.
 * An Azure storage account.
 * Familiarity with how to create a new project in the Workbench.
 * Although it's not required, it's helpful to have [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed so that you can upload, download, and view the blobs in your storage account. 
@@ -69,7 +69,7 @@ You can use Azure Blob storage to host your data files.
     ![Upload data files](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
 
 > [!TIP]
-> You also can use Storage Explorer to upload blobs. This tool can be used when you want to view the contents of any of the files generated in the tutorial, too.
+> You also can use Storage Explorer to upload blobs. Use this tool when you want to view the contents of any files generated in the tutorial, too.
 
 ## Learn about the datasets
 1. The __Boston weather__ file contains the following weather-related fields, reported on an hourly basis:
@@ -184,7 +184,7 @@ You can use Azure Blob storage to host your data files.
 
    To continue, select **Next**.
 
-6. **Path Column**: You can use the __Path Column__ section to include the full file path as a column in the imported data. Select __Do Not Include Path Column__.
+6. **Path Column**: Use the __Path Column__ section to include the full file path as a column in the imported data. Select __Do Not Include Path Column__.
 
    > [!TIP]
    > Including the path as a column is useful if you're importing a folder of many files with different file names. It's also useful if the file names contain information that you want to extract later.
@@ -343,7 +343,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
    > * Go to the first cell that contains **Feb 01, 2015 12AM-2AM**. It should be row 15. Correct the value to **Jan 02, 2015 12AM-2AM**, and select Enter. 
    
 
-8. Wait for the status to change from **Analyzing Data** to **Review next suggested row**. This might take several seconds. Select the status link to go to the suggested row. 
+8. Wait for the status to change from **Analyzing Data** to **Review next suggested row**. This change might take several seconds. Select the status link to go to the suggested row. 
 
    ![Suggested row to review](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
 
@@ -356,7 +356,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
    ![Completed transformation grid](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
 
    > [!TIP]
-   > You can use the **Advanced mode** of **Derive Column by Example** for this step by selecting the down arrow in the **Steps** pane. In the data grid, there are check boxes next to the **DATE\_1** and **Hour Range** columns. Clear the check box next to the **Hour Range** column to see how the output changes. In the absence of the **Hour Range** column as input, **12AM-2AM** is treated as a constant and is appended to the derived values. Select **Cancel** to return to the main grid without applying your changes.
+   > To use the **Advanced mode** of **Derive Column by Example** for this step. select the down arrow in the **Steps** pane. In the data grid, there are check boxes next to the **DATE\_1** and **Hour Range** columns. Clear the check box next to the **Hour Range** column to see how the output changes. In the absence of the **Hour Range** column as input, **12AM-2AM** is treated as a constant and is appended to the derived values. Select **Cancel** to return to the main grid without applying your changes.
    ![Advanced mode](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. To rename the column, double-click the header. Change the name to **Date Hour Range**, and then select Enter.
@@ -381,7 +381,7 @@ The next step is to summarize the weather conditions by taking the mean of the v
 
 ## Transform dataflow by using script
 
-Changing the data in the numeric columns to a range of 0 to 1 allows some models to converge quickly. Currently, there is no built-in transformation to generically do this transformation. A Python script can be used to perform this operation.
+Changing the data in the numeric columns to a range of 0 to 1 allows some models to converge quickly. Currently, there is no built-in transformation to generically do this transformation. Use a Python script to perform this operation.
 
 1. On the **Transform** menu, select **Transform Dataflow (Script)**.
 
@@ -541,7 +541,7 @@ Using a filter on the data updates the inspectors with the new distribution.
    ![Halo effect](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
 
     > [!NOTE]
-    > The blue histogram appears shorter compared to the previous one. This is due to automatic re-bucketing of data in the new range.
+    > The blue histogram appears shorter compared to the previous one. This difference is due to automatic re-bucketing of data in the new range.
 
 2. To remove the halo, select __Edit__ and clear __Show halo__.
 
@@ -767,7 +767,7 @@ In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeat
 
     ![File details selection](media/tutorial-bikeshare-dataprep/headerfromeachfile.png) 
 
-   Save the name of this data source, because it's used in later steps.
+   Save the name of this data source because it's used in later steps.
 
 2. Select the folder icon to view the files in your project. Expand the __aml\_config__ directory, and then select the `hdinsight.runconfig` file.
 
