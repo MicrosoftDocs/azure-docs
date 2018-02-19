@@ -1,6 +1,6 @@
 ---
-title: Add push notifications to Apache Cordova App with Azure Mobile Apps | Microsoft Docs
-description: Learn how to use Azure Mobile Apps to send push notifications to your Apache Cordova app.
+title: Add push notifications to Apache Cordova App with Mobile Apps | Microsoft Docs
+description: Learn how to use Mobile Apps to send push notifications to your Apache Cordova app.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
@@ -95,8 +95,8 @@ Run the following command:
 The push plugin is now installed.
 
 #### Install the device plugin
-Follow the same procedure you used to install the push plugin.  Add the Device plugin from the Core
-plugins list (To find it, select **Plugins** > **Core**.) You need this plugin to obtain the platform
+Follow the same procedure you used to install the push plugin. Add the Device plugin from the Core
+plugins list. (To find it, select **Plugins** > **Core**.) You need this plugin to obtain the platform
 name.
 
 #### Register your device when the application starts 
@@ -371,7 +371,7 @@ In Visual Studio, make sure that a Windows platform is selected as the deploymen
 Verify that a notification is received when the item is added.
 
 ## <a name="next-steps"></a>Next steps
-* Read about [Notification hubs][17] to learn about push notifications.
+* Read about [Notification Hubs][17] to learn about push notifications.
 * If you have not already done so, continue the tutorial by [adding authentication][14] to your Apache Cordova app.
 
 Learn how to use the following SDKs:
