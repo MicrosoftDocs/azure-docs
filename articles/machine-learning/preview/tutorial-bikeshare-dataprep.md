@@ -232,7 +232,7 @@ To return to the __Data__ view, select __Data__ in the upper left of the page.
    ![Dataflows in the package](media/tutorial-bikeshare-dataprep/weatherdataloadedingrid.png)
 
 ## Filter data by value
-1. To filter data, right-click a cell with a certain value and select __Filter__. Then select the type of filter.
+1. To filter data, right-click a cell with a certain value, and select __Filter__. Then select the type of filter.
 
 2. For this tutorial, select a cell that contains the value `FM-15`. Then set the filter to **equals**.  Now the data is filtered to only return rows where the __REPORTTYPE__ is `FM-15`.
 
@@ -282,7 +282,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
 1. Split the **DATE** column into separate **Date** and **Time** columns. Right-click the **DATE** column header, and select **Split Column by Example**.
 
-   ![Split column by example entry](media/tutorial-bikeshare-dataprep/weathersplitcolumnbyexample.png)
+   ![Split Column by Example entry](media/tutorial-bikeshare-dataprep/weathersplitcolumnbyexample.png)
 
 2. Machine Learning Workbench automatically identifies a meaningful delimiter and creates two columns by splitting the data into date and time values. 
 
@@ -292,9 +292,9 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
 ### Derive column by example
 
-1. To derive a two-hour range, right-click the __DATE\_2__ column header and select **Derive Column by Example**.
+1. To derive a two-hour range, right-click the __DATE\_2__ column header, and select **Derive Column by Example**.
 
-   ![Derive column by example entry](media/tutorial-bikeshare-dataprep/weatherdate2range.png)
+   ![Derive Column by Example entry](media/tutorial-bikeshare-dataprep/weatherdate2range.png)
 
    A new empty column is added with null values.
 
@@ -321,15 +321,15 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
    ![Grid view with added rows](media/tutorial-bikeshare-dataprep/timerangecomputed.png)
 
    > [!TIP]
-   > All the changes you made are preserved in the **Steps** pane. Go to the step that you created in the **Steps** pane, select the down arrow, and select **Edit**. The advanced window for **Derive Column by Example** is displayed. All your examples are preserved here. You also can add examples manually by double-clicking on a row in the following grid. Select **Cancel** to return to the main grid without applying changes. You also can access this view by selecting **Advanced Mode** while you perform a **Derive Column by Example** transform.
+   > All the changes you made are preserved in the **Steps** pane. Go to the step that you created in the **Steps** pane, select the down arrow, and select **Edit**. The advanced window for **Derive Column by Example** is displayed. All your examples are preserved here. You also can add examples manually by double-clicking on a row in the following grid. Select **Cancel** to return to the main grid without applying changes. You also can access this view by selecting **Advanced mode** while you perform a **Derive Column by Example** transform.
 
 6. To rename the column, double-click the column header, and type **Hour Range**. Select Enter to save the change.
 
    ![Rename the column](media/tutorial-bikeshare-dataprep/weatherhourrangecolumnrename.png)
 
-7. To derive the date and hour range, multi-select the **Date\_1** and **Hour Range** columns, right-click, and then select **Derive column by example**.
+7. To derive the date and hour range, multi-select the **Date\_1** and **Hour Range** columns, right-click, and then select **Derive Column by Example**.
 
-   ![Derive column by example](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
+   ![Derive Column by Example](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
 
    Type **Jan 01, 2015 12AM-2AM** as the example against the first row, and select Enter.
 
@@ -356,8 +356,8 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
    ![Completed transformation grid](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
 
    > [!TIP]
-   > You can use the advanced mode of **Derive column by example** for this step by selecting the down arrow in the **Steps** pane. In the data grid, there are check boxes next to the **DATE\_1** and **Hour Range** columns. Clear the check box next to the **Hour Range** column to see how the output changes. In the absence of the **Hour Range** column as input, **12AM-2AM** is treated as a constant and is appended to the derived values. Select **Cancel** to return to the main grid without applying your changes.
-   ![Derive column advanced mode](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
+   > You can use the **Advanced mode** of **Derive Column by Example** for this step by selecting the down arrow in the **Steps** pane. In the data grid, there are check boxes next to the **DATE\_1** and **Hour Range** columns. Clear the check box next to the **Hour Range** column to see how the output changes. In the absence of the **Hour Range** column as input, **12AM-2AM** is treated as a constant and is appended to the derived values. Select **Cancel** to return to the main grid without applying your changes.
+   ![Advanced mode](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. To rename the column, double-click the header. Change the name to **Date Hour Range**, and then select Enter.
 
@@ -412,7 +412,7 @@ Changing the data in the numeric columns to a range of 0 to 1 allows some models
     > [!TIP]
     > The Python script must return `df` at the end. This value is used to populate the grid.
     
-    ![Transform Dataflow (Script) dialog box](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
+   ![Transform Dataflow (Script) dialog box](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
 
 3. Select __OK__ to use the script. The numeric columns in the grid now contain values in the range of 0 to 1.
 
@@ -426,7 +426,7 @@ You have finished preparing the weather data. Next, prepare the trip data.
 
     a. __File Selection__: Select **Azure Blob** when you browse to select the file.
 
-    b. __Sampling scheme__: Select **Full File** sampling scheme, and make the sample active.
+    b. __Sampling Scheme__: Select **Full File** sampling scheme, and make the sample active.
 
     c. __Data Type__: Accept the defaults.
 
@@ -622,11 +622,11 @@ To join the weather data with the trip data, use the following steps:
 
 ## Create additional features
 
-1. To create a column that contains the day of the week, right-click the **Date Hour Range** column and select **Derive column by Example**. Use a value of __Sun__ for a date that occurred on a Sunday. An example is **Jan 01, 2017 12AM-2AM**. Select Enter, and then select **OK**. Rename this column to __Weekday__.
+1. To create a column that contains the day of the week, right-click the **Date Hour Range** column and select **Derive Column by Example**. Use a value of __Sun__ for a date that occurred on a Sunday. An example is **Jan 01, 2017 12AM-2AM**. Select Enter, and then select **OK**. Rename this column to __Weekday__.
 
     ![Create new column for day of the week](media/tutorial-bikeshare-dataprep/featureweekday.png)
 
-2. To create a column that contains the time period for a row, right-click the **Date Hour Range** column and select **Derive column by example**. Use a value of **12AM-2AM** for the row that contains **Jan 01, 2017 12AM-2AM**. Select Enter, and then select **OK**. Rename this column to **Period**.
+2. To create a column that contains the time period for a row, right-click the **Date Hour Range** column, and select **Derive Column by example**. Use a value of **12AM-2AM** for the row that contains **Jan 01, 2017 12AM-2AM**. Select Enter, and then select **OK**. Rename this column to **Period**.
 
     ![Period column](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
