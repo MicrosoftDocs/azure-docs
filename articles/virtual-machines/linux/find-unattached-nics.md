@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 20/02/2018
 ms.author: gpetrousov
 ---
 # Find and delete unattached Azure NICs
