@@ -66,7 +66,7 @@ PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Run the following command to retrieve the FQDN. Update the IP address value with that of your ingress controller.
+If needed, run the following command to retrieve the FQDN. Update the IP address value with that of your ingress controller.
 
 ```azurecli
 az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
@@ -155,11 +155,11 @@ kubectl apply -f hello-world-ingress.yaml
 
 ## Test the ingress configuration
 
-Browse to the FQDN of your Kubernetes ingress controller. You should see the hello wolrd application with the default values.
+Browse to the FQDN of your Kubernetes ingress controller, for example `https://demo-aks-ingress.eastus.cloudapp.azure.com/`. You should see the hello world application.
 
 ![Application example one](media/ingress/app-one.png)
 
-Now browse to the FQDN of the ingress controller with the `/hello-world-two` path. You should see the hello wolrd application with the custom title.
+Now browse to the FQDN of the ingress controller with the `/hello-world-two` path, for example `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`. You should see the hello world application with the custom title.
 
 ![Application example two](media/ingress/app-two.png)
 
