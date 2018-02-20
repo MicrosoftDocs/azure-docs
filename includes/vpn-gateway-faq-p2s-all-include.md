@@ -12,6 +12,7 @@ The following client operating systems are supported:
 * Windows 10
 * OSX version 10.11 for Mac (El Capitan)
 * macOS version 10.12 for Mac (Sierra)
+* Linux strongSwan client
 
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 
