@@ -12,10 +12,7 @@ keywords:
 ---
 
 # Azure Stack datacenter integration - Publish endpoints
-
-*Applies to: Azure Stack integrated systems*
-
-Azure Stack sets up various endpoints (VIPs - virtual IP addresses) for its infrastructure roles. These VIPs are allocated from the public IP address pool. Each VIP is secured with an access control list (ACL) in the software-defined network layer. ACLs are also used across the physical switches (TORs and BMC) to further harden the solution. A DNS entry is created for each endpoint in the external DNS zone that was specified at deployment time.
+Azure Stack sets up several virtual IP addresses (VIPs) for its infrastructure roles. These VIPs are allocated from the public IP address pool. Each VIP is secured with an access control list (ACL) in the software-defined network layer. ACLs are also used across the physical switches (TORs and BMC) to further harden the solution. A DNS entry is created for each endpoint in the external DNS zone that was specified at deployment time.
 
 
 The following architectural diagram shows the different network layers and ACLs:
@@ -24,7 +21,7 @@ The following architectural diagram shows the different network layers and ACLs:
 
 ## Ports and protocols (inbound)
 
-The infrastructure VIPs that are required for publishing Azure Stack endpoints to external networks are listed in the following table. The list shows each endpoint, the required port, and protocol. Endpoints required for additional resource providers, like the SQL resource provider and others, are covered in the specific resource provider deployment documentation.
+The infrastructure VIPs that are required for publishing Azure Stack endpoints to external networks are listed below. The list shows each endpoint, the required port, and protocol. Endpoints required for additional resource providers, like the SQL resource provider and others, are covered in the specific resource provider deployment documentation.
 
 Internal infrastructure VIPs are not listed because they’re not required for publishing Azure Stack.
 
