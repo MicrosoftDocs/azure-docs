@@ -155,6 +155,21 @@ Create this virtual machine using the virtual network created earlier. Later in 
 7. Click **OK**.
 8. On the summary page, review the offer detaials and then click **Create** to start the virtual machine deployment.
  
+## Connect to virtual machine
+
+Create a remote desktop connection to the virtual machine.
+
+1. After deployment completes, go to the virtual machine resource.
+
+    ![VM](./media/sql-database-managed-instance-quickstart/vm.png)  
+
+2. Click the **Connect** button on the virtual machine properties. A Remote Desktop Protocol file (.rdp file) is created and downloaded.
+3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+
+4. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
+
+5. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
+
 ## Configure Custom DNS to forward requests to Azure DNS
 
 ## Setup Custom DNS as primary and Azure DNS as secondary for the VNet
