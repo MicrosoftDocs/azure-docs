@@ -49,19 +49,19 @@ Managed Instance is being released initially as a limited public preview that re
 
 ## Configure a virtual network (VNET)
 
-The following steps show you how to create a new [Azure Resource Manager (ARM)](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNET) for use by your Managed Instance. 
+The following steps show you how to create a new [Azure Resource Manager (ARM)](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNET) for use by your Managed Instance.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Virtual Network**, verify the **Resource Manager** is selected as the deployment mode, and then click **Create**.
 
    ![virtual network create](./media/sql-database-managed-instance-quickstart/virtual-network-create.png)
 
-3. Fill out the virtual network form with the requested information, using the information in the following table and screenshot.
+3. Fill out the virtual network form with the requested information, using the information in the following table.
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
    |**Name**|Any valid name|For valid virtual network names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Address space**|Any valid address range|The virtual network's address name in CIDR notation.|
+   |**Address space**|Any valid address range, such as 10.2.0.0/24|The virtual network's address name in CIDR notation.|
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource Group**|Any valid resource group (new or existing)|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|Any valid location| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
@@ -76,44 +76,39 @@ The following steps show you how to create a new [Azure Resource Manager (ARM)](
 
 ## Create new route table and set route table on Managed Instance subnet
 
-Currently, Managed Instance does not support effective routes on the subnet where instances are deployed. Routes can be user-defined (UDR) or BGP routes propagated to network interfaces through ExpressRoute or site-to-site VPN connections.
-
-In case when BGP routes are propagated through Express Route or site-to-site VPN connections, you
-need to create 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Instance subnet.
+The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Instance subnet.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Route table**, and then click **Create** on the Route table page. 
 
    ![route table create](./media/sql-database-managed-instance-quickstart/route-table-create.png)
 
-3. Fill out the route table form with the requested information, using the information in the following table and screenshot.
+3. Fill out the route table form with the requested information, using the information in the following table.
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
    |**Name**|Any valid name|For valid route table names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
-   |**Resource Group**|Any valid resource group (new or existing)|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Location**|Any valid location| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
+   |**Resource Group**|Select the resource group you created in the previous procedure|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Location**|Select the location you specified in the previous procedure| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Disable BCP route propogation**|Disabled||
    ||||
 
    ![route table create form](./media/sql-database-managed-instance-quickstart/route-table-create-form.png)
 
 4. Click **Create**.
-5. After the route table has been created, open the newly created route table and click **Routes**.
+5. After the route table has been created, open the newly created route table.
 
    ![route table](./media/sql-database-managed-instance-quickstart/route-table.png)
 
 6. Click **Routes** and then click **Add**.
 
-   ![add route](./media/sql-database-managed-instance-quickstart/add-route.png)
-
-7.  Add 0.0.0.0/0 Next Hop Internet route as the **only** route, using the information in the following table and screenshot.
+7.  Add 0.0.0.0/0 Next Hop Internet route as the **only** route, using the information in the following table.
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
    |**Route name**|Any valid name|For valid route names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Address prefix**|0.0.0.0|The destination IP address in CIDR notation that this route applies to.|
+   |**Address prefix**|0.0.0.0/0|The destination IP address in CIDR notation that this route applies to.|
    |**Next hop type**|Internet|The next hop handles the matching packets for this route|
    |||
 
