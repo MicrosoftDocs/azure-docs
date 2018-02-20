@@ -47,8 +47,8 @@ Managed Instance requires an [Azure Resource Manager (ARM)](../azure-resource-ma
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   | **Name**|Any valid name|For valid virtual network names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   | **Address space**|Any valid address range|The virtual network's address name in CIDR notation.|
+   |**Name**|Any valid name|For valid virtual network names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Address space**|Any valid address range|The virtual network's address name in CIDR notation.|
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource Group**|Any valid resource group (new or existing)|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|Any valid location| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
@@ -77,7 +77,7 @@ need to create 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Ins
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   | **Name**|Any valid name|For valid route table names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Name**|Any valid name|For valid route table names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource Group**|Any valid resource group (new or existing)|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|Any valid location| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
@@ -99,7 +99,7 @@ need to create 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Ins
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   | **Route name**|Any valid name|For valid route names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Route name**|Any valid name|For valid route names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Address prefix**|0.0.0.0|The destination IP address in CIDR notation that this route applies to.|
    |**Next hop type**|Internet|The next hop handles the matching packets for this route|
    |||
@@ -122,6 +122,39 @@ need to create 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Ins
 
 ## Create a virtual machine in the same VNET but different subnet
 
+Create this virtual machine using the virtual network created earlier. Later in this tutorial, you create a Managed Instance in this same virtual network and connect to it using SQL Server Management Studio.
+
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
+3. Fill out the virtual machine table form with the requested information, using the information in the following table and screenshot.
+
+   | Setting| Suggested value | Description |
+   | ------ | --------------- | ----------- |
+   |**Name**|Any valid name|For valid virtual machine names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+    **VM disk type**|SSD|SSDs provide the best balance between price and performance.|   
+   |**User name**|Any valid user name|For valid user names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Password**||Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
+   |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
+   |**Resource Group**|The resource group that you created earlier|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
+   |**Already have a Windows license**|No|If you own Windows licenses with active Software Assurance (SA), use Azure Hybrid Benefit to save compute cost|
+   ||||
+
+   ![virutal machine create form](./media/sql-database-managed-instance-quickstart/virtual-machine-create-form.png)
+
+3. Click **OK**.
+4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
+
+    ![VM sizes](./media/sql-database-managed-instance-quickstart/virtual-machine-size.png)  
+
+5. Click **Select**.
+6. Under **Settings**, keep the defaults. 
+
+    ![VM settings](./media/sql-database-managed-instance-quickstart/virtual-machine-settings.png)  
+
+7. Click **OK**.
+8. On the summary page, review the offer detaials and then click **Create** to start the virtual machine deployment.
+ 
 ## Configure Custom DNS to forward requests to Azure DNS
 
 ## Setup Custom DNS as primary and Azure DNS as secondary for the VNet
