@@ -3,7 +3,7 @@ title: Actions and NotActions - Azure role-based access control (RBAC) | Microso
 description: This topic describes the built in roles for role-based access control (RBAC). The roles are continuously added, so check the documentation freshness.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 01/30/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
 
 ms.custom: it-pro
@@ -58,7 +58,6 @@ This article only addresses the different roles that exist today. When you assig
 | [Monitoring Reader](#monitoring-reader) |Can read all monitoring data |
 | [Monitoring Contributor](#monitoring-contributor) |Can read monitoring data and edit monitoring settings |
 | [Network Contributor](#network-contributor) |Can manage all network resources |
-| [New Relic APM Account Contributor](#new-relic-apm-account-contributor) |Can manage New Relic Application Performance Management accounts and applications |
 | [Owner](#owner) |Can manage everything, including access |
 | [Reader](#reader) |Can view everything, but can't make changes |
 | [Redis Cache Contributor](#redis-cache-contributor) |Can manage Redis caches |
@@ -437,19 +436,6 @@ Can manage all network resources
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/* |Create and manage support tickets |
-
-### New Relic APM Account Contributor
-Can manage New Relic Application Performance Management accounts and applications
-
-| **Actions** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Read roles and role Assignments |
-| Microsoft.Insights/alertRules/* |Create and manage alert rules |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
-| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
-| Microsoft.Support/* |Create and manage support tickets |
-| NewRelic.APM/accounts/* |Create and manage New Relic application performance management accounts |
 
 ### Owner
 Can manage everything, including access

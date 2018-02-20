@@ -23,7 +23,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a new account
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Search for and select **Location Based Services**, then click **Create**.
 

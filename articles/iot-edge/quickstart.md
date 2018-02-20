@@ -37,7 +37,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
 3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
 4. Run the following command to download the IoT Edge control script.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -48,7 +48,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
 >    * Windows IoT Core (Build 16299) on a x64-based device
 >
 > For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally validate your prerequisites with the following powershell command:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -83,19 +83,19 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modul
 
 Configure the runtime with your IoT Edge device connection string from the previous section.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Start the runtime.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Check Docker to see that the IoT Edge agent is running as a module.
 
-```
+```cmd
 docker ps
 ```
 

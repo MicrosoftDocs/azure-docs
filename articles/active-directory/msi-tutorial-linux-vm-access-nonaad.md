@@ -3,9 +3,9 @@ title: Use a Linux VM MSI to access Azure Key Vault
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 
 ms.service: active-directory
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Use a Linux VM Managed Service Identity (MSI) to access Azure Key Vault 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
@@ -74,7 +74,7 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
 First, we need to create a Key Vault and grant our VM’s identity access to the Key Vault.   
 
-1. At the top of the left navigation bar select **+ New** then **Security + Identity** then **Key Vault**.  
+1. At the top of the left navigation bar, select **Create a resource** > **Security + Identity** > **Key Vault**.  
 2. Provide a **Name** for the new Key Vault. 
 3. Locate the Key Vault in the same subscription and resource group as the VM you created earlier. 
 4. Select **Access policies** and click **Add new**. 

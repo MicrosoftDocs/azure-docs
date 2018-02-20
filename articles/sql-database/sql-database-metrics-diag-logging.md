@@ -177,7 +177,7 @@ Monitoring a SQL Database fleet is simple with Log Analytics. Three steps are re
 
 ### Create a Log Analytics resource
 
-1. Select **New** in the menu on the left.
+1. Select **Create a resource** in the menu on the left.
 
 2. Select **Monitoring + Management**.
 

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 02/01/2018
 ---
 
 # Sample of custom column transforms (Python) 
