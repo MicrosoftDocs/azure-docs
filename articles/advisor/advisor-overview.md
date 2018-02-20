@@ -29,7 +29,7 @@ With Advisor, you can:
 * Improve the performance, security, and high availability of your resources, as you identify opportunities to reduce your overall Azure spend.
 * Get recommendations with proposed actions inline.
 
-You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **More services** menu.
+You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **All services** menu.
 
 The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into four categories: 
 
@@ -54,7 +54,7 @@ If you do not intend to take immediate action on a recommendation, you can snooz
 ## Frequently asked questions
 
 ### How do I access Advisor?
-You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **More services** menu.
+You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **All services** menu.
 
 You can also view Advisor recommendations through the virtual machine resource interface. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
 

@@ -49,7 +49,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
     * **Resource group**: Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. 
     * **Location**: Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. 
     * **Cluster Type**: Select **hadoop** for this tutorial.
-    * **Cluster Name**: Enter a name for the Hadoop cluster.
+    * **Cluster Name**: Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters includings letters, numbers and hyphens. Note that the first and last characters of the name cannot be hyphens.
     * **Cluster login name and password**: The default login name is **admin**.
     * **SSH username and password**: The default username is **sshuser**.  You can rename it. 
      
