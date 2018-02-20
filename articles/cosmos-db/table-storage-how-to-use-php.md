@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 02/20/2018
 ms.author: mimig
 
 ---
@@ -91,7 +91,7 @@ To instantiate a Storage Table service client, you must first have a valid conne
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-Configure an Azure Comsos DB connection
+## Configure an Azure Comsos DB connection
 To instantiate an Azure Cosmos DB Table API client, you must first have a valid connection string. The format for the Azure Cosmos DB connection string is:
 
 ```php
