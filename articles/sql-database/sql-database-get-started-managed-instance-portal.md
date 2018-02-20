@@ -91,11 +91,11 @@ need to create 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Ins
 
    ![route table](./media/sql-database-managed-instance-quickstart/route-table.png)
 
-7. Click **Routes** and then click **Add**.
+6. Click **Routes** and then click **Add**.
 
    ![add route](./media/sql-database-managed-instance-quickstart/add-route.png)
 
-8.  Add 0.0.0.0/0 Next Hop Internet route as the **only** route, using the information in the following table and screenshot.
+7.  Add 0.0.0.0/0 Next Hop Internet route as the **only** route, using the information in the following table and screenshot.
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -106,19 +106,23 @@ need to create 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Ins
 
    ![route](./media/sql-database-managed-instance-quickstart/route.png)
 
-9. Click **OK**.
-10. To set this route table on the subnet where Managed Instance is to be deployed, open the virtual network that you created earlier.
-11. Click **Subnets** and then click the subnet that you created earlier.
+8. Click **OK**.
+9. To set this route table on the subnet where Managed Instance is to be deployed, open the virtual network that you created earlier.
+10. Click **Subnets** and then click the subnet that you created earlier.
 
    ![subnet](./media/sql-database-managed-instance-quickstart/subnet.png)
 
-12. Click **Route table** and then select the **myMI_route_table**.
+11. Click **Route table** and then select the **myMI_route_table**.
 
    ![set route table](./media/sql-database-managed-instance-quickstart/set-route-table.png)
 
-13. Click **Save**
+12. Click **Save**
 
    ![set route table-save](./media/sql-database-managed-instance-quickstart/set-route-table-save.png)
+
+## Create a Managed Instance
+
+
 
 ## Create a virtual machine in the same VNET but different subnet
 
@@ -170,13 +174,9 @@ Create a remote desktop connection to the virtual machine.
 
 5. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
-## Configure Custom DNS to forward requests to Azure DNS
-
-## Setup Custom DNS as primary and Azure DNS as secondary for the VNet
-
-## Create a Managed Instance
-
 ## Install SSMS and connect to the Managed Instance
+
+## Download Wide World Importers backup file and restore to Managed Instance.
 
 ## Next steps
 
