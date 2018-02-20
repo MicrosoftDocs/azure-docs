@@ -65,15 +65,15 @@ Repeat the [az container show][az-container-show] command until the state change
 
 ## View the application and container logs
 
-Once the deployment succeeds, display the container's public IP address with the [az container show][az-container-show] command:
+Once the deployment succeeds, display the container's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Example output: `"13.88.176.27"`
+Example output: `"aci-demo.eastus.azurecontainer.io"`
 
-To see the running application, navigate to the public IP address in your favorite browser.
+To see the running application, navigate to the displayed DNS name in your favorite browser:
 
 ![Hello world app in the browser][aci-app-browser]
 

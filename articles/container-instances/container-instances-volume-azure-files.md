@@ -84,10 +84,10 @@ The `--dns-name-label` value must be unique within the Azure region you create t
 
 ## Manage files in mounted volume
 
-Once the container starts up, you can use the simple web app deployed via the [seanmckenna/aci-hellofiles][aci-hellofiles] image to manage the files in the Azure file share at the mount path you specified. Obtain the IP address for the web app with the [az container show][az-container-show] command:
+Once the container starts up, you can use the simple web app deployed via the [microsoft/aci-hellofiles][aci-hellofiles] image to manage the files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
 ```
 
 You can use the [Azure portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file written to the file share.
@@ -141,7 +141,7 @@ Learn how to mount other volume types in Azure Container Instances:
 * [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 
