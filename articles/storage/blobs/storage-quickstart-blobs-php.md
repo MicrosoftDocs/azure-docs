@@ -54,6 +54,7 @@ export account_key=<youraccountkey>
 setx account_name=<youraccountname>
 setx account_key=<youraccountkey>
 ```
+---
 
 ## Configure your environment
 Take the folder from your local git folder and place it on your server. If you're using xampp place it inside htdocs so that you can access the quickstart via URL.
