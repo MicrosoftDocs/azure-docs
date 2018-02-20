@@ -68,7 +68,7 @@ public static WebSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for results.  The following method searches using a single query, "Xbox", and prints `name` and `URL` for first web, image, news, and videos results.
+Search for results.  The following method searches using a single query, "Xbox", and prints `name`, and `URL` for first web, image, news, and videos results.
 ```
 public static void WebSearchResultTypesLookup(String subscriptionKey)
 {
@@ -307,6 +307,7 @@ public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscript
 ```
 Add the previous methods to a class with main function to run the code:
 ```
+
 public class webSDK{
 	
 	public static void main(String [ ] args) {
@@ -320,7 +321,6 @@ public class webSDK{
     // Add methods previoiusly documented.
 }
 ```
-	
 ## Next steps
 
 [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
