@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# HTTP load balancing and TLS termination with Ingress
+# HTTPS Ingress on Azure Container Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress resources or rules, a single external address can be used to route traffic to multiple applications in a Kubernetes cluster.
 
@@ -90,46 +90,41 @@ helm install stable/kube-lego \
 
 At this point, an ingress controller and a certificate management solution have been configured. Now run a few applications in your AKS cluster. 
 
-For this example, Helm is used to run multiple instances of the Azure vote application. 
+For this example, Helm is used to run multiple instances of a simple hello world application. 
 
-Before installing the Azure vote application, add the Azure samples Helm repository on your development system.
+Before installing the application, add the Azure samples Helm repository on your development system.
 
 ```
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
-The Azure vote chart is configured with a default service type of `LoadBalancer` and a service name of `azure-vote-front`. Because the application will be accessed over an ingress controller, change the service type to `ClusterIP`. This configuration can be seen in the following command.  
+ Run the AKS hello world chart with the following command.
 
 ```
-helm install azure-samples/azure-vote --set serviceType=ClusterIP
+helm install azure-samples/aks-helloworld
 ```
 
-Now install the second instance of the Azure vote application.
+Now install a second instance of the hello world application.
 
-For the second instance, specify a new configuration so that the two applications are visually distinct. You also need to specify a unique service name to provide a unique service. These configurations can be seen in the following command. Take note that the service name is `azure-vote-two`, this is relevant when configuring the ingress resource / rules.
+For the second instance, specify a new title so that the two applications are visually distinct. You also need to specify a unique service name. These configurations can be seen in the following command.
 
 ```console
-helm install azure-samples/azure-vote \
-  --set title="Winter Sports" \
-  --set value1=Ski \
-  --set value2=Snowboard \
-  --set serviceType=ClusterIP \
-  --set serviceNameFront=azure-vote-two
+helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
 ## Create ingress route
 
 Now that the ingress controller, TLS certificate automation, and applications have been deployed, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
-Create a file name `azure-vote-ingress.yaml` and copy in the following YAML.
+Create a file name `hello-world-ingress.yaml` and copy in the following YAML.
 
-Take note that the traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `azure-vote-front`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/azure-vote-two` is routed to the `azure-vote-two` service.
+Take note that the traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service.
 
 ```
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: azure-vote
+  name: hello-world-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
     ingress.kubernetes.io/rewrite-target: /
@@ -144,27 +139,27 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: azure-vote-front
+          serviceName: aks-helloworld
           servicePort: 80
-      - path: /azure-vote-two
+      - path: /hello-world-two
         backend:
-          serviceName: azure-vote-two
+          serviceName: ingress-demo
           servicePort: 80
 ```
 
 Create the ingress resource with the `kubectl load` command.
 
 ```console
-kubectl apply -f azure-vote-ingress.yaml
+kubectl apply -f hello-world-ingress.yaml
 ```
 
 ## Test the ingress configuration
 
-Browse to the FQDN of your Kubernetes ingress controller. You should see the Azure vote application with the default values.
+Browse to the FQDN of your Kubernetes ingress controller. You should see the hello wolrd application with the default values.
 
 ![Application example one](media/ingress/app-one.png)
 
-Now browse to the FQDN of the ingress controller with the `/azure-vote-two` path. You should see the Azure vote application with the custom values.
+Now browse to the FQDN of the ingress controller with the `/hello-world-two` path. You should see the hello wolrd application with the custom title.
 
 ![Application example two](media/ingress/app-two.png)
 
