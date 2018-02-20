@@ -1839,7 +1839,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <p>Protect your data with cloud-based backup as a service</p>
                                                 </div>
                                             </div>
                                         </div>
