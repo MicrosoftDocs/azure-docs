@@ -99,7 +99,7 @@ To validate communication with *myVm2*, enter the following command from a comma
 mstsc /v:myVm2
 ```
 
-The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet and because remote desktop is open through the Windows firewall, by default. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. From a command prompt, ping my *myVm1*, from *myVm2*.
+The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet and because remote desktop is open through the Windows firewall, by default. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. From a command prompt, ping *myVm1*, from *myVm2*.
 
 ```
 ping myvm1
