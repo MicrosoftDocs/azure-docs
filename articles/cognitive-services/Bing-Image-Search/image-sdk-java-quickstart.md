@@ -1,7 +1,7 @@
 ---
 title: Image Search SDK Java quickstart | Microsoft Docs
 description: Setup for Image Search SDK console application.
-titleSuffix: Azure Cognitive Services Image Search SDK Java quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -19,12 +19,13 @@ The Bing Web Search SDK contains the functionality of the REST API for web queri
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
 Install Bing Web Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
 ```
- <dependency>
+ <dependencies>
+    <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>
       <artifactId>azure-cognitiveservices-imagesearch</artifactId>
       <version>0.0.1-beta-SNAPSHOT</version>
     </dependency>
-  </dependencies> 
+ </dependencies> 
 ```
 ## Image Search client
 Add imports to the class implementation:
@@ -386,6 +387,21 @@ public static void imageDetail(String subscriptionKey)
     {
         System.out.println("Encountered exception. " + ex.getLocalizedMessage());
     }
+}
+```
+Add the previous methods to a class with main function to run the code:
+```
+public class ImageSrchSDK {
+
+	public static void main(String[] args) {
+		
+		imageSearch("YOUR-SUBSCRIPTION-KEY");
+		imageSearchWithFilters("YOUR-SUBSCRIPTION-KEY");
+		imageTrending("YOUR-SUBSCRIPTION-KEY");
+		imageDetail("YOUR-SUBSCRIPTION-KEY");
+	}
+	
+    // Include methods documented previously.
 }
 ```
 ## Next steps
