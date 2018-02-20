@@ -123,7 +123,7 @@ To deploy the application to Azure, you need a Service Fabric cluster which runs
 ### Join a Party cluster
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. 
 
-Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
+Sign in and [join a Windows cluster](https://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
 
 ![PFX and connection endpoint](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

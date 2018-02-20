@@ -41,19 +41,19 @@ Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.htm
 
 ### Flash Player
 #### AES-encrypted with Token
-[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
+[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 ### Silverlight Players
 #### Monitoring
 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
 #### PlayReady with Token
-[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### DASH Players
-[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
+[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
-[http://dashif.org](http://dashif.org)
+[https://dashif.org](https://dashif.org)
 
 ### Other
 To test HLS URLs you can also use:

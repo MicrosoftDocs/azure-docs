@@ -50,14 +50,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## Set up a Party Cluster
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. For free!
 
-To get access to a Party Cluster, browse to this site: http://aka.ms/tryservicefabric and follow the instructions to get access to a cluster. You need a Facebook or GitHub account to get access to a Party Cluster.
+To get access to a Party Cluster, browse to this site: https://aka.ms/tryservicefabric and follow the instructions to get access to a cluster. You need a Facebook or GitHub account to get access to a Party Cluster.
 
 You can use your own cluster instead of the Party Cluster, if you want.  The ASP.NET core web front-end uses the reverse proxy to communicate with the stateful service back-end.  Party Clusters and the local development cluster have reverse proxy enabled by default.  If you deploy the Voting sample application to your own cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 > [!NOTE]
 > Party clusters are not secured, so your applications and any data you put in them may be visible to others. Don't deploy anything you don't want others to see. Be sure to read over our Terms of Use for all the details.
 
-Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
+Sign in and [join a Windows cluster](https://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
 
 ![PFX and connection endpoint](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
 

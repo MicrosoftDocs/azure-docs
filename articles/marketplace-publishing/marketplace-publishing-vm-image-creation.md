@@ -433,7 +433,7 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
 Following are the steps for generating SAS URL by using Azure CLI
 
-1.	Download Microsoft Azure CLI from [here](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](http://aka.ms/webpi-azure-cli)** and **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.	Download Microsoft Azure CLI from [here](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](http://aka.ms/webpi-azure-cli)** and **[MAC OS](https://aka.ms/mac-azure-cli)**.
 
 2.	Once it is downloaded, please install
 

@@ -30,7 +30,7 @@ requests an IDOC over HTTP and sends the response back.
 
 ## Prerequisites
 
-- Install and configure the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) version 1.15.6150.1 or newer. [How to connect to the on-premises data gateway in a logic app](http://aka.ms/logicapps-gateway) lists the steps. The gateway must be installed on an on-premises machine before you can proceed.
+- Install and configure the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) version 1.15.6150.1 or newer. [How to connect to the on-premises data gateway in a logic app](https://aka.ms/logicapps-gateway) lists the steps. The gateway must be installed on an on-premises machine before you can proceed.
 
 - Download and install the latest SAP client library on the same machine where you installed the data gateway. Use any of the following SAP versions: 
 	- SAP Server

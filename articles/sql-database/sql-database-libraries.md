@@ -19,7 +19,7 @@ ms.author: genemi
 ---
 # Connectivity libraries and frameworks for SQL Server
 
-Check out our [Get started tutorials](http://aka.ms/sqldev) to quickly get started with programming languages such as C#, Java, Node.js, PHP, and Python. Then build an app by using SQL Server on Linux or Windows or Docker on macOS.
+Check out our [Get started tutorials](https://aka.ms/sqldev) to quickly get started with programming languages such as C#, Java, Node.js, PHP, and Python. Then build an app by using SQL Server on Linux or Windows or Docker on macOS.
 
 The following table lists connectivity libraries or *drivers* that client applications can use from a variety of languages to connect to and use SQL Server running on-premises or in the cloud. You can use them on Linux, Windows, or Docker and use them to connect to Azure SQL Database and Azure SQL Data Warehouse. 
 

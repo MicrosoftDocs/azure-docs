@@ -188,7 +188,7 @@ Three test samples in Media Services cover the following three scenarios:
 * FPS protected, with video and audio, but no alternate audio track
 * FPS protected, with video only and no audio
 
-You can find these samples at [this demo site](http://aka.ms/poc#22), with the corresponding application certificate hosted in an Azure web app.
+You can find these samples at [this demo site](https://aka.ms/poc#22), with the corresponding application certificate hosted in an Azure web app.
 With either the version 3 or version 4 sample of the FPS Server SDK, if a master playlist contains alternate audio, during offline mode it plays audio only. Therefore, you need to strip the alternate audio. In other words, the second and third samples listed previously work in online and offline mode. The sample listed first plays audio only during offline mode, while online streaming works properly.
 
 ## FAQ

@@ -67,7 +67,7 @@ The following table lists the minimum hardware, software, and network requiremen
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The configuration server can be installed via a command line. For more information, see [Installing configuration server using command-line tools](http://aka.ms/installconfigsrv).
+> The configuration server can be installed via a command line. For more information, see [Installing configuration server using command-line tools](https://aka.ms/installconfigsrv).
 
 
 ## Common issues

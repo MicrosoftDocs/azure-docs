@@ -232,7 +232,7 @@ Now that you have learned the basics of the Twilio service, follow these links t
 * [Twilio on GitHub][twilio_on_github]
 * [Talk to Twilio Support][twilio_support]
 
-[special_offer]: http://ahoy.twilio.com/azure
+[special_offer]: https://ahoy.twilio.com/azure
 [twilio_python]: https://github.com/twilio/twilio-python
 [twilio_lib_docs]: http://readthedocs.org/docs/twilio-python/en/latest/index.html
 [twilio_github_readme]: https://github.com/twilio/twilio-python/blob/master/README.md

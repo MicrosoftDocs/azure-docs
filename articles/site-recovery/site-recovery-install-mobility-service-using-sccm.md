@@ -436,10 +436,10 @@ Mobility Service gets installed on the Linux Server Device Collection, according
 
 ## Other methods to install Mobility Service
 Here are some other options for installing Mobility Service:
-* [Manual Installation using GUI](http://aka.ms/mobsvcmanualinstall)
-* [Manual Installation using command-line](http://aka.ms/mobsvcmanualinstallcli)
-* [Push Installation using configuration server ](http://aka.ms/pushinstall)
-* [Automated Installation using Azure Automation & Desired State Configuration ](http://aka.ms/mobsvcdscinstall)
+* [Manual Installation using GUI](https://aka.ms/mobsvcmanualinstall)
+* [Manual Installation using command-line](https://aka.ms/mobsvcmanualinstallcli)
+* [Push Installation using configuration server ](https://aka.ms/pushinstall)
+* [Automated Installation using Azure Automation & Desired State Configuration ](https://aka.ms/mobsvcdscinstall)
 
 ## Uninstall Mobility Service
 You can create Configuration Manager packages to uninstall Mobility Service. Use the following script to do so:

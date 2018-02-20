@@ -32,7 +32,7 @@ This article makes the following assumptions:
 
 -   The published target application is based on IIS and Microsoft’s implementation of Kerberos.
 
--   The server and application hosts reside in a single Active Directory domain. Detailed information on cross domain and forest scenarios can be found in the [KCD whitepaper](http://aka.ms/KCDPaper).
+-   The server and application hosts reside in a single Active Directory domain. Detailed information on cross domain and forest scenarios can be found in the [KCD whitepaper](https://aka.ms/KCDPaper).
 
 -   The subject application is published in an Azure tenant with pre-authentication enabled, and users are expected to authenticate to Azure via forms-based authentication. Rich client authentication scenarios are not covered by this article, but be added at some point in the future.
 

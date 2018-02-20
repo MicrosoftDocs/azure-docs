@@ -124,7 +124,7 @@ which you can check in to source control for versioning.
 ## Content types, conversions, and transformations within a run
 
 You can access, convert, and transform multiple content types by using the many functions 
-in the Azure Logic Apps [workflow definition language](http://aka.ms/logicappsdocs). 
+in the Azure Logic Apps [workflow definition language](https://aka.ms/logicappsdocs). 
 For example, you can convert between a string, JSON, and XML with 
 the `@json()` and `@xml()` workflow expressions. 
 The Logic Apps engine preserves content types to support 
@@ -133,7 +133,7 @@ content transfer in a lossless manner between services.
 * [How workflow expressions work in logic apps](../logic-apps/logic-apps-author-definitions.md)
 * [Handle non-JSON content types](../logic-apps/logic-apps-content-type.md), 
 like `application/xml`, `application/octet-stream`, and `multipart/formdata`
-* [Reference: Azure Logic Apps workflow definition language](http://aka.ms/logicappsdocs)
+* [Reference: Azure Logic Apps workflow definition language](https://aka.ms/logicappsdocs)
 
 ## Other integrations and capabilities
 

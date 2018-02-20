@@ -31,7 +31,7 @@ Azure Migrate helps you to:
 - Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
 
 > [!NOTE]
-> Support for Hyper-V is in the roadmap and will be enabled soon. In the interim, we recommend you to use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
+> Support for Hyper-V is in the roadmap and will be enabled soon. In the interim, we recommend you to use [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
 
 - You can discover up to 1000 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 400 VMs in a single assessment. If you need to discover or assess more, you can increase the number of discoveries or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.

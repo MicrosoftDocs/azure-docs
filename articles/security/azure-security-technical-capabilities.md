@@ -72,7 +72,7 @@ Security benefits of Azure Active Directory (Azure AD) include the ability to:
 
 - Provision secure remote access to on-premises web applications through Azure AD Application Proxy.
 
-The [Azure Active Directory portal](http://aad.portal.azure.com/) is available a part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
+The [Azure Active Directory portal](https://aad.portal.azure.com/) is available a part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -110,7 +110,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, a
 
 Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-In the Azure portal or through the [Azure Active Directory portal](http://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
+In the Azure portal or through the [Azure Active Directory portal](https://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
 
 - Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to decide about whether an event is suspicious.
 

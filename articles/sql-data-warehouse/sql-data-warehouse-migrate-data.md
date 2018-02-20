@@ -200,7 +200,7 @@ For more development tips, see [development overview][development overview].
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [ExpressRoute documentation]: http://azure.microsoft.com/documentation/services/expressroute/
 
-[production version]: http://aka.ms/downloadazcopy/
-[preview version]: http://aka.ms/downloadazcopypr/
+[production version]: https://aka.ms/downloadazcopy/
+[preview version]: https://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx

@@ -175,7 +175,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Connectivity provider** | **Exchange** | **Locations** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
-| **[Airgate Technologies, Inc.](http://airgate.ca/cloud-express/)** | Equinix, Cologix | Toronto, Montreal |
+| **[Airgate Technologies, Inc.](https://airgate.ca/cloud-express/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |

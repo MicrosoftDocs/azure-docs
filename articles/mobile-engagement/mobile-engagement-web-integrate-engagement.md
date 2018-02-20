@@ -31,7 +31,7 @@ The procedures in this article describe the simplest way to activate the analyti
 Follow the steps to activate the log reports that are needed to compute all statistics about users, sessions, activities, crashes, and technicals. For application-dependent statistics, such as events, errors, and jobs, you must activate log reports manually by using the Azure Mobile Engagement API. For more information, learn [how to use the advanced Mobile Engagement tagging API in a web application](mobile-engagement-web-use-engagement-api.md).
 
 ## Introduction
-[Download the Azure Mobile Engagement Web SDK](http://aka.ms/P7b453).
+[Download the Azure Mobile Engagement Web SDK](https://aka.ms/P7b453).
 The Mobile Engagement Web SDK is shipped as a single JavaScript file, azure-engagement.js, which you have to include in each page of your site or web application.
 
 > [!IMPORTANT]

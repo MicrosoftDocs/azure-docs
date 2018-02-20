@@ -171,7 +171,7 @@ If you don't have an Azure storage account, create a geo-replication enabled acc
 Note that the storage account must be in the same region as the Azure Site Recovery service, and be associated with the same subscription.
 
 ## Step 6: Install the Azure Recovery Services Agent
-1. Download the Azure Recovery Services agent at [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent)
+1. Download the Azure Recovery Services agent at [https://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent)
    and install it on each Hyper-V host server located in the VMM clouds you want to protect.
 2. Run the following command on all VMM hosts:
 

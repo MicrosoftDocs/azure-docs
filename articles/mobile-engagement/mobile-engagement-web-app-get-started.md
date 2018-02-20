@@ -28,7 +28,7 @@ This topic shows you how to use Azure Mobile Engagement to understand your Web A
 This tutorial requires the following:
 
 * Visual Studio 2015 or any other editor of your choice
-* [Web SDK](http://aka.ms/P7b453)
+* [Web SDK](https://aka.ms/P7b453)
 
 This Web SDK is in Preview and only supports Analytics at the moment and doesn't support sending browser or in-app push notifications yet. 
 
