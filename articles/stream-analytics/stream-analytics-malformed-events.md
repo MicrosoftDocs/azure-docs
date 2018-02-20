@@ -25,12 +25,12 @@ When the input stream of your Stream Analytics job contains malformed messages, 
 
 Use the following steps to troubleshoot the issue:
 
-1. Navigate to the input blade and click to view warnings.
-2. The input details blade displays a set of warnings with details about the issue. Following is an example warning message, the warning message shows the Partition, Offset and sequence numbers where there is malformed JSON data. 
+1. Navigate to the input tile and click to view warnings.
+2. The input details tile displays a set of warnings with details about the issue. Following is an example warning message, the warning message shows the Partition, Offset and sequence numbers where there is malformed JSON data. 
 
    ![Warning message with offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
 
-3. To get the JSON data that has incorrect format, run the following code snippet. This code block reads the partition Id, offset and prints the data. You can get the full sample from our [GitHub samples repository](). Once you read the data, you can analyze and correct the serialization format.
+3. To get the JSON data that has incorrect format, run the following code snippet. This code block reads the partition Id, offset, and prints the data. You can get the full sample from the [GitHub samples repository](). Once you read the data, you can analyze and correct the serialization format.
 
 ```csharp
 static void PrintMessages(string partitionId, long offset, int numberOfEvents)
