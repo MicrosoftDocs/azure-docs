@@ -43,7 +43,7 @@ ms.author: mbullwin
 
     ![Screenshot of Visual Studio File New Project Selection Menu](./media/app-insights-asp-net-core/0005-start-free.png)
 
-3. Select an appropriate **Subscription** > **Resource** > and whether or not you want allow collection over 1GB/Month > **Register**.
+3. Select an appropriate **Subscription** > **Resource** > and whether or not to allow collection over 1 GB per Month > **Register**.
 
     ![Screenshot of Visual Studio File New Project Selection Menu](./media/app-insights-asp-net-core/0006-register.png)
 
@@ -51,7 +51,7 @@ ms.author: mbullwin
 
 Application Insights is very low overhead. To review the modifications made to your project made by adding Application Insights telemetry:
 
-Select **View** > **Team Explorer** (Ctrl+\,Ctrl+M) > **Project** > **Changes**
+Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
 - Four changes total:
 
@@ -79,15 +79,15 @@ Select **View** > **Team Explorer** (Ctrl+\,Ctrl+M) > **Project** > **Changes**
 
 ## Synthetic transactions with PowerShell
 
-Launching your app, and then clicking around on links manually can be used to generate test traffic. However, it is often helpful to create a simple synthethic in PowerShell.
+Launching your app, and then clicking around on links manually can be used to generate test traffic. However, it is often helpful to create a simple synthetic in PowerShell.
 
 1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Copy the url from the browser address bar. It will be in the format http://localhost:{random port number}
+2. Copy the url from the browser address bar. It is in the format http://localhost:{random port number}
 
    ![Screenshot of browser url address bar](./media/app-insights-asp-net-core/0013-copy-url.png)
 
-3. Run the following PowerShell loop to create 100 synthetic transactions against your test app. Modify the port number after **localhost:** to match the url you copied in the prvious step.
+3. Run the following PowerShell loop to create 100 synthetic transactions against your test app. Modify the port number after **localhost:** to match the url you copied in the previous step.
 
    ```PS
    for ($i = 0 ; $i -le 100; $i++)
@@ -99,24 +99,24 @@ Launching your app, and then clicking around on links manually can be used to ge
 
 After running the PowerShell from the previous section, launch Application Insights to view the transactions and confirm that data is being collected. 
 
-From the Visual Studio menu select **Project** > **Application Insights** > **Open Application Insights Portal**
+From the Visual Studio menu, select **Project** > **Application Insights** > **Open Application Insights Portal**
 
    ![Screenshot of Application Insights Overview](./media/app-insights-asp-net-core/0014-portal-01.png)
 
 > [!NOTE]
-> In the example screenshot above **Live Stream**, **Page View Load Time**, and **Failed Requests** are currently not collected. The next section will walk through adding each. If you are already collecting **Live Stream** , and **Page View Load Time**, then only follow the steps for **Failed Requests**.
+> In the example screenshot above **Live Stream**, **Page View Load Time**, and **Failed Requests** are currently not collected. The next section will walk through adding each. If you are already collecting **Live Stream, and **Page View Load Time**, then only follow the steps for **Failed Requests**.
 
 ## Collect Failed Requests, Live Stream, & Page View Load Time
 
 ### Failed Requests
 
-Technically **Failed Requests** are being collected, but none have occurred yet. To speed the process along a custom exception can be added to the existing project to simlulate a real-world exception. If your app is still running in Visual Studio before proceeding **Stop Debugging** (Shift+F5)
+Technically **Failed Requests** are being collected, but none have occurred yet. To speed the process along a custom exception can be added to the existing project to simulate a real-world exception. If your app is still running in Visual Studio before proceeding **Stop Debugging** (Shift+F5)
 
 1. In **Solution Explorer** > expand **Pages** > **About.cshtml** > open **About.cshtml.cs**.
 
    ![Screenshot of Visual Studio Solution Explorer](./media/app-insights-asp-net-core/0015-solution-explorer-about.png)
 
-2. Add a simple Exception under _Message=_ > save the change to the file.
+2. Add an Exception under _Message=_ > save the change to the file.
 
    ```C#
    throw new Exception("Fatal Exception: Scott Guthrie spotted wearing a blue shirt");
@@ -144,18 +144,20 @@ Multiple confirmation prompts will occur, read and accept if you agree with the 
    @using Microsoft.ApplicationInsights.AspNetCore
    @inject JavaScriptSnippet snippet
    ```
-     ![Screenshot of code change to _ViewImports.cshtml](./media/app-insights-asp-net-core/0018-view-imports.png)
+     ![Screenshot of code change to _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
 3. In **Layout.cshtml** add the line below before </head>, but prior to any other scripts.
 
     ```C#
     @Html.Raw(snippet.FullScript)
     ```
+    ![Screenshot of code change to layout.cshtml](./media/app-insights-asp-net-core/0018-layout-cshtml.png)
+
 ### Test Failed Requests, Page View Load Time, Live Stream
 
 Now that you have completed the previous steps you can test out and confirm that everything is working.
 
-1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0012-iis-express.png) 
+1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0012-iis-express.png)
 
 2. Navigate to the **About** page to trigger the test exception. (If you are running in Debug mode, you will need to click **Continue** in Visual Studio before the exception will be picked up by Application Insights.)
 
@@ -166,62 +168,23 @@ Now that you have completed the previous steps you can test out and confirm that
    > [!TIP]
    > If you aren't seeing your new traffic yet, check the **Time range** and click **Refresh**.
 
-   ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0019-overview-updated.png)
+   ![Screenshot of Overview window](./media/app-insights-asp-net-core/0019-overview-updated.png)
 
 5. Select Live Stream
 
-   ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
+   ![Screenshot of Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
    (If your PowerShell script is still running you should see live metrics, if has stopped run the script aagain with Live Stream open.)
 
-## 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[Application Insights](app-insights-overview.md) lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
-
-
-* [Metrics Explorer](app-insights-metrics-explorer.md) shows graphs and tables of metrics and counts, such as response times, failure rates, or metrics you create yourself with the [API](app-insights-api-custom-events-metrics.md). Filter and segment the data by property values to get a better understanding of your app and its users.
-* [Search Explorer](app-insights-diagnostic-search.md) lists individual events, such as specific requests, exceptions, log traces, or events you created yourself with the [API](app-insights-api-custom-events-metrics.md). Filter and search in the events, and navigate among related events to investigate issues.
-* [Analytics](app-insights-analytics.md) lets you run SQL-like queries over your telemetry, and is a powerful analytical and diagnostic tool.
-
-## Alerts
-* You automatically get [proactive diagnostic alerts](app-insights-proactive-diagnostics.md) that tell you about anomalous changes in failure rates and other metrics.
-* Set up [availability tests](app-insights-monitor-web-app-availability.md) to test your website continually from locations worldwide, and get emails as soon as any test fails.
-* Set up [metric alerts](app-insights-monitor-web-app-availability.md) to know if metrics such as response times or exception rates go outside acceptable limits.
+## Open source SDK
+[Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
-## Open source
-[Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
-
-
 ## Next steps
 * [Add telemetry to your web pages](app-insights-javascript.md) to monitor page usage and performance.
 * [Monitor dependencies](app-insights-asp-net-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
 * [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
-* [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world. 
-
+* [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world.
