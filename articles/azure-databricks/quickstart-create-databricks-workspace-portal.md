@@ -90,9 +90,9 @@ Perform the following steps to create a notebook in Databricks, configure the no
 3. In this step, associate the Azure Storage account with the Databricks Spark cluster. There are two ways to accomplish this, mount the Azure Storage account to the Databricks Filesystem (DBFS) or directly access the Azure Storage account from the application you create.  
 
     > [!IMPORTANT]
-    >In this article, we **use the approach to mount the storage with DBFS**. This approach ensures that the mounted storage gets associated with the cluster filesystem itself. Hence, any application accessing the cluster is able to use the associated storage as well. The direct access approach is limited to the application from where you configure the access.
+    >This article uses the **approach to mount the storage with DBFS**. This approach ensures that the mounted storage gets associated with the cluster filesystem itself. Hence, any application accessing the cluster is able to use the associated storage as well. The direct access approach is limited to the application from where you configure the access.
     >
-    > To use the mounting approach, you must create a Spark cluster with Databricks runtime version **4.0 (beta)**, which is what we chose in this article.
+    > To use the mounting approach, you must create a Spark cluster with Databricks runtime version **4.0 (beta)**, which is what you chose in this article.
 
     In the following snippet, replace `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, and `{YOUR STORAGE ACCOUNT ACCESS KEY}` with the appropriate values for your Azure Storage account. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell.
 
