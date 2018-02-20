@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/20/2018
 ms.author: v-geberr;
 ---
 
@@ -182,7 +182,7 @@ Composite entities are machine-learned and can include a word or phrase. For exa
 
 `book 2 tickets to paris`
 
-Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in an labeled utterance in the [LUIS][LUIS] website, indicates a composite entity.
+Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS][LUIS] website, indicates a composite entity.
 
 ![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -213,7 +213,7 @@ Notice that `2`, the number, and `paris`, the ToLocation have words between them
 
 A list entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list. 
 
-Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101) and phone area code (206). 
+Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206). 
 
 |List item|Item synonyms|
 |---|---|
@@ -222,7 +222,7 @@ Suppose the app has a list, named `Cities`, allowing for variations of city name
 
 `book 2 tickets to paris`
 
-In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. 
+In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms. 
 
 ```JSON
   {
