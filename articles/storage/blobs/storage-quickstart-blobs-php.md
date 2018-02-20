@@ -20,7 +20,7 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 To complete this quickstart: 
 * Install [PHP](http://php.net/downloads.php)
-* Install [The Azure SDK for PHP](../../php-download-sdk.md)
+* Install [the Azure SDK for PHP](../../php-download-sdk.md)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -39,19 +39,24 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the phpqs.php file.  
 
 ## Configure your storage connection string
-In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Make sure to remove `;EndpointSuffix=core.windows.net` from it and then replace \<yourconnectionstring\> with your actual connection string.
+In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **accountname** and **accountkey** values with your account name and key.
 
-### Linux
+# [Linux] (#tab/linux)
 
 ```bash
-export storageconnectionstring=<yourconnectionstring>
+export account_name=<youraccountname>
+export account_key=<youraccountkey>
 ```
 
-### Windows
+# [Windows] (#tab/windows)
 
 ```cmd
-setx storageconnectionstring "<yourconnectionstring>"
+setx account_name=<youraccountname>
+setx account_key=<youraccountkey>
 ```
+
+## Configure your environment
+Take the folder from your local git folder and place it on your server. If you're using xampp place it inside htdocs so that you can access the quickstart via URL.
 
 ## Run the sample
 This sample creates a test file in the 'Documents' folder. The sample program uploads the test file to Blob storage, lists the blobs in the container, and downloads the file with a new name. 
@@ -81,7 +86,7 @@ The first thing to do is create the references to the objects used to access and
 * Create the **BlobService** object that points to the Blob service in your storage account. 
 * Create the **Container** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the Cloud Blob container, you can create the **Block** blob object that points to the specific blob in which you are interested. Then you can perform operations such as upload, download, and copy.
+Once you have the **blobClient** container object, you can create the **Block** blob object that points to the specific blob in which you are interested. Then you can perform operations such as upload, download, and copy.
 
 > [!IMPORTANT]
 > Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
