@@ -1,6 +1,6 @@
 ---
-title: Manage compute power in Azure SQL Data Warehouse (Overview) | Microsoft Docs
-description: Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs.
+title: Manage compute resource in Azure SQL Data Warehouse | Microsoft Docs
+description: Learn about performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs, or lower costs by pausing the data warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 02/16/2018
+ms.date: 02/20/2018
 ms.author: elbutter
 
 ---
 # Manage compute in Azure SQL Data Warehouse
-Learn about managing compute resources in Azure SQL Data Warehouse. The compute management capabilities include scaling out, scaling back, pausing, and resuming compute. 
+Learn about managing compute resources in Azure SQL Data Warehouse. Lower costs by pausing the data warehouse, or scale the data warehouse to meet performance demands. 
 
 ## What is compute management?
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
@@ -77,8 +77,7 @@ Recommendations for when to scale out data warehouse units:
 Adding data warehouse units increasing the parallelism. If the work is evenly split between the Compute nodes, the additional parallelism improves query performance. If scaling out is not changing your performance, there are some reasons why this might happen. Your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](sql-data-warehouse-troubleshoot.md#performance). 
 
 ## Pausing and resuming compute
-Pausing compute causes the storage layer to detach from the Compute nodes. The Compute resources are released from your account. You are not charged for compute while compute is paused. Resuming compute reattaches storage to the Compute nodes, and resumes charges for Compute.  
-
+Pausing compute causes the storage layer to detach from the Compute nodes. The Compute resources are released from your account. You are not charged for compute while compute is paused. Resuming compute reattaches storage to the Compute nodes, and resumes charges for Compute. 
 When you pause a data warehouse:
 
 * Compute and memory resources are returned to the pool of available resources in the data center
@@ -93,8 +92,16 @@ When you resume a data warehouse:
 * Your data becomes available.
 * After the data warehouse is online, you need to restart your workload queries.
 
+If you always want your data warehouse accessible, consider scaling it down to the smallest size rather than pausing. 
+
 For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
+## Drain transactions before pausing or scaling
+We recommend allowing existing transactions to finish before you initiate a pause or scale operation.
+
+When you pause or scale your SQL Data Warehouse, behind the scenes your queries are canceled when you initiate the pause or scale request.  Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly.  **Transactional queries, by definition, must either complete in their entirety or rollback their changes.**  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
+
+See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), and [Optimizing transactions][Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## Automating compute management
 To automate the compute management operations, see [Manage compute with Azure functions](manage-compute-with-azure-functions.md).
