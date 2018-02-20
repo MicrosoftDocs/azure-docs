@@ -110,23 +110,23 @@ All entities are returned in the **entities** array of the response from the end
 
 ```JSON
 "entities": [
-    {
-      "entity": "bob jones",
-      "type": "Name",
-      "startIndex": 0,
-      "endIndex": 8,
-      "score": 0.473899543
-    },
-    {
-      "entity": "3",
-      "type": "builtin.number",
-      "startIndex": 16,
-      "endIndex": 16,
-      "resolution": {
-        "value": "3"
-      }
+  {
+    "entity": "bob jones",
+    "type": "Name",
+    "startIndex": 0,
+    "endIndex": 8,
+    "score": 0.473899543
+  },
+  {
+    "entity": "3",
+    "type": "builtin.number",
+    "startIndex": 16,
+    "endIndex": 16,
+    "resolution": {
+      "value": "3"
     }
-  ]
+  }
+]
 ```
 
 ## Simple entity data
@@ -140,13 +140,15 @@ In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
 The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
 
 ```JSON
-{
-    "entity": "bob jones",
-    "type": "Customer",
-    "startIndex": 0,
-    "endIndex": 8,
-    "score": 0.473899543
-}
+"entities": [
+  {
+  "entity": "bob jones",
+  "type": "Customer",
+  "startIndex": 0,
+  "endIndex": 8,
+  "score": 0.473899543
+  }
+]
 ```
 
 |Data object|Entity name|Value|
@@ -164,13 +166,15 @@ In the previous utterance, `paris` is labeled a `Location::ToLocation` child of 
 The data returned from the endpoint includes the entity name and child name, the discovered text from the utterance, the location of the discovered text, and the score: 
 
 ```JSON
-{
-  "entity": "paris",
-  "type": "Location::ToLocation",
-  "startIndex": 18,
-  "endIndex": 22,
-  "score": 0.6866132
-}
+"entities": [
+  {
+    "entity": "paris",
+    "type": "Location::ToLocation",
+    "startIndex": 18,
+    "endIndex": 22,
+    "score": 0.6866132
+  }
+]
 ```
 
 |Data object|Parent|Child|Value|
@@ -186,22 +190,50 @@ Notice that `2`, the number, and `paris`, the ToLocation have words between them
 
 ![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
 
+Composite entities are returned in a `compositeEntities` array and all entities within the composite are also returned in the `entities` array:
 
 ```JSON
-{
-    "parentType": "Order",
-    "value": "2 tickets to paris",
-    "children": [
-      {
-        "type": "builtin.number",
+  "entities": [
+    {
+      "entity": "paris",
+      "type": "Location::ToLocation",
+      "startIndex": 18,
+      "endIndex": 22,
+      "score": 0.956998169
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 5,
+      "endIndex": 5,
+      "resolution": {
         "value": "2"
-      },
-      {
-        "type": "Location::ToLocation",
-        "value": "paris"
       }
-    ]
-  }
+    },
+    {
+      "entity": "2 tickets to paris",
+      "type": "Order",
+      "startIndex": 5,
+      "endIndex": 22,
+      "score": 0.7714499
+    }
+  ],
+  "compositeEntities": [
+    {
+      "parentType": "Order",
+      "value": "2 tickets to paris",
+      "children": [
+        {
+          "type": "builtin.number",
+          "value": "2"
+        },
+        {
+          "type": "Location::ToLocation",
+          "value": "paris"
+        }
+      ]
+    }
+  ]
 ```    
 
 |Data object|Entity name|Value|
@@ -225,6 +257,7 @@ Suppose the app has a list, named `Cities`, allowing for variations of city name
 In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms. 
 
 ```JSON
+"entities": [
   {
     "entity": "paris",
     "type": "Cities",
@@ -236,6 +269,7 @@ In the previous utterance, the word `paris` is mapped to the paris item as part 
       ]
     }
   }
+]
 ```
 
 Another example utterance, using a synonym for Paris:
@@ -243,16 +277,147 @@ Another example utterance, using a synonym for Paris:
 `book 2 tickets to roissy`
 
 ```JSON
-{
-  "entity": "roissy",
-  "type": "Cities",
-  "startIndex": 18,
-  "endIndex": 23,
-  "resolution": {
-    "values": [
-      "Paris"
-    ]
+"entities": [
+  {
+    "entity": "roissy",
+    "type": "Cities",
+    "startIndex": 18,
+    "endIndex": 23,
+    "resolution": {
+      "values": [
+        "Paris"
+      ]
+    }
   }
+]
+```
+
+## Data matching multiple entities
+LUIS will return all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have a lot of data, such as `book me 2 adult business tickets to paris tomorrow on air france`.
+
+The LUIS endpoint can discover the same data in different entities: 
+
+```JSON
+{
+  "query": "book me 2 adult business tickets to paris tomorrow on air france",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 1.0
+  },
+  "intents": [
+    {
+      "intent": "BookFlight",
+      "score": 1.0
+    },
+    {
+      "intent": "Concierge",
+      "score": 0.04216196
+    },
+    {
+      "intent": "None",
+      "score": 0.03610297
+    }
+  ],
+  "entities": [
+    {
+      "entity": "air france",
+      "type": "Airline",
+      "startIndex": 54,
+      "endIndex": 63,
+      "score": 0.8291798
+    },
+    {
+      "entity": "adult",
+      "type": "Category",
+      "startIndex": 10,
+      "endIndex": 14,
+      "resolution": {
+        "values": [
+          "adult"
+        ]
+      }
+    },
+    {
+      "entity": "paris",
+      "type": "Cities",
+      "startIndex": 36,
+      "endIndex": 40,
+      "resolution": {
+        "values": [
+          "Paris"
+        ]
+      }
+    },
+    {
+      "entity": "tomorrow",
+      "type": "builtin.datetimeV2.date",
+      "startIndex": 42,
+      "endIndex": 49,
+      "resolution": {
+        "values": [
+          {
+            "timex": "2018-02-21",
+            "type": "date",
+            "value": "2018-02-21"
+          }
+        ]
+      }
+    },
+    {
+      "entity": "paris",
+      "type": "Location::ToLocation",
+      "startIndex": 36,
+      "endIndex": 40,
+      "score": 0.9730773
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 8,
+      "endIndex": 8,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "business",
+      "type": "Seat",
+      "startIndex": 16,
+      "endIndex": 23,
+      "resolution": {
+        "values": [
+          "business"
+        ]
+      }
+    },
+    {
+      "entity": "2 adult business",
+      "type": "TicketSeatOrder",
+      "startIndex": 8,
+      "endIndex": 23,
+      "score": 0.8784727
+    }
+  ],
+  "compositeEntities": [
+    {
+      "parentType": "TicketSeatOrder",
+      "value": "2 adult business",
+      "children": [
+        {
+          "type": "Category",
+          "value": "adult"
+        },
+        {
+          "type": "builtin.number",
+          "value": "2"
+        },
+        {
+          "type": "Seat",
+          "value": "business"
+        }
+      ]
+    }
+  ]
 }
 ```
 
