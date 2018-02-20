@@ -3,8 +3,8 @@ title: Azure Marketplace items available for Azure Stack | Microsoft Docs
 description: These Azure Marketplace items can be used in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2018
-ms.author: JeffGoldner
+ms.author: brenduns
+ms.reviewer: jeffgo
 
 ---
 # Azure Marketplace items available for Azure Stack
