@@ -17,6 +17,7 @@ ms.author: wgries
 ---
 
 # Managing Azure file shares with Azure PowerShell 
+
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. Learn how to:
 - Create a resource group and a storage account
 - Create an Azure file share within the storage account 
@@ -42,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ## Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-If you don't already have an existing storage account, you can create a new one using [`New-AzureRmStorageAccount`](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named `mystorageaccount<random number>` and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so use `Get-Random` to append a pseudorandom number to the end to make it unique. 
+If you don't already have an existing storage account, you can create a new one using [`New-AzureRmStorageAccount`](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named `mystorageaccount<random number>` and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so use `Get-Random` to append a number to the end to make it unique. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzureRmStorageAccount `
