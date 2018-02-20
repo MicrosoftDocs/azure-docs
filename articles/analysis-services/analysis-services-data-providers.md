@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/16/2018
+ms.date: 02/19/2018
 ms.author: owend
 
 ---
@@ -32,7 +32,7 @@ Client libraries are necessary for client applications and tools to connect to A
 |[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
 |[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
 
-## AMO and AMOMD on NuGet
+## AMO and ADOMD on NuGet
 
 Analysis Services Management Objects (AMO) and ADOMD client libraries are available as installable packages from [NuGet.org](https://www.nuget.org/). 
 
