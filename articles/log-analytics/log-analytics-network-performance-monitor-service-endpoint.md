@@ -12,16 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 02/20/2018
 ms.author: magoedte
 
 ---
 # Service Endpoint Manager
 
-![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-
-
-With this capability, you can monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, SQL databases, etc. With **Service Endpoint Monitor**, you can: 
+The Service Endpoint Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, SQL databases, etc. With **Service Endpoint Monitor**, you can: 
 
 - Monitor the network connectivity to your applications and network services (such as Office 365, Dynamics CRM, internal line of business applications, SQL database, etc) from multiple branch offices/locations 
 - Built-in tests to monitor network connectivity to Office365 and Dynamics365 endpoints 
@@ -72,13 +69,13 @@ Start creating your tests to monitor network connectivity to the service endpoin
 
 ![Service Endpoint Monitor Configuration](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
-You can click **Manage Alert** to edit the alert settings. It can take some time for the changes to take place. Move to the Network Performance Monitor dashboard to see the **Service Endpoint Monitoring** blade. You can now click on the blade and start using the preview capability. 
+You can click **Manage Alert** to edit the alert settings. It can take some time for the changes to take place. Move to the Network Performance Monitor dashboard to see the **Service Endpoint Monitoring** page. You can now click on the page and start using the preview capability. 
 
 ## Walkthrough 
 
-Move to the NPM dashboard view and observe the **Service Endpoint Monitor** blade to get a summary of the health of the different tests you’ve created.  
+Move to the NPM dashboard view and observe the **Service Endpoint Monitor** page to get a summary of the health of the different tests you’ve created.  
 
-![Service Endpoint Monitor Blade](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Service Endpoint Monitor Page](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
 Click on the tile to drill-down and view the details of the tests on the **Tests** page. On the LHS table, you can view the point-in-time health and value of the service response time, network latency and packet loss for all the tests. You can use the Network State Recorder control to view the network snapshot at another time in past. Click on the test in the table which you want to investigate. You can view the historical trend of the loss, latency and response time values from the charts in the RHS pane. Click on the Test Details link to view the performance from each node. 
 

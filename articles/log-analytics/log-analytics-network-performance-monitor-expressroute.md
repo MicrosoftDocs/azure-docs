@@ -12,15 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
-ms.author: magoedte
+ms.date: 02/20/2018
+ms.author: bwren
 
 ---
 # ExpressRoute Manager
 
-![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-
-Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute. Key advantages: 
+The ExpressRoute Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute. Key advantages are: 
 
 - Auto-detection of ExpressRoute circuits associated with your subscription 
 - Tracking of bandwidth utilization, loss and latency at the circuit, peering and VNet level for your ExpressRoute 
@@ -33,7 +31,7 @@ Monitor end-to-end connectivity and performance between your branch offices and 
 ### Configure NSG rules 
 For the servers in Azure that are being used for the monitoring via NPM, you must configure network security group (NSG) rules to allow TCP traffic on the port used by NPM for synthetic transactions. The default port is 8084. This allows the OMS agent installed on Azure VM to communicate with an on-premises monitoring agents. 
 
-For more information about NSG, see [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-portal). 
+For more information about NSG, see [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
 
 >[!NOTE]
 > Make sure that you have installed the agents (both the on-premises server agent and the Azure server agent) and have run the EnableRules.ps1 PowerShell script before proceeding with this step. 
@@ -56,7 +54,7 @@ Move to NPM’s Configuration page by clicking on the Configuration button locat
 >[!NOTE]  
 > Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this OMS workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you will need to create an OMS workspace in those subscriptions and use NPM to monitor those peerings. 
 
-![ExpressRoute Monitor Configure](media/log-analytics-network-performance-monitor/expressroute-monitor-configure.png)
+![ExpressRoute Monitor Configure](media/log-analytics-network-performance-monitor/expressroute-configure.png)
  
 Once the discovery is complete, the discovered private peering connections will be listed in a table. The monitoring for these peerings will initially be in disabled state. 
 
@@ -70,6 +68,7 @@ Once the discovery is complete, the discovered private peering connections will 
 6. Click **Save** to save the configuration. 
 
 ![ExpressRoute Monitor Configure](media/log-analytics-network-performance-monitor/expressroute-configure-discovery.png)
+
 
 After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM. 
 

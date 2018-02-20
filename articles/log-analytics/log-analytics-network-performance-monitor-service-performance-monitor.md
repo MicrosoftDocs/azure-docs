@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
-ms.author: magoedte
+ms.date: 02/20/2018
+ms.author: bwren
 
 ---
-# Network Performance Monitor solution in Azure
+# Network Performance Monitor solution - Performance monitoring
 
-NPM’s Performance Monitor capability helps you monitor network connectivity across various points in your network, such as cloud deployments and on-premises locations, multiple data centers and branch offices, mission critical multi-tier applications/micro-services. With Performance Monitor, you can detect network issues before your users complain. Key advantages are: 
+The Performance Monitor capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) helps you monitor network connectivity across various points in your network, such as cloud deployments and on-premises locations, multiple data centers and branch offices, mission critical multi-tier applications/micro-services. With Performance Monitor, you can detect network issues before your users complain. Key advantages are: 
 
 - Monitor loss and latency across various subnets and set alerts 
 - Monitor all paths (including redundant paths) on the network 

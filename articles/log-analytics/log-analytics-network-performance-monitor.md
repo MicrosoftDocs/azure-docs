@@ -1,6 +1,6 @@
 ---
 title: Network Performance Monitor solution in Azure | Microsoft Docs
-description: Network Performance Monitor in Azure helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks.
+description: Network Performance Monitor in Azure helps you monitor the performance of your networks-in near real time-to detect and locate network performance bottlenecks.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -31,12 +31,12 @@ NPM offers three broad capabilities:
 
 **Service Endpoint Monitor:** You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and where network bottlenecks are occurring. Know about outages before your users and see the exact location of the issues along your network path. 
 
-This capability will help you perform http, https, tcp and icmp based tests to monitor in near real-time or historically the availability and response time of your service, and the contribution of the network in packet loss and latency. With network topology map, you will be able to isolate network slowdowns by identifying problem spots that occur along the network path from the node to the service, with latency data on each hop. With Built-in tests, monitor network connectivity to Office365 and Dynamics CRM without any pre-configuration. With this capability, you can monitor network connectivity to any TCP capable endpoint such as websites, SaaS, PaaS applications, SQL databases, etc.  
+This capability helps you perform http, https, tcp and icmp based tests to monitor in near real time or historically the availability and response time of your service, and the contribution of the network in packet loss and latency. With network topology map, you will be able to isolate network slowdowns by identifying problem spots that occur along the network path from the node to the service, with latency data on each hop. With Built-in tests, monitor network connectivity to Office365 and Dynamics CRM without any pre-configuration. With this capability, you can monitor network connectivity to any TCP capable endpoint such as websites, SaaS, PaaS applications, SQL databases, etc.  
 
 **￼ExpressRoute Monitor:** Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
  
 
-## Setup and configure
+## Set up and configure
 
 ### Install and configure agents 
 
@@ -88,7 +88,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
     ![NPM Tile](media/log-analytics-network-performance-monitor/npm-config.png)
 3. On the **SETUP** page, you will see the option to install OMS agents and configure the agents for monitoring in the **Common Settings** view. As explained above , if you’ve already installed and configured OMS agents, then click on the **SETUP** View for configuring the capability you are interested in using.  
 
-    **Performance Monitor View** - Choose what protocol should be used for synthetic transactions in the Default performance monitor rule and click on Save and Continue. Note that this protocol selection only holds for the system-generated default rule, and you will need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the Default rule settings in the Performance Monitor tab (this will appear after you complete your day-0 configuration) and change the protocol later. In case you aren’t interested in the Perfromance Monitor capability, you can disable the default rule from the Default rule settings in the Performance Monitor tab. 
+    **Performance Monitor View** - Choose what protocol should be used for synthetic transactions in the Default performance monitor rule and click on Save and Continue. Note that this protocol selection only holds for the system-generated default rule, and you will need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the Default rule settings in the Performance Monitor tab (this will appear after you complete your day-0 configuration) and change the protocol later. In case you aren’t interested in the Perfomance Monitor capability, you can disable the default rule from the Default rule settings in the Performance Monitor tab. 
 
     ![NPM Configuration](media/log-analytics-network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -114,11 +114,11 @@ Once the discovery is complete, the discovered private peerings will be listed i
 
 ![NPM Configuration](media/log-analytics-network-performance-monitor/npm-private-peerings.png)
  
-The monitoring for these peerings will initially be in disabled state. Click on each peering that you are interested in monitoring and configure monitoring for them from the right hand side (RHS) details view.  Click on Save button to save the configuration. See [Configure ExpressRoute monitoring]() to learn more.  
+The monitoring for these peerings will initially be in disabled state. Click on each peering that you are interested in monitoring and configure monitoring for them from the right-hand side (RHS) details view.  Click on Save button to save the configuration. See [Configure ExpressRoute monitoring]() to learn more.  
 
 Once the setup is complete, it takes 30 minutes to an hour for the data to populate. While the solution is aggregating data from your network, you will see ‘Solution requires additional configuration’ on the NPM overview tile. Once the data is collected and indexed, the overview tile will change and inform you the summary of the health of your network. You can then choose to edit the monitoring of the nodes on which OMS agents are installed, as well as the subnets discovered from your environment 
 
-Edit monitoring settings for subnets and nodes 
+#### Edit monitoring settings for subnets and nodes 
 
 All subnets where at least one agent was installed are listed on the Subnetworks tab in the configuration page. 
 
@@ -129,7 +129,8 @@ To enable or disable monitoring of particular subnetworks
 2. Choose the nodes that you want to monitor in a particular subnetwork by selecting the subnetwork from the list and moving the required nodes between the lists containing unmonitored and monitored nodes. You can add a **custom description to** the subnetwork. 
 3. Click **Save** to save the configuration. 
 
-Choose nodes to monitor 
+#### Choose nodes to monitor
+
 All the nodes that have an agent installed on them are listed in the **Nodes** tab. 
 
 1. Select or clear the nodes that you want to monitor or stop monitoring. 
@@ -172,15 +173,15 @@ After you've enabled the Network Performance Monitor solution, the solution tile
 
 ### Network Performance Monitor dashboard 
 
-The **Top Network Health Events** blade provides a list of most recent health events and alerts in the system and the time since the event has been active. A health event or alert is generated whenever the value of the chosen metric (loss, latency, response time or bandwidth utilization) for the monitoring rule exceeds the threshold. 
+The **Top Network Health Events** page provides a list of most recent health events and alerts in the system and the time since the event has been active. A health event or alert is generated whenever the value of the chosen metric (loss, latency, response time or bandwidth utilization) for the monitoring rule exceeds the threshold. 
 
-The **Performance Monitor** blade provides you a summary of the health of the Network links and Subnetwork links being monitored by the solution. The Topology tile informs the number of network paths being monitored in your network. Clicking on this tile will directly navigate you to the Topology view 
+The **Performance Monitor** page provides you a summary of the health of the Network links and Subnetwork links being monitored by the solution. The Topology tile informs the number of network paths being monitored in your network. Clicking on this tile will directly navigate you to the Topology view 
 
-The **Service Endpoint Monitor** blade provides you a summary of the health of the different tests you’ve created. The Topology tile informs the number of endpoints being monitored. Clicking on this tile will directly navigate you to the Topology view 
+The **Service Endpoint Monitor** page provides you a summary of the health of the different tests you’ve created. The Topology tile informs the number of endpoints being monitored. Clicking on this tile will directly navigate you to the Topology view 
 
-The **ExpressRoute Monitor** blade provides you a summary of the health of the various ExpressRoute peering connections being monitored by the solution. The Topology tile informs the number of network paths through the ExpressRoute circuit(s) being monitored in your network. Clicking on this tile will directly navigate you to the Topology view 
+The **ExpressRoute Monitor** page provides you a summary of the health of the various ExpressRoute peering connections being monitored by the solution. The Topology tile informs the number of network paths through the ExpressRoute circuit(s) being monitored in your network. Clicking on this tile will directly navigate you to the Topology view 
 
-The **Common Queries** blade contains a set of search queries that fetch raw network monitoring data directly. You can use these queries as a starting point for creating your own queries for customized reporting. 
+The **Common Queries** page contains a set of search queries that fetch raw network monitoring data directly. You can use these queries as a starting point for creating your own queries for customized reporting. 
 
 ![NPM Dashboard](media/log-analytics-network-performance-monitor/npm-dashboard.png)
 

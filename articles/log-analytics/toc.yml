@@ -233,7 +233,7 @@
       - name: Overview
         href: log-analytics-network-performance-monitor.md
       - name: Performance Monitor
-        href: log-analytics-network-performance-monitorperformance-monitor.md
+        href: log-analytics-network-performance-monitor-performance-monitor.md
       - name: Service Endpoint
         href: log-analytics-network-performance-monitor-service-endpoint.md
       - name: ExpressRoute
