@@ -149,7 +149,8 @@ After completing the basic setup routine, you're ready step to perform post inst
   4. Log in to Azure.
   5. Verify that you can see the storage account that you configured for Azure Diagnostics.  
   6. Notice that there are a few options under storage accounts. One of them is **Tables**. Under **Tables** you should see one called **WADWindowsEventLogsTable**. </br></br>
-   ![Storage accounts](./media/security-azure-log-integration-get-started/storage-explorer.png) </br>
+   ![Storage accounts](./media/security-azure-log-integration-get-started/storage-explorer.png) 
+
 ## Integrate Azure Diagnostic logging
 
 In this step, you will configure the machine running the Azure Log Integration service to connect to the storage account that contains the log files.
