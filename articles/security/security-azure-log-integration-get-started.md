@@ -140,21 +140,17 @@ After completing the basic setup routine, you're ready step to perform post inst
     d. Log in to Azure.
     e. Verify that you can see the storage account that you configured for Azure Diagnostics. 
         ![Storage accounts](./media/security-azure-log-integration-get-started/storage-account.jpg) </br></br>
-<<<<<<< HEAD
 6. Notice that there are a few options under storage accounts. One of them is **Tables**. Under **Tables** you should see one called **WADWindowsEventLogsTable**. </br></br>
-=======
 
  If Monitoring was not enabled during virtual machine creation you are given the option to enable it as shown above.
-5. Now we’ll switch our attention back to the Azure log integration machine. We need to verify that you have connectivity to the Storage Account from the system where you installed Azure Log Integration. The physical computer or virtual machine running the Azure Log Integration service needs access to the storage account to retrieve information logged by Azure Diagnostics as configured on each of the monitored systems.  
+7. Now we’ll switch our attention back to the Azure log integration machine. We need to verify that you have connectivity to the Storage Account from the system where you installed Azure Log Integration. The physical computer or virtual machine running the Azure Log Integration service needs access to the storage account to retrieve information logged by Azure Diagnostics as configured on each of the monitored systems.  
   1. You can download Azure Storage Explorer [here](http://storageexplorer.com/).
   2. Run through the setup routine
   3. Once the installation completes click **Next** and leave the check box **Launch Microsoft Azure Storage Explorer** checked.  
   4. Log in to Azure.
   5. Verify that you can see the storage account that you configured for Azure Diagnostics.  
   6. Notice that there are a few options under storage accounts. One of them is **Tables**. Under **Tables** you should see one called **WADWindowsEventLogsTable**. </br></br>
->>>>>>> c5d86b428976924ca8f0435b40ffdf929150e1da
    ![Storage accounts](./media/security-azure-log-integration-get-started/storage-explorer.png) </br>
-
 ## Integrate Azure Diagnostic logging
 
 In this step, you will configure the machine running the Azure Log Integration service to connect to the storage account that contains the log files.
