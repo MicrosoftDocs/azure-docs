@@ -19,17 +19,17 @@ ms.date: 07/28/2017
 ms.author: billgib; sstein
 
 ---
-# Manage schema in a SaaS application using a database-per-tenant pattern with Azure SQL Database
+# Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database
 
-The [first Wingtip Tickets SaaS database per tenant tutorial](saas-dbpertenant-get-started-deploy.md) shows how to provision a tenant database and register it in the catalog. Like any application, the Wingtip Tickets SaaS app will evolve over time, and at times will require changes to the database. Changes may impact schema or reference data, or require database maintenance tasks to be applied. With a SaaS application using a database per tenant pattern, you must coordinate these actions across a potentially massive fleet of tenant databases. In addition, you must incorporate these changes into the database provisioning process to ensure they are included in new databases as they are created.
+As SaaS applications evolve they will at times require changes to the database. Changes may impact schema or reference data, or involve database maintenance tasks. Managing the schema of SaaS application that uses a database per tenant pattern, requires that you coordinate these actions across a fleet of tenant databases. The database provisioning process must also be updated to ensure the latest changes are included in new databases as they are created.
 
-This tutorial explores two scenarios - deploying reference data updates for all tenants, and rebuilding an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these actions on all tenants, and on the database that is used as a template for creating new databases.
+This tutorial explores two scenarios - deploying reference data updates for all tenants, and rebuilding an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these actions on all tenant databases, and on the template database used to create new tenant databases.
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
 
-> * Create a job account
+> * Create a job agent
 > * Cause T-SQL jobs to be run on all tenant databases
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
@@ -53,7 +53,7 @@ The database per tenant pattern isolates tenant data effectively, but increases 
 
 ## Elastic Jobs limited preview
 
-There's a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. This new version of Elastic Jobs is currently in limited preview. This limited preview currently supports PowerShell to create job accounts, and T-SQL to create and manage jobs.
+There's a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. This new version of Elastic Jobs is currently in limited preview. This limited preview currently supports using PowerShell to create a job agent, and T-SQL to create and manage jobs.
 
 > [!NOTE]
 > This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription ID to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
@@ -62,14 +62,14 @@ There's a new version of Elastic Jobs that is now an integrated feature of Azure
 
 The application source code and management scripts are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
-## Create a job account database and new job account
+## Create a job agent database and new job agent
 
-This tutorial requires you use PowerShell to create a job account and its backing job account database. Like SQL Agent in SQL Server, Elastic Jobs uses an Azure SQL database to store job definitions, job status, and history. Once the job account is created, you can create and monitor jobs immediately.
+This tutorial requires you use PowerShell to create a job agent and its backing job agent database. Like SQL Agent in SQL Server, a job agent uses an Azure SQL database to store job definitions, job status, and history. Once the job agent is created, you can create and monitor jobs immediately.
 
 1. **In PowerShell ISE**, open …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Press **F5** to run the script.
 
-The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a SQL database named *jobaccount* on the catalog server. It then creates the job account, using the  database as a parameter.
+The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a SQL database named *jobagent* on the catalog server. It then creates the job agent, using the  database as a parameter.
 
 ## Create a job to deploy new reference data to all tenants
 
@@ -82,12 +82,12 @@ First, review the venue types included in each tenant database. To do this, conn
 
 Now let’s create a job to update the *VenueTypes* table in all the tenant databases to add the new venue types.
 
-To create a new job, you use a set of jobs system stored procedures created in the *jobaccount* database when the job account was created.
+To create a new job, you use a set of jobs system stored procedures created in the _jobagent_ database when the job agent was created.
 
 1. In SSMS, connect to the catalog server: *catalog-dpt-&lt;user&gt;.database.windows.net* server 
 1. In SSMS, open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
 1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip Tickets SaaS Database Per Tenant app
-1. Ensure you are connected to the *jobaccount* database and press **F5** to run the script
+1. Ensure you are connected to the _jobagent_ database and press **F5** to run the script
 
 Observe the following elements in the *DeployReferenceData.sql* script:
 * **sp\_add\_target\_group** creates the target group name DemoServerGroup.
@@ -108,7 +108,7 @@ Create a job using the same jobs 'system' stored procedures.
 1. Open SSMS and connect to the _catalog-dpt-&lt;user&gt;.database.windows.net_ server
 1. Open the file _…\\Learning Modules\\Schema Management\\OnlineReindex.sql_
 1. Right click, select Connection, and connect to the _catalog-dpt-&lt;user&gt;.database.windows.net_ server, if not already connected
-1. Ensure you are connected to the _jobaccount_ database and press **F5** to run the script
+1. Ensure you are connected to the _jobagent_ database and press **F5** to run the script
 
 Observe the following in the _OnlineReindex.sql_ script:
 * **sp\_add\_job** creates a new job called “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”
@@ -123,7 +123,7 @@ In this tutorial you learned how to:
 
 > [!div class="checklist"]
 
-> * Create a job account to run T-SQL jobs across multiple databases
+> * Create a job agent to run T-SQL jobs across multiple databases
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 

@@ -35,7 +35,7 @@ The [Elastic Jobs](sql-database-elastic-jobs-overview.md) feature of Azure SQL D
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Create a job account.
+> * Create a job agent.
 > * Execute a T-SQL query on multiple tenant databases.
 > * Update reference data in all tenant databases.
 > * Create an index on a table in all tenant databases.
@@ -62,7 +62,7 @@ The sharded multi-tenant database model used in this sample enables a tenants da
 
 ## Elastic Jobs limited preview
 
-There is a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. This new version of Elastic Jobs is currently in limited preview. The limited preview currently supports PowerShell to create job accounts, and T-SQL to create and manage jobs.
+There is a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. This new version of Elastic Jobs is currently in limited preview. The limited preview currently supports using PowerShell to create a job agent, and T-SQL to create and manage jobs.
 > [!NOTE] 
 > This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription ID to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, download and install the latest pre-release jobs cmdlets. This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
 
@@ -70,14 +70,14 @@ There is a new version of Elastic Jobs that is now an integrated feature of Azur
 
 The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) repository on Github. See the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts. 
 
-## Create a job account database and new job account
+## Create a job agent database and new job agent
 
-This tutorial requires that you use PowerShell to create the job account database and job account. Like the MSDB database used by SQL Agent, Elastic Jobs uses an Azure SQL database to store job definitions, job status, and history. After the job account is created, you can create and monitor jobs immediately.
+This tutorial requires that you use PowerShell to create the job agent database and job agent. Like the MSDB database used by SQL Agent, a job agent uses an Azure SQL database to store job definitions, job status, and history. After the job agent is created, you can create and monitor jobs immediately.
 
 1. In **PowerShell ISE**, open *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Press **F5** to run the script.
 
-The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a database named _jobaccount_ on the catalog server. The script then creates the job account, passing the _jobaccount_ database as a parameter.
+The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a database named _jobagent_ on the catalog server. The script then creates the job agent, passing the _jobagent_ database as a parameter.
 
 ## Create a job to deploy new reference data to all tenants
 
@@ -96,7 +96,7 @@ First, review the venue types included in each tenant database. Connect to one o
 
 Now you create a job to update the **VenueTypes** table in each tenants database, by adding the two new venue types.
 
-To create a new job, you use the set of jobs system stored procedures that were created in the _jobaccount_ database. The procedures were created when the job account was created.
+To create a new job, you use the set of jobs system stored procedures that were created in the _jobagent_ database. The stored procedures were created when the job agent was created.
 
 1. In SSMS, connect to the tenant server: tenants1-mt-&lt;user&gt;.database.windows.net
 
@@ -106,7 +106,7 @@ To create a new job, you use the set of jobs system stored procedures that were 
 
 4. Connect to the catalog server, which is *catalog-mt-&lt;user&gt;.database.windows.net*.
 
-5. Connect to the _jobaccount_ database in the catalog server.
+5. Connect to the _jobagent_ database in the catalog server.
 
 6. In SSMS, open the file *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql*.
 
@@ -139,7 +139,7 @@ In SSMS, browse to the tenant database on the *tenants1-mt-&lt;user&gt;* server.
 
 This exercise creates a job to rebuild the index on the reference table primary key on all the tenant databases. An index rebuild is a typical database management operation that an administrator might run after loading a large amount of data load, to improve performance.
 
-1. In SSMS, connect to _jobaccount_ database in *catalog-mt-&lt;User&gt;.database.windows.net* server.
+1. In SSMS, connect to _jobagent_ database in *catalog-mt-&lt;User&gt;.database.windows.net* server.
 
 2. In SSMS, open *...\\Learning Modules\\Schema Management\\OnlineReindex.sql*.
 
@@ -168,9 +168,10 @@ Observe the following items in the *OnlineReindex.sql* script:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-> - Create a job account to query across multiple tenants.
-> - Update data in all tenant databases.
-> - Create an index on a table in all tenant databases.
+.
+> * Create a job agent to run T-SQL jobs across multiple databases
+> * Update reference data in all tenant databases
+> * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md).
+Next, try the [Ad-hoc reporting tutorial] (saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
 
