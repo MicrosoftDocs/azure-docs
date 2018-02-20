@@ -1,28 +1,28 @@
 ﻿---
-title: Govern Azure virtual machines with PowerShell | Microsoft Docs
-description: Tutorial - Manage virtual machines by applying RBAC, polices, locks and tags with Azure PowerShell
-services: virtual-machines-windows
+title: Govern virtual machines with Azure CLI | Microsoft Docs
+description: Tutorial - Manage virtual machines by applying RBAC, polices, locks and tags with Azure CLI
+services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2018
 ms.author: tomfitz
 
 ---
-# Virtual machine governance with Azure PowerShell
+# Virtual machine governance with Azure CLI
 
 [!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
+To install and use the CLI locally, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Understand scope
 
@@ -32,8 +32,9 @@ In this article, you apply all management settings to a resource group so you ca
 
 Let's create the resource group.
 
-```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+```azurecli-interactive
+az account set -s "<subscription-name>"
+az group create --name myResourceGroup --location "East US"
 ```
 
 Currently, the resource group is empty.
@@ -54,19 +55,14 @@ Instead of assigning roles to individual users, it's often easier to [create an 
 
 The following example creates a group.
 
-```azurepowershell-interactive
-$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
-  -MailNickName vmDemoGroup `
-  -MailEnabled $false `
-  -SecurityEnabled $true
+```azurecli-interactive
+adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
 ```
 
 Assign the new Azure Active Directory group to the Virtual Machine Contributor role for the resource group. It takes a moment for the group to propagate throughout Azure Active Directory. If you run the following command before it has propagated, you receive an error stating **Principal <guid> does not exist in the directory**. Try running the command again.
 
-```azurepowershell-interactive
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
-  -ResourceGroupName myResourceGroup `
-  -RoleDefinitionName "Virtual Machine Contributor"
+```azurecli-interactive
+az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
 Typically, you repeat the process for **Network Contributor** and **Storage Account Contributor** to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
@@ -79,8 +75,8 @@ Typically, you repeat the process for **Network Contributor** and **Storage Acco
 
 Your subscription already has several policy definitions. To see the available policy definitions, use:
 
-```azurepowershell-interactive
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+```azurecli-interactive
+az policy definition list --query "[].[displayName, policyType, name]" --output table
 ```
 
 You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
@@ -89,28 +85,37 @@ You see the existing policy definitions. The policy type is either **BuiltIn** o
 * limit the SKUs for virtual machines
 * audit virtual machines that do not use managed disks
 
-```azurepowershell-interactive
-$locations ="eastus", "eastus2"
+```azurecli-interactive
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+locationDefinition=$(az policy definition list --query "[?displayName=='Allowed locations'].name | [0]" --output tsv)
+auditDefinition=$(az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks'].name | [0]" --output tsv)
 
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+
 $skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
 
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $locationDefinition `
-  -listOfAllowedLocations $locations
+az policy assignment create --name "Set permitted locations" \
+  --resource-group myResourceGroup \
+  --policy $locationDefinition \
+  --params '{ 
+      "allowedLocations": {
+        "value": [
+          "East US", 
+          "East US2"
+        ]
+      }
+    }'
+
+az policy assignment create --name "Audit unmanaged disks" \
+  --resource-group myResourceGroup \
+  --policy $auditDefinition
+
 New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $skuDefinition `
   -listOfAllowedSKUs $skus
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $auditDefinition
 ```
+
 
 ## Deploy the virtual machine
 
