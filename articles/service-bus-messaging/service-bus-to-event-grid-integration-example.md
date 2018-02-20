@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
-ms.author: ChristianWolf42
+ms.author: chwolf
 
 ---
 # Azure Service Bus to Azure Event Grid examples
 
 In this document, you learn how to set up azure functions and a logic app that receive messages based on receiving an event from Event Grid. The example assumes a Service Bus topic with two subscriptions and that the event grid subscription is created in a way to send events only for one Service Bus subscription. Then you send messages to the Service Bus topic and verify that the event is generated for this Service Bus subscription and then the function or logic app receives the messages from that Service Bus subscription and complete it.
 
-1. [Prerequisites](#prerequisites)
-2. Create a [simple test Azure Function](#test-function-setup) for debugging and seeing initial flow of events from Event Grid. **Note:** This step should be done regardless of executing 3. or 4.
-3. Create a [Azure Function to receive and process service bus messages](#receive-messages-using-azure-function) based on event grid events.
-4. Utilize [Logic Apps](#receive-messages-using-azure-logic-app).
+* Please ensure you have all [Prerequisites](#prerequisites) in place first.
+* Create a [simple test Azure Function](#test-function-setup) for debugging and seeing initial flow of events from Event Grid.  **This step should be done regardless of executing 3. or 4.**
+* Create a [Azure Function to receive and process service bus messages](#receive-messages-using-azure-function) based on event grid events.
+* Utilize [Logic Apps](#receive-messages-using-azure-logic-app).
 
 ## Prerequisites
 
@@ -187,10 +187,10 @@ Save the logic app and send a message to your Service Bus topic as mentioned in 
 
 ## Next steps
 
-* Learn more about [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/)
-* Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)
-* Learn more about [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)
-* Learn more about [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/)
+* Learn more about [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Learn more about [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Learn more about [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

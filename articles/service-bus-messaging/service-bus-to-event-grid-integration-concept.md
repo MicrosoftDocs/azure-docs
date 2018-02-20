@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
-ms.author: ChristianWolf42
+ms.author: chwolf
 
 ---
-# Azure Service Bus to Azure Event Grid integration
-
-## Feature Overview
+# Azure Service Bus to Azure Event Grid integration Overview
 
 Azure Service Bus launched a new integration to Azure Event Grid. The key scenario this feature enables is that Service Bus Queues or Subscriptions that have a low volume of messages, do not have to have a receiver polling for messages at all times. Service Bus can now emit events to Azure Event Grid when there are messages in a Queue or Subscription when no receivers are present. You can create Azure Event Grid subscriptions to your Service Bus namespaces and listen to these events and react to the events by starting a receiver. With this feature, Service Bus can be used in reactive programming models.
 
 To enable the feature, you need the following things:
 
-1. An Azure Service Bus Premium namespace with at least one Service Bus Queue or a Service Bus Topic with at least one Subscription.
-2. Contributor access to the Azure Service Bus Namespace.
-3. Additionally, you need an Azure Event Grid subscription for the Service Bus Namespace. This subscription is getting the notification from Azure Event Grid that there are messages to be picked up. Typical subscribers could be Logic Apps, Azure Functions, or a Web Hook contacting a Web App, which then process the messages. 
+* An Azure Service Bus Premium namespace with at least one Service Bus Queue or a Service Bus Topic with at least one Subscription.
+* Contributor access to the Azure Service Bus Namespace.
+* Additionally, you need an Azure Event Grid subscription for the Service Bus Namespace. This subscription is getting the notification from Azure Event Grid that there are messages to be picked up. Typical subscribers could be Logic Apps, Azure Functions, or a Web Hook contacting a Web App, which then process the messages. 
 
 ![19][]
 
@@ -41,8 +39,8 @@ Navigate to your Service Bus Namespace and select "Access control (IAM)" as show
 
 Azure Service Bus today sends events for two scenarios.
 
-1. [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-2. [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
+* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
 Additionally it uses the standard Azure Event Grid Security and [authentication mechanisms](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
 
@@ -56,8 +54,8 @@ The schema for this Event is as follows:
 
 ```JSON
 {
-  "topic": "/subscriptions/326100e2-f69d-4268-8503-075374f62b6e/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-  "subject": "topics/eventgridreleasetest/subscriptions/publishifthissubscriptiongotmessage",
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
   "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
@@ -82,8 +80,8 @@ The schema for this Event is as follows:
 
 ```JSON
 [{
-     "topic": "/subscriptions/326100e2-f69d-4268-8503-075374f62b6e/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-  "subject": "topics/eventgridreleasetest/subscriptions/publishifthissubscriptiongotmessage",
+     "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
   "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
@@ -108,15 +106,15 @@ By default Azure Service Bus emits events for all entities in the namespace. If 
 
 ### Filtering, limiting from where you get events
 
-If you want to get events only for e.g. one Queue or one Subscription within your namespace, you can use the "Begins with" or "Ends with" filters provided by Azure Event Grid. In some interfaces, the filters are called “Pre” and “Suffix” filters. If you would want to get events for multiple but not all Queues and Subscriptions, you can create multiple different Azure Event Grid Subscriptions and provide a filter for each.
+If you want to get events only for example one Queue or one Subscription within your namespace, you can use the "Begins with" or "Ends with" filters provided by Azure Event Grid. In some interfaces, the filters are called “Pre” and “Suffix” filters. If you would want to get events for multiple but not all Queues and Subscriptions, you can create multiple different Azure Event Grid Subscriptions and provide a filter for each.
 
 ## How to create Azure Event Grid Subscriptions for Service Bus Namespaces
 
 There are three different ways of creating Event Grid Subscriptions for Service Bus Namespaces.
 
-1. [The Azure portal](#portal-instructions)
-2. [Azure CLI](#azure-cli-instructions)
-3. [PowerShell](#powershell-instructions)
+* [The Azure portal](#portal-instructions)
+* [Azure CLI](#azure-cli-instructions)
+* [PowerShell](#powershell-instructions)
 
 ## Portal instructions
 
@@ -167,10 +165,10 @@ From here, you can explore the other setup options or [test that events are flow
 ## Next steps
 
 * Service Bus and Event Grid [examples](service-bus-to-event-grid-integration-example.md).
-* Learn more about [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/)
-* Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)
-* Learn more about [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)
-* Learn more about [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/)
+* Learn more about [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Learn more about [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Learn more about [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png
