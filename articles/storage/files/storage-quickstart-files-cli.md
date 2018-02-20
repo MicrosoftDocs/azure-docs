@@ -1,6 +1,6 @@
 ---
 title: Managing Azure file shares with Azure CLI
-description: Learn to use Azure CLI to manage file shares in Azure.
+description: Learn to use the Azure CLI to manage Azure Files.
 services: storage
 documentationcenter: na
 author: wmgries
@@ -16,7 +16,7 @@ ms.date: 02/17/2018
 ms.author: wgries
 ---
 
-# Managing Azure file shares with Azure CLI
+# Managing Azure file shares with the Azure CLI
 This guide walks you through the basics of working with Azure file shares using Azure CLI. Learn how to: 
 - Create a resource group and a storage account
 - Create an Azure file share within the storage account 
@@ -31,7 +31,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you decide to install and use the Azure CLI locally, this guide requires that you are running the Azure CLI version 2.0.4 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Install jq
-By default, the Azure CLI commands return JSON (JavaScript Object Notation), which is the de facto way of sending and receiving messages from REST APIs. To facilitate working with the JSON responses, this guide uses the jq package. The following sections show how to install this package for various platforms. The jq package is preinstalled on the Azure CLI Cloud Shell.
+By default, the Azure CLI commands return JSON (JavaScript Object Notation), which is the de facto way of sending and receiving messages from REST APIs. To facilitate working with the JSON responses, this guide uses the jq package. The following sections show how to install this package for various platforms. 
+
+> [!Note]  
+> The jq package is preinstalled on the Azure CLI Cloud Shell.
 
 ### Install jq on Linux
 The jq package can be installed using the package manager on the Linux distribution of your choice.
@@ -87,7 +90,7 @@ az group create --name myResourceGroup --location eastus
 ## Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-If you don't already have an existing storage account, you can create a new one using the [az storage account create](/cli/azure/storage/account#create) command. This example creates a storage account named *mystorageaccount&lt;random number&gt;* and puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique, so we use `$RANDOM` to append a pseudorandom number to the end to make it unique. 
+If you don't already have an existing storage account, you can create a new one using the [az storage account create](/cli/azure/storage/account#create) command. This example creates a storage account named `mystorageaccount<random number>` and puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique, so we use `$RANDOM` to append a pseudorandom number to the end to make it unique. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -99,7 +102,7 @@ jq ".name" | \
 tr -d '"')
 ```
 
-## Get the storage account key
+### Get the storage account key
 Storage account keys are used to control access to resources in a storage account. They are automatically created when you create a storage account. View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys#list). This example displays the storage account keys for *mystorageaccount* in table format.
 
 ```azurecli-interactive 
@@ -110,7 +113,7 @@ jq ".[0].value" | \
 tr -d '"')
 ```
 
-## Create a file share
+## Create an Azure file share
 Now you can create your first Azure file share. You can create file shares using [az storage share create](/cli/azure/storage/share#create) command. This example creates a share named `myshare`. 
 
 ```azurecli-interactive
@@ -126,12 +129,12 @@ az storage share create \
 ## Manipulating the contents of the Azure file share
 Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure CLI. This is advantageous over mounting the file share with SMB, because all requests made with the Azure CLI are made with the File REST API enabling you to create, modify, and delete files and directories in your file share from:
 
-- The Azure CLI Cloud Shell (which cannot mount file shares over SMB)
+- The Bash Cloud Shell (which cannot mount file shares over SMB).
 - Clients which cannot mount SMB shares, such as on-premises clients which do not have port 445 unblocked.
 - Serverless scenarios, such as in [Azure Functions](../../azure-functions/functions-overview.md). 
 
 ### Create directory
-To create a new directory named *myDirectory* at the root at your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) command.
+To create a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) command.
 
 ```azurecli-interactive
 az storage directory create \
@@ -260,7 +263,7 @@ jq '.[] | select(.name == "myshare") | select(.snapshot != null) | .snapshot' | 
 tr -d '"'
 ```
 
-### Restore from share snapshots
+### Restore from a share snapshot
 You can restore a file by using the `az storage file copy start` command we used before. For the purposes of this quickstart, we'll first delete our `SampleUpload.txt` file we previously uploaded so we can restore it from the snapshot.
 
 ```azurecli-interactive
