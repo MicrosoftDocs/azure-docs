@@ -125,12 +125,12 @@ After completing the basic setup routine, you're ready step to perform post inst
       >When the command succeeds, you will not receive any feedback.  If you want to use the US Government Azure cloud, you would use **AzureUSGovernment** (for the -Name variable) for the USA government cloud. Other Azure clouds are not supported at this time.  
 4. Before you can monitor a system you need the name of the storage account in use for Azure Diagnostics.  In the Azure portal navigate to **Virtual machines** and look for the virtual machine that you monitor. In the **Properties** section, choose **Diagnostic Settings**.  Click on **Agent** and make note of the storage account name specified. You need this account name for a later step.
 
-![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/storage-account-large.png) </br></br>
+    ![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/storage-account-large.png) </br></br>
 
-![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+    ![Azure Diagnostic settings](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
      
- >[!NOTE]
- >If Monitoring was not enabled during virtual machine creation, you will be given the option to enable it as shown above.
+     >[!NOTE]
+     >If Monitoring was not enabled during virtual machine creation, you will be given the option to enable it as shown above.
 5. Now we’ll switch our attention back to the Azure log integration machine. We need to verify that you have connectivity to the Storage Account from the system where you installed Azure Log Integration. The computer running the Azure Log Integration service needs access to the storage account to retrieve information logged by Azure Diagnostics as configured on each of the monitored systems.  
     a. You can download Azure Storage Explorer [here](http://storageexplorer.com/).
     b. Run through the setup routine
