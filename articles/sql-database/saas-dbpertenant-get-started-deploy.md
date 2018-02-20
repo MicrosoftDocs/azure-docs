@@ -113,7 +113,7 @@ Internally in the app, each tenant gets a SQL database deployed into an SQL elas
 
 A central **Events Hub** page provides a list of links to the tenants in your deployment.
 
-1. Open the *Events Hub* in your web browser: http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net (substitute &lt;USER&gt; with your deployment's user value):
+1. Open the *Events Hub* in your web browser: http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net (substitute &lt;user&gt; with your deployment's user value):
 
     ![events hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -125,14 +125,14 @@ A central **Events Hub** page provides a list of links to the tenants in your de
 
 The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) to control the distribution of incoming requests. The URL to access the events page for a specific tenant uses the following format:
 
-- http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
 The parts of the preceding format are explained in the following table.
 
 | URL part        | Description       |
 | :-------------- | :---------------- |
 | http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database per tenant* implementation of Wingtip Tickets from other implementations. For example, the *standalone* app-per-tenant (*-sa*), or *multi-tenant database* (*-mt*) implementations. |
-| .*&lt;USER&gt;* | *af1* in our example. |
+| .*&lt;user&gt;* | *af1* in our example. |
 | .trafficmanager.net/ | Azure Traffic Manager, base URL. |
 | fabrikamjazzclub | Identifies the tenant named *Fabrikam Jazz Club*. |
 | &nbsp; | &nbsp; |
@@ -140,10 +140,10 @@ The parts of the preceding format are explained in the following table.
 1. The tenant name is parsed from the URL by the events app.
 2. The tenant name is used to create a key.
 3. The key is used to access the catalog, to obtain the location of the tenant's database.
-    - The catalog is implemented by using *shard map management*.
+    - The catalog is implemented using *shard map management*.
 4. The *Events Hub* uses extended metadata in the catalog to construct the list of events page URLs for each tenant.
 
-In a production environment, typically you create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager profile.
+In a production environment, typically you create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager DNS name.
 
 ## Start generating load on the tenant databases
 
@@ -239,7 +239,7 @@ Now that you've started running a load against the collection of tenants, let’
 
 After *LoadGenerator.ps1* runs for several minutes, enough data should be available to start looking at some monitoring capabilities. These capabilities are built into pools and databases.
 
-Browse to the server **tenants1-dpt-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
+Browse to the server **tenants1-dpt-&lt;user&gt;**, and click **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
 
    ![monitor pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

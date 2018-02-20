@@ -123,7 +123,7 @@ Each venue gets a personalized web app to list their events and sell tickets. Ea
 A central **Events Hub** webpage provides a list of links to the tenants in your particular deployment. Use the following steps to experience the **Events Hub** webpage and an individual web app:
 
 1. Open the **Events Hub** in your web browser:
-    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Replace &lt;USER&gt; with your deployment's user value.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +135,7 @@ A central **Events Hub** webpage provides a list of links to the tenants in your
 
 To control the distribution of incoming requests, the Wingtip app uses [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). The events page for each tenant includes the tenant name in its URL. Each URL also includes your specific User value. Each URL obeys the shown format by using the following steps:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. The events app parses the tenant name from the URL. The tenant name is *fabrikamjazzclub* in the preceding example URL.
 2. The app then hashes the tenant name to create a key to access a catalog using [shard map management](sql-database-elastic-scale-shard-map-management.md).
@@ -209,7 +209,7 @@ Now we look at some of the resources that were deployed:
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Click **catalog-mt&lt;USER&gt;** server. The catalog server contains two databases named *tenantcatalog* and *basetenantdb*. The *basetenantdb* database is an empty template database. It is copied to create a new tenant database, whether used for many tenants or just one tenant.
+2. Click **catalog-mt&lt;user&gt;** server. The catalog server contains two databases named *tenantcatalog* and *basetenantdb*. The *basetenantdb* database is an empty template database. It is copied to create a new tenant database, whether used for many tenants or just one tenant.
 
    ![catalog server](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -224,13 +224,13 @@ Now we look at some of the resources that were deployed:
 
 If the load generator has been running for several minutes, enough telemetry is available to look at the database monitoring capabilities built into the Azure portal.
 
-1. Browse to the **tenants1-mt&lt;USER&gt;** server, and click **tenants1** to view resource utilization for the database that has four tenants in it. Each tenant is subject to a sporadic heavy load from the load generator:
+1. Browse to the **tenants1-mt&lt;user&gt;** server, and click **tenants1** to view resource utilization for the database that has four tenants in it. Each tenant is subject to a sporadic heavy load from the load generator:
 
    ![monitor tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    The DTU utilization chart nicely illustrates how a multi-tenant database can support an unpredictable workload across many tenants. In this case, the load generator is applying a sporadic load of roughly 30 DTUs to each tenant. This load equates to 60% utilization of a 50 DTU database. Peaks that exceed 60% are the result of load being applied to more than one tenant at the same time.
 
-2. Browse to the **tenants1-mt&lt;USER&gt;** server, and click the **salixsalsa** database. You can see the resource utilization on this database that contains only one tenant.
+2. Browse to the **tenants1-mt&lt;user&gt;** server, and click the **salixsalsa** database. You can see the resource utilization on this database that contains only one tenant.
 
    ![salixsalsa database](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
