@@ -73,6 +73,8 @@
     href: luis-concept-intent.md
   - name: Entities
     href: luis-concept-entity-types.md
+  - name: Data extraction
+    href: luis-concept-data-extraction.md
   - name: Utterances
     href: luis-concept-utterance.md
   - name: Features
