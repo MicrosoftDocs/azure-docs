@@ -21,6 +21,8 @@ Management groups are containers that help you manage access, policy, and compli
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or you can use [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to create management groups.   
 
+**Note**: The first management group created in the directory could take up to 15 minutes to complete. There are processes that run the first time to set up the management groups service within Azure for your directory. You receive a notification when the process is complete.  
+
 ## How to create a management group 
 
 # [Portal](#tab/portal)
@@ -46,7 +48,7 @@ C:\> Add-AzureRmManagementGroup -GroupName Contoso
 ```
 The **GroupName** is a unique identifier being created. This ID is used by other commands to reference this group and it cannot be changed later.
 
-If you wanted the management group to show a different name within the Azure portal, you would add the **DisplayName** parameter with the string. For example, if you wanted to create a management group with the GroupName of Contoso and the display name of "Contoso Group", you would use the following cmdlet. 
+If you wanted the management group to show a different name within the Azure portal, you would add the **DisplayName** parameter with the string. For example, if you wanted to create a management group with the GroupName of Contoso and the display name of "Contoso Group", you would use the following cmdlet: 
 
 ```azurepowershell-interactive
 C:\> Add-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
