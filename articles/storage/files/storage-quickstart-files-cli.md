@@ -69,7 +69,7 @@ Alternatively, you can install jq by downloading the binary from [the jq project
 ### Install jq on Windows
 The preferred way to install jq on Windows is using the Chocolately package management system. If you don't already have Chocolately installed, you can install Chocolately by following the [instructions from the Chocolately project](https://chocolatey.org/install). You can install jq with the following command:
 
-```bash
+```
 chocolatey install jq
 ```
 
@@ -311,28 +311,29 @@ az group delete --name "myResourceGroup"
 ```
 
 You can alternatively remove resources one by one:
-- To remove the Azure file shares we created for this quickstart.
-    ```azurecli-interactive
-    az storage share list \
+- To remove the Azure file shares we created for this quickstart.  
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY | 
+jq ".[].name" | tr -d '"' |
+while read SHARE
+do 
+    az storage share delete \
         --account-name $STORAGEACCT \
-        --account-key $STORAGEKEY | 
-    jq ".[].name" | tr -d '"' |
-    while read SHARE
-    do 
-        az storage share delete \
-            --account-name $STORAGEACCT \
-            --account-key $STORAGEKEY \
-            --name $SHARE \
-            --delete-snapshots include
-    done
-    ```
-- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).
-    ```azurecli-interactive
-    az storage account delete \
-        --resource-group "myResourceGroup" \
-        --name $STORAGEACCT \
-        --yes
-    ```
+        --account-key $STORAGEKEY \
+        --name $SHARE \
+        --delete-snapshots include
+done
+```
+
+- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).  
+```azurecli-interactive
+az storage account delete \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT \
+    --yes
+```
 
 ## Next steps
 - [Managing file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
