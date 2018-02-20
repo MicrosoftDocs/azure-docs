@@ -33,7 +33,7 @@ The following table lists the major features of SQL Server and provides informat
 | **SQL Feature** | **Supported in Azure SQL Database** | **Azure SQL Database Managed Instance (public preview)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
-| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
+| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability](sql-database-high-availability) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No | No |
 | [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes | Yes |
 |[Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Yes](sql-database-auditing.md)| [Partial](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) |
@@ -52,8 +52,8 @@ The following table lists the major features of SQL Server and provides informat
 | [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes | Yes |
 | [Contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Yes | Yes |
 | [Control of flow language keywords](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Yes | Yes |
-| Cross-database queries | No - see [Elastic queries](sql-database-elastic-query-overview.md) | Partial (within instance only), plus [Elastic queries](sql-database-elastic-query-overview.md) |
-| Cross-database transactions | No | Partial (within instance only) |
+| [Cross-database queries](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](sql-database-elastic-query-overview.md) | Yes, plus [Elastic queries](sql-database-elastic-query-overview.md) |
+| [Cross-database transactions]((https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine)) | No | Supported |
 | [Cursors](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Yes |Yes | 
 | [Data compression](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Yes |Yes |
 | [Database mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | No | Yes |
@@ -70,31 +70,31 @@ The following table lists the major features of SQL Server and provides informat
 | [Distributed transactions - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](sql-database-elastic-transactions-overview.md) |  No - see [Elastic transactions](sql-database-elastic-transactions-overview.md) |
 | [DML statements](https://docs.microsoft.com/sql/t-sql/queries/queries) | Yes | Yes |
 | [DML triggers](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
-| [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Some - see individual DMVs |  Most - see individual DMVs |
+| [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Most - see individual DMVs |
 |[Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Yes](sql-database-dynamic-data-masking-get-started.md)| Yes |
-| [Elastic pools](sql-database-elastic-pool.md) | Yes | No |
+| [Elastic pools](sql-database-elastic-pool.md) | Yes | Single Managed Instance can have multiple databases that share the same pool of resources |
 | [Event notifications](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](sql-database-insights-alerts-portal.md) | Yes |
 | [Expressions](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](sql-database-xevent-db-diff-from-svr.md) | Yes - see [Extended events in SQL Database](sql-database-xevent-db-diff-from-svr.md) |
 | [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | No | No |
-| [Files and file groups](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Primary file group only | Yes |
+| [Files and file groups](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Primary file group only | Partial |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | No |
 | [Full-text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Third-party word breakers are not supported |Third-party word breakers are not supported |
 | [Functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see individual functions | Most - see individual functions |
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Yes | Yes |
-| [Geo-replication](sql-database-geo-replication-overview.md) | Yes | Yes |
+| [Geo-replication](sql-database-geo-replication-overview.md) | Yes | No |
 | [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Yes | Yes |
 | [In-memory optimization](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Yes - [Premium edition only](sql-database-in-memory.md) | No |
 | [JSON data support](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Yes | Yes |
 | [Language elements](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  Most - see individual elements |
 | [Linked servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) | Only to SQL Server |
-| [Log shipping](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
+| [Log shipping](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability](sql-database-high-availability) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |[High availability](sql-database-high-availability) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | No | No |
 | [Minimal logging in bulk import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No | No |
 | [Modifying system data](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | No | Yes |
 | [Online index operations](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Yes | Yes |
 | [Operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Most - see individual operators |
-| [Partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Yes - primary filegroup only | Yes |
+| [Partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Yes | Yes |
 | [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No | No |
 | [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
@@ -102,13 +102,13 @@ The following table lists the major features of SQL Server and provides informat
 | [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Preview release; see [What's new in machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No | No |
 | [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Partial (restore from full backup only) - see [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) |
-| [Restore database from backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | From automated backups only - see [SQL Database recovery](sql-database-recovery-using-backups.md) | From automated backups and from full backup - see [SQL Database recovery](sql-database-recovery-using-backups.md) |
+| [Restore database from backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | From automated backups only - see [SQL Database recovery](sql-database-recovery-using-backups.md) | From automated backups - see [SQL Database recovery](sql-database-recovery-using-backups.md) and from full backups - see [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) |
 | [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Yes | Yes |
 | [Semantic search](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | No | No |
 | [Sequence numbers](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | Yes | Yes |
 | [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | No | Partial (within instance only) - see [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) |
 | [Server configuration settings](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No | Most - see individual settings |
-| [Set statements](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Most - see individual statements Most - see individual statements | | Most - see individual statements Most - see individual statements
+| [Set statements](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Most - see individual statements Most - see individual statements | Most - see individual statements Most - see individual statements|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Yes | Yes |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Yes | Yes |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Yes | Yes |
@@ -122,18 +122,18 @@ The following table lists the major features of SQL Server and provides informat
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) | Yes |
 | [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate.md) | Yes |
-| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No | No |
+| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](https://docs.microsoft.com/power-bi/) | No - [see Power BI](https://docs.microsoft.com/power-bi/) |
 | [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Yes | Yes |
-| [System stored functions](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Some - see individual functions | Most - see individual functions |
+| [System stored functions](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Most - see individual functions | Most - see individual functions |
 | [System stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Some - see individual stored procedures | Most - see individual stored procedures |
 | [System tables](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Some - see individual tables | Most - see individual tables |
 | [System catalog views](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Some - see individual views | Most - see individual views |
-| [Temporary tables](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) | Local and database-scoped global temporary tables only | Yes |
+| [Temporary tables](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Local and database-scoped global temporary tables | Local and instance-scoped global temporary tables |
 | [Temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Yes | Yes |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Yes | Yes |
 | [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes | Yes |
 [VNET](../virtual-network/virtual-networks-overview.md) | Partial - see [VNET Endpoints](sql-database-vnet-service-endpoint-rule-overview.md) | Yes |
-| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
+| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [High availability](sql-database-high-availability) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
 | [XML indexes](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Yes | Yes |
 
 ## Next steps
