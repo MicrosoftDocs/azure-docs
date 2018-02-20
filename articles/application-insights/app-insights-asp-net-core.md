@@ -128,7 +128,7 @@ Technically **Failed Requests** are being collected, but none have occurred yet.
 
 To access the Live Stream functionality of Application Insights with ASP.NET Core update to the  **Microsoft.ApplicationInsights.AspNetCore 2.2.0** NuGet packages.
 
-From Visual Studio select **Project** > **Manage NuGet Packages** > **Microsoft.ApplicationInsights.AspNetCore** > Version **2.2.0** > **Update**.
+From Visual Studio, select **Project** > **Manage NuGet Packages** > **Microsoft.ApplicationInsights.AspNetCore** > Version **2.2.0** > **Update**.
 
   ![Screenshot of NuGet Package Manager](./media/app-insights-asp-net-core/0017-update-nuget.png)
 
@@ -174,7 +174,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
    ![Screenshot of Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (If your PowerShell script is still running you should see live metrics, if has stopped run the script aagain with Live Stream open.)
+   (If your PowerShell script is still running you should see live metrics, if has stopped run the script again with Live Stream open.)
 
 ## Open source SDK
 [Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
