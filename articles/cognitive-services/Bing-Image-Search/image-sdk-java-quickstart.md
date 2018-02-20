@@ -399,7 +399,7 @@ public class ImageSrchSDK {
 		imageSearch("YOUR-SUBSCRIPTION-KEY");
 		imageSearchWithFilters("YOUR-SUBSCRIPTION-KEY");
 		imageTrending("YOUR-SUBSCRIPTION-KEY");
-		imageDetail("YOUR-SUBSCRIPTION-KEY")
+		imageDetail("YOUR-SUBSCRIPTION-KEY");
     }
 	
     // Include methods documented previously.
