@@ -26,7 +26,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ze
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following items:
+The scenario outlined in this tutorial assumes that you already have the following:
 
 *   An Azure AD tenant
 *   A Zendesk tenant with the [Enterprise](https://www.zendesk.com/product/pricing/) plan or better enabled 
