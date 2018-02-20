@@ -1,7 +1,7 @@
 ---
 title: Web Search SDK Java quickstart | Microsoft Docs
 description: Setup for Web Search SDK console application.
-titleSuffix: Azure Cognitive Services Web search SDK Java quickstart
+titleSuffix: Azure Cognitive Services Web Search SDK Java quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
 ---
-# Web Search SDK Python quickstart
+# Web Search SDK Java quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
