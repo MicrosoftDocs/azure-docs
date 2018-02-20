@@ -19,7 +19,7 @@ ms.author: v-ant-msft
 
 # Tutorial: Configure Samanage for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Samanage and Azure Active Directory (Azure AD) to configure the automatic provisioning and de-provisioning of users and/or groups from Azure AD to Samanage.
+The objective of this tutorial is to demonstrate the steps to be performed in Samanage and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Samanage.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
@@ -76,9 +76,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 *	When assigning a user to Samanage, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Configuring user provisioning to Samanage 
+## Configuring automatic user provisioning to Samanage
 
-This section guides you through steps for connecting Azure AD to Samanage's user roster by configuring the Azure AD provisioning service, using Samanage's user provisioning API to create, update, and disable users and/or groups in Samanage based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Samanage based on user and/or group assignments in Azure AD.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Samanage, following the instructions provided in the [Samanage single sign-on tutorial](active-directory-saas-samanage-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other. For more information, see the [Samanage single sign-on tutorial](active-directory-saas-samanage-tutorial.md).
@@ -99,7 +99,7 @@ This section guides you through steps for connecting Azure AD to Samanage's user
 
 	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage9.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username and Admin Password** of your Samanages's account. Examples of these values are:
+5. Under the **Admin Credentials** section, input the **Admin Username**, and **Admin Password** of your Samanages's account. Examples of these values are:
 
 	*   In the **Admin Username** field, populate the username of the admin account on your Samanage Tenant. Example: admin@contoso.com.
 
@@ -141,7 +141,7 @@ This section guides you through steps for connecting Azure AD to Samanage's user
 
 	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage17.png)
 
-17. When you are complete and ready to provision, click **Save**.
+17. When you are ready to provision, click **Save**.
 
 	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage18.png)
 
