@@ -12,7 +12,7 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2018
+ms.date: 02/20/2018
 ms.author: tomfitz
 
 ---
@@ -20,7 +20,7 @@ ms.author: tomfitz
 
 [!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 To install and use the CLI locally, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -33,7 +33,6 @@ In this article, you apply all management settings to a resource group so you ca
 Let's create the resource group.
 
 ```azurecli-interactive
-az account set -s "<subscription-name>"
 az group create --name myResourceGroup --location "East US"
 ```
 
@@ -86,22 +85,30 @@ You see the existing policy definitions. The policy type is either **BuiltIn** o
 * audit virtual machines that do not use managed disks
 
 ```azurecli-interactive
-$skus = "Standard_DS1_v2", "Standard_E2s_v2"
-
 locationDefinition=$(az policy definition list --query "[?displayName=='Allowed locations'].name | [0]" --output tsv)
+skuDefinition=$(az policy definition list --query "[?displayName=='Allowed virtual machine SKUs'].name | [0]" --output tsv)
 auditDefinition=$(az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks'].name | [0]" --output tsv)
-
-
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
 
 az policy assignment create --name "Set permitted locations" \
   --resource-group myResourceGroup \
   --policy $locationDefinition \
   --params '{ 
-      "allowedLocations": {
+      "listOfAllowedLocations": {
         "value": [
-          "East US", 
-          "East US2"
+          "eastus", 
+          "eastus2"
+        ]
+      }
+    }'
+
+az policy assignment create --name "Set permitted VM SKUs" \
+  --resource-group myResourceGroup \
+  --policy $skuDefinition \
+  --params '{ 
+      "listOfAllowedSKUs": {
+        "value": [
+          "Standard_DS1_v2", 
+          "Standard_E2s_v2"
         ]
       }
     }'
@@ -109,27 +116,20 @@ az policy assignment create --name "Set permitted locations" \
 az policy assignment create --name "Audit unmanaged disks" \
   --resource-group myResourceGroup \
   --policy $auditDefinition
-
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $skuDefinition `
-  -listOfAllowedSKUs $skus
 ```
 
+The preceding example assumes you already know the parameters for a policy. If you need to view the parameters, use:
+
+```azurecli-interactive
+az policy definition show --name $locationDefinition --query parameters
+```
 
 ## Deploy the virtual machine
 
 You have assigned roles and policies, so you're ready to deploy your solution. The default size is Standard_DS1_v2, which is one of your allowed SKUs. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
-```azurepowershell-interactive
-New-AzureRmVm -ResourceGroupName "myResourceGroup" `
-     -Name "myVM" `
-     -Location "East US" `
-     -VirtualNetworkName "myVnet" `
-     -SubnetName "mySubnet" `
-     -SecurityGroupName "myNetworkSecurityGroup" `
-     -PublicIpAddressName "myPublicIpAddress" `
-     -OpenPorts 80,3389
+```azurecli-interactive
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
 After your deployment finishes, you can apply more management settings to the solution.
@@ -142,17 +142,17 @@ To create or delete management locks, you must have access to `Microsoft.Authori
 
 To lock the virtual machine and network security group, use:
 
-```azurepowershell-interactive
-New-AzureRmResourceLock -LockLevel CanNotDelete `
-  -LockName LockVM `
-  -ResourceName myVM `
-  -ResourceType Microsoft.Compute/virtualMachines `
-  -ResourceGroupName myResourceGroup
-New-AzureRmResourceLock -LockLevel CanNotDelete `
-  -LockName LockNSG `
-  -ResourceName myNetworkSecurityGroup `
-  -ResourceType Microsoft.Network/networkSecurityGroups `
-  -ResourceGroupName myResourceGroup
+```azurecli-interactive
+az lock create --name LockVM \
+  --lock-type CanNotDelete \
+  --resource-group myResourceGroup \
+  --resource-name myVM \
+  --resource-type Microsoft.Compute/virtualMachines
+az lock create --name LockNSG \
+  --lock-type CanNotDelete \
+  --resource-group myResourceGroup \
+  --resource-name myVMNSG \
+  --resource-type Microsoft.Network/networkSecurityGroups
 ```
 
 The virtual machine can only be deleted if you specifically remove the lock. That step is shown in [Clean up resources](#clean-up-resources).
@@ -161,29 +161,29 @@ The virtual machine can only be deleted if you specifically remove the lock. Tha
 
 You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-[!include[Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
+[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-To apply tags to a virtual machine, use:
+To apply tags to a virtual machine, use the **az resource tag** command. Any existing tags on the resource are not retained.
 
-```azurepowershell-interactive
-$r = Get-AzureRmResource -ResourceName myVM `
-  -ResourceGroupName myResourceGroup `
-  -ResourceType Microsoft.Compute/virtualMachines
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
+```azurecli-interactive
+az resource tag -n myVM \
+  -g myResourceGroup \
+  --tags Dept=IT Environment=Test Project=Documentation \
+  --resource-type "Microsoft.Compute/virtualMachines"
 ```
 
 ### Find resources by tag
 
 To find resources with a tag name and value, use:
 
-```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+```azurecli-interactive
+az resource list --tag Environment=Test --query [].name
 ```
 
 You can use the returned values for management tasks like stopping all virtual machines with a tag value.
 
-```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+```azurecli-interactive
+az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Microsoft.Compute/virtualMachines'].id" --output tsv)
 ```
 
 ### View costs by tag values
@@ -194,22 +194,24 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 The locked network security group can't be deleted until the lock is removed. To remove the lock, use:
 
-```azurepowershell-interactive
-Remove-AzureRmResourceLock -LockName LockVM `
-  -ResourceName myVM `
-  -ResourceType Microsoft.Compute/virtualMachines `
-  -ResourceGroupName myResourceGroup
-Remove-AzureRmResourceLock -LockName LockNSG `
-  -ResourceName myNetworkSecurityGroup `
-  -ResourceType Microsoft.Network/networkSecurityGroups `
-  -ResourceGroupName myResourceGroup
+```azurecli-interactive
+vmlock=$(az lock show --name LockVM \
+  --resource-group myResourceGroup \
+  --resource-type Microsoft.Compute/virtualMachines \
+  --resource-name myVM --output tsv --query id)
+nsglock=$(az lock show --name LockNSG \
+  --resource-group myResourceGroup \
+  --resource-type Microsoft.Network/networkSecurityGroups \
+  --resource-name myVMNSG --output tsv --query id)
+az lock delete --ids $vmlock $nsglock
 ```
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurecli-interactive 
+az group delete --name myResourceGroup
 ```
+
 
 ## Next steps
 
