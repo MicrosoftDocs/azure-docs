@@ -21,6 +21,9 @@ This guide provides details on the different options available when you create a
 
 Use this guide to create your own SQL Server VM. Or, use it as a reference for the available options in the Azure portal.
 
+> [!TIP]
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## <a id="select"></a> SQL Server virtual machine gallery images
