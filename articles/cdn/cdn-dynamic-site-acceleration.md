@@ -80,11 +80,11 @@ Transmission Control Protocol (TCP) is the standard of the Internet protocol sui
  - Leveraging persistent connections
  - Tuning TCP packet parameters
 
-#### Eliminating slow start
+#### Eliminating slow starts
 
-*Slow start* is a part of the TCP protocol that prevents network congestion by limiting the amount of data sent over the network. It starts off with small congestion window sizes between sender and receiver until the maximum is reached or packet loss is detected.
+TCP *slow start* is an algorithm of the TCP protocol that prevents network congestion by limiting the amount of data sent over the network. It starts off with small congestion window sizes between sender and receiver until the maximum is reached or packet loss is detected.
 
- Both **Azure CDN from Akamai** and **Azure CDN from Verizon** eliminate slow start in three steps:
+ Both **Azure CDN from Akamai** and **Azure CDN from Verizon** eliminate slow starts in three steps:
 
 1. Health and bandwidth monitoring is used to measure the bandwidth of connections between edge PoP servers.
 2. The metrics are shared between edge PoP servers so that each server is aware of the network conditions and server health of the other PoPs around them.  
@@ -94,7 +94,7 @@ Transmission Control Protocol (TCP) is the standard of the Internet protocol sui
 
 Using a CDN, fewer unique machines connect to your origin server directly compared with users connecting directly to your origin. Azure CDN also pools user requests together to establish fewer connections with the origin.
 
-As previousy mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, also known as "HTTP Keep-Alive", reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
+As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, also known as "HTTP Keep-Alive", reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
 
 **Azure CDN from Verizon** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
 
@@ -126,13 +126,17 @@ JPEG compression | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## Caching
 
-With DSA, caching is turned off by default on the CDN, even when the origin includes `Cache-Control` or `Expires` headers in the response. Caching is turned off because DSA is typically used for dynamic assets that should not be cached because they are unique to each client. Caching can break this behavior.
+With DSA, caching is turned off by default on the CDN, even when the origin includes `Cache-Control` or `Expires` headers in the response. DSA is typically used for dynamic assets that should not be cached because they are unique to each client. Caching can break this behavior.
 
 If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
 
-For **Azure CDN from Verizon Premium**, you can turn caching on for specific cases by using the rules engine under the ADN tab.  
+For **Azure CDN from Verizon Premium** profiles, you can turn on caching for specific cases by using the ADN rules engine. A rule that is created with the ADN rules engine affects only those endpoints of your profile that are optimized for DSA. 
 
-An alternative is to use two CDN endpoints. One with DSA to deliver dynamic assets, and another endpoint with a static optimization type, such as general web delivery, to delivery cacheable assets. In order to accomplish this alternative, modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
+To access the ADN rules engine:
+  1. From the **CDN profile** page, select **Manage**.  
+  2. From the CDN management portal, select **ADN**, then select **Rules Engine**. 
+
+An alternative is to use two CDN endpoints. Use one endpoint optimized with DSA to deliver dynamic assets, and another endpoint with a static optimization type, such as general web delivery, to delivery cacheable assets. In order to accomplish this alternative, modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
 
 For example: 
 `mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`. 
