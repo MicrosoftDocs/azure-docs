@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray 
 
 ---
@@ -269,7 +269,7 @@ After you configure the availability group to use the new IP address, configure 
 
 ## Add load balancing rule for distributed availability group
 
-If an availability group participates in a distributed availability group, the load balancer needs an additional rule. This rule stores the port is used by the distributed availability group listener.
+If an availability group participates in a distributed availability group, the load balancer needs an additional rule. This rule stores the port used by the distributed availability group listener.
 
 >[!IMPORTANT]
 >This step only applies if the availability group participates in a [distributed availability group](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
