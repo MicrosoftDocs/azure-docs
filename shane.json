@@ -1,9 +1,0 @@
-{
-	"name" : "two_person",
-	"friendlyName" : "Two Person Plan",
-	"portionSize" : "1-2 Person",
-	"mealsPerWeek" : "3 Unique meals per week",
-	"price" : 72,
-	"description" : "Our basic plan, delivering 3 meals per week, which will feed 1-2 people.",
-	"__v" : 0
-}
