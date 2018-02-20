@@ -391,11 +391,15 @@ public static void imageDetail(String subscriptionKey)
 ```
 Add the previous methods to a class with main function to run the code:
 ```
+public class ImageSrchSDK {
+
+	public static void main(String[] args) {
+	
 		imageSearch("YOUR-SUBSCRIPTION-KEY");
 		imageSearchWithFilters("YOUR-SUBSCRIPTION-KEY");
 		imageTrending("YOUR-SUBSCRIPTION-KEY");
 		imageDetail("YOUR-SUBSCRIPTION-KEY");
-
+	}
     // Include methods documented previously.
 }
 
