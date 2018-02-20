@@ -78,7 +78,7 @@ Setting up the source environment involves two main activities:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The configuration server can be installed via command line. For more information, see [Installing the configuration server using Command-line tools](http://aka.ms/installconfigsrv).
+> The configuration server can be installed via command line. For more information, see [Installing the configuration server using Command-line tools](https://aka.ms/installconfigsrv).
 
 #### Add the VMware account for automatic discovery
 

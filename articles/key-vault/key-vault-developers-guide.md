@@ -147,7 +147,7 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Social
 
-- [Key Vault Blog](http://aka.ms/kvblog)
+- [Key Vault Blog](https://aka.ms/kvblog)
 - [Key Vault Forum](http://aka.ms/kvforum)
 
 ## Supporting Libraries

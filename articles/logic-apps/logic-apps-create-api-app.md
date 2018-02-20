@@ -70,7 +70,7 @@ easy API hosting.
 >
 > For API App samples built for logic apps, visit the 
 > [Azure Logic Apps GitHub repository](http://github.com/logicappsio) 
-> or [blog](http://aka.ms/logicappsblog).
+> or [blog](https://aka.ms/logicappsblog).
 
 ## How do custom APIs differ from custom connectors?
 

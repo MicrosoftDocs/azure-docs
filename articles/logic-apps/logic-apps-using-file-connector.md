@@ -30,7 +30,7 @@ then send an email.
 * Download the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127).
 
 * Install and set up the latest on-premises data gateway, version 1.15.6150.1 or above. 
-For the steps, see [Connect to data sources on premises](http://aka.ms/logicapps-gateway). 
+For the steps, see [Connect to data sources on premises](https://aka.ms/logicapps-gateway). 
 You must install the gateway on an on-premises machine 
 before you can continue with these steps.
 

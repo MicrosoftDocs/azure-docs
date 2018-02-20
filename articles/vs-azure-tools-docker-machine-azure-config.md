@@ -116,7 +116,7 @@ PS C:\> docker-machine ip MyDockerHost
 
 ## Summary
 With docker-machine, you can easily provision docker hosts in Azure for your individual docker host validations.
-For production hosting of containers, see the [Azure Container Service](http://aka.ms/AzureContainerService)
+For production hosting of containers, see the [Azure Container Service](https://aka.ms/AzureContainerService)
 
 To develop .NET Core Applications with Visual Studio, see [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS)
 

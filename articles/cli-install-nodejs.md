@@ -131,7 +131,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 * If you have questions about using the Azure CLI, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
 
-[mac-installer]: http://aka.ms/mac-azure-cli
+[mac-installer]: https://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
 [cliasm]: /cli/azure/get-started-with-az-cli2

@@ -66,7 +66,7 @@ Yes.
 No. A DPM or MABS server can be registered to only one vault.
 
 ### Which version of System Center Data Protection Manager is supported? <br/>
-We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). As of August 2016, Update Rollup 11 is the latest update.
+We recommend that you install the [latest](https://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). As of August 2016, Update Rollup 11 is the latest update.
 
 ### I have installed Azure Backup agent to protect my files and folders. Can I now install System Center DPM to work with Azure Backup agent to protect on-premises application/VM workloads to Azure? <br/>
 To use Azure Backup with System Center Data Protection Manager (DPM), install DPM first and then install Azure Backup agent. Installing the Azure Backup components in this order ensures the Azure Backup agent works with DPM. Installing the Azure Backup agent before installing DPM is not advised or supported.

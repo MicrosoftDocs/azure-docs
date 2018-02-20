@@ -70,9 +70,9 @@ Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API
 | Client platform | Version | Version header value |
 | --- | --- | --- |
 | Managed client (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/a |
-| iOS |[2.2.2](http://aka.ms/gc6fex) |n/a |
+| iOS |[2.2.2](https://aka.ms/gc6fex) |n/a |
 | Android |[2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) |n/a |
-| HTML |[1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/a |
+| HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/a |
 
 ### Mobile *Services* server SDKs
 | Server platform | Version | Accepted version header |

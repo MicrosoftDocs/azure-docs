@@ -47,7 +47,7 @@ The Azure services that support Availability Zones are:
 
 The Availability Zones preview is available in the East US 2, US Central, West Europe, and France Central regions for specific Azure services. 
 
-1. [Sign up for the Availability Zones preview](http://aka.ms/azenroll). 
+1. [Sign up for the Availability Zones preview](https://aka.ms/azenroll). 
 2. Sign in to your Azure subscription.
 3. Choose a region that supports Availability Zones.
 4. Use one of the following links to start using Availability Zones with your service. 
