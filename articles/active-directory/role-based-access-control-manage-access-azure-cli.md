@@ -93,10 +93,6 @@ Example output:
 ...
 ```
 
-<!--
-![RBAC Azure command line - azure role list - screenshot](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
--->
-
 ### List actions of a role definition
 
 To list the actions of a role definition, use [az role definition list](https://docs.microsoft.com/en-us/cli/azure/role/definition?view=azure-cli-latest#az_role_definition_list):
@@ -193,10 +189,6 @@ Example output:
 ]
 ```
 
-<!--
-![RBAC Azure command line - azure role show - screenshot](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
--->
-
 ## List access
 
 ### List role assignments for a user
@@ -228,9 +220,6 @@ Example output:
   "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
 }
 ```
-<!--
-![RBAC Azure command line - azure role assignment list by user - screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
--->
 
 ### List role assignments for a resource group
 
@@ -260,10 +249,6 @@ Example output:
 ...
 ```
 
-<!--
-![RBAC Azure command line - azure role assignment list by group - screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
--->
-
 ## Grant access
 
 ### Assign a role to a user
@@ -279,10 +264,6 @@ The following example grants the *Virtual Machine Contributor* role to *patlong@
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
 ```
-
-<!--
-![RBAC Azure command line - azure role assignment create by user - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
--->
 
 ### Assign a role to a group
 
@@ -304,10 +285,6 @@ The following example assigns the *Virtual Machine Contributor* role to the *Ann
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 ```
 
-<!--
-![RBAC Azure command line - azure role assignment create by group - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
--->
-
 ### Assign a role to an application
 
 To assign a role to an application, use [az role assignment create](https://docs.microsoft.com/en-us/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create):
@@ -321,15 +298,6 @@ The following example assigns the *Virtual Machine Contributor* role to an appli
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
-
-<!--
-![RBAC Azure command line - azure role assignment create by application](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
--->
-
-
-<!--
-![RBAC Azure command line - azure role assignment create by group - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
--->
 
 ## Remove access
 
@@ -352,10 +320,6 @@ The following example deletes the *Reader* role from the *Ann Mack Team* group w
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
-
-<!--
-![RBAC Azure command line - azure role assignment delete - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
--->
 
 ## Custom roles
 
@@ -391,22 +355,6 @@ Example output:
 
 ...
 ```
-
-<!--
-![RBAC Azure command line - azure role list - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
--->
-
-<!--
-In the following example, the *Virtual Machine Operator* custom role isn’t available in the *Production4* subscription because that subscription isn’t in the **AssignableScopes** of the role:
-
-```azurecli
-az role definition list --output json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
-```
--->
-
-<!--
-![RBAC Azure command line - azure role list for custom roles - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
--->
 
 ### Create a custom role
 
@@ -449,12 +397,6 @@ vmoperator.json
 ```azurecli
 az role definition create --role-definition ~/roles/vmoperator.json
 ```
-
-<!--
-![JSON - custom role definition - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
-
-![RBAC Azure command line - azure role create - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
--->
 
 ### Modify a custom role
 
@@ -499,12 +441,6 @@ vmoperator.json
 az role definition update --role-definition ~/roles/vmoperator.json
 ```
 
-<!--
-![JSON - modify custom role definition - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
-
-![RBAC Azure command line - azure role set - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
--->
-
 ### Delete a custom role
 
 To delete a custom role, use [az role definition delete](https://docs.microsoft.com/en-us/cli/azure/role/definition?view=azure-cli-latest#az_role_definition_delete). To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](https://docs.microsoft.com/en-us/cli/azure/role/definition?view=azure-cli-latest#az_role_definition_list).
@@ -518,10 +454,6 @@ The following example deletes the *Virtual Machine Operator* custom role:
 ```azurecli
 az role definition delete --name "Virtual Machine Operator"
 ```
-
-<!--
-![RBAC Azure command line - azure role delete - screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
--->
 
 ## Next steps
 
