@@ -17,6 +17,15 @@ ms.author: mbullwin
 
 # Application Insights for ASP.NET Core
 
+Azure Application Insights provides in-depth monitoring of your web application down to the code level. You can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them.
+
+This article walks you through creating a sample ASP.NET Core application in Visual Studio and how to start monitoring with Azure Application Insights.
+
+## Prerequisites
+
+- NET Core 2.0.0 SDK or later.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.3 or later with the ASP.NET and web development workload.
+
 ## Create an ASP.NET Core project in Visual Studio
 
 1. Right-click and Launch **Visual Studio 2017** as administrator.
@@ -104,7 +113,7 @@ From the Visual Studio menu, select **Project** > **Application Insights** > **O
    ![Screenshot of Application Insights Overview](./media/app-insights-asp-net-core/0014-portal-01.png)
 
 > [!NOTE]
-> In the example screenshot above **Live Stream**, **Page View Load Time**, and **Failed Requests** are currently not collected. The next section will walk through adding each. If you are already collecting **Live Stream, and **Page View Load Time**, then only follow the steps for **Failed Requests**.
+> In the example screenshot above **Live Stream**, **Page View Load Time**, and **Failed Requests** are currently not collected. The next section will walk through adding each. If you are already collecting **Live Stream**, and **Page View Load Time**, then only follow the steps for **Failed Requests**.
 
 ## Collect Failed Requests, Live Stream, & Page View Load Time
 
