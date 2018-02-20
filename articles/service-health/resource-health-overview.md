@@ -19,9 +19,9 @@ ms.author: shawn.tabrizi
 ---
 # Azure resource health overview
  
-Resource health helps you diagnose and get support when an Azure problem affects your resources. It informs you about the current and past health of your resources and helps you mitigate problems. Resource health provides technical support when you need help with Azure service problems.
+Resource health helps you diagnose and get support when an Azure service problem affects your resources. It informs you about the current and past health of your resources. And it provides technical support to help you mitigate problems.
 
-Whereas [Azure Status](https://status.azure.com) informs you about service problems that affect a broad set of Azure customers, resource health gives you a personalized dashboard of the health of your resources. Resource health shows you all the times your resources were unavailable in the past due to Azure service problems. It's then simple for you to understand if an SLA was violated. 
+Whereas [Azure Status](https://status.azure.com) informs you about service problems that affect a broad set of Azure customers, resource health gives you a personalized dashboard of the health of your resources. Resource health shows you all the times your resources were unavailable in the past because of Azure service problems. It's then simple for you to understand if an SLA was violated. 
 
 ## Resource definition and health assessment
 A resource is a specific instance an Azure service: for example, a virtual machine, a web app, or a SQL database.
@@ -86,7 +86,7 @@ To open resource health for one resource:
 
 ![Opening resource health from the resource view](./media/resource-health-overview/from-resource-blade.png)
 
-You can also access resource health by selecting **All services** and typing **resource health** in filter text box. In the **Help + support** pane, select [Resource health](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+You can also access resource health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
 ![Opening resource health from "All services"](./media/resource-health-overview/FromOtherServices.png)
 
