@@ -19,7 +19,7 @@ ms.author: marayerm
 ---
 # Storage Explorer Accessibility (Preview)
 ## Screen Readers
-Storage Explorer supports the use of a screen reader on Windows and Mac. The following screen readers are reccomended for each platform:
+Storage Explorer supports the use of a screen reader on Windows and Mac. The following screen readers are recommended for each platform:
 * Windows: NVDA
 * Mac: Voice Over
 * Linux: Screen readers are not supported on Linux
