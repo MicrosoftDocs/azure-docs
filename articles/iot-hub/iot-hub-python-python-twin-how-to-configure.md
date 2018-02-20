@@ -79,9 +79,7 @@ In this section, you create a Python console app that connects to your hub as **
     TWIN_PAYLOAD = "{\"configId\":" + CONFIG_ID + ",\"sendFrequency\":\"24h\"}"
     ```
 
-    The **CLIENT** object exposes all the methods required to interact with device twins from the device. In further code, you will attach a handler for the update on desired properties, then add an additional handler to verify that there is an actual configuration change request by comparing the configIds, which then invokes a method that starts the configuration change.
-   
-    Note that for the sake of simplicity, the previous code uses a hard-coded default for the initial configuration. A real app would probably load that configuration from a local storage.
+    The **CLIENT** object exposes all the methods required to interact with device twins from the device. In further code, you will attach a handler for the update on desired properties, then add an additional handler to verify that there is an actual configuration change request by comparing the configIds, which then invokes a method that starts the configuration change. For the sake of simplicity, the previous code uses a hard-coded default for the initial configuration. A real app would probably load that configuration from a local storage.
    
    > [!IMPORTANT]
    > Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
@@ -114,9 +112,7 @@ In this section, you create a Python console app that connects to your hub as **
         print ( "Device twins updated." )
     ```
    
-    The **device_twin_callback** method updates reported properties on the local device twin object with the configuration update request and sets the _configId_. After successfully updating the device twin, it prints an update message. 
-   
-    Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **TWIN_PAYLOAD** in the above code), instead of replacing the whole document.
+    The **device_twin_callback** method updates reported properties on the local device twin object with the configuration update request and sets the _configId_. After successfully updating the device twin, it prints an update message. To save bandwidth, reported properties are updated by specifying only the properties to be modified (named **TWIN_PAYLOAD** in the above code), instead of replacing the whole document.
    
    > [!NOTE]
    > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
