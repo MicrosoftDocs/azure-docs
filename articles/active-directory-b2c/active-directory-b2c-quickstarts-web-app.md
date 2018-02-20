@@ -18,7 +18,7 @@ ms.author: patricka
 ---
 # Quickstart: Test drive an Azure AD B2C enabled web app
 
-Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols. This quickstart demonstrates how Azure AD B2C is used to authenticate and sign up users in a sample ASP.NET web app. 
+Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols. This quickstart demonstrates how Azure AD B2C is used to authenticate and sign up users in a sample ASP.NET web app.
 
 In this quickstart, you use an Azure AD B2C enabled sample ASP.NET app to:
 
@@ -67,15 +67,15 @@ Press **F5** to debug both applications. Each application opens in its own brows
 
 ## Create an account
 
-Click the **Sign up / Sign in** link in the ASP.NET web application to start the **Sign Up or Sign In** workflow based on a Azure AD B2C policy.
+Click the **Sign up / Sign in** link in the ASP.NET web application to start the **Sign Up or Sign In** workflow based on an Azure AD B2C policy.
 
 ![Sample ASP.NET web app](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-When creating an account, you can use an existing social identity provider account or an email account. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter.
+The sample supports several sign up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter. 
 
 ### Sign up using a social identity provider
 
-Azure AD B2C presents a custom login page for a fictious brand called Wingtip Toys for the sample web app. The sample supports several sign up options including using a social identity provider or creating a local account using an email address. In this quickstart, let's use a social identity provider. 
+Azure AD B2C presents a custom login page for a fictious brand called Wingtip Toys for the sample web app. 
 
 1. To sign up using a social identity provider, click the button of the identity provider you want to use.
 
@@ -129,7 +129,7 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 
 In this quickstart, you used a Azure AD B2C enabled sample ASP.NET app to sign in with a custom login page, sign in with a social identity provider, create a Azure AD B2C account, and call a web API protected by Azure AD B2C. 
 
-Continue to the next tutorial to learn how to configure the sample ASP.NET to use your own Azure AD B2C tenant.
+Continue to the tutorial to learn how to configure the sample ASP.NET to use your own Azure AD B2C tenant.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Authenticate users with Azure Active Directory B2C in an ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
