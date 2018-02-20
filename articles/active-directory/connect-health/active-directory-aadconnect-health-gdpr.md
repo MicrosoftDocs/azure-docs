@@ -48,6 +48,9 @@ If you stop data collection and monitoring for an individual monitored server or
 - If you have not uninstalled the Health Agent before performing this step, you may see error events on the server(s) related to the Health Agent.
 - All data belonging to the instance of the monitored service is deleted as per the Microsoft Azure Data Retention Policy.
 
+>[!NOTE] 
+> Azure AD premium license is required for the disable steps. Uninstalling of agents will also stop data collection.
+
 ### Disable data collection and monitoring for a monitored server
 See [how to remove a server from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
 
