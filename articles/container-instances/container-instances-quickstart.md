@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 02/14/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -55,9 +55,9 @@ At the bottom of the output, you will see the container's provisioning state and
 
 ```console
 $ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
-FQDN                                    ProvisioningState
---------------------------------------  -------------------
-aciquickstart.eastus.azurecontainer.io  Succeeded
+FQDN                               ProvisioningState
+---------------------------------  -------------------
+aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
 Once the container moves to the **Succeeded** state, you can reach it in your browser using the fully qualified domain name provided.

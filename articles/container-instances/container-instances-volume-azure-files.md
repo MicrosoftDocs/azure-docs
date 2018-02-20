@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
