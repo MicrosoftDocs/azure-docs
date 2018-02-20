@@ -65,10 +65,10 @@ If your chat bot or LUIS-calling app makes a decision based on more than one int
 
 The intents are ordered from highest to lowest score.
 
-|Data Object|Data Type|Data Location|Value|
-|--|--|--|--|
-|Intent|String|intents[0].intent|"GetStoreInfo"|
-|Intent|String|intents[1].intent|"None"|
+|Data Object|Data Type|Data Location|Value|Score|
+|--|--|--|--|:--|
+|Intent|String|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Intent|String|intents[1].intent|"None"|0.0168218873|
 
 If you add prebuilt domains, the intent name indicates the domain, such as `Utilties` or `Communication` as well as the intent:
 
@@ -98,8 +98,8 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
     
 |Domain|Data Object|Data Type|Data Location|Value|
 |--|--|--|--|--|
-|Utilities|Intent|String|intents[0].intent|"Utilities.ShowNext"|
-|Communication|Intent|String|intents[1].intent|"Communication.StartOver"|
+|Utilities|Intent|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Communication|Intent|String|intents[1].intent|<b>Communication</b>.StartOver"|
 ||Intent|String|intents[2].intent|"None"|
 
 
@@ -159,105 +159,109 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 ## Hierarchical entity data
 
-Hierarchical entities are machine-learned and can include a word or phrase. 
+Hierarchical entities are machine-learned and can include a word or phrase. Children are identified by context. If you are looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity. 
 
-`get me a hamburger with no onion`
+`book 2 tickets to paris`
 
-In the previous utterance, `hamburger` is labeled a child of the `burger` hierarchical entity. 
+In the previous utterance, `paris` is labeled a `Location::ToLocation` child of the `Location` hierarchical entity. 
 
 The data returned from the endpoint includes the entity name and child name, the discovered text from the utterance, the location of the discovered text, and the score: 
 
 ```JSON
 {
-    "entity": "hamburger",
-    "type": "Burger::Hamburger",
-    "startIndex": 9,
-    "endIndex": 17,
-    "score": 0.9373795
+  "entity": "paris",
+  "type": "Location::ToLocation",
+  "startIndex": 18,
+  "endIndex": 22,
+  "score": 0.6866132
 }
 ```
 
-|Data object|Entity name|Value|
-|--|--|--|
-|Hierarchical Entity|"Burger::Hamburger"|"hamburger"|
+|Data object|Parent|Child|Value|
+|--|--|--|--|--|
+|Hierarchical Entity|Location|ToLocation|"paris"|
 
 ## Composite entity data
-<!-- this example isn't quite right - I need to talk to Carol -->
-<!-- used Denise Mak's Foodtruck example in github.com/Microsoft/LUIS-Sample/examples -->
-Composite entities are machine-learned and can include a word or phrase.
+Composite entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
-`get me 5 hamburgers`
+`book 2 tickets to paris`
 
-In the previous utterance, `5` is a prebuilt number and `hamburgers` is a hierarchical entity named Burger with three children: Cheeseburger, Hamburger, and VeggieBurger. A composite entity named `BurgerOrder` contains two children of number and Burger.
+Notice that `2`, the number, and `paris` the ToLocation have words between them that are not part of any of the entities. The green underline, used in an labeled utterance in the [LUIS][LUIS] website, indicates a composite entity.
 
-```
-BurgerOrder:
-    number
-    Burger:
-        Cheeseburger
-        Hamburger
-        VeggieBurger
-```    
+![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
 
-The data returned from the endpoint includes the entity name and child entities, the discovered text from the utterance, the location of the discovered text, and the score: 
-<!-- why doesn't the child entity Burger::Hamburger get returned, instead of the parent Burger -->
+
 ```JSON
-"compositeEntities": [{
-    "parentType": "BurgerOrder",
-    "value": "5 hamburgers",
+{
+    "parentType": "Order",
+    "value": "2 tickets to paris",
     "children": [
-    {
+      {
         "type": "builtin.number",
-        "value": "5"
-    },
-    {
-        "type": "Burger",
-        "value": "hamburgers"
-    }
+        "value": "2"
+      },
+      {
+        "type": "Location::ToLocation",
+        "value": "paris"
+      }
     ]
-}]
-```
+  }
+```    
 
 |Data object|Entity name|Value|
 |--|--|--|
-|Prebuilt Entity - number|"builtin.number"|"5"|
-|Hierarchical Entity - Burger|"Burger"|"hamburgers"|
+|Prebuilt Entity - number|"builtin.number"|"2"|
+|Hierarchical Entity - Location|"Location::ToLocation"|"paris"|
 
 ## List entity data
 
-A list entity is not machine-learned but is a text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than list. 
+A list entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than list. 
 
-Suppose the app has a list, named **Colors**, matching variations of a color to a main color name. 
+Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101) and phone area code (206). 
 
 |List item|Item synonyms|
 |---|---|
-|Blue|blu, bl, azure, cobalt, robin's egg|
-|Yellow|gold, lemon, mustard|
+|Seattle|sea-tac, sea, 98101, 206, +1 |
+|Paris|cdg, roissy, ory, 75001, 1, +33|
 
-`5 mustard rainboots please`
+`book 2 tickets to paris`
 
-In the previous utterance, the word `mustard` is mapped to the color yellow as part of the color entity.
+In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` entity. 
 
 ```JSON
-    {
-      "entity": "mustard",
-      "type": "Colors",
-      "startIndex": 2,
-      "endIndex": 8,
-      "resolution": {
-        "values": [
-          "Yellow"
-        ]
-      }
+  {
+    "entity": "paris",
+    "type": "Cities",
+    "startIndex": 18,
+    "endIndex": 22,
+    "resolution": {
+      "values": [
+        "Paris"
+      ]
     }
+  }
 ```
 
-|Data object|Entity name|Item name|Value|
-|--|--|--|--|
-|List Entity|Color|"Yellow"|"mustard"|
+Another example utterance, using a synonym for Paris:
 
-Because this entity is not machine-learned, there is no score. 
+`book 2 tickets to roissy`
+
+```JSON
+{
+  "entity": "roissy",
+  "type": "Cities",
+  "startIndex": 18,
+  "endIndex": 23,
+  "resolution": {
+    "values": [
+      "Paris"
+    ]
+  }
+}
+```
 
 ## Next steps
 
 See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+
+[LUIS]:luis-reference-regions.md
