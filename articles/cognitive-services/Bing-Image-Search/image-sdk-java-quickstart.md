@@ -1,7 +1,7 @@
 ---
 title: Image Search SDK Java quickstart | Microsoft Docs
 description: Setup for Image Search SDK console application.
-titleSuffix: Azure Cognitive Services Image Search SDK Java quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh

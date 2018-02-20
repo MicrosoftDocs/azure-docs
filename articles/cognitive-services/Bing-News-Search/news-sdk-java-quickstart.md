@@ -1,7 +1,7 @@
 ---
 title: News Search SDK Java quickstart | Microsoft Docs
 description: Setup for News Search SDK console application.
-titleSuffix: Azure Cognitive Services News Search SDK Java quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh

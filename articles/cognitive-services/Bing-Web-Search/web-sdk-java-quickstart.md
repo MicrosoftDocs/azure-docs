@@ -1,7 +1,7 @@
 ---
 title: Web Search SDK Java quickstart | Microsoft Docs
 description: Setup for Web Search SDK console application.
-titleSuffix: Azure Cognitive Services Web Search SDK Java quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
