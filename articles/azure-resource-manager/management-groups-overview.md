@@ -24,6 +24,8 @@ As an example, you can apply policies to a management group that limits the regi
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section.  
 
+## Create a Hierarchy of management groups and subscriptions 
+
 You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management. 
 The following diagram shows an example hierarchy that consists of management groups and subscriptions organized by departments.    
 

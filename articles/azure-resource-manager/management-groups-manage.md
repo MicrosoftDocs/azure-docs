@@ -21,7 +21,7 @@ ms.author: rithorn
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or  you can use [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [command-line tool](/cli/azure/install-azure-cli?view=azure-cli-latest), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to manage your management groups.
 
-To make changes to a management group, you must have an Owner or Contributor role](../active-directory/role-based-access-control-what-is.md) on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../active-directory/role-based-access-control-what-is.md).
+To make changes to a management group, you must have an [Owner or Contributor role](../active-directory/role-based-access-control-what-is.md) on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../active-directory/role-based-access-control-what-is.md).
 
 ## Change the name of a management group 
 
@@ -87,7 +87,7 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ```
 
 # [Azure CLI](#tab/azure-cli)
-With Azure CLI use the command az account management-group delete. 
+With Azure CLI, use the command az account management-group delete. 
 
 ```azure-cli
 C:\> az account management-group delete --group-name Contoso
@@ -185,7 +185,7 @@ To move a subscription in CLI, you use the add command.
 C:\> az account management-group add --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
-To remove the subscription from the managmeent group, use the subscription remove command.  
+To remove the subscription from the management group, use the subscription remove command.  
 
 ```azure-cli
 C:\> az account management-group remove --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
