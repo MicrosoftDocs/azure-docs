@@ -43,7 +43,7 @@ Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/appservice-go-quickstart
 ```
 
-In the preceding command, `--deployment-container-image-name` points to the public Docker Hub image [microsoft/appservice-go-quickstart](https://hub.docker.com/r/microsoft/appservice-go-quickstart).
+In the preceding command, `--deployment-container-image-name` points to the public Docker Hub image [microsoft/azure-appservices-go-quickstart](https://hub.docker.com/r/microsoft/azure-appservices-go-quickstart/).
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
@@ -75,6 +75,8 @@ Hello world!
 ```
 
 **Congratulations!** You've deployed a custom Docker image running a Go application to Web Apps for Containers.
+
+[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## Next steps
 
