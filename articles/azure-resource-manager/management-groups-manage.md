@@ -21,7 +21,7 @@ ms.author: rithorn
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or  you can use [Azure PowerShell](https://github.com/Azure/azure-powershell#microsoft-azure-powershell), [command-line tool](/cli/azure/install-azure-cli?view=azure-cli-latest), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to manage your management groups.
 
-To make changes to a management group, you must have an [Owner or Contributor role](../active-directory/role-based-access-control-what-is.md) on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../active-directory/role-based-access-control-what-is.md).
+To make changes to a management group, you must have an [Owner or Contributor role](../active-directory/role-based-access-control-what-is.md) on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more about RBAC Roles, see [Manage access and permissions with RBAC](../active-directory/role-based-access-control-what-is.md).
 
 ## Change the name of a management group 
 
