@@ -389,7 +389,7 @@ Approximate time to Complete: 15 minutes
 | Navigate to Azure AD Management Portal: Password Reset | [Azure AD Management Portal: Password Reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Determine the password reset policy. For POC purposes, you can use phone call and Q & A. It is recommended to enable registration to be required on log in to access panel |  |
 | Log out and log in as an information worker |  |
-| Supply the Self-Service Password Reset data as configured per step 2 | http://aka.ms/ssprsetup |
+| Supply the Self-Service Password Reset data as configured per step 2 | https://aka.ms/ssprsetup |
 | Close the browser |  |
 | Start over the login process as the information worker you used in step 4 |  |
 | Reset the password | [Update your own password: Reset my password](active-directory-passwords-update-your-own-password.md) |
@@ -440,7 +440,7 @@ Approximate time to Complete: 10 minutes
 | SaaS application has been already configured |  |
 | PoC users are already assigned to the application |  |
 | Credentials to the POC user are available |  |
-| POC user is registered for MFA. Using a phone with Good reception | http://aka.ms/ssprsetup |
+| POC user is registered for MFA. Using a phone with Good reception | https://aka.ms/ssprsetup |
 | Device in the internal network. IP Address configured in the internal address range | Find your ip address: https://www.bing.com/search?q=what%27s+my+ip |
 | Device in the external network (can be a phone using the carrier's mobile network) |  |
 
