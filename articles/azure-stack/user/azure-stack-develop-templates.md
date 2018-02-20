@@ -3,8 +3,8 @@ title: Develop templates for Azure Stack | Microsoft Docs
 description: Learn Azure Stack template best practices
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer:
 
 ---
 # Azure Resource Manager template considerations
