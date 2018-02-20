@@ -4,7 +4,7 @@ description: This topic describes how to manage the SQL Server agent extension, 
 services: virtual-machines-windows
 documentationcenter: ''
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

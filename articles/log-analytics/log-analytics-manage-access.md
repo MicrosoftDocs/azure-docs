@@ -58,10 +58,10 @@ You can view details about your workspace in the Azure portal.
 #### View workspace information in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **More services** found on the lower left-hand corner of the Azure portal.  In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
-    ![Azure hub](./media/log-analytics-manage-access/hub.png)  
-3. In the Log Analytics subscriptions blade, select a workspace.
-4. The workspace blade displays details about the workspace and links for additional information.  
+2. Click **All services**.  In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
+    ![Screenshot that shows the Azure left menu](./media/log-analytics-manage-access/hub.png)  
+3. In the Log Analytics subscriptions page, select a workspace.
+4. The workspace page displays details about the workspace and links for additional information.  
     ![workspace details](./media/log-analytics-manage-access/workspace-details.png)  
 
 

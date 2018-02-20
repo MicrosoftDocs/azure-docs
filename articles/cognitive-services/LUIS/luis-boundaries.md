@@ -35,11 +35,11 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanum and period (.) |
 
 ## Key limits
-The programmatic key has different limits for authoring and endpoint. The subscription key is only valid for endpoint queries.
+The authoring key has different limits for authoring and endpoint. The LUIS service subscription key is only valid for endpoint queries.
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
-|Programmatic/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
+|Authoring/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 
