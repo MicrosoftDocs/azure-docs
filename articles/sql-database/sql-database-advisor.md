@@ -70,11 +70,11 @@ After you apply this recommendation, it enables forced parameterization within m
 > Microsoft is currently deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](sql-database-intelligent-insights.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
 > 
 
-**Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your Azure SQL Database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
+**Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
 “Schema issues” are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema aren't aligned. For example, one of the columns that's expected by the query might be missing in the target table or vice-versa. 
 
-The “Fix schema issue” recommendation appears when the Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your Azure SQL Database. The following table shows the errors that are related to schema issues:
+The “Fix schema issue” recommendation appears when the Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. The following table shows the errors that are related to schema issues:
 
 | SQL error code | Message |
 | --- | --- |
