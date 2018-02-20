@@ -19,7 +19,26 @@ ms.author: mimig
 ---
 # Azure Cosmos DB diagnostic logging
 
-Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and/or export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), which is part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. 
+
+But before we get into monitoring, lets clarify few things. There are different types of Logs on the Azure platform. There are logs for AzureActivity, AzureDiagnostics, Azure Metrics, Event, heartbeat and operation etc there are plethora of more logs. You can see full list of logs in your [Azure Log Analytics] (https://azure.microsoft.com/en-us/services/log-analytics/) UI. 
+
+For our discussion lets focus on AzureActivity, Azure Diagnotic and Azure Metrics. So what is the difference between these three logs? 
+
+The Azure Activity Log is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log reports control-plane events for your subscriptions under Administrative category. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. 
+
+("./media/logging/azurelogging.png")
+Figure 1: Azure different logs
+
+The Activity Log differs from Diagnostic Logs. Activity Logs provide data about the operations on a resource from the outside (the "control plane"). In Azure CosmosDB context some of the control plane operations will be create collection, list keys, delete keys, list database etc. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane"). Some of the data plane diagnostic log examples will be delete, insert, readfeed operation etc.
+
+Activity Log (control plane) may be much more richer in nature, it may have caller full email, caller IP address, resource name, operation name and TenantId etc. The Activity Log contains several [categories] (https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) of data. For full details on the schemata of these categories, see this [article] (https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  However, Diagnostic logs can be restrictive in nature as more often PII data is stripped in  Diagnostic logs. So, you may have IP address of caller but the last octent is stripped off.
+
+Azure diagnostic logs are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. Resource-level diagnostic logs also differ from guest OS-level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside of a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, while guest OS-level diagnostic logs capture data from the operating system and applications running on a virtual machine.
+
+[Azure Metrics] (https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics), has the most important type of Azure telemetry data(also called performance counters) emitted by most Azure resources.
+
+Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and/or export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), which is part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
 
 ![Diagnostic logging to Storage, Event Hubs, or Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
