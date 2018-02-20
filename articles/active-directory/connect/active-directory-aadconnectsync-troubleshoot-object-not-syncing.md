@@ -20,6 +20,9 @@ ms.author: billmath
 
 If an object is not synchronizing as expected to Azure AD, then it can be because of several reasons. If you have received an error email from Azure AD or you see the error in Azure AD Connect Health, then read [troubleshoot export errors](active-directory-aadconnect-troubleshoot-sync-errors.md) instead. But if you are troubleshooting a problem where the object is not in Azure AD, then this topic is for you. It describes how to find errors in the on-premises component Azure AD Connect sync.
 
+>[!IMPORTANT]
+>For Azure Active Directory (AAD) Connect deployment with version <verison> or higher, use the [troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md) in the wizard to troubleshoot object synchronization issues. 
+
 To find the errors, you are going to look at a few different places in the following order:
 
 1. The [operation logs](#operations) for finding errors identified by the sync engine during import and synchronization.
@@ -32,7 +35,7 @@ Start [Synchronization Service Manager](active-directory-aadconnectsync-service-
 The operations tab in the Synchronization Service Manager is where you should start your troubleshooting. The operations tab shows the results from the most recent operations.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-The top half shows all runs in chronic order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
+The top half shows all runs in chronological order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
 
 The **Status** column is the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of priority to investigate (where * indicate several possible error strings).
 
