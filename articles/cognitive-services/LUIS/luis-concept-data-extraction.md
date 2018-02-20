@@ -15,10 +15,14 @@ ms.author: v-geberr;
 ## Data extraction
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
 
-## Data location
-LUIS provides the data from the published endpoint. The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. The **HTTPS response** contains all the information LUIS can determine based on the current published model of either the staging or production endpoint. 
+## Data location and key usage
+LUIS provides the data from the published endpoint. The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
 
-The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
+`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
+
+The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits).
+
+The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
 
 ## Data from intents
 The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the endpoint response is:
@@ -293,7 +297,7 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Data matching multiple entities
-LUIS will return all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have a lot of data, such as `book me 2 adult business tickets to paris tomorrow on air france`.
+LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities, such as `book me 2 adult business tickets to paris tomorrow on air france`.
 
 The LUIS endpoint can discover the same data in different entities: 
 
