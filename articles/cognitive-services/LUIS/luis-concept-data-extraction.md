@@ -296,8 +296,94 @@ Another example utterance, using a synonym for Paris:
 ]
 ```
 
+## Prebuilt entity data
+Prebuilt entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following is an example utterance with the returned prebuilt entities:
+
+`Dec 5th send to +1 360-555-1212`
+
+```JSON
+"entities": [
+    {
+      "entity": "dec 5th",
+      "type": "builtin.datetimeV2.date",
+      "startIndex": 0,
+      "endIndex": 6,
+      "resolution": {
+        "values": [
+          {
+            "timex": "XXXX-12-05",
+            "type": "date",
+            "value": "2017-12-05"
+          },
+          {
+            "timex": "XXXX-12-05",
+            "type": "date",
+            "value": "2018-12-05"
+          }
+        ]
+      }
+    },
+    {
+      "entity": "1",
+      "type": "builtin.number",
+      "startIndex": 18,
+      "endIndex": 18,
+      "resolution": {
+        "value": "1"
+      }
+    },
+    {
+      "entity": "360",
+      "type": "builtin.number",
+      "startIndex": 20,
+      "endIndex": 22,
+      "resolution": {
+        "value": "360"
+      }
+    },
+    {
+      "entity": "555",
+      "type": "builtin.number",
+      "startIndex": 26,
+      "endIndex": 28,
+      "resolution": {
+        "value": "555"
+      }
+    },
+    {
+      "entity": "1212",
+      "type": "builtin.number",
+      "startIndex": 32,
+      "endIndex": 35,
+      "resolution": {
+        "value": "1212"
+      }
+    },
+    {
+      "entity": "5th",
+      "type": "builtin.ordinal",
+      "startIndex": 4,
+      "endIndex": 6,
+      "resolution": {
+        "value": "5"
+      }
+    },
+    {
+      "entity": "1 360 - 555 - 1212",
+      "type": "builtin.phonenumber",
+      "startIndex": 18,
+      "endIndex": 35,
+      "resolution": {
+        "value": "1 360 - 555 - 1212"
+      }
+    }
+  ]
+``` 
+
 ## Data matching multiple entities
-LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities, such as `book me 2 adult business tickets to paris tomorrow on air france`.
+LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities in an utterance:
+
+`book me 2 adult business tickets to paris tomorrow on air france`
 
 The LUIS endpoint can discover the same data in different entities: 
 
