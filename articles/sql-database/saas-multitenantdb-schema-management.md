@@ -20,15 +20,15 @@ ms.author: genemi
 ---
 # Manage schema in a SaaS application using sharded multi-tenant SQL databases
 
-This tutorial examines the challenges in maintaining a fleet of databases in a Software as a Service (SaaS) application in the cloud. Solutions are demonstrated for fanning out schema changes that may be required during the life of an app across the fleet of databases.
+This tutorial examines the challenges in maintaining a fleet of databases in a Software as a Service (SaaS) application. Solutions are demonstrated for fanning out schema changes across the fleet of databases.
 
-As any application evolves, changes might occur to its table columns or other schema elements, or to its reference data, or to performance related items. With a SaaS app, these changes must be deployed in a coordinated manner across numerous existing tenant databases. These changes must also be included in future tenant databases that will be added to the app. Therefore the changes also must be incorporated into the process that provisions new databases.
+Like any application, the Wingtip Tickets SaaS app will evolve over time, and at times will require changes to the database. Changes may impact schema or reference data, or require database maintenance tasks to be applied. With a SaaS application using a database per tenant pattern, you must coordinate these actions across a potentially massive fleet of tenant databases. In addition, you must incorporate these changes into the database provisioning process to ensure they are included in new databases as they are created.
 
 #### Two scenarios
 
 This tutorial explores the following two scenarios:
 - Deploy reference data updates for all tenants.
-- Retuning an index on the table that contains the reference data.
+- Rebuild an index on the table that contains the reference data.
 
 The [Elastic Jobs](sql-database-elastic-jobs-overview.md) feature of Azure SQL Database is used to execute these operations across tenant databases. The jobs also operate on the 'template' tenant database. In the Wingtip Tickets sample app, this template database is copied to provision a new tenant database.
 
@@ -56,7 +56,7 @@ In this tutorial you learn how to:
 
 ## Introduction to SaaS schema management patterns
 
-The sharded multi-tenant database model used in this sample enables a tenants database to contain one or more tenants. This sample explores the potential to use a mix of a many-tenant and one-tenant databases, enabling a *hybrid* tenant management model. Managing these databases is complicated. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of the SQL data tier. Jobs enable you to securely and reliably run Transact-SQL scripts as tasks, against a group of tenant databases. The tasks are independent of user interaction or input. This method can be used to deploy changes to schema or to common reference data, across all tenants in an application. Elastic Jobs can also be used to maintain a golden template copy of the database. The template is used to create new tenants, always ensuring the latest schema and reference data are in use.
+The sharded multi-tenant database model used in this sample enables a tenants database to contain one or more tenants. This sample explores the potential to use a mix of a many-tenant and one-tenant databases, enabling a *hybrid* tenant management model. Managing changes to these databases can be complicated. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of large numbers of database. Jobs enable you to securely and reliably run Transact-SQL scripts as tasks, against a group of tenant databases. The tasks are independent of user interaction or input. This method can be used to deploy changes to schema or to common reference data, across all tenants in an application. Elastic Jobs can also be used to maintain a golden template copy of the database. The template is used to create new tenants, always ensuring the latest schema and reference data are in use.
 
 ![screen](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -77,34 +77,36 @@ This tutorial requires that you use PowerShell to create the job account databas
 1. In **PowerShell ISE**, open *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Press **F5** to run the script.
 
-The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a tier *S2* database named **jobaccount** on the catalog server. The script then creates the job account, passing the jobaccount database as a parameter to the job account creation call.
+The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a database named _jobaccount_ on the catalog server. The script then creates the job account, passing the _jobaccount_ database as a parameter.
 
 ## Create a job to deploy new reference data to all tenants
 
 #### Prepare
 
-Each tenants database includes a set of venue types in the **VenueTypes** table. The venue types define the kind of events that are hosted at a venue. In this exercise, you deploy an update to all databases to add two additional venue types: *Motorcycle Racing* and *Swimming Club*. These venue types correspond to the background image you see in the tenant events app.
+Each tenants database includes a set of venue types in the **VenueTypes** table. Each venue type defines the kind of events that can be hosted at a venue. These venue types correspond to the background images you see in the tenant events app.  In this exercise, you deploy an update to all databases to add two additional venue types: *Motorcycle Racing* and *Swimming Club*. 
 
-Before you deploy the new reference data, note the number of venue types that already exist, which might be 10. Take note by clicking the following link to the Wingtip web UI, and then clicking the **Venue Type** drop-down menu:
-- http://events.wingtip-mt.<USER>.trafficmanager.net
+First, review the venue types included in each tenant database. To do this, connect to one of the tenant databases in SQL Server Management Studio (SSMS) and inspect the VenueTypes table.  You can also query this table in the Query editor in the Azure portal, accessed from the database page. 
 
-Now you can count the number of original venue types. In particular, note that neither *Motorcycle Racing* nor *Swimming Club* yet exist.
+1. Open SSMS and connect to the tenant server: *tenants1-dpt-&lt;user&gt;.database.windows.net*
+1. To confirm that *Motorcycle Racing* and *Swimming Club* **are not** currently included, browse to the *contosoconcerthall* database on the *tenants1-dpt-&lt;user&gt;* server and query the *VenueTypes* table.
+
+
 
 #### Steps
 
 Now you create a job to update the **VenueTypes** table in each tenants database, by adding the two new venue types.
 
-To create a new job, you use the set of jobs system stored procedures that were created in the *jobaccount* database. The procedures were created when the job account was created.
+To create a new job, you use the set of jobs system stored procedures that were created in the _jobaccount_ database. The procedures were created when the job account was created.
 
-1. In SSMS, connect to the tenant server: tenants1-mt-\<user\>.database.windows.net
+1. In SSMS, connect to the tenant server: tenants1-mt-&lt;user&gt;.database.windows.net
 
-2. Browse to the *tenants1* database on the *tenants1-mt-\<user\>.database.windows.net* server.
+2. Browse to the *tenants1* database.
 
 3. Query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* are not yet in the results list.
 
-4. Connect to the catalog server, which is *catalog-mt-\<user\>.database.windows.net*.
+4. Connect to the catalog server, which is *catalog-mt-&lt;user&gt;.database.windows.net*.
 
-5. Connect to the *jobaccount* database in the catalog server.
+5. Connect to the _jobaccount_ database in the catalog server.
 
 6. In SSMS, open the file *...\\Learning Modules\\Schema Management\\DeployReferenceData.sql*.
 
@@ -121,23 +123,23 @@ Observe the following items in the *DeployReferenceData.sql* script:
 - **sp\_add\_target\_group\_member** adds the following items:
     - A *server* target member type.
         - This is the *tenants1-mt-&lt;user&gt;* server that contains the tenants databases.
-        - Thus all databases in the server are included in the job when the job executes.
-    - A *database* target member type for the golden database (*basetenantdb*) that resides on *catalog-mt-&lt;user&gt;* server,
+        - Including the server includes the tenant databases that exist at the time the job executes.
+    - A *database* target member type for the template database (*basetenantdb*) that resides on *catalog-mt-&lt;user&gt;* server,
     - A *database* target member type to include the *adhocreporting* database that is used in a later tutorial.
 
 - **sp\_add\_job** creates a job called *Reference Data Deployment*.
 
 - **sp\_add\_jobstep** creates the job step containing T-SQL command text to update the reference table, VenueTypes.
 
-- The remaining views in the script display the existence of the objects and monitor job execution. Use these queries to review the status value in the **lifecycle** column to determine when the job has successfully finished. The job updates the tenants database, and updates the two additional databases that contain the reference table.
+- The remaining views in the script display the existence of the objects and monitor job execution. Use these queries to review the status value in the **lifecycle** column to determine when the job has  finished. The job updates the tenants database, and updates the two additional databases that contain the reference table.
 
 In SSMS, browse to the tenant database on the *tenants1-mt-&lt;user&gt;* server. Query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* are now added to the table. The total count of venue types should have increased by two.
 
 ## Create a job to manage the reference table index
 
-This exercise is similar to the previous exercise. This exercise creates a job to rebuild the index on the reference table primary key. An index rebuild is a typical database management operation that an administrator might run after a large data load into a table, to improve performance.
+This exercise creates a job to rebuild the index on the reference table primary key on all the tenant databases. An index rebuild is a typical database management operation that an administrator might run after loading a large amount of data load, to improve performance.
 
-1. In SSMS, connect to *jobaccount* database in *catalog-mt-&lt;User&gt;.database.windows.net* server.
+1. In SSMS, connect to _jobaccount_ database in *catalog-mt-&lt;User&gt;.database.windows.net* server.
 
 2. In SSMS, open *...\\Learning Modules\\Schema Management\\OnlineReindex.sql*.
 

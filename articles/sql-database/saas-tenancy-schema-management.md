@@ -23,7 +23,7 @@ ms.author: billgib; sstein
 
 The [first Wingtip Tickets SaaS database per tenant tutorial](saas-dbpertenant-get-started-deploy.md) shows how to provision a tenant database and register it in the catalog. Like any application, the Wingtip Tickets SaaS app will evolve over time, and at times will require changes to the database. Changes may impact schema or reference data, or require database maintenance tasks to be applied. With a SaaS application using a database per tenant pattern, you must coordinate these actions across a potentially massive fleet of tenant databases. In addition, you must incorporate these changes into the database provisioning process to ensure they are included in new databases as they are created.
 
-This tutorial explores two scenarios - deploying reference data updates for all tenants, and retuning an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these actions on all tenants, and on the database that is used as a template for creating new databases.
+This tutorial explores two scenarios - deploying reference data updates for all tenants, and rebuilding an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these actions on all tenants, and on the database that is used as a template for creating new databases.
 
 In this tutorial you learn how to:
 
