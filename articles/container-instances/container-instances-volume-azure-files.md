@@ -80,7 +80,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding example if you receive a `DNS name label` error message when you execute the command.
+The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding command if you receive a **DNS name label** error message when you execute the command.
 
 ## Manage files in mounted volume
 
