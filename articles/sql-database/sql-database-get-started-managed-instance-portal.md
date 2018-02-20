@@ -1,6 +1,6 @@
 ---
 title: 'Azure portal: Create a SQL Managed Instance | Microsoft Docs'
-description: Create an Azure SQL Database Managed Instance.
+description: Create an Azure SQL Database Managed Instance and use SSMS to restore the Wide World Importers database backup.
 keywords: sql database tutorial, create a sql database managed instance
 documentationcenter: ''
 author: CarlRabeler
@@ -18,7 +18,7 @@ ms.author: carlrab
 ---
 # Create an Azure SQL Database Managed Instance in the Azure portal
 
-This quick start tutorial walks through how to create an Azure SQL Database Managed Instance using the Azure portal.
+This quick start tutorial walks through creating an Azure SQL Database Managed Instance using the Azure portal in a dedicated subnet of a virtual network (VNET), connecting to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNET, and then restoring a backup of the Wide World Importers database into the Managed Instance.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -31,12 +31,25 @@ Log in to the [Azure portal](https://portal.azure.com/).
 Managed Instance is being released initially as a limited public preview that requires your subscription to be whitelisted. If your subscription is not already whitelisted, use the following steps to be offered and accept preview terms and send a request for whitelisting.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Select **SQL Database Managed Instance** and complete the requested preview information.
-<!---will add more when I understand this step as it will appear when public preview goes live --->
+2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
+3. Click **Create**.
+
+   ![managed instance create](./media/sql-database-managed-instance-quickstart/managed-instance-create.png)
+
+3. Select your subscription, click **Preview terms**, and then provide the requested information.
+
+   ![managed instance preview terms](./media/sql-database-managed-instance-quickstart/preview-terms.png)
+
+5. Click **OK** when completed.
+
+   ![managed instance preview terms](./media/sql-database-managed-instance-quickstart/preview-approval-pending.png)
+
+> [!NOTE]
+> While awaiting preview approval, you can continue and complete the next few sections of this quickstart tutorial.
 
 ## Configure a virtual network (VNET)
 
-Managed Instance requires an [Azure Resource Manager (ARM)](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNET). Managed Instance must be provisioned in a dedicated subnet of the provided VNET. The following steps show you how to create a new VNET/subnet. The notes within this section show you how to make sure your existing VNET/sybnet is in a valid state if you wish to use an existing VNET.
+The following steps show you how to create a new [Azure Resource Manager (ARM)](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNET) for use by your Managed Instance. 
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Virtual Network**, verify the **Resource Manager** is selected as the deployment mode, and then click **Create**.
