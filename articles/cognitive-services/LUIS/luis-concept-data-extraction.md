@@ -12,7 +12,7 @@ ms.date: 02/20/2018
 ms.author: v-geberr;
 ---
 
-## Data extraction
+# Data extraction
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
 
 ## Data location and key usage
