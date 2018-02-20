@@ -160,7 +160,7 @@ Ensure that all of your resources are set up with diagnostic settings. Navigate 
 
 ![Diagnostic Logs blade in the portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-You may have to click "More services" to find the Monitor section.
+You may have to click "All services" to find the Monitor section.
 
 Here you can view and filter all resources that support diagnostic settings to see if they have diagnostics enabled. You can also drill down to see if multiple settings are set on a resource and check which storage account, Event Hubs namespace, and/or Log Analytics workspace that data are flowing to.
 

@@ -5,54 +5,50 @@ services: site-recovery
 documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: ''
-
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
 
 ---
 # Use Azure Site Recovery to protect Active Directory and DNS
-Enterprise applications such as SharePoint, Dynamics AX, and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you create a disaster recovery solution for applications, to ensure correct application functionality, you often need to recover Active Directory and DNS before you recover other application components.
 
-You can use Azure Site Recovery to create a complete, automated disaster recovery plan for Active Directory. When a disruption occurs, you can initiate a failover within seconds from anywhere. You can have Active Directory up and running in a few minutes. If you have deployed Active Directory for multiple applications in your primary site, for example, for SharePoint and SAP, you might want to fail over the complete site. You can first fail over Active Directory by using Site Recovery. Then, fail over the other applications by using application-specific recovery plans.
+Enterprise applications such as SharePoint, Dynamics AX, and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you set up disaster recovery for applications,  you often need to recover Active Directory and DNS before you recover other application components, to ensure correct application functionality.
 
-This article explains how to create a disaster recovery solution for Active Directory, how to perform failovers by using a one-click recovery plan, and supported configurations and prerequisites. You should be familiar with Active Directory and Azure Site Recovery before you begin.
+You can use [Site Recovery](site-recovery-overview.md) to create a disaster recovery plan for Active Directory. When a disruption occurs, you can initiate a failover. You can have Active Directory up and running in a few minutes. If you have deployed Active Directory for multiple applications in your primary site, for example, for SharePoint and SAP, you might want to fail over the complete site. You can first fail over Active Directory using ite Recovery. Then, fail over the other applications, using application-specific recovery plans.
+
+This article explains how to create a disaster recovery solution for Active Directory. It includes prerequisites, and failover instructions. You should be familiar with Active Directory and Site Recovery before you begin.
 
 ## Prerequisites
-* An Azure Recovery Services vault in a Microsoft Azure subscription.
-* If you're replicating to Azure, [prepare](tutorial-prepare-azure.md) Azure resources. The resources include an Azure subscription, an instance of Azure Virtual Network, and an Azure storage account.
-* Review the support requirements for all components.
+
+* If you're replicating to Azure, [prepare Azure resources](tutorial-prepare-azure.md), including a subscription, an Azure Virtual Network, a storage account, and a Recovery Services vault.
+* Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
 
 ## Replicate the domain controller
 
-You must set up [Site Recovery replication](#enable-protection-using-site-recovery) on at least one virtual machine that hosts a domain controller or DNS. If you have [multiple domain controllers](#environment-with-multiple-domain-controllers) in your environment, you also must set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site. The additional domain controller can be in Azure or in a secondary on-premises datacenter.
+You must set up [Site Recovery replication](#enable-protection-using-site-recovery), on at least one VM that hosts a domain controller or DNS. If you have [multiple domain controllers](#environment-with-multiple-domain-controllers) in your environment, you also must set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site. The additional domain controller can be in Azure, or in a secondary on-premises datacenter.
 
-### Single-domain controller environments
+### Single-domain controller
 If you have only a few applications and one domain controller, you might want to fail over the entire site together. In this case, we recommend using Site Recovery to replicate the domain controller to the target site (either in Azure or in a secondary on-premises datacenter). You can use the same replicated domain controller or DNS virtual machine for [test failover](#test-failover-considerations).
 
-### Multiple domain controllers environments
+### Multiple domain controllers
 If you have many applications and more than one domain controller in your environment, or if you plan to fail over a few applications at a time, in addition to replicating the domain controller virtual machine with Site Recovery, we recommend that you set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (either in Azure or in a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you can use domain controller that's replicated by Site Recovery. For failover, you can use the additional domain controller on the target site.
 
-## Enable protection by using Site Recovery
+## Enable protection with Site Recovery
 
 You can use Site Recovery to protect the virtual machine that hosts the domain controller or DNS.
 
-### Protect the virtual machine
+### Protect the VM
 The domain controller that is replicated by using Site Recovery is used for [test failover](#test-failover-considerations). Ensure that it meets the following requirements:
 
 1. The domain controller is a global catalog server.
 2. The domain controller should be the FSMO role owner for roles that are needed during a test failover. Otherwise, these roles will need to be [seized](http://aka.ms/ad_seize_fsmo) after the failover.
 
-### Configure virtual machine network settings
+### Configure VM network settings
 For the virtual machine that hosts the domain controller or DNS, in Site Recovery, configure network settings under the **Compute and Network** settings of the replicated virtual machine. This ensures that the virtual machine is attached to the correct network after failover.
 
-## Protect Active Directory with Active Directory replication
+## Protect Active Directory
+
 ### Site-to-site protection
 Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often it occurs. For more information, see [Scheduling replication between sites](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -88,7 +84,7 @@ Most applications require the presence of a domain controller or a DNS server. T
 
 ### Test failover to a secondary site
 
-1. If you're replicating to another on-premises site and you use DHCP, follow the instructions to [set up DNS and DHCP for test failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. If you're replicating to another on-premises site and you use DHCP, [set up DNS and DHCP for test failover](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Do a test failover of the domain controller virtual machine that runs in the isolated network. Use the latest available *application consistent* recovery point of the domain controller virtual machine to do the test failover.
 3. Run a test failover for the recovery plan that contains virtual machines that the application runs on.
 4. When testing is complete, *clean up the test failover* on the domain controller virtual machine. This step deletes the domain controller that was created for test failover.

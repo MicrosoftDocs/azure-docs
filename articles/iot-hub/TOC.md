@@ -38,9 +38,6 @@
 ### [Device management with IoT extension for Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-## Use MXChip IoT DevKit
-### [Use Azure IoT Suite for remote monitoring](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
-
 # How-to guides
 ## Plan
 ### [Compare IoT Hub and Event Hubs](iot-hub-compare-event-hubs.md)
@@ -113,11 +110,13 @@
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java back end/Java device](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python back end/Python device](iot-hub-python-python-twin-how-to-configure.md)
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java back end/Java device](iot-hub-java-java-firmware-update.md)
+#### [Python back end/Python device](iot-hub-python-python-firmware-update.md)
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
