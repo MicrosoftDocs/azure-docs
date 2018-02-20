@@ -17,10 +17,10 @@ ms.author: billmath
 
 ---
 # Azure Active Directory Connect sync: Configure preferred data location for Office 365 resources
-The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect Sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
+The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
 
 > [!IMPORTANT]
-> Multi-Geo is currently in preview. If you would like to join the preview program, contact your Microsoft representative.
+> Multi-Geo is currently in preview. If you want to join the preview program, contact your Microsoft representative.
 >
 >
 
@@ -59,7 +59,7 @@ The geos in Office 365 available for Multi-Geo are:
 Azure AD Connect supports synchronization of the **preferredDataLocation** attribute for **User** objects in version 1.1.524.0 and later. Specifically:
 
 * The schema of the object type **User** in the Azure AD Connector is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
-* The schema of the object type **Person** in the Metaverse is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
+* The schema of the object type **Person** in the metaverse is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
 
 By default, **preferredDataLocation** is not enabled for synchronization. This feature is intended for larger organizations. You must also identify an attribute to hold the Office 365 geo for your users, because there is no **preferredDataLocation** attribute in on-premises Active Directory. This is going to be different for each organization.
 
@@ -91,7 +91,7 @@ To avoid unintended changes being exported to Azure AD, ensure that no synchroni
 
 ![Screenshot of Synchronization Service Manager](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## Step 2: Add the source attribute to the on-premises Azure Active Directory Domain Services connector schema
+## Step 2: Add the source attribute to the on-premises Azure Active Directory Domain Services Connector schema
 Not all Azure AD attributes are imported into the on-premises Azure AD Connector space. If you have selected to use an attribute that is not synchronized by default, then you need to import it. To add the source attribute to the list of the imported attributes:
 
 1. Select the **Connectors** tab in the Synchronization Service Manager.
@@ -114,7 +114,7 @@ By default, the **preferredDataLocation** attribute is not imported into the Azu
 ![Screenshot of Synchronization Service Manager and Properties dialog box](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
 ## Step 4: Create an inbound synchronization rule
-The inbound synchronization rule permits the attribute value to flow from the source attribute in the on-premises Active Directory to the Metaverse.
+The inbound synchronization rule permits the attribute value to flow from the source attribute in the on-premises Active Directory to the metaverse.
 
 1. Start the **Synchronization Rules Editor** by going to **START** > **Synchronization Rules Editor**.
 2. Set the search filter **Direction** to be **Inbound**.
@@ -131,7 +131,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
     | Link Type | **Join** |  |
     | Precedence | *Choose a number between 1–99* | 1–99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
 
-5. Keep the **Scoping filter** empty, to include all objects. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
+5. Keep the **Scoping filter** empty, to include all objects. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
 6. Go to the **Transformation tab**, and implement the following transformation rule:
 
     | Flow type | Target attribute | Source | Apply once | Merge type |
@@ -143,7 +143,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
 ![Screenshot of Create inbound synchronization rule](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
 ## Step 5: Create an outbound synchronization rule
-The outbound synchronization rule permits the attribute value to flow from the Metaverse to the **preferredDataLocation** attribute in Azure AD:
+The outbound synchronization rule permits the attribute value to flow from the metaverse to the **preferredDataLocation** attribute in Azure AD:
 
 1. Go to the **Synchronization Rules Editor**.
 2. Set the search filter **Direction** to be **Outbound**.
@@ -154,7 +154,7 @@ The outbound synchronization rule permits the attribute value to flow from the M
     | ----- | ------ | --- |
     | Name | *Provide a name* | For example, “Out to Azure AD – User preferredDataLocation” |
     | Description | *Provide a description* ||
-    | Connected System | *Select the Azure AD connector* ||
+    | Connected System | *Select the Azure AD Connector* ||
     | Connected System Object Type | **User** ||
     | Metaverse Object Type | **Person** ||
     | Link Type | **Join** ||
@@ -167,7 +167,7 @@ The outbound synchronization rule permits the attribute value to flow from the M
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
-    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to AD – User Identity” OOB synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from an on-premises Active Directory. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
+    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from an on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation** tab, and implement the following transformation rule:
 
@@ -200,7 +200,7 @@ In general, full synchronization cycle is required. This is because you have add
 
 3. Verify the synchronization rule changes on an existing **User** object.
 
-   The source attribute from on-premises Active Directory, and **preferredDataLocation** from Azure AD, have been imported into each respective connector space. Before proceeding with the full synchronization step, do a preview on an existing **User** object in the on-premises AD connector space. The object you picked should have the source attribute populated. A successful preview with **preferredDataLocation** populated in the Metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a preview, see [Verify the change](active-directory-aadconnectsync-change-the-configuration.md#verify-the-change).
+   The source attribute from on-premises Active Directory, and **preferredDataLocation** from Azure AD, have been imported into each respective connector space. Before proceeding with the full synchronization step, do a preview on an existing **User** object in the on-premises AD Connector space. The object you picked should have the source attribute populated. A successful preview with **preferredDataLocation** populated in the metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a preview, see [Verify the change](active-directory-aadconnectsync-change-the-configuration.md#verify-the-change).
 
 4. Run **Full Synchronization** on the on-premises AD Connector:
 
@@ -225,7 +225,7 @@ In general, full synchronization cycle is required. This is because you have add
    3. Wait for the operation to complete.
 
 > [!NOTE]
-> You may notice that the steps do not include the full synchronization step on the Azure AD connector, or the export step on the AD connector. The steps are not required, because the attribute values are flowing from on-premises Active Directory to Azure AD only.
+> You might notice that the steps do not include the full synchronization step on the Azure AD Connector, or the export step on the AD Connector. The steps are not required, because the attribute values are flowing from on-premises Active Directory to Azure AD only.
 
 ## Step 7: Re-enable sync scheduler
 Re-enable the built-in sync scheduler:
