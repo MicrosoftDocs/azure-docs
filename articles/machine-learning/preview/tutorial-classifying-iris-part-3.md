@@ -134,7 +134,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
 2. Create the environment. You must run this step once per environment. For example, run it once for the development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
 
-   Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command by using the `-g` flag. 
+   The following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command by using the `-g` flag. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -274,11 +274,10 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 2. To test the service, execute the returned service run command.
 
-    
    ```azurecli
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
-   The output is "2", which is the predicted class. Your result might be different. 
+    The output is "2", which is the predicted class. Your result might be different. 
 
 3. To run the service from outside the CLI, you need to get the keys for authentication.
 
