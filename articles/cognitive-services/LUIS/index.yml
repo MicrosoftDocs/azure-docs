@@ -46,7 +46,7 @@ sections:
       - title: Create app with intents and entities
         values:
         - href: luis-quickstart-primary-and-secondary-data
-      - title: Create app from Prebuilt domain
+      - title: Create app from prebuilt domain
         values:
         - href: luis-get-started-create-app
       - title: Endpoint API
@@ -91,6 +91,6 @@ sections:
       html: <p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring API</a></p>
     - title: SDKs
       html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
-    - title: Code Samples
+    - title: Code samples
       html: <p><a href="https://aka.ms/luis-code-samples"> Code Samples</a></p>
       
