@@ -26,9 +26,6 @@ This guide shows you how to perform common scenarios using the Azure Storage Tab
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-
 ## Create an Azure service account
 
 You can work with tables using Azure Table storage or Azure Cosmos DB. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
@@ -49,7 +46,7 @@ For instructions on creating an Azure Cosmos DB account, see [Create a Table API
 
 The only requirement to create a PHP application to access the Storage Table service or Azure Cosmos DB Table API is to reference classes in the azure-storage-table SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you use Storage Table service or Azure Comsos DB features that can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+In this guide, you use Storage Table service or Azure Cosmos DB features that can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Storage Table service client library
 
@@ -91,14 +88,14 @@ To instantiate a Storage Table service client, you must first have a valid conne
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-## Configure an Azure Comsos DB connection
+## Configure an Azure Cosmos DB connection
 To instantiate an Azure Cosmos DB Table API client, you must first have a valid connection string. The format for the Azure Cosmos DB connection string is:
 
 ```php
 $connectionString="DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
-## Configure an Azure Storage Emulator connection
+## Configure an Azure Storage emulator connection
 To access the emulator storage:
 
 ```php
