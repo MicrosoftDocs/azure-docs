@@ -91,8 +91,6 @@ sections:
       html: <p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring API</a></p>
     - title: SDKs
       html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
-    - title: Package Managers
-      html: <p><a href="https://aka.ms/bf-v4-NPM-package"> NPM</a></p><p><a href="https://aka.ms/bf-v4-nuget-package">NuGet</a></p>
     - title: Code Samples
       html: <p><a href="https://aka.ms/luis-code-samples"> Code Samples</a></p>
       
