@@ -119,6 +119,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |7.1|The metadata that you submit with your app or add-in must be accurate. For information about common mistakes to avoid, see [How can I avoid errors when submitting my app or add-in to AppSource?](office-store-submission-faq.md#bk_q2) in [AppSource submission FAQ](office-store-submission-faq.md).|
 |7.2|Your app or add-in must have a unique name.|
 |7.3|Your app or add-in's title, description, and images must reflect its functionality, and may not mislead the user. If you make changes to your app or add-in such that the functionality does not match the description, you must resubmit your app or add-in. |
+|7.3.1| The images submitted with your app or add-in must reflect its functionality, and must not mislead the user. They should be legible and clearly show the value propisition of the app or add-in. For more information about best practices for image, see  [Craft effective AppSource images](https://docs.microsoft.com/en-us/office/dev/store/craft-effective-appsource-store-image).
 |7.4|Your app or add-in title and short description must convey its purpose. Do not rely exclusively on familiarity with a brand or service to convey the purpose of your app or add-in. |
 |7.4.1|You must localize your app or add-in metadata (descriptions, screenshots, title) to be easily understood for each submitted languages.|
 |7.4.2|The primary language selected when you submit your add-in must be one of the supported languages within your add-in's functionality as declared in your add-in's manifest. |
@@ -209,7 +210,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |:-----|:-----|
 |13.1|Power BI custom visuals must be free and may not offer additional purchase.|
 |13.2|Power BI custom visuals submitted to AppSource must be accompanied by a sample file included in the same location as the pbviz file, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
-|13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
+|13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
 |13.4|Your custom visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
 
 ## 14. Microsoft Teams apps
@@ -225,11 +226,11 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.5.1|For tabs, if a response to an action takes more than three seconds, you must provide a loading message or warning.|
 |14.5.2|For bots, a response to a user command must occur within two seconds. If longer processing is required, you must use a typing indicator.|
 |14.5.3|For compose extensions, a response to a user command must occur within five seconds.|
-|14.6|Your Microsoft Teams app must be fully functional on the following operating systems and browsers:<br/><br/>Window 7 and later<br/>Mac 10.10 and later<br/>Microsoft Edge 12 and later<br/>Internet Explorer 11 and later<br/>Firefox 47.0 and later<br/>Chrome 51.0 and later<br/><br/>Your bot experience must be fully function on iOS (9.0 and later), Android (4.4 and later), and Windows Phone (10.0.10586 and later).|
+|14.6|Your Microsoft Teams app must be fully functional on the following operating systems and browsers:<br/><br/>Window 7 and later<br/>Mac 10.10 and later<br/>Microsoft Edge 12 and later<br/>Firefox 47.0 and later<br/>Chrome 51.0 and later<br/><br/>Your bot experience must be fully function on iOS (9.0 and later), Android (4.4 and later), and Windows Phone (10.0.10586 and later).|
 |14.7|You must submit a Terms of Service link.|
 |14.8|For bots and compose extensions, you will need to ensure that you follow the privacy notice requirements as communicated in the [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.9|Your bot and compose extension must operate in accordance with the requirements set forth in the [Microsoft Bot Framework Online Services Agreement](https://www.botframework.com/Content/Microsoft-Bot-Framework-Preview-Online-Services-Agreement.htm) and [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
-|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.0.|
+|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.2.|
 |14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|
 |14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
