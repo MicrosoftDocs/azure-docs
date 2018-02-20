@@ -150,8 +150,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 11. After clicking the save button, the screen will be like this:
 	
 	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
-
+	> [!NOTE] 
+	> In order to complete the following step, you must first add yourself as a user to the Rollbar app in Azure.
 	a. If you want to require all users to authenticate via Azure, then click **log in via your identity provider** to re-authenticate via Azure.  
+
 	b.  Once you're returned to the screen, select the **Require login via SAML Identity Provider** checkbox.
 
 	b. Click **Save**.
