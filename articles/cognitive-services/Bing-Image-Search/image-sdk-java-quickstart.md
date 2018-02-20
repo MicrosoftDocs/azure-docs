@@ -19,13 +19,13 @@ The Bing Image Search SDK contains the functionality of the REST API for image q
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
 Install Bing Image Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
 ```
-  <dependencies>
+ <dependencies>
     <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>
       <artifactId>azure-cognitiveservices-imagesearch</artifactId>
       <version>0.0.1-beta-SNAPSHOT</version>
     </dependency>
-  </dependencies> 
+ </dependencies> 
 ```
 ## Image Search client
 Add imports to the class implementation:
@@ -396,7 +396,9 @@ Add the previous methods to a class with main function to run the code:
 		imageTrending("YOUR-SUBSCRIPTION-KEY");
 		imageDetail("YOUR-SUBSCRIPTION-KEY");
 
-	// Add methods previously documented.
+    // Include methods documented previously.
+}
+
 ```
 ## Next steps
 
