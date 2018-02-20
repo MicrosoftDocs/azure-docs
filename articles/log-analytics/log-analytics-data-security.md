@@ -23,12 +23,12 @@ This article explains how data is collected, processed, and secured by Log Analy
 
 The Log Analytics service manages your cloud-based data securely by using the following methods:
 
-* data segregation
-* data retention
-* physical security
-* incident management
-* compliance
-* security standards certifications
+* Data segregation
+* Data retention
+* Physical security
+* Incident management
+* Compliance
+* Security standards certifications
 
 Contact us with any questions, suggestions, or issues about any of the following information, including our security policies at [Azure support options](http://azure.microsoft.com/support/options/).
 
@@ -63,24 +63,24 @@ The following table shows examples of data types:
 | State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## Physical security
-The Log Analytics service is managed by Microsoft personnel and all activities are logged and can be audited. Log Analytics is operated as an Azure Service and meets all Azure Compliance and Security requirements. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Physical access rights to secure areas are changed within one business day for anyone who no longer has responsibility for the OMS service, including transfer and termination. You can read about the global physical infrastructure we use at [Microsoft Datacenters](https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx).
+The Log Analytics service is managed by Microsoft personnel and all activities are logged and can be audited. Log Analytics is operated as an Azure Service and meets all Azure Compliance and Security requirements. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Physical access rights to secure areas are changed within one business day for anyone who no longer has responsibility for the OMS service, including transfer and termination. You can read about the global physical infrastructure we use at [Microsoft Datacenters](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx).
 
 ## Incident management
 OMS has an incident management process that all Microsoft services adhere to. To summarize, we:
 
 * Use a shared responsibility model where a portion of security responsibility belongs to Microsoft and a portion belongs to the customer
-* Manage Azure security incidents
+* Manage Azure security incidents:
   * Start an investigation upon detection of an incident
   * Assess the impact and severity of an incident by an on-call incident response team member. Based on evidence, the assessment may or may not result in further escalation to the security response team.
   * Diagnose an incident by security response experts to conduct the technical or forensic investigation, identify containment, mitigation, and workaround strategies. If the security team believes that customer data may have become exposed to an unlawful or unauthorized individual, parallel execution of the Customer Incident Notification process begins in parallel.  
   * Stabilize and recover from the incident. The incident response team creates a recovery plan to mitigate the issue. Crisis containment steps such as quarantining impacted systems may occur immediately and in parallel with diagnosis. Longer term mitigations may be planned which occur after the immediate risk has passed.  
   * Close the incident and conduct a post-mortem. The incident response team creates a post-mortem that outlines the details of the incident, with the intention to revise policies, procedures, and processes to prevent a recurrence of the event.
-* Notify customers of security incidents
+* Notify customers of security incidents:
   * Determine the scope of impacted customers and to provide anybody who is impacted as detailed a notice as possible
   * Create a notice to provide customers with detailed enough information so that they can perform an investigation on their end and meet any commitments they have made to their end users while not unduly delaying the notification process.
   * Confirm and declare the incident, as necessary.
   * Notify customers with an incident notification without unreasonable delay and in accordance with any legal or contractual commitment. Notifications of security incidents are delivered to one or more of a customer's administrators by any means Microsoft selects, including via email.
-* Conduct team readiness and training
+* Conduct team readiness and training:
   * Microsoft personnel are required to complete security and awareness training, which helps them to identify and report suspected security issues.  
   * Operators working on the Microsoft Azure service have addition training obligations surrounding their access to sensitive systems hosting customer data.
   * Microsoft security response personnel receive specialized training for their roles
@@ -90,7 +90,7 @@ If loss of any customer data occurs, we notify each customer within one day. How
 For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
 
 ## Compliance
-The Log Analytics software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx). How Log Analytics establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review polices, standards, procedures, and guidelines.
+The Log Analytics software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). How Log Analytics establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review polices, standards, procedures, and guidelines.
 
 Each development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
@@ -108,10 +108,10 @@ Azure Log Analytics meets the following requirements:
 * [ISO 22301](https://azure.microsoft.com/en-us/blog/iso22301/)
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant
-* [HIPAA and HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) for companies that have a HIPAA Business Associate Agreement
+* [HIPAA and HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) for companies that have a HIPAA Business Associate Agreement
 * Windows Common Engineering Criteria
 * Microsoft Trustworthy Computing
-* As an Azure service, the components that Log Analytics uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
+* As an Azure service, the components that Log Analytics uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
 
 > [!NOTE]
 > In some certifications/attestations, Log Analytics is listed under its former name of *Operational Insights*.
