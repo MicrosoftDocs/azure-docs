@@ -53,7 +53,7 @@ To deploy your container image from the container registry with a resource reque
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrLoginServer> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding example if you receive a `DNS name label` error message when you execute the command.
+Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding example if you receive a **DNS name label** error message when you execute the command.
 
 To view the state of the deployment, use [az container show][az-container-show]:
 
@@ -65,15 +65,15 @@ Repeat the [az container show][az-container-show] command until the state change
 
 ## View the application and container logs
 
-Once the deployment succeeds, display the container's public IP address with the [az container show][az-container-show] command:
+Once the deployment succeeds, display the container's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Example output: `"13.88.176.27"`
+Example output: `"aci-demo.eastus.azurecontainer.io"`
 
-To see the running application, navigate to the public IP address in your favorite browser.
+To see the running application, navigate to the displayed DNS name in your favorite browser:
 
 ![Hello world app in the browser][aci-app-browser]
 

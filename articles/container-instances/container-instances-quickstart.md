@@ -51,7 +51,7 @@ Within a few seconds, you should get a response to your request. Initially, the 
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-At the bottom of the output, you will see the container's provisioning state and its IP address:
+When you run the command, the container's fully qualified domain name (FQDN) and its provisioning state are displayed:
 
 ```console
 $ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -60,7 +60,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Once the container moves to the **Succeeded** state, you can reach it in your browser using the fully qualified domain name provided.
+Once the container moves to the **Succeeded** state, you can reach it in your browser by navigating to its FQDN:
 
 ![Browser screenshot showing application running in an Azure container instance][aci-app-browser]
 
