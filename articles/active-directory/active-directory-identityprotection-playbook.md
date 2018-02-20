@@ -13,18 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection playbook
+
 This playbook helps you to:
 
 * Populate data in the Identity Protection environment by simulating risk events and vulnerabilities
 * Set up risk-based conditional access policies and test the impact of these policies
 
+
 ## Simulating Risk Events
+
 This section provides you with steps for simulating the following risk event types:
 
 * Sign-ins from anonymous IP addresses (easy)
@@ -34,39 +37,53 @@ This section provides you with steps for simulating the following risk event typ
 Other risk events cannot be simulated in a secure manner.
 
 ### Sign-ins from anonymous IP addresses
-This risk event type identifies users who have successfully signed in from an IP address that has been identified as an anonymous proxy IP address. These proxies are used by people who want to hide their device’s IP address and may be used for malicious intent.
+
+For more information about this risk event, see [Sign-ins from anonymous IP addresses](active-directory-reporting-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+
+Completing the following procedure requires you to use:
+
+- The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) to simulate anonymous IP addresses. You might need to use a virtual machine if your organization restricts using the Tor browser.
+- A test account that is not yet registered for multi-factor authentication.
 
 **To simulate a sign-in from an anonymous IP, perform the following steps**:
 
-1. Download the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
-2. Using the Tor Browser, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com).   
-3. Enter the credentials of the account you want to appear in the **Sign-ins from anonymous IP addresses** report.
+1. Using the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2. Enter the credentials of the account you want to appear in the **Sign-ins from anonymous IP addresses** report.
 
-The sign-in will show up on the Identity Protection dashboard within 5 minutes. 
+The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes. 
 
 ### Sign-ins from unfamiliar locations
-The unfamiliar locations risk is a real-time sign-in evaluation mechanism that considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores previous IPs, Latitude / Longitude, and ASNs of a user and considers these to be familiar locations. A sign-in location is considered unfamiliar if the sign-in location does not match any of the existing familiar locations.
 
-Azure Active Directory Identity Protection:  
+For more information about this risk event, see [Sign-ins from unfamiliar locations](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
 
-* has an initial learning period of 14 days during which it does not flag any new locations as unfamiliar locations.
-* ignores sign-ins from familiar devices and locations that are geographically close to an existing familiar location.
+To simulate unfamiliar locations, you have to sign in from a location and device your test account has not signed in from before.
 
-To simulate unfamiliar locations, you have to sign in from a location and device that the account has not signed in from before. 
+The procedure below uses a newly created:
+
+- VPN connection, to simulate new location.
+
+- Virtual machine, to simulate a new device.
+
+Completing the following procedure requires you to use a user account that has:
+
+- At least a 30-day sign-in history.
+- Multi-factor authentication enabled.
+
 
 **To simulate a sign-in from an unfamiliar location, perform the following steps**:
 
-1. Choose an account that has at least a 14-day sign-in history. 
-2. Do either:
+1. When signing in with your test account, fail the MFA challenge by not passing the MFA challenge.
+2. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of your test account.
    
-   a. While using a VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of the account you want to simulate the risk event for.
-   
-   b. Ask an associate in a different location to sign in using the account’s credentials (not recommended).
 
-The sign-in will show up on the Identity Protection dashboard within 5 minutes.
+The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes.
 
 ### Impossible travel to atypical location
-Simulating the impossible travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as impossible travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 3 to 14 days for the user before it begins generating risk events.
+
+For more information about this risk event, see [Impossible travel to atypical location](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations). 
+
+Simulating the impossible travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as impossible travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk events. Because of the complex machine learning models and above rules, there is a chance that the following steps will not lead to a risk event. You might want to replicate these steps for multiple Azure AD accounts to publish this risk event.
+
 
 **To simulate an impossible travel to atypical location, perform the following steps**:
 
@@ -76,62 +93,80 @@ Simulating the impossible travel condition is difficult because the algorithm us
 4. Change your IP address. You can change your IP address by using a VPN, a Tor add-on, or spinning up a new machine in Azure in a different data center.
 5. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com) using the same credentials as before and within a few minutes after the previous sign-in.
 
-The sign-in will show up in the Identity Protection dashboard within 2-4 hours.<br>
-Because of the complex machine learning models involved, there is a chance it will not get picked up.<br> 
-You might want to replicate these steps for multiple Azure AD accounts.
+The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
 ## Simulating vulnerabilities
 Vulnerabilities are weaknesses in an Azure AD environment that can be exploited by a bad actor. Currently 3 types of vulnerabilities are surfaced in Azure AD Identity Protection that leverage other features of Azure AD. These Vulnerabilities will be displayed on the Identity Protection dashboard automatically once these features are set up.
 
-* Azure AD [Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-## User compromise risk
-**To test User compromise risk, perform the following steps**:
+
+## Testing security policies
+
+This section provides you with steps for testing the user risk and the sign-in risk security policy.
+
+
+### User risk security policy
+
+For more information, see [User risk security policy](active-directory-identityprotection.md#user-risk-security-policy).
+
+![User risk](./media/active-directory-identityprotection-playbook/02.png "Playbook")
+
+
+**To test a user risk security policy, perform the following steps**:
 
 1. Sign-in to [https://portal.azure.com](https://portal.azure.com) with global administrator credentials for your tenant.
 2. Navigate to **Identity Protection**. 
-3. On the main **Azure AD Identity Protection** blade, click **Settings**. 
-4. On the **Portal Settings** blade, under **Security rules**, click **User compromise risk**. 
-5. On the **Sign in Risk** blade, turn **Enable rule** off, and then click **Save** settings.
-6. For a given user account, simulate an unfamiliar locations or anonymous IP risk event. This will elevate the user risk level for that user to **Medium**.
-7. Wait a few minutes, and then verify that user level for your user is **Medium**.
-8. Go to the **Portal Settings** blade.
-9. On the **User Compromise Risk** blade, under **Enable rule**, select **On** . 
-10. Select one of the following options:
-    
-    a. To block, select **Medium** under **Block sign in**.
-    
-    b. To enforce secure password change, select **Medium** under **Require multi-factor authentication**.
-11. Click **Save**.
-12. You can now test risk-based conditional access by signing in using a user with an elevated risk level. If the user risk is Medium, depending on the configuration of your policy, your sign-in is be either blocked or you are forced to change your password. 
-    <br><br>
-    ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
-    <br>
+3. On the **Azure AD Identity Protection** page, click **User risk policy**.
+4. In the **Assignments** section, select the desired users (and groups) and user risk level.
 
-## Sign-in risk
-**To test a sign in risk, perform the following steps:**
+    ![User risk](./media/active-directory-identityprotection-playbook/03.png "Playbook")
+
+5. In the Controls section, select the desired Access control (e.g. Require password change).
+5. As **Enforce Policy**, select **Off**.
+6. Elevate the user risk of a test account by, for example, simulating one of the risk events a few times.
+7. Wait a few minutes, and then verify that user level for your user is Medium. If not, simulate more risk events for the user.
+8. As **Enforce Policy**, select **On**.
+9. You can now test user risk-based conditional access by signing in using a user with an elevated risk level.
+    
+    
+
+### Sign-in risk security policy
+
+For more information, see [User risk security policy](active-directory-identityprotection.md#user-risk-security-policy).
+
+![Sign-in risk](./media/active-directory-identityprotection-playbook/01.png "Playbook")
+
+
+**To test a sign in risk policy, perform the following steps:**
 
 1. Sign-in to [https://portal.azure.com ](https://portal.azure.com) with global administrator credentials for your tenant.
-2. Navigate to **Identity Protection**.
-3. On the main **Azure AD Identity Protection** blade, click **Settings**. 
-4. On the **Portal Settings** blade, under **Security rules**, click **Sign in risk**.
-5. On the **Sign in Risk **blade, select **On** under **Enable rule**. 
-6. Select one of the following options:
-   
-   a. To block, select **Medium** under **Block sign in**
-   
-   b. To enforce secure password change, select **Medium** under **Require multi-factor authentication**.
-7. To block, select Medium under Block sign in.
-8. To enforce multi-factor authentication, select **Medium** under **Require multi-factor authentication**.
-9. Click on **Save**.
-10. You can now test risk-based conditional access by simulating the unfamiliar locations or anonymous IP risk events because they are both **Medium** risk events.
+
+2. Navigate to **Azure AD Identity Protection**.
+
+3. On the main **Azure AD Identity Protection** page, click **Sign-in risk policy**. 
+
+4. In the **Assignments** section, select the desired users (and groups) and sign-in risk level.
+
+    ![Sign-in risk](./media/active-directory-identityprotection-playbook/04.png "Playbook")
 
 
-![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+5. In the **Controls** section, select the desired Access control (for example, **Require multi-factor authentication**). 
+
+6. As **Enforce Policy**, select **On**.
+
+7. Click **Save**.
+
+8. You can now test Sign-in Risk-based conditional access by signing in using a risky session (for example, by using the Tor browser). 
+
+ 
+
+
 
 
 ## See also
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
