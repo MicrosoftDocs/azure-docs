@@ -1,8 +1,4 @@
 ---
-<!-- All articles need the metadata header along with the required values for reporting.</br>
-Detailed instructions for completing this template are available in the </br>
-Contributor Guide:https://review.docs.microsoft.com/en-us/help/contribute/mock-template-tutorial?branch=master -->
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Back up Azure Files FAQ
 description: This article provides details about how to protect your Azure Files in Azure. This abstract displays in the search result.
 services: backup

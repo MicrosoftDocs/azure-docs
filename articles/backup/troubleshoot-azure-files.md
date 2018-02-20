@@ -1,8 +1,4 @@
 ---
-<!-- All articles need the metadata header along with the required values for reporting.</br>
-Detailed instructions for completing this template are available in the </br>
-Contributor Guide:https://review.docs.microsoft.com/en-us/help/contribute/mock-template-tutorial?branch=master -->
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Troubleshoot Azure Files Backup 
 description: This article is troubleshooting information about issues occurring when protecting your Azure Files (file shares) in Azure.
 services: backup
@@ -12,6 +8,7 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/19/2018
 ms.topic: tutorial
+ms.workload: storage-backup-recovery
 manager: carmonm
 
 ---
