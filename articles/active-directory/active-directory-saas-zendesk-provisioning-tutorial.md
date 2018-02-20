@@ -78,7 +78,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Configuring automatic user provisioning to Zendesk 
 
-This section guides you through steps for connecting Azure AD to Zendesk's user roster by configuring the Azure AD provisioning service, using Zendesk's user provisioning API to create, update, and disable users and/or groups in Zendesk based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zendesk based on user and/or group assignments in Azure AD.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zendesk, following the instructions provided in the [Zendesk single sign-on tutorial](active-directory-saas-zendesk-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
@@ -99,7 +99,7 @@ This section guides you through steps for connecting Azure AD to Zendesk's user 
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username, Secret Token, and Domain** of your Zendesk's account. Examples of these values are:
+5. Under the **Admin Credentials** section, input the **Admin Username**, **Secret Token**, and **Domain** of your Zendesk's account. Examples of these values are:
 
 	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk Tenant. Example: admin@contoso.com.
 
@@ -150,7 +150,7 @@ This section guides you through steps for connecting Azure AD to Zendesk's user 
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk15.png)
 
-17. When you are complete and ready to provision, click **Save**.
+17. When you are ready to provision, click **Save**.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk18.png)
 
