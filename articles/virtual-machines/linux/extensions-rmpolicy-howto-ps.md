@@ -36,7 +36,7 @@ In this example, we are going to block the installation of the VM agent that all
 $definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
-   -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' `
+   -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' 
 ```
 
 The following .json is what is stored as **azurepolicy.rules.json** in GitHub and used for **-Policy** above. If you are creating your own policy, you can use this as a starting point and store it in your own location.
@@ -68,7 +68,10 @@ The following .json is what is stored as **azurepolicy.rules.json** in GitHub an
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access Agent or Custom Script extensions. Use the [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet to get your subscription ID to use in place of the one in the example.
+This example assigns the policy to a resource group using [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access Agent or Custom Script extensions. For Linux VMs, the custom script extension is called **CustomScriptForLinux** and the Vm access extension is **VMAccessForLinux**
+
+
+Use the [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet to get your subscription ID to use in place of the one in the example.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"

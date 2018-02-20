@@ -124,7 +124,7 @@ az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
   --username myNewUser \
-  --generate-ssh-keys
+  --password 'mynewuserpwd123!'
 ```
 
 
