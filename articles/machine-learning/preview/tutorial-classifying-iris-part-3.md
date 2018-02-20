@@ -140,7 +140,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   Follow the on-screen instructions to provision a storage account for storing Docker images, an Azure container registry that lists the Docker images, and an AppInsight account that gathers telemetry. If you used the `-c` switch, it creates a Container Service cluster, too.
+   Follow the on-screen instructions to provision a storage account for storing Docker images, an Azure container registry that lists the Docker images, and an Azure Application Insights account that gathers telemetry. If you used the `-c` switch, it creates a Container Service cluster, too.
    
    The cluster name is a way for you to identify the environment. The location should be the same as the location of the Model Management account you created from the Azure portal.
 
