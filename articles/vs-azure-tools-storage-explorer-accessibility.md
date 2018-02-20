@@ -3,8 +3,8 @@ title: Storage Explorer Accessibility (Preview) | Microsoft Docs
 description: Storage Explorer Accessibility (Preview)
 services: storage
 documentationcenter: na
-author: marayerm
-manager: jinglou
+author: MrayermannMSFT
+manager: jinglouMSFT
 editor: ''
 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
