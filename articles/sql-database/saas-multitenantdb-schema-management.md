@@ -18,11 +18,11 @@ ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
 ---
-# Manage schema in a SaaS application using sharded multi-tenant SQL databases
+# Manage schema in a SaaS application that uses sharded multi-tenant SQL databases
 
 This tutorial examines the challenges in maintaining a fleet of databases in a Software as a Service (SaaS) application. Solutions are demonstrated for fanning out schema changes across the fleet of databases.
 
-Like any application, the Wingtip Tickets SaaS app will evolve over time, and at times will require changes to the database. Changes may impact schema or reference data, or require database maintenance tasks to be applied. With a SaaS application using a database per tenant pattern, you must coordinate these actions across a potentially massive fleet of tenant databases. In addition, you must incorporate these changes into the database provisioning process to ensure they are included in new databases as they are created.
+Like any application, the Wingtip Tickets SaaS app will evolve over time, and will require changes to the database. Changes may impact schema or reference data, or apply database maintenance tasks. With a SaaS application using a database per tenant pattern, changes must be coordinated across a potentially massive fleet of tenant databases. In addition, you must incorporate these changes into the database provisioning process to ensure they are included in new databases as they are created.
 
 #### Two scenarios
 
@@ -62,9 +62,9 @@ The sharded multi-tenant database model used in this sample enables a tenants da
 
 ## Elastic Jobs limited preview
 
-There is a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. By integrated we mean it requires no additional services or components. This new version of Elastic Jobs is currently in limited preview. The limited preview currently supports PowerShell to create job accounts, and T-SQL to create and manage jobs.
+There is a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. This new version of Elastic Jobs is currently in limited preview. The limited preview currently supports PowerShell to create job accounts, and T-SQL to create and manage jobs.
 > [!NOTE] 
-> This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, download and install the latest pre-release jobs cmdlets. This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
+> This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription ID to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, download and install the latest pre-release jobs cmdlets. This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
@@ -83,9 +83,9 @@ The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* s
 
 #### Prepare
 
-Each tenants database includes a set of venue types in the **VenueTypes** table. Each venue type defines the kind of events that can be hosted at a venue. These venue types correspond to the background images you see in the tenant events app.  In this exercise, you deploy an update to all databases to add two additional venue types: *Motorcycle Racing* and *Swimming Club*. 
+Each tenant's database includes a set of venue types in the **VenueTypes** table. Each venue type defines the kind of events that can be hosted at a venue. These venue types correspond to the background images you see in the tenant events app.  In this exercise, you deploy an update to all databases to add two additional venue types: *Motorcycle Racing* and *Swimming Club*. 
 
-First, review the venue types included in each tenant database. To do this, connect to one of the tenant databases in SQL Server Management Studio (SSMS) and inspect the VenueTypes table.  You can also query this table in the Query editor in the Azure portal, accessed from the database page. 
+First, review the venue types included in each tenant database. Connect to one of the tenant databases in SQL Server Management Studio (SSMS) and inspect the VenueTypes table.  You can also query this table in the Query editor in the Azure portal, accessed from the database page. 
 
 1. Open SSMS and connect to the tenant server: *tenants1-dpt-&lt;user&gt;.database.windows.net*
 1. To confirm that *Motorcycle Racing* and *Swimming Club* **are not** currently included, browse to the *contosoconcerthall* database on the *tenants1-dpt-&lt;user&gt;* server and query the *VenueTypes* table.
