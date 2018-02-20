@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
+ms.date: 02/14/2018
 ms.author: jdial
 
 ---
@@ -34,6 +34,8 @@ The type of name resolution you use depends on how your VMs and role instances n
 | Name resolution between role instances or VMs located in the same cloud service or virtual network |[Azure-provided name resolution](#azure-provided-name-resolution) |hostname or FQDN |
 | Name resolution from an Azure App Service (Web App, Function, Bot, etc)  using VNET integration to role instances or VMs located in the same virtual network |Customer-managed DNS servers forwarding queries between vnets for resolution by Azure (DNS proxy).  see [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |FQDN only |
 | Name resolution between role instances or VMs located in different virtual networks |Customer-managed DNS servers forwarding queries between vnets for resolution by Azure (DNS proxy).  see [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |FQDN only |
+| Name resolution from App Service Web Apps to VMs located in the same virtual network |Customer-managed DNS servers forwarding queries between vnets for resolution by Azure (DNS proxy).  See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |FQDN only |
+| Name resolution from App Service Web Apps to VMs located in a different virtual network |Customer-managed DNS servers forwarding queries between vnets for resolution by Azure (DNS proxy).  See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server-for-web-apps) |FQDN only |
 | Resolution of on-premises computer and service names from role instances or VMs in Azure |Customer-managed DNS servers (e.g. on-premises domain controller, local read-only domain controller or a DNS secondary synced using zone transfers).  See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |FQDN only |
 | Resolution of Azure hostnames from on-premises computers |Forward queries to a customer-managed DNS proxy server in the corresponding vnet, the proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |FQDN only |
 | Reverse DNS for internal IPs |[Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |n/a |
@@ -125,9 +127,16 @@ DNS servers within a virtual network can forward DNS queries to Azure's recursiv
 
 DNS forwarding also enables inter-virtual network DNS resolution and allows your on-premises machines to resolve Azure-provided hostnames.  In order to resolve a VM's hostname, the DNS server VM must reside in the same virtual network and be configured to forward hostname queries to Azure.  As the DNS suffix is different in each vnet, you can use conditional forwarding rules to send DNS queries to the correct vnet for resolution.  The following image shows two virtual networks and an on-premises network doing inter-virtual network DNS resolution using this method.  An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
+> [!NOTE]
+> Role Instances can perform name resolution of VMs within the same virtual network using the FQDN that uses the VM name along with the "internal.cloudapp.net” DNS suffix. However, in this case, the name resolution will only be successful if the Role Instance has the VM name defined in the [Role Schema (.cscfg file)](https://msdn.microsoft.com/en-us/library/azure/jj156212.aspx). 
+>    <Role name="<role-name>" vmName="<vm-name>">
+> 
+> Role Instances that need to perform name resolution of VMs in another virtual network (FQDN using the "internal.cloudapp.net" suffix) have to do so via custom DNS servers forwarding between the two virtual networks, as described in this section
+>
+
 ![Inter-virtual network DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-When using Azure-provided name resolution, an Internal DNS suffix (*.internal.cloudapp.net) is provided to each VM using DHCP.  This enables hostname resolution as the hostname records are in the internal.cloudapp.net zone.  When using your own name resolution solution, the IDNS suffix is not supplied to VMs because it interferes with other DNS architectures (like domain-joined scenarios).  Instead we provide a non-functioning placeholder (reddog.microsoft.com).  
+When using Azure-provided name resolution, an Internal DNS suffix ("*.internal.cloudapp.net") is provided to each VM using DHCP.  This enables hostname resolution as the hostname records are in the internal.cloudapp.net zone.  When using your own name resolution solution, this suffix is not supplied to VMs because it interferes with other DNS architectures (like domain-joined scenarios).  Instead, we provide a non-functioning placeholder (reddog.microsoft.com).  
 
 If needed, the Internal DNS suffix can be determined using PowerShell or the API:
 
@@ -145,6 +154,20 @@ If forwarding queries to Azure doesn't suit your needs, you will need to provide
 > For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](virtual-networks-instance-level-public-ip.md) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
 > 
 > 
+
+## Name resolution using your own DNS server for Web Apps
+If you need to perform name resolution from your App Service Web App linked to a virtual network, to VMs in the same virtual network, then in addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), you also need to perform the following steps:
+* Enable virtual network integration for your App Service Web App, if not done already, as [documented in this article](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet)
+* In the Azure Portal, for the AppService plan hosting the Web App, select "Sync Network" under Networking->Virtual Network Integration
+
+Name resolution from your App Service Web App linked to a virtual network, to VMs in a different virtual network requires the use of custom DNS servers on both virtual networks, as follows:
+* Set up a DNS server in your target virtual network on a VM that can also forward queries to Azure’s recursive resolver (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
+* Set up a DNS forwarder in the source virtual network on a VM. Configure this DNS forwarder to forward queries to the DNS server in your target virtual network.
+* Configure your source DNS server in your source virtual network’s settings.
+* Enable virtual network integration for your App Service Web App to link to the source virtual network, following the instructions [in this article](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet).
+* In the Azure Portal, for the AppService plan hosting the web app, select “Sync Network” under Networking->Virtual Network Integration. 
+
+![Inter-vnet Web Apps Name Resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
 ### Specifying DNS servers
 When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (Resource Manager) / cloud service (classic).  DNS servers specified for a cloud service/network interface get precedence over those specified for the virtual network.
@@ -175,5 +198,4 @@ Classic deployment model:
 
 * [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
 * [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
-* [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md) 
-
+* [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md)
