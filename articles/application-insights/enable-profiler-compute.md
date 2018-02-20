@@ -37,19 +37,19 @@ To fully enable Profiler, you must change the configuration in three locations:
 
 ## Set up the Application Insights instance
 
-[Create a new Application Insights resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) or select an existing one. 
+1. [Create a new Application Insights resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource), or select an existing one. 
 
-1. Go to your Application Insights resource and copy the Instrumentation Key.
+2. Go to your Application Insights resource, and then copy the instrumentation key.
 
-   ![Location of the key instrumentation](./media/enable-profiler-compute/CopyAIKey.png)
+   ![Location of the instrumentation key](./media/enable-profiler-compute/CopyAIKey.png)
 
-2. To finish setting up the Application Insights instance for Profiler, complete the procedure that's described in [Enable Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    You don't need to link web apps, because the steps are specific to the app services resource. Ensure that Profiler is enabled in the **Configure Profiler** pane.
+3. To finish setting up the Application Insights instance for Profiler, complete the procedure that's described in [Enable Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
+    You don't need to link the web apps, because the steps are specific to the app services resource. Ensure that Profiler is enabled in the **Configure Profiler** pane.
 
 
 ## Set up the application source code
 
-### ASP.NET Web Applications, Cloud Services Web roles or Service Fabric ASP.NET Web Frontend
+### ASP.NET web applications, Cloud Services web roles, or the Service Fabric ASP.NET web front end
 Set up your application to send telemetry data to an Application Insights instance on each `Request` operation.  
 
 Add the [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) to your application project. Make sure that the NuGet package versions are as follows:  
@@ -58,7 +58,7 @@ Add the [Application Insights SDK](https://docs.microsoft.com/azure/application-
   - For other .NET and .NET Core applications (for example, a Service Fabric stateless service or a Cloud Services worker role):
   [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) or [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 or later.  
 
-### Cloud Services worker roles or Service Fabric stateless backend
+### Cloud Services worker roles or the Service Fabric stateless back end
 In addition to completing the preceding step, if your application is *not* an ASP.NET or ASP.NET Core application (for example, if it's a Cloud Services worker role or Service Fabric stateless APIs), do the following:  
 
   1. Early in the application lifetime, add the following code:  
@@ -71,7 +71,7 @@ In addition to completing the preceding step, if your application is *not* an AS
         ```
       For more information about this global instrumentation key configuration, see [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  2. For any piece of code that you want to instrument, add a `StartOperation<RequestTelemetry>` **USING** statement around it, as in the following example:
+  2. For any piece of code that you want to instrument, add a `StartOperation<RequestTelemetry>` **USING** statement around it, as shown in the following example:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -132,11 +132,12 @@ The environment in which Profiler and your application execute can be a virtual 
 
 ### Virtual machines, scale sets, or Service Fabric
 
-Full examples:  
+For full examples, see:  
   * [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
   * [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
   * [Service Fabric cluster](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
+To set up your environment, do the following:
 1. To ensure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later, it's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later.
 
 2. Search for the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) extension in the deployment template file, and then add the following `SinksConfig` section as a child element of `WadCfg`. Replace the `ApplicationInsightsProfiler` property value with your own Application Insights instrumentation key:  
@@ -159,7 +160,7 @@ Full examples:
 
 1. To ensure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later, it's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
 
-2. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role:  
+2. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role, as shown here:  
 
    ![Location of the diagnostics config file](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
@@ -180,10 +181,10 @@ Full examples:
       ```
 
 > [!NOTE]  
-> If the *diagnostics.wadcfgx* file also contains another sink of type `ApplicationInsights`, all three of these instrumentation keys must match:  
->  * The instrumentation key that's used by your application.  
->  * The instrumentation key that's used by the `ApplicationInsights` sink.  
->  * The instrumentation key that's used by the `ApplicationInsightsProfiler` sink.  
+> If the *diagnostics.wadcfgx* file also contains another sink of type `ApplicationInsights`, all three of the following instrumentation keys must match:  
+>  * The key that's used by your application.  
+>  * The key that's used by the `ApplicationInsights` sink.  
+>  * The key that's used by the `ApplicationInsightsProfiler` sink.  
 >
 > You can find the actual instrumentation key value that's used by the `ApplicationInsights` sink in the *ServiceConfiguration.\*.cscfg* files.  
 > After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys that are used by the application and the `ApplicationInsightsProfiler` sink need to match each other.
@@ -195,7 +196,7 @@ Full examples:
 
    To apply the modifications, you usually involve a full template deployment or a cloud services publish through PowerShell cmdlets or Visual Studio.  
 
-   The following is an alternate approach for existing virtual machines that touches only its Azure Diagnostics extension:  
+   The following is an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension:  
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -208,7 +209,7 @@ Full examples:
 
 2. If the intended application is running through [IIS](https://www.microsoft.com/web/platform/server.aspx), enable the `IIS Http Tracing` Windows feature by doing the following:  
 
-   a. Establish remote access to the environment, and then use the [Add Windows Features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window, or run the following command in PowerShell (as administrator):  
+   a. Establish remote access to the environment, and then use the [Add Windows features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window, or run the following command in PowerShell (as administrator):  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
