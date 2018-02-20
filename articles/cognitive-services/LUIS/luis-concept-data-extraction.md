@@ -13,17 +13,15 @@ ms.author: v-geberr;
 ---
 
 ## Data extraction
-LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take some action.
+LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
 
 ## Data location
-LUIS provides the data from the published endpoint.
+LUIS provides the data from the published endpoint. The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. The **HTTPS response** contains all the information LUIS can determine based on the current published model of either the staging or production endpoint. 
 
-The HTTPS request (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments.
-
-The response contains all the information LUIS can determine based on the current published model at either the staging or production endpoint. 
+The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
 
 ## Data from intents
-The primary, required data is the top scoring **intent name**. If you have the request parameter of verbose set to false using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the response is:
+The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the endpoint response is:
 
 ```JSON
 {
@@ -40,7 +38,7 @@ The primary, required data is the top scoring **intent name**. If you have the r
 |--|--|--|--|
 |Intent|String|topScoringIntent.intent|"GetStoreInfo"|
 
-If your chat bot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores. Use the request parameter of verbose set to true, the result follows:
+If your chat bot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores by setting the querystring parameter, `verbose=true`. The endpoint response is:
 
 ```JSON
 {
@@ -104,9 +102,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 
 
 ## Data from entities
-Most chat bots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. 
-
-Each type of entity returns different information about the match. 
+Most chat bots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match. 
 
 A single word or phrase in an utterance can match more than one entity. In that case, each matching entity is returned with its score. 
 
@@ -139,14 +135,14 @@ A simple entity is a machine-learned value. It can be a word or phrase.
 
 `Bob Jones wants 3 meatball pho`
 
-In the previous utterance, `Bob Jones` is labeled as a `Name` entity.
+In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
 
 The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
 
 ```JSON
 {
     "entity": "bob jones",
-    "type": "Name",
+    "type": "Customer",
     "startIndex": 0,
     "endIndex": 8,
     "score": 0.473899543
@@ -155,7 +151,7 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 |Data object|Entity name|Value|
 |--|--|--|
-|Simple Entity|"Name"|"bob jones"|
+|Simple Entity|"Customer"|"bob jones"|
 
 ## Hierarchical entity data
 
@@ -186,7 +182,7 @@ Composite entities are machine-learned and can include a word or phrase. For exa
 
 `book 2 tickets to paris`
 
-Notice that `2`, the number, and `paris` the ToLocation have words between them that are not part of any of the entities. The green underline, used in an labeled utterance in the [LUIS][LUIS] website, indicates a composite entity.
+Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in an labeled utterance in the [LUIS][LUIS] website, indicates a composite entity.
 
 ![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -215,7 +211,7 @@ Notice that `2`, the number, and `paris` the ToLocation have words between them 
 
 ## List entity data
 
-A list entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than list. 
+A list entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list. 
 
 Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101) and phone area code (206). 
 
@@ -226,7 +222,7 @@ Suppose the app has a list, named `Cities`, allowing for variations of city name
 
 `book 2 tickets to paris`
 
-In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` entity. 
+In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. 
 
 ```JSON
   {
