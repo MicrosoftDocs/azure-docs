@@ -1,7 +1,7 @@
 ---
 title: Entity Search SDK Java quickstart | Microsoft Docs
 description: Setup for Entity Search SDK console application.
-titleSuffix: Azure Cognitive Services Entity Search SDK Java quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
