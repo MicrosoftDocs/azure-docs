@@ -70,7 +70,7 @@ Here are the steps you perform as part of this tutorial:
 
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run a Hive script to transform input data to product output data. Let's start with creating the data factory in this step.
 
-1. After logging in to the [Azure portal](https://portal.azure.com/), click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. After logging in to the [Azure portal](https://portal.azure.com/), click **Create a resource** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. In the **New data factory** blade:
