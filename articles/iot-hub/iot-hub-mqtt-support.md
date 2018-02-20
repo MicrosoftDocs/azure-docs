@@ -52,20 +52,27 @@ When doing so, make sure to check the following items:
 * MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back-end app needs to receive a response from the device app, consider using [direct methods][lnk-methods].
 
 ## Using the MQTT protocol directly
+
 If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883. In the **CONNECT** packet the device should use the following values:
 
 * For the **ClientId** field, use the **deviceId**.
+
 * For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2016-11-14`, where `{iothubhostname}` is the full CName of the IoT hub.
 
-    For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
-* For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+    For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain:
 
-    >[!NOTE]
-    >SAS token passwords are not required if you use X.509 certificate authentication. For more information, see [Set up X.509 security in your Azure IoT Hub][lnk-x509]
+    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
 
-    For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
+* For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
-    When testing, you can also use the [device explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+  `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
+
+  >[!NOTE]
+  >SAS token passwords are not required if you use X.509 certificate authentication. For more information, see [Set up X.509 security in your Azure IoT Hub][lnk-x509]
+
+  For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
+
+  When testing, you can also use the [device explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
 
   1. Go to the **Management** tab in **Device Explorer**.
   2. Click **SAS Token** (top right).
@@ -73,9 +80,11 @@ If a device cannot use the device SDKs, it can still connect to the public devic
   4. Click **Generate** to create your token.
 
      The SAS token that's generated has this structure:
+
      `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
      The part of this token to use as the **Password** field to connect using MQTT is:
+
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel with additional information that can help you to troubleshoot connectivity issues.
@@ -144,14 +153,12 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [!NOTE]
 > This `{property_bag}` element uses the same encoding as for query strings in the HTTPS protocol.
->
->
 
 The device app can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
-- IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
-- IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
-- IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
+* IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
+* IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
+* IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
 
 For more information, see [Messaging developer's guide][lnk-messaging].
 
@@ -170,9 +177,8 @@ When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum Q
 First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request ID**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request ID** as the request.
 
 Request ID can be any valid value for a message property value, as per [IoT Hub messaging developer's guide][lnk-messaging], and status is validated as an integer.
-The response body contains the properties section of the device twin:
 
-The body of the identity registry entry limited to the “properties” member, for example:
+The response body contains the properties section of the device twin.The sollowing snippet shows the body of the identity registry entry limited to the "properties" member, for example:
 
 ```json
 {
@@ -244,8 +250,7 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 
 As for property updates, `null` values means that the JSON object member is being deleted.
 
-
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
 
 For more information, see [Device twins developer's guide][lnk-devguide-twin].
