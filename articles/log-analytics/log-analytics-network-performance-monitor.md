@@ -21,8 +21,6 @@ ms.author: magoedte
 ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 
-## Overview  
-
 Network Performance Monitor (NPM) is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure, monitor network connectivity to service/application endpoints and monitor the performance of your Azure ExpressRoute.  
 
 NPM detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods are not able to detect. The solution generates alerts, notifies when a threshold is breached for a network link, ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. 
@@ -38,7 +36,7 @@ This capability will help you perform http, https, tcp and icmp based tests to m
 **￼ExpressRoute Monitor:** Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
  
 
-## Setup 
+## Setup and configure
 
 ### Install and configure agents 
 
@@ -58,32 +56,27 @@ If you are unsure about the topology of your network, install the agents on serv
 
 NPM uses synthetic transactions to monitor network performance between source and destination agents. The solution offers a choice between TCP and ICMP as the protocol for monitoring in case of Performance Monitor and Service Endpoint Monitor capabilities, whereas TCP is used for ExpressRoute Monitor. You need to ensure that the firewall allows communication between the OMS agents being used for monitoring on the protocol you’ve chosen for monitoring.  
 
-**TCP protocol- ** If you’ve chosen TCP as the protocol for monitoring, open the Firewall port on the agents being used for Performance Monitor and ExpressRoute Monitor capabilities, to ensure that the agents can connect to each other. To do this, run the EnableRules.ps1 PowerShell script without any parameters in a power shell window with administrative privileges.  
+**TCP protocol:**  If you’ve chosen TCP as the protocol for monitoring, open the Firewall port on the agents being used for Performance Monitor and ExpressRoute Monitor capabilities, to ensure that the agents can connect to each other. To do this, run the EnableRules.ps1 PowerShell script without any parameters in a power shell window with administrative privileges.  
 
 The script creates registry keys required by the solution and it creates Windows firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script also specify whether to log the debug logs and the path for the logs file. It also defines the agent TCP port used for communication. The values for these keys are automatically set by the script, so you should not manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. However, the same port should be used on all the computers where the script is run. 
 
-> ![NOTE]
+>[!NOTE]
 > The script will configure only windows firewall locally. If you have a network firewall you should make sure that it is allowing traffic destined for the TCP port being used by NPM 
 
-> ![NOTE]
+>[!NOTE]
 > You do not need to run the EnableRules.ps1 PowerShell script for Service Endpoint Monitor 
 
  
 
-**ICMP protocol - ** If you’ve chosen ICMP as the protocol for monitoring, enable the following firewall rules for reliably utilizing ICMP: 
+**ICMP protocol** - If you’ve chosen ICMP as the protocol for monitoring, enable the following firewall rules for reliably utilizing ICMP: 
 
  
 ```
 netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
-
 netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow 
-
 netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow 
-
 netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow 
-
 netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow 
-
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
  
@@ -106,13 +99,13 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
     **ExpressRoute Monitor View** - Click on the Discover Now button to discover all the ExpressRoute private peerings that are connected to the VNETs in the Azure subscription linked with this OMS workspace.  
 
 
-> ![NOTE] 
+>[!NOTE] 
 > The ExpressRoute peering discovery works only in the Azure portal. In case you are accessing the solution from OMS portal, you will need to open the Azure portal and trigger discovery from there. Once the ExpressRoute peerings are discovered, you can continue to use the solution from either of the two portals.  
 
-> ![NOTE] 
+>[!NOTE] 
 > The solution currently discovers only ExpressRoute private peerings. 
 
-> ![NOTE] 
+>[!NOTE] 
 > Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this OMS workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you will need to create an OMS workspace in those subscriptions and use NPM to monitor those peerings. 
 
 ![NPM Configuration](media/log-analytics-network-performance-monitor/npm-express-route.png)
@@ -166,7 +159,7 @@ The solution uses synthetic transactions to assess the health of the network. OM
 
 
 
-> [!NOTE]
+>[!NOTE]
 > Although agents communicate with each other frequently, they do not generate a lot of network traffic while conducting the tests. Agents rely only on TCP SYN-SYNACK-ACK handshake packets to determine the loss and latency -- no data packets are exchanged. During this process, agents communicate with each other only when needed and the agent communication topology is optimized to reduce network traffic.
 
 ## Using the solution 
@@ -179,7 +172,7 @@ After you've enabled the Network Performance Monitor solution, the solution tile
 
 ### Network Performance Monitor dashboard 
 
-The **Top Network Health Events **blade provides a list of most recent health events and alerts in the system and the time since the event has been active. A health event or alert is generated whenever the value of the chosen metric (loss, latency, response time or bandwidth utilization) for the monitoring rule exceeds the threshold. 
+The **Top Network Health Events** blade provides a list of most recent health events and alerts in the system and the time since the event has been active. A health event or alert is generated whenever the value of the chosen metric (loss, latency, response time or bandwidth utilization) for the monitoring rule exceeds the threshold. 
 
 The **Performance Monitor** blade provides you a summary of the health of the Network links and Subnetwork links being monitored by the solution. The Topology tile informs the number of network paths being monitored in your network. Clicking on this tile will directly navigate you to the Topology view 
 
@@ -243,7 +236,7 @@ All data that is exposed graphically through the NPM dashboard and drill down pa
 
 ## Provide feedback 
 
-**UserVoice **- You can post your ideas for Network Performance Monitor features that you want us to work on. Visit our [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+**UserVoice** - You can post your ideas for Network Performance Monitor features that you want us to work on. Visit our [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
 **Join our cohort** - We’re always interested in having new customers join our cohort. As part of it, you get early access to new features and help us improve Network Performance Monitor. If you're interested in joining, fill-out this [quick survey](https://aka.ms/npmcohort). 
 
