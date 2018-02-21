@@ -58,6 +58,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 12. Click **Save**.
 
+13. It may take up to 5 minutes for the logic app run actions to occur.  
+
 ## View metrics for your logic app
 
 1. Click the **Monitor** option in the left-hand navigation pane.
@@ -68,7 +70,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Modify the **Time range** of the chart to display data for the past hour.
 
-5. You should now see a chart plotting the total number of runs your logic app has started over the past hour.
+5. You should now see a chart plotting the total number of runs your logic app has started over the past hour. If you do not see any, make sure you have waited at least 5 minutes from the step above. Then refresh your browser. 
 
     ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
