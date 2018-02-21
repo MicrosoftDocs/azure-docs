@@ -111,7 +111,7 @@ Some Office 365 workloads have certain restrictions on supported topologies:
 | Exchange Online | For more information about hybrid topologies supported by Exchange Online, see [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype for Business | When you're using multiple on-premises forests, only the account-resource forest topology is supported. For more information, see [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
-If you are a larger organization, then you should consider to use the [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) feature. It allows you to define in which datacenter region the user's resocues are located.
+If you are a larger organization, then you should consider to use the [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) feature. It allows you to define in which datacenter region the user's resources are located.
 
 ## Staging server
 ![Staging server in a topology](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

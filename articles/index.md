@@ -1839,7 +1839,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <p>Protect your data with cloud-based backup as a service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3900,7 +3900,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
+                                                    <a href="/python/azure">Get the Azure libraries for Python</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/python/azure">Get started</a>

@@ -131,6 +131,8 @@
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
+  - name: Azure Resource Manager templates
+    href: https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1
 - name: Concepts
   items:
   - name: Serverless database
