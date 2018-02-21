@@ -229,6 +229,9 @@ To launch the host and set up JavaScript debugging, run:
 func host start --debug vscode
 ```
 
+> [!IMPORTANT]
+> For debugging, only Node.js 8.x is supported. Node.js 9.x is not supported. 
+
 Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Functions**. You can attach breakpoints, inspect variables, and step through code.
 
 ![JavaScript debugging with Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
