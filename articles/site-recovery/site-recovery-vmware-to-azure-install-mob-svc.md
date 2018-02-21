@@ -26,15 +26,15 @@ Azure Site Recovery Mobility Service captures data writes on a computer and then
 > Beginning with version 9.7.0.0, on Windows VMs, the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/windows/extensions-features.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
 
 ## Prerequisites
-Finish these prerequisite steps before you manually install Mobility Service on your server.
+Complete these prerequisite steps before you manually install Mobility Service on your server:
 1. Sign in to your configuration server, and then open a command prompt window as an administrator.
-2. Change the directory to the bin folder, and then create a pass-phrase file.
+2. Change the directory to the bin folder, and then create a passphrase file.
 
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     genpassphrase.exe -v > MobSvc.passphrase
     ```
-3. Store the pass-phrase file in a secure location. You use the file during Mobility Service installation.
+3. Store the passphrase file in a secure location. You use the file during Mobility Service installation.
 4. Mobility Service installers for all supported operating systems are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder.
 
 ### Mobility Service installer-to-operating system mapping
@@ -70,7 +70,7 @@ Finish these prerequisite steps before you manually install Mobility Service on 
 
 
 ## Install Mobility Service by push installation from Azure Site Recovery
-To do a push installation of Mobility Service by using Site Recovery, all target computers must meet the following prerequisites:
+You can do a push installation of Mobility Service by using Site Recovery. All target computers must meet the following prerequisites.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -110,15 +110,15 @@ Use one of the following methods to uninstall Mobility Service on a Windows Serv
 1. Open a command prompt window as an administrator.
 2. To uninstall Mobility Service, run the following command:
 
-```
-MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-```
+    ```
+    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+    ```
 
 ## Uninstall Mobility Service on a Linux computer
 1. On your Linux server, sign in as a **root** user.
 2. In a terminal, go to /user/local/ASR.
 3. To uninstall Mobility Service, run the following command:
 
-```
-uninstall.sh -Y
-```
+    ```
+    uninstall.sh -Y
+    ```
