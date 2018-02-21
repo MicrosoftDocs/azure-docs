@@ -70,12 +70,12 @@ To set up the configuration server as a highly available VMware VM, download a p
 4. On **Review details**, select **Next**.
 5. On **Select name and folder** and **Select configuration**, accept the default settings.
 6. On **Select storage**, for best performance select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
-4. On the rest of the wizard pages, accept the default settings.
-5. On **Ready to complete**:
+7. On the rest of the wizard pages, accept the default settings.
+8. On **Ready to complete**:
 
-    a. To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
+    * To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
 
-    b. To add an additional network interface, clear **Power on after deployment**. Then select **Finish**. By default, the configuration server template is deployed with a single NIC. You can add additional NICs after deployment.
+    * If you want to add an additional network interface, clear **Power on after deployment**. Then select **Finish**. By default, the configuration server template is deployed with a single NIC. You can add additional NICs after deployment.
 
 ## Add an additional adapter
 
@@ -123,7 +123,7 @@ Site Recovery connects to VMware servers by using the specified settings and dis
 Select and verify target resources.
 
 1. Select **Prepare infrastructure** > **Target**. Select the Azure subscription you want to use.
-2. Specify whether your target deployment model is based on Resource Manager or is classic.
+2. Specify whether your target deployment model is based on Azure Resource Manager or is classic.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
    ![Target tab](./media/tutorial-vmware-to-azure/storage-network.png)
@@ -157,7 +157,7 @@ Enable replication as follows:
 3. In **Machine type**, select **Virtual Machines**.
 4. In **vCenter/vSphere Hypervisor**, select the vCenter server that manages the vSphere host, or select the host.
 5. Select the process server (configuration server). Then select **OK**.
-6. In **Target**, select the subscription and the resource group in which you want to create the failed over VMs. Choose the deployment model that you want to use in Azure (classic or resource management) for the failed over VMs.
+6. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. Choose the deployment model that you want to use in Azure (classic or Resource Manager) for the failed-over VMs.
 7. Select the Azure storage account you want to use to replicate data.
 8. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
 9. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine.
