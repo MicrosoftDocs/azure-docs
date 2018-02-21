@@ -8,6 +8,7 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
+ms.workload: storage-backup-recovery
 manager: carmonm
 
 ---
@@ -29,28 +30,30 @@ Check if the File share is already protected in the same Recovery Services vault
 ### Why can’t I protect File Shares connected to a Sync Group in Azure Files Sync? <br/>
 Protection of Azure File Shares connected to Sync Groups is in limited preview. Please write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) with your Subscription ID to requested access. 
 
-### Why can’t I see the option to backup Azure File shares in some geos? <br/>
-Azure Files Backup is currently in Preview and is available only in the following geos. 
--	Australia South East (ASE) 
--	Brazil South (BRS) 
+### In which geos can I back up Azure File shares? <br/>
+Backup for Azure File shares is currently in Preview and is available only in the following geos. 
 -	Canada Central (CNC)
 -	Canada East (CE) 
 -	Central US (CUS)
 -	East Asia (EA)
 -	East Australia (AE) 
--	East US (EUS) 
--	East US 2 (EUS2) 
 -	India Central (INC) 
 -	North Central US (NCUS) 
--	North Europe (NE) 
--	South Central US (SCUS) 
--	South East Asia (SEA) 
 -	UK South (UKS) 
 -	UK West (UKW) 
 -	West Central US (WCUS)
--	West Europe (WE) 
--	West US (WUS) 
 -	West US 2 (WUS 2)
+
+Backup for Azure File shares will be available in the following geos starting *February 23rd*.
+-	Australia South East (ASE) 
+-	Brazil South (BRS) 
+-	East US (EUS) 
+-	East US 2 (EUS2) 
+-	North Europe (NE) 
+-	South Central US (SCUS) 
+-	South East Asia (SEA)
+-	West Europe (WE) 
+-	West US (WUS)  
 
 Please write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
@@ -71,7 +74,7 @@ Currently, Azure Files backup is not supported for Storage Accounts that have Vi
 When you try to delete a file share, you will be shown the list of backups which will also be deleted if you proceed and a confirmation will be sought. You cannot restore from a deleted file share.
 
 ### Can I restore from backups if I stopped protection on a file share? <br/>
-Yes you can restore from all existing restore points if you chose Retain Backup Data when you stopped protection.
+Yes. If you chose **Retain Backup Data** when you stopped protection, then you can restore from all existing restore points.
 
 ## Manage Backup
 
@@ -79,9 +82,9 @@ Yes you can restore from all existing restore points if you chose Retain Backup 
 All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell or CLI. You can mount them using the procedure here.
 
 ### What is the maximum retention I can configure for Backups? <br/>
-Azure Files Backup offers the ability to retain your Daily backups for 120 days.
+Backup for Azure File shares offers the ability to retain your daily backups up to 120 days.
 
-### What happens when I change the Backup policy for a file share? >br/>
+### What happens when I change the Backup policy for a file share? <br/>
 When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
 
