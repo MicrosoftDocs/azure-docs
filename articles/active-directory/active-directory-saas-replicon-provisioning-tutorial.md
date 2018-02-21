@@ -13,59 +13,89 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 02/20/2018
 ms.author: v-ant-msft
 
 ---
 
 # Tutorial: Configure Replicon for automatic user provisioning
 
+The objective of this tutorial is to demonstrate the steps to be performed in Replicon and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Replicon.
 
-The objective of this tutorial is to show you the steps you need to perform in Replicon and Azure AD to automatically provision and de-provision user accounts from Azure AD to Replicon. 
+> [!NOTE]
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active Directory tenant
+*   An Azure AD tenant
 *   A Replicon tenant with the [Plus](https://www.replicon.com/time-bill-pricing/) plan or better enabled
 *   A user account in Replicon with Admin permissions
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Replicon API](https://www.replicon.com/help/developers), which is available to Replicon teams on the Plus plan or better.
 
+## Adding Replicon from the gallery
+Before configuring Replicon for automatic user provisioning with Azure AD, you need to add Replicon from the Azure AD application gallery to your list of managed SaaS applications.
+
+**To add Replicon from the Azure AD application gallery, perform the following steps:**
+
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon. 
+
+	![The Azure Active Directory button][1]
+
+2. Navigate to **Enterprise applications** > **All applications**.
+
+	![The Enterprise applications Section][2]
+	
+3. To add Replicon, click the **New application** button on the top of the dialog.
+
+	![The New application button][3]
+
+4. In the search box, type **Replicon**.
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppSearch.png)
+
+5. In the results panel, select **Replicon**, and then click the **Add** button to add Replicon to your list of SaaS applications.
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppSearchResults.png)
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppCreate.png)
+
+
 ## Assigning users to Replicon
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD are synchronized. 
+Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized.
 
-Before configuring and enabling the provisioning service, you should decide what users and/or groups in Azure AD represent the users who need access Replicon. Once decided, you can assign these users to your Replicon app by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Replicon. Once decided, you can assign these users and/or groups to Replicon by following the instructions here:
 
 *   [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
 
 ### Important tips for assigning users to Replicon
 
-*	It is recommended that a single Azure AD user is assigned to Replicon to test the provisioning configuration. Additional users and/or groups may be assigned later.
+*	It is recommended that a single Azure AD user is assigned to Replicon to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Replicon, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+*	When assigning a user to Replicon, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
+## Configuring automatic user provisioning to Replicon 
 
-## Configuring user provisioning to Replicon 
-
-This section guides you through connecting your Azure AD to Replicon's user roster using Replicon's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Replicon based on user and group assignment in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Replicon based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Replicon, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.For more information, see the [Replicon single sign-on tutorial](active-directory-saas-replicon-tutorial.md).
+> You may also choose to enable SAML-based single sign-on for Replicon, following the instructions provided in the [Replicon single sign-on tutorial](active-directory-saas-replicon-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
-### To configure automatic user provisioning to Replicon in Azure AD:
+### To configure automatic user provisioning for Replicon in Azure AD:
 
+1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
-
-2. If you have already configured Replicon for single sign-on, search for your instance of Replicon using the search field. Otherwise, select **Add** and search for **Replicon** in the application gallery. Select Replicon from the search results, and add it to your list of applications.
+2. Select Zendesk from your list of SaaS applications.
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/Replicon2.png)
 
-3. Select your instance of Replicon, then select the **Provisioning** tab.
+3. Select the **Provisioning** tab.
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconProvisioningTab.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
