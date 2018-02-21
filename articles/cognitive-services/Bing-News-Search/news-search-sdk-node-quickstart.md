@@ -40,7 +40,7 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 });
 
 ```
-The code prints `result.value` items to the console without parsing any text. The results, if any percategory, will include:
+The code prints `result.value` items to the console without parsing any text. The results, if any per category, will include:
 - _type: 'NewsArticle'
 - _type: 'WebPage'
 - _type: 'VideoObject'
