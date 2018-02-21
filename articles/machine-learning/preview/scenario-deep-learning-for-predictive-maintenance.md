@@ -147,7 +147,7 @@ The following references provide examples of other predictive maintenance use ca
 * [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-* [Predictive maintenance real-world scenario](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-predictive-maintenance)
+* [Predictive maintenance real-world scenarios](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-predictive-maintenance)
 
 ## Next steps
 
