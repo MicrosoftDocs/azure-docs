@@ -63,7 +63,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 * The Azure-created DNS suffix cannot be modified.
 * You cannot manually register your own records.
 * WINS and NetBIOS are not supported (You cannot see your VMs in Windows Explorer).
-* Hostnames must be DNS-compatible. Named must use only 0-9, a-z and '-', and cannot start or end with a '-'. See RFC 3696 section 2.
+* Hostnames must be DNS-compatible. Names must use only 0-9, a-z and '-', and cannot start or end with a '-'. See RFC 3696 section 2.
 * DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [Getting the most from Azure-provided name resolution](#Getting-the-most-from-Azure-provided-name-resolution).
 * Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Resource Manager deployment models.
 
@@ -99,7 +99,7 @@ There are a number of different DNS caching packages available. For example, dns
     
 ### Client-side retries
 
-DNS is primarily a UDP protocol. As the UDP protocol doesn't guarantee message delivery, retry logic is handled in the DNS protocol itself. Each DNS client (operating system) can exhibit different retry logic depending on the creators preference:
+DNS is primarily a UDP protocol. As the UDP protocol doesn't guarantee message delivery, retry logic is handled in the DNS protocol itself. Each DNS client (operating system) can exhibit different retry logic depending on the creator's preference:
 
 * Windows operating systems retry after one second and then again after another 2, 4 and another four seconds. 
 * The default Linux setup retries after five seconds. Changing the retry to five times at 1-second intervals, is recommended.
@@ -136,7 +136,7 @@ DNS forwarding also enables inter-virtual network DNS resolution and allows your
 > Role Instances can perform name resolution of VMs within the same virtual network using the FQDN that uses the VM name along with the "internal.cloudapp.net” DNS suffix. However, in this case, name resolution is only successful if the role instance has the VM name defined in the [Role Schema (.cscfg file)](https://msdn.microsoft.com/library/azure/jj156212.aspx). 
 >    <Role name="<role-name>" vmName="<vm-name>">
 > 
-> Role instances that need to perform name resolution of VMs in another virtual network (FQDN using the **internal.cloudapp.net** suffix) have to do so via custom DNS servers forwarding between the two virtual networks, as described in this section.
+> Role instances that need to perform name resolution of VMs in another virtual network (FQDN using the **internal.cloudapp.net**  suffix) have to do so via custom DNS servers forwarding between the two virtual networks, as described in this section.
 >
 
 ![Inter-virtual network DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
