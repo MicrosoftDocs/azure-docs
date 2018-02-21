@@ -24,7 +24,6 @@
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Use Twilio to make a phone call (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configure start up tasks
 #### [Create startup tasks](cloud-services-startup-tasks.md)
