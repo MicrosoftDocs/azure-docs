@@ -34,7 +34,7 @@ The business problem for this simulated data is to predict issues that are cause
 
 ## Prerequisites
 
-* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
+* An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Follow the [Quickstart installation guide](./quickstart-installation.md) to install the program and create a workspace.
 * Azure Machine Learning Operationalization requires a local deployment environment and an [Azure Machine Learning Model Management account](model-management-overview.md).
 
