@@ -58,7 +58,8 @@
         href: msi-qs-configure-portal-windows-vmss.md
       - name: Using Azure CLI
         href: msi-qs-configure-cli-windows-vmss.md
-
+      - name: Using Azure Resource Manager template
+        href: msi-qs-configure-template-windows-vmss.md
     - name: Grant a VM MSI access to Resource Manager
       items:
       - name: Using Azure portal
