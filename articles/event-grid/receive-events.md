@@ -1,6 +1,6 @@
 ---
-title: Receive events to an HTTP endpoint
-description: Describes how to validate an HTTP endpoint, receive events, and deserialize them
+title: Receive events from Azure Event Grid to an HTTP endpoint
+description: Describes how to validate an HTTP endpoint, then receive and deserialize Events from Azure Event Grid
 services: event-grid
 author: banisadr
 manager: darosa
@@ -141,7 +141,7 @@ When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d
 
 ![validation response](./media/receive-events/validation-response.png)
 
-## Handle Blob Storage events
+## Handle Blob storage events
 
 We can now extend the function to handle `Microsoft.Storage.BlobCreated`:
 
@@ -231,7 +231,7 @@ module.exports = function (context, req) {
 
 ### Test Blob Created event handling
 
-Test the new functionality of the function by putting a [Blob Storage event](./event-schema-blob-storage.md#example-event) into the test field and running:
+Test the new functionality of the function by putting a [Blob storage event](./event-schema-blob-storage.md#example-event) into the test field and running:
 
 ```json
 [{
@@ -264,7 +264,7 @@ You should see the blob URL output in the function log:
 
 ![Output log](./media/receive-events/blob-event-response.png)
 
-You can also test this out live by creating a Blob Storage account or General Purpose V2 (GPv2) Storage account, [adding and event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
+You can also test this out live by creating a Blob storage account or General Purpose V2 (GPv2) Storage account, [adding and event subscription](../storage/blobs/storage-blob-event-quickstart.md), and setting the endpoint to the function URL:
 
 ![function URL](./media/receive-events/function-url.png)
 
@@ -408,4 +408,4 @@ You can also test this functionality live by [sending a custom event with CURL f
 
 * Explore the [Azure Event Grid Mangement and Publish SDKs](./sdk-overview.md)
 * Learn how to [post to a custom topic](./post-to-custom-topic.md)
-* Try one of the in-depth Event Grid and Functions tutorials such as [resizing images uploaded to Blob Storage](resize-images-on-storage-blob-upload-event.md)
+* Try one of the in-depth Event Grid and Functions tutorials such as [resizing images uploaded to Blob storage](resize-images-on-storage-blob-upload-event.md)
