@@ -40,6 +40,11 @@ Review installer.log to determine the cause of the installation failure.
 > [!Note]  
 > The agent installation will fail if your machine is set up to use Microsoft Update and the Windows Update service is not running.
 
+<a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller** 
+If you try and install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+
+To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
+
 <a id="agent-installation-websitename-failure"></a>**Agent installation fails with this error: "Storage Sync Agent Wizard ended prematurely"**  
 This issue can occur if the IIS website default name is changed. To work around this issue, rename the IIS default website as "Default Web Site" and retry installation. The issue will be fixed in a future update of the agent. 
 
@@ -48,6 +53,8 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 1. Log in to the server that you want to register.
 2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
+
+
 
 <a id="server-already-registered"></a>**Server Registration displays the following message during Azure File Sync agent installation: "This server is already registered"** 
 
@@ -93,7 +100,6 @@ To create a cloud endpoint, your user account must have the following Microsoft 
 The following built-in roles have the required Microsoft Authorization permissions:  
 * Owner
 * User Access Administrator
-
 To determine whether your user account role has the required permissions:  
 1. In the Azure portal, select **Resource Groups**.
 2. Select the resource group where the storage account is located, and then select **Access control (IAM)**.
@@ -102,11 +108,24 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-<a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898)**                                                                                                                    
 This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
 <a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired"**                
 This issue occurs if the server is offline or doesn’t have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**
+
+This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## Sync
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  

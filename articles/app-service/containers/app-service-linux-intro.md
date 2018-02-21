@@ -31,7 +31,7 @@ App Service on Linux supports a number of Built-in images in order to increase d
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
-| .NET Core | 1.0, 1.1 |
+| .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
 
 ## Deployments

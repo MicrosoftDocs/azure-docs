@@ -3,7 +3,7 @@ title: How to use a Windows VM Managed Service Identity (MSI) to access Azure Da
 description: A tutorial that shows you how to use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 
@@ -41,7 +41,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
 3. Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
 4. Choose the proper **Subscription** for the virtual machine in the dropdown.
