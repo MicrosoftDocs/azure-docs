@@ -45,7 +45,7 @@ You can use Site Recovery to implement a disaster recovery solution in the follo
 * SAP systems running on VMware (or physical) servers on-premises that replicate to a disaster recovery site in an Azure datacenter (VMware-to-Azure disaster recovery). This scenario requires some additional components. For more information, see [VMware-to-Azure replication architecture](https://aka.ms/asr-v2a-architecture).
 * SAP systems running on Hyper-V on-premises that replicate to a disaster recovery site in an Azure datacenter (Hyper-V-to-Azure disaster recovery). This scenario requires some additional components. For more information, see [Hyper-V-to-Azure replication architecture](https://aka.ms/asr-h2a-architecture).
 
-In this article, we use an Azure-to-Azure disaster recovery scenario to demonstrate Site Recovery's SAP disaster recovery capabilities. Because Site Recovery replication isn't application-specific, the process that's described is expected to also apply to other scenarios.
+In this article, we use an Azure-to-Azure disaster recovery scenario to demonstrate the SAP disaster recovery capabilities of Site Recovery. Because Site Recovery replication isn't application-specific, the process that's described is expected to also apply to other scenarios.
 
 ### Required foundation services
 In the scenario we discuss in this article, the following foundation services are deployed:
