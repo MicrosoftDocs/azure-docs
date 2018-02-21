@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/12/2018
+ms.date: 2/21/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -170,7 +170,7 @@ Also notice that the connection is encrypted and that a certificate issued by Le
 Learn more about the software demonstrated in this document. 
 
 - [NGINX ingress controller][nginx-ingress]
-- [KUBE-LEGO][kube-lego] certificate management solutions.
+- [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
 [kube-lego]: https://github.com/jetstack/kube-lego
