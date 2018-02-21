@@ -58,7 +58,7 @@ The [Service Fabric](/azure/service-fabric/service-fabric-overview.md) failover 
 
 ## Remote storage
 
-For remote storage configurations (Basic and Standard tiers), exactly one copy is maintained in remote blob storage, using the storage systems capabilities for durability, redundancy and bit-rot detection. 
+For remote storage configurations (Basic and Standard tiers), exactly one copy is maintained in remote blob storage, using the storage systems capabilities for durability, redundancy, and bit-rot detection. 
 
 The high availability architecture is illustrated by following diagram:
  
