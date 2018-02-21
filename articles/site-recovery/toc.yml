@@ -36,15 +36,15 @@
     - name: Prepare Azure
       href: tutorial-prepare-azure.md
     - name: Prepare on-premises Hyper-V
-      href: tutorial-prepare-on-premises-hyper-v.md
+      href: hyper-v-prepare-on-premises-tutorial.md
     - name: Set up disaster recovery for Hyper-V VMs
-      href: tutorial-hyper-v-to-azure.md
+      href: hyper-v-azure-tutorial.md
     - name: Set up disaster recovery of Hyper-V VMs in VMM clouds
-      href: tutorial-hyper-v-vmm-to-azure.md
+      href: hyper-v-vmm-azure-tutorial.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
     - name: Run failover and failback
-      href: tutorial-hyper-v-to-azure-failover-failback.md
+      href: hyper-v-azure-failover-failback-tutorial.md
   - name: Migrate to Azure
     items:
     - name: Prepare Azure for on-premises replication
@@ -64,7 +64,7 @@
     - name: VMware to Azure architecture
       href: concepts-vmware-to-azure-architecture.md
     - name: Hyper-V to Azure architecture
-      href: concepts-hyper-v-to-azure-architecture.md
+      href: hyper-v-azure-architecture.md
     - name: Physical to Azure architecture
       href: concepts-physical-to-azure-architecture.md
     - name: Hyper-V to secondary site architecture
@@ -76,7 +76,7 @@
     - name: VMware to Azure support matrix
       href: support-matrix-vmware-to-azure.md
     - name: Hyper-V to Azure support matrix
-      href: support-matrix-hyper-v-to-azure.md
+      href: hyper-v-azure-support-matrix.md
     - name: On-premises to Azure support matrix
       href: site-recovery-support-matrix-to-azure.md
     - name: On-premises to secondary site support matrix
@@ -152,7 +152,7 @@
       - name: Fail back from Azure to VMware
         href: site-recovery-how-to-failback-azure-to-vmware.md
       - name: Fail back from Azure to Hyper-V
-        href: site-recovery-failback-from-azure-to-hyper-v.md
+        href: hyper-v-azure-failback.md
     - name: Set up a Linux master target server for failback
       href: site-recovery-how-to-install-linux-master-target.md
   - name: Migrate
@@ -182,13 +182,13 @@
       href:
       items:
       - name: Overview and prerequisites
-        href: site-recovery-hyper-v-deployment-planner.md
+        href: hyper-v-deployment-planner-overview.md
       - name: Run the Deployment Planner tool
-        href: site-recovery-hyper-v-deployment-planner-run.md
+        href: hyper-v-deployment-planner-run.md
       - name: Analyze the generated report
-        href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+        href: hyper-v-deployment-planner-analyze-report.md
       - name: Analyze the cost estimation report
-        href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
+        href: hyper-v-deployment-planner-cost-estimation.md
     - name: Performance scale tests for Hyper-V replication to a secondary site
       href: hyper-v-vmm-performance-results.md
   - name: Configure
@@ -214,7 +214,7 @@
       - name: Exclude disks from replication for VMware to Azure
         href: site-recovery-exclude-disk.md
       - name: Exclude disks from replication for Hyper-V to Azure
-        href: site-recovery-hyper-v-exclude-disk.md
+        href: hyper-v-exclude-disk.md
     - name: Enable replication
       items:
       - name: Enable Azure to Azure replication
@@ -234,7 +234,7 @@
     - name: Replicate VMware virtual machines to Azure using PowerShell
       href: site-recovery-vmware-to-azure-powershell.md
     - name: Set up Hyper-V replication to Azure (no VMM) using PowerShell
-      href: site-recovery-deploy-with-powershell-resource-manager.md
+      href: hyper-v-azure-powershell-resource-manager.md
     - name: Set up Hyper-V replication to Azure (with VMM) using PowerShell
       href: site-recovery-vmm-to-azure-powershell-resource-manager.md
     - name: Set up Hyper-V replication to a secondary VMM site using PowerShell

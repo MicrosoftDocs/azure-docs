@@ -2,20 +2,14 @@
 title: Azure Quickstart - Transfer objects to/from Azure Blob storage using Azure Storage Explorer | Microsoft Docs
 description: Quickly learn to transfer objects to/from Azure Blob storage using Azure Storage Explorer
 services: storage
-documentationcenter: storage
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: ''
 
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ---
 
 # Transfer objects to/from Azure Blob storage using Azure Storage Explorer
