@@ -20,13 +20,13 @@ This document walks through a sample deployment of the [NGIX ingress controller]
 
 ## Install the ingress controller
 
-Use Helm to install the NGINX ingress controller. This deployment provides a default configuration for the NGINX ingress controller. See the [NGINX ingress controller documentation][nginx-ingress] for detailed information. 
+Use Helm to install the NGINX ingress controller. See the [NGINX ingress controller documentation][nginx-ingress] for detailed information. 
 
 ```
 helm install stable/nginx-ingress
 ```
 
-An Azure public IP address is also created. This public IP address is used to contact Kubernetes services behind the ingress controller.  
+During the installation, an Azure public IP address is created for the ingress controller. 
 
 To get the public IP address, use the kubectl get service command. It may take some time for the IP address to be assigned to the service.
 
@@ -72,13 +72,13 @@ If needed, run the following command to retrieve the FQDN. Update the IP address
 az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
-At this point, the ingress controller is accessible through the DNS name. Because no ingress rules have been created, all traffic is routed to the ingress controllers default back end / 404 response page.
+The ingress controller is now accessible through the DNS name. Because no ingress rules have been created, all traffic is routed to the ingress controllers default back end / 404 response page.
 
-## Install kube-lego
+## Install Kube-Lego
 
-The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [kube-lego][kube-lego]. kube-lego provides automatic [Lets Encrypt] [lets-encrypt] certificate generation and management functionality for the ingress controller.
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [Kube-Lego][kube-lego]. Kube-Lego provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
-To install the kube-lego controller, use the following Helm install command. Update the email address with one from your organization. For more information on kube-lego configuration, see the [kube-lego documentation] [kube-lego].
+To install the Kube-Lego controller, use the following Helm install command. Update the email address with one from your organization. For more information on Kube-Lego configuration, see the [Kube-Lego documentation][kube-lego].
 
 ```
 helm install stable/kube-lego \
@@ -92,7 +92,7 @@ At this point, an ingress controller and a certificate management solution have 
 
 For this example, Helm is used to run multiple instances of a simple hello world application. 
 
-Before installing the application, add the Azure samples Helm repository on your development system.
+Before running the application, add the Azure samples Helm repository on your development system.
 
 ```
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
@@ -114,7 +114,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 ## Create ingress route
 
-Now that the ingress controller, TLS certificate automation, and applications have been deployed, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
+Both applications are now running on your Kubernetes cluster, however are not accessible from the internet. In order to make the available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
 Create a file name `hello-world-ingress.yaml` and copy in the following YAML.
 
@@ -155,11 +155,11 @@ kubectl apply -f hello-world-ingress.yaml
 
 ## Test the ingress configuration
 
-Browse to the FQDN of your Kubernetes ingress controller, for example `https://demo-aks-ingress.eastus.cloudapp.azure.com/`. You should see the hello world application.
+Browse to the FQDN of your Kubernetes ingress controller, you should see the hello world application.
 
 ![Application example one](media/ingress/app-one.png)
 
-Now browse to the FQDN of the ingress controller with the `/hello-world-two` path, for example `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`. You should see the hello world application with the custom title.
+Now browse to the FQDN of the ingress controller with the `/hello-world-two` path, you should see the hello world application with the custom title.
 
 ![Application example two](media/ingress/app-two.png)
 
