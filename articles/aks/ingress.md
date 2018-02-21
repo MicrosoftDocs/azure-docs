@@ -39,7 +39,7 @@ toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.2
 toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
 ```
 
-Because no ingress rules have been created, if you browse to the public IP address, you are routed to the default back end / 404 response.
+Because no ingress rules have been created, if you browse to the public IP address, you are routed to the default 404 response page.
 
 ![Default NGINX backend](media/ingress/default-back-end.png)
 
@@ -72,11 +72,11 @@ If needed, run the following command to retrieve the FQDN. Update the IP address
 az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
-The ingress controller is now accessible through the DNS name. Because no ingress rules have been created, all traffic is routed to the ingress controllers default back end / 404 response page.
+The ingress controller is now accessible through the DNS name. Because no ingress rules have been created, all traffic is routed to the ingress controllers 404 response page.
 
 ## Install Kube-Lego
 
-The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [Kube-Lego][kube-lego]. Kube-Lego provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [Kube-Lego][kube-lego], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
 To install the Kube-Lego controller, use the following Helm install command. Update the email address with one from your organization. For more information on Kube-Lego configuration, see the [Kube-Lego documentation][kube-lego].
 
@@ -98,7 +98,7 @@ Before running the application, add the Azure samples Helm repository on your de
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
- Run the AKS hello world chart with the following command.
+ Run the AKS hello world chart with the following command:
 
 ```
 helm install azure-samples/aks-helloworld
