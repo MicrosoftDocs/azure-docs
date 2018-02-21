@@ -25,9 +25,9 @@ Standard CDN capability includes the ability to cache files closer to end users 
 **Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation.
 
 > [!Important]
-> For **Azure CDN from Akamai** profiles, you can change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Akamai** profiles only, you are allowed you to change the optimization of a CDN endpoint after it has been created.
 >   
-> For **Azure CDN from Verizon** profiles, it is not possible to change the optimization of a CDN endpoint after it has been created.
+> **Azure CDN from Verizon** profiles, it is not possible to change the optimization of a CDN endpoint after it has been created.
 
 ## Configuring CDN endpoint to accelerate delivery of dynamic files
 
@@ -49,12 +49,10 @@ To configure a CDN endpoint to optimize delivery of dynamic files, you can eithe
 
     Probe path is a feature specific to DSA, and a valid path is required for creation. DSA uses a small *probe path* file placed on the origin server to optimize network routing configurations for the CDN. For the probe path file, you can download and upload the sample file to your site, or use an existing asset on your origin that is about 10 KB in size.
 
-4. Enter the other required endpoint options (for more information, see [Create a new CDN endpoint](cdn-create-new-endpoint#create-a-new-cdn-endpoint)), then select **Add**.
+4. Enter the other required endpoint options (for more information, see [Create a new CDN endpoint](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), then select **Add**.
 
    After the CDN endpoint is created, it applies the DSA optimizations for all files that match certain criteria. 
 
-> [!Note]
-> DSA incurs extra charges. For more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 **To configure an existing endpoint for DSA (Azure CDN from Akamai profiles only):**
 
@@ -62,8 +60,12 @@ To configure a CDN endpoint to optimize delivery of dynamic files, you can eithe
 
 2. From the left pane, select **Optimization**. 
 
+   The **Optimization page appears.
+
 3. Under **Optimized for**, select **Dynamic site acceleration**, then select **Save**.
 
+> [!Note]
+> DSA incurs extra charges. For more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## DSA Optimization using Azure CDN
 
@@ -101,14 +103,16 @@ TCP *slow start* is an algorithm of the TCP protocol that prevents network conge
  Both **Azure CDN from Akamai** and **Azure CDN from Verizon** eliminate TCP slow start with the following three steps:
 
 1. Health and bandwidth monitoring is used to measure the bandwidth of connections between edge PoP servers.
-2. The metrics are shared between edge PoP servers so that each server is aware of the network conditions and server health of the other PoPs around them.  
-3. The CDN edge servers can make assumptions about some transmission parameters, such as what the optimal window size should be when communicating with other CDN edge servers in its proximity. This step means that the initial congestion window size can be increased if the health of the connection between the CDN edge servers is capable of higher packet data transfers.  
+    
+2. Metrics are shared between edge PoP servers so that each server is aware of the network conditions and server health of the other PoPs around them.  
+    
+3. The CDN edge servers make assumptions about some transmission parameters, such as what the optimal window size should be when communicating with other CDN edge servers in its proximity. This step means that the initial congestion window size can be increased if the health of the connection between the CDN edge servers is capable of higher packet data transfers.  
 
 #### Leveraging persistent connections
 
 Using a CDN, fewer unique machines connect to your origin server directly compared with users connecting directly to your origin. Azure CDN also pools user requests together to establish fewer connections with the origin.
 
-As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, also known as *HTTP Keep-Alive*, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
+As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, which are implemented by the `Keep-Alive` HTTP header, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
 
 **Azure CDN from Verizon** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
 
@@ -116,19 +120,19 @@ As previously mentioned, several handshake requests are required to establish a 
 
 **Azure CDN from Akamai** tunes the parameters that govern server-to-server connections and reduces the amount of long-haul round trips required to retrieve content embedded in the site by using the following techniques:
 
-1.	Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgement.
-2.	Decreasing the initial retransmit timeout so that a loss is detected, and retransmission occurs more quickly.
-3.	Decreasing the minimum and maximum retransmit timeout to reduce the wait time before assuming packets were lost in transmission.
+- Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgement.
+- Decreasing the initial retransmit timeout so that a loss is detected, and retransmission occurs more quickly.
+- Decreasing the minimum and maximum retransmit timeout to reduce the wait time before assuming packets were lost in transmission.
 
-### Object prefetch (**Azure CDN from Akamai** only)
+### Object prefetch (Azure CDN from Akamai only)
 
 Most websites consist of an HTML page, which references various other resources such as images and scripts. Typically, when a client requests a webpage, the browser first downloads and parses the HTML object, and then makes additional requests to linked assets that are required to fully load the page. 
 
 *Prefetch* is a technique to retrieve images and scripts embedded in the HTML page while the HTML is served to the browser, and before the browser even makes these object requests. 
 
-With the **prefetch** option turned on at the time when the CDN serves the HTML base page to the client’s browser, the CDN parses the HTML file and make additional requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server already has the requested objects and can serve them immediately without a round trip to the origin. This optimization benefits both cacheable and non-cacheable content.
+With the prefetch option turned on at the time when the CDN serves the HTML base page to the client’s browser, the CDN parses the HTML file and make additional requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server already has the requested objects and can serve them immediately without a round trip to the origin. This optimization benefits both cacheable and non-cacheable content.
 
-### Adaptive image compression (**Azure CDN from Akamai** only)
+### Adaptive image compression (Azure CDN from Akamai only)
 
 Some devices, especially mobile ones, experience slower network speeds from time to time. In these scenarios, it is more beneficial for the user to receive smaller images in their webpage more quickly rather than waiting a long time for full resolution images.
 
@@ -144,7 +148,7 @@ With DSA, caching is turned off by default on the CDN, even when the origin incl
 
 If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
 
-For **Azure CDN from Verizon Premium** profiles, you can turn on caching for specific cases by using the ADN rules engine. A rule that is created with the ADN rules engine affects only those endpoints of your profile that are optimized for DSA. 
+For **Azure CDN from Verizon Premium** profiles, you can turn on caching for specific cases by using the  [ADN rules engine](cdn-rules-engine.md). A rule that is created with the ADN rules engine affects only those endpoints of your profile that are optimized for DSA. 
 
 To access the ADN rules engine:
   1. From the **CDN profile** page, select **Manage**.  
