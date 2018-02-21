@@ -30,7 +30,7 @@ In this article, you learn how to use the Databricks ODBC driver to connect Azur
 
 * Set up a personal access token in Databricks. For instructions, see [Token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
-## Set up the DSN
+## Set up a DSN
 
 A data source name (DSN) contains the information about a specific data source. An ODBC driver needs this DSN in order to connect to a data source. In this section, set up a DSN that can be used with the Databricks ODBC driver to connect to Azure Databricks from clients like Microsoft Excel, Python, etc.
 
