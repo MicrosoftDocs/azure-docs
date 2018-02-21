@@ -19,7 +19,7 @@ ms.author: sngun
 
 # Troubleshoot for malformed input events
 
-When the input stream of your Stream Analytics job contains malformed messages, it causes serialization issues. Malformed messages include incorrect serialization such as missing parenthesis in a JSON object, incorrect time stamp format, etc. When a Stream Analytics job receives a malformed message, it drops the message and notifies user with a warning. A warning symbol is shown on the **Inputs** tile of your Stream Analytics job as shown in the following screen shot:
+When the input stream of your Stream Analytics job contains malformed messages, it causes serialization issues. Malformed messages include incorrect serialization such as missing parenthesis in a JSON object or incorrect time stamp format. When a Stream Analytics job receives a malformed message, it drops the message and notifies user with a warning. A warning symbol is shown on the **Inputs** tile of your Stream Analytics job:
 
 ![Inputs tile](media/stream-analytics-malformed-events/inputs_tile.png)
 
