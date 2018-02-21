@@ -22,6 +22,7 @@
 ### [DNS-based traffic distribution](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - dedicated](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Network Monitoring Overview](networking-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Get started
 ## [Create your first virtual network](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
