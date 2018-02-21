@@ -229,7 +229,7 @@ If you decide that Azure AD B2C is the best migration path for your applications
 In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
 
 - Web applications that use WIF or WS-Federation for sign-in with social identity providers such as Google or Facebook.
-- Web applications that perform direct federation to an enterprise identify provider over the WS-Federation protocol.
+- Web applications that perform direct federation to an enterprise identity provider over the WS-Federation protocol.
 - Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
 - Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
 - Multi-tenant web applications that use ACS to centrally manage federation to many different identity providers
