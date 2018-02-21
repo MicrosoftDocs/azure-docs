@@ -49,9 +49,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 > 
 > 
 
-### Features and Considerations
-
-#### Features
+## Features
 
 * Ease of use: No configuration is required in order to use Azure-provided name resolution.
 * The Azure-provided name resolution service is highly available, saving you the need to create and manage clusters of your own DNS servers.
@@ -60,7 +58,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 * Name resolution is provided between VMs in virtual networks that use the Resource Manager deployment model, without need for an FQDN. Virtual networks in the classic deployment model require an FQDN when resolving names in different cloud services. 
 * You can use hostnames that best describe your deployments, rather than working with auto-generated names.
 
-#### Considerations
+## Considerations
 
 * The Azure-created DNS suffix cannot be modified.
 * You cannot manually register your own records.
@@ -69,9 +67,9 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 * DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [Getting the most from Azure-provided name resolution](#Getting-the-most-from-Azure-provided-name-resolution).
 * Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Resource Manager deployment models.
 
-### Getting the most from Azure-provided name resolution
+## DNS client configuration
 
-#### Client-side caching
+### Client-side caching
 
 Not every DNS query needs to be sent across the network. Client-side caching helps reduce latency and improve resilience to network blips by resolving recurring DNS queries from a local cache. DNS records contain a time-to-live (TTL) which allows the cache to store the record for as long as possible without impacting record freshness, so client-side caching is suitable for most situations.
 
@@ -99,20 +97,20 @@ There are a number of different DNS caching packages available. For example, dns
 > 
 > 
     
-#### Client-side retries
+### Client-side retries
 
 DNS is primarily a UDP protocol. As the UDP protocol doesn't guarantee message delivery, retry logic is handled in the DNS protocol itself. Each DNS client (operating system) can exhibit different retry logic depending on the creators preference:
 
 * Windows operating systems retry after one second and then again after another 2, 4 and another four seconds. 
 * The default Linux setup retries after five seconds. Changing the retry to five times at 1-second intervals, is recommended.
 
-Use the 'cat /etc/resolv.conf' command to check the current settings on a Linux VM, then look at the 'options' line, for example:
+Check the current settings on a Linux VM with `cat /etc/resolv.conf`. Look at the *options* line, for example:
 
 ```bash
 options timeout:1 attempts:5
 ```
 
-The resolv.conf file is usually auto-generated and should not be edited. The specific steps for adding the 'options' line vary by distro:
+The resolv.conf file is usually auto-generated and should not be edited. The specific steps for adding the *options* line vary by distro:
 
 * **Ubuntu** (uses resolvconf):
   * Add the options line to **/etc/resolveconf/resolv.conf.d/head**.
@@ -124,7 +122,8 @@ The resolv.conf file is usually auto-generated and should not be edited. The spe
   * Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**. 
   * Update with `service network restart`.
 
-## Name resolution using your own DNS server
+## Name resolution using your own DNS server for VMs and role instances
+
 There are a number of situations where your name resolution needs may go beyond the features provided by Azure, for example when using Active Directory domains or when you require DNS resolution between virtual networks. To cover these scenarios, Azure provides the ability for you to use your own DNS servers.
 
 DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network. For example, a domain controller (DC) running in Azure can respond to DNS queries for its domains and forward all other queries to Azure. Forwarding queries allows VMs to see both your on-premises resources (via the DC) and Azure-provided hostnames (via the forwarder). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16.
@@ -162,7 +161,9 @@ If forwarding queries to Azure doesn't suit your needs, you need to provide your
 ## Name resolution using your own DNS server for Web Apps
 If you need to perform name resolution from your App Service Web App linked to a virtual network, to VMs in the same virtual network, then in addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), you also need to perform the following steps:
 * Enable virtual network integration for your App Service Web App, if not done already, as described in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* In the Azure portal, for the AppService plan hosting the Web App, select "Sync Network" under Networking->Virtual Network Integration.
+* In the Azure portal, for the AppService plan hosting the Web App, select **Sync Network** under **Networking**, **Virtual Network Integration**, as shown in the following picture:
+
+    ![Inter-vnet Web Apps Name Resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
 Name resolution from your App Service Web App linked to a virtual network, to VMs in a different virtual network requires the use of custom DNS servers on both virtual networks, as follows:
 * Set up a DNS server in your target virtual network on a VM that can also forward queries to Azure’s recursive resolver (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
@@ -170,8 +171,6 @@ Name resolution from your App Service Web App linked to a virtual network, to VM
 * Configure your source DNS server in your source virtual network’s settings.
 * Enable virtual network integration for your App Service Web App to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * In the Azure portal, for the AppService plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**. 
-
-![Inter-vnet Web Apps Name Resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
 ### Specifying DNS servers
 When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (Resource Manager) / cloud service (classic). DNS servers specified for a cloud service/network interface get precedence over DNS servers specified for the virtual network.
@@ -181,7 +180,7 @@ When using your own DNS servers, Azure provides the ability to specify multiple 
 > 
 > 
 
-When using the Resource Manager deployment model, DNS servers can be specified in the Portal, API/Templates: [Virtual network](https://msdn.microsoft.com/library/azure/mt163661.aspx) and [network interface](https://msdn.microsoft.com/library/azure/mt163668.aspx) or PowerShell: [Virtual network](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork) and [network interface](/powershell/module/azurerm.network/new-azurermnetworkinterface).
+When using the Resource Manager deployment model, DNS servers can be specified in the Portal, API/Templates: [Virtual network](https://msdn.microsoft.com/library/azure/mt163661.aspx) and [network interface](https://msdn.microsoft.com/library/azure/mt163668.aspx), or PowerShell: [Virtual network](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork) and [network interface](/powershell/module/azurerm.network/new-azurermnetworkinterface).
 
 When using the classic deployment model, DNS servers for the virtual network can be specified in the Portal or [the *Network Configuration* file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, DNS servers are specified via [the *Service Configuration* file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/azure/new-azurevm).
 
