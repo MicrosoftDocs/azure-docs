@@ -49,7 +49,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 > 
 > 
 
-## Features
+### Features
 
 * Ease of use: No configuration is required in order to use Azure-provided name resolution.
 * The Azure-provided name resolution service is highly available, saving you the need to create and manage clusters of your own DNS servers.
@@ -58,7 +58,7 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 * Name resolution is provided between VMs in virtual networks that use the Resource Manager deployment model, without need for an FQDN. Virtual networks in the classic deployment model require an FQDN when resolving names in different cloud services. 
 * You can use hostnames that best describe your deployments, rather than working with auto-generated names.
 
-## Considerations
+### Considerations
 
 * The Azure-created DNS suffix cannot be modified.
 * You cannot manually register your own records.
@@ -124,6 +124,8 @@ The resolv.conf file is usually auto-generated and should not be edited. The spe
 
 ## Name resolution using your own DNS server
 
+### Name resolution using your own DNS server for VMs and role instances
+
 There are a number of situations where your name resolution needs may go beyond the features provided by Azure, for example when using Active Directory domains or when you require DNS resolution between virtual networks. To cover these scenarios, Azure provides the ability for you to use your own DNS servers.
 
 DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network. For example, a domain controller (DC) running in Azure can respond to DNS queries for its domains and forward all other queries to Azure. Forwarding queries allows VMs to see both your on-premises resources (via the DC) and Azure-provided hostnames (via the forwarder). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16.
@@ -158,7 +160,7 @@ If forwarding queries to Azure doesn't suit your needs, you need to provide your
 > 
 > 
 
-## Name resolution using your own DNS server for Web Apps
+### Name resolution using your own DNS server for Web Apps
 If you need to perform name resolution from your App Service Web App linked to a virtual network, to VMs in the same virtual network, then in addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), you also need to perform the following steps:
 * Enable virtual network integration for your App Service Web App, if not done already, as described in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * In the Azure portal, for the AppService plan hosting the Web App, select **Sync Network** under **Networking**, **Virtual Network Integration**, as shown in the following picture:
@@ -172,7 +174,7 @@ Name resolution from your App Service Web App linked to a virtual network, to VM
 * Enable virtual network integration for your App Service Web App to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * In the Azure portal, for the AppService plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**. 
 
-### Specifying DNS servers
+## Specifying DNS servers
 When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (Resource Manager) / cloud service (classic). DNS servers specified for a cloud service/network interface get precedence over DNS servers specified for the virtual network.
 
 > [!NOTE]
