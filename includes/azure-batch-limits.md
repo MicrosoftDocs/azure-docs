@@ -16,5 +16,3 @@
 <sup>3</sup> Completed jobs and job schedules are not limited.
 
 <sup>4</sup> Contact Azure support if you want to request an increase beyond this limit.
-
-<sup>5</sup> Limit varies depending on the type of subscription used to create the Batch account.
