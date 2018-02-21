@@ -86,7 +86,7 @@ The following Azure tools provide critical functionality to the premium monitori
 [Azure alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively notify you of critical conditions and potentially take corrective action. Alert rules can use data from multiple sources, including metrics and logs. They use [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md), which contain unique sets of recipients and actions in response to an alert. Based on your requirements, you can have alerts start external actions by using webhooks and integrate with your ITSM tools.
 
 ### Dashboards
-You can use [Azure dashboards](../azure-portal/azure-portal-dashboards.md) to combine different kinds of data into a single pane in the Azure portal. You can the share the dashboard with other Azure users. 
+You can use [Azure dashboards](../azure-portal/azure-portal-dashboards.md) to combine different kinds of data into a single pane in the Azure portal. You can then share the dashboard with other Azure users. 
 
 For example, you can create a dashboard that combines:
 - Tiles that show a graph of metrics
@@ -117,7 +117,7 @@ You can also send activity logs to Log Analytics. There, you can analyze the log
 Following are high-level examples that illustrate how you can use different monitoring tools in Azure for different scenarios.
 
 ### Monitoring a web application
-Consider a web application deployed in Azure through Azure App Service, Azure Storage, and a SQL database. You start by accessing [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) for each of these resources on their pages in the Azure portal. You look for critical information, such as the number of requests to the application and average response time. You also identify any configuration changes.
+Consider a web application deployed in Azure through Azure App Service, Azure Storage, and a SQL database. You start by accessing [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) for these resources on their pages in the Azure portal. You look for critical information, such as the number of requests to the application and average response time. You also identify any configuration changes.
 
 You then go to Monitor in the portal in order to view metrics and logs for the different resources together. As you determine standard parameters for the metrics, you [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md). These rules proactively notify you when, for example, average response time increases beyond a threshold. To get a quick view of your application's daily performance, you create an Azure dashboard to show graphs of metrics that represent critical KPIs.
 
@@ -133,7 +133,7 @@ You have a mix of Windows and Linux virtual machines running in Azure. You use A
 
 To collect more details about virtual machines running a business application, you [create a Log Analytics workspace and enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) on each machine. You configure the [collection of different data sources](../log-analytics/log-analytics-data-sources.md) for your application and [create views](../log-analytics/log-analytics-view-designer.md) to report on its daily operation and performance. You then [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to notify you when particular error events are received. 
 
-To continuously monitor the health of the installed agent, you add the [Agent Health management solution](../operations-management-suite/oms-solution-agenthealth.md). To gain further insight into the application, you [add the dependency agent](../operations-management-suite/operations-management-suite-service-map-configure.md) to the virtual machines in order to add them to [Service Map](../operations-management-suite/operations-management-suite-service-map.md). It discovers critical processes and identifies connections between machines with other services. 
+To continuously monitor the health of the installed agent, you add the [Agent Health management solution](../operations-management-suite/oms-solution-agenthealth.md). To gain further insight into the application, you [add the dependency agent](../operations-management-suite/operations-management-suite-service-map-configure.md) to the virtual machines in order to add them to [Service Map](../operations-management-suite/operations-management-suite-service-map.md). Service Map discovers critical processes and identifies connections between machines with other services. 
 
 After a reported outage, you use Service Map to perform forensics to identify the particular machines that experienced the problem. You then create a [query on the Log Analytics data](../log-analytics/log-analytics-log-search-new.md) to identify the issue in the future. And you create an alert rule to proactively notify you when the condition is detected.
 
