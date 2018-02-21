@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 02/21/2018
 ms.author: mbullwin
 ---
 
@@ -30,15 +30,14 @@ This article walks you through creating a sample ASP.NET Core application in Vis
 
 1. Right-click and Launch **Visual Studio 2017** as administrator.
 2. Select **File** > **New** > **Project** (Ctrl-Shift-N).
-3. Expand **Visual C#** > Select **.NET Core** > **ASP.NET Core Web Application**.
 
    ![Screenshot of Visual Studio File New Project Menu](./media/app-insights-asp-net-core/0001-file-new-project.png)
 
-4. Enter a **Name** > **Solution name** > Check **Create new Git repository**.
+3. Expand **Visual C#** > Select **.NET Core** > **ASP.NET Core Web Application**. Enter a **Name** > **Solution name** > Check **Create new Git repository**.
 
    ![Screenshot of Visual Studio File New Project Wizard](./media/app-insights-asp-net-core/0002-new-project-web-application.png)
 
-5. Select **.Net Core** > **ASP.NET Core 2.0** **Web Application** > **OK**.
+4. Select **.Net Core** > **ASP.NET Core 2.0** **Web Application** > **OK**.
 
     ![Screenshot of Visual Studio File New Project Selection Menu](./media/app-insights-asp-net-core/0003-dot-net-core.png)
 
@@ -58,7 +57,7 @@ This article walks you through creating a sample ASP.NET Core application in Vis
 
 ## Changes Made to your project
 
-Application Insights is very low overhead. To review the modifications made to your project made by adding Application Insights telemetry:
+Application Insights is very low overhead. To review the modifications made to your project by adding Application Insights telemetry:
 
 Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
