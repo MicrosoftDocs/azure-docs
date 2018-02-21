@@ -79,9 +79,15 @@ Occasionally you may want to generate a backup snapshot, or recovery point, outs
   
    ![click Backup to associate the Azure File share with vault](./media/backup-file-shares/backup-now-menu.png)
 
-## Restore Azure File share data
-If you need to restore data from your Azure File share, you can restore an entire file share, or individual files or folders. You restore any or all of this data from a recovery point.
+## Restore from backup of Azure File share
+If you need to restore an entire file share or individual files or folders from a Restore Point, head to the Backup Item as detailed in the previous section. Choose **Restore Share** to restore an entire file share from a desired Point-in-time. From the list of Restore Points that show up, select one to be able to Overwrite your current file share or Restore this to an alternate file share in the same region.
 
+   ![click Backup to associate the Azure File share with vault](./media/backup-file-shares/select-restore-location.png)
+
+## Restore individual files or folders from backup of Azure File shares
+Azure Backup provides the ability to browse a Restore Point within the Azure portal. To restore a file or folder of your choice, click on File Recovery from the Backup Item page and choose from the list of Restore Points. Select the Recovery Destination and then click **Select File** to browse the restore point. Select the file or folder of your choice and **Restore**.
+
+   ![click Backup to associate the Azure File share with vault](./media/backup-file-shares/restore-individual-files-folders.png)
 
 ## Manage Azure File share backups
 
