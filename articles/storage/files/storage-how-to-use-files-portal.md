@@ -40,7 +40,7 @@ Storage account - blob, file, table, queue and then click **Create**.
 3. In **Name**, type *mystorageaccount* followed by a few random numbers until you get the green check mark indicating that it is a unique name. A storage account name must be all lower-case and globally unique. Make a note of your storage account name because you will be using it later. 
 4. In **Deployment model**, leave the default value of **Resource manager**.
 5. In **Account kind**, select **StorageV2 (general purpose v2)**. 
-6. In **Performance**, keep the default value of **Standard storage**. Azure Files currently only supports standard storage; even if you select premium storage, your file share will be stored on standard storage.
+6. In **Performance**, keep the default value of **Standard storage**. Azure Files currently only supports standard storage; even if you select premium storage, your file share is stored on standard storage.
 7. In **Replication**, select *Locally-redundant storage (LRS)*. 
 8. In **Secure transfer required** we recommend you always select *Enabled*. To learn more about this option, see [Understanding encryption in-transit](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 9. In **Subscription**, select subscription to create the storage account in. If you only have one subscription, it should be the default.
@@ -48,13 +48,13 @@ Storage account - blob, file, table, queue and then click **Create**.
 11. In **Location**, select *East US*.
 12 In **Virtual networks**, leave the default option as *Disabled*. 
 13. Select **Pin to dashboard** to make the storage account easier to find.
-13. When you are finished, click **Create** to start the deployment.
+13. When you're finished, click **Create** to start the deployment.
 
-It will take a few moments to deploy the storage account. You can watch the progress from your dashboard.
+It takes a few moments to deploy the storage account. You can watch the progress from your dashboard.
 
 ## Create a file share
 
-Create your first Azure file share within the storage account you just created.
+Create your first Azure file share within the storage account you created.
 
 1. Select the new storage account from your dashboard.
 2. On the storage account page, in the **Services** section, select **Files**.
@@ -62,16 +62,16 @@ Create your first Azure file share within the storage account you just created.
 3. On the menu at the top of the **File service** page, click **+ File share**. The **New file share** page drops down.
 4. In **Name** type *myshare*.
 5. In **Quota**, leave the field blank to set the quota to the [maximum size of a file share](storage-files-scale-targets.md).
-6. When you are done, click **OK** to create the Azure file share.
+6. When you're done, click **OK** to create the Azure file share.
 
-When finished, the portal will display the **File service** page that lists your new file share.
+When finished, the portal displays the **File service** page and lists your new file share.
 
 ## Create a directory
 
 Create a directory within your file share. Adding a directory provides a hierarchical structure for managing your file share. You can create multiple levels, but you must ensure that all parent directories exist before creating a subdirectory. For example, for path myDirectory/mySubDirectory, you must first create directory *myDirectory*, then create *mySubDirectory*. 
 
 1. On the **File Service** page, select the *myshare* file share. The page for your file share opens.
-2. On the menu at the top of the page, select **+ Add directory**. The **New directory** page will drop down.
+2. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
 3. Type *myDirectory* and then click **OK**.
 
 When finished, the *myDirectory* directory will be listed on the page for the *myshare* file share.
@@ -90,7 +90,7 @@ Upload a file from your local machine to the new directory in your file share.
 
 
 ## Download a file
-You can download a copy of a file in your file share by right clicking on the file and selecting **Download**. The download experience will depend on the operating system and browser you are using.
+You can download a copy of a file in your file share by right-clicking on the file and selecting **Download**. The download experience depends on the operating system and browser you're using.
 
 ![A screenshot of the download button in the context menu for a file](media/storage-how-to-use-files-portal/download-file-1.png) 
 
@@ -100,10 +100,10 @@ You can download a copy of a file in your file share by right clicking on the fi
 You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md).
 
 ## Clean up resources
-When you are done, you can delete the resource group, which will delete the storage account, Azure file share inside the storage account, and any other resources you may have deployed inside the resource group.
+When you're done, you can delete the resource group, which deletes the storage account, Azure file share inside the storage account, and any other resources you may have deployed inside the resource group.
 
 1. In the left menu, click **Resource groups**
-2. Right-click the resource group and select **Delete resource group*. A page will open, warning you about what resources will be deleted along withth e resource group.
+2. Right-click the resource group and select **Delete resource group*. A page opens, warning you about what resources will be deleted along with the resource group.
 3. Type the name of the resource group and then click **Delete**.
 
 
