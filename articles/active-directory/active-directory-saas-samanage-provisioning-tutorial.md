@@ -26,7 +26,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sa
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following items:
+The scenario outlined in this tutorial assumes that you already have the following:
 
 *   An Azure Active Directory tenant
 *   A Samanage tenant with the [Professional](https://www.samanage.com/pricing/) plan or better enabled 
