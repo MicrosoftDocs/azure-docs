@@ -2,10 +2,8 @@
 title: Secure access to an application's data in the cloud with Azure Storage | Microsoft Docs 
 description: Use SAS tokens, encryption and HTTPS to secure your application's data in the cloud
 services: storage
-documentationcenter: 
 author: tamram
 manager: jeconnoc
-
 
 ms.service: storage
 ms.workload: web
