@@ -24,13 +24,13 @@ ms.reviewer: rqureshi
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope. 
+With Role-Based Access Control (RBAC), you define access for users, groups, and service principals by assigning roles at a particular scope. This article describes how to manage access using the Azure command-line interface (CLI).
 
 ## Prerequisites
 
-To use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
+To use the Azure CLI to manage RBAC, you must have the following prerequisites:
 
-* [Azure CLI 2.0](/cli/azure/role). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
+* [Azure CLI 2.0](/cli/azure/overview). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
 
 ## List roles
 
@@ -242,7 +242,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## Grant access
+## Assign access
 
 ### Assign a role to a user
 
@@ -252,7 +252,7 @@ To assign a role to a user at the resource group scope, use [az role assignment 
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-The following example grants the *Virtual Machine Contributor* role to *patlong@contoso.com* user at the *pharma-sales-projectforecast* resource group scope:
+The following example assigns the *Virtual Machine Contributor* role to *patlong@contoso.com* user at the *pharma-sales-projectforecast* resource group scope:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -286,7 +286,7 @@ To assign a role to an application, use [az role assignment create](/cli/azure/r
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-The following example assigns the *Virtual Machine Contributor* role to an application with ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales-projectforecast* resource group scope.
+The following example assigns the *Virtual Machine Contributor* role to an application with ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales-projectforecast* resource group scope. To get the object ID of the application, you can use [az ad app list](/cli/azure/ad/app#az_ad_app_list).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -294,21 +294,21 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## Remove access
 
-### Delete a role assignment
+### Remove a role assignment
 
-To delete a role assignment, use [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete):
+To remove a role assignment, use [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-The following example deletes the *Virtual Machine Contributor* role assignment from the *patlong@contoso.com* user on the *pharma-sales-projectforecast* resource group:
+The following example removes the *Virtual Machine Contributor* role assignment from the *patlong@contoso.com* user on the *pharma-sales-projectforecast* resource group:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-The following example deletes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group and subscription, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) and [az account show](/cli/azure/account#az_account_show).
+The following example removes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group and subscription, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) and [az account show](/cli/azure/account#az_account_show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -320,7 +320,7 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 To list the roles that are available for assignment at a scope, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
-Either one fo the following examples list all the custom roles in the selected subscription:
+Both of the following examples list all the custom roles in the current subscription:
 
 ```azurecli
 az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.properties.roleName, "type":.properties.type}'
@@ -349,13 +349,13 @@ az role definition list --output json | jq '.[] | if .properties.type == "Custom
 
 ### Create a custom role
 
-To create a custom role, use [az role definition create](/cli/azure/role/definition#az_role_definition_create):
+To create a custom role, use [az role definition create](/cli/azure/role/definition#az_role_definition_create). The role definition can be a JSON description or a path to a file containing a JSON description.
 
 ```azurecli
 az role definition create --role-definition <role_definition>
 ```
 
-The following example creates a custom role called *Virtual Machine Operator*. This custom role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
+The following example creates a custom role named *Virtual Machine Operator*. This custom role assigns access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and assigns access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
 vmoperator.json
 
@@ -389,9 +389,9 @@ vmoperator.json
 az role definition create --role-definition ~/roles/vmoperator.json
 ```
 
-### Modify a custom role
+### Update a custom role
 
-To modify a custom role, first use [az role definition list](/cli/azure/role/definition#az_role_definition_list) to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use [az role definition update](/cli/azure/role/definition#az_role_definition_update) to save the modified role definition.
+To update a custom role, first use [az role definition list](/cli/azure/role/definition#az_role_definition_list) to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use [az role definition update](/cli/azure/role/definition#az_role_definition_update) to save the updated role definition.
 
 ```azurecli
 az role definition update --role-definition <role_definition>
