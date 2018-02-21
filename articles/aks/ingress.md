@@ -74,11 +74,11 @@ az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dns
 
 The ingress controller is now accessible through the DNS name. Because no ingress rules have been created, all traffic is routed to the ingress controllers 404 response page.
 
-## Install Kube-Lego
+## Install KUBE-LEGO
 
-The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [Kube-Lego][kube-lego], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [KUBE-LEGO][kube-lego], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
-To install the Kube-Lego controller, use the following Helm install command. Update the email address with one from your organization. For more information on Kube-Lego configuration, see the [Kube-Lego documentation][kube-lego].
+To install the KUBE-LEGO controller, use the following Helm install command. Update the email address with one from your organization. For more information on KUBE-LEGO configuration, see the [KUBE-LEGO documentation][kube-lego].
 
 ```
 helm install stable/kube-lego \
