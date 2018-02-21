@@ -3900,7 +3900,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
+                                                    <a href="/python/azure">Get the Azure libraries for Python</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/python/azure">Get started</a>
