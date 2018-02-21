@@ -99,7 +99,7 @@ Launching your app, and then clicking around on links manually can be used to ge
 3. Run the following PowerShell loop to create 100 synthetic transactions against your test app. Modify the port number after **localhost:** to match the url you copied in the previous step.
 
    ```PS
-   for ($i = 0 ; $i -le 100; $i++)
+   for ($i = 0 ; $i -lt 100; $i++)
    {
     Invoke-WebRequest -uri http://localhost:50984/
    }
