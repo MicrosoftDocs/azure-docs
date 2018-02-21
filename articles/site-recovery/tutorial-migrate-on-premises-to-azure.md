@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -69,7 +69,7 @@ Select what you want to replicate, and where you want to replicate to.
 
 - [Set up](tutorial-vmware-to-azure.md#set-up-the-source-environment) the source environment for VMware VMs.
 - [Set up](tutorial-physical-to-azure.md#set-up-the-source-environment) the source environment for physical servers.
-- [Set up](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
+- [Set up](hyper-v-azure-tutorial.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
 
 ## Set up the target environment
 
@@ -83,14 +83,14 @@ Select and verify target resources.
 
 - [Set up a replication policy](tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
 - [Set up a replication policy](tutorial-physical-to-azure.md#create-a-replication-policy) for physical servers.
-- [Set up a replication policy](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) for Hyper-V VMs.
+- [Set up a replication policy](hyper-v-azure-tutorial.md#set-up-a-replication-policy) for Hyper-V VMs.
 
 
 ## Enable replication
 
 - [Enable replication](tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
 - [Enable replication](tutorial-physical-to-azure.md#enable-replication) for physical servers.
-- [Enable replication](tutorial-hyper-v-to-azure.md#enable-replication) for Hyper-V VMs.
+- [Enable replication](hyper-v-azure-tutorial.md#enable-replication) for Hyper-V VMs.
 
 
 ## Run a test migration
