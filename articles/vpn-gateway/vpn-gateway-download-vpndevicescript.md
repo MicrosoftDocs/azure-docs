@@ -55,8 +55,11 @@ Once the connection resource is created, follow the instructions below to downlo
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account
 2. Go to the connection resource you created. You can find the list of all connection resources by clicking "All services", then "NETWORKING", and "Connections." ![connection-list](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)
 3. Click on the connection you want to configure. ![connection-overview](./media/vpn-gateway-download-vpndevicescript/connectionoverview.png)
-4. Click on the "Download configuration" link as highlighted in red in the Connection overview page; this opens the "Download configuration" page. ![download-script-1](./media/vpn-gateway-download-vpndevicescript/downloadscript-1.png)
-5. Select the model family and firmware version for your VPN device, then click on the "Download configuration" button. ![download-script-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.png)
+4. Click on the "Download configuration" link as highlighted in red in the Connection overview page; this opens the "Download configuration" page.
+
+    ![download-script-1](./media/vpn-gateway-download-vpndevicescript/downloadscript-1.png)
+
+5. Select the model family and firmware version for your VPN device, then click on the "Download configuration" button. ![download-script-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.PNG)
 6. You are prompted to save the downloaded script (a text file) from your browser.
 7. Once you downloaded the configuration script, open it with a text editor and search for the keyword "REPLACE" to identify and examine the parameters that may need to be replaced. ![edit-script](./media/vpn-gateway-download-vpndevicescript/editscript.png)
 
