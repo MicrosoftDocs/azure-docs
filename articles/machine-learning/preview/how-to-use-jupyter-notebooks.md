@@ -1,6 +1,6 @@
 ---
-title: How to Use Jupyter Notebooks in Azure Machine Learning Workbench | Microsoft Docs
-description: Guide for the using the Jupyter Notebooks feature of Azure Machine Learning Workbench
+title: How to use Jupyter Notebooks in Azure Machine Learning Workbench | Microsoft Docs
+description: A guide for using the Jupyter Notebooks feature of Azure Machine Learning Workbench
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,56 +11,56 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
 ---
-# How to use Jupyter notebook in Azure Machine Learning Workbench
+# Use Jupyter Notebooks in Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench supports interactive data science experimentation via its integration of Jupyter notebook. This article describes how to make effective use of this feature to increase the rate and the quality of your interactive data science experimentation.
+Azure Machine Learning Workbench supports interactive data science experimentation via its integration with Jupyter Notebooks. This article describes how to make effective use of this feature to increase the rate and quality of your interactive data science experimentation.
 
 ## Prerequisites
 - [Install and create Azure Machine Learning](quickstart-installation.md).
-- Be familiar with [Jupyter notebook](http://jupyter.org/), since this article is not about teaching how to use Jupyter.
+- Be familiar with the [Jupyter Notebook](http://jupyter.org/). This article is not about learning how to use Jupyter.
 
-## Jupyter notebook architecture
-At a high level, Jupyter notebook architecture includes three components, each can run in different compute environments:
+## Jupyter Notebook architecture
+At a high level, Jupyter Notebook architecture includes three components. Each can run in different compute environments:
 
-- **Client**: receives user input and displays rendered output
-- **Server**: web server hosting the notebook files (.ipynb files)
-- **Kernel**: the runtime environment where the actual execution of the notebook cells happens
+- **Client**: Receives user input and displays rendered output
+- **Server**: Web server hosts the notebook files (.ipynb files)
+- **Kernel**: Runtime environment where the actual execution of the notebook cells happens
 
-For more details, please reference the official [Jupyter documentation](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Following is a diagram depicting how this client, server, and kernel architecture map to the components in Azure ML.
+For more details, see the official [Jupyter documentation](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). The following diagram depicts how this client, server, and kernel architecture maps to the components in Azure Machine Learning.
 
-![notebook architecture](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
+![Jupyter Notebook architecture](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
-## Kernels in Azure ML Workbench notebook
-You can access many different kernels in Azure ML Workbench by configuring run configurations and compute targets in the `aml_config` folder in your project. Adding a new compute target by issuing `az ml computetarget attach` command is the equivalent of adding a new kernel.
+## Kernels in Azure Machine Learning Workbench notebook
+You can access many different kernels in Azure Machine Learning Workbench by configuring run configurations and compute targets in the `aml_config` folder in your project. Adding a new compute target by issuing the `az ml computetarget attach` command is the equivalent of adding a new kernel.
 
 >[!NOTE]
->Review the [Configure Execution](experimentation-service-configuration.md) for more details on run configurations and compute targets.
+>Review [Configuring Azure Machine Learning Experimentation Service](experimentation-service-configuration.md) for more details on run configurations and compute targets.
 
 ### Kernel naming convention
-Azure ML Workbench generates custom Jupyter kernels.  These are named "\<project name> \<run config name>". For example, if you have a run configuration named _docker-python_ in a project named _myIris_,  Azure ML makes available a kernel named "myIris docker-python".  You set the running kernel in the Jupyter Notebook "Kernel" menu, in the "Change kernel" sub-menu. The name of the running kernel appears on the far-right of the menu bar.
+Azure Machine Learning Workbench generates custom Jupyter kernels. These are named "\<project name> \<run config name>". For example, if you have a run configuration named _docker-python_ in a project named _myIris_,  Azure Machine Learning makes available a kernel named "myIris docker-python". You set the running kernel in the Jupyter Notebook "Kernel" menu, in the "Change kernel" submenu. The name of the running kernel appears on the far right of the menu bar.
  
-Currently, the Workbench supports the following types of kernels.
+Currently, Azure Machine Learning Workbench supports the following types of kernels:
 
 ### Local Python kernel
-This Python kernel supports execution on local machine. It is integrated with Azure Machine Learning's Run History support. The name of the kernel is typically "my_project_name local".
+This Python kernel supports execution on local machines. It's integrated with Azure Machine Learning Run History support. The name of the kernel is typically "my_project_name local".
 
 >[!NOTE]
->Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default. It is not integrated with Azure Machine Learning capabilities. For example, the _%azureml_ Jupyter magic functions return "not found" errors. 
+>Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default and is not integrated with Azure Machine Learning capabilities. For example, the _%azureml_ Jupyter magic functions return "not found" errors. 
 
-### Python Kernel in Docker (local or remote)
-This Python kernel runs in a Docker container either on your local machine, or in a remote Linux VM. The name of the kernel is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `Python`.
+### Python kernel in Docker (local or remote)
+This Python kernel runs in a Docker container either on your local machine or in a remote Linux virtual machine (VM). The name of the kernel is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `Python`.
 
 ### PySpark kernel in Docker (local or remote)
-This PySpark kernel executes scripts in a Spark context running inside of Docker container, either on your local machine, or on a remote Linux VM. The kernel name is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `PySpark`.
+This PySpark kernel executes scripts in a Spark context running inside of a Docker container, either on your local machine or on a remote Linux VM. The kernel name is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `PySpark`.
 
-### PySpark kernel on HDInsight cluster
-This kernel runs in the remote HDInsight cluster that you attached as a compute target for your project. The kernel name is typically "my_project my_hdi". 
+### PySpark kernel in an Azure HDInsight cluster
+This kernel runs in the remote Azure HDInsight cluster that you attached as a compute target for your project. The kernel name is typically "my_project my_hdi". 
 
 >[!IMPORTANT]
->In the `.compute` file for the HDI compute target, you must change the `yarnDeployMode` field to `client` (the default value is `cluster`) in order to use this kernel. 
+>In the `.compute` file for the HDI compute target, you must change the `yarnDeployMode` field to `client` (the default value is `cluster`) to use this kernel. 
 
-## Start Jupyter Server from the Workbench
-From Azure Machine Learning Workbench, notebooks can be accessed via the Workbench's  **Notebooks** tab. The _Classifying Iris_ sample project includes an `iris.ipynb` sample notebook.
+## Start a Jupyter server from the Azure Machine Learning Workbench
+From the Azure Machine Learning Workbench, notebooks can be accessed via the Workbench  **Notebooks** tab. The _Classifying Iris_ sample project includes an `iris.ipynb` sample notebook.
 
 ![notebooks tab](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
 
@@ -68,10 +68,10 @@ When a notebook is opened in Azure Machine Learning Workbench, it is displayed i
 
 ![notebook preview](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-Clicking **Start Notebook Server** button launches Jupyter server, and switches the notebook into **Edit Mode**. The familiar Jupyter notebook user interface appears embedded in the Workbench. You can now set a kernel from the **Kernel**  menu and start your interactive notebook session. 
+Selecting the **Start Notebook Server** button starts the Jupyter server and switches the notebook into **Edit Mode**. The familiar Jupyter Notebook user interface appears embedded in the workbench. You can now set a kernel from the **Kernel**  menu and start your interactive notebook session. 
 
 >[!NOTE]
->Note for non-local kernels, it can take a minute or two to start if you are using it for the first time. You can execute `az ml experiment prepare` command from CLI window to prepare the compute target so the kernel can start much faster after the compute target is prepared.
+>With non-local kernels, it can take a minute or two to start if you are using it for the first time. You can execute `az ml experiment prepare` command from CLI window to prepare the compute target so the kernel can start much faster after the compute target is prepared.
 
 ![edit mode](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
