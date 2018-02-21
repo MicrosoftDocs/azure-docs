@@ -9,7 +9,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 02/21/2018
 ms.author: v-geberr
 ---
 
@@ -26,7 +26,7 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 <a name="programmatic-key" ></a>
 ## Authoring key
 
-A authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps. The authoring key is provided to author your LUIS app or to test endpoint queries. 
+An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps. The authoring key is provided to author your LUIS app or to test endpoint queries. 
 
 To find the authoring Key, log in to [LUIS][LUIS] and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
@@ -42,8 +42,13 @@ An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint
 
 Do not use the endpoint key for authoring LUIS apps.
 
+## API usage of Ocp-Apim-Subscription-Key
+The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`, in both the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs. The header name does not change based on which set of APIs you are using. 
+
+Use the authoring key for authoring APIs. You can't pass the endpoint key for authoring APIs. If you do, you get a 401 error - access denied due to invalid subscription key. 
+
 ## Key limits
-See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-reference-regions.md). The authoring key is free and used for authoring. The LUIS subscription key has a free tier but must be created by you and associated with your LUIS app on the **Publish** page. It can not be used for authoring, but only endpoint queries.
+See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-reference-regions.md). The authoring key is free and used for authoring. The LUIS subscription key has a free tier but must be created by you and associated with your LUIS app on the **Publish** page. It can't be used for authoring, but only endpoint queries.
 
 Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want.
 

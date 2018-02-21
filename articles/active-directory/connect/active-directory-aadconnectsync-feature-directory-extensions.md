@@ -18,12 +18,14 @@ ms.author: billmath
 
 ---
 # Azure AD Connect sync: Directory extensions
-Directory extensions allows you to extend the schema in Azure AD with your own attributes from on-premises Active Directory. This feature allows you to build LOB apps consuming attributes you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://graph.microsoft.io/). You can see the attributes available using [Azure AD Graph explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) respectively.
+You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph API directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://graph.microsoft.io/). You can see the available attributes by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer), respectively.
 
-At present no Office 365 workload consumes these attributes.
+At present, no Office 365 workload consumes these attributes.
 
 You configure which additional attributes you want to synchronize in the custom settings path in the installation wizard.
-![Schema Extension Wizard](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
+
+![Schema extension wizard](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
+
 The installation shows the following attributes, which are valid candidates:
 
 * User and Group object types
@@ -32,29 +34,28 @@ The installation shows the following attributes, which are valid candidates:
 
 
 >[!NOTE]
-> While Azure AD Connect supports synchronizing multi-valued AD attributes to Azure AD as multi-valued directory extensions, there are currently no features in Azure AD that support the use of multi-valued directory extensions.
+> Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions. But no features in Azure AD currently support the use of multi-valued directory extensions.
 
-The list of attributes is read from the schema cache created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, then the [schema must be refreshed](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
+The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
-An object in Azure AD can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, then it is truncated by the sync engine.
+An object in Azure AD can have up to 100 attributes for directory extensions. The maximum length is 250 characters. If an attribute value is longer, the sync engine truncates it.
 
-During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal.  
-![Schema Extension App](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
+During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal.
 
-The attributes are prefixed with extension\_{AppClientId}\_. The AppClientId has the same value for all attributes in your Azure AD tenant.
+![Schema extension app](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
-These attributes are now available through the **Azure AD Graph**:
+The attributes are prefixed with the extension \_{AppClientId}\_. AppClientId has the same value for all attributes in your Azure AD tenant.
 
-We can query the Azure AD Graph through the Azure AD Graph explorer: [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)
+These attributes are now available through the Azure AD Graph API. You can query them by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
 
-![Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+![Azure AD Graph Explorer](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Or through the **Microsoft Graph API**:
-
-We can query the Microsoft Graph API through the Microsoft Graph explorer: [https://developer.microsoft.com/en-us/graph/graph-explorer#](https://developer.microsoft.com/en-us/graph/graph-explorer#)
+Or you can query the attributes through the Microsoft Graph API, by using [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#).
 
 >[!NOTE]
-> You need to explicitly ask for the attribute to be returned. This can be done by explicitly selecting the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division For more information please check [Microsoft Graph: Use query parameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)
+> You need to ask for the attributes to be returned. Explicitly select the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
+>
+> For more information, see [Microsoft Graph: Use query parameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
