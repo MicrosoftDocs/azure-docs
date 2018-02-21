@@ -30,7 +30,7 @@ In this step, you create a console application and prepare the training key and 
 1. Start Visual Studio 2015, Community Edition. 
 2. Create a new console application by replacing the contents of **Program.cs** with the code that follows.
 
- This code defines and calls two helper methods. **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint:
+**LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint:
 
 ```
 using Microsoft.Cognitive.CustomVision.Prediction;
