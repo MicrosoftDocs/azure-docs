@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 02/21/2017
 ms.author: jeffgilb
 
 ---
@@ -30,15 +30,17 @@ This article summarizes the known Azure Stack Storage differences from Azure Sto
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File storage|Cloud-based SMB file shares supported|Not yet supported
-|Azure Storage Service Encryption for Data at Rest|256-bit AES encryption|Not yet supported
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
-|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
-|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee
-|Managed disks|Premium and standard supported|Not yet supported
+|Azure Storage Service Encryption for Data at Rest|256-bit AES encryption|BitLocker 128-bit AES encryption
+|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only.
+|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage.
+|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee.
+|Managed disks|Premium and standard supported|Not yet supported.
 |Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
-|Page blob snapshot copy|Backup Azure unmanaged VM disks attached to a running VM supported|Not yet supported
-|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
+|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|4.75 TB (100 MB x 50,000 blocks) for the 1802 update or newer version. 50,000 X 4 MB (approx. 195 GB) for previous versions.
+|Page blob snapshot copy|Backup Azure unmanaged VM disks attached to a running VM supported|Not yet supported.
+|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported.
+|Storage tiers for blob storage|Hot, cool, and archive storage tiers.|Not yet supported.
+Soft delete for blob storage|Preview|Not yet supported.
 |Page blob max size|8 TB|1 TB
 |Page blob page size|512 bytes|4 KB
 |Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
@@ -51,8 +53,18 @@ There are also some differences with storage metrics:
 ## API version
 The following versions are supported with Azure Stack Storage:
 
-* Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+1802 update or newer:
+ - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/versioning-for-the-azure-storage-services)
+ - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+
+Previous versions:
+ - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+
+
+`Remove this text? Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)`
 
 ## Next steps
 
