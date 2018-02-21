@@ -16904,6 +16904,11 @@
             "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-tutorial",
             "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/store-new-relic-cloud-services-dotnet-application-performance-management.md",
+            "redirect_url": "/azure/application-insights/",
+            "redirect_document_id": false
     }
    ]
 }
