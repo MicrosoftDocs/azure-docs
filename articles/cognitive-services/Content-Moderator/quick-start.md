@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 You get started with Content Moderator APIs and the review tool in the following ways:
 
-- [Start with the review tool](#start-with-the-review-tool) to create both the API keys and a review team.
+- [Start with the review tool](#start-with-the-review-tool) to create both the API keys and a review team. Explore the review tool and learn how to integrate by using the Content Moderator APIs.
 - [Start with the APIs](#start-with-the-apis) by subscribing in the Azure portal. You still need to sign up online to create a review team.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
@@ -47,6 +47,12 @@ Review the auto-moderated tags, change if needed, and submit by using the **Next
 ![Review results](images/reviewresults.png)
 
 Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-in-the-loop.md) or continue with the next section to learn about the APIs. Skip the sign-up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
+
+### Use the APIs
+
+Now that you have explored the content moderation and review tool experience, learn how to integrate Content Moderator with your business applications. Use the following section to learn more and fast-track your understanding with the [SDKs and samples](sdk-and-samples.md).
+
+
 
 ## Start with the APIs
 
