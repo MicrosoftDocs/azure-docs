@@ -260,6 +260,9 @@ public static void trendingTopics(String subscriptionKey)
 ```
 Add the previous methods to a class with main function to run the code:
 ```
+package javaNewsSDK;
+import com.microsoft.azure.cognitiveservices.newssearch.*;
+
 public class NewsSearchSDK {
 	
 
