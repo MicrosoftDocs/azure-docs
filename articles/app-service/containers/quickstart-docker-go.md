@@ -1,6 +1,6 @@
 ---
 title: Create Docker/Go app
-description: How to deploy a Docker image running a Go application for Azure Web Apps for Containers.
+description: How to deploy a Docker image running a Go application to Web App for Containers.
 keywords: azure app service, web app, go, docker, container
 services: app-service
 author: msangapu 
@@ -15,17 +15,13 @@ ms.author: msangapu
 ms.custom: mvc
 ---
 
-# Deploy a Go App in Azure Web App for Containers
+# Deploy a Docker / Go web app in Web App for Containers
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to take a Docker image with a Go application and run it on Azure App Service. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+[Web App for Containers](app-service-linux-intro.md) provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that is not already defined in Azure. This quickstart shows how to create a web app and deploy a Go image from Docker Hub. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
+![Sample app running in Azure](media/quickstart-docker-go/hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-## Prerequisites
-
-* Understanding of Docker and Docker images
-* Understanding of Go Programming Language
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -64,17 +60,13 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 ## Browse to the app
 
-Using the `curl` command, contact the REST API endpoint provided by the container's application.
-
 ```bash
-http://<app_name>.azurewebsites.net:8080/hello
+http://<app_name>.azurewebsites.net/hello
 ```
 
-```output
-Hello world!
-```
+![Sample app running in Azure](media/quickstart-docker-go/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed a custom Docker image running a Go application to Web Apps for Containers.
+**Congratulations!** You've deployed a custom Docker image running a Go application to Web App for Containers.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 

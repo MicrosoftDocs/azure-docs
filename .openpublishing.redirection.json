@@ -16833,6 +16833,11 @@
             "source_path": "articles/active-directory/active-directory-saas-new-relic-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/app-service/containers/quickstart-custom-docker-image",
+            "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
+            "redirect_document_id": false
     }
    ]
 }
