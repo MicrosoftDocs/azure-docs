@@ -310,6 +310,9 @@ public static void VideoDetail(String subscriptionKey)
 ```
 Add the previous methods to a class with main function to run the code:
 ```
+package videoSDK;
+import com.microsoft.azure.cognitiveservices.videosearch.*;
+
 public class VideoSDK {
 
 	public static void main(String[] args) {
