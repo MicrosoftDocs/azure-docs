@@ -266,7 +266,7 @@ To assign a role to a group, use [az role assignment create](/cli/azure/role/ass
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-The following example assigns the *Reader* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) or [az ad group show](/cli/azure/group#az_ad_group_show).
+The following example assigns the *Reader* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) or [az ad group show](/cli/azure/ad/group#az_ad_group_show).
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -308,7 +308,7 @@ The following example removes the *Virtual Machine Contributor* role assignment 
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-The following example removes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) or [az ad group show](/cli/azure/group#az_ad_group_show).
+The following example removes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) or [az ad group show](/cli/azure/ad/group#az_ad_group_show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
