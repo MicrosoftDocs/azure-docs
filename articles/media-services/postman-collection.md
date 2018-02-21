@@ -1,5 +1,5 @@
----
-title: Import the Postman collection with On-Demand Streaming operations
+ ---
+title: Import the Postman collection with Azure On-Demand Streaming operations
 description: This article provides a definition of the Postman collection for Azure Media Services REST calls.
 services: media-services
 documentationcenter: ''
