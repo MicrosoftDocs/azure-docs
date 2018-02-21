@@ -13,52 +13,66 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/20/2018
 ms.author: rli
 ---
 # Dynamic site acceleration via Azure CDN
 
 With the explosion of social media, electronic commerce, and the hyper-personalized web, a rapidly increasing percentage of the content served to end users is generated in real time. Users expect a fast, reliable, and personalized web experience, independent of their browser, location, device, or network. However, the very innovations that make these experiences so engaging also slow page downloads and put the quality of the consumer experience at risk. 
 
-Standard CDN capability includes the ability to cache files closer to end users to speed up delivery of static files. However, with dynamic web applications, caching that content in edge locations isn't possible because the server generates the content in response to user behavior. Speeding up the delivery of such content is more complex than traditional edge caching and requires an end-to-end solution that finely tunes each element along the entire data path from inception to delivery. With the Azure CDN dynamic site acceleration (DSA) optimization, the performance of web pages with dynamic content is measurably improved.
+Standard CDN capability includes the ability to cache files closer to end users to speed up delivery of static files. However, with dynamic web applications, caching that content in edge locations isn't possible because the server generates the content in response to user behavior. Speeding up the delivery of such content is more complex than traditional edge caching and requires an end-to-end solution that finely tunes each element along the entire data path from inception to delivery. With Azure CDN dynamic site acceleration (DSA) optimization, the performance of web pages with dynamic content is measurably improved.
 
-Azure CDN from Akamai and Verizon offers DSA optimization through the **Optimized for** menu during endpoint creation.
+**Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation.
 
-> [!Note]
+> [!Important]
 > For **Azure CDN from Akamai** profiles, you can change the optimization of a CDN endpoint after it has been created.
 >   
-> For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Verizon** profiles, it is not possible to change the optimization of a CDN endpoint after it has been created.
 
 ## Configuring CDN endpoint to accelerate delivery of dynamic files
 
-You can configure your CDN endpoint to optimize delivery of dynamic files via Azure portal by selecting the **Dynamic site acceleration** option under the **Optimized for** property selection during the endpoint creation. You can also use the REST APIs or any of the client SDKs to do the same thing programmatically. 
+To configure a CDN endpoint to optimize delivery of dynamic files, you can either use the Azure portal, the REST APIs, or any of the client SDKs to do the same thing programmatically. 
 
-### Probe path
-Probe path is a feature specific to Dynamic Site Acceleration, and a valid one is required for creation. DSA uses a small *probe path* file placed on the origin to optimize network routing configurations for the CDN. For the probe path file, you can download and upload the sample file to your site, or use an existing asset on your origin that is about 10 KB in size.
+**To configure a CDN endpoint for DSA optimization by using the Azure portal:**
+
+1. In the **CDN profile** page, select **Endpoint**.
+
+   ![Add a new CDN endpoint](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
+
+   The **Add an endpoint** pane appears.
+
+2. Under **Optimized for**, select **Dynamic site acceleration**.
+
+    ![Create a new CDN endpoint with DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
+
+3. For **Probe path**, enter a valid path to a file.
+
+    Probe path is a feature specific to DSA, and a valid path is required for creation. DSA uses a small *probe path* file placed on the origin server to optimize network routing configurations for the CDN. For the probe path file, you can download and upload the sample file to your site, or use an existing asset on your origin that is about 10 KB in size.
+
+4. Enter the other required endpoint options (for more information, see [Create a new CDN endpoint](cdn-create-new-endpoint#create-a-new-cdn-endpoint)), then select **Add**.
+
+   After the CDN endpoint is created, it applies the DSA optimizations for all files that match certain criteria. 
 
 > [!Note]
 > DSA incurs extra charges. For more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
-The following screenshots illustrate the process via Azure portal.
- 
-![Adding a new CDN endpoint](./media/cdn-dynamic-site-acceleration/01_Endpoint_Profile.png) 
+**To configure an existing endpoint for DSA (Azure CDN from Akamai profiles only):**
 
-*Figure 1: Adding a new CDN endpoint from the CDN Profile*
- 
-![Creating a new CDN endpoint with DSA](./media/cdn-dynamic-site-acceleration/02_Optimized_DSA.png)  
+1. In the **CDN profile** page, select the endpoint you want to modify.
 
-*Figure 2: Creating a CDN Endpoint with Dynamic site acceleration Optimization selected*
+2. From the left pane, select **Optimization**. 
 
-Once the CDN endpoint is created, it applies the DSA optimizations for all files that match certain criteria. The following section describes DSA optimization in detail.
+3. Under **Optimized for**, select **Dynamic site acceleration**, then select **Save**.
+
 
 ## DSA Optimization using Azure CDN
 
-Dynamic Site Acceleration on Azure CDN speeds up delivery of dynamic assets using the following techniques:
+Dynamic Site Acceleration on Azure CDN speeds up delivery of dynamic assets by using the following techniques:
 
--	Route Optimization
--	TCP Optimizations
--	Object Prefetch (Akamai only)
--   Mobile Image Compression (Akamai only)
+-	[Route optimization](#route-optimization)
+-	[TCP optimizations](#tcp-optimizations)
+-	[Object prefetch (Azure CDN from Akamai only)](#object-prefetch-azure-cdn-from-akamai-only)
+-   [Adaptive image compression (Azure CDN from Akamai only)](#adaptive-image-compression-azure-cdn-from-akamai-only)
 
 ### Route Optimization
 
@@ -76,15 +90,15 @@ As a result, fully dynamic and transactional content is delivered more quickly a
 
 Transmission Control Protocol (TCP) is the standard of the Internet protocol suite used to deliver information between applications on an IP network.  By default, several back-and-forth requests are required to set up a TCP connection, as well as limits to avoid network congestions, which result in inefficiencies at scale. **Azure CDN from Akamai** handles this problem by optimizing in three areas: 
 
- - Eliminating slow starts
- - Leveraging persistent connections
- - Tuning TCP packet parameters
+ - [Eliminating TCP slow start](#eliminating-tcp-slow-start)
+ - [Leveraging persistent connections](#leveraging-persistent-connections)
+ - [Tuning TCP packet parameters](#tuning-tcp-packet-parameters)
 
-#### Eliminating slow starts
+#### Eliminating TCP slow start
 
 TCP *slow start* is an algorithm of the TCP protocol that prevents network congestion by limiting the amount of data sent over the network. It starts off with small congestion window sizes between sender and receiver until the maximum is reached or packet loss is detected.
 
- Both **Azure CDN from Akamai** and **Azure CDN from Verizon** eliminate slow starts in three steps:
+ Both **Azure CDN from Akamai** and **Azure CDN from Verizon** eliminate TCP slow start with the following three steps:
 
 1. Health and bandwidth monitoring is used to measure the bandwidth of connections between edge PoP servers.
 2. The metrics are shared between edge PoP servers so that each server is aware of the network conditions and server health of the other PoPs around them.  
@@ -94,19 +108,19 @@ TCP *slow start* is an algorithm of the TCP protocol that prevents network conge
 
 Using a CDN, fewer unique machines connect to your origin server directly compared with users connecting directly to your origin. Azure CDN also pools user requests together to establish fewer connections with the origin.
 
-As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, also known as "HTTP Keep-Alive", reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
+As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, also known as *HTTP Keep-Alive*, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
 
 **Azure CDN from Verizon** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
 
 #### Tuning TCP packet parameters
 
-**Azure CDN from Akamai** tunes the parameters that govern server-to-server connections and reduces the amount of long haul round trips required to retrieve content embedded in the site by using the following techniques:
+**Azure CDN from Akamai** tunes the parameters that govern server-to-server connections and reduces the amount of long-haul round trips required to retrieve content embedded in the site by using the following techniques:
 
 1.	Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgement.
 2.	Decreasing the initial retransmit timeout so that a loss is detected, and retransmission occurs more quickly.
 3.	Decreasing the minimum and maximum retransmit timeout to reduce the wait time before assuming packets were lost in transmission.
 
-### Object Prefetch (**Azure CDN from Akamai** only)
+### Object prefetch (**Azure CDN from Akamai** only)
 
 Most websites consist of an HTML page, which references various other resources such as images and scripts. Typically, when a client requests a webpage, the browser first downloads and parses the HTML object, and then makes additional requests to linked assets that are required to fully load the page. 
 
@@ -114,7 +128,7 @@ Most websites consist of an HTML page, which references various other resources 
 
 With the **prefetch** option turned on at the time when the CDN serves the HTML base page to the client’s browser, the CDN parses the HTML file and make additional requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server already has the requested objects and can serve them immediately without a round trip to the origin. This optimization benefits both cacheable and non-cacheable content.
 
-### Adaptive Image Compression (**Azure CDN from Akamai** only)
+### Adaptive image compression (**Azure CDN from Akamai** only)
 
 Some devices, especially mobile ones, experience slower network speeds from time to time. In these scenarios, it is more beneficial for the user to receive smaller images in their webpage more quickly rather than waiting a long time for full resolution images.
 
@@ -136,7 +150,7 @@ To access the ADN rules engine:
   1. From the **CDN profile** page, select **Manage**.  
   2. From the CDN management portal, select **ADN**, then select **Rules Engine**. 
 
-An alternative is to use two CDN endpoints. Use one endpoint optimized with DSA to deliver dynamic assets, and another endpoint with a static optimization type, such as general web delivery, to delivery cacheable assets. In order to accomplish this alternative, modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
+Alternatively, you can use two CDN endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to delivery cacheable assets. Modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
 
 For example: 
 `mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`. 
