@@ -139,7 +139,7 @@ DNS forwarding also enables inter-virtual network DNS resolution and allows your
 
 ![Inter-virtual network DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-When using Azure-provided name resolution, an iternal DNS suffix (`*.internal.cloudapp.net`) is provided to each VM by Azure's DHCP. This suffix enables hostname resolution as the hostname records are in the *internal.cloudapp.net* zone. When using your own name resolution solution, this suffix is not supplied to VMs because it interferes with other DNS architectures (like domain-joined scenarios). Instead, Azure provides a non-functioning placeholder (*reddog.microsoft.com*).
+When using Azure-provided name resolution, an internal DNS suffix (`*.internal.cloudapp.net`) is provided to each VM by Azure's DHCP. This suffix enables hostname resolution as the hostname records are in the *internal.cloudapp.net* zone. When using your own name resolution solution, this suffix is not supplied to VMs because it interferes with other DNS architectures (like domain-joined scenarios). Instead, Azure provides a non-functioning placeholder (*reddog.microsoft.com*).
 
 If needed, the Internal DNS suffix can be determined using PowerShell or the API:
 
@@ -163,7 +163,7 @@ If you need to perform name resolution from your App Service Web App linked to a
 * Enable virtual network integration for your App Service Web App, if not done already, as described in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * In the Azure portal, for the AppService plan hosting the Web App, select **Sync Network** under **Networking**, **Virtual Network Integration**, as shown in the following picture:
 
-    ![Inter-vnet Web Apps Name Resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
+    ![Web Apps virtual network name resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
 Name resolution from your App Service Web App linked to a virtual network, to VMs in a different virtual network requires the use of custom DNS servers on both virtual networks, as follows:
 * Set up a DNS server in your target virtual network on a VM that can also forward queries to Azure’s recursive resolver (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
