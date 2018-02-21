@@ -391,6 +391,8 @@ public static void imageDetail(String subscriptionKey)
 ```
 Add the previous methods to a class with main function to run the code:
 ```
+package ImageSDK;
+import com.microsoft.azure.cognitiveservices.imagesearch.*;
 
 public class ImageSrchSDK {
 
