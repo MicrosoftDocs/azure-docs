@@ -76,7 +76,7 @@ If you use a static IP address, you can specify the IP address that you want the
 A recovery plan supports the sequencing of various tiers in a multi-tier application during a failover. Sequencing helps maintain application consistency. When you create a recovery plan for a multi-tier web application, complete the steps described in [Create a recovery plan by using Site Recovery](site-recovery-create-recovery-plans.md).
 
 ### Add scripts to the recovery plan
-For your applications to function correctly, you might need to do some operations on the Azure virtual machines after the failover or during a test failover. You can automate some post-failover operations. For example, you can update the DNS entry and change bindings and connections by adding corresponding scripts to the recovery plan. To learn how to set up automated tasks by using a script, see [Add a VMM script to a recovery plan](site-recovery-how-to-add-vmmscript.md).
+For your applications to function correctly, you might need to do some operations on the Azure virtual machines after the failover or during a test failover. You can automate some post-failover operations. For example, you can update the DNS entry and change bindings and connections by adding corresponding scripts to the recovery plan.
 
 ### DNS update
 If DNS is configured for dynamic DNS update, virtual machines usually update the DNS with the new IP address when they start. If you want to add an explicit step to update DNS with the new IP addresses of the virtual machines, add a [script to update the IP address in DNS](https://aka.ms/asr-dns-update) as a post-failover action on recovery plan groups.  
