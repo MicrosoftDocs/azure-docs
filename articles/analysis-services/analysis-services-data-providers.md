@@ -27,10 +27,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    N/A      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    N/A      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
 
 ## AMO and ADOMD on NuGet
 
@@ -83,9 +83,11 @@ Client libraries for client connections are different from data providers requir
   
 1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. If you have more than one folder, choose the higher number.
   
-2.  Right-click **msolap140.dll** > **Properties** > **Details**.  
+2.  Right-click **msolap.dll** > **Properties** > **Details**.  
     
     ![Client library details](media/analysis-services-data-providers/aas-msolap-details.png)
+    
+    If the dll is named msolap140.dll, it's older than latest version and should be upgraded.
   
 ### AMO
 
