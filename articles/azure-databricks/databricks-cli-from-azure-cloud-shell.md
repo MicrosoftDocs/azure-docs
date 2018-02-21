@@ -82,7 +82,7 @@ For a complete reference on commands, see [Databricks CLI](https://docs.azuredat
 
 ## See also
 
-* [Azure CLI overview](../cloud-shell/overview)
+* [Azure CLI overview](../cloud-shell/overview.md)
 * [Azure CLI reference](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 * [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
