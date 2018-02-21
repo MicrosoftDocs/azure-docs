@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # Perform cross-resource log searches in Log Analytics  
 
-Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This to made it challenging to natively analyze operational and application data together.   
+Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This also made it a challenge to natively analyze operational and application data together.   
 
 Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of query in the [Advanced portal](log-analytics-log-search-portals.md#advanced-analytics-portal), not in the Azure portal.  
 
@@ -58,7 +58,7 @@ Identifying a workspace can be accomplished one of several ways:
     ```
 
 ### Identifying an application
-The following examples returns a summarized count of requests made against an app named *fabrikamapp* in Application Insights. 
+The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights. 
 
 Identifying an application in Application Insights can be accomplished with the *app(Identifier)* expression.  The *Identifier* argument specifies the app using one of the following:
 
