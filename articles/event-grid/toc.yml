@@ -36,6 +36,8 @@
     href: delivery-and-retry.md
 - name: How-to guides
   items:
+  - name: Receive events to an HTTP endpoint
+    href: receive-events.md
   - name: Stream data from Event Hubs to data warehouse
     href: event-grid-event-hubs-integration.md
   - name: Send notifications about IoT Hub events
