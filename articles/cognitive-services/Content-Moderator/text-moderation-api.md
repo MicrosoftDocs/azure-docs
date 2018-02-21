@@ -1,6 +1,6 @@
 ---
-title: Text Moderation with Azure Content Moderator | Microsoft Docs
-description: Use text moderation for possible unwanted, PII, and custom lists of terms.
+title: Azure Content Moderator - Text Moderation | Microsoft Docs
+description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -41,9 +41,14 @@ If the API detects any profane terms in any of the [supported languages](Text-Mo
 		"Term": "crap"
 	}
 
+> [!NOTE]
+> For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
+>
+> For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
+
 ## Classification (preview)
 
-Content Moderator’s machine-assisted text classification feature (preview) helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
+Content Moderator’s machine-assisted **text classification feature (preview)** supports **English only**, and helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
 
 The following extract in the JSON extract shows an example output:
 

@@ -42,7 +42,7 @@ You need to have a few resources ready in Azure for the migrated EC2 instances t
 Images of replicated machines are held in Azure storage. Azure VMs are created from the storage
 when you failover from on-premises to Azure.
 
-1. In the [Azure portal](https://portal.azure.com) menu, click **New** -> **Storage** -> **Storage account**.
+1. In the [Azure portal](https://portal.azure.com) menu, click **Create a resource** -> **Storage** -> **Storage account**.
 2. Enter a name for your storage account. For these tutorials, we use the name
    **awsmigrated2017**. The name must be unique within Azure, and be between 3 and 24
    characters, only numbers and lowercase letters.
@@ -70,7 +70,7 @@ The new vault appears on the **Dashboard** > **All resources**, and on the main 
 
 When the Azure VMs are created after the migration (failover), they're joined to this network.
 
-1. In the [Azure portal](https://portal.azure.com), click **New** > **Networking** >
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Networking** >
    **Virtual network**
 3. For **Name**, type *myMigrationNetwork*.
 4. Leave the default value for **Address space**.

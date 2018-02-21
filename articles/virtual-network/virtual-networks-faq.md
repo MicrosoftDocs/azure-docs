@@ -81,7 +81,7 @@ Yes. You can use User Defined Routing (UDR). For more information about UDR, vis
 No. We do not support multicast or broadcast.
 
 ### What protocols can I use within VNets?
-You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
+You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DCHP) via Unicast (source port UDP/68 / destination port UDP/67). Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
 
 ### Can I ping my default routers within a VNet?
 No.

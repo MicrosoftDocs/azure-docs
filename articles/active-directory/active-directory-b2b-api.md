@@ -75,7 +75,7 @@ The API can be run in the following authorization modes:
 In this mode, whoever is using the API needs to have the permissions to be create B2B invitations.
 
 ### App only mode
-In app only context, the app needs the User.ReadWrite.All or Directory.ReadWrite.All scopes for the invitation to succeed.
+In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
 For more information, refer to: https://graph.microsoft.io/docs/authorization/permission_scopes
 
