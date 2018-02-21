@@ -1,4 +1,5 @@
 # [Azure AD B2C Documentation](index.md)
+
 # [Overview](active-directory-b2c-overview.md)
 
 # Get started

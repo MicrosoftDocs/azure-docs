@@ -1,3 +1,5 @@
+# [Azure Resource Manager Documentation](index.md)
+
 # Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource providers and types](resource-manager-supported-services.md)
