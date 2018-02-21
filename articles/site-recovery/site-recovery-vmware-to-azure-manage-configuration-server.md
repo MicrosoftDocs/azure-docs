@@ -21,9 +21,9 @@ Modify settings for the VMware server to which the configuration server connects
 2. Start Azure Site Recovery Configuration Manager from the desktop shortcut. Or, open [this link](https://configuration-server-name/IP:44315).
 3. Select **Manage vCenter Server/vSPhere ESXi server**, and take these steps:
 
-    a. To associate a different VMware server with the configuration server, select **Add vCenter Server/vSphere ESXi server**. Enter the server details.
+    * To associate a different VMware server with the configuration server, select **Add vCenter Server/vSphere ESXi server**. Enter the server details.
 
-    b. To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, select **Edit**. Enter the new credentials, and then select **OK**.
+    * To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, select **Edit**. Enter the new credentials, and then select **OK**.
 
     ![Modify VMware](./media/site-recovery-vmware-to-azure-manage-configuration-server/modify-vmware-server.png)
 
