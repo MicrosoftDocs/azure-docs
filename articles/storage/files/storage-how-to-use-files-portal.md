@@ -109,5 +109,4 @@ When you're done, you can delete the resource group, which deletes the storage a
 
 ## Next steps
 - [Managing file shares with the Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Managing file shares with Azure CLI](storage-quickstart-files-cli.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)
