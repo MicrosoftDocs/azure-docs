@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/07/2018
 ms.author: mihauss
 ---
 # Soft delete for Azure Storage blobs (public preview)
@@ -33,11 +33,10 @@ safe. With the introduction of object-level soft delete, your blob data is a lit
 
 ## How does it work?
 
-When turned on, soft delete enables you to save and recover your data in many
-cases where blobs or blob snapshots are deleted. This protection extends to
-blobs that are deleted as the result of overwrites.
+When turned on, soft delete enables you to save and recover your data where blobs or blob snapshots are deleted. This protection extends to
+blob data that is erased as the result of an overwrite.
 
-When soft delete is on and you delete data, it transitions to a soft deleted
+When soft data is deleted, it transitions to a soft deleted
 state instead of being permanently erased. When soft delete is on and you
 overwrite data, a soft deleted snapshot is generated to save the state of the
 overwritten data. Soft deleted objects are invisible unless explicitly listed.
@@ -246,6 +245,36 @@ period to better understand how the feature will affect your bill.
 
 ## Quick Start
 
+### Portal
+To enable soft delete...
+
+To view soft deleted data...
+
+Notice the new blob properties...
+
+Call undelete to restore. Remember that calling Undelete Blob, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active.
+
+### PowerShell
+To enable soft delete, update a blob client’s service properties. The following example enables soft delete for a subset of accounts in a subscription:
+
+```bash
+Set-AzureRmContext -Subscription "<subscription-name>"
+$MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
+$MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+```
+
+To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling Undelete Blob, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
+```bash
+# Create a context by specifying storage account name and key
+$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+
+# Get the blobs in a given container and show their properties
+$Blobs = Get-AzureStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
+$Blobs.ICloudBlob.Properties
+
+# Undelete the blobs
+$Blobs.ICloudBlob.Undelete()
+```
 ### Python Client Library
 
 To enable soft delete, update a blob client’s service properties:
@@ -271,8 +300,8 @@ To enable soft delete, update a blob client’s service properties:
 ServiceProperties serviceProperties = blobClient.GetServiceProperties();
 
 // Configure soft delete
-serviceProperties.DeleteRetentionProperties.Enabled = true;
-serviceProperties.DeleteRetentionProperties.Days = days;
+serviceProperties.DeleteRetentionPolicy.Enabled = true;
+serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 
 // Set the blob client’s service property settings
 blobClient.SetServiceProperties(serviceProperties);
