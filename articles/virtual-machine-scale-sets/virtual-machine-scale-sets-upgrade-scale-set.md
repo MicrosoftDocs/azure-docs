@@ -29,7 +29,7 @@ A scale set has a "scale set model" that captures the *desired* state of the sca
 
 REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/get))
 
-Powershell: `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss))
+Powershell: `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss))
 
 CLI: `az vmss show -g {resourceGroupName} -n {vmSaleSetName}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show))
 
@@ -66,7 +66,7 @@ A scale set also has a "scale set instance view" that captures the current *runt
 
 REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview))
 
-Powershell: `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceView` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss))
+Powershell: `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceView` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss))
 
 CLI: `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view))
 
@@ -113,7 +113,7 @@ Similar to how a scale set has a model view, each VM in the scale set has its ow
 
 REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get))
 
-Powershell: `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
+Powershell: `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
 CLI: `az vmss show -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show))
 
@@ -146,7 +146,7 @@ Similar to how a scale set has an instance view, each VM in the scale set has it
 
 REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/instanceView?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview))
 
-Powershell: `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -InstanceView` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
+Powershell: `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -InstanceView` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
 CLI: `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view))
 
@@ -219,7 +219,7 @@ REST API: `PUT https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 Resource Manager templates: you can alternatively deploy a Resource Manager template using the properties from the REST API to update global scale set properties.
 
-Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss))
+Powershell: `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss))
 
 CLI. To modify a property: `az vmss update --set {propertyPath}={value}`. To add an object to a list property in a scale set: `az vmss update --add {propertyPath} {JSONObjectToAdd}`. To remove an object from a list property in a scale set: `az vmss update --remove {propertyPath} {indexToRemove}`. (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update)). Alternatively, if you previously deployed the scale set using the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. To do this, you need to ensure that all properties in the `az vmss create` command are the same as before, except for the properties you wish to modify.
 
@@ -242,7 +242,7 @@ Scale sets have an "upgrade policy" that determine how VMs are brought up-to-dat
 
 REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/manualupgrade?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances))
 
-Powershell: `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance))
+Powershell: `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance))
 
 CLI: `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --instance-ids {instanceIds}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances)).
 
@@ -256,7 +256,7 @@ You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to do 
 
 REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 
-Powershell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (for more information, see the [Powershell documentation[(https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
+Powershell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
 
 CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage)).
 
