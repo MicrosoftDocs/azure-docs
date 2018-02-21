@@ -3,11 +3,11 @@ title: Azure IoT Edge SQL module | Microsoft Docs
 description: Store data at the edge with Microsoft SQL modules, with Azure Functions to format the data. 
 services: iot-edge
 keywords: 
-author: ebertrams
+author: kgremban
 manager: timlt
 
 ms.author: kgremban, ebertrams
-ms.date: 02/07/2018
+ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
 ---
@@ -89,7 +89,6 @@ In step 3, you add create options to the SQL Server container, which are importa
              }
           }
         }
-      }
    ```
 
 3. Depending on the operating system that you're running, update the settings for the SQL module with the following code: 
@@ -98,7 +97,7 @@ In step 3, you add create options to the SQL Server container, which are importa
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
       ```
 
    * Linux:
