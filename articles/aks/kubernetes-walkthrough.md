@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 03/20/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -206,18 +206,6 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 You can now browse to the external IP address to see the Azure Vote App.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
-
-## Open Kubernetes dashboard
-
-The Azure CLI can also be used to set up a connection with the Kubernetes dashboard. To do so, use the [az aks browse][az-aks-browse] command.
-
-```azurecli-interactive
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-Once run, a browser opens to the Kubernetes dashboard.
-
-![Kubernetes dashboard](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
 
 ## Delete cluster
 
