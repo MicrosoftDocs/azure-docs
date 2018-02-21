@@ -25,7 +25,7 @@ For more installation options and steps for additional platforms, see the [Ansib
 
 
 ## Install Ansible
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAnsible* in the *eastus* location:
+First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupAnsible* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -38,7 +38,7 @@ Now, create a VM and install Ansible for one of the following distros of your ch
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### Ubuntu 16.04 LTS
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -69,7 +69,7 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 
 
 ### CentOS 7.3
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -101,7 +101,7 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 
 
 ### SLES 12 SP2
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -141,7 +141,7 @@ Ansible communicates with Azure using a username and password or a service princ
 Create a service principal on your host computer with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Ansible needs:
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 An example of the output from the preceding commands is as follows:
@@ -154,7 +154,7 @@ An example of the output from the preceding commands is as follows:
 }
 ```
 
-To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account#show):
+To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"

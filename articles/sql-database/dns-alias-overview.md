@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: ''
-ms.date: 01/31/2018
-ms.reviewer: dmalik;ayolubek
-ms.author: genemi
+ms.date: 02/05/2018
+ms.reviewer: genemi;ayolubek
+ms.author: dmalik
 ---
 # DNS alias for Azure SQL Database
 

@@ -102,6 +102,10 @@ To see the application, browse to the external IP address.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
+If the application did not load, it might be due to an authorization problem with your image registry.
+
+Please follow these steps to [allow access via a Kubernetes secret](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+
 ## Next steps
 
 In this tutorial, the Azure vote application was deployed to a Kubernetes cluster in AKS. Tasks completed include:  

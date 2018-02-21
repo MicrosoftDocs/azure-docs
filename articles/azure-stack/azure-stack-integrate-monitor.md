@@ -13,18 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
 ---
 # Integrate external monitoring solution with Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+For external monitoring of the Azure Stack infrastructure, you need to monitor the Azure Stack software, the physical computers, and the physical network switches. Each of these areas offers a method to retrieve health and alert information:
 
-For external monitoring of the Azure Stack infrastructure, you need to monitor the Azure Stack software, the physical computers, and the physical network switches. Each of these areas offers a method to retrieve health and alert information.
-
-- Azure Stack software offers a REST-based API to retrieve health and alerts. (With the use of software-defined technologies like Storage Spaces Direct, storage health and alerts are part of software monitoring.)
+- Azure Stack software offers a REST-based API to retrieve health and alerts. (With the use of software-defined technologies like Storage Spaces Direct, storage health and alerts are part of software monitoring.).
 - Physical computers can make health and alert information available via the baseboard management controllers (BMCs).
 - Physical network devices can make health and alert information available via the SNMP protocol.
 
@@ -45,16 +43,16 @@ You can use Operations Manager for external monitoring of Azure Stack. The Syste
 
 The management pack for Azure Stack provides the following capabilities:
 
-- You can manage multiple Azure Stack deployments.
-- There's support for Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS).
-- You can retrieve and close alerts.
-- There's a Health and a Capacity dashboard.
-- Includes Auto Maintenance Mode detection for when patch and update (P&U) is in progress.
-- Includes Force Update tasks for deployment and region.
-- You can add custom information to a region.
-- Supports notification and reporting.
+- You can manage multiple Azure Stack deployments
+- There's support for Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS)
+- You can retrieve and close alerts
+- There's a Health and a Capacity dashboard
+- Includes Auto Maintenance Mode detection for when patch and update (P&U) is in progress
+- Includes Force Update tasks for deployment and region
+- You can add custom information to a region
+- Supports notification and reporting
 
-You can download the System Center Management Pack for Microsoft Azure Stack and the associated user guide [here](https://www.microsoft.com/en-us/download/details.aspx?id=55184), or directly from Operations Manager.
+You can download the System Center Management Pack for Microsoft Azure Stack and the associated [user guide](https://www.microsoft.com/en-us/download/details.aspx?id=55184), or directly from Operations Manager.
 
 For a ticketing solution, you can integrate Operations Manager with System Center Service Manager. The integrated product connector enables bi-directional communication that allows you to close an alert in Azure Stack and Operations Manager after you resolve a service request in Service Manager.
 
