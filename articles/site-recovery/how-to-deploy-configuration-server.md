@@ -30,8 +30,8 @@ The sizing requirements for the configuration server depend on the potential dat
 | **CPU** | **Memory** | **Cache disk size** | **Data change rate** | **Protected machines** |
 | --- | --- | --- | --- | --- |
 | 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz) |16 GB |300 GB |500 GB or less |Replicate fewer than 100 machines. |
-| 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) |18 GB |600 GB |500 GB to 1 TB |Replicate between 100-150 machines. |
-| 16 vCPUs (2 sockets * 8 cores @ 2.5 GHz) |32 GB |1 TB |1 TB to 2 TB |Replicate between 150-200 machines. |
+| 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) |18 GB |600 GB |500 GB to 1 TB |Replicate 100-150 machines. |
+| 16 vCPUs (2 sockets * 8 cores @ 2.5 GHz) |32 GB |1 TB |1 TB to 2 TB |Replicate 150-200 machines. |
 
 
 If you're replicating VMware VMs, read more about [capacity planning considerations](/site-recovery-plan-capacity-vmware.md). Run the [Deployment planner tool](site-recovery-deployment-planner.md) for VMWare replication.
@@ -66,9 +66,9 @@ Site Recovery provides a downloadable template to set up the configuration serve
 4. In the rest of the wizard pages, accept the default settings.
 5. In **Ready to complete**:
 
-    a. To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
+    * To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
 
-    b. To add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC. You can add additional NICs after deployment.
+    * To add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC. You can add additional NICs after deployment.
 
 
 ## Add an additional adapter
