@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # Perform cross-resource log searches in Log Analytics  
 
-Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This made it challenging to natively analyze operational and application data together.   
+Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This to made it challenging to natively analyze operational and application data together.   
 
 Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of query in the [Advanced portal](log-analytics-log-search-portals.md#advanced-analytics-portal), not in the Azure portal.  
 
@@ -29,14 +29,14 @@ To reference another workspace in your query, use the [*workspace*](https://docs
 ### Identifying workspace resources
 The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*. 
 
-Identifying a workspace can be performed one of several ways:
+Identifying a workspace can be accomplished one of several ways:
 
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
+    >Identifying a workspace by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
 * Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
@@ -58,9 +58,9 @@ Identifying a workspace can be performed one of several ways:
     ```
 
 ### Identifying an application
-The following examples returns returns a summarized count of requests made against an app named *fabrikamapp* in Application Insights. 
+The following examples returns a summarized count of requests made against an app named *fabrikamapp* in Application Insights. 
 
-Identifying an application in Application Insights can be performed with the *app(Identifier)* expression.  The *Identifier* argument specifies the app using one of the following:
+Identifying an application in Application Insights can be accomplished with the *app(Identifier)* expression.  The *Identifier* argument specifies the app using one of the following:
 
 * Resource name - is a human readable name of the app, sometimes referred to as the *component name*.  
 
