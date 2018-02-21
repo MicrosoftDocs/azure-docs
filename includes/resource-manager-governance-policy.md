@@ -5,7 +5,7 @@
  author: tfitzmac
  ms.service: azure-resource-manager
  ms.topic: include
- ms.date: 02/16/2018
+ ms.date: 02/21/2018
  ms.author: tomfitz
  ms.custom: include file
 ---
@@ -27,4 +27,4 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 * `Microsoft.Authorization/policydefinitions/write` permission to define a policy.
 * `Microsoft.Authorization/policyassignments/write` permission to assign a policy.
 
-These permissions aren't included in the **Contributor** role.
+These permissions are included in the Owner, User Access Administrator, and Resource Policy Contributor roles.

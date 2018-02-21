@@ -12,7 +12,7 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2018
+ms.date: 02/21/2018
 ms.author: tomfitz
 
 ---
@@ -202,7 +202,7 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 

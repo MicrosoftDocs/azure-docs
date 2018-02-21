@@ -12,13 +12,13 @@
 
 To add two tags to a resource group, use:
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 Let's suppose you want to add a third tag. Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. To add a new tag without losing the existing tags, you must retrieve the existing tags, add a new tag, and reapply the collection of tags:
 
-```powershell
+```azurepowershell-interactive
 $tags = (Get-AzureRmResourceGroup -Name myResourceGroup).Tags
 $tags += @{Project="Documentation"}
 Set-AzureRmResourceGroup -Tag $tags -Name myResourceGroup
@@ -26,7 +26,7 @@ Set-AzureRmResourceGroup -Tag $tags -Name myResourceGroup
 
 Resources don't inherit tags from the resource group. Currently, your resource group has three tags but the resources do not have any tags. To apply all tags from a resource group to its resources, and retain existing tags on resources that are not duplicates, use the following script:
 
-```powershell
+```azurepowershell-interactive
 $group = Get-AzureRmResourceGroup myResourceGroup
 if ($group.Tags -ne $null) {
     $resources = $group | Find-AzureRmResource
@@ -45,19 +45,19 @@ if ($group.Tags -ne $null) {
 
 Alternatively, you can apply tags from the resource group to the resources without keeping the existing tags:
 
-```powershell
+```azurepowershell-interactive
 $g = Get-AzureRmResourceGroup -Name myResourceGroup
 Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 ```
 
 To combine several values in a single tag, use a JSON string.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
 To remove all tags, you pass an empty hash table.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ }
 ```
