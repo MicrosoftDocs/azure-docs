@@ -89,7 +89,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
 
-2. Select Zendesk from your list of SaaS applications.
+2. Select Rplicon from your list of SaaS applications.
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/Replicon2.png)
 
@@ -101,26 +101,57 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/Replicon1.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username,Admin Password,CompanyId & Domain** of your Replicon's account.
+5. Under the **Admin Credentials** section, input the **Admin Username**,**Admin Password**,**CompanyId**, and **Domain** of your Replicon's account.
 
-6. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to your Replicon app. If the connection fails, ensure your Replicon account has Admin permissions and try Step 5 again.
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
-7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
+	*   In the **Admin Username** field, populate the username of the admin account on your Replicon Tenant. Example: admin.
 
-8. Click **Save**.
+	*   In the **Admin Password** field, populate the password corresponding to the Admin Username.
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Replicon**.
+	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID used for logging in for the tenant shown below is Contoso.
 
-10. Review the user attributes that are synchronized from Azure AD to Replicon. The attributes selected as **Matching** properties are used to match the user accounts in Replicon for update operations. Select the Save button to commit any changes.
+	*   In the **Domain** field, populate the secret token as described in Step 6.
+	
+6. The **Domain** for your Replicon tenant account is obtained from the URL once you login to the Replicon Account.
 
-11. To enable the Azure AD provisioning service for Replicon, change the **Provisioning Status** to **On** in the **Settings** section
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLanding.png)
 
-12. Click **Save**.
+7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Replicon. If the connection fails, ensure your Replicon account has Admin permissions and try again.
 
-This starts the initial synchronization of any users and/or groups assigned to Replicon in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Replicon app.
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconTestConnection.png)
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconNotificationEmail.png)
+
+9. Click **Save**.
+
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Replicon**.
+	
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconUserMapping.png)
+
+11. Review the user attributes that are synchronized from Azure AD to Replicon in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Replicon for update operations. Select the **Save** button to commit any changes.
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconUserMappingAtrributes.png)
+
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
+
+13. To enable the Azure AD provisioning service for Replicon, change the **Provisioning Status** to **On** in the **Settings** section.
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconProvisioningStatus.png)
+
+14. Define the users and/or groups that you would like to provision to Replicon by choosing the desired values in **Scope** in the **Settings** section.
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/UserGroupSelection.png)
+
+15. When you are ready to provision, click **Save**.
+
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/SaveProvisioning.png)
+
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Replicon.
+
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 
@@ -130,3 +161,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
+
+<!--Image references-->
+[1]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_03.png
