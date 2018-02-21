@@ -124,7 +124,7 @@ The resolv.conf file is usually auto-generated and should not be edited. The spe
 
 ## Name resolution using your own DNS server
 
-### Name resolution using your own DNS server for VMs and role instances
+### VMs and role instances
 
 There are a number of situations where your name resolution needs may go beyond the features provided by Azure, for example when using Active Directory domains or when you require DNS resolution between virtual networks. To cover these scenarios, Azure provides the ability for you to use your own DNS servers.
 
@@ -160,7 +160,7 @@ If forwarding queries to Azure doesn't suit your needs, you need to provide your
 > 
 > 
 
-### Name resolution using your own DNS server for Web Apps
+### Web Apps
 If you need to perform name resolution from your App Service Web App linked to a virtual network, to VMs in the same virtual network, then in addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), you also need to perform the following steps:
 * Enable virtual network integration for your App Service Web App, if not done already, as described in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * In the Azure portal, for the AppService plan hosting the Web App, select **Sync Network** under **Networking**, **Virtual Network Integration**, as shown in the following picture:
