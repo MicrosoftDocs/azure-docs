@@ -122,7 +122,7 @@ The resolv.conf file is usually auto-generated and should not be edited. The spe
   * Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**. 
   * Update with `service network restart`.
 
-## Name resolution using your own DNS server for VMs and role instances
+## Name resolution using your own DNS server
 
 There are a number of situations where your name resolution needs may go beyond the features provided by Azure, for example when using Active Directory domains or when you require DNS resolution between virtual networks. To cover these scenarios, Azure provides the ability for you to use your own DNS servers.
 
