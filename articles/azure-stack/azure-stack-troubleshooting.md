@@ -3,8 +3,8 @@ title: Microsoft Azure Stack troubleshooting | Microsoft Docs
 description: Azure Stack troubleshooting.
 services: azure-stack
 documentationcenter: ''
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: helaw
+ms.date: 02/21/2017
+ms.author: jeffgilb
+ms.reviewer: unknown
 
 ---
 # Microsoft Azure Stack troubleshooting
