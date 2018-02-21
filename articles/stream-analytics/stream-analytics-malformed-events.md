@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot for malformed input events | Microsoft Docs
+title: Troubleshoot for malformed input events in Azure Stream Analytics| Microsoft Docs
 description: How do I know which event in my input data is causing issue in a Stream Analytics job
 keywords: ''
 documentationcenter: ''
@@ -23,7 +23,7 @@ When the input stream of your Stream Analytics job contains malformed messages, 
 
 ![Inputs tile](media/stream-analytics-malformed-events/inputs_tile.png)
 
-Use the following steps to troubleshoot the issue:
+## Troubleshooting steps
 
 1. Navigate to the input tile and click to view warnings.
 2. The input details tile displays a set of warnings with details about the issue. Following is an example warning message, the warning message shows the Partition, Offset and sequence numbers where there is malformed JSON data. 
