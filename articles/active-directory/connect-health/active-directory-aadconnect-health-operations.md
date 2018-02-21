@@ -38,6 +38,9 @@ You can configure the Azure AD Connect Health service to send email notification
 
 ## Delete a server or service instance
 
+>[!NOTE] 
+> Azure AD premium license is required for the deletion steps.
+
 In some instances, you might want to remove a server from being monitored. Here's what you need to know to remove a server from the Azure AD Connect Health service.
 
 When you're deleting a server, be aware of the following:
@@ -47,7 +50,11 @@ When you're deleting a server, be aware of the following:
 * This action does not delete the data already collected from this server. That data is deleted in accordance with the Azure data retention policy.
 * After performing this action, if you want to start monitoring the same server again, you must uninstall and reinstall the Health Agent on this server.
 
-### To delete a server from the Azure AD Connect Health service
+### Delete a server from the Azure AD Connect Health service
+
+>[!NOTE] 
+> Azure AD premium license is required for the deletion steps.
+
 Azure AD Connect Health for Active Directory Federation Services (AD FS) and Azure AD Connect (Sync):
 
 1. Open the **Server** blade from the **Server List** blade by selecting the server name to be removed.
