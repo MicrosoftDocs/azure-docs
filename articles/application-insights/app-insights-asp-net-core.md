@@ -87,7 +87,7 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
 ## Synthetic transactions with PowerShell
 
-Launching your app, and then clicking around on links manually can be used to generate test traffic. However, it is often helpful to create a simple synthetic in PowerShell.
+Launching your app, and then clicking around on links manually can be used to generate test traffic. However, it is often helpful to create a simple synthetic transaction in PowerShell.
 
 1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/0012-iis-express.png)
 
