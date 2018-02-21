@@ -27,8 +27,6 @@ Make sure that you installed the latest [Azure CLI 2.0](/cli/azure/install-az-cl
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 
-To specify common images with the Azure CLI, you typically use the image *URN*. The URN combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. 
-
 
 ## List popular images
 
@@ -38,7 +36,7 @@ Run the [az vm image list](/cli/azure/vm/image#az_vm_image_list) command, withou
 az vm image list --output table
 ```
 
-The output includes the URN (the value in the *Urn* column), which you use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*, a shortened form such as *UbuntuLTS*..
+The output includes the URN (the value in the *Urn* column), which you use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*, a shortened form such as *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -177,7 +175,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-You see that in the West US region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you have discovered:
+You see that in the West US region, Canonical publishes the *UbuntuServer* offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you have discovered:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -211,7 +209,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-Finally, use the `az vm image list` command to find a specific version of the SKU you want, for example, **16.04-LTS**:
+Finally, use the `az vm image list` command to find a specific version of the SKU you want, for example, *16.04-LTS*:
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -249,7 +247,35 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 
+Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
+
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
+## Deploy a licensed image
+To test whether a particular image is licensed, run a command with [az vm image show](/cli/azure/image#az_image_show) similar to the following:
+
+```azurecli
+az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+
+Output:
+
+```
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
+  "location": "westus",
+  "name": "16.04.201801260",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": null,
+  "tags": null
+}
+```
+Note in this case that the `plan` value is `null`. However, running a similar command for a licensed image shows additional plan information:
+
+```azurecli
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 16.04.201801260
+```
+
 ## Next steps
-Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
