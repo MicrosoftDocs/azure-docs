@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 02/21/2018
 ms.author: jeedes
 
 ---
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure1.png)
 
-6. Copy the **Namespace** value from the textbox, you will use Namespace value later in this tutorial.
+6. Copy the **Namespace** and **Name** value of the claim from the textbox. Generate the value in the following pattern - `<Namespace>/<Name>`. You will use this value later in this tutorial.
 
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure2.png)
 
@@ -155,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Select **email** from the dropdown in the Collaboration item section.
 
-	c. In the Collaboration item textbox, paste the **Namespace** value that you have copied from the Azure portal i.e `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+	c. In the Collaboration item textbox, paste the **claim value** that you have copied from the Azure portal i.e `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 	d. In the **Issuer (entity ID)** textbox, paste the **Identifier** value that you have copied from the Azure portal of **E Sales Manager Remix Domain and URLs** section.
 
