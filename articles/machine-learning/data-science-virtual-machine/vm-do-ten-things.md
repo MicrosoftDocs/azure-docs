@@ -45,15 +45,15 @@ In this article we walk you through how to use your DSVM to perform various data
 * You need an Azure subscription. You can sign up for a free trial [here](https://azure.microsoft.com/free/).
 * Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
-## 1. Explore data and develop models using Microsoft R Server or Python
+## 1. Explore data and develop models using Microsoft ML Server or Python
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
-For R, you can use an IDE called "Revolution R Enterprise 8.0" that can be found on the start menu or the desktop. Microsoft has provided additional libraries on top of the Open source/CRAN-R to enable scalable analytics and the ability to analyze data larger than the memory size allowed by doing parallel chunked analysis. You can also install an R IDE of your choice like [RStudio](https://www.rstudio.com/products/rstudio-desktop/).
+For R, you can use an IDE like RStudio that can be found on the start menu or the desktop OR R Tools for Visual Studio. Microsoft has provided additional libraries on top of the Open source/CRAN-R to enable scalable analytics and the ability to analyze data larger than the memory size allowed by doing parallel chunked analysis. 
 
-For Python, you can use an IDE like Visual Studio Community Edition which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only a basic Python 2.7 is configured on PTVS (without any analytics library like SciKit, Pandas). In order to enable Anaconda Python 2.7 and 3.5, you need to do the following:
+For Python, you can use an IDE like Visual Studio Community Edition which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root conda environment is configured on PTVS . In order to enable Anaconda Python 2.7, you need to do the following:
 
 * Create custom environments for each version by navigating to **Tools** -> **Python Tools** -> **Python Environments** and then clicking "**+ Custom**" in the Visual Studio 2015 Community Edition
-* Give a description and set the environment prefix paths as *c:\anaconda* for Anaconda Python 2.7 OR *c:\anaconda\envs\py35* for Anaconda Python 3.5
+* Give a description and set the environment prefix path as *c:\anaconda\envs\python2* for Anaconda Python 2.7
 * Click **Auto Detect** and then **Apply** to save the environment.
 
 Here is what the custom environment setup looks like in Visual Studio.
@@ -62,15 +62,14 @@ Here is what the custom environment setup looks like in Visual Studio.
 
 See the [PTVS documentation](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) for additional details on how to create Python Environments.
 
-Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Anaconda 2.7 or 3.5): right-click the **Python environment**, select **Add/Remove Python Environments**, and then select the desired environment to associate with the project. You can find more information about working with PTVS on the product [documentation](https://github.com/Microsoft/PTVS/wiki) page.
+Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Anaconda 2.7 or 3.6): right-click the **Python environment**, select **Add/Remove Python Environments**, and then select the desired environment to associate with the project. You can find more information about working with PTVS on the product [documentation](https://github.com/Microsoft/PTVS/wiki) page.
 
 ## 2. Using a Jupyter Notebook to explore and model your data with Python or R
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
 
-To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, use instructions provided in the ***How to create a strong password on the Jupyter notebook server*** section of the 
-[Provision the Microsoft Data Science Virtual Machine](provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
+To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or want to create new notebooks.  
 
-Once you have opened the notebook, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
+Once you have started Jupyter, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
 * click on the notebook to see the code.
 * execute each cell by pressing **SHIFT-ENTER**.
@@ -78,7 +77,7 @@ Once you have opened the notebook, you should see a directory that contains a fe
 * create a new notebook by clicking on the Jupyter Icon (left top corner) and then clicking **New** button on the right and then choosing the notebook language (also known as kernels).   
 
 > [!NOTE]
-> Currently we support Python 2.7, Python 3.5 and R. The R kernel supports programming in both Open source R as well as the enterprise scalable Microsoft R Server.   
+> Currently we support Python 2.7, Python 3.6, R, Julia and PySpark kernels in Jupyter. The R kernel supports programming in both Open source R as well as the enterprise scalable Microsoft ML Server.   
 > 
 > 
 
@@ -143,9 +142,8 @@ You can deploy R models built on the Data Science Virtual Machine or elsewhere o
 Here is the procedure and code snippets that can be used to set up, build, publish, and consume a model as a web service in Azure Machine Learning.
 
 #### Setup
-1. Install the Machine Learning R package by typing ```install.packages("AzureML")``` in Revolution R Enterprise 8.0 IDE or your R IDE.
-2. Download RTools from [here](https://cran.r-project.org/bin/windows/Rtools/). You need the zip utility in the path (and named zip.exe) to operationalize your R package into Machine Learning.
-3. Create a settings.json file under a directory called ```.azureml``` under your home directory and enter the parameters from your Azure Machine Learning workspace:
+
+* Create a settings.json file under a directory called ```.azureml``` under your home directory and enter the parameters from your Azure Machine Learning workspace:
 
 settings.json File structure:
 
@@ -199,10 +197,10 @@ You can run Azure Powershell from a shortcut on the desktop or from the start me
 [Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
 
 ## 5. Extend your storage space with a shared file system
-Data scientists can share large datasets, code or other resources within the team. The DSVM itself has about 70GB of space available. To extend your storage, you can use the Azure File Service and either mount it on the DSVM or access it via a REST API.   
+Data scientists can share large datasets, code or other resources within the team. The DSVM itself has about 45GB of space available. To extend your storage, you can use the Azure File Service and either mount it on one or more DSVM instances or access it via a REST API.  You can also use [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
 
 > [!NOTE]
-> The maximum space of the Azure File Service share is 5TB and individual file size limit is 1TB.   
+> The maximum space of the Azure File Service share is 5TB and individual file size limit is 1TB. 
 > 
 > 
 
@@ -245,7 +243,7 @@ The DSVM already comes loaded with client tools on both command-line as well GUI
 
 To download code from a GitHub repository you use the ```git clone``` command. For example to download data science repository published by Microsoft into the current directory you can run the following command once you are in ```git-bash```.
 
-    git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+    git clone https://github.com/Azure/DataScienceVM.git
 
 In Visual Studio, you can do the same clone operation. The  following screen-shot shows how to access Git and GitHub tools in Visual Studio.
 
@@ -263,7 +261,7 @@ Azure blob is a reliable, economical cloud storage for data big and small. Let u
 
 ![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. You can add the directory containing the azcopy.exe to your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool please refer to [AzCopy documentation](../../storage/common/storage-use-azcopy.md)
+* Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory containing the azcopy.exe is already on your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool please refer to [AzCopy documentation](../../storage/common/storage-use-azcopy.md)
 * Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
 ![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -804,7 +802,7 @@ Azure Cosmos DB is a NoSQL database in the cloud. It allows you to work with doc
 
 You need to do the following per-requisites steps to access Azure Cosmos DB from the DSVM.
 
-1. Install the Azure Cosmos DB Python SDK (Run ```pip install pydocumentdb``` from command prompt)
+1. The Azure Cosmos DB Python SDK is already installed on the DSVM (Run ```pip install pydocumentdb --upgrade``` from command prompt to update)
 2. Create an Azure Cosmos DB account and a database from [Azure portal](https://portal.azure.com)
 3. Download "Azure Cosmos DB Migration Tool" from [here](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice
 4. Import JSON data (volcano data) stored on a [public blob](https://cahandson.blob.core.windows.net/samples/volcano.json) into Cosmos DB with following command parameters to the migration tool (dtui.exe from the directory where you installed the Cosmos DB Migration Tool). Enter the source and target location with these parameters:
@@ -854,7 +852,7 @@ You can scale up and down the DSVM to meet your project needs. If you don't need
 > 
 > 
 
-If you need to handle some large-scale analysis and need more CPU and/or memory and/or disk capacity you can find a large choice of VM sizes in terms of CPU cores, memory capacity and disk types (including Solid state drives) that meet your compute and budgetary needs. The full list of VMs along with their hourly compute pricing is available on the [Azure Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) page.
+If you need to handle some large-scale analysis and need more CPU and/or memory and/or disk capacity you can find a large choice of VM sizes in terms of CPU cores, GPU  based instances for deep learning, memory capacity and disk types (including Solid state drives) that meet your compute and budgetary needs. The full list of VMs along with their hourly compute pricing is available on the [Azure Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) page.
 
 Similarly, if your need for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure portal](https://portal.azure.com) and going to the settings of your VM instance. Here is a screenshot.
 
