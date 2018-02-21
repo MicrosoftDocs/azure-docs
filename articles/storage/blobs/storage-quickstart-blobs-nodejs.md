@@ -230,7 +230,7 @@ const commandExists = () => {
 
 If a given command does not exist, then `_module`'s properties are rendered to the console to as help text to the user. 
 
-The function `executeCommand` is an `await` function, which calls the given command using the `await` operator and logs any messages to data to the console.
+The function `executeCommand` is an `async` function, which calls the given command using the `await` operator and logs any messages to data to the console.
 
 ```javascript
 const executeCommand = async () => {
