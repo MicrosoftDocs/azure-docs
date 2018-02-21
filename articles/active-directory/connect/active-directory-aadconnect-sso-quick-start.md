@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
 ---
 
@@ -71,10 +71,10 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 
 ## Step 3: Roll out the feature
 
-To roll out the feature to your users, you need to add the following Azure AD URLs to the users' Intranet zone settings by using Group Policy in Active Directory:
+To roll out the feature to your users, you need to add the following Azure AD URL to the users' Intranet zone settings by using Group Policy in Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-- https://aadg.windows.net.nsatc.net
+
 
 In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 
 
@@ -83,7 +83,7 @@ In addition, you need to enable an Intranet zone policy setting called **Allow u
 
 ### Why do you need to modify users' Intranet zone settings?
 
-By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, "http://contoso/" maps to the Intranet zone, whereas "http://intranet.contoso.com/" maps to the Internet zone (because the URL contains a period). Browsers don't send Kerberos tickets to a cloud endpoint, like the two Azure AD URLs, unless you explicitly add the URL the browser's Intranet zone.
+By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, "http://contoso/" maps to the Intranet zone, whereas "http://intranet.contoso.com/" maps to the Internet zone (because the URL contains a period). Browsers will not send Kerberos tickets to a cloud endpoint, like the Azure AD URL, unless you explicitly add the URL to the browser's Intranet zone.
 
 ### Detailed steps
 
@@ -92,7 +92,7 @@ By default, the browser automatically calculates the correct zone, either Intern
 3. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
     ![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
 4. Enable the policy, and then enter the following values in the dialog box:
-   - **Value name**: The Azure AD URLs where the Kerberos tickets are forwarded.
+   - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
 
    The result looks like this:
@@ -100,13 +100,9 @@ By default, the browser automatically calculates the correct zone, either Intern
 	Value: https://autologon.microsoftazuread-sso.com
   
 	Data: 1
-		
-   Value: https://aadg.windows.net.nsatc.net
-
-	Data: 1
 
    >[!NOTE]
-   > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URLs to the Restricted zone, and fails Seamless SSO all the time.
+   > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the Restricted zone, and fails Seamless SSO all the time.
    >
 
 5. Select **OK**, and then select **OK** again.
@@ -142,9 +138,9 @@ If you have overriden the [AuthNegotiateDelegateWhitelist](https://www.chromium.
 
 #### Google Chrome (Mac OS only)
 
-For Google Chrome on Mac OS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URLs for integrated authentication.
+For Google Chrome on Mac OS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URL for integrated authentication.
 
-The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URLs to Firefox and Google Chrome on Mac users is outside the scope of this article.
+The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URL to Firefox and Google Chrome on Mac users is outside the scope of this article.
 
 #### Known browser limitations
 
