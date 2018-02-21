@@ -1,6 +1,6 @@
 ---
-title: Storage Explorer Accessibility (Preview) | Microsoft Docs
-description: Storage Explorer Accessibility (Preview)
+title: Azure Storage Explorer Accessibility (Preview) | Microsoft Docs
+description: Azure Storage Explorer Accessibility (Preview)
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
