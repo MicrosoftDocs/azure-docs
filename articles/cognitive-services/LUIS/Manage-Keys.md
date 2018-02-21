@@ -43,7 +43,7 @@ An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint
 Do not use the endpoint key for authoring LUIS apps.
 
 ## API usage of Ocp-Apim-Subscription-Key
-The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`, in both the authoring and endpoint APIs. The header name does not change based on which set of APIs you are using. 
+The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`, in both the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs. The header name does not change based on which set of APIs you are using. 
 
 Use the authoring key for authoring APIs. You can't pass the endpoint key for authoring APIs. If you do, you get a 401 error - access denied due to invalid subscription key. 
 
