@@ -112,7 +112,7 @@ After the namespace and queue are provisioned, and you have the necessary creden
 Run the following command to remove the resource group, namespace, and all related resources:
 
 ```azurecli-interactive
-TBD
+az group delete --name serviceBusResourceGroup
 ```
 
 ## Next steps
