@@ -43,15 +43,6 @@ The Azure services that support Availability Zones are:
 - Public IP address
 - SQL Database
 
-## Supported virtual machine size families
-
-- Av2
-- Dv2
-- DSv2
-
-
-- Zone-Redundant Storage
-
 ## Get started with the Availability Zones preview
 
 The Availability Zones preview is available in the East US 2, US Central, West Europe, and France Central regions for specific Azure services. 
