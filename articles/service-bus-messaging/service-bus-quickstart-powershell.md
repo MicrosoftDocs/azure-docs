@@ -31,11 +31,11 @@ This quickstart describes how to send and receive messages to and from a Service
 2. Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 3. Install and configure [Git][]. 
 
-## Create queue
+## Create resources
 
 Run the following PowerShell cmdlets. Replace all placeholders with the appropriate values.
 
-```powershell
+```azurepowershell-interactive
 # Run this first - Log on and install Service Bus module
 Login-AzureRmAccount
 Install-Module AzureRM.ServiceBus
