@@ -14,10 +14,9 @@ manager: carmonm
 ---
 
 # Questions about backing up Azure Files
-This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions or provide comments about this article by clicking **Feedback** (to the right). A Github account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
-
 
 ## Configuring the backup job for Azure Files
 
@@ -30,7 +29,7 @@ Check if the File share is already protected in the same Recovery Services vault
 ### Why can’t I protect File Shares connected to a Sync Group in Azure Files Sync? <br/>
 Protection of Azure File Shares connected to Sync Groups is in limited preview. Please write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) with your Subscription ID to requested access. 
 
-### In which geos can I back up Azure File shares? <br/>
+### In which geos can I back up Azure File shares <br/>
 Backup for Azure File shares is currently in Preview and is available only in the following geos. 
 -	Canada Central (CNC)
 -	Canada East (CE) 

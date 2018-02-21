@@ -1,5 +1,4 @@
 ---
-
 title: Back up Azure Files to Azure
 description: This article details how to back up and restore your Azure File shares, and explains management tasks. 
 services: backup
@@ -10,31 +9,26 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-
 ---
 # Back up Azure File shares
 
-: if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+This article details how to back up [Azure File shares](../storage/files/storage-files-introduction.md).
 
 In this guide, you learn how to:
 > [!div class="checklist"]
 > * Configure a Recovery Services vault to back up Azure Files
 > * Run an on-demand backup job to create a restore point
 > * Restore a file or files from a restore point
-> * Manage Backup jobs?
+> * Manage Backup jobs
 > * Stop protection on Azure Files
 > * Delete your backup data
-> * Troubleshoot issues and errors with backing up Azure Files
-
-
-This article details how to back up [Azure Files](../storage/files/storage-files-introduction.md). 
 
 ## Prerequisites
 Before you can back up an Azure File share, ensure that it is present in one of the [supported Storage Account types](troubleshoot-azure-files.md#preview-boundaries). Once you have verified this, you can protect your file shares.
 
 ## Configuring Azure File shares backup
 
-All Azure backup data is stored in Recovery Services vaults. This tutorial assumes you already have established an Azure File share. To back up your Azure File share:
+All backup data is stored in Recovery Services vaults. This tutorial assumes you already have established an Azure File share. To back up your Azure File share:
 
 1. Create a Recovery Services vault in the same region as your file share. If you already have a vault, open your vault's Overview page and click **Backup**.
 
@@ -132,5 +126,3 @@ The following procedure assumes the Backup job for the virtual machine has been 
 For additional information on Azure File shares, see
 - [FAQ for Azure File share backup](backup-azure-files-faq.md)
 - [Troubleshoot Azure File share backup](troubleshoot-azure-files.md)
-
-
