@@ -42,22 +42,16 @@ Make sure that you installed and configured the latest [Azure PowerShell module]
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
-## Find specific images
+## Navigate the images
 
 
-When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
-
-* Publisher
-* Offer
-* SKU
-
-For example, use these values with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet, or with a Resource Manager template in which you must specify the type of VM to be created.
-
-If you need to determine these values, you can run the [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), and [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlets to navigate the images. You determine these values:
+Another way to find an image in a location is to run the [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), and [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlets in sequence. With these commands, you determine these values:
 
 1. List the image publishers.
 2. For a given publisher, list their offers.
 3. For a given offer, list their SKUs.
+
+Then, for a selected SKU, you can choose a version to deploy.
 
 First, list the publishers with the following commands:
 
@@ -108,7 +102,7 @@ Canonical
 ...
 ```
 
-For the "MicrosoftWindowsServer" publisher:
+For the *MicrosoftWindowsServer* publisher:
 
 ```azurepowershell-interactive
 $pubName="MicrosoftWindowsServer"
@@ -125,7 +119,7 @@ WindowsServer
 WindowsServerSemiAnnual
 ```
 
-For the "WindowsServer" offer:
+For the *WindowsServer* offer:
 
 ```azurepowershell-interactive
 $offerName="WindowsServer"
@@ -151,7 +145,46 @@ Skus
 2016-Nano-Server
 ```
 
-From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or for a resource group template.
+Then, for a given SKU, find a specific version with the 
+[Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) cmdlet. For the *2016-Datacenter* SKU:
+
+```powershell-interactive
+$skuName="skuName"
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Versions
+```
+
+
+For example, use these values with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet, or with a Resource Manager template in which you must specify the type of VM to be created.
+
+[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+
+
+## Deploy a licensed image
+To test whether a particular image is licensed, run a command similar to the following:
+
+```powershell
+$isLicensed=(Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version).PurchasePlan -ne ""
+```
+
+The [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.compute/get-azurermmarketplaceterms) cmdlet provides a link to the agreement terms for the licensed Marketplace image and shows whether you previously accepted the terms. Use the [Set-AzureRmMarketp(/powershell/module/azurerm.compute/set-azurermmarketplaceterms] cmdlet to accept or reject the terms.
+
+For example, to accept the terms and enable programmatic deployment of the licensed image:
+
+```powershell-interactive
+If ($isLicensed) {Get-AzureRmMarketplaceterms -Publisher $pubName -Product $offerName -Name $skuName | Set-AzureRmMarketplaceterms -Accept}
+```
+
+Then, to create a VM object using the licensed image, use commands similar to the following:
+
+```powershell-interactive
+
+
+$VirtualMachine = Set-AzureRmVMPlan -VM $VirtualMachine -Publisher $pubName -Product $offerName -Name $skuName
+
+$VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -linux -ComputerName $ComputerName -Credential $Credential1
+
+$VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
+```
 
 ## Next steps
 Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).

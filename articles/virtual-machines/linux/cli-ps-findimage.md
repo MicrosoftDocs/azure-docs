@@ -27,7 +27,7 @@ Make sure that you installed the latest [Azure CLI 2.0](/cli/azure/install-az-cl
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 
-To specify common images with the Azure CLI, you typically use the image *URN*. The URN combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. Some popular images have a shortened URN alias, such as *UbuntuLTS*.
+To specify common images with the Azure CLI, you typically use the image *URN*. The URN combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. 
 
 
 ## List popular images
@@ -38,7 +38,7 @@ Run the [az vm image list](/cli/azure/vm/image#az_vm_image_list) command, withou
 az vm image list --output table
 ```
 
-The output includes the URN (the value in the *Urn* column), which you use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*.
+The output includes the URN (the value in the *Urn* column), which you use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*, a shortened form such as *UbuntuLTS*..
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -131,6 +131,7 @@ Another way to find an image in a location is to run the [az vm image list-publi
 2. For a given publisher, list their offers.
 3. For a given offer, list their SKUs.
 
+Then, for a selected SKU, you can choose a version to deploy.
 
 For example, the following command lists the image publishers in the West US location:
 
@@ -247,5 +248,8 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
+
+[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+
 ## Next steps
 Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
