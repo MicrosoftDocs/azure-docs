@@ -2,18 +2,11 @@
 title: Replicate Hyper-V VMs with PowerShell and Azure Resource Manager | Microsoft Docs
 description: Automate the replication of Hyper-V VMs to Azure with Azure Site Recovery using PowerShell and Azure Resource Manager.
 services: site-recovery
-documentationcenter: ''
 author: bsiva
 manager: abhiag
-editor: ''
-
-ms.assetid: 05e0d76e-c3f5-4845-8052-094019b6d102
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/14/2018
 ms.author: bsiva
 
 ---
@@ -23,7 +16,7 @@ ms.author: bsiva
 
 This article describes how to use Windows PowerShell, together with Azure Resource Manager, to replicate Hyper-V VMs to Azure. The example used in this article shows you how to replicate a single VM running on a Hyper-V host, to Azure.
 
-## Overview
+## Azure PowerShell
 
 Azure PowerShell provides cmdlets to manage Azure using Windows PowerShell. Site Recovery PowerShell cmdlets, available with Azure PowerShell for Azure Resource Manager, help you protect and recover your servers in Azure.
 

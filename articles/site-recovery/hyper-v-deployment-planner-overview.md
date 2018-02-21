@@ -2,25 +2,19 @@
 title: Azure Site Recovery deployment planner for Hyper-V-to-Azure| Microsoft Docs
 description: This is the Azure Site Recovery deployment planner user guide for Hyper-V to Azure scenario.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor:
-
-ms.assetid:
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 12/02/2017
+ms.topic: article
+ms.date: 02/14/2018
 ms.author: nisoneji
 
 ---
-# Azure Site Recovery Deployment Planner for Hyper-V to Azure
+# Site Recovery Deployment Planner for Hyper-V to Azure
+
 This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
 
-## Overview
 Before you begin protecting any Hyper-V virtual machines (VMs) using Site Recovery, allocate sufficient bandwidth based on your daily data-change rate to meet your desired Recovery Point Objective (RPO), and allocate sufficient free storage space on each volume of Hyper-V storage on-premises.
 
 You also need to create the right type and number of target Azure storage accounts. You create either standard or premium storage accounts, factoring in growth on your source production servers because of increased usage over time. You choose the storage type per VM, based on workload characteristics, for example, read/write I/O operations per second (IOPS), or data churn, and Azure Site Recovery limits. 

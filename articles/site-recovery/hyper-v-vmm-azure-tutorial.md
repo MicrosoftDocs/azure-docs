@@ -5,8 +5,9 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2017
+ms.date: 02/14/2018
 ms.author: raynew
+ms.custom: MVC
 ---
 
 # Set up disaster recovery of on-premises Hyper-V VMs in VMM clouds to Azure
@@ -40,7 +41,7 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 5. In **Are your machines virtualized**, select **Yes, with Hyper-V**.
 6. In **Are you using System Center VMM**, select **Yes**. Then click **OK**.
 
-    ![Replication goal](./media/tutorial-hyper-v-vmm-to-azure/replication-goal.png)
+    ![Replication goal](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
 
 
@@ -54,7 +55,7 @@ When you set up the source environment, you install the Azure Site Recovery Prov
 4. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 5. Download the Recovery Services agent.
 
-    ![Download](./media/tutorial-hyper-v-vmm-to-azure/download-vmm.png)
+    ![Download](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
 ### Install the Provider on the VMM server
 
@@ -77,7 +78,7 @@ Install the agent on each Hyper-V host containing VMs you want to replicate.
 2. In **Installation Settings**, accept the installation location, and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then click **Install**.
 3. In **Installation**, when installation finishes, click **Close** to finish the wizard.
 
-    ![Install agent](./media/tutorial-hyper-v-vmm-to-azure/mars-install.png)
+    ![Install agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
     
 
 ## Set up the target environment
@@ -97,7 +98,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 4. In **Source network**, select the source on-premises VM network.
 5. In **Target network**, select the Azure network in which replica Azure VMs will be located when they're created after failover. Then click **OK**.
 
-    ![Network mapping](./media/tutorial-hyper-v-vmm-to-azure/network-mapping-vmm.png)
+    ![Network mapping](./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png)
 
 ## Set up a replication policy
 

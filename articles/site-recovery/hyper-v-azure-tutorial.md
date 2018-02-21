@@ -5,8 +5,9 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31`/2017
+ms.date: 02/14/2018
 ms.author: raynew
+ms.custom: MVC
 ---
 
 # Set up disaster recovery of on-premises Hyper-V VMs to Azure
@@ -35,10 +36,9 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 2. In **Getting Started**, click **Site Recovery**. Then click **Prepare Infrastructure**
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
-5. In **Are your machines virtualized**, select **Yes, with Hyper-V**.
-6. In **Are you using System Center VMM**, select **No**. Then click **OK**.
+5. In **Are your machines virtualized**, select **No**. Then click **OK**.
 
-    ![Replication goal](./media/tutorial-hyper-v-to-azure/replication-goal.png)
+    ![Replication goal](./media/hyper-v-azure-tutorial/replication-goal.png)
 
 ## Set up the source environment
 
@@ -50,7 +50,7 @@ To set up the source environment, you add Hyper-V hosts to a Hyper-V site, downl
 4. Download the Provider setup file.
 5. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
-    ![Download Provider](./media/tutorial-hyper-v-to-azure/download.png)
+    ![Download Provider](./media/hyper-v-azure-tutorial/download.png)
     
 
 ### Install the Provider
@@ -89,7 +89,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
     - **Initial replication start time**, indicates that initial replication will start immediately.
 4. After the policy is created, click **OK**. When you create a new policy it's automatically associated with the specified Hyper-V site (**ContosoHyperVSite**)
 
-    ![Replication policy](./media/tutorial-hyper-v-to-azure/replication-policy.png)
+    ![Replication policy](./media/hyper-v-azure-tutorial/replication-policy.png)
 
 
 ## Enable replication

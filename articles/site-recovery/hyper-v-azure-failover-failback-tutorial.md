@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2017
+ms.date: 02/14/2018
 ms.author: raynew
 ---
 
