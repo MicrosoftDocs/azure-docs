@@ -41,7 +41,7 @@ Create an Azure Database for MySQL server with the **[az mysql server create](/c
 
 The following example creates a server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 4** **General Purpose** server with 2 **vCores**. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 
 ## Configure firewall rule
@@ -191,7 +191,7 @@ If you don't need these resources for another quickstart/tutorial, you can delet
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run [az mysql server delete](/cli/azure/mysql/server#az_postgres_server_delete) command.
+If you would just like to delete the one newly created server, you can run [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) command.
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
