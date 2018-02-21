@@ -111,13 +111,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
-	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/samanage11.png)
+	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage11.png)
 
 8. Click **Save**.
 
 9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Samanage**.
 
-	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/samanage12.png)
+	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage12.png)
 
 10. Review the user attributes that are synchronized from Azure AD to Samanage in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the **Save** button to commit any changes.
 
