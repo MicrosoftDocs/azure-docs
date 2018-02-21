@@ -190,7 +190,7 @@ To set up your environment, do the following:
 > After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys that are used by the application and the `ApplicationInsightsProfiler` sink need to match each other.
 
 
-## Environment deployment and runtime configurations
+## Configure environment deployment and runtime
 
 1. Deploy the modified environment deployment definition.  
 
