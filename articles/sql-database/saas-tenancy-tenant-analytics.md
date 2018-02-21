@@ -71,7 +71,7 @@ To complete this tutorial, make sure the following prerequisites are met:
 - The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-dbpertenant-provision-and-catalog.md).
-- A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### Create data for the demo
 
