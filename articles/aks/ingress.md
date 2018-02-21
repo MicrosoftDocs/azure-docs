@@ -14,21 +14,19 @@ ms.custom: mvc
 
 # HTTPS Ingress on Azure Container Service (AKS)
 
-An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress resources or rules, a single external address can be used to route traffic to multiple applications in a Kubernetes cluster.
+An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single external address can be used to route traffic to multiple services in a Kubernetes cluster.
 
-This document walks through a sample deployment of the [NGIX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [kube-lego][kube-lego] project is used to automatically generate and configure TLS certificates from [Let's Encrypt][lets-encrypt]. Finally, several applications are run in the AKS cluster, each of which is accessible over a single Azure Public IP Address.
+This document walks through a sample deployment of the [NGIX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [kube-lego][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
 
-## Install the ingress controller
+## Install an ingress controller
 
-Use Helm to install the NGINX ingress controller. See the [NGINX ingress controller documentation][nginx-ingress] for detailed information. 
+Use Helm to install the NGINX ingress controller. See the [NGINX ingress controller documentation][nginx-ingress] for detailed deployment information. 
 
 ```
 helm install stable/nginx-ingress
 ```
 
-During the installation, an Azure public IP address is created for the ingress controller. 
-
-To get the public IP address, use the kubectl get service command. It may take some time for the IP address to be assigned to the service.
+During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the kubectl get service command. It may take some time for the IP address to be assigned to the service.
 
 ```console
 $ kubectl get service
@@ -39,15 +37,13 @@ toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.2
 toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
 ```
 
-Because no ingress rules have been created, if you browse to the public IP address, you are routed to the default 404 response page.
+Because no ingress rules have been created, if you browse to the public IP address, you are routed to the NGINX ingress controllers default 404 page.
 
 ![Default NGINX backend](media/ingress/default-back-end.png)
 
 ## Configure DNS name
 
-Now configure a fully qualified domain name for the ingress controllers public IP address.
-
-The following sample sets the FQDN name on a given public IP address. Update the script with the IP address of the ingress controller and the name that you would like to use in the FQDN.
+Because HTTPS certificates are used, you need to configure a FQDN name for the ingress controllers IP address. For this example, an Azure FQDN is created with the Azure CLI. Update the script with the IP address of the ingress controller and the name that you would like to use in the FQDN.
 
 ```
 #!/bin/bash
@@ -72,13 +68,13 @@ If needed, run the following command to retrieve the FQDN. Update the IP address
 az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
-The ingress controller is now accessible through the DNS name. Because no ingress rules have been created, all traffic is routed to the ingress controllers 404 response page.
+The ingress controller is now accessible through the DNS name.
 
 ## Install KUBE-LEGO
 
-The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for TLS, this document demonstrates using [KUBE-LEGO][kube-lego], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for HTTPS, this document demonstrates using [KUBE-LEGO][kube-lego], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
-To install the KUBE-LEGO controller, use the following Helm install command. Update the email address with one from your organization. For more information on KUBE-LEGO configuration, see the [KUBE-LEGO documentation][kube-lego].
+To install the KUBE-LEGO controller, use the following Helm install command. Update the email address with one from your organization.
 
 ```
 helm install stable/kube-lego \
@@ -86,11 +82,13 @@ helm install stable/kube-lego \
   --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
 ```
 
+For more information on KUBE-LEGO configuration, see the [KUBE-LEGO documentation][kube-lego].
+
 ## Run application
 
-At this point, an ingress controller and a certificate management solution have been configured. Now run a few applications in your AKS cluster. 
+At this point, an ingress controller and a certificate management solution have been configured. Now run a few applications in your AKS cluster.
 
-For this example, Helm is used to run multiple instances of a simple hello world application. 
+For this example, Helm is used to run multiple instances of a simple hello world application.
 
 Before running the application, add the Azure samples Helm repository on your development system.
 
@@ -166,6 +164,10 @@ Now browse to the FQDN of the ingress controller with the `/hello-world-two` pat
 Also notice that the connection is encrypted and that a certificate issued by Let's Encrypt is used.
 
 ![Lets encrypt certificate](media/ingress/certificate.png)
+
+## Next steps
+
+Learn more about the [NGINX ingress controller][nginx-ingress] and the [KUBE-LEGO][kube-lego] certificate management solutions.
 
 <!-- LINKS - external -->
 [kube-lego]: https://github.com/jetstack/kube-lego
