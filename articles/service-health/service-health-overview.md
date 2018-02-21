@@ -29,8 +29,13 @@ Service Health tracks three types of health events that may impact your resource
     ![Service Health events](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## Get started with Service Health
-To launch your Service Health dashboard, select the Service Health tile on your portal dashboard. If you have previously removed the tile or you're using custom dashboard, search for Service Health service in "More services" (bottom left on your dashboard).
+To launch your Service Health dashboard, select the Service Health tile on your portal dashboard. 
+
 ![Get started with Service Health](./media/service-health-overview/azure-service-health-overview-1.png)
+
+If you have previously removed the tile or you're using custom dashboard, search for Service Health service in "**All services**" (top left on your dashboard).
+
+![Get started with Service Health](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## See current issues which impact your services
 The **Service issues** view shows any ongoing problems in Azure services that are impacting your resources. You can understand when the issue began, and what services and regions are impacted. You can also read the most recent update to understand what Azure is doing to resolve the issue. 
