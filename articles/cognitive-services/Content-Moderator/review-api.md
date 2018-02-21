@@ -111,7 +111,7 @@ The response includes the following information:
 
 ### Create reviews
 
-Use the `Review.Create` operation to create the human reviews. You either moderate them elsewhere or you use custom logic to assign the moderation tags.
+Use the `Review.Create` operation to create the human reviews. You either moderate them elsewhere or use custom logic to assign the moderation tags.
 
 Your inputs to this operation include:
 
