@@ -96,25 +96,71 @@ You can execute several management tasks for File share backups on the **Backup 
 
 You can monitor the progress of all jobs on the **Backup Jobs** page.
 
+To open the **Backup Jobs** page:
+
+- Open the Recovery Services vault you want to monitor, and in the Recovery Services vault menu, click **Jobs** and then click **Backup Jobs**.
+   ![Select the job you want to monitor](./media/backup-file-shares/open-backup-jobs.png)
+
+    The list of Backup jobs and the status of those jobs appears.
+   ![Select the job you want to monitor](./media/backup-file-shares/backup-jobs-progress-list.png)
+
 ### Create a new policy
 
-You can create a new policy for Azure Files Backup from the Backup Policies of the Recovery Services Vault. All policies created when you configure Backup for file shares will also show up here with the Policy Type as Azure File Share
+You can create a new policy to back up Azure File shares from the **Backup Policies** of the Recovery Services vault. All policies created when you configure Backup for file shares show up with the Policy Type as Azure File Share.
+
+To view the existing Backup policies:
+
+- Open the Recovery Services vault you want, and in the Recovery Services vault menu, click **Backup policies**. All Backup policies are listed.
+
+   ![Select the job you want to monitor](./media/backup-file-shares/list-of-backup-policies.png)
+
+To create a new Backup policy:
+
+1. In the Recovery Services vault menu, click **Backup policies**.
+2. In the list of Backup policies, click **Add**.
+
+   ![Select the job you want to monitor](./media/backup-file-shares/new-backup-policy.png)
+
+3. In the **Add** menu, select **Azure File SHare**. The Backup policy menu for Azure File share opens. Provide the name for the policy, backup frequency, and retention range for the recovery points. Click OK when you have defined the policy.
+
+   ![Select the job you want to monitor](./media/backup-file-shares/create-new-policy.png)
 
 ### Stop protecting an Azure File share
 
 If you choose to stop protecting an Azure File share, you are asked if you want to retain the recovery points. There are two ways to stop protecting Azure File shares:
-- •	Stop all future backup jobs and delete all recovery points, or
-- •	Stop all future backup jobs but leave the recovery points
+
+- Stop all future backup jobs and delete all recovery points, or
+- Stop all future backup jobs but leave the recovery points
 
 There may be a cost associated with leaving the recovery points in storage as the underlying snapshots created by Azure Backup will be retained. However, the benefit of leaving the recovery points is you can restore the File share later, if desired. For information about the cost of leaving the recovery points, see the pricing details. If you choose to delete all recovery points, you cannot restore the File share.
 
-To stop protection for an Azure File share, go to the Backup Item and click Stop Backup. From the Stop Backup page, choose to retain or delete backup data and click **Stop Backup**.
+To stop protection for an Azure File share:
+
+1. Open the Recovery Services vault that contains the file share recovery points, and click **Backup Items**. The list of Backup Item types appears.
+
+   ![click Backup to associate the Azure File share with vault](./media/backup-file-shares/list-of-backup-items.png) 
+
+2. In the **Backup Management Type** list, select **Azure Storage (Azure Files)**. The list of Backup Items for (Azure Storage (Azure Files)) appears.
+
+   ![click item to open additional menu](./media/backup-file-shares/azure-file-share-backup-items.png) 
+
+3. In the list of Backup Items (Azure Storage (Azure Files)), select the backup item you want to stop.
+
+4. In the Azure File share items, click the **More** menu, and select **Stop Backup**. 
+
+   ![click item to open additional menu](./media/backup-file-shares/stop-backup.png)
+
+5. From the Stop Backup menu, choose to **Retain** or **Delete Backup Data** and click **Stop Backup**.
+
+   ![click item to open additional menu](./media/backup-file-shares/retain-data.png)
 
 ### Resume protection for Azure File share
 
-If the Retain Backup Data option was chosen when protection for the file share was stopped, then it is possible to resume protection. If the Delete Backup Data option was chosen, then protection for the file share cannot resume.
+If the Retain Backup Data option was chosen when protection for the file share was stopped, then it is possible to resume protection. If the **Delete Backup Data** option was chosen, then protection for the file share cannot resume.
 
 To resume protection for the file share, go to the Backup Item and click Resume Backup. The Backup Policy opens and you can choose a policy of your choice to resume backup.
+
+   ![Select the job you want to monitor](./media/backup-file-shares/resume-backup-job.png)
 
 ### Delete Backup data 
 
