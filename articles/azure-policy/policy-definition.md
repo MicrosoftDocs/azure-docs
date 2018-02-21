@@ -259,6 +259,7 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
 | Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Sets the availability set id for the virtual machine. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -329,6 +330,7 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
 | Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Check whether Virtual Network Service Endpoint is enabled. |
 
 ## Initiatives
 

@@ -47,8 +47,8 @@ Service Fabric runs everywhere. You can create clusters for Service Fabric in ma
 
 ![Service Fabric platform][Image1]
 
-For Windows development, the Service Fabric .NET SDK is integrated with Visual Studio and Powershell. See [Prepare your development environment on Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md). For Linux development, the Service Fabric Java SDK 
- is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications. See [Prepare your development environment on Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md)
+For Windows development, the Service Fabric .NET SDK is integrated with Visual Studio and Powershell. See [Prepare your development environment on Windows](service-fabric-get-started.md). For Linux development, the Service Fabric Java SDK 
+ is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications. See [Prepare your development environment on Linux](service-fabric-get-started.md)
 
 For more information on creating clusters, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure portal](service-fabric-cluster-creation-via-portal.md).
 
