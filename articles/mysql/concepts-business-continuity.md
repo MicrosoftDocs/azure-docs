@@ -38,11 +38,11 @@ You can perform a point-in-time-restore to create a copy of your server to a kno
 
 ## Recover from an Azure regional data center outage
 
-Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or but could last for hours.
+Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes, but could last for hours.
 
 One option is to wait for your server to come back online when the data center outage is over. This works for applications that can afford to have the server offline for some period of time, for example a development environment. When data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your server for a while.
 
-The other option is to use the Azure Database for MySQL's geo-restore feature that restores the server using geo-redundant backups. These backups are accessible even when the datacenter your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online.
+The other option is to use the Azure Database for MySQL's geo-restore feature that restores the server using geo-redundant backups. These backups are accessible even when the region your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online.
 
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage.
