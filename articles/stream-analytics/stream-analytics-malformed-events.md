@@ -30,7 +30,7 @@ Use the following steps to troubleshoot the issue:
 
    ![Warning message with offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
 
-3. To get the JSON data that has incorrect format, run the following code snippet. This code block reads the partition Id, offset, and prints the data. You can get the full sample from the [GitHub samples repository](). Once you read the data, you can analyze and correct the serialization format.
+3. To get the JSON data that has incorrect format, run the following code snippet. This code block reads the partition Id, offset, and prints the data. You can get the full sample from the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Once you read the data, you can analyze and correct the serialization format.
 
 ```csharp
 static void PrintMessages(string partitionId, long offset, int numberOfEvents)
