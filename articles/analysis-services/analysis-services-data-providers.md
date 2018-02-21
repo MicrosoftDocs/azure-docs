@@ -83,11 +83,10 @@ Client libraries for client connections are different from data providers requir
   
 1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. If you have more than one folder, choose the higher number.
   
-2.  Right-click **msolap.dll** > **Properties** > **Details**.  
+2.  Right-click **msolap.dll** > **Properties** > **Details**. If the dll is named msolap140.dll, it's older than latest version and should be upgraded.
     
     ![Client library details](media/analysis-services-data-providers/aas-msolap-details.png)
     
-    If the dll is named msolap140.dll, it's older than latest version and should be upgraded.
   
 ### AMO
 
