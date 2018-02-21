@@ -62,8 +62,8 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit 9.1 drivers| N/A | 
-| [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
+| [NC, NCv2, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit drivers| N/A | 
+| [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 *RDMA connectivity on NC24r, NC24r_v2, and ND24r VMs is supported on Windows Server 2012 R2 (from Azure Marketplace) with HpcVMDrivers extension and Microsoft MPI or Intel MPI.
 
