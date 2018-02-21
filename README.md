@@ -34,7 +34,7 @@ The *\articles* folder contains the *\media* folder for root directory article m
 You can create reusable content sections to be included in one or more articles. 
 
 ## How to use markdown to format your topic
-All the articles in this repository use GitHub flavored markdown. If you are not familiar with markdown, see [Markdown basics](https://help.github.com/articles/markdown-basics/).
+All the articles in this repository use GitHub flavored markdown. If you are not familiar with markdown, see:
 
 * [Markdown basics](https://help.github.com/articles/markdown-basics/)
 * [Printable markdown cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
