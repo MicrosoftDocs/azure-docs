@@ -1,5 +1,5 @@
----
-title: Import the Postman collection
+ ---
+title: Import the Postman collection Live Streaming operations
 description: This article provides a definition of the Postman collection for Azure Media Services REST calls.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Import the Postman collection
+# Import the Postman collection Live Streaming operations
 
 This article contains a definition of the **Postman** collection that contains grouped HTTP requests that call **Live Streaming** Azure Media Services REST APIs. For information about how to configure **Postman** so it can be used to call Media Services REST APIs, see [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) tutorial.
 
@@ -1456,7 +1456,7 @@ This article contains a definition of the **Postman** collection that contains g
 		{
 			"id": "f73392be-121b-418c-8489-8530323768b0",
 			"key": "channelName",
-			"value": "johndeu",
+			"value": "User001",
 			"type": "text"
 		},
 		{
@@ -1468,7 +1468,7 @@ This article contains a definition of the **Postman** collection that contains g
 		{
 			"id": "0611b82b-6c00-498b-89ee-2b97f2a4dcd7",
 			"key": "programName",
-			"value": "JohndeuProgram",
+			"value": "User001Program",
 			"type": "text"
 		},
 		{
