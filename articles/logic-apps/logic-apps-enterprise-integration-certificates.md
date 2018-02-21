@@ -42,7 +42,7 @@ After you upload a certificate, it's available to help you secure your B2B messa
 
 Here are the detailed steps for uploading your public certificates into your integration account after you sign in to the Azure portal:
 
-1. Select **More services** and enter **integration** in the filter search box. Select **Integration Accounts** from the results list     
+1. Select **All services** and enter **integration** in the filter search box. Select **Integration Accounts** from the results list     
 ![Select Browse](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Select the integration account to which you want to add the certificate.  
 ![Select the integration account to which you want to add the certificate](media/logic-apps-enterprise-integration-certificates/overview-3.png)  

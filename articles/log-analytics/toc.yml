@@ -11,7 +11,7 @@
     href: log-analytics-quick-collect-azurevm.md
   - name: Collect - Linux computer
     href: log-analytics-quick-collect-linux-computer.md
-  - name: Collect - Windows Computer
+  - name: Collect - Windows computer
     href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:
@@ -39,6 +39,8 @@
     href: log-analytics-faq.md
   - name: Data consumption
     href: log-analytics-usage.md
+  - name: Data security
+    href: log-analytics-data-security.md
   - name: Manage access
     href: log-analytics-manage-access.md
   - name: Monitor hybrid environments

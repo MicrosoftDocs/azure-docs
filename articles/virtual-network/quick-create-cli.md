@@ -31,7 +31,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location. All Azure resources are created within an Azure location (or region).
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual network
 
-Create a virtual network with the [az network vnet create](/cli/azure/network/vnet#create) command. The following example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*. Since a location isn't specified, Azure creates the virtual network in the same location as the resource group.
+Create a virtual network with the [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) command. The following example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*. Since a location isn't specified, Azure creates the virtual network in the same location as the resource group.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -78,7 +78,7 @@ az vm create \
   --no-wait
 ```
 
-Azure automatically creates the virtual machine in the *default* subnet of the *myVirtualNetwork* virtual network, because the virtual network exists in the resource group, and no virtual network or subnet is specified in the command. Azure DHCP automatically assigned 10.0.0.4 to the virtual machine during creation, because it is the first available address in the *default* subnet. The location that a virtual machine is created in must be the same location the virtual network exists in. The virtual machine isn't required to be in the same resource group as the virtual machine, though it is in this article.
+Azure automatically creates the virtual machine in the *default* subnet of the *myVirtualNetwork* virtual network, because the virtual network exists in the resource group, and no virtual network or subnet is specified in the command. Azure DHCP automatically assigned 10.0.0.4 to the virtual machine during creation, because it is the first available address in the *default* subnet. The location that a virtual machine is created in must be the same location the virtual network exists in. The virtual machine isn't required to be in the same resource group as the virtual network, though it is in this article.
 
 Create a second virtual machine. By default, Azure also creates this virtual machine in the *default* subnet.
 
@@ -135,7 +135,7 @@ You receive four replies from bing.com. By default, any virtual machine in a vir
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group and all of the resources it contains. Exit the SSH session to your VM, then delete the resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group and all of the resources it contains. Exit the SSH session to your VM, then delete the resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

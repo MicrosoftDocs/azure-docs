@@ -171,6 +171,7 @@
 #### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
+### [Process with Content Moderator](media-services-content-moderation.md)
 
 ## [Configure telemetry](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

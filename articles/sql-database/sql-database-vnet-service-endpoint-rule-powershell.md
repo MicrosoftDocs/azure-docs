@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Inactive"
-ms.date: 01/23/2018
-ms.author: genemi
+ms.date: 02/05/2018
+ms.reviewer: genemi
+ms.author: dmalik
 ---
 # Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database
 

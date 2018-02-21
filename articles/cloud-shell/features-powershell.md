@@ -50,7 +50,6 @@ Any changes made to the Azure resources, either made directly in Azure portal or
 ![](media/features-powershell/azure-drive.png)
 
 #### Contextual awareness
-
 - **Resource group scoping**: When within the context of a resource group path in the Azure drive (`Azure:`), the resource group name is automatically passed to the Azure PowerShell cmdlets.
 
     ![](media/features-powershell/resource-group-autocomplete.png)
@@ -101,7 +100,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |6.10       |
-|PowerShell  |5.1 and [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell  |5.1 and [6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## Next steps

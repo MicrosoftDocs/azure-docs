@@ -92,7 +92,7 @@
       href: deployment-setup-configuration.md
     - name: Scale clusters and services
       href: how-to-scale-clusters.md
-    - name: Set up SSL on an MLC cluster
+    - name: Enable SSL on an MLC cluster
       href: how-to-setup-ssl-on-mlc.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
@@ -160,6 +160,8 @@
       href: data-prep-appendix10-sample-custom-column-transforms-python.md  
     - name: Data preparation execution API
       href: data-prep-python-execution-api.md
+    - name: Data preparation operationalization
+      href: data-prep-operationalization.md
   - name: Experimentation    
     items:
     - name: Experimentation Service configuration
