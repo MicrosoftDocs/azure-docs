@@ -55,13 +55,13 @@ Before configuring Replicon for automatic user provisioning with Azure AD, you n
 
 4. In the search box, type **Replicon**.
 
-	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppSearch.png)
+	![Replicon Application Search](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppSearch.png)
 
 5. In the results panel, select **Replicon**, and then click the **Add** button to add Replicon to your list of SaaS applications.
 
-	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppSearchResults.png)
+	![Replicon Search Results](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppSearchResults.png)
 
-	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppCreate.png)
+	![Replicon Create Application](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconAppCreate.png)
 
 
 ## Assigning users to Replicon
@@ -89,7 +89,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
 
-2. Select Rplicon from your list of SaaS applications.
+2. Select Replicon from your list of SaaS applications.
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/Replicon2.png)
 
@@ -101,7 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/Replicon1.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username**,**Admin Password**,**CompanyId**, and **Domain** of your Replicon's account.
+5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, **CompanyId**, and **Domain** of your Replicon's account.
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
@@ -109,11 +109,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Password** field, populate the password corresponding to the Admin Username.
 
-	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID used for logging in for the tenant shown below is Contoso.
+	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID used for log-in, is Contoso as shown in the image.
 
 	*   In the **Domain** field, populate the secret token as described in Step 6.
 	
-6. The **Domain** for your Replicon tenant account is obtained from the URL once you login to the Replicon Account.
+6. The **Domain** for your Replicon tenant account is obtained from the URL post login to the Replicon Account.
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLanding.png)
 
