@@ -26,7 +26,7 @@ When the input stream of your Stream Analytics job contains malformed messages, 
 ## Troubleshooting steps
 
 1. Navigate to the input tile and click to view warnings.
-2. The input details tile displays a set of warnings with details about the issue. Following is an example warning message, the warning message shows the Partition, Offset and sequence numbers where there is malformed JSON data. 
+2. The input details tile displays a set of warnings with details about the issue. Following is an example warning message, the warning message shows the Partition, Offset, and sequence numbers where there is malformed JSON data. 
 
    ![Warning message with offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
 
