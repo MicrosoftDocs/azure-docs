@@ -51,7 +51,7 @@ The code prints `result.value` items to the console without parsing any text.  T
 - _type: 'ImageObject'
 - _type: 'NewsArticle'
 - _type: 'WebPage'
-- _type: 'Video'
+- _type: 'VideoObjectElementType'
 
 ![Video results](media/web-search-sdk-node-results.png)
 
