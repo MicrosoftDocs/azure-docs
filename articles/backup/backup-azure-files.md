@@ -1,10 +1,7 @@
 ---
-<!-- All articles need the metadata header along with the required values for reporting.</br>
-Detailed instructions for completing this template are available in the </br>
-Contributor Guide:https://review.docs.microsoft.com/en-us/help/contribute/mock-template-tutorial?branch=master -->
-# Mandatory fields. See more on aka.ms/skyeye/meta.
+
 title: Back up Azure Files to Azure
-description: This article details how to back up and restore your Azure File shares in Azure.
+description: This article details how to back up and restore your Azure File shares, and explains management tasks. 
 services: backup
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markgalioto
@@ -88,7 +85,8 @@ Occasionally you may want to generate a backup snapshot, or recovery point, outs
   
    ![click Backup to associate the Azure File share with vault](./media/backup-file-shares/backup-now-menu.png)
 
-## Restore an Azure File share recovery point
+## Restore Azure File share data
+If you need to restore data from your Azure File share, you can restore an entire file share, or individual files or folders. You restore any or all of this data from a recovery point.
 
 
 ## Manage Azure File share backups
@@ -97,7 +95,7 @@ You can execute several management tasks for File share backups on the **Backup 
 - [Monitor jobs](backup-azure-files.md#monitor-jobs)
 - [Create a new policy](backup-azure-files.md#create-a-new-policy)
 - [Stop protection on a file share](backup-azure-files.md#stop-protecting-an-azure-file-share)
-- [Resume protection on a file share](resume-protection-for-azure-file-share)
+- [Resume protection on a file share](backup-azure-files.md#resume-protection-for-azure-file-share)
 - [Delete backup data](backup-azure-files.md#delete-backup-data)
 
 ### Monitor jobs
@@ -130,14 +128,9 @@ You can delete the backup of a file share during the Stop backup job, or any tim
 
 The following procedure assumes the Backup job for the virtual machine has been stopped. Once the Backup job is stopped, the Resume backup and Delete Backup Data options are available in the Backup item dashboard. Click Delete Backup Data and type the name of the File share to confirm deletion. Optionally, provide a Reason to delete or Comment.
 
-## Next steps
-In this tutorial, you learned how to:
-> [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to the H2 in the right nav
-> * To minimize bullet bloat, use these green checkboxes in a tutorial
+## See Also
+For additional information on Azure File shares, see
+- [FAQ for Azure File share backup](backup-azure-files-faq.md)
+- [Troubleshoot Azure File share backup](troubleshoot-azure-files.md)
 
-Advance to the next article to learn more
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
 
