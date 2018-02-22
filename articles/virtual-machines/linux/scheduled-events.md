@@ -79,22 +79,15 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 ### Use headers
 When you query Metadata Service, you must provide the header `Metadata:true` to ensure the request wasn't unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request results in a "Bad Request" response from Metadata Service.
 
-### Enable Scheduled Events
-The first time you make a request for scheduled events, Azure implicitly enables the feature on your VM. As a result, expect a delayed response in your first call of up to two minutes.
+### Enabling and Disabling Scheduled Events
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
 
-> [!NOTE]
-> Scheduled Events is automatically disabled for your service if your service doesn't call the endpoint for one day. After Scheduled Events is disabled for your service, no events are created for user-initiated maintenance.
+Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
-### User-initiated maintenance
+### User-initiated Maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
 If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled.
-
-> [!NOTE] 
-> Currently, a maximum of 100 user-initiated maintenance operations can be simultaneously scheduled.
-
-> [!NOTE] 
-> Currently, user-initiated maintenance that results in scheduled events is not configurable. Configurability is planned for a future release.
 
 ## Use the API
 
