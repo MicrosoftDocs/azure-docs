@@ -33,43 +33,43 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
     .SYNOPSIS
         Configures a windows NIC with multiple private ips
 
-    .PARAMETER adapterName
+    .PARAMETER AdapterName
         The adapter name. e.g. "Local Network Connection"
     
-    .PARAMETER dnsAddress
+    .PARAMETER DnsAddress
         The DNS server address
 
-    .PARAMETER subnetAddress
+    .PARAMETER SubnetAddress
         the subnet mask. e.g. 255.255.0.0
 
-    .PARAMETER gatewayAddress
+    .PARAMETER GatewayAddress
         the first ip in the block, e.g. 10.0.0.1
     
-    .PARAMETER primaryPrivateIp
+    .PARAMETER PrimaryPrivateIp
         the primary private ip. e.g. 10.0.0.4
         
-    .PARAMETER privateIps
+    .PARAMETER PrivateIps
         list of private ips. e.g. 10.0.0.5,10.0.0.6
+
+    .EXAMPLE
+		PS C:\> Update-NetworkAdapterIps "Local Network Connection" "8.8.8.8" "255.255.0.0" "10.0.0.1" "10.0.0.4" "10.0.0.5","10.0.0.6"
 #>
-Function UpdateNetworkAdapter($adapterName, $dnsServer, $subnetAddress, $gatewayAddress, $primaryPrivateIp, $privateIps)
+Function Update-NetworkAdapterIps($AdapterName, $DnsServer, $SubnetAddress, $GatewayAddress, $PrimaryPrivateIp, $PrivateIps)
 {
  $netsh = "netsh"
  # First, configure the dns server
- & $netsh interface ipv4 add dnsserver `"$adapterName`" $dnsServer
+ & $netsh interface ipv4 add dnsserver `"$AdapterName`" $DnsServer
 
  # Second, add the primary ip address
- & $netsh interface ipv4 add address `"$adapterName`" $primaryPrivateIp $subnetAddress $gatewayAddress
+ & $netsh interface ipv4 add address `"$AdapterName`" $PrimaryPrivateIp $SubnetAddress $GatewayAddress
 
  # Now, add all of the private ips
- "Received " +  $privateIps.Length + " private ips"
- For ($i=0; $i -lt $privateIps.Length; $i++) {
-   $ip = $privateIps[$i]
-   & $netsh interface ipv4 add address `"$adapterName`" $ip $subnetAddress $gatewayAddress	 
+ "Received " +  $PrivateIps.Length + " private ips"
+ For ($i=0; $i -lt $PrivateIps.Length; $i++) {
+   $ip = $PrivateIps[$i]
+   & $netsh interface ipv4 add address `"$AdapterName`" $ip $SubnetAddress $GatewayAddress	 
  }
 }
-
-# To run:
-# PS> UpdateNetworkAdapter "Local Network Connection" "8.8.8.8" "255.255.0.0" "10.0.0.1" "10.0.0.4" "10.0.0.5","10.0.0.6"
 ```
 
 ### Validation (Windows)
