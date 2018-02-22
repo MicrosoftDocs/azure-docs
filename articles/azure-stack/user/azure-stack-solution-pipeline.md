@@ -15,9 +15,6 @@ ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.date: 02/21/2018
-ms.author: jeffgilb
-ms.reviewer: unknown
 ms.custom: mvc
 ---
 
