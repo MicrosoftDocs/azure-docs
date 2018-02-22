@@ -26,17 +26,17 @@ When using the Azure portal to configure [automatic user provisioning](active-di
 
 If SAML-based single sign-on is also configured for the same application, the most likely cause of the error is that Azure AD's internal, per-application storage limit for certificates and credentials has been exceeded.
 
-Azure AD currently has a maximum storage capacity of 1 kilobyte for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
+Azure AD currently has a maximum storage capacity of 1-kilobyte for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
 
 When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens is stored here, and often consumes over 50% of the space.
 
-Any secret tokens, URIs, notification email addresses, user names and passwords that get entered during setup of user provisioning can cause the 1 kilobyte limit to be exceeded.
+Any secret tokens, URIs, notification email addresses, user names, and passwords that get entered during setup of user provisioning can cause the 1 kilobyte limit to be exceeded.
 
-## How to workaround this issue 
+## How to work around this issue 
 
 There are two possible ways to work around this issue today:
 
-1. **Use two gallery application instances, one for single sign-on and one for user provisioning** - Taking the gallery application [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) as an example, you can add LinkedIn Elevate from the gallery and configure it for single sign-on. This would appear as "LinkedIn Elevate" to end users as and work as intended for sign-on. For provisioning, add another instance of LinkedIn Elevate from the Azure AD app gallery, and name it "LinkedIn Elevate (Provisioning)". For this second instance, configure [provisioning](active-directory-saas-linkedinelevate-provisioning-tutorial.md), but not single sign-on. When using this workaround, the same users and groups will need to be [assigned](active-directory-coreapps-assign-user-azure-portal.md) to both applications. 
+1. **Use two gallery application instances, one for single sign-on and one for user provisioning** - Taking the gallery application [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) as an example, you can add LinkedIn Elevate from the gallery and configure it for single sign-on. For provisioning, add another instance of LinkedIn Elevate from the Azure AD app gallery, and name it "LinkedIn Elevate (Provisioning)." For this second instance, configure [provisioning](active-directory-saas-linkedinelevate-provisioning-tutorial.md), but not single sign-on. When using this workaround, the same users and groups need to be [assigned](active-directory-coreapps-assign-user-azure-portal.md) to both applications. 
 
 2. **Reduce the amount of configuration data stored** - All data entered in the [Admin credentials](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) section of the provisioning tab is stored in the same place as the SAML certificate. While it may not be possible to reduce the length of all of this data, some optional configuration fields like the **Notification Email** can be removed.
 
