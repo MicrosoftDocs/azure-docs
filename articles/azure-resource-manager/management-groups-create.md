@@ -23,6 +23,9 @@ The management group feature is available in a public preview. To start using ma
 
 The first management group created in the directory could take up to 15 minutes to complete. There are processes that run the first time to set up the management groups service within Azure for your directory. You receive a notification when the process is complete.  
 
+## How to create a management group
+You can create the management group by using the portal, PowerShell, or Azure CLI.
+
 ### Create in portal
 
 1. Log into the [Azure portal](http://portal.azure.com).
