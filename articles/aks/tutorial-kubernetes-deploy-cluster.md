@@ -79,6 +79,28 @@ k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
 
 At tutorial completion, you have an AKS cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
 
+## Configure ACR authentication
+
+Authentication needs to be configured between the AKS cluster and the ACR registry. This involves granting the ACS identity the proper rights to pull images from the ACR registry.
+
+First, get the ID of the service principal configured for AKS. Update the resource group name and AKS cluster name to match your environment.
+
+```azurecli-interactive
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+```
+
+Get the ACR registry resource id. Update the `--name` to the name of your ACR registry and the resource group to the resource group where the ACR registry is located.
+
+```azurecli-interactive
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+```
+
+Creat the role assignment, which grants the proper access.
+
+```azurecli-interactive
+az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+```
+
 ## Next steps
 
 In this tutorial, a Kubernetes cluster was deployed in AKS. The following steps were completed:
