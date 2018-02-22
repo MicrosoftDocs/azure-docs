@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **Boxcryptor Configuration** section, click **Configure Boxcryptor** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** and **SAML Entity ID** from the **Quick Reference section.**
 
-	![Andromeda SCM Configuration](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+	![Andromeda SCM Configuration](./media/active-directory-saas-boxcryptor-tutorial/tutorial_boxcryptor_configure.png)
 
 7. To configure single sign-on on **Boxcryptor** side, you need to send the downloaded **Certificate (Base64)**, **SAML Single Sign-On Service URL** and **SAML Entity ID** to [Boxcryptor support team](mailto:support@boxcryptor.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
