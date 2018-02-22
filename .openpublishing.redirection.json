@@ -16895,6 +16895,16 @@
             "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
             "redirect_document_id": false
     },
+    {
+        "source_path": "articles/billing/billing-enterprise-mgmt-group-overview.md",
+        "redirect_url": "/azure/azure-resource-manager/management-groups-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/billing/billing-enterprise-mgmt-grp-find.md",
+        "redirect_url": "/azure/azure-resource-manager/management-groups-overview",
+        "redirect_document_id": false
+    }, 
 	{
             "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial",
