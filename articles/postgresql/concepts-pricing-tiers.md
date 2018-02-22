@@ -30,7 +30,7 @@ The following table can be used as a starting point for choosing a pricing tier:
 |:-------------|:-----------------|
 | Basic | Workloads requiring light compute and I/O performance. Examples include servers used for development or testing, or small-scale infrequently used applications. |
 | General Purpose | Most business workloads requiring balanced compute and memory with scalable I/O throughput.  Examples include server for hosting Web and Mobile apps, and other enterprise applications.|
-| Memory Optimized | High performance and in-memory databases to cache more data for faster transaction processing and higher concurrency. Examples include server for processing real-time data, and high performance transactional or analytical apps.|
+| Memory Optimized | High performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency. Examples include server for processing real-time data, and high performance transactional or analytical apps.|
 
 After you create a server, the number of vCores can be changed up or down within seconds. You can also independently adjust the amount of storage up and the backup retention period up or down with no application downtime. See the scaling section below for more details.
 
@@ -67,7 +67,7 @@ When changing the number of vCores, a copy of the original server is created wit
 
 Scaling storage and changing the backup retention period are true on-line operations. There is no downtime or impact to your application. As IOPS scale with the size of the provisioned storage, you can increase the IOPS available to your server by scaling up storage.
 
-##Pricing
+## Pricing
 
 Please review the service [pricing page](https://azure.microsoft.com/pricing/details/PostgreSQL/) for the most up-to-date pricing information. To see what your desired configuration will cost, the [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) shows the monthly cost in the **Pricing tier** tab based on the options you have selected. If you do not have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for PostgreSQL** to customize the options.
 

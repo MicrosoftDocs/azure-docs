@@ -27,22 +27,22 @@ The following table compares the ERT and RPO for the available features:
 | Point in Time Restore from backup | Any restore point within the retention period | Any restore point within the retention period | Any restore point within the retention period |
 | Geo-restore from geo-replicated backups | Not supported | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
 ## Recover a server after a user or application error
 
 You can use the service’s backups to recover a server from various disruptive events. A user may accidentally delete some data, inadvertently drop an important table, or even drop an entire database. An application might accidentally overwrite good data with bad data due to an application defect, and so on.
 
-You can perform a point-in-time-restore using the automated backups to create a copy of your server to a known good point in time. This point in time must be within the backup retention period. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server. 
+You can perform a point-in-time-restore to create a copy of your server to a known good point in time. This point in time must be within the backup retention period you have configured for your server. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server.
 
 ## Recover from an Azure regional data center outage
 
-Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
+Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes, but could last for hours.
 
-One option is to wait for your server to come back online when the data center outage is over. This works for applications that can afford to have the server offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your server for a while.
+One option is to wait for your server to come back online when the data center outage is over. This works for applications that can afford to have the server offline for some period of time, for example a development environment. When data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your server for a while.
 
-Another option is to use the Azure Database for PostgreSQL's geo-restore feature that restores the server using geo-redundant backups. 
+The other option is to use the Azure Database for PostgreSQL's geo-restore feature that restores the server using geo-redundant backups. These backups are accessible even when the region your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online.
 
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage.
