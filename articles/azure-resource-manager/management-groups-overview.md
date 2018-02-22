@@ -20,11 +20,11 @@ ms.author: rithorn
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 
-**Note:**Azure Policy support for management groups is not immediately available, but it will be release in the coming weeks.  
+The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. 
+
+**Note:** Azure Policy support for management groups is not available yet in the Public Preview and it is coming in the following weeks.  
 
 As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
-
-The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section.  
 
 ## Hierarchy of management groups and subscriptions 
 
