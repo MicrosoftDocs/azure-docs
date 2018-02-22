@@ -17,7 +17,7 @@ ms.author: rithorn
 
 
 # Manage your resources with management groups 
-[Management groups](management-groups-overview.md) are containers that help you manage access, policy, and compliance across multiple subscriptions. You can change, delete, and manage these containers to have hierarchies that can be used with [Azure Policy](../azure-policy/azure-policy-introduction.md) and [Azure Role Based Access Controls (RBAC)](../active-directory/role-based-access-control-what-is.md).
+Management groups are containers that help you manage access, policy, and compliance across multiple subscriptions. You can change, delete, and manage these containers to have hierarchies that can be used with [Azure Policy](../azure-policy/azure-policy-introduction.md) and [Azure Role Based Access Controls (RBAC)](../active-directory/role-based-access-control-what-is.md). To learn more about management groups, see [Organize your resources with Azure management groups ](management-groups-overview.md).
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or you can use [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to manage your management groups.
 
@@ -61,7 +61,7 @@ To delete a management group, the following requirements must be met:
 1. There are no child management groups or subscriptions under the management group. 
     - To move a subscription out of a management group, see [Move subscription to another managemnt group](#Move-subscriptions-in-the-hierarchy). 
     - To move a management group to another management group, see [Move management groups in the hierarchy](#Move-management-groups-in-the-hierarchy). 
-2. You have write permissions on the management group (["Owner" or "Contributor" role](../active-directory/role-based-access-control-what-is.md)) on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../active-directory/role-based-access-control-what-is.md).  
+2. You have write permissions on the management group Owner or Contributor role on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../active-directory/role-based-access-control-what-is.md).  
 
 # [Portal](#tab/portal)
 
