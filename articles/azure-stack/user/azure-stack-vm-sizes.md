@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 
 ---
@@ -120,6 +120,6 @@ For VMs with multiple attached data disks, the maximum throughput of each indivi
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64x2300  |8 / 12000 |
 
 
-## ## Next steps
+## Next steps
 
 [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)

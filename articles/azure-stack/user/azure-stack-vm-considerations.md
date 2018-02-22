@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 
 ---
@@ -48,16 +48,16 @@ The following table lists the VMs that are supported on Azure Stack along with t
 
 | Type           | Size          | Range of supported sizes |
 | ---------------| ------------- | ------------------------ |
-|General purpose |Basic A        |[A0 - A4](azure-stack-vm-sizes#basic-a)                   |
-|General purpose |Standard A     |[A0 - A7](azure-stack-vm-sizes#standard-a)              |
-|General purpose |D-series       |[D1 - D4](azure-stack-vm-sizes#d-series)              |
-|General purpose |Dv2-series     |[D1_v2 - D5_v2](azure-stack-vm-sizes#ds-series)        |
-|General purpose |DS-series      |[DS1 - DS4](azure-stack-vm-sizes#dv2-series)            |
-|General purpose |DSv2-series    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes#dsv2-series)      |
-|Memory optimized|D-series       |[D11 - D14](azure-stack-vm-sizes#mo-d)            |
-|Memory optimized|DS-series      |[DS11 - DS14](azure-stack-vm-sizes#mo-ds)|
-|Memory optimized|Dv2-series     |[D11_v2 - DS14_v2](azure-stack-vm-sizes#mo-dv2)     |
-|Memory optimized|DSv2-series -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes#modsv2)    |
+|General purpose |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|General purpose |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|General purpose |D-series       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|General purpose |Dv2-series     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|General purpose |DS-series      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|General purpose |DSv2-series    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Memory optimized|D-series       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Memory optimized|DS-series      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Memory optimized|Dv2-series     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Memory optimized|DSv2-series -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this consistency includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
 
