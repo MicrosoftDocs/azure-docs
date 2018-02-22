@@ -46,17 +46,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > To use the **RegistryManager** class in your C# code, add the **Microsoft.Azure.Devices** NuGet package to your project. The **RegistryManager** class is in the **Microsoft.Azure.Devices** namespace.
 
-You can use the **RegistryManager** class to query the state of the **Job** using the returned **JobProperties** metadata. To create an instance of the **RegistryManager** class, you can use the **CreateFromConnectionString** function.
+You can use the **RegistryManager** class to query the state of the **Job** using the returned **JobProperties** metadata. To create an instance of the **RegistryManager** class, use the **CreateFromConnectionString** method:
 
-````csharp
-RegistryManager registryManager = RegistryManager.CreateFromConnectionString("HostName=XXX.azure-devices.net;SharedAccessKeyName=XXX;SharedAccessKey=XXX");
-````
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
 
-You can find the connectionstring to your IoT Hub in the Azure Portal:
-- navigate to your IoT Hub
-- select **Shared access policies**
-- select a policy, taking into account the permissions you need
-- copy the connectionstring from the panel on the right hand side of the screen
+To find the connection string for your IoT Hub, in the Azure portal:
+
+- Navigate to your IoT hub.
+- Select **Shared access policies**.
+- Select a policy, taking into account the permissions you need.
+- Copy the connectionstring from the panel on the right-hand side of the screen.
 
 The following C# code snippet shows how to poll every five seconds to see if the job has finished executing:
 
