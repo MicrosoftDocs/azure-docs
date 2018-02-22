@@ -70,6 +70,7 @@ You can reregister the configuration server in the same vault if you need to. If
       net stop obengine
       net start obengine
       ```
+
 ## Upgrade the configuration server
 
 You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
