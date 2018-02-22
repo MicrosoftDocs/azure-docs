@@ -43,7 +43,7 @@ Scheduled Events provides events in the following use cases:
 - Platform-initiated maintenance (for example, a host OS update)
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 
-## The basics  
+## The Basics  
 
   Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
@@ -56,13 +56,12 @@ Scheduled events are delivered to:
 
 As a result, check the `Resources` field in the event to identify which VMs are affected.
 
-### Discover the endpoint
-For VMs that are enabled for virtual networks, the full endpoint for the latest version of Scheduled Events is: 
+### Endpoint Discovery
+For VNET enabled VMs, Metadata Service is available from a static nonroutable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-In the case where a VM is created within a virtual network, Metadata Service is available from a static nonroutable IP, `169.254.169.254`.
-If the VM is not created within a virtual network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
+If the VM is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
 ### Version and Region Availability
