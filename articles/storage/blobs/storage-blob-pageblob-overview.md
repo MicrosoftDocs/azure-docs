@@ -2,22 +2,14 @@
 title: Unique feature of Azure page blobs | Microsoft Docs
 description: Overview about the Azure page blobs, benefits and use cases with sample scripts. 
 services: storage
-documentationcenter: ''
 author: anasouma
-manager: timlt
-editor: ''
-tags: azure-resource-manager
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
 ---
-
 
 # Unique Features of Azure Page Blobs
 
