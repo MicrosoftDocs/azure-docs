@@ -52,7 +52,7 @@ You can use the **RegistryManager** class to query the state of the **Job** usin
 RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
 ```
 
-To find the connection string for your IoT Hub, in the Azure portal:
+To find the connection string for your IoT hub, in the Azure portal:
 
 - Navigate to your IoT hub.
 - Select **Shared access policies**.
