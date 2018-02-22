@@ -95,7 +95,7 @@ Get the ACR registry resource id. Update the `--name` to the name of your ACR re
 ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
-Creat the role assignment, which grants the proper access.
+Create the role assignment, which grants the proper access.
 
 ```azurecli-interactive
 az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
