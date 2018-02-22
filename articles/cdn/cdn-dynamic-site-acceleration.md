@@ -60,7 +60,7 @@ To configure a CDN endpoint to optimize delivery of dynamic files, you can eithe
 
 2. From the left pane, select **Optimization**. 
 
-   The **Optimization page appears.
+   The **Optimization** page appears.
 
 3. Under **Optimized for**, select **Dynamic site acceleration**, then select **Save**.
 

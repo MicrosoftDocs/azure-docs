@@ -3,8 +3,8 @@ title: Override HTTP behavior using the Azure CDN rules engine | Microsoft Docs
 description: The rules engine allows you to customize how HTTP requests are handled by Azure CDN, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: ''
 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/21/2018
 ms.author: mazha
 
 ---
@@ -26,11 +26,17 @@ The Azure CDN rules engine allows you to customize how HTTP requests are handled
 ## Access
 To access the rules engine, you must first select **Manage** from the top of the **CDN profile** page to access the Azure CDN management page. Depending on whether your endpoint is optimized for dynamic site acceleration (DSA), you then access the rules engine with the set of rules appropriate for your type of endpoint:
 
-- Endpoints optimized for general web delivery or other non-DSA optimization: Select the **HTTP Large** tab, then select **Rules Engine**.
+- Endpoints optimized for general web delivery or other non-DSA optimization: 
+    
+    Select the **HTTP Large** tab, then select **Rules Engine**.
 
     ![Rules engine for HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
 
-- Endpoints optimized for DSA: Select the **ADN** tab, then select **Rules Engine**. ADN is a term used by Verizon to specify DSA content. Any rules you create here are ignored by any endpoints in your profile that are not optimized for DSA. 
+- Endpoints optimized for DSA: 
+    
+    Select the **ADN** tab, then select **Rules Engine**. 
+    
+    ADN is a term used by Verizon to specify DSA content. Any rules you create here are ignored by any endpoints in your profile that are not optimized for DSA. 
 
     ![Rules engine for DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
