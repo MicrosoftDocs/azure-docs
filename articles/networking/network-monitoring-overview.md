@@ -38,7 +38,7 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 * Monitor loss and latency across various subnets and set alerts
 * Monitor all paths (including redundant paths) on the network
 * Troubleshoot transient and point-in-time network issues, that are difficult to replicate
-* Determine the specific segment on the network,  that is responsible for degraded performance
+* Determine the specific segment on the network, that is responsible for degraded performance
 * Monitor the health of the network, without the need for SNMP
 
 For more information, view the following articles:
@@ -47,7 +47,7 @@ For more information, view the following articles:
 * [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Product Updates: [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## ExpressRoute Monitor
+## ExpressRoute Monitor (NPM for ExpressRoute)
 
 Network Performance Monitoring for ExpressRoute offers comprehensive ExpressRoute monitoring for private peering connections. You can monitor E2E connectivity and performance between your branch offices and Azure over ExpressRoute. The key capabilities are:
 
