@@ -93,22 +93,20 @@
   items:
   - name: Networking
     items:
-    - name: Set up networking for Azure VM disaster recovery (preview)
+    - name: Manage networking for Azure VM disaster recovery (preview)
       href: azure-to-azure-about-networking.md
-    - name: Set up network mapping for Azure VM disaster recovery (preview)
+    - name: Prepare network mapping in Azure VM disaster recovery
       href: azure-to-azure-network-mapping.md
-    - name: Set up network mapping replication of Hyper-V VMs in VMM
-      href: hyper-v-vmm-network-mapping.md
-    - name: Retain IP for Azure VM disaster recovery (preview)
+    - name: Set up IP addressing after Azure VM failover
       href: site-recovery-retain-ip-azure-vm-failover.md
-    - name: Prepare network mapping for Hyper-V VM replication to Azure
-      href: site-recovery-network-mapping.md
-    - name: Set up IP addressing for access to Azure after failover
-      href: concepts-on-premises-to-azure-networking.md
-    - name: Set up IP addressing for access to a secondary site after failover
-      href: hyper-v-vmm-networking.md
-    - name: Network interface management for on-premises to Azure scenarios
+    - name: Manage network interfaces for on-premises to Azure disaster recovery
       href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+    - name: Prepare network mapping for Hyper-V VM disaster recovery
+      href: hyper-v-vmm-network-mapping.md
+    - name: Set up IP addressing after failover to Azure
+      href: concepts-on-premises-to-azure-networking.md
+    - name: Set up IP addressing after failover to a secondary site
+      href: hyper-v-vmm-networking.md
   - name: Disaster recovery
     items:
     - name: Disaster recovery of Azure VMs after migration to Azure
@@ -197,7 +195,7 @@
       items:
       - name: Source environment for VMware to Azure
         href: site-recovery-set-up-vmware-to-azure.md
-      - name: Deploy the configuration server for VMware and physical servers
+      - name: Deploy the configuration server for VMware disaster recovery
         href: how-to-deploy-configuration-server.md
       - name: Source environment for physical to Azure
         href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +265,10 @@
     items:
     - name: Manage process servers in Azure
       href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-    - name: Manage the configuration server
+    - name: Manage the configuration server for VMware disaster recovery
       href: site-recovery-vmware-to-azure-manage-configuration-server.md
+    - name: Manage the configuration server for physical machine disaster recovery
+      href: physical-manage-configuration-server.md
     - name: Manage vCenter servers
       href: site-recovery-vmware-to-azure-manage-vCenter.md
     - name: Manage multi-tenancy with CSP
