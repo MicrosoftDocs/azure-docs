@@ -21,9 +21,11 @@ ms.author: ericrad
 
 # Azure Metadata Service: Scheduled Events for Linux VMs
 
-Scheduled Events is a subservice under Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
+Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
 For information about Scheduled Events on Windows, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md).
+
+[!IMPORTANT] Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
 
 ## Why use Scheduled Events?
 
@@ -76,22 +78,15 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 > [!NOTE] 
 > Previous preview releases of Scheduled Events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-### Enable Scheduled Events
-The first time you make a request for scheduled events, Azure implicitly enables the feature on your VM. As a result, expect a delayed response in your first call of up to two minutes.
+### Enabling and Disabling Scheduled Events
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
 
-> [!NOTE]
-> Scheduled Events is automatically disabled for your service if your service doesn't call the endpoint for one day. After Scheduled Events is disabled for your service, no events are created for user-initiated maintenance.
+Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
-### User-initiated maintenance
+### User-initiated Maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
 If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled.
-
-> [!NOTE] 
-> Currently, a maximum of 100 user-initiated maintenance operations can be simultaneously scheduled.
-
-> [!NOTE] 
-> Currently, user-initiated maintenance that results in scheduled events is not configurable. Configurability is planned for a future release.
 
 ## Use the API
 
@@ -124,7 +119,7 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event properties
+### Event Properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -134,7 +129,7 @@ In the case where there are scheduled events, the response contains an array of 
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
 | NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### Event scheduling
+### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
 
 |EventType  | Minimum notice |
