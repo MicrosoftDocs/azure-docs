@@ -1,5 +1,5 @@
 # Using OpenFaaS on AKS
-[OpenFaaS](https://www.openfaas.com/) is a framework for building Serverless functions on top of containers.  As an Open Source project it has gained a lot of momentum in the community.
+[OpenFaaS](https://www.openfaas.com/) is a framework for building Serverless functions on top of containers.  As an Open Source project it has gained a lot of momentum within the community.
 
 ## Prerequisites
 You need the following items in order to complete the steps in this article.
@@ -7,7 +7,7 @@ You need the following items in order to complete the steps in this article.
 * Basic understanding of Kubernetes.
 * An Azure Container Service (AKS) cluster and AKS credentials configured on your development system.
 * Azure CLI installed on your development system.
-* Git command line tools installed on your system.
+* Git command-line tools installed on your system.
 
 ## Install OpenFaaS
 
@@ -69,7 +69,7 @@ service "gateway" created
 ```
 
 ### Get Gateway Endpoint IP address
-Once the service has been deployed, you should be able to see the Gateway public IP address.
+Once the service has been deployed, you will see the Gateway public IP address within the Kubernetes published services.
 
 ```
 ➜  kubectl get svc -n openfaas
@@ -82,7 +82,7 @@ prometheus     NodePort       10.0.129.47    <none>          9090:31119/TCP   27
 ```
 
 ## Test OpenFaas
-Goto the endpoint IP address with your browser, port 8080.  And create your first OpenFaas function - we'll use the Figlet service from the marketplace.
+Goto the endpoint IP address with your browser, port 8080.  And create your first OpenFaas function - you can use the Figlet service from the OpenFaaS marketplace.
 
 ![alt text](media/container-service-serverless/invoke.gif "Test OpenFaas")
 
@@ -107,7 +107,7 @@ And let's use curl for this endpoint
 Install the [FaaS CLI](https://github.com/openfaas/faas-cli) so that you can deploy your functions quickly.
 
 ### Deploy Cosmos DB
-Let's create a new resource group for backing services outside of the AKS cluster group.
+Create a new resource group for backing services outside of the AKS cluster group.
 
 ```
 ➜  az group create -n serverless-backing -l eastus
@@ -116,7 +116,7 @@ Location    Name
 eastus      serverless-backing
 ```
 
-And deploy a CosmosDB instance of type "Mongo".
+And deploy a CosmosDB instance of type "Mongo."
 
 ```
 ➜  ~ az cosmosdb create -n openfaas-cosmos -g serverless-backing --kind MongoDB
@@ -170,17 +170,18 @@ Notice that the connection string has been altered to reference the **plans** da
 
 ##  Deploying a function in OpenFaaS
 
-In order to deploy our pre-built Golang container we will need values for the following variables:
+In order to deploy the pre-built Golang container, you will need values for the following variables:
 
 * OpenFaaS Gateway IP: This is the URL for your deployed OpenFaaS Gateway with AKS, it is the same as your OpenFaaS UI URL without the ui suffix, in the case of this example: ```http://52.226.73.206:8080```
 
-* image: For this example we will use our pre-built container which has been pushed to Docker Hub, namely ```shanepeckham/openfaascosmos```
+* image: For this example you can use the pre-built container which has been pushed to Docker Hub
+ ```shanepeckham/openfaascosmos```
 
 * Name: This is the name of your function, it can be anything
 
-* env: This is an environment variable which we will use to pass our CosmosDB connection string at runtime, we will not store the connection with code, ideally we would use a Kubernetes secret or inject this via Azure Key Vault. This will have the format ```--env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"```
+* env: This is an environment variable which will be used to pass our CosmosDB connection string at runtime, you should not store the connection details within code, ideally you would use a Kubernetes secret or inject this via Azure Key Vault. This will have the format ```--env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"```
 
-We will now use the faas-cli to deploy our pre-built container to the OpenFaaS Gateway. To do so you need to run the following command:
+You can now use the faas-cli to deploy the pre-built container to the OpenFaaS Gateway. To do so you need to run the following command:
 
 ```
 ➜  faas-cli deploy -g http://52.226.73.206:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"
