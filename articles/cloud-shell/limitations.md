@@ -54,16 +54,9 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 
 Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory is not persisted.
 
-### Clouddrive SMB limited permissions
-Certain commands within the `clouddrive` directory, such as `git clone`, do not have proper permissions to read/write certain files. If you hit this issue, try again from your `$Home` directory which does not have SMB limitations.
-
 ### Editing .bashrc
 
 Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud Shell.
-
-### .bash_history
-
-Your history of bash commands may be inconsistent because of Cloud Shell session disruption or concurrent sessions.
 
 ## PowerShell limitations
 

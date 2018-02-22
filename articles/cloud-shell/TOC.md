@@ -7,7 +7,6 @@
 # Concepts
 ## [Features & tools in Bash](features.md)
 ## [Features & tools in PowerShell](features-powershell.md)
-## [Limitations](limitations.md)
 
 # How-to
 ## [Persisting storage in Bash](persisting-shell-storage.md)
@@ -19,7 +18,7 @@
 
 # [Embed Cloud Shell](embed-cloud-shell.md)
 
-# [Troubleshooting](troubleshooting.md)
+# [Troubleshooting & limitations](troubleshooting.md)
 
 # Reference
 ## [Azure CLI](/cli/azure)
