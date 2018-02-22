@@ -20,7 +20,7 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account, using Azure CLI.
+Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine or virtual machine scale set's MSI access to an Azure storage account, using Azure CLI.
 
 ## Prerequisites
 
@@ -36,9 +36,9 @@ To run the CLI script examples, you have three options:
 
 ## Use RBAC to assign the MSI access to another resource
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-cli-windows-vm.md): 
+After you've enabled MSI on an Azure resource, such as an [Azure VM](msi-qs-configure-cli-windows-vm.md) or [Azure VMSS](msi-qs-configure-cli-windows-vmss.md): 
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM or VMSS:
 
    ```azurecli-interactive
    az login
@@ -49,8 +49,13 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
+   For an Azure virtual machine scale set the command is the same except here, you get the service principal for the VMSS name "DevTestVMSS", which was created when we enabled MSI on a VMSS:
+   
+   ```azurecli-interactive
+   spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
+   ```
 
-3. Once we have the service principal ID, we use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give the VM "Reader" access to a storage account called "myStorageAcct":
+3. Once we have the service principal ID, we use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give the VM or VMSS "Reader" access to a storage account called "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
@@ -58,7 +63,7 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
 
 ## Troubleshooting
 
-If the MSI for the resource does not show up in the list of available identities, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
+If the MSI for the resource does not show up in the list of available identities, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM or VMSS in the [Azure portal](https://portal.azure.com) and:
 
 - Look at the "Configuration" page and ensure MSI enabled = "Yes."
 - Look at the "Extensions" page and ensure the MSI extension deployed successfully.
@@ -69,6 +74,7 @@ If either is incorrect, you may need to redeploy the MSI on your resource again,
 
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 - To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using Azure CLI](msi-qs-configure-cli-windows-vm.md).
+- To enable MSI on an Azure VMSS, see [Configure an Azure Virtual Machine Scale Set Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vmss.md)
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
