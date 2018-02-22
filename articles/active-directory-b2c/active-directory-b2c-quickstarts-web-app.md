@@ -18,15 +18,9 @@ ms.author: patricka
 ---
 # Quickstart: Test drive an Azure AD B2C enabled web app
 
-Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols. This quickstart demonstrates how Azure AD B2C is used to authenticate and sign up users in a sample ASP.NET web app.
+Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
 
-In this quickstart, you use an Azure AD B2C enabled sample ASP.NET app to:
-
-> [!div class="checklist"]
-> * Sign in with a custom login page.
-> * Sign in using a social identity provider.
-> * Create and manage your Azure AD B2C account and user profile.
-> * Call a web API protected by Azure AD B2C.
+In this quickstart, you use an Azure AD B2C enabled sample ASP.NET app to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +39,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 ## Run the app in Visual Studio
 
-In the sample application project folder, open the `B2C-WebAPI-DotNet.sln` solution in Visual Studio. 
+In the sample application project folder, open the `B2C-WebAPI-DotNet.sln` solution in Visual Studio.
 
 There are two projects in the sample solution:
 
@@ -53,7 +47,7 @@ There are two projects in the sample solution:
 
 **Web API sample app (TaskService):** Web API that supports the create, read, update, and delete task list functionality. The web API is protected by Azure AD B2C and called by the web app.
 
-For this quickstart, you need to run both the `TaskWebApp` and `TaskService` projects at the same time. 
+For this quickstart, you run both the `TaskWebApp` and `TaskService` projects at the same time. 
 
 1. Select solution `B2C-WebAPI-DotNet` in Solution Explorer.
 2. In the Visual Studio menu, select **Project > Set StartUp Projects...**. 
@@ -71,7 +65,7 @@ Click the **Sign up / Sign in** link in the ASP.NET web application to start the
 
 ![Sample ASP.NET web app](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-The sample supports several sign up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter. 
+The sample supports several sign-up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter. 
 
 ### Sign up using a social identity provider
 
@@ -81,7 +75,7 @@ Azure AD B2C presents a custom login page for a fictious brand called Wingtip To
 
     ![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+    You authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
 2. Finish the sign-in process for the identity provider. For example, if you chose Twitter, enter your Twitter credentials and click **Sign in**.
 
@@ -93,7 +87,7 @@ Azure AD B2C presents a custom login page for a fictious brand called Wingtip To
 
     ![New account sign-up profile details](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 
-    You have successfully used the sample web app that uses a Azure AD B2C policy to:
+    You have successfully used the sample web app that uses an Azure AD B2C policy to:
     
     > [!div class="checklist"]
     > * Authenticate using an identity provider.
@@ -127,7 +121,7 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 
 ## Next steps
 
-In this quickstart, you used a Azure AD B2C enabled sample ASP.NET app to sign in with a custom login page, sign in with a social identity provider, create a Azure AD B2C account, and call a web API protected by Azure AD B2C. 
+In this quickstart, you used an Azure AD B2C enabled sample ASP.NET app to sign in with a custom login page, sign in with a social identity provider, create an Azure AD B2C account, and call a web API protected by Azure AD B2C. 
 
 Continue to the tutorial to learn how to configure the sample ASP.NET to use your own Azure AD B2C tenant.
 

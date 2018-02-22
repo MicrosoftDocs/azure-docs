@@ -1,6 +1,6 @@
 ---
 title: Test drive an Azure AD B2C enabled desktop app
-description: Quickstart to try a sample ASP.NET desktop app that uses Azure Active Directory B2C to authenticate and sign-up users.
+description: Quickstart to try a sample ASP.NET desktop app that uses Azure Active Directory B2C to provide user login.
 services: active-directory-b2c
 author: PatAltimore
 manager: mtillman
@@ -12,23 +12,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: PatAltimore
+ms.author: patricka
 
 ---
 # Quickstart: Test drive an Azure AD B2C enabled desktop app
 
-Azure Active Directory B2C provides cloud identity management to keep your application, business, and customers protected.  This quickstart uses a sample Windows Presentation Foundation (WPF) desktop app to demonstrate:
+Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
 
-* Using the **Sign Up or Sign In** policy to create or sign in with a social identity provider or a local account using an email address. 
-* **Calling an API** to retrieve your display name from an Azure AD B2C secured resource.
+In this quickstart, you use an Azure AD B2C enabled sample Windows Presentation Foundation (WPF) desktop app to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-    - **.NET desktop development**
-* A social account from either Facebook, Google, Microsoft, or Twitter. If you don't have a social account, a valid email address is required.
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload. 
+* A social account from either Facebook, Google, Microsoft, or Twitter.
 
 ## Download the sample
 
@@ -40,9 +38,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 ## Run the app in Visual Studio
 
-In the sample application project folder, open the `active-directory-b2c-wpf.sln` solution in Visual Studio. 
+In the sample application project folder, open the `active-directory-b2c-wpf.sln` solution in Visual Studio.
 
-Press **F5** to debug the application. 
+Press **F5** to debug the application.
 
 ## Create an account
 
