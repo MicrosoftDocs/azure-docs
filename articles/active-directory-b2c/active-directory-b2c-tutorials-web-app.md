@@ -42,7 +42,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 2. In the B2C settings, click **Applications** and then click **Add**.
 
-    To register the sample web app in your tenant, use the following settings.
+    To register the sample web app in your tenant, use the following settings:
 
     ![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -175,7 +175,7 @@ In Solution Explorer, right-click on the **TaskWebApp** project and click **Set 
 
 Press **F5** to start the web app. The default browser launches to the local web site address `https://localhost:44316/`. 
 
-The sample app supports sign up, sign in, editing a profile, and password reset. The following is how a user signs up to use the app with an email address. You can try the other scenarios on your own.
+The sample app supports sign up, sign in, editing a profile, and password reset. This tutorial highlights how a user signs up to use the app using an email address. You can explore other scenarios on your own.
 
 ### Sign up using an email address
 

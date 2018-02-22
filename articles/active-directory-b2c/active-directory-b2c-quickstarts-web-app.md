@@ -69,7 +69,7 @@ The sample supports several sign-up options including using a social identity pr
 
 ### Sign up using a social identity provider
 
-Azure AD B2C presents a custom login page for a fictious brand called Wingtip Toys for the sample web app. 
+Azure AD B2C presents a custom login page for a fictitious brand called Wingtip Toys for the sample web app. 
 
 1. To sign up using a social identity provider, click the button of the identity provider you want to use.
 
