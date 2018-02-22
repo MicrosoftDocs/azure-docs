@@ -9,14 +9,14 @@ editor: cgronlun
 
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: ''
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-
+ROBOTS: NOINDEX
 ---
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
 
