@@ -1,5 +1,5 @@
 ---
-title: Managing Azure file shares with Azure CLI
+title: Managing Azure file shares with Azure CLI | Microsoft Docs
 description: Learn to use the Azure CLI to manage Azure Files.
 services: storage
 documentationcenter: na
@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: wgries
 ---
 
 # Managing Azure file shares with the CLI
 
-This guide walks you through the basics of working with Azure file shares using Azure CLI. Learn how to: 
-- Create a resource group and a storage account
-- Create an Azure file share within the storage account 
-- Create a directory within the share, and upload and download files to it
-- Copy files between Azure file shares
-- Work with share snapshots 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. In this article you learn how to:
+
+> [!div class="checklist"]
+> Create a resource group and a storage account
+> Create an Azure file share 
+> Create a directory
+> Upload a file
+> Download a file
+> Create and use a share snapshot
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -187,6 +190,73 @@ az storage file list \
 
 While the `az storage file copy start` command is convenient for small file moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves. To learn more about AzCopy, see [AzCopy for Linux](../common/storage-use-azcopy-linux.md) and [AzCopy for Windows](../common/storage-use-azcopy.md). AzCopy must be installed locally; it is not available in Cloud Shell.
 
+## Optional: Use snapshots
+A snapshot preserves a point in time copy of an Azure file share. File share snapshots are similar to other technologies you may already be familiar with like: 
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
+- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
+- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
+
+Create a share snapshot by using [az storage share snapshot](/cli/azure/storage/share#az_storage_share_snapshot).
+
+```azurecli-interactive
+SNAPSHOT=$(az storage share snapshot \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" | \
+    jq ".snapshot" |
+    tr -d '"')
+```
+
+Browse the contents of a share snapshot by passing the timestamp of the share snapshot we captured in the variable **$SNAPSHOT** to the `az storage file list` command.
+
+```azurecli-interactive
+az storage file list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --snapshot $SNAPSHOT \
+    --output table
+```
+
+You can see the list of snapshots you've taken for your share.
+
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --include-snapshot | \
+jq '.[] | select(.name == "myshare") | select(.snapshot != null) | .snapshot' | \
+tr -d '"'
+```
+
+Restore a file using [az storage file copy start](/cli/azure/storage/file/copy#az_storage_file_copy_start). For the purposes of this quickstart, we'll first delete our `SampleUpload.txt` file we previously uploaded so we can restore it from the snapshot.
+
+```azurecli-interactive
+# Delete SampleUpload.txt
+az storage file delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --path "myDirectory/SampleUpload.txt"
+
+# Build the source URI for snapshot restore
+URI=$(az storage account show \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT | \
+    jq ".primaryEndpoints.file" | \
+    tr -d '"')
+
+URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+
+# Restore SampleUpload.txt from the share snapshot
+az storage file copy start \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --source-uri $URI \
+    --destination-share "myshare" \
+    --destination-path "myDirectory/SampleUpload.txt"
+```
+
 
 ## Clean up resources
 When you are done, you can use the [`az group delete`](/cli/azure/group#delete) command to remove the resource group and all related resources. 
@@ -195,30 +265,6 @@ When you are done, you can use the [`az group delete`](/cli/azure/group#delete) 
 az group delete --name "myResourceGroup"
 ```
 
-You can alternatively remove resources one by one:
-- To remove the Azure file shares we created for this quickstart.  
-```azurecli-interactive
-az storage share list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY | 
-jq ".[].name" | tr -d '"' |
-while read SHARE
-do 
-    az storage share delete \
-        --account-name $STORAGEACCT \
-        --account-key $STORAGEKEY \
-        --name $SHARE \
-        --delete-snapshots include
-done
-```
-
-- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).  
-```azurecli-interactive
-az storage account delete \
-    --resource-group "myResourceGroup" \
-    --name $STORAGEACCT \
-    --yes
-```
 
 ## Next steps
 - [Managing file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
