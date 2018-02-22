@@ -41,7 +41,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 **To Submit jobs**
 
 1. Create a C# console application in Visual Studio.
-2. From the Nuget Package Manager Console, run the following command:
+2. From the NuGet Package Manager Console, run the following command:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
