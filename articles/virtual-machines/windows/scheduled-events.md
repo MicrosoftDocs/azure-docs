@@ -64,22 +64,15 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-### Enabling Scheduled Events
-The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
+### Enabling and Disabling Scheduled Events
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
 
-> [!NOTE]
-> Scheduled Events is automatically disabled for your service if your service doesn't call the end point for 1 day. Once Scheduled Events is disabled for your service, there will be no events created for user initiated maintenance.
+Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
-### User initiated maintenance
+### User Initiated Maintenance
 User initiated virtual machine maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. This allows you to test the maintenance preparation logic in your application and allows your application to prepare for user initiated maintenance.
 
 Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
-
-> [!NOTE] 
-> Currently a maximum of 100 user initiated maintenance operations can be simultaneously scheduled.
-
-> [!NOTE] 
-> Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
 
 ## Using the API
 
