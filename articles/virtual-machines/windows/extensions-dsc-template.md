@@ -187,7 +187,7 @@ For more information about the following values, see [Local Configuration Manage
 
 ## Settings vs. ProtectedSettings
 
-All settings are saved in a settings text file on the VM. Properties listed under **settings** are public properties. Public properties aren't encrypted in the settings text file. Properties listed under **protectedSettings** are encrypted with a certificate. **protectedSettings** aren't shown in plain text in the settings file on the VM.
+All settings are saved in a settings text file on the VM. Properties listed under **settings** are public properties. Public properties aren't encrypted in the settings text file. Properties listed under **protectedSettings** are encrypted with a certificate and are not shown in plain text in the settings file on the VM.
 
 If the configuration needs credentials, you can include the credentials in **protectedSettings**:
 
@@ -338,7 +338,7 @@ and protected configurationArguments"
 
 **Solution**: Remove one of the duplicate properties.
 
-### Missing Properties
+### Missing properties
 "Configuration.function requires that configuration.url
 or configuration.module is specified"
 
