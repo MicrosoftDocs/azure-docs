@@ -105,7 +105,7 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event properties
+### Event Properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -115,7 +115,7 @@ In the case where there are scheduled events, the response contains an array of 
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
 | NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### Event scheduling
+### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
 
 |EventType  | Minimum Notice |
@@ -123,6 +123,14 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
+
+### Event Scope		
+Scheduled events are delivered to:		  
+ - All Virtual Machines in a Cloud Service		
+ - All Virtual Machines in an Availability Set		
+ - All Virtual Machines in a Scale Set Placement Group. 		
+
+As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 
 ### Starting an event 
 
@@ -209,7 +217,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## Next steps 
 
-- Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) for a demo. 
+- Watch a [Scheduled Events Demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) on Azure Friday. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
