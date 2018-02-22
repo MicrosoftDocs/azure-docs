@@ -63,21 +63,21 @@ Run Azure CLI 2.0 and the IoT extension for Azure CLI 2.0 with various managemen
 - Install the IoT extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) describes several ways to install the extension.
 
 
-## Login to your Azure account
+## Log in to your Azure account
 
-Login to your Azure account by running the following command:
+Log in to your Azure account by running the following command:
 
 ```bash
 az login
 ```
 
-## Use the IoT extension for Azure CLI 2.0 with direct methods
+## Direct methods
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## Use the IoT extension for Azure CLI 2.0 with twin’s desired properties
+## Device twin desired properties
 
 Set a desired property interval = 3000 by running the following command:
 
@@ -87,7 +87,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 This property can be read from your device.
 
-## Use the IoT extension for Azure CLI 2.0 with twin’s reported properties
+## Device twin reported properties
 
 Get the reported properties of the device by running the following command:
 
@@ -97,7 +97,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 One of the properties is $metadata.$lastUpdated which shows the last time this device sends or receives a message.
 
-## Use the IoT extension for Azure CLI 2.0 with twin’s tags
+## Device twin tags
 
 Display the tags and properties of the device by running the following command:
 
@@ -111,7 +111,7 @@ Add a field role = temperature&humidity to the device by running the following c
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## Use the IoT extension for Azure CLI 2.0 with device twins queries
+## Device twin queries
 
 Query devices with a tag of role = 'temperature&humidity' by running the following command:
 
