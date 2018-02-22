@@ -48,7 +48,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
     ```
 3. Use the following code:
 
-    ```C#   
+    ```csharp
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
