@@ -25,7 +25,7 @@ This article has two major parts:
 * A tutorial that highlights sample PowerShell code that accomplishes the provisioning and cataloging
     * The tutorial uses the Wingtip Tickets sample SaaS application, adapted to the standalone app per tenant pattern.
 
-## Application per tenant pattern
+## Standalone application per tenant pattern
 The standalone app per tenant pattern is one of several patterns for multi-tenant SaaS applications.  In this pattern, a standalone app is provisioned for each tenant. The application comprises application level components and a SQL database.  Each tenant app can be deployed in the vendor’s subscription.  Alternatively, Azure offers a [managed applications program](https://docs.microsoft.com/en-us/azure/managed-applications/overview) in which an app can be deployed in a tenant’s subscription and managed by the vendor on the tenant’s behalf. 
 
    ![app-per-tenant pattern](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -54,7 +54,7 @@ Each tenant requires a new Azure resource group, which must be created before re
 
 In this tutorial you learn how to:
 * Provision a catalog
-* Register the tenant databases deployed earlier in the catalog
+* Register the sample tenant databases that you deployed earlier in the catalog
 * Provision an additional tenant and register it in the catalog
 
 An Azure Resource Manager template is used to deploy and configure the application, create the tenant database, and then import a bacpac file to initialize it. The import request may be queued for several minutes before it is actioned.
@@ -143,3 +143,5 @@ In this tutorial you learned:
 > * How to deploy the Wingtip Tickets SaaS Standalone Application.
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
+
+You can explore how the catalog is used to support various cross-tenant scenarios using the database-per-tenant version of the [Wingtip Tickets SaaS application](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

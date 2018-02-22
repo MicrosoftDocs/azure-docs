@@ -33,6 +33,8 @@
     href: news-search-sdk-node-quickstart.md
   - name: News Search SDK Python quickstart (preview)  
     href: news-sdk-python-quickstart.md
+  - name: News Search SDK Java quickstart (preview)  
+    href: news-sdk-java-quickstart.md
 - name: How to
   items:
   - name: Use and display requirements

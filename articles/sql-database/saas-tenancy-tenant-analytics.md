@@ -1,5 +1,5 @@
 ---
-title: "Run analytics queries against databases | Microsoft Docs"
+title: "Run cross-tenant analytics using extracted data| Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
 keywords: "sql database tutorial"
 services: "sql-database"
@@ -19,11 +19,11 @@ ms.author: "anjangsh; billgib; genemi"
 ---
 # Cross-tenant analytics using extracted data
 
-In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
+In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior and application usage. This scenario involves three steps: 
 
-1.	**Extract data** from each tenant database into an analytics store.
-2.	**Optimize the extracted data** for analytics processing.
-3.	Use **Business Intelligence** tools to draw out useful insights, which can guide decision making. 
+1.	**Extract** data from each tenant database and **Load** into an analytics store.
+2.	**Transform the extracted data** for analytics processing.
+3.	Use **business intelligence** tools to draw out useful insights, which can guide decision making. 
 
 In this tutorial you learn how to:
 
@@ -38,29 +38,28 @@ In this tutorial you learn how to:
 
 ## Offline tenant analytics pattern
 
-SaaS applications you develop have access to a vast amount of tenant data stored in the cloud. The data provides a rich source of insights about the operation and usage of your application, and about the behavior of the tenants. These insights can guide feature development, usability improvements, and other investments in the app and platform.
+Multi-tenant SaaS applications typically have a vast amount of tenant data stored in the cloud. This data provides a rich source of insights about the operation and usage of your application, and the behavior of your tenants. These insights can guide feature development, usability improvements, and other investments in the app and platform.
 
-Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse. You then query the analytics store to gather insights from the tickets data of all tenants.
+Accessing data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across potentially thousands of databases. One way to tame the complexity and to minimize the impact of analytics queries on transactional data is to extract data into a purpose designed analytics database or data warehouse.
 
-This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. For large-scale data extraction, [Azure Data Factory](../data-factory/introduction.md) is commended.
+This tutorial presents a complete analytics scenario for Wingtip Tickets SaaS application. First, *Elastic Jobs* is used to extract data from each tenant database and load it into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. For large-scale data extraction, [Azure Data Factory](../data-factory/introduction.md) is recommended.
 
-Next, the aggregated data is shredded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
+Next, the aggregated data is transformed into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables.  For Wingtip Tickets:
 
 - The central fact table in the star-schema contains ticket data.
-- The dimension tables contain data about venues, events, customers, and purchase dates.
+- The dimension tables describe venues, events, customers, and purchase dates.
 
-Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image:
+Together the central fact and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is shown in the following image:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Finally, the star-schema tables are queried. The query results are displayed visually to highlight insights into tenant behavior and their use of the application. With this star-schema, you can run queries that help discover items like the following:
+Finally, the analytics store is queried using **PowerBI** to highlight insights into tenant behavior and their use of the Wingtip Tickets application. You run queries that:
+ 
+- Show the relative popularity of each venue
+- Highlight patterns in ticket sales for different events
+- Show the relative success of different venues in selling out their event
 
-- Who is buying tickets and from which venue.
-- Hidden patterns and trends in the following areas:
-    - The sales of tickets.
-    - The relative popularity of each venue.
-
-Understanding how consistently each tenant is using the service provides an opportunity to create service plans to cater to their needs. This tutorial provides basic examples of insights that can be gleaned from tenant data.
+Understanding how each tenant is using the service is used to explore options for monetizing the service and improving the service to help tenants be more successful. This tutorial provides basic examples of the kinds of insights that can be gleaned from tenant data.
 
 ## Setup
 
@@ -72,7 +71,7 @@ To complete this tutorial, make sure the following prerequisites are met:
 - The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-dbpertenant-provision-and-catalog.md).
-- A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### Create data for the demo
 
