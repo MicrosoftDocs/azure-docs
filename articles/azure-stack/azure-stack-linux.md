@@ -3,8 +3,8 @@ title: Add Linux images to Azure Stack
 description: Learn how add Linux images to Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: anjayajodha
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 
 ---
 # Add Linux images to Azure Stack
