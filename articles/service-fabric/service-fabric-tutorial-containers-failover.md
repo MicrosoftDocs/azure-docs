@@ -1,6 +1,6 @@
 ---
 title: Failover and scale an Azure Service Fabric containers app | Microsoft Docs
-description: Learn how failover is handled in an Azure Service Fabric containers application.  Also learn how to scale the containers and services running in a cluster.
+description: In this tutorial, you learn how failover is handled in an Azure Service Fabric containers application.  Also learn how to scale the containers and services running in a cluster.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -19,7 +19,7 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Demonstrate fail over and scaling of container services with Service Fabric
+# Tutorial: demonstrate fail over and scaling of container services with Service Fabric
 
 This tutorial is part three of a series. In this tutorial, you learn how failover is handled in Service Fabric container applications. Additionally, you learn how to scale containers. In this tutorial, you:
 
