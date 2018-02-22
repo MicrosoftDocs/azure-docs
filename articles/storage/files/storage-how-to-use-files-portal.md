@@ -39,7 +39,7 @@ A storage account is a shared pool of storage in which you can deploy Azure file
 Storage account - blob, file, table, queue and then click **Create**.
 3. In **Name**, type *mystorageaccount* followed by a few random numbers until you get the green check mark indicating that it is a unique name. A storage account name must be all lower-case and globally unique. Make a note of your storage account name because you will be using it later. 
 4. In **Deployment model**, leave the default value of **Resource manager**.
-5. In **Account kind**, select **StorageV2 (general purpose v2)**. 
+5. In **Account kind**, select **StorageV2**. 
 6. In **Performance**, keep the default value of **Standard storage**. Azure Files currently only supports standard storage; even if you select premium storage, your file share is stored on standard storage.
 7. In **Replication**, select *Locally-redundant storage (LRS)*. 
 8. In **Secure transfer required** we recommend you always select *Enabled*. To learn more about this option, see [Understanding encryption in-transit](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
@@ -95,9 +95,49 @@ You can download a copy of a file in your file share by right-clicking on the fi
 ![A screenshot of the download button in the context menu for a file](media/storage-how-to-use-files-portal/download-file-1.png) 
 
 
+## Optional: Use snapshots
+
+A snapshot preserves a point in time copy of an Azure file share. File share snapshots are similar to other technologies you may already be familiar with like:
+- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
+- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS.
+
+This example will walk you through creating a snapshot, viewing the contents, deleting a file and then restoring the file from the snapshot.
+
+1. Open the page for the file share by opening the storage account from your dashboard > Files > myShare. 
+2. On the page for the file share, click the **Snapshot** button on menu at the top of the page and then select **Create a snapshot**.
+3. Once the snapshot is created, you can click **Snapshot** again and then select **View snapshots** to list the snapshots for the share.
+
+The page will show all the snapshots for the share and you can click on a snapshot to browse through it.
+
+## Restore from a snapshot
+
+1. Open the **myshare** file share and right-click on **UploadSample.txt** and click **Delete**.
+
+
+[Navigate to the share snapshot](#list-and-browse-a-share-snapshot) and to the specific file we deleted (`myDirectory\SampleUpload.txt`). Right-click on the file, and click **Restore**.
+
+![A screenshot of the restore button](media/storage-how-to-use-files-portal/restore-snapshot-2.png)
+
+A pop-up will appear giving you a choice between restoring the file as a copy or overwriting the original file. Since we have deleted the original file, we can select **Overwrite original file** to restore the file as it was before we deleted it. Click **OK** to restore the file to the Azure file share.
+
+![A screenshot of the restore file dialog](media/storage-how-to-use-files-portal/restore-snapshot-3.png)
+
+You can verify that `SampleUpload.txt` has been successfully restored to the live Azure file share.
+
+![A screenshot of the restored file](media/storage-how-to-use-files-portal/restore-snapshot-4.png)
+
+### Delete a share snapshot
+To delete a share snapshot, [navigate to the share snapshot](#list-and-browse-a-share-snapshot). Click the checkbox next to the name of the share snapshot (1), and select the **Delete** button (2).
+
+![A screenshot of deleting a share snapshot](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
+
+
 ## Optional: Mount the file share
 
 You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md).
+
+
 
 ## Clean up resources
 When you're done, you can delete the resource group, which deletes the storage account, Azure file share inside the storage account, and any other resources you may have deployed inside the resource group.
