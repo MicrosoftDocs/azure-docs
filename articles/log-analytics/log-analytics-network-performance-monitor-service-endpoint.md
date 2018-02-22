@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 # Service Endpoint Manager
 
-The Service Endpoint Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, SQL databases, etc. 
+The Service Endpoint Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
 
 You can perform the following functions with **Service Endpoint Monitor**: 
 
@@ -35,7 +35,7 @@ You can perform the following functions with **Service Endpoint Monitor**:
 ## Configuration 
 To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and click the **Configure** button.
 
-![Network Performance Monitor configure](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configure Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
 ### Configure OMS agents for the monitoring.  
@@ -64,7 +64,7 @@ Start creating your tests to monitor network connectivity to the service endpoin
 8. Select the nodes from which you want to monitor the network connectivity to service. 
 
     >[!NOTE]
-    > For Windows server based nodes, the capability uses TCP based requests to perform the network measurements. For Windows client based nodes, the capability uses ICMP based requests to perform the network measurements. In some cases, the target application blocks incoming ICMP based request due to which when the nodes are Windows client based, the solution is unable to perform network measurements. Therefore, it is recommended you use Windows server based nodes in such cases. 
+    > For Windows server-based nodes, the capability uses TCP-based requests to perform the network measurements. For Windows client-based nodes, the capability uses ICMP-based requests to perform the network measurements. In some cases, the target application blocks incoming ICMP-based request due to which when the nodes are Windows client-based, the solution is unable to perform network measurements. Therefore, it is recommended you use Windows server-based nodes in such cases. 
 
 9. If you don't want to create health events for the items you've selected, then clear **Enable health monitoring on the targets covered by this test**. 
 10. Choose monitoring conditions. You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated. 
@@ -80,11 +80,11 @@ Move to the Network Performance Monitoring dashboard view and observe the **Serv
 
 ![Service Endpoint Monitor Page](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
-Click on the tile to drill-down and view the details of the tests on the **Tests** page. On the LHS table, you can view the point-in-time health and value of the service response time, network latency and packet loss for all the tests. You can use the Network State Recorder control to view the network snapshot at another time in past. Click on the test in the table which you want to investigate. You can view the historical trend of the loss, latency and response time values from the charts in the RHS pane. Click on the Test Details link to view the performance from each node. 
+Click on the tile to drill-down and view the details of the tests on the **Tests** page. On the LHS table, you can view the point-in-time health and value of the service response time, network latency, and packet loss for all the tests. You can use the Network State Recorder control to view the network snapshot at another time in past. Click on the test in the table which you want to investigate. You can view the historical trend of the loss, latency, and response time values from the charts in the RHS pane. Click on the Test Details link to view the performance from each node. 
 
 ![Service Endpoint Monitor Tests](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
-On the **Test Nodes** view, you can observe the network connectivity from each node. Click on the node having performance degradation, i.e., the node from where the application is observed to be running slow. 
+On the **Test Nodes** view, you can observe the network connectivity from each node. Click on the node having performance degradation.  This is the node from where the application is observed to be running slow. 
 
 Determine whether poor application performance is because of the network or because of some issue at the application provider’s end by observing the correlation between the response time of the application and the network latency- 
 
@@ -102,19 +102,19 @@ Once you’ve determined that the problem is because of the network, you can cli
 
 ## Diagnostics 
 
-The following steps are recommended, if you observe an abnormality: 
+If you observe an abnormality, then follow these steps:
 
-If the service response time, network loss as well as latency are shown as NA, then it can be because of one or more of the below reasons:
+If the service response time, network loss, and latency are shown as NA, then it can be because of one or more of the following reasons:
 - The application is down.
 - The node being used for checking network connectivity to the service is down.
 - The target entered in the test configuration is incorrect.
 - The node does not have any network connectivity.
 
-If a valid service response time is shown but network loss as well as latency are shown as NA, then it can be because of one or more of the below reasons:
+If a valid service response time is shown but network loss as well as latency are shown as NA, then it can be because of one or more of the following reasons:
 - If the node used for checking network connectivity to the service is Windows client machine, either the target service is blocking ICMP requests or a network firewall is blocking ICMP requests originating from the node.
 - The checkbox for **Perform network measurements** has been unchecked in the test configuration. 
 
-If the service response time is NA but network loss as well as latency are valid, then it suggests that the target service is not a web application. Please edit the test configuration and choose the test type as Network test instead of Web test. 
+If the service response time is NA but network loss as well as latency are valid, then it suggests that the target service is not a web application. Edit the test configuration and choose the test type as Network test instead of Web test. 
 
 If the application is running slow, you should determine whether poor application performance is because of the network or because of some issue at the application provider’s end.
 

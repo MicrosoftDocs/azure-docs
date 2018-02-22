@@ -50,7 +50,7 @@ To monitor a network link, you must install agents on both endpoints of that lin
 
 **Service Endpoint Monitor:** Install OMS agent on each node from which you want to monitor the network connectivity to the service endpoint. For example, if you intend to monitor network connectivity to Office365 from your office site O1, O2 and O3, then install the OMS agent on at least one node each in O1, O2 and O3. 
 
-**ExpressRoute Monitor:** Install at least one OMS agent in your Azure VNET and at least one agent in your on-premises subnetwork which are connected through the ExpressRoute Private Peering.  
+**ExpressRoute Monitor:** Install at least one OMS agent in your Azure VNET and at least one agent in your on-premises subnetwork which is connected through the ExpressRoute Private Peering.  
 
 ### Configure OMS agents for monitoring  
 
@@ -87,7 +87,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 2. Open your Log Analytics workspace and click on the **Overview** tile.  
 3. Click on the tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*.
     ![NPM Tile](media/log-analytics-network-performance-monitor/npm-config.png)
-3. On the **Setup** page, you will see the option to install OMS agents and configure the agents for monitoring in the **Common Settings** view. As explained above , if you’ve already installed and configured OMS agents, then click on the **Setup** View for configuring the capability you are interested in using.  
+3. On the **Setup** page, you will see the option to install OMS agents and configure the agents for monitoring in the **Common Settings** view. As explained above, if you’ve already installed and configured OMS agents, then click on the **Setup** View for configuring the capability you are interested in using.  
 
     **Performance Monitor View** - Choose what protocol should be used for synthetic transactions in the Default performance monitor rule and click on Save and Continue. Note that this protocol selection only holds for the system-generated default rule, and you will need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the Default rule settings in the Performance Monitor tab (this will appear after you complete your day-0 configuration) and change the protocol later. In case you aren’t interested in the Perfomance Monitor capability, you can disable the default rule from the Default rule settings in the Performance Monitor tab. 
 
@@ -185,9 +185,9 @@ The **Common Queries** page contains a set of search queries that fetch raw ne
 
  
 
-### Drill down for depth 
+### Drill-down for depth 
 
-You can click various links on the solution dashboard to drill down deeper into any area of interest. For example, when you see an alert or an unhealthy network link appear on the dashboard, you can click it to investigate further. You are taken to a page that lists all the subnetwork links for the particular network link. You are able to see the loss, latency and health status of each subnetwork link and quickly find out what subnetwork links are causing the problem. You can then click **View node links** to see all the node links for the unhealthy subnet link. Then, you can see individual node-to-node links and find the unhealthy node links. 
+You can click various links on the solution dashboard to drill-down deeper into any area of interest. For example, when you see an alert or an unhealthy network link appear on the dashboard, you can click it to investigate further. You are taken to a page that lists all the subnetwork links for the particular network link. You are able to see the loss, latency and health status of each subnetwork link and quickly find out what subnetwork links are causing the problem. You can then click **View node links** to see all the node links for the unhealthy subnet link. Then, you can see individual node-to-node links and find the unhealthy node links. 
 
 You can click **View topology** to view the hop-by-hop topology of the routes between the source and destination nodes. The unhealthy routes are shown in red and you can view the latency contributed by each hop so that you can quickly identify the problem to a particular portion of the network. 
 
@@ -203,7 +203,7 @@ Each view displays a snapshot of your network health at a particular point in ti
 
 ### Trend charts 
 
-At each level that you drill down, you can see the trend of the applicable metric – loss, latency, response time, bandwidth utilization. You can change the time interval for the trend by using the time control at the top of the chart. 
+At each level that you drill-down, you can see the trend of the applicable metric – loss, latency, response time, bandwidth utilization. You can change the time interval for the trend by using the time control at the top of the chart. 
 
 Trend charts show you a historical perspective of the performance of a performance metric. Some network issues are transient in nature and would be hard to catch only by looking at the current state of the network. This is because issues can surface quickly and disappear before anyone notices, only to reappear at a later point in time. Such transient issues can also be difficult for application administrators because those issues often surface as unexplained increases in application response time, even when all application components appear to run smoothly. 
 
@@ -215,7 +215,7 @@ You can easily detect those kinds of issues by looking at a trend chart where th
 
 ### Topology Map 
 
-NPM shows you the hop-by-hop topology of routes between the source and destination endpoint, on an interactive topology map. You can view the topology map by clicking on the **Topology** tile on the solution dashboard or by clicking on **View topology** link on the drill down pages.  
+NPM shows you the hop-by-hop topology of routes between the source and destination endpoint, on an interactive topology map. You can view the topology map by clicking on the **Topology** tile on the solution dashboard or by clicking on **View topology** link on the drill-down pages.  
 
 The topology map displays how many routes are between the source and destination and what paths the data packets take. The latency contributed by each network hop is also visible. All the paths for which the total path latency is above the threshold (set in the corresponding monitoring rule) are shown in red.  
 
@@ -229,7 +229,7 @@ Note that the topology shown in the map is layer 3 topology and doesn't contain 
 
 ## Log Analytics Search 
 
-All data that is exposed graphically through the NPM dashboard and drill down pages is also available natively in [Log Analytics search](log-analytics-log-search-new.md). You can perform interactive analysis of data in the repository, corelate data from different sources, create custom alerts, create custom views and export the data to Excel, PowerBI or a shareable link. The Common Queries area in the dashboard has some useful queries that you can use as the starting point for creating your own queries and reports. 
+All data that is exposed graphically through the NPM dashboard and drill-down pages is also available natively in [Log Analytics search](log-analytics-log-search-new.md). You can perform interactive analysis of data in the repository, corelate data from different sources, create custom alerts, create custom views and export the data to Excel, PowerBI or a shareable link. The Common Queries area in the dashboard has some useful queries that you can use as the starting point for creating your own queries and reports. 
 
  
 

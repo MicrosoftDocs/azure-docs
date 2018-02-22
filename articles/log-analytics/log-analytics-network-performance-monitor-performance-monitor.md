@@ -32,11 +32,11 @@ The Performance Monitor capability in [Network Performance Monitor](log-analytic
 ## Configuration
 To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and click the **Configure** button.
 
-![Network Performance Monitor configure](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configure Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 ### Create new networks
 
-A Network in NPM is a logical container for subnets. It helps you organize the monitoring of your network infrastructure according to your monitoring needs. You can create a Network with a friendly name and add subnets to it according to your business logic. For example, you can create a network named London and add all the subnets in your London datacenter, or a network named *ContosoFrontEnd* and add all subnets serving the front end of your app named Contoso to this network. The solution automatically creates a Default network which contains all the subnets discovered in your environment. Whenever you create a network, you add a subnet to it and that subnet is removed from the Default network. If you delete a network, all its subnets are automatically returned to the Default network. Thus, the Default network acts as a container for all the subnets that are not contained in any user-defined network. You cannot edit or delete the Default network. It always remains in the system. However, you can create as many custom networks as you need. In most cases, the subnets in your organization will be arranged in more than one network and you should create one or more networks to group your subnets for your business logic.
+A Network in NPM is a logical container for subnets. It helps you organize the monitoring of your network infrastructure according to your monitoring needs. You can create a Network with a friendly name and add subnets to it according to your business logic. For example, you can create a network named London and add all the subnets in your London datacenter, or a network named *ContosoFrontEnd* and add all subnets serving the front end of your app named Contoso to this network. The solution automatically creates a Default network which contains all the subnets discovered in your environment. Whenever you create a network, you add a subnet to it and that subnet is removed from the Default network. If you delete a network, all its subnets are automatically returned to the Default network. Thus, the Default network acts as a container for all the subnets that are not contained in any user-defined network. You cannot edit or delete the Default network. It always remains in the system. However, you can create as many custom networks as you need. In most cases, the subnets in your organization are arranged in more than one network and you should create one or more networks to group your subnets for your business logic.
 
 To create a new network:
 
@@ -49,10 +49,10 @@ To create a new network:
 
 ### Create monitoring rules 
 
-Performance Monitor generates health events when the threshold of the performance of network connections between 2 subnetworks or between 2 networks is breached. These thresholds can be learned automatically by the system or you can provide custom thresholds. The system automatically creates a Default rule which generates a health event whenever loss or latency between any pair of network/subnetwork links breaches the system-learned threshold. This helps the solution monitor your network infrastructure until you haven’t created any monitoring rules explicitly. If the **Default rule** is enabled, all the nodes send synthetic transactions to all the other nodes that you have enabled for monitoring. The default rule is useful in case of small networks, for example, in a scenario where you have a small number of servers running a microservice and you want to make sure that all the servers have connectivity to each other. 
+Performance Monitor generates health events when the threshold of the performance of network connections between two subnetworks or between two networks is breached. These thresholds can be learned automatically by the system or you can provide custom thresholds. The system automatically creates a Default rule, which generates a health event whenever loss or latency between any pair of network/subnetwork links breaches the system-learned threshold. This helps the solution monitor your network infrastructure until you haven’t created any monitoring rules explicitly. If the **Default rule** is enabled, all the nodes send synthetic transactions to all the other nodes that you have enabled for monitoring. The default rule is useful with small networks, for example, in a scenario where you have a small number of servers running a microservice and you want to make sure that all the servers have connectivity to each other. 
 
 >[!NOTE]
-> It is highly recommended that you disable the **Default rule** and create custom monitoring rules, especially in case of large networks where you are using a large number of nodes for monitoring. This will reduce the traffic generated by the solution and help you organize the monitoring of your network. 
+> It is highly recommended that you disable the **Default rule** and create custom monitoring rules, especially with large networks where you are using a large number of nodes for monitoring. This reduces the traffic generated by the solution and help you organize the monitoring of your network. 
 
 Create monitoring rules according to your business logic. For example, if you want to monitor performance of the network connectivity of two office sites to headquarter, then group all the subnets in office site1 in network O1, all the subnets in office site2 in network O2 and all the subnets in the headquarter in network H. Create 2 monitoring rules-one between O1 and H and the other between O2 and H. 
 
@@ -74,22 +74,22 @@ You can now create more Performance Monitor rules or move to the solution dashbo
 
 Network Performance Monitor (NPM) uses synthetic transactions to calculate network performance metrics like packet loss and link latency. To understand this better, consider an NPM agent connected to one end of a network link. This NPM agent sends probe packets to a second NPM agent connected to another end of the network. The second agent replies with response packets. This process is repeated a few times. By measuring the number of replies and time taken to receive each reply, the first NPM agent assesses link latency and packet drops. 
 
-The format, size and sequence of these packets is determined by the protocol that you choose when you create monitoring rules. Based on protocol of the packets, the intermediate network devices (routers, switches etc.) might process these packets differently. Consequently, your protocol choice affects the accuracy of the results. And, your protocol choice also determines whether you must take any manual steps after you deploy the NPM solution. 
+The format, size, and sequence of these packets is determined by the protocol that you choose when you create monitoring rules. Based on protocol of the packets, the intermediate network devices (routers, switches etc.) might process these packets differently. Consequently, your protocol choice affects the accuracy of the results. And, your protocol choice also determines whether you must take any manual steps after you deploy the NPM solution. 
 
 NPM offers you the choice between ICMP and TCP protocols for executing synthetic transactions. If you choose ICMP when you create a synthetic transaction rule, the NPM agents use ICMP ECHO messages to calculate the network latency and packet loss. ICMP ECHO uses the same message that is sent by the conventional Ping utility. When you use TCP as the protocol, NPM agents send TCP SYN packet over the network. This is followed by a TCP handshake completion and then removing the connection using RST packets. 
 
 Consider the following information before you choose a protocol to use: 
 
-**Discovering multiple network routes.**  TCP is more accurate when discovering multiple routes and it needs fewer agents in each subnet. For example, one or two agents using TCP can discover all redundant paths between subnets. However, you need several agents using ICMP to achieve similar results. Using ICMP, if you have Nnumber of routes between two subnets you need more than 5N agents in either a source or destination subnet. 
+**Discovering multiple network routes.**  TCP is more accurate when discovering multiple routes and it needs fewer agents in each subnet. For example, one or two agents using TCP can discover all redundant paths between subnets. However, you need several agents using ICMP to achieve similar results. Using ICMP, if you have a number of routes between two subnets you need more than 5N agents in either a source or destination subnet. 
 
 **Accuracy of results.** Routers and switches tend to assign lower priority to ICMP ECHO packets compared to TCP packets. In certain situations, when network devices are heavily loaded, the data obtained by TCP more closely reflects the loss and latency experienced by applications. This occurs because most of the application traffic flows over TCP. In such cases, ICMP provides less accurate results compared to TCP. 
 
 **Firewall configuration.** TCP protocol requires that TCP packets are sent to a destination port. The default port used by NPM agents is 8084, however you can change this when you configure agents. So, you need to ensure that your network firewalls or NSG rules (in Azure) are allowing traffic on the port. You also need to make sure that the local firewall on the computers where agents are installed is configured to allow traffic on this port. You can use PowerShell scripts to configure firewall rules on your computers running Windows, however you need to configure your network firewall manually. In contrast, ICMP does not operate using port. In most enterprise scenarios, ICMP traffic is permitted through the firewalls to allow you to use network diagnostics tools like the Ping utility. So, if you can Ping one machine from another, then you can use the ICMP protocol without having to configure firewalls manually. 
 
 >[!NOTE] 
-> Some firewalls may block ICMP, which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM will not be able to monitor the network segment. Because of this, we recommended that you use TCP for monitoring. You should use ICMP in scenarios where you are not able to use TCP, such as when: 
+> Some firewalls may block ICMP, which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM isn't able to monitor the network segment. Because of this, we recommended that you use TCP for monitoring. You should use ICMP in scenarios where you are not able to use TCP, such as when: 
 >
-> - You are using Windows client based nodes, since TCP raw sockets are not allowed in Windows client
+> - You are using Windows client-based nodes, since TCP raw sockets are not allowed in Windows client
 > - Your network firewall/NSG blocks TCP
 > - How to switch the protocol 
 
@@ -110,21 +110,21 @@ On the solution dashboard, you notice that there is a health event – a network
 On the drilldown page, you observe that the **DMZ2-DMZ1** network link is unhealthy. You click on the **View subnet links** link for this network link. 
 
 
-The drill down page shows all the subnetwork links in **DMZ2-DMZ1** network link. You notice that for both the subnetwork links, the latency has crossed the threshold making the network link unhealthy. You can also see the latency trends of both the subnetwork links. You can use the time selection control in the graph to focus on the required time range. You can see the time of the day when latency has reached its peak. You can later search the logs for this time period to investigate the issue. Click **View node links** to drill down further. 
+The drill-down page shows all the subnetwork links in **DMZ2-DMZ1** network link. You notice that for both the subnetwork links, the latency has crossed the threshold making the network link unhealthy. You can also see the latency trends of both the subnetwork links. You can use the time selection control in the graph to focus on the required time range. You can see the time of the day when latency has reached its peak. You can later search the logs for this time period to investigate the issue. Click **View node links** to drill down further. 
  
  ![Subnetwork Links](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
 
-Similar to the previous page, the drill down page for the particular subnetwork link lists down its constituent node links. You can perform similar actions here as you did in the previous step. Click **View topology** to view the topology between the 2 nodes. 
+Similar to the previous page, the drill-down page for the particular subnetwork link lists down its constituent node links. You can perform similar actions here as you did in the previous step. Click **View topology** to view the topology between the two nodes. 
  
  ![Node Links](media/log-analytics-network-performance-monitor/node-links.png) 
 
-All the paths between the 2 selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets are taking. Network performance bottlenecks are marked in red color. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map. 
+All the paths between the two selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets are taking. Network performance bottlenecks are marked in red color. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map. 
 
  ![Topology Dashboard](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
 
 The loss, latency, and the number of hops in each path can be reviewed in the **Action** pane. Use the scrollbar to view the details of those unhealthy paths. Use the filters to select the paths with the unhealthy hop so that the topology for only the selected paths is plotted. You can use your mouse wheel to zoom in or out of the topology map. 
 
-In the below image you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop. 
+In the below image, you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop. 
  
 ![Topology Dashboard](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
 

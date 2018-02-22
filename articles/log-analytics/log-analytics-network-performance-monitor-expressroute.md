@@ -47,19 +47,19 @@ For more information about NSG, see [Network Security Groups](../virtual-netwo
 > The solution currently discovers only ExpressRoute private peerings. 
 
 >[!NOTE]  
-> Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this Log Analytics workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you will need to create a Log Analytics workspace in those subscriptions and use NPM to monitor those peerings. 
+> Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this Log Analytics workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you need to create a Log Analytics workspace in those subscriptions and use NPM to monitor those peerings. 
 
  ![ExpressRoute Monitor Configure](media/log-analytics-network-performance-monitor/expressroute-configure.png)
  
- Once the discovery is complete, the discovered private peering connections will be listed in a table. The monitoring for these peerings will initially be in disabled state. 
+ Once the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings will initially be in disabled state. 
 
 ### Enable monitoring of the ExpressRoute peering connections 
 
 1. Click on the private peering connecting you are interested in monitoring.  
 2. On the RHS pane, click on the checkbox **Monitor this Peering**. 
 3. If you intend to create health events for this connection, then check **Enable Health Monitoring for this peering**. 
-4. Choose monitoring conditions. You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the peering connection, a health event will be  generated. 
-5. Click on **Add Agents** to choose the monitoring agents you intend to use for monitoring this peering connection. You need to ensure that you add agents on both the ends of the connection, i.e., at least one agent in the Azure VNET connected to this peering as well as at least one on-premises agent connected to this peering. 
+4. Choose monitoring conditions. You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the peering connection, a health event is  generated. 
+5. Click on **Add Agents** to choose the monitoring agents you intend to use for monitoring this peering connection. You need to ensure that you add agents on both the ends of the connection, at least one agent in the Azure VNET connected to this peering as well as at least one on-premises agent connected to this peering. 
 6. Click **Save** to save the configuration. 
 
 ![ExpressRoute Monitor Configure](media/log-analytics-network-performance-monitor/expressroute-configure-discovery.png)
@@ -96,7 +96,7 @@ Clicking on the **Private Peerings** tile on the dashboard brings up a list of a
 
 ### Circuit topology 
 
-To view circuit topology, click on the **Topology** tile. This takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network and each layer 3 hop is represented by a node of the diagram. Clicking on a hop reveals more details about the hop. You can increase the level of visibility to include on-premises hops by moving the slider bar below Filters. Moving the slider bar to the left or right, increases/decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high latency segments on your network. 
+To view circuit topology, click on the **Topology** tile. This takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network and each layer 3 hop is represented by a node of the diagram. Clicking on a hop reveals more details about the hop. You can increase the level of visibility to include on-premises hops by moving the slider bar below **Filters**. Moving the slider bar to the left or right, increases/decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high latency segments on your network. 
 
 ![ExpressRoute Topology](media/log-analytics-network-performance-monitor/expressroute-topology.png)  
 
@@ -111,16 +111,16 @@ This view shows VNet connections. 
 
 Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues are listed below 
 
-**Circuit is down.** NPM notifies you as soon as the connectivity between your on-premises resources and Azure VNETs is lost. This will help you take proactive action before receiving user escalations and reduce the down time 
+**Circuit is down.** NPM notifies you as soon as the connectivity between your on-premises resources and Azure VNETs is lost. This helps you take proactive action before receiving user escalations and reduce the down time 
 
 ![ExpressRoute Circuit Down](media/log-analytics-network-performance-monitor/expressroute-circuit-down.png)
  
 
-**Traffic not flowing through intended circuit.** NPM can notify you whenever the traffic is unexpectedly not flowing through the intended ExpressRoute circuit. This can happen if the circuit is down and the traffic is flowing through the backup route, or if there is a routing issue. This information will help you proactively manage any configuration issues in your routing policies and ensure that the most optimal and secure route is used. 
+**Traffic not flowing through intended circuit.** NPM can notify you whenever the traffic is unexpectedly not flowing through the intended ExpressRoute circuit. This can happen if the circuit is down and the traffic is flowing through the backup route, or if there is a routing issue. This information helps you proactively manage any configuration issues in your routing policies and ensure that the most optimal and secure route is used. 
 
  
 
-**Traffic not flowing through primary circuit.** The capability notifies you when the traffic is flowing through the secondary ExpressRoute circuit. Even though you will not experience any connectivity issues in this case, but proactively troubleshooting the issues with the primary circuit will make you better prepared. 
+**Traffic not flowing through primary circuit.** The capability notifies you when the traffic is flowing through the secondary ExpressRoute circuit. Even though you will not experience any connectivity issues in this case, but proactively troubleshooting the issues with the primary circuit make you better prepared. 
 
  
 ![ExpressRoute Traffic Flow](media/log-analytics-network-performance-monitor/expressroute-traffic-flow.png)
