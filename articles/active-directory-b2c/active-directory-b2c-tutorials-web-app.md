@@ -64,7 +64,7 @@ Make note of the **Application Client ID**. The ID uniquely identifies the app a
 
 ### Create a client password
 
-Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client id and client secret are used when the web app authenticates with Azure Active Directory. 
+Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client ID and client secret are used when the web app authenticates with Azure Active Directory. 
 
 1. Select the Keys page for the registered web app and click **Generate key**.
 
