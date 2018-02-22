@@ -130,7 +130,7 @@ To set up DSC in the portal:
 
 The portal requires the following input:
 
-* **Configuration Modules or Script**: This field is mandatory (the form has not been updated for the [default configuration script](#default-configuration-script). Configuration modules and scripts require a .ps1 file that has a configuration script or a .zip file with a .ps1 configuration script at the root. If you use a .zip file, all dependent resources must be included in module folders in the .zip. You can create the .zip file by using the **Publish-AzureVMDscConfiguration -ConfigurationArchivePath** cmdlet that's included in the Azure PowerShell SDK. The .zip file is uploaded to your user blob storage and secured by an SAS token.
+* **Configuration Modules or Script**: This field is mandatory (the form has not been updated for the [default configuration script](#default-configuration-script)). Configuration modules and scripts require a .ps1 file that has a configuration script or a .zip file with a .ps1 configuration script at the root. If you use a .zip file, all dependent resources must be included in module folders in the .zip. You can create the .zip file by using the **Publish-AzureVMDscConfiguration -ConfigurationArchivePath** cmdlet that's included in the Azure PowerShell SDK. The .zip file is uploaded to your user blob storage and secured by an SAS token.
 
 * **Configuration Data PSD1 File**: This field is optional. If your configuration requires a configuration data file in .psd1, use this field to select the data field and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
 
