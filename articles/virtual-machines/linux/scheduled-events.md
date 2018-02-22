@@ -19,11 +19,7 @@ ms.author: zivr
 
 ---
 
-# Azure Metadata Service: Scheduled Events (preview) for Linux VMs
-
-> [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+# Azure Metadata Service: Scheduled Events for Linux VMs
 
 Scheduled Events is a subservice under Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
