@@ -140,7 +140,7 @@ For each managed Windows computer, a scan is performed twice per day. Every 15 m
 It can take anywhere from 30 minutes up to 6 hours for the dashboard to display updated data from managed computers.   
 
 ## Viewing update assessments
-Click on the **Update Management** on your automation account to view the status of your machines. ![Update Management Summary Dashboard](./media/automation-update-management/update-management-deploymentresults-dashboard.png)<br>
+Click on the **Update Management** on your automation account to view the status of your machines.
 
 This view provides information on your machines, missing updates, update deployments, and scheduled update deployments.
 
