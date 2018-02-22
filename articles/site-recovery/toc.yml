@@ -197,7 +197,7 @@
       items:
       - name: Source environment for VMware to Azure
         href: site-recovery-set-up-vmware-to-azure.md
-      - name: Deploy the configuration server for VMware and physical servers
+      - name: Deploy the configuration server for VMware disaster recovery
         href: how-to-deploy-configuration-server.md
       - name: Source environment for physical to Azure
         href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +267,10 @@
     items:
     - name: Manage process servers in Azure
       href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-    - name: Manage the configuration server
+    - name: Manage the configuration server for VMware disaster recovery
       href: site-recovery-vmware-to-azure-manage-configuration-server.md
+    - name: Manage the configuration server for physical machine disaster recovery
+      href: physical-manage-configuration-server.md
     - name: Manage vCenter servers
       href: site-recovery-vmware-to-azure-manage-vCenter.md
     - name: Manage multi-tenancy with CSP
