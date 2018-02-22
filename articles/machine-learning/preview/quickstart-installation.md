@@ -26,7 +26,6 @@ This quickstart shows you how to:
 
 ## Prerequisites
 
-<a name=supported></a>
 You can install the Azure Machine Learning Workbench application on the following operating systems:
 - Windows 10
 - Windows Server 2016
@@ -63,7 +62,7 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
    Storage account | _Unique name_ | Select **Create new** and provide a name to create an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). Or, select **Use existing** and select your existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. 
    Workspace for Experimentation account | _Unique name_ | Provide a name for a workspace for this account. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. This workspace contains the tools you need to create, manage, and publish experiments.
    Assign owner for the workspace | _Your account_ | Select your own account as the workspace owner.
-   Create Model Management account | **check** |Create a Model Management account now so this resource is ready when you are to deploy and manage your models as real-time web services. While optional, we recommend creating the Model Management account at the same time as the Experimentation account.
+   Create Model Management account | **check** |Create a Model Management account now so that this resource is available when you want to deploy and manage your models as real-time web services. While optional, we recommend creating the Model Management account at the same time as the Experimentation account.
    Account name | _Unique name_ | Choose a unique name that identifies your Model Management account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
    Model Management pricing tier | **DEVTEST** | Select **No pricing tier selected** to specify the pricing tier for your new Model Management account. For cost savings, select the **DEVTEST** pricing tier if it's available on your subscription (limited availability). Otherwise, select the S1 pricing tier for cost savings. Click **Select** to save the pricing tier selection. 
    Pin to dashboard | _check_ | Select the **Pin to dashboard** option to allow easy tracking of your Machine Learning Experimentation account on the front dashboard page of the Azure portal.
@@ -81,7 +80,7 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
 
 ## Install Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench is available for Windows or MacOS. See the list of [supported platforms](#supported).
+Azure Machine Learning Workbench is available for Windows or MacOS. See the list of [supported platforms](#prerequisites).
 
 1. Download and launch the latest Azure Machine Learning Workbench installer. 
    >[!IMPORTANT]
@@ -102,8 +101,8 @@ Azure Machine Learning Workbench is available for Windows or MacOS. See the list
    
    | |Workbench installation path|
    |--------|------------------------------------------------|
-   |Windows|`C:\Users\<user>\AppData\Local\AmlWorkbench`|
-   |MacOS|`/Applications/Azure ML Workbench.app`|
+   |Windows|C:\Users\<user>\AppData\Local\AmlWorkbench|
+   |MacOS|/Applications/Azure ML Workbench.app|
   
 ## Sign in through Azure Machine Learning Workbench
 
@@ -111,14 +110,14 @@ Azure Machine Learning Workbench is available for Windows or MacOS. See the list
 
 2. Select **Sign in** to authenticate with the Azure Machine Learning Workbench. Use the same credentials you used earlier when you signed into the Azure portal and created your Experimentation account. 
 
-   Once you are signed in, Workbench looks for any Machine Learning Experimentation accounts across all Azure subscriptions linked to your sign-in.  Workbench uses the first Experimentation account it finds and displays all workspaces and projects associated with that account. 
+   Once you are signed in, Workbench looks for any Experimentation accounts across all of the Azure subscriptions linked to that sign-in.  Workbench uses the first Experimentation account it finds and displays all workspaces and projects associated with that account. 
 
    >[!TIP]
-   > You can switch to a different Experimentation account by selecting icon in the lower-left corner of the Workbench application window.
+   > Switch to a different Experimentation account using the icon in the lower-left corner of the Workbench application window.
 
 For information about creating an environment for deploying your web services, see [Deployment environment setup](deployment-setup-configuration.md).
 
-## Create a Workbench project
+## Create a project in Workbench
 
 In Azure Machine Learning, a project is the logical container for all the work being done to solve a problem. It maps to a single file folder on your local disk, and you can add any files or sub folders to it. 
 
@@ -143,13 +142,13 @@ Here, we are creating a new Workbench project using a template that includes the
 1. Select **Create** to create the project. A new project is created and the project dashboard opens with that project. At this point, you can explore the project home page, data sources, notebooks, and source code files. 
 
    >[!TIP]
-   >Configure Workbench to work with a Python IDE for a smooth data science development experience. Then, you can interact with your project in the IDE. [Learn how](how-to-configure-your-IDE.md). 
+   >You can configure Workbench to work with a Python IDE for a smooth data science development experience. Then, you can interact with your project in the IDE. [Learn how](how-to-configure-your-IDE.md). 
 
 ## Run a Python script
 
 Now, you can run the **iris_sklearn.py** script on your local computer. This script is included by default with the **Classifying Iris** project template. The script builds a model with the [logistic regression](https://en.wikipedia.org/wiki/logistic_regression) algorithm from the popular Python [scikit-learn](http://scikit-learn.org/stable/index.html) library.
 
-1. In the command bar at the top of the **Project Dashboard** page, select **local** as the execution target and select **iris_sklearn.py** as the script to run. These are preselected by default. There are other files included in the sample that you can check out later. 
+1. In the command bar at the top of the **Project Dashboard** page, select **local** as the execution target and select **iris_sklearn.py** as the script to run. These values are preselected by default. There are other files included in the sample that you can check out later. 
 
    ![Command bar](media/quickstart-installation/run_control.png)
 
@@ -171,7 +170,7 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
    ![Metrics and graphs](media/quickstart-installation/run_dashboard.png)
 
-3. Select a completed run in the Jobs pane to display a detailed view for that specific execution. Details include additional metrics, the files that it produced, and other potentially useful logs.
+3. Select a completed run in the Jobs pane to see a detailed view for that specific execution. Details include additional metrics, the files that it produced, and other potentially useful logs.
 
 ## Next steps
 You have now created the necessary an Azure Machine Learning accounts and installed the Azure Machine Learning Workbench application. In that application, you have created a project, ran a script, and explored the run history of the script.
