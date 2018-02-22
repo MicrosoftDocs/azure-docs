@@ -103,6 +103,7 @@ Launching your app, and then clicking around on links manually can be used to ge
     Invoke-WebRequest -uri http://localhost:50984/
    }
    ```
+
 ## Open Application Insights Portal
 
 After running the PowerShell from the previous section, launch Application Insights to view the transactions and confirm that data is being collected. 
@@ -169,7 +170,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
 2. Navigate to the **About** page to trigger the test exception. (If you are running in Debug mode, you will need to click **Continue** in Visual Studio before the exception will be picked up by Application Insights.)
 
-3. Re-run the simulated Powershell transaction script from earlier (You may need to adjust the port number in the script.)
+3. Re-run the simulated PowerShell transaction script from earlier (You may need to adjust the port number in the script.)
 
 4. If the Applications Insights Overview is not still open, from Visual Studio menu select **Project** > **Application Insights** > **Open Application Insights Portal**. 
 
