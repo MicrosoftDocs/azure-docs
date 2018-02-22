@@ -39,6 +39,8 @@
     href: log-analytics-faq.md
   - name: Data consumption
     href: log-analytics-usage.md
+  - name: Data security
+    href: log-analytics-data-security.md
   - name: Manage access
     href: log-analytics-manage-access.md
   - name: Monitor hybrid environments
