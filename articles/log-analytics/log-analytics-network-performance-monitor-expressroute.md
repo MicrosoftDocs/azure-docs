@@ -30,7 +30,7 @@ The ExpressRoute Manager capability in [Network Performance Monitor](log-analyti
 To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and click the **Configure** button.
 
 ### Configure NSG rules 
-For the servers in Azure that are being used for the monitoring via NPM, you must configure network security group (NSG) rules to allow TCP traffic on the port used by NPM for synthetic transactions. The default port is 8084. This allows the OMS agent installed on Azure VM to communicate with an on-premises monitoring agents. 
+For the servers in Azure that are being used for the monitoring via NPM, you must configure network security group (NSG) rules to allow TCP traffic on the port used by NPM for synthetic transactions. The default port is 8084. This allows the OMS agent installed on Azure VM to communicate with an on-premises monitoring agent. 
 
 For more information about NSG, see [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
 
@@ -56,7 +56,7 @@ For more information about NSG, see [Network Security Groups](../virtual-netwo
 ### Enable monitoring of the ExpressRoute peering connections 
 
 1. Click on the private peering connecting you are interested in monitoring.  
-2. On the RHS pane, click on the checkbox **Monitor this Peering**. 
+2. On the RHS pane, click on the checkbox for **Monitor this Peering**. 
 3. If you intend to create health events for this connection, then check **Enable Health Monitoring for this peering**. 
 4. Choose monitoring conditions. You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the peering connection, a health event is  generated. 
 5. Click on **Add Agents** to choose the monitoring agents you intend to use for monitoring this peering connection. You need to ensure that you add agents on both the ends of the connection, at least one agent in the Azure VNET connected to this peering as well as at least one on-premises agent connected to this peering. 
