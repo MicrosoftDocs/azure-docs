@@ -25,6 +25,8 @@ Scheduled Events is a subservice under Azure Metadata Service that gives your ap
 
 For information about Scheduled Events on Windows, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md).
 
+[!IMPORTANT] Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
+
 ## Why use Scheduled Events?
 
 Many applications can benefit from time to prepare for VM maintenance. The time can be used to perform application-specific tasks that improve availability, reliability, and serviceability, including: 
@@ -124,7 +126,7 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event properties
+### Event Properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -134,7 +136,7 @@ In the case where there are scheduled events, the response contains an array of 
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
 | NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### Event scheduling
+### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
 
 |EventType  | Minimum notice |
