@@ -19,7 +19,7 @@ ms.author: rolyon
 ---
 # Elevate access as a tenant admin with Role-Based Access Control
 
-Role-based Access Control helps tenant administrators get temporary elevations in access so that they can grant higher permissions than normal. A tenant admin can elevate herself to the User Access Administrator role when needed. That role gives the tenant admin permissions to grant herself or others roles at the "/" scope.
+Role-based Access Control helps tenant administrators get temporary elevations in access so that they can grant higher permissions than normal. Tenant admins can elevate themselves to the User Access Administrator role when needed. That role gives tenant admins permissions to grant themselves or others roles at the "/" scope.
 
 This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps like invoicing and auditing to access all the subscriptions and provide an accurate view of the state of the organization for billing or asset management.  
 
@@ -29,7 +29,7 @@ This feature is important because it allows the tenant admin to see all the subs
 
 2. Choose **Properties** from the Azure AD left menu.
 
-3. In the **Properties** blade, find **Global admin can manage Azure Subscriptions**, choose **Yes**, then **Save**.
+3. Find **Global admin can manage Azure Subscriptions**, choose **Yes**, then **Save**.
 	> [!IMPORTANT] 
 	> When you choose **Yes**, assigns the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal. **This allows the user to see all other Azure Subscriptions.**
 	
@@ -39,7 +39,7 @@ This feature is important because it allows the tenant admin to see all the subs
 > [!TIP] 
 > The impression is that this is a Global Property for Azure Active Directory, however, it functions on a per-user basis for the currently logged on user. When you have Global Administrator rights in Azure Active Directory, you can invoke the elevateAccess feature for the user that you are currently logged into Azure Active Directory Admin Center.
 
-![Azure AD Admin Center - Properties - Globaladmin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+![Azure AD Admin Center - Properties - Global admin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
 ## View role assignments at the "/" scope using PowerShell
 To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
@@ -49,7 +49,7 @@ Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Admin
 ```
 
 **Example output**:
-
+```
 RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
 Scope              : /    
 DisplayName        : username    
@@ -58,6 +58,7 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
 ObjectType         : User    
+```
 
 ## Delete the role assignment at "/" scope using Powershell:
 You can delete the assignment using following PowerShell cmdlet:
@@ -153,7 +154,9 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 	> `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
 	
 		
-	2. The previous calls return a list of role assignments. Find the role assignment where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1 and PrincipalId matches the ObjectId of the Tenant Admin. The role assignment looks like this:
+	2. The previous calls return a list of role assignments. Find the role assignment where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1 and PrincipalId matches the ObjectId of the Tenant Admin. 
+	
+	Sample role assignment:
 
     	```json
         {
