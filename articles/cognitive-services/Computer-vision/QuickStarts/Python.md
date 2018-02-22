@@ -22,13 +22,13 @@ This article provides information and code samples to help you quickly get start
 
 To use the Computer Vision API, you need a subscription key. To get a free subscription key, see [Obtain subscription keys](https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder,  select the following link: 
+You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button: 
 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 
-## Analyze an image by using the Computer Vision API and Python
+## Analyze an image
 <a name="AnalyzeImage"> </a>
 
 You can use the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) to extract visual features based on image content. Either upload an image or specify an image URL, and then select which features to return:
@@ -37,10 +37,9 @@ You can use the [Analyze Image method](https://westcentralus.dev.cognitive.micro
 * The coordinates, gender, and age of any faces that are in the image.
 * The **ImageType** value (clip art or a line drawing).
 * The dominant color of the image, the accent color, or whether an image is black and white.
-* The [taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) category.
+* The [category taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 * Whether the image contains adult or sexually suggestive content.
 
-### Analyze an image 
 To begin analyzing images, in the following code, replace `subscription_key` with a valid API key:
 
 
@@ -112,8 +111,8 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## Use a domain-specific model
-<a name="DomainSpecificModel"> </a>
+## <a name="DomainSpecificModel"></a>Use a domain-specific model
+
 
 A [domain-specific model](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fd)  is trained to identify a specific set of objects in an image. The two domain-specific models that are currently available are _celebrities_ and _landmarks_. 
 
@@ -244,8 +243,8 @@ plt.text(origin[0], origin[1], celebrity_name, fontsize=20, weight="bold", va="b
 _ = plt.axis("off")
 ```
 
-## Get a thumbnail
-<a name="GetThumbnail"> </a>
+## <a name="GetThumbnail"></a>Get a thumbnail
+
 
 Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image to the height and width that you want based on the image's region of interest (ROI). The aspect ratio that you set for the thumbnail can be different from the aspect ratio of the input image.
 
@@ -287,8 +286,8 @@ print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 thumbnail
 ```
 
-## Optical character recognition (OCR) with Computer Vision API
-<a name="OCR"></a>
+## <a name="OCR"></a>Use OCR to detext text in an image
+
 
 Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image, and then extract recognized characters into a machine-usable character stream.
 
@@ -371,10 +370,9 @@ for word in word_infos:
 _ = plt.axis("off")
 ```
 
-## Text recognition with Computer Vision API
-<a name="RecognizeText"></a>
+## <a name="RecognizeText"></a>Use text recognition to detect handwriting in an image
 
-Use the [RecognizeText method](https://ocr.portal.azure-api.net/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image, and then extract recognized characters into a machine-usable character stream.
+Use the [RecognizeText method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image, and then extract recognized characters into a machine-usable character stream.
 
 Set `image_url` to point to the image to recognize:
 
@@ -457,7 +455,7 @@ for polygon in polygons:
 _ = plt.axis("off")
 ```
 
-## Analyze an image that's stored on disk
+## Analyze an image stored on disk
 In addition to publically accessible images, the Computer Vision REST APIs can analyze images that are stored on disk. Provide the image to be analyzed as part of the HTTP body. For more information about this feature, see the [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa). 
 
 The code in this section analyzes a sample image on disk. The primary difference between passing in an image URL and passing in image data is that, for image data, the header to the request must contain an entry that looks like this:
