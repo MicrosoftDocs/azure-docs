@@ -36,7 +36,7 @@ The Azure Stack 1802 update build number is **1802xx.x**.
 > Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates).
 
 
-> [! IMPORTANT]    
+> [!IMPORTANT]    
 > When you use SQL or MySQL resource providers, they must run version 1712 before you start the install of Azure Stack version 1802. If the providers are version 1711 or earlier and you have installed Azure Stack version 1802, you can no longer update those resource providers to a more recent release.
 >
 > When a SQL or MySQL resource provider releases that matches the version of Azure Stack you run, we recommend you install that new version. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.
