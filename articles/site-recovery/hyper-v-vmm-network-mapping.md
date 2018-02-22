@@ -120,4 +120,4 @@ Network mapping of VMNetwork1-Chicago is changed. | VM-1 will be connected to th
 ## Next steps
 
 - [Learn about](hyper-v-vmm-networking.md) IP addressing after failover to a secondary VMM site.
-- [Learn about](concepts-on-premises-to-azure-networking) IP addressing after failover to Azure.
+- [Learn about](concepts-on-premises-to-azure-networking.md) IP addressing after failover to Azure.
