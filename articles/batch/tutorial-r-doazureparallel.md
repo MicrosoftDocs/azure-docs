@@ -46,7 +46,10 @@ In the RStudio console, install the [doAzureParallel Github package](http://www.
 ```R
 # Install the devtools package  
 install.packages("devtools") 
-  
+
+# Install rAzureBatch package
+devtools::install_github("Azure/rAzureBatch") 
+
 # Install the doAzureParallel package 
 devtools::install_github("Azure/doAzureParallel") 
  
