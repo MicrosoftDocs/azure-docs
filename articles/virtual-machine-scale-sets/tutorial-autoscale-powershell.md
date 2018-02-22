@@ -275,7 +275,7 @@ Once logged in, open Internet Explorer from the taskbar.
 
 - Select **OK** to accept the prompt to *Use recommended security, privacy, and compatibility settings*
 - Type *http://download.sysinternals.com/files/CPUSTRES.zip* in the address bar.
-- As Internet Explorer Enhanced Security Configuation is enabled, choose to **Add** the *http://download.sysinternals.com* domain to your list of trusted sites.
+- As Internet Explorer Enhanced Security Configuration is enabled, choose to **Add** the *http://download.sysinternals.com* domain to your list of trusted sites.
 - When prompted for the file download, select **Open**, then select and **Run** the *CPUSTRES.EXE* tool.
 
 To generate some CPU load, check two boxes for **Active** threads. From the **Activity** drop-down menu for both threads, select *Maximum*. You can open Task Manager to confirm that the CPU load on the VM is at 100%.

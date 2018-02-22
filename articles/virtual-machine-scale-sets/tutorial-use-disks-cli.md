@@ -41,7 +41,7 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 **Operating system disk** - Operating system disks can be sized up to 2 TB, and hosts the VM instance's operating system. The OS disk is labeled */dev/sda* by default. The disk caching configuration of the OS disk is optimized for OS performance. Because of this configuration, the OS disk **should not** host applications or data. For applications and data, use data disks, which are detailed later in this article. 
 
-**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. These are high performance disks and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. These are high-performance disks and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
 
 ### Temporary disk sizes
 | Type | Common sizes | Max temp disk size (GiB) |
@@ -128,7 +128,7 @@ The disks that are created and attached to your scale set VM instances are raw d
 
 To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
-The following example executes a script from a GitHub samples repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) that prepares all the raw attached data disks:
+The following example executes a script from a GitHub sample repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) that prepares all the raw attached data disks:
 
 ```azurecli-interactive
 az vmss extension set \
