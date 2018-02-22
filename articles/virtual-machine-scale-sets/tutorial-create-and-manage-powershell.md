@@ -1,6 +1,6 @@
 ---
-title: Create and manage Virtual Machine Scale Sets with Azure PowerShell | Microsoft Docs
-description: Learn how to create a virtual machine scale set with Azure PowerShell, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
+title: Tutorial - Create and manage virtual machine scale sets | Microsoft Docs
+description: Learn how to use Azure PowerShell to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and manage a virtual machine scale set with Azure PowerShell
+# Tutorial: Create and manage a virtual machine scale set with Azure PowerShell
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -70,7 +70,7 @@ New-AzureRmVmss `
 It takes a few minutes to create and configure all the scale set resources and VM instances.
 
 
-## View VM instances in a scale set
+## View the VM instances in a scale set
 To view a list of VM instances in a scale set, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) as follows:
 
 ```azurepowershell-interactive
@@ -131,7 +131,7 @@ IpAddress
 52.168.121.216
 ```
 
-Create a remote connection to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *1*:
+Create a remote connection to your first VM instance. Specify your public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

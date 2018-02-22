@@ -1,6 +1,6 @@
 ---
-title: Install applications in a scale set with the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to install applications into virtual machine scale sets using the Custom Script Extension with the Azure CLI 2.0
+title: Tutorial - Install applications in a scale set | Microsoft Docs
+description: Learn how to use the Azure CLI 2.0 to install applications into virtual machine scale sets with the Custom Script Extension
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use a custom image for virtual machine scale sets with the Azure CLI 2.0
+# Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI 2.0
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
 > [!div class="checklist"]

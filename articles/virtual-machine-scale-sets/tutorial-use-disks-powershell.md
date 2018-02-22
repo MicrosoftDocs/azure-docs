@@ -1,6 +1,6 @@
 ---
-title: Create and use disks for scale sets with Azure PowerShell | Microsoft Docs
-description: Learn how to create and use Managed Disks with virtual machine scale set using Azure PowerShell, including how to add, prepare, list, and detach disks.
+title: Tutorial - Create and use disks with Azure scale sets | Microsoft Docs
+description: Learn how to use Azure PowerShell to create and use Managed Disks with virtual machine scale sets, including how to add, prepare, list, and detach disks.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,15 +19,15 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use disks with virtual machine scale set using Azure PowerShell
-Virtual machine scale sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. In this tutorial you learn how to:
+# Tutorial: Create and use disks with virtual machine scale set with Azure PowerShell
+Virtual machine scale sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * OS disks and temporary disks
 > * Data disks
 > * Standard and Premium disks
 > * Disk performance
-> * Attaching and preparing data disks
+> * Attach and prepare data disks
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -41,7 +41,7 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 **Operating system disk** - Operating system disks can be sized up to 2 TB, and hosts the VM instance's operating system. The OS disk is labeled */dev/sda* by default. The disk caching configuration of the OS disk is optimized for OS performance. Because of this configuration, the OS disk **should not** host applications or data. For applications and data, use data disks, which are detailed later in this article. 
 
-**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. These are high performance disks and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
 
 ### Temporary disk sizes
 | Type | Common sizes | Max temp disk size (GiB) |
@@ -55,7 +55,7 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 
 ## Azure data disks
-Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached. 
+Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached. 
 
 ### Max data disks per VM
 | Type | Common sizes | Max data disks per VM |
@@ -72,10 +72,10 @@ Additional data disks can be added for installing applications and storing data.
 Azure provides two types of disk.
 
 ### Standard disk
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+Standard Storage is backed by HDDs, and delivers cost-effective storage and performance. Standard disks are ideal for a cost effective dev and test workload.
 
 ### Premium disk
-Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. When selecting, a disk size the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Anything over 512 GB, the size is a P30.
+Premium disks are backed by SSD-based high-performance, low-latency disks. These disks are recommended for VMs that run production workloads. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. When you select a disk size, the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Over 512 GB, the size is a P30.
 
 ### Premium disk performance
 |Premium storage disk type | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
@@ -239,7 +239,7 @@ Update-AzureRmVmss `
 
 
 ## Prepare the data disks
-The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. This step involves creating a partition, creating a filesystem, and mounting them. 
+The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. To prepare the disks, you create a partition, create a filesystem, and mount them.
 
 To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
 
@@ -346,7 +346,7 @@ To view information about disks attached to a scale set, use [Get-AzureRmVmss](/
 Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
-Under the *VirtualMachineProfile.StorageProfile* property, the list of *DataDisks* is shown. Information on the disk size, storage tier, and LUN (Logical Unit Number() is shown. The following example output details the three data disks attached to the scale set:
+Under the *VirtualMachineProfile.StorageProfile* property, the list of *DataDisks* is shown. Information on the disk size, storage tier, and LUN (Logical Unit Number) is shown. The following example output details the three data disks attached to the scale set:
 
 ```powershell
 DataDisks[0]                            :
@@ -404,14 +404,14 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 
 ## Next steps
-In this tutorial, you learned how to create and use disks with scale sets using the Azure CLI 2.0:
+In this tutorial, you learned how to create and use disks with scale sets with Azure PowerShell:
 
 > [!div class="checklist"]
 > * OS disks and temporary disks
 > * Data disks
 > * Standard and Premium disks
 > * Disk performance
-> * Attaching and preparing data disks
+> * Attach and prepare data disks
 
 Advance to the next tutorial to learn how to use a custom image for your scale set VM instances.
 
