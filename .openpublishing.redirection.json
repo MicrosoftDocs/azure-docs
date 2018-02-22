@@ -8749,13 +8749,13 @@
             "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
             "redirect_document_id": false
         },
-        
+
         {
             "source_path": "articles/site-recovery/site-recovery-runbook-automation-classic.md",
             "redirect_url": "site-recovery-runbook-automation",
             "redirect_document_id": false
         },
-        
+
         {
             "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic.md",
             "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
@@ -16923,6 +16923,11 @@
 	{
             "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
             "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/azure-policy/policy-insights.md",
+            "redirect_url": "/azure/azure-policy/create-manage-policy",
             "redirect_document_id": false
     },
 	{
