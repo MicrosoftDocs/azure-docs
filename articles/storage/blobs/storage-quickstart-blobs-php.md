@@ -20,7 +20,7 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 To complete this quickstart: 
 * Install [PHP](http://php.net/downloads.php)
-* Install [the Azure SDK for PHP](../../php-download-sdk.md)
+* Install [the Azure SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -57,10 +57,10 @@ setx account_key=<youraccountkey>
 ---
 
 ## Configure your environment
-Take the folder from your local git folder and place it on your server. If you're using xampp place it inside htdocs so that you can access the quickstart via URL.
+Take the folder from your local git folder and place it in a directory served by your PHP server.
 
 ## Run the sample
-This sample creates a test file in the 'Documents' folder. The sample program uploads the test file to Blob storage, lists the blobs in the container, and downloads the file with a new name. 
+This sample creates a test file in the '.' folder. The sample program uploads the test file to Blob storage, lists the blobs in the container, and downloads the file with a new name. 
 
 Run the sample. The following output is an example of the output returned when running the application:
   
@@ -96,7 +96,7 @@ In this section, you set up an instance of Azure storage client, instantiate the
 
 ```PHP
     # Setup a specific instance of an Azure::Storage::Client
-    $connectionString = getenv('storageconnectionstring');
+    $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('account_name').";AccountKey=".getenv('account_key');
     
     // Create blob client.
     $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -151,18 +151,18 @@ You can get a list of files in the container using the **listBlobs()** method. T
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
     $listBlobsOptions->setPrefix("HelloWorld");
-
+    
     echo "These are the blobs present in the container: ";
-       
+    
     do{
-            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-            foreach ($result->getBlobs() as $blob)
-            {
-                echo $blob->getName().": ".$blob->getUrl()."<br />";
-            }
+        $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+        foreach ($result->getBlobs() as $blob)
+        {
+            echo $blob->getName().": ".$blob->getUrl()."<br />";
+        }
         
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
+        $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+    } while($result->getContinuationToken());
 ```
 
 ### Get the content of your blobs
