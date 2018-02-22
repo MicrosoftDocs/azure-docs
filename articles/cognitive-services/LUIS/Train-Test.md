@@ -123,7 +123,7 @@ You submit a batch file of utterances, known as a *dataset*. The dataset is JSON
 |1000 utterances or less|
 
 
-You import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
+Import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
 
 You can test 10 dataset files in a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
@@ -229,3 +229,4 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 [f-measure]:luis-glossary.md#f-measure
 [recall]: luis-glossary.md#recall
 [precision]: luis-glossary.md#precision
+
