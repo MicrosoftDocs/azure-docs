@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace and AppSource Publisher Guide
-description: Step by step guide and publishing checklists for new publishers to Azure Marketplace
+title: Grow your business with Azure Marketplace
+description: Step-by-step guide and publishing checklists for new publishers to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: ellacroi
@@ -20,68 +20,69 @@ ms.author: ellacroi
 
 
 
-#Grow your business with Azure Marketplace
+# Grow your business with Azure Marketplace
 
-Once you have developed the technical assets for your marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product in by following marketing best practices. 
+After you have developed the technical assets for your Azure Marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product by following marketing best practices. 
 
 >[!NOTE]
->To learn about the publishing process and technical requirements, please read the [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide)
+>To learn about the publishing process and technical requirements, please read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
 
 ## How marketing helps
 
-Following best practices in marketing will help set you up for success with go-to-market and Microsoft Co-Sell initiatives, as well as maximize your business benefits through Marketplace. The [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) is your gateway for all non-Marketplace related marketing and programmatic resources. 
+Following best practices in marketing will help set you up for success with go-to-market and Microsoft Co-Sell initiatives. It will also maximize your business benefits through the Marketplace. The [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) is your gateway for all marketing and programmatic resources that aren't realted to the Marketplace. 
 
-The quality of your app publication and commitment to customer centric demand generation and partner engagement help drive customer growth for your business. Engaging in these activities helps Microsoft amplify go-to-market work and to feature key solutions across the marketplace storefronts. 
+The quality of your app publication and your commitment to customer-centric demand generation and partner engagement help drive customer growth for your business. Engaging in these activities helps Microsoft amplify go-to-market work and feature key solutions across the Marketplace storefronts. 
 
 This section walks you through marketing best practices for an offer, according to the following checklist:
 
 - I've optimized my listing to drive traffic and engagement.
 - I've created messaging on my website, leveraging a unique landing page, to drive traffic to my Marketplace listing.
-- I've published a Test Drive or other trial so that customers can experience my offer running live on Azure.
-- I've planned and built my own marketing and promotions campaigns to drive awareness and engagement.
+- I've published a test drive or other trial so that customers can experience my offer running live on Azure.
+- I've planned and built my own marketing and promotion campaigns to drive awareness and engagement.
 - I've enabled on-demand lead generation so that every time someone acts to test or deploy my application, I receive their name and contact information.
-- I've learned about and connected with the partner resources that are available to me through the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
+- I've learned about and connected with the partner resources that are available to me through the [Microsoft Partner Network](https://partner.microsoft.com/membership).
 
-### Create a Great Listing
+### Create a great listing
 
-Your listing in marketplace can sometimes be your first interaction with a potential customer. Like any first impression, you want to make it strong and something your audience wants to follow up on. There are some basic things you can do to help make this first impression in marketplace great!
+Your listing in the Marketplace can sometimes be your first interaction with a potential customer. Like any first impression, you want to make it strong and something your audience wants to follow up on. There are some basic things you can do to help make this first impression in marketplace great!
 
-- **Be found:** Write your offer description using key words and terms your buyer will search for. 
+- **Be found:** Write your offer description by using key words and terms that your buyer will search for. 
 - **Be visual:** Images and videos help show users your key features and can help illustrate your experience. Think about what you can show that helps deliver your value proposition or answer your buyer's top questions.
-- **Provide an experience:** Customers like to try before they buy. Leads generated from demos, trials, and test drives prove to lead to more customer deals. The stronger the trial experience you can provide the stronger the lead you'll generate. We've found that test drive leads result (on average) to 40% closed deals.
-- **Help your audience learn:** While we'd encourage you to keep your Overview space clear and simple, there's also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customer's needs; don't be afraid to direct them to additional materials to learn more. Bonus if these learning materials or links can track into your content marketing strategy so you can be consistently nurturing leads.
-- **Leverage ratings & reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews also helps bump your offer up in search results and into key featured areas.
+- **Provide an experience:** Customers like to try before they buy. Leads generated from demos, trials, and test drives result in more customer deals. The stronger the trial experience you can provide, the stronger the lead you'll generate. We've found that test drive leads result (on average) in 40 percent closed deals.
+- **Help your audience learn:** Though we encourage you to keep your overview space clear and simple, there's also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customer's needs. Don't be afraid to direct them to additional materials to learn more. It's a bonus if these learning materials or links can track into your content marketing strategy, so you can be consistently nurturing leads.
+- **Take advantage of ratings and reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews also helps bump up your offer in search results and into key featured areas.
 
-### Build a Great Landing Page
+### Build a great landing page
 A landing page on your company website is a gateway from your demand generation activities to your marketplace listing in Azure Marketplace. 
 
-Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Sample actions would be 'Test Drive our solution,' or 'Get a solution now.' Your landing page can be leveraged across multiple marketing tactics ' anything from events, webcasts, and social media to whitepapers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
+Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Sample actions would be "Test drive our solution" or "Get a solution now." Your landing page can be used across multiple marketing tactics--anything from events, webcasts, and social media to whitepapers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
 
-When you have a campaign plan ready, follow these best practices and consider what to avoid when building the page to maximize the effectiveness of your landing page: 
+When you have a campaign plan ready, follow these best practices and consider what to avoid to maximize the effectiveness of your landing page: 
 
 
-|Best Practice  |Things to Avoid  |
+|Best practice  |What to avoid  |
 |---------|---------|
-|**Articulate what customer problem your solution solves, and how you leverage Azure to make it happen**    |  Failing to articulate the ways in which your solution plus Azure work together       |
-|**Create a short, easy-to-remember URL**    |    Long URLs aren't memorable and are hard to locate     |
-|**Add relevant visual content: a customer testimonial video or solution architecture are best practices**   |   Using too much text can make your audience tune out and stop exploring with you      |
+|**Articulate what customer problem your solution solves, and how you use Azure to make it happen**    |  Failing to articulate the ways in which your solution plus Azure work together       |
+|**Create a short, easy-to-remember URL**    |    Using long URLs that aren't memorable and are hard to locate     |
+|**Add relevant visual content: a customer testimonial video or solution architecture are best practices**   |   Using too much text, which can make your audience tune out and stop exploring with you      |
 |**Create a clear call to action to direct visitors to your Marketplace catalog page**    |   Having too many links or possible actions on the page       |
 |**Put your call to action in a header or clearly delineated section**    |  Embedding the links to your Marketplace listing in a paragraph of text       |
-|**Research best keywords and optimize the page for search**    | Assuming your product name generates higher search rankings        |
-|**Leverage keywords from your advertising campaigns**    |  Using many different keywords across your web properties will dilute your advertising investments       |
+|**Research best keywords and optimize the page for search**    | Assuming that your product name generates higher search rankings        |
+|**Leverage keywords from your advertising campaigns**    |  Using many different keywords across your web properties, which will dilute your advertising investments       |
 |**Put relevant product names and keywords 'above the fold'**     | Making users scroll to see what product or solution you are showcasing        |
-|**Use brand imagery (such as Azure Certified*) to validate your solution, and in accordance with Microsoft branding guidelines**    |    Using un-approved Microsoft brand imagery     |
+|**Use brand imagery (such as Azure Certified) to validate your solution, and in accordance with Microsoft branding guidelines**    |    Using unapproved Microsoft brand imagery     |
 
-* Learn more about the [Azure Certified badge](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) members may access additional resources for branding through [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral) and access the [Logo Builder](https://logobuilder.partner.microsoft.com) tool. Learn about joining [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
+> [!NOTE]
+> Learn more about the [Azure Certified badge](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/how-it-works) members can access additional resources for branding through [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral) and access the [Logo Builder](https://logobuilder.partner.microsoft.com) tool. Learn about [joining MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
 
-### Promoting your New Offer
+### Promote your new offer
 
-#### Building an Effective Marketing Campaign
-A marketing campaign is a series of promotional activities or marketing tactics aimed at driving your audience to a desired action or outcome. Before designing your campaign, you should:
+#### Build an effective marketing campaign
+A marketing campaign is a series of promotional activities or marketing tactics aimed at driving your audience to a desired action or outcome. Before you design your campaign, you should:
 
-#### Know Your Audience
+#### Know your audience
 
-First, verify who is the buyer and who is the influencer? Your tactics and calls to action for each group may differ. Ask these evaluation questions:
+First, verify who is the buyer and who is the influencer. Your tactics and calls to action for each group may differ. Ask these evaluation questions:
 
 - How much control does the buyer have over the purchasing decision? 
 - How much influence does the influencer have? 
@@ -90,11 +91,11 @@ First, verify who is the buyer and who is the influencer? Your tactics and calls
 
 Knowing the answers to these questions will help you make decisions about where to invest your dollars and how to distribute your dollars.
 
-#### Define where Your Audience Learns
+#### Define where your audience Learns
 
 Buyers are 90% of the way through their journey by the time they visit a marketplace. Buyers get this far along in the decision-making process by learning about solutions and assessing options in advance. You want to design a campaign that aims to be where your buyers and influencers learn. Every audience for each industry, vertical, or category is different. Does your audience learn online, through email, at trade shows, through social media, or through conversations with trusted advisors? Depending on where and how your audience learns you'll want to design activities and distribute your marketing dollars accordingly. The combination of these tactics becomes your campaign strategy.
 
-#### Create Clear Campaign Goals
+#### Create clear campaign goals
 
 You'll need to define success for your marketplace campaign and create clear KPIs. You may run multiple campaigns with different end goals. We all want to grow sales. The ultimate end-goal is increased revenue or customer acquisition. However, your marketing campaigns may be tied to goals at other stages of the buying cycle.
 
@@ -112,7 +113,7 @@ As part of being a new publisher in the Azure Marketplace, we'll offer you some 
 
 For additional go-to-market support including templates, web content, training, and tools to promote your business visit [www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), a program of the Microsoft Partner Network.
 
-#### Marketplace GTM Benefits
+#### Marketplace GTM benefits
 
 New listings in Marketplace become eligible to receive free Marketplace GTM Benefits. Once listed, our team of marketing specialists will reach out to you to kick-start these activities. There is nothing for you to do except to engage with us once we reach out. 
 
@@ -127,7 +128,7 @@ To maximize the impact of these activities, we'd encourage you to have your laun
 
 For support including templates, web content, training, and tools to promote your business, visit [Microsoft Go To Market](https://www.microsoftgotomarket.com).
 
-#### Enable Lead Sharing
+#### Enable lead sharing
 
 Ensure that lead management is enabled in your Marketplace offer so that you receive the contact information of your Marketplace customers. These leads provide the basis for outreach for demand generation campaigns, sales motions by your field sales staff, and information about how your offer is performing. 
 
@@ -141,7 +142,7 @@ These leads demonstrate targeted user interest in your Marketplace offer and in 
 
 However, Marketplace leads are different from Microsoft seller-qualified leads that are a feature of the Co-Selling program. See below to learn about how to access the Co-Sell program. 
 
-#### Promote Your Business Through Microsoft
+#### Promote your business through Microsoft
 
 There are many people and teams within Microsoft whose sole goal is to support our partners and reduce any friction you have in selling with us. Now that you've listed in our marketplace you've opened access to our marketplace programs and resources. 
 
@@ -172,7 +173,7 @@ To maximize your app's chances of being featured, you should invest in the succe
 - Ensure that all your Azure solutions and apps are available in Azure Marketplace
 - Grow the consumption of your Azure Marketplace offers by driving demand, providing high-quality customer service, and providing timely updates on your product
 
-## Analytics and Reporting
+## Analytics and reporting
 
 In the Insights section of the Cloud Partner Portal, you will see a high-level overview of your offer's performance. The reports included in this section are:  
 - Summary snapshot of orders
