@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
 
 ---
@@ -104,22 +104,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![FloQast Domain and URLs single sign-on information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.floqast.com/`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.floqast.com/api/sso/saml/azure`
+     In the **Identifier** textbox, type a URL: `https://go.floqast.com/`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![FloQast Domain and URLs single sign-on information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.floqast.com/login/sso`
+     In the **Sign-on URL** textbox, type a URL: `https://go.floqast.com/login/sso`
 	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [FloQast Client support team](mailto:support@floqast.com) to get these values.
-
 5. FloQast application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
-	![Configure Single Sign-On attb](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+	![Configure Single Sign-On attribute](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
 	
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
@@ -239,8 +234,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

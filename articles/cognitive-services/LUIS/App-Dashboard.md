@@ -36,7 +36,7 @@ The dashboard displays the total numbers of intents, entities and labeled uttera
 ![App Data Statistics](./media/luis-app-dashboard/app-model-count.png)
 
 ## Endpoint hits
-The dashboard displays the total endpoint hits that the LUIS app receives and enables you to display hits within a period that you specify. The total number of hits displayed is the sum of endpoint hits that use an [Endpoint key](./manage-keys.md#endpoint-key) and endpoint hits that use a [Programmatic key](./manage-keys.md#endpoint-key).
+The dashboard displays the total endpoint hits that the LUIS app receives and enables you to display hits within a period that you specify. The total number of hits displayed is the sum of endpoint hits that use an [Endpoint key](./manage-keys.md#endpoint-key) and endpoint hits that use a [Authoring key](./manage-keys.md#endpoint-key).
 
 <!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Endpoint Hits](./media/luis-app-dashboard/dashboard-endpointhits.png)
