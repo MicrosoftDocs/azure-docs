@@ -230,7 +230,7 @@
       href: log-analytics-azure-networking-analytics.md
     - name: Network Performance Monitor
       items:
-      - name: Overview
+      - name: Solution overview
         href: log-analytics-network-performance-monitor.md
       - name: Performance Monitor
         href: log-analytics-network-performance-monitor-performance-monitor.md

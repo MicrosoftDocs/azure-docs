@@ -86,7 +86,9 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 1. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
 2. Open your Log Analytics workspace and click on the **Overview** tile.  
 3. Click on the tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*.
+
     ![NPM Tile](media/log-analytics-network-performance-monitor/npm-config.png)
+
 3. On the **Setup** page, you see the option to install OMS agents and configure the agents for monitoring in the **Common Settings** view. As explained above, if you’ve already installed and configured OMS agents, then click on the **Setup** View for configuring the capability you are interested in using.  
 
     **Performance Monitor View** - Choose what protocol should be used for synthetic transactions in the Default performance monitor rule and click on Save and Continue. This protocol selection only holds for the system-generated default rule, and you need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the Default rule settings in the Performance Monitor tab (this appears after you complete your day-0 configuration) and change the protocol later. In case you aren’t interested in the rPerfomance Monitor capability, you can disable the default rule from the Default rule settings in the Performance Monitor tab. 
