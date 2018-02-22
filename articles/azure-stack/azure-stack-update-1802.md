@@ -114,7 +114,7 @@ The following are post-installation known issues for build  **1802xx.x**
 #### Health and monitoring
 There are no known issues after updating to 1802.
 
-#### Marketplace
+### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
 
 #### Compute
@@ -161,9 +161,8 @@ There are no known issues after updating to 1802.
 
 > [!NOTE]
 > The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.
-
 >
- > After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.     
+> After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.     
 >
 > The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.
 > Regardless of the version of the resource providers you use, your users data in their databases is not touched, and remains accessible.    
