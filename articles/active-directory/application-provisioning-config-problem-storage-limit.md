@@ -21,16 +21,15 @@ ms.author: asmalser
 
 When using the Azure portal to configure [automatic user provisioning](active-directory-saas-app-provisioning.md) for an enterprise application, you may encounter a situation where:
 
-* The **Admin Credentials** entered for the application are valid, and the **Test Connection** button works
-* However, the credentials cannot be saved, and the Azure portal returns a generic error message
+* The **Admin Credentials** entered for the application are valid, and the **Test Connection** button works. However, the credentials cannot be saved, and the Azure portal returns a generic error message.
 
 If SAML-based single sign-on is also configured for the same application, the most likely cause of the error is that Azure AD's internal, per-application storage limit for certificates and credentials has been exceeded.
 
-Azure AD currently has a maximum storage capacity of 1-kilobyte for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
+Azure AD currently has a maximum storage capacity of one kilobyte for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
 
-When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens is stored here, and often consumes over 50% of the space.
+When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens is stored here, and often consumes over 50% percent of the space.
 
-Any secret tokens, URIs, notification email addresses, user names, and passwords that get entered during setup of user provisioning can cause the 1 kilobyte limit to be exceeded.
+Any secret tokens, URIs, notification email addresses, user names, and passwords that get entered during setup of user provisioning can cause the storage limit to be exceeded.
 
 ## How to work around this issue 
 
@@ -41,5 +40,5 @@ There are two possible ways to work around this issue today:
 2. **Reduce the amount of configuration data stored** - All data entered in the [Admin credentials](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) section of the provisioning tab is stored in the same place as the SAML certificate. While it may not be possible to reduce the length of all of this data, some optional configuration fields like the **Notification Email** can be removed.
 
 
-#Next steps
+## Next steps
 [Configure user provisioning and de-provisioning to SaaS applications](active-directory-saas-app-provisioning.md)
