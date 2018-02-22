@@ -64,9 +64,6 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-### Using headers
-When you query the Metadata Service, you must provide the header `Metadata:true` to ensure the request was not unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request will result in a Bad Request response from the Metadata Service.
-
 ### Enabling Scheduled Events
 The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
 
@@ -85,6 +82,9 @@ Restarting a virtual machine schedules an event with type `Reboot`. Redeploying 
 > Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
 
 ## Using the API
+
+### Headers
+When you query the Metadata Service, you must provide the header `Metadata:true` to ensure the request was not unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request will result in a Bad Request response from the Metadata Service.
 
 ### Query for events
 You can query for Scheduled Events simply by making the following call:
