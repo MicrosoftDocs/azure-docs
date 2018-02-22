@@ -42,9 +42,9 @@ git config --system core.longpaths true
 
 ## Step 1: Prepare the keys and images needed for the example
 
-You can find Custom Vision Service here: https://customvision.ai.
+You can find Custom Vision Service on the [Custom Vision site](https://customvision.ai).
 
-Obtain your training and prediction key by signing in to the Custom Vision Service and going to your account settings.
+Obtain your training and prediction key by signing in to Custom Vision Service and going to your account settings.
 
 This example uses the images from [this sample](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images). 
 
@@ -143,7 +143,7 @@ You're now ready to use the model for prediction:
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
 from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
-# Now there is a trained endpoint, it can be used to make a prediction
+# Now there is a trained endpoint that can be used to make a prediction
 
 predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 
