@@ -15,7 +15,7 @@ ms.devlang: python
 ms.custom: mvc
 ---
 
-# Create and provision a simulated TPM device using Java device SDK for IoT Hub Device Provisioning Service
+# Create and provision a simulated TPM device using Python device SDK for IoT Hub Device Provisioning Service
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device.md)
 > * [Java](quick-create-simulated-device-tpm-java.md)

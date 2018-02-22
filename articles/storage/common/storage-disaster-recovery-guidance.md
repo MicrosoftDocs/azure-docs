@@ -25,9 +25,9 @@ At Microsoft, we work hard to make sure our services are always available. Somet
 It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan:
 
 * [Availability checklist](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Designing resilient applications for Azure](/azure/architecture/resiliency)
+* [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery service](https://azure.microsoft.com/services/site-recovery/)
-* [Azure Storage replication](storage-redundancy)
+* [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Azure Backup service](https://azure.microsoft.com/services/backup/)
 
 ## How to detect

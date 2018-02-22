@@ -3,8 +3,8 @@ title: Offering services in Azure Stack | Microsoft Docs
 description: As a cloud operator, you can offer services to your users.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer:
 
 ---
 # Overview of offering services in Azure Stack

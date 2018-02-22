@@ -21,9 +21,7 @@ You can use either the Azure portal or Azure PowerShell commands to do this.
 To use the Azure portal:
 
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **+ New**, and then click **Virtual Machine**.
-   
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Click **Create a resource** > **Compute**.
 3. Select the Marketplace virtual machine image you wish to use. You can choose to create a Linux or Windows virtual machine.
 4. For the selected virtual machine, verify that the deployment model is set to **Classic** and then click **Create**
    
@@ -43,7 +41,7 @@ In the Azure portal, you can add existing classic virtual machines to an existin
  or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
 
 1. If you have not already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, click **Virtual Machines (classic)**.
+2. On the left menu, click **Virtual Machines (classic)**.
    
     ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. From the list of virtual machines, select the name of the virtual machine that you want to add to the set.

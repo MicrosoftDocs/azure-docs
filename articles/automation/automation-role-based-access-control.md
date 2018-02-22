@@ -254,6 +254,7 @@ Update management reaches across multiple services to provide its service. The f
 |Automation account     | Log Analytics Contributor       | Automation account        |
 |Automation account    | Virtual Machine Contributor        | Resource Group for the account        |
 |Log Analytics workspace     | Log Analytics Contributor| Log Analytics workspace        |
+|Log Analytics workspace |Log Analytics Reader| Subscription|
 |Solution     |Log Analytics Contributor         | Solution|
 |Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
 

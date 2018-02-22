@@ -1,5 +1,5 @@
 ---
-title: Image Moderation with Azure Content Moderator | Microsoft Docs
+title: Azure Content Moderator - Image Moderation | Microsoft Docs
 description: Use image moderation to moderate inappropriate images
 services: cognitive-services
 author: sanjeev3

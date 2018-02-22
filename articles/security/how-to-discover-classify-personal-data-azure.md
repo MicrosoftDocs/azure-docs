@@ -56,22 +56,22 @@ This is particularly helpful if you want to find or change personal data for a s
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![how do I locate user profile and work information](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. On the **Users and groups** blade, select **Users**.
 
-  ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. On the **Users and groups - Users** blade, select a user from the list, and then, on the blade for the selected user, select **Profile** to view user profile information that might contain personal data.
 
-  ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. If you need to add or change user profile information, you can do so, and then, in the command bar, select **Save.**
 6. On the blade for the selected user, select **Work Info** to view user work information that may contain personal data.
 
- ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. If you need to add or change user work information, you can do so, and then, in the command bar, select **Save.**
 

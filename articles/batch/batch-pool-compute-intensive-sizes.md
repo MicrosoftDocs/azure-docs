@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/21/2018
 ms.author: danlep
 
 
@@ -31,9 +31,11 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Subscription and account limits
 
-* **Quotas** - The [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas) may limit the number or type of nodes you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. By default, this quota is 20 cores. A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. 
+* **Quotas and limits** - The [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas) may limit the number or type of nodes you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. 
 
-If you need to request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+  Additionally, use of certain VM families in your Batch account, such as NCv2 and ND, is restricted because of limited capacity. Use of these families is only available by requesting a quota increase from the default of 0 cores.  
+
+  If you need to request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 
 * **Region availability** - Compute-intensive VMs might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
@@ -48,10 +50,10 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, ND series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.1 drivers | N/A | 
-| [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
+| [NC, NCv2, ND series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers | N/A | 
+| [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
-*RDMA connectivity on NC24r, NC24r_v2, and ND24r VMs is supported on Ubuntu 16.04 LTS or CentOS-based 7.3 HPC (from Azure Marketplace) with Intel MPI.
+*RDMA connectivity on NC24r, NC24rs_v2, and ND24r VMs is supported on Ubuntu 16.04 LTS (from Azure Marketplace) with Intel MPI.
 
 
 
@@ -59,11 +61,11 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit 9.1 drivers| N/A | 
-| [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit drivers| N/A | 
+| [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
-*RDMA connectivity on NC24r, NC24r_v2, and ND24r VMs is supported on Windows Server 2012 R2 (from Azure Marketplace) with HpcVMDrivers extension and Microsoft MPI or Intel MPI.
+*RDMA connectivity on NC24r, NC24rs_v2, and ND24rs VMs is supported on Windows Server 2016 or Windows Server 2012 R2 (from Azure Marketplace) with HpcVMDrivers extension and Microsoft MPI or Intel MPI.
 
 ### Windows pools - Cloud services configuration
 
@@ -73,7 +75,7 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, or<br/>Windows Server 2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication,<br/> disable concurrent task execution |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012, or<br/>2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication,<br/> disable concurrent task execution |
 
 
 
