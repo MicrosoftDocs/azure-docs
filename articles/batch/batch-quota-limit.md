@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -36,13 +36,10 @@ If you plan to run production workloads in Batch, you may need to increase one o
 ## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### Restricted VM families - NCv2, ND
 
-To use NCv2 or ND VM sizes in a Batch pool, you must currently open an additional [customer support request](#increase-a-quota). This is because VM capacity in these families might be limited. Until your request is approved, you won't be able to allocate NCv2 or ND sizes in your Batch pools in supported Azure regions. As with other VM size families, use of NCv2 and ND sizes may additionally be limited by the cores quotas in your Batch account. 
+### Cores quotas in user subscription mode
 
-### Quotas in user subscription mode
-
-If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 ## Other limits
 | **Resource** | **Maximum Limit** |
