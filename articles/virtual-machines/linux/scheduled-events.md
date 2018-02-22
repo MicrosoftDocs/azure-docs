@@ -3,7 +3,7 @@ title: Scheduled Events for Linux VMs in Azure | Microsoft Docs
 description: Schedule events by using Azure Metadata Service for your Linux virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: zivraf
+author: ericrad
 manager: timlt
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
-ms.author: zivr
+ms.author: ericrad
 
 ---
 
@@ -217,6 +217,7 @@ if __name__ == '__main__':
 ```
 
 ## Next steps 
+- Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) to see a demo. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
 - Learn about [planned maintenance for Linux virtual machines in Azure](planned-maintenance.md).
