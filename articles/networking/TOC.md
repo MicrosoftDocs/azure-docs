@@ -22,7 +22,7 @@
 ### [DNS-based traffic distribution](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - dedicated](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Network Monitoring Overview](networking-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 
 # Get started
 ## [Create your first virtual network](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -48,6 +48,7 @@
 ### [Manage packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Determine routing next hop](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Verify IP flows for a VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Network Monitoring Overview](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Sample scripts
 ### [Azure CLI](cli-samples.md)
