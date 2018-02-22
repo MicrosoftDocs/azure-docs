@@ -23,9 +23,7 @@ The management group feature is available in a public preview. To start using ma
 
 The first management group created in the directory could take up to 15 minutes to complete. There are processes that run the first time to set up the management groups service within Azure for your directory. You receive a notification when the process is complete.  
 
-## How to create a management group 
-
-# [Portal](#tab/portal)
+### Create in portal
 
 1. Log into the [Azure portal](http://portal.azure.com).
 2. Select **All services** > **Management groups**.
@@ -40,7 +38,7 @@ The first management group created in the directory could take up to 15 minutes 
 5.  Select **Save**
 
 
-# [PowerShell](#tab/powershell)
+### Create in PowerShell
 Within PowerShell, you use the Add-AzureRmManagementGroups cmdlets.   
 
 ```azurepowershell-interactive
@@ -55,7 +53,7 @@ C:\> Add-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" 
 ``` 
 Use the **ParentId** parameter to have this management group be created under a different management.  
 
-# [Azure CLI](#tab/azure-cli)
+### Create in Azure CLI
 On Azure CLI, you use the az account management-group create command. 
 
 ```azure-cli
