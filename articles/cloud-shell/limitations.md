@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
 ---
 
@@ -30,7 +30,6 @@ The machine that provides your Cloud Shell session is temporary, and it is recyc
 * With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$Home` directory is also persisted.
 * Azure file shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
   * In Bash, run `env` to find your region set as `ACC_LOCATION`.
-* Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
 ### Browser support
 
@@ -38,7 +37,7 @@ Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet E
 
 ### Copy and paste
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### For a given user, only one shell can be active
 

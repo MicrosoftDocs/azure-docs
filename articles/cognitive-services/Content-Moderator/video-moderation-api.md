@@ -28,14 +28,6 @@ The Content Moderator's video capability is available as a private preview **med
 
 [Create an Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in your Azure subscription.
 
-### Request access to Content Moderator private preview
-
-[Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
-
-   - Your Azure subscription ID
-   - Your Azure Media Services account name
-   - Your region
-
 ### Get Azure Active Directory credentials
 
    1. Read the [Azure Media Services portal article](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
@@ -44,7 +36,15 @@ The Content Moderator's video capability is available as a private preview **med
    > [!NOTE]
    > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
 
-## Create your Visual Studio project
+Once you get your AMS credentials, there are two ways to try the Content Moderator media processor.
+
+## Use Azure Media Services Explorer
+
+Use the interactive [Azure Media Services (AMS) explorer](https://azure.microsoft.com/en-us/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) to browse your AMS account, upload videos, and scan with the Content Moderator media processor. [Download and install it](https://github.com/Azure/Azure-Media-Services-Explorer/releases) from GitHub, and [browse the source code](http://github.com/Azure/Azure-Media-Services-Explorer) to dive into using the AMS SDK.
+
+![Azure Media Services explorer with Content Moderator](images/ams-explorer-content-moderator.PNG)
+
+## .NET QuickStart with Visual Studio and C#
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
@@ -116,8 +116,6 @@ Create a JSON file in the current directory with the version number.
     //             "version": "2.0"
     //        }
     private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
-
-## Add code to moderate a video and get results
 
 ### Add the following code to the main method
 
@@ -353,7 +351,7 @@ These methods download the Content Moderator output file (JSON) from the Azure M
 		}
 	}
 
-## Run the program and review the output
+### Run the program and review the output
 
 After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 

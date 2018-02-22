@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the Slack connector
 Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go. 
 
-Get started by creating a logic app now; see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Get started by creating a logic app now; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Slack
 To use the Slack connector, you first create a **connection** then provide the details for these properties: 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/02/2018
 ms.author: jingwang
 
 ---
@@ -32,7 +32,7 @@ You can copy data from Sybase database to any supported sink data store. For a l
 
 Specifically, this Sybase connector supports:
 
-- Sybase **version 16 and above**.
+- SAP Sybase SQL Anywhere (ASA) **version 16 and above**; IQ and ASE are not supported.
 - Copying data using **Basic** or **Windows** authentication.
 
 ## Prerequisites
@@ -57,7 +57,6 @@ The following properties are supported for Sybase linked service:
 | type | The type property must be set to: **Sybase** | Yes |
 | server | Name of the Sybase server. |Yes |
 | database | Name of the Sybase database. |Yes |
-| schema | Name of the schema in the database. |No |
 | authenticationType | Type of authentication used to connect to the Sybase database.<br/>Allowed values are: **Basic**, and **Windows**. |Yes |
 | username | Specify user name to connect to the Sybase database. |Yes |
 | password | Specify password for the user account you specified for the username. Mark this field as a SecureString. |Yes |
