@@ -66,13 +66,13 @@ In the case where a Virtual Machine is created within a Virtual Network (VNet), 
 If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### Versioning 
+### Version and Region Availability
 The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2017-08-01`.
 
-| Version | Release Notes | 
-| - | - | 
-| 2017-08-01 | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
-| 2017-03-01 | <li>Public Preview Version
+| Version | Release Type | Regions | Release Notes | 
+| - | - | - | - |
+| 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
+| 2017-03-01 | Preview | All |<li>Initial release
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
