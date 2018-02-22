@@ -3,7 +3,7 @@ title: Network Performance Monitor solution in Azure Log Analytics | Microsoft D
 description: The Service Endpoint Manager capability in Network Performance Monitor allows you to monitor network connectivity to any endpoint that has an open TCP port.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: abshamsft
 manager: carmonm
 editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: magoedte
+ms.author: abshamsft
 
 ---
 # Service Endpoint Manager
