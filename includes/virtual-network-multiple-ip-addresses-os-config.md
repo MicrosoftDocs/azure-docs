@@ -53,17 +53,18 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 #>
 Function UpdateNetworkAdapter($adapterName, $dnsServer, $subnetAddress, $gatewayAddress, $primaryPrivateIp, $privateIps)
 {
+ $netsh = "netsh"
  # First, configure the dns server
- & "netsh interface ipv4 add dnsserver `"$adapterName`" " + $dnsServer + " "
+ & $netsh interface ipv4 add dnsserver `"$adapterName`" $dnsServer
 
  # Second, add the primary ip address
- & "netsh interface ipv4 set address `"$adapterName`" $primaryPrivateIp $subnetAddress $gatewayAddress" 
+ & $netsh interface ipv4 add address `"$adapterName`" $primaryPrivateIp $subnetAddress $gatewayAddress
 
  # Now, add all of the private ips
  "Received " +  $privateIps.Length + " private ips"
  For ($i=0; $i -lt $privateIps.Length; $i++) {
    $ip = $privateIps[$i]
-   & "netsh interface ipv4 add address `"$adapterName`" $ip $subnetAddress $gatewayAddress"
+   & $netsh interface ipv4 add address `"$adapterName`" $ip $subnetAddress $gatewayAddress	 
  }
 }
 
