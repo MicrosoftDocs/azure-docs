@@ -13,10 +13,10 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/21/2018
 ms.author: rli
 ---
-# Dynamic site acceleration via Azure CDN
+# Dynamic site acceleration via Azure CDN (Content Delivery Network)
 
 With the explosion of social media, electronic commerce, and the hyper-personalized web, a rapidly increasing percentage of the content served to end users is generated in real time. Users expect a fast, reliable, and personalized web experience, independent of their browser, location, device, or network. However, the very innovations that make these experiences so engaging also slow page downloads and put the quality of the consumer experience at risk. 
 
@@ -148,11 +148,20 @@ With DSA, caching is turned off by default on the CDN, even when the origin incl
 
 If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
 
-For **Azure CDN from Verizon Premium** profiles, you can turn on caching for specific cases by using the  [ADN rules engine](cdn-rules-engine.md). A rule that is created with the ADN rules engine affects only those endpoints of your profile that are optimized for DSA. 
+For **Azure CDN from Verizon Premium** profiles, you can turn on caching for specific cases by using the  [rules engine](cdn-rules-engine.md) for DSA endpoints. Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
 
-To access the ADN rules engine:
-  1. From the **CDN profile** page, select **Manage**.  
-  2. From the CDN management portal, select **ADN**, then select **Rules Engine**. 
+To access the rules engine for DSA endpoints:
+    
+1. From the **CDN profile** page, select **Manage**.  
+    
+    ![CDN profile manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
+
+    The CDN management portal opens.
+
+2. From the CDN management portal, select **ADN**, then select **Rules Engine**. 
+
+    ![Rules engine for DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+
 
 Alternatively, you can use two CDN endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to delivery cacheable assets. Modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
 
