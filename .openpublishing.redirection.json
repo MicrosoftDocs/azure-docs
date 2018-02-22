@@ -16896,7 +16896,7 @@
             "redirect_document_id": false
     },
     {
-        "source_path": "articles/billing/billing-mgmt-group-overview.md",
+        "source_path": "articles/billing/billing-enterprise-mgmt-group-overview.md",
         "redirect_url": "/azure/azure-resource-manager/management-groups-overview",
         "redirect_document_id": false
     },

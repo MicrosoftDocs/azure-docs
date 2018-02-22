@@ -1,5 +1,5 @@
 ---
-title: Organize your resources with Azure Management Groups - Azure | Microsoft Docs
+title: Organize your resources with Azure Management Groups | Microsoft Docs
 description: Learn about the management groups and how to use them. 
 author: rthorn17
 manager: rithorn
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/14/2018
+ms.date: 2/22/2018
 ms.author: rithorn
 ---
 
@@ -22,7 +22,7 @@ If you have multiple subscriptions, you can organize them into containers called
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. 
 
-**Note:** Azure Policy support for management groups is not available yet in the Public Preview and it is coming in the following weeks.  
+> [!Note] Azure Policy support for management groups is not available yet in the Public Preview and it is coming in the following weeks.  
 
 As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
 
