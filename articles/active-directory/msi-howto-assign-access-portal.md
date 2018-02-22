@@ -32,7 +32,7 @@ After you've enabled MSI on an Azure resource, such as an [Azure VM](msi-qs-conf
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you have configured the MSI.
 
-2. Navigate to the desired resource on which you want to modify access control. In this example, we are giving an Azure VM and Azure VMSS access to a storage account, so we navigate to the storage account.
+2. Navigate to the desired resource on which you want to modify access control. In this example, we are giving an Azure VM and Azure virtual machine scale set access to a storage account, so we navigate to the storage account.
 
 3. For an Azure VM, select the **Access control (IAM)** page of the resource, and select **+ Add**. Then specify the **Role**, **Assign access to Virtual Machine**, and specify the corresponding **Subscription** and **Resource Group** where the resource resides. Under the search criteria area, you should see the resource. Select the resource, and select **Save**. 
 
@@ -64,6 +64,6 @@ If either is incorrect, you might need to redeploy the MSI on your resource agai
 
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 - To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
-- To enable MSI on an Azure VMSS, see [Configure an Azure Virtual Machine Scale Set Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vmss.md)
+- To enable MSI on an Azure virtual machine scales set, see [Configure an Azure Virtual Machine Scale Set Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vmss.md)
 
 
