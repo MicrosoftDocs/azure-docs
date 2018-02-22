@@ -22,12 +22,12 @@ ms.author: wgries
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com). In this article you learn how to:
 
 > [!div class="checklist"]
-> Create a resource group and a storage account
-> Create an Azure file share 
-> Create a directory
-> Upload a file
-> Download a file
-> Create and use a share snapshot
+> * Create a resource group and a storage account
+> * Create an Azure file share 
+> * Create a directory
+> * Upload a file
+> * Download a file
+> * Create and use a share snapshot
 
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
