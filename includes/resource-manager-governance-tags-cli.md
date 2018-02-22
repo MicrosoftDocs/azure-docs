@@ -74,7 +74,7 @@ To combine several values in a single tag, use a JSON string.
 az group update -n myResourceGroup --set tags.CostCenter='{"Dept":"IT","Environment":"Test"}'
 ```
 
-To remove all tags on a resource group, use
+To remove all tags on a resource group, use:
 
 ```azurecli-interactive
 az group update -n myResourceGroup --remove tags

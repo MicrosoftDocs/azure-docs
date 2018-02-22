@@ -1,6 +1,6 @@
 ﻿---
-title: Govern Azure virtual machines with PowerShell | Microsoft Docs
-description: Tutorial - Manage virtual machines by applying RBAC, polices, locks and tags with Azure PowerShell
+title: Govern Azure virtual machines with Azure PowerShell | Microsoft Docs
+description: Tutorial - Manage Azure virtual machines by applying RBAC, polices, locks and tags with Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -85,9 +85,9 @@ Your subscription already has several policy definitions. To see the available p
 
 You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
 
-* limit the locations for all resources
-* limit the SKUs for virtual machines
-* audit virtual machines that do not use managed disks
+* Limit the locations for all resources.
+* Limit the SKUs for virtual machines.
+* Audit virtual machines that do not use managed disks.
 
 In the following example, you retrieve three policy definitions based on the display name. You use the [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
 

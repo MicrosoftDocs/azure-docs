@@ -1,6 +1,6 @@
 ﻿---
-title: Govern virtual machines with Azure CLI | Microsoft Docs
-description: Tutorial - Manage virtual machines by applying RBAC, polices, locks and tags with Azure CLI
+title: Govern Azure virtual machines with Azure CLI | Microsoft Docs
+description: Tutorial - Manage Azure virtual machines by applying RBAC, polices, locks and tags with Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -80,9 +80,9 @@ az policy definition list --query "[].[displayName, policyType, name]" --output 
 
 You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
 
-* limit the locations for all resources
-* limit the SKUs for virtual machines
-* audit virtual machines that do not use managed disks
+* Limit the locations for all resources.
+* Limit the SKUs for virtual machines.
+* Audit virtual machines that do not use managed disks.
 
 In the following example, you retrieve three policy definitions based on the display name. You use the [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
 
