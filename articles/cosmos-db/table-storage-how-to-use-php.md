@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: mimig
 
 ---
@@ -85,14 +85,14 @@ In the examples below, the `require_once` statement is always shown, but only th
 To instantiate a Storage Table service client, you must first have a valid connection string. The format for the Storage Table service connection string is:
 
 ```php
-DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
 ## Configure an Azure Cosmos DB connection
 To instantiate an Azure Cosmos DB Table API client, you must first have a valid connection string. The format for the Azure Cosmos DB connection string is:
 
 ```php
-$connectionString="DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
+$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
 ## Configure an Azure Storage emulator connection
@@ -434,7 +434,10 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 * **addInsertOrMergeEntity** (adds an insertOrMergeEntity operation)
 * **addDeleteEntity** (adds a deleteEntity operation)
 
-The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request:
+The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request. 
+
+> [!NOTE]
+> Azure Cosmos DB does not yet support batch updates for tables. 
 
 ```php
 require_once 'vendor/autoload.php';
@@ -445,7 +448,10 @@ use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\BatchOperations;
 
-    // Create table REST proxy.
+// Configure a connection string for Storage Table service.
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
+
+// Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
 
 // Create list of batch operation.
