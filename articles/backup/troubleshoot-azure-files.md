@@ -23,6 +23,12 @@ Azure Files backup is in Preview. The following backup scenarios are not support
 - Protecting File shares in Storage Accounts that have Virtual Networks enabled.
 - Backing up Azure Files using PowerShell or CLI.
 
+### Limitations
+- Maximum #Scheduled backups per day is 1.
+- Maximum #On-Demand backups per day is 4.
+- Use resource locks on the Storage Account to prevent accidental deletion of Backups in your Recovery Services vault.
+- Do not delete snapshots created by Azure Backup. This will lead to loss of Recovery Points and/or Restore failures
+
 ## Configuring Backup
 The following table is for configuring the backup.
 
