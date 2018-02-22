@@ -21,8 +21,6 @@ ms.author: gwallace
 
 The Update Management solution in Azure automation allows you to manage operating system security updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
-## Update management in Azure Automation
-
 You can enable Update management for virtual machines directly from your [Azure Automation](automation-offering-get-started.md) account.
 To learn how to enable update management for virtual machines from your Automation account, see
 [Manage updates for multiple virtual machines](manage-update-multi.md).
@@ -40,7 +38,7 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 ![Update management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-After the computer performs a scan for update compliance, the OMS agent forwards the information in bulk to Log Analytics. On a Window computer, the compliance scan is performed every 12 hours by default. In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the Microsoft Monitoring Agent (MMA) is restarted, prior to update installation, and after update installation. With a Linux computer, the compliance scan is performed every 3 hours by default, and a compliance scan is initiated within 15 minutes if the MMA agent is restarted.
+After the computer performs a scan for update compliance, the agent forwards the information in bulk to Log Analytics. On a Window computer, the compliance scan is performed every 12 hours by default. In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the Microsoft Monitoring Agent (MMA) is restarted, prior to update installation, and after update installation. With a Linux computer, the compliance scan is performed every 3 hours by default, and a compliance scan is initiated within 15 minutes if the MMA agent is restarted.
 
 The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries. The solution reports how up-to-date the computer is based on what source you are configured to synchronize with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows. The same for Linux computers that are configured to report to a local repo versus a public repo.
 
@@ -75,8 +73,8 @@ At the date and time specified in the update deployment, the target computers ex
 
 For more information on how to install the OMS Agent for Linux and download the latest version, see [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).  
 
-### Permissions
-In order to create update deployments, you need specific permissions. To learn more about these permissions visit [Update management - RBAC](automation-role-based-access-control.md#update-management) 
+## Permissions
+In order to create and manage update deployments, you need specific permissions. To learn more about these permissions visit [Role Based Access - Update management](automation-role-based-access-control.md#update-management) 
 
 ## Solution components
 This solution consists of the following resources that are added to your Automation account and directly connected agents or Operations Manager connected management group.
@@ -155,17 +153,17 @@ Once updates have been assessed for all of the Linux and Windows computers in yo
 
 For virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace, they are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) deployed in Azure. Any other Linux distribution must be updated from the distros online file repository following their supported methods.  
 
-### Viewing missing updates
+## Viewing missing updates
 
 Click **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and displays information with regard to the number of machines that require the update, the operating system, and the link for more information. Each update can be selected and the **Log search** page displays and shows more details about the updates.
 
-### Viewing update deployments
+## Viewing update deployments
 
 Click **Update Deployments** to view the list of existing Update Deployments. Clicking on any of the update deployments in the list opens up the **Update Deployment Run** page for that update deployment.
 
 ![Overview of Update Deployment Results](./media/automation-update-management/update-deployment-run.png)
 
-### Creating an Update Deployment
+## Creating an Update Deployment
 Create a new Update Deployment by clicking the **Schedule update deployment** button at the top of the screen to open the **New Update Deployment** page. You must provide values for the properties in the following table:
 
 | Property | Description |
