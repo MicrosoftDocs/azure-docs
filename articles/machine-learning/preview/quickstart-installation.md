@@ -86,15 +86,17 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
    >[!IMPORTANT]
    >Download the installer fully on disk, and then run it from there. Do not run it directly from your browser's download widget.
 
-   + On Windows: 
-       + Download [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi).  
-       + Double-click on the downloaded installer in File Explorer.
+   **On Windows:** 
 
-   + On macOS: 
-       + Download [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
-       + Double-click on the downloaded installer in Finder.
+   &nbsp;&nbsp;&nbsp;&nbsp;A. Download [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi).  <br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;B. Double-click on the downloaded installer in File Explorer.
 
-1. Follow the on-screen instructions in your installer to completion. The installer downloads all the necessary dependencies, such as Python, Miniconda, and other related libraries. 
+   **On macOS:** 
+
+   &nbsp;&nbsp;&nbsp;&nbsp;A. Download [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg). <br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;B. Double-click on the downloaded installer in Finder.
+
+1. Follow the on-screen instructions in your installer to completion.
    
    >[!IMPORTANT]
    >The installation might take around 30 minutes to complete. 
@@ -103,8 +105,10 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
    |--------|------------------------------------------------|
    |Windows|C:\Users\<user>\AppData\Local\AmlWorkbench|
    |macOS|/Applications/Azure ML Workbench.app|
+
+   The installer downloaded and setup all the necessary dependencies, such as Python, Miniconda, and other related libraries. You also now have the Azure command-line interface (CLI) installed. 
   
-## Sign in through Azure Machine Learning Workbench
+## Start and sign into Azure Machine Learning Workbench
 
 1. Launch Workbench by selecting the **Launch Workbench** button on the last screen of the installer. 
 
@@ -117,17 +121,13 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
    >[!TIP]
    > Switch to a different Experimentation account using the icon in the lower-left corner of the Workbench application window.
 
-For information about creating an environment for deploying your web services, see [Deployment environment setup](deployment-setup-configuration.md).
-
 ## Create a project in Workbench
 
 In Azure Machine Learning, a project is the logical container for all the work being done to solve a problem. It maps to a single file folder on your local disk, and you can add any files or sub folders to it. 
 
 Here, we are creating a new Workbench project using a template that includes the [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set). The tutorials that follow this quickstart depend on this data to build a model that predicts the type of iris based on some of its physical characteristics.  
 
-1. To create a new project, open Azure Machine Learning Workbench.
-
-1. In the toolbar, select **File** > **New Project**. 
+1. With Azure Machine Learning Workbench open, select **File** > **New Project** from the toolbar. 
 
 1. Enter a name for your project in the **Project name** field.
 
@@ -183,3 +183,8 @@ For a more in-depth experience of this workflow, including how to deploy your Ir
 
 > [!div class="nextstepaction"]
 > [Classifying Iris tutorial (Part 1)](tutorial-classifying-iris-part-1.md)
+
+>[!TIP]
+> Switch to a different Experimentation account using the icon in the lower-left corner of the Workbench application window.
+
+You've set up only For information about creating an environment for deploying your web services, see [Deployment environment setup](deployment-setup-configuration.md).
