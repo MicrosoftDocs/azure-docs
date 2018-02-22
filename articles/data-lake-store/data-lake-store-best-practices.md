@@ -3,7 +3,7 @@ title: Best practices for using Azure Data Lake Store | Microsoft Docs
 description: Learn the best practices data ingestion, date security, and performance related to using Azure Data Lake Store 
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
+author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/02/2018
-ms.author: nitinme
+ms.date: 02/23/2018
+ms.author: sachins
 
 ---
 # Overview of Azure Data Lake Store
@@ -23,9 +23,7 @@ In this article, you learn about best practices and considerations for working w
 
 Azure Data Lake Store offers POSIX access controls and detailed auditing for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and folders. These access controls can also be used to create defaults that can be applied to new files or folders. It is important to keep in mind that when permissions are set to existing folders and child objects, the permissions need to be propagated recursively on each object and can take a long time if there are thousands or even millions of files. You can expect between 30-50 objects processed per second. Hence, it is important that you plan the folder structure and user groups appropriately. Otherwise, it can cause unanticipated delays and issues when you work with your data. 
 
-For example, if you have a folder with 100,000 child objects, taking the lower bound of 30 objects processed per second, this could take an hour to update the permission for the whole folder. More details on Data Lake Store ACLs are available at [Access control in Azure Data Lake Store](data-lake-store-access-control.md). For improved performance on assigning ACLs recursively, You can use the Azure Data Lake Command-Line Tool. This creates multiple threads and recursive navigation logic to quickly apply ACLs to millions of files. The tool is available for Linux and Windows, and the documentation and downloads for this tool can be found on GitHub.
-
-<< TBD: Link to the tool >> 
+For example, if you have a folder with 100,000 child objects, taking the lower bound of 30 objects processed per second, this could take an hour to update the permission for the whole folder. More details on Data Lake Store ACLs are available at [Access control in Azure Data Lake Store](data-lake-store-access-control.md). For improved performance on assigning ACLs recursively, You can use the Azure Data Lake Command-Line Tool. This creates multiple threads and recursive navigation logic to quickly apply ACLs to millions of files. The tool is available for Linux and Windows, and the [documentation](https://github.com/Azure/data-lake-adlstool) and [downloads](http://aka.ms/adlstool-download) for this tool can be found on GitHub.
 
 ### Use security groups versus individual users 
 
