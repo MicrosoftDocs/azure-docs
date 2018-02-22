@@ -49,13 +49,13 @@ you can create an EDIFACT agreement by following these steps.
 ## Create an EDIFACT agreement 
 
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
-From the left menu, select **More services**.
+From the left menu, select **All services**.
 
     > [!TIP]
-    > If you don't see **More services**, you might have to expand the menu first. 
+    > If you don't see **All services**, you might have to expand the menu first. 
     > At the top of the collapsed menu, select **Show menu**.
 
-	![On left menu, select "More services"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+	![On left menu, select "All services"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
 2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.

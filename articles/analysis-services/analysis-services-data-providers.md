@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/16/2018
+ms.date: 02/21/2018
 ms.author: owend
 
 ---
@@ -27,12 +27,12 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
 
-## AMO and AMOMD on NuGet
+## AMO and ADOMD on NuGet
 
 Analysis Services Management Objects (AMO) and ADOMD client libraries are available as installable packages from [NuGet.org](https://www.nuget.org/). 
 
@@ -83,9 +83,10 @@ Client libraries for client connections are different from data providers requir
   
 1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. If you have more than one folder, choose the higher number.
   
-2.  Right-click **msolap140.dll** > **Properties** > **Details**.  
+2.  Right-click **msolap.dll** > **Properties** > **Details**. If the dll is named msolap140.dll, it's older than latest version and should be upgraded.
     
     ![Client library details](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### AMO
 

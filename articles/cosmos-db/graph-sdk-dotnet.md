@@ -29,6 +29,8 @@ ms.author: lbosq
 
 ## Release notes
 
+We recommend using the open-source Gremlin driver for .NET, Gremlin.Net. Learn how to get started in [Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md).
+
 ### <a name="0.3.1-preview"/>0.3.1-preview
 
 #### Bug fixes

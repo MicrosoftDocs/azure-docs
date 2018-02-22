@@ -2,7 +2,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 ### To sign up for a SendGrid account
 1. Log in to the [Azure portal][Azure portal].
-2. In the menu on the left, click **New**.
+2. In the menu on the left, click **Create a resource**.
 
     ![command-bar-new][command-bar-new]
 3. Click **Add-ons** and then **SendGrid Email Delivery**.
