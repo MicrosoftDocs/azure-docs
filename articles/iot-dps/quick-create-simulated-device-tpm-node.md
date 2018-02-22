@@ -29,7 +29,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 1. Make sure you have [Node.js v4.0 or above](https://nodejs.org) installed on your machine.
 
     > [!NOTE]
-    > The steps below use **Azure IoT SDK for C** to simulate the TPM device. If your device is already setup, you may skip ahead to **Register the device**.
+    > The steps below use **Azure IoT SDK for C** to simulate the TPM device. If your device is already set up, you may skip ahead to **Register the device**.
     >
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
@@ -63,7 +63,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
-1. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+1. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you need to keep this simulator running until the end of this Quickstart guide. 
 
    If you are in the *cmake* folder, then run the following commands:
 
@@ -96,7 +96,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-   On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
+   On successful enrollment, the *Registration ID* of your device appears in the list under the *Individual Enrollments* tab. 
 
 
 ## Register the device
@@ -134,7 +134,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ```
 
     > [!NOTE]
-    > The **Azure IoT SDK for Node.js** supports additional protocols like _AMQP_, _AMQP WS_, and _MQTT WS_.  To see more examples see [Device Provisioning Service SDK for Node.js samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
+    > The **Azure IoT SDK for Node.js** supports additional protocols like _AMQP_, _AMQP WS_, and _MQTT WS_.  For more examples, see [Device Provisioning Service SDK for Node.js samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
     > 
 
 1. Add an **idScope** variable and use it to create a **ProvisioningDeviceClient** instance. Replace **{idScope}** with the **_ID Scope_** value from **Step 1**:
