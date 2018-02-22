@@ -100,33 +100,33 @@ The following are post-installation known issues for build  **1802xx.x**
 
 - It is not possible to edit storage metrics for blob, table, and queue in the administrator portal.
 
-- It might not be possible to view compute or storage resources in the administrator portal. This cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
+- It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
 
 - You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
-- When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
+    - When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
-- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell verify permissions.
+- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
 
 #### Health and monitoring
 There are no known issues after updating to 1802.
 
-#### Marketplace
+### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
 
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-- Azure Stack supports using only Fixed type VHDs. Some images offered through the marketplace on Azure Stack use dynamic VHDs. Resizing a virtual machine (VM) with a dynamic disk attached to it leaves the VM in a failed state.
+- Azure Stack supports using only Fixed type VHDs. Some images offered through the marketplace on Azure Stack use dynamic VHDs but those have been removed. Resizing a virtual machine (VM) with a dynamic disk attached to it leaves the VM in a failed state.
 
   To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. Then convert the VHD from a dynamic disk to a fixed disk, and then re-create the virtual machine.
 
-- When you create an availability set in the console by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
+- When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- When you create virtual machines on the Azure Stack tenant portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
 - When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -134,7 +134,7 @@ There are no known issues after updating to 1802.
 
   You can then try to redownload the VM image that previously failed.
 
--  If provisioning an extension on a VM deployment takes too long, tenants should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+-  If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
 
 #### Networking
@@ -159,11 +159,19 @@ There are no known issues after updating to 1802.
 - Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
 
+<<<<<<< HEAD
 > [!NOTE]    
 > The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.
 >
 > After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.     
 >
+=======
+> [!NOTE]  
+> The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.  
+>   
+> After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.      
+>   
+>>>>>>> 15f34a66159d6bd085a2c145883cd47aed7e448e
 > The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.
 > Regardless of the version of the resource providers you use, your users data in their databases is not touched, and remains accessible.    
 
