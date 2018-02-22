@@ -28,6 +28,9 @@ cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory)
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your tenant first, by running the `Connect-MsolService` cmdlet.
 
+>[!WARNING]
+>This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
+
 ## View product licenses assigned to a group
 The
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)
