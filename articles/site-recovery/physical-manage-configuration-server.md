@@ -148,7 +148,7 @@ You can modify proxy settings for the configuration server machine as follows:
 3. Click the **Vault Registration** tab.
 4. Download a new vault registration file from the portal, and provide it as input to the tool.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csonfiguration-server.png)
+  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Provide the new proxy details and click the **Register** button.
 6. Open an Admin PowerShell command window.
 7. Run the following command:
@@ -167,7 +167,7 @@ You can modify proxy settings for the configuration server machine as follows:
   2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
   3. Click the **Vault Registration** tab.
   4. Download a new registration file from the portal and provide it as input to the tool.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csonfiguration-server.png)
+        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
   5. Provide the Proxy Server details and click the **Register** button.  
   6. Open an Admin PowerShell command window.
   7. Run the following command
