@@ -52,7 +52,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
         list of private ips. e.g. 10.0.0.5,10.0.0.6
 
     .EXAMPLE
-		PS C:\> Update-NetworkAdapterIps "Local Network Connection" "8.8.8.8" "255.255.0.0" "10.0.0.1" "10.0.0.4" "10.0.0.5","10.0.0.6"
+	    PS C:\> Update-NetworkAdapterIps "Local Network Connection" "8.8.8.8" "255.255.0.0" "10.0.0.1" "10.0.0.4" "10.0.0.5","10.0.0.6"
 #>
 Function Update-NetworkAdapterIps($AdapterName, $DnsServer, $SubnetAddress, $GatewayAddress, $PrimaryPrivateIp, $PrivateIps)
 {
