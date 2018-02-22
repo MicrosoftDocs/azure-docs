@@ -3,7 +3,7 @@ title: Scheduled Events for Windows VMs in Azure | Microsoft Docs
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: zivraf
+author: ericrad
 manager: timlt
 editor: ''
 tags: ''
@@ -15,14 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
-ms.author: zivr
+ms.author: ericrad
 
 ---
-# Azure Metadata Service: Scheduled Events (Preview) for Windows VMs
-
-> [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+# Azure Metadata Service: Scheduled Events for Windows VMs
 
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine maintenance. It provides information about upcoming maintenance events (e.g. reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS on both Windows and Linux. 
 
@@ -66,13 +62,13 @@ In the case where a Virtual Machine is created within a Virtual Network (VNet), 
 If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### Versioning 
+### Version and Region Availability
 The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2017-08-01`.
 
-| Version | Release Notes | 
-| - | - | 
-| 2017-08-01 | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
-| 2017-03-01 | <li>Public Preview Version
+| Version | Release Type | Regions | Release Notes | 
+| - | - | - | - |
+| 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
+| 2017-03-01 | Preview | All |<li>Initial release
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
@@ -229,6 +225,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## Next steps 
 
+- Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) for a demo. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).

@@ -16919,6 +16919,16 @@
             "source_path": "articles/store-new-relic-cloud-services-dotnet-application-performance-management.md",
             "redirect_url": "/azure/application-insights/",
             "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/app-service/containers/quickstart-go.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
+            "redirect_document_id": false
     }
    ]
 }
