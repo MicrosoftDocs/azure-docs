@@ -58,7 +58,7 @@
   - name: Azure PowerShell
     href: app-service-powershell-samples.md
   - name: Resource Manager templates
-    href: app-service-rm-templates-samples.md
+    href: app-service-rm-template-samples.md
 - name: Concepts
   items:
   - name: How App Service works
