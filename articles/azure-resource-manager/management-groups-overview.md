@@ -20,6 +20,8 @@ ms.author: rithorn
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 
+**Note:**Azure Policy support for management groups is not immediately available, but it will be release in the coming weeks.  
+
 As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section.  
@@ -67,7 +69,7 @@ While any [built-in RBAC role](../active-directory/role-based-access-control-wha
 To Learn more about management groups, see: 
 - [Create management groups to organize Azure resources](management-groups-create.md)
 - [How to change, delete, or manage your management groups](management-groups-manage.md)
-- [Review the Azure Powershell module]()
+- [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Review the command-line tool spec]()
+- [Install the Azure CLI Extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 
