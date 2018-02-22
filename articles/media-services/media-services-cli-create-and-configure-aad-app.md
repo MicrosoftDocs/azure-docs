@@ -40,7 +40,7 @@ For more information, see [Overview of Azure Cloud Shell](../cloud-shell/overvie
 ```azurecli
 az login
 az ad sp create-for-rbac --name <appName> --password <strong password>
-az role assignment create -- assignee < user/app id> --role Contributor --scope <subscription/subscription id>
+az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
 For example:
