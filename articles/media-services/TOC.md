@@ -36,8 +36,11 @@
 #### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 ## [Configure Postman](media-rest-apis-with-postman.md)
-### [Environment](postman-environment.md)
-### [Collection](postman-collection.md)
+### On-demand streaming
+#### [Environment](postman-environment.md)
+#### [Collection](postman-collection.md)
+### Live streaming
+#### [Collection](postman-live-streaming-collection.md)
 ## Upload content
 ### Upload files into an account
 #### [Azure portal](media-services-portal-upload-files.md)
@@ -171,6 +174,7 @@
 #### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
+### [Process with Content Moderator](media-services-content-moderation.md)
 
 ## [Configure telemetry](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

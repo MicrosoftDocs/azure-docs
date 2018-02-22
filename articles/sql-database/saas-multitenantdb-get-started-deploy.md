@@ -19,15 +19,15 @@ ms.author: "genemi"
 ---
 # Deploy and explore a sharded multi-tenant application that uses Azure SQL Database
 
-In this tutorial, you deploy and explore a sample SaaS multi-tenant database application that is named Wingtip Tickets. The Wingtip app is designed to showcase features of Azure SQL Database that simplify the implementation of SaaS scenarios.
+In this tutorial, you deploy and explore a sample  multi-tenant SaaS application that is named Wingtip Tickets. The Wingtip Tickets app is designed to showcase features of Azure SQL Database that simplify the implementation of SaaS scenarios.
 
-This implementation of Wingtips uses a sharded multi-tenant database pattern. The sharding is by tenant identifier. Tenant data is distributed to a particular database according to the tenant identifier values. No matter how many tenants any given database contains, all databases are multi-tenant in the sense that the table schemas include a tenant identifier. 
+This implementation of the Wingtip Tickets app uses a sharded multi-tenant database pattern. The sharding is by tenant identifier. Tenant data is distributed to a particular database according to the tenant identifier values. 
 
 This database pattern allows you to store one or more tenants in each shard or database. You can optimize for lowest cost by having each database be shared by multiple tenants. Or you can optimize for isolation by having each database store only one tenant. Your optimization choice can be made independently for each specific tenant. Your choice can be made when the tenant is first stored, or you can change your mind later. The application is designed to work well either way.
 
 #### App deploys quickly
 
-The deployment section that follows provides the blue **Deploy to Azure** button. When the button is pressed, the Wingtip app is fully deployed a five minutes later. The Wingtip app runs in the Azure cloud and uses Azure SQL Database. Wingtip is deployed to your Azure subscription. You have full access to work with the individual application components.
+The app runs in the Azure cloud and uses Azure SQL Database. The deployment section that follows provides the blue **Deploy to Azure** button. When the button is pressed, the app is fully deployed to your Azure subscription within five minutes. You have full access to work with the individual application components.
 
 The application is deployed with data for three sample tenants. The tenants are stored together in one multi-tenant database.
 
@@ -36,7 +36,7 @@ Anyone can download the C# and PowerShell source code for Wingtip Tickets from [
 #### Learn in this tutorial
 
 > [!div class="checklist"]
-> - How to deploy the Wingtip SaaS application.
+> - How to deploy the Wingtip Tickets SaaS application.
 > - Where to get the application source code, and management scripts.
 > - About the servers and databases that make up the app.
 > - How tenants are mapped to their data with the *catalog*.
@@ -55,11 +55,11 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 #### Plan the names
 
-In the steps of this section, there are two places where you must enter names for you as a *user* and for your new *resource group*. For a person named *Ann Finley*, we suggest the following names:
-- *User:* &nbsp; **af1** &nbsp; *(Her initials, plus a digit.)*
-- *Resource group:* &nbsp; **wingtip-af1** &nbsp; *(We recommend all lowercase. Append a hyphen then the user name.)*
+In the steps of this section, you provide a *user* value that is used to ensure resource names are globally unique, and a name for the *resource group* which contains all the resources created by a deployment of the app. For a person named *Ann Finley*, we suggest:
+- *User:* **af1**  *(Her initials, plus a digit. Use a different value (e.g. af2) if you deploy the app a second time.)*
+- *Resource group:* **wingtip-dpt-af1** *(wingtip-dpt indicates this is the database-per-tenant app. Appending the user name af1 correlates the resource group name with the names of the resources it contains.)*
 
-Choose your names now, and write them down.
+Choose your names now, and write them down. 
 
 #### Steps
 
@@ -68,7 +68,7 @@ Choose your names now, and write them down.
 
     [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Enter the required parameter values for the deployment.
+1. Enter the required parameter values for the deployment.
 
     > [!IMPORTANT]
     > For this demonstration, do not use any pre-existing resource groups, servers, or pools. Instead, choose **Create a new resource group**. Delete this resource group when you are finished with the application to stop related billing.
@@ -78,12 +78,12 @@ Choose your names now, and write them down.
         - Select a **Location** from the drop-down list.
     - For **User** - We recommend that you choose a short **User** value.
 
-3. **Deploy the application**.
+1. **Deploy the application**.
 
     - Click to agree to the terms and conditions.
     - Click **Purchase**.
 
-4. Monitor deployment status by clicking **Notifications**, which is the bell icon to the right of the search box. Deploying the Wingtip app takes approximately five minutes.
+1. Monitor deployment status by clicking **Notifications**, which is the bell icon to the right of the search box. Deploying the Wingtip app takes approximately five minutes.
 
    ![deployment succeeded](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -123,7 +123,7 @@ Each venue gets a personalized web app to list their events and sell tickets. Ea
 A central **Events Hub** webpage provides a list of links to the tenants in your particular deployment. Use the following steps to experience the **Events Hub** webpage and an individual web app:
 
 1. Open the **Events Hub** in your web browser:
-    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Replace &lt;USER&gt; with your deployment's user value.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +135,7 @@ A central **Events Hub** webpage provides a list of links to the tenants in your
 
 To control the distribution of incoming requests, the Wingtip app uses [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). The events page for each tenant includes the tenant name in its URL. Each URL also includes your specific User value. Each URL obeys the shown format by using the following steps:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. The events app parses the tenant name from the URL. The tenant name is *fabrikamjazzclub* in the preceding example URL.
 2. The app then hashes the tenant name to create a key to access a catalog using [shard map management](sql-database-elastic-scale-shard-map-management.md).
@@ -209,7 +209,7 @@ Now we look at some of the resources that were deployed:
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Click **catalog-mt&lt;USER&gt;** server. The catalog server contains two databases named *tenantcatalog* and *basetenantdb*. The *basetenantdb* database is an empty template database. It is copied to create a new tenant database, whether used for many tenants or just one tenant.
+2. Click **catalog-mt&lt;user&gt;** server. The catalog server contains two databases named *tenantcatalog* and *basetenantdb*. The *basetenantdb* database is an empty template database. It is copied to create a new tenant database, whether used for many tenants or just one tenant.
 
    ![catalog server](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -224,13 +224,13 @@ Now we look at some of the resources that were deployed:
 
 If the load generator has been running for several minutes, enough telemetry is available to look at the database monitoring capabilities built into the Azure portal.
 
-1. Browse to the **tenants1-mt&lt;USER&gt;** server, and click **tenants1** to view resource utilization for the database that has four tenants in it. Each tenant is subject to a sporadic heavy load from the load generator:
+1. Browse to the **tenants1-mt&lt;user&gt;** server, and click **tenants1** to view resource utilization for the database that has four tenants in it. Each tenant is subject to a sporadic heavy load from the load generator:
 
    ![monitor tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    The DTU utilization chart nicely illustrates how a multi-tenant database can support an unpredictable workload across many tenants. In this case, the load generator is applying a sporadic load of roughly 30 DTUs to each tenant. This load equates to 60% utilization of a 50 DTU database. Peaks that exceed 60% are the result of load being applied to more than one tenant at the same time.
 
-2. Browse to the **tenants1-mt&lt;USER&gt;** server, and click the **salixsalsa** database. You can see the resource utilization on this database that contains only one tenant.
+2. Browse to the **tenants1-mt&lt;user&gt;** server, and click the **salixsalsa** database. You can see the resource utilization on this database that contains only one tenant.
 
    ![salixsalsa database](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 

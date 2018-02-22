@@ -1,12 +1,12 @@
 ---
-title: Use Azure Active Directory B2C to protect a ASP.NET Web API tutorial
-description: Tutorial on hout to use Active Directory B2C to protect an ASP.NET web api and call it from an ASP.NET web app.
+title: Use Azure Active Directory B2C to protect an ASP.NET Web API tutorial
+description: Tutorial on how to use Active Directory B2C to protect an ASP.NET web api and call it from an ASP.NET web app.
 services: active-directory-b2c
-author: patricka
+author: PatAltimore
 
 ms.author: patricka
 ms.reviewer: saraford
-ms.date: 1/23/2017
+ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
@@ -14,7 +14,7 @@ ms.service: active-directory-b2c
 
 # Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API
 
-This tutorial shows you through how to call an Azure Active Directory (AD) B2C protected web API resource from an ASP.NET web app.
+This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C protected web API resource from an ASP.NET web app.
 
 In this tutorial, you learn how to:
 
@@ -93,17 +93,17 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 1. In the Azure portal, select **Azure AD B2C** from the services list and click **Applications** to view the registered app list.
 
-2. Select `My Sample Web App` from the app list and click **API access (Preview)** then **Add**.
+2. Select **My Sample Web App** from the app list and click **API access (Preview)** then **Add**.
 
-3. In the **Select API** dropdown, select your registered web API `My Sample Web API`.
+3. In the **Select API** dropdown, select your registered web API **My Sample Web API**.
 
 4. In the **Select Scopes** dropdown, select the scopes you defined in the web API registration.
 
-![selecting scopes for app](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
+    ![selecting scopes for app](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
 
 5. Click **OK**.
 
-Your `My Sample Web App` is registered to call the protected `My Sample Web API`. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the web app. The web app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
+Your **My Sample Web App** is registered to call the protected **My Sample Web API**. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the web app. The web app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
 ## Update web API code
 
@@ -119,7 +119,7 @@ There are two projects in the sample solution:
 
 The sample web app and web API define the configuration values as app settings in each project's Web.config file.
 
-Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
+Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
 ### Configure the web app
 
@@ -157,20 +157,20 @@ Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
 
 4. Update the policy setting with the name generated when you created your sign up and sign in policy.
 
-```C#
-<add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
-```
+    ```C#
+    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    ```
 
 5. Configure the scopes setting to match what you created in the portal.
 
-```C#
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ## Run the sample web app and web API
 
-You need to run both the `TaskWebApp` and `TaskService` projects. 
+You need to run both the **TaskWebApp** and **TaskService** projects. 
 
 1. In Solution Explorer, right-click on the solution and select **Set StartUp Projects...**. 
 2. Select **Multiple startup projects** radio button.
@@ -189,7 +189,7 @@ When you create a to-do list item, the web app makes a request to the web API to
 
 You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## Next Steps
+## Next steps
 
 This article walked you through protecting a ASP.NET web API by registering and defining scopes in Azure AD B2C. To learn more details about developing this scenario including code walkthroughs, continue to the next tutorial.
 

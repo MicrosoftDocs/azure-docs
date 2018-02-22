@@ -6,15 +6,15 @@ author: PatAltimore
 
 ms.author: patricka
 ms.reviewer: saraford
-ms.date: 1/23/2017
+ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Tutorial: Authenticate Users with Azure Active Directory B2C in an ASP.NET Web App
+# Tutorial: Authenticate users with Azure Active Directory B2C in an ASP.NET web app
 
-This tutorial shows you how to use Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app. Azure Active Directory (AD) B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
+This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign in and sign up users in an ASP.NET web app. Azure AD B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Create your own [Azure AD B2C Tenant](active-directory-b2c-get-started)
+* Create your own [Azure AD B2C Tenant](active-directory-b2c-get-started.md)
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 
 ## Register web app
@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 1. Select **Azure AD B2C** from the services list in the Azure portal.
 
-2. In the B2C settings, click **Applications** and then click **+ Add**.
+2. In the B2C settings, click **Applications** and then click **Add**.
 
     To register the sample web app in your tenant, use the following settings.
 
@@ -150,9 +150,9 @@ There are two projects in the sample solution:
 
 You need to change the app to use the app registration in your tenant. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
 
-1. Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
+1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
-2. In the `TaskWebApp` web app project, open the **Web.config** file and make the following updates:
+2. In the **TaskWebApp** web app project, open the **Web.config** file and make the following updates:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -197,7 +197,7 @@ Now the user can use their email address to sign in and use the web app.
 
 You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API protected by your Azure AD B2C tenant.
 

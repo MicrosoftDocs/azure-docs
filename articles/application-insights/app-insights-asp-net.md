@@ -25,7 +25,7 @@ Setup takes just a few clicks in Visual Studio. You have the option to avoid cha
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
 
-- Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+- Install [Visual Studio 2017 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
 

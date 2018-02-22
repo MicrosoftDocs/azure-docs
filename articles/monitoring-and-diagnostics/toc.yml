@@ -41,7 +41,7 @@
       href: monitoring-overview-autoscale.md
     - name: Activity log
       href: monitoring-overview-activity-logs.md
-    - name: Activity log (Preview)
+    - name: Activity log alerts (Preview)
       href: monitoring-activity-log-alerts-new-experience.md
     - name: Action groups
       href: monitoring-action-groups.md
