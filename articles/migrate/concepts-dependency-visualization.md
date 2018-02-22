@@ -31,7 +31,7 @@ To use dependency visualization, you need to download and install agents on each
 
 ## Do I need to pay for it?
 
-Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/). 
+Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## How do I manage the workspace?
 
