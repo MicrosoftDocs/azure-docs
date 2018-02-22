@@ -25,7 +25,7 @@ Also known as deep neural networks (DNN), these methods are inspired by the indi
 
 The impact of unscheduled equipment downtime can be detrimental for any business. It's critical to keep field equipment running to maximize utilization and performance and minimize costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
-A predictive maintenance (PM) strategy uses machine learning methods to determine the condition of equipment to pre-emptively perform maintenance to avoid adverse machine performance. In PM, data is collected over time to monitor the state of the machine and then analyzed to find patterns to predict failures. [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks are attractive for this setting since they're designed to learn from sequences of data.
+A predictive maintenance (PM) strategy uses machine learning methods to determine the condition of equipment to preemptively perform maintenance to avoid adverse machine performance. In PM, data is collected over time to monitor the state of the machine and then analyzed to find patterns to predict failures. [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks are attractive for this setting since they're designed to learn from sequences of data.
 
 ### Cortana Intelligence Gallery GitHub repository
 
@@ -93,7 +93,7 @@ The example notebooks are stored in the Code directory. The notebooks are set up
 
 The template uses three data sets as inputs in the files PM_train.txt, PM_test.txt, and PM_truth.txt. 
 
-- **Train data**: The aircraft engine run-to-failure data. The train data (PM_train.txt) consists of multiple, multi-variate time series with *cycle* as the time unit. It includes 21 sensor readings for each cycle. 
+- **Train data**: The aircraft engine run-to-failure data. The train data (PM_train.txt) consists of multiple, multivariate time series with *cycle* as the time unit. It includes 21 sensor readings for each cycle. 
 
     - Each time series is generated from a different engine of the same type. Each engine starts with different degrees of initial wear and some unique manufacturing variation. This information is unknown to the user. 
 
