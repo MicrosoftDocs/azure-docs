@@ -1,6 +1,6 @@
 ---
 title: Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
-description: Network Performance Monitor in Azure Log Analytics helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks.
+description: The ExpressRoute Manager capability in Network Performance Monitor allows you to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -27,6 +27,7 @@ The ExpressRoute Manager capability in [Network Performance Monitor](log-analyti
 ![ExpressRoute Monitor](media/log-analytics-network-performance-monitor/expressroute-intro.png)
 
 ## Configuration 
+To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and click the **Configure** button.
 
 ### Configure NSG rules 
 For the servers in Azure that are being used for the monitoring via NPM, you must configure network security group (NSG) rules to allow TCP traffic on the port used by NPM for synthetic transactions. The default port is 8084. This allows the OMS agent installed on Azure VM to communicate with an on-premises monitoring agents. 
@@ -38,25 +39,19 @@ For more information about NSG, see [Network Security Groups](../virtual-netwo
 
  
 ### Discover ExpressRoute Peering connections 
-
-Move to NPM’s Configuration page by clicking on the Configuration button located on the upper left side corner of the solution dashboard.  
-
  
 1. Click on the **ExpressRoute Peerings** view.  
-2. Click on the **Discover Now** button to discover all the ExpressRoute private peerings that are connected to the VNETs in the Azure subscription linked with this OMS workspace.  
-
->[!NOTE]  
-> The ExpressRoute peering discovery works only in the Azure portal. In case you are accessing the solution from OMS portal, you will need to open the Azure portal and trigger discovery from there. Once the ExpressRoute peerings are discovered, you can continue to use the solution from either of the two portals.  
+2. Click on the **Discover Now** button to discover all the ExpressRoute private peerings that are connected to the VNETs in the Azure subscription linked with this Log Analytics workspace.  
 
 >[!NOTE]  
 > The solution currently discovers only ExpressRoute private peerings. 
 
 >[!NOTE]  
-> Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this OMS workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you will need to create an OMS workspace in those subscriptions and use NPM to monitor those peerings. 
+> Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this Log Analytics workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you will need to create a Log Analytics workspace in those subscriptions and use NPM to monitor those peerings. 
 
-![ExpressRoute Monitor Configure](media/log-analytics-network-performance-monitor/expressroute-configure.png)
+ ![ExpressRoute Monitor Configure](media/log-analytics-network-performance-monitor/expressroute-configure.png)
  
-Once the discovery is complete, the discovered private peering connections will be listed in a table. The monitoring for these peerings will initially be in disabled state. 
+ Once the discovery is complete, the discovered private peering connections will be listed in a table. The monitoring for these peerings will initially be in disabled state. 
 
 ### Enable monitoring of the ExpressRoute peering connections 
 
@@ -77,7 +72,7 @@ After enabling the rules and selecting the values and agents you want to monitor
 
 ## Walkthrough 
 
-The NPM dashboard shows an overview of the health of ExpressRoute circuits and peering connections. 
+The Network Performance Monitoring dashboard shows an overview of the health of ExpressRoute circuits and peering connections. 
 
 ![NPM Dashboard ExpressRoute](media/log-analytics-network-performance-monitor/npm-dashboard-expressroute.png) 
 
@@ -114,7 +109,7 @@ This view shows VNet connections. 
 
 ### Diagnostics 
 
-NPM helps you diagnose several circuit connectivity issues. Some of the issues are listed below 
+Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues are listed below 
 
 **Circuit is down.** NPM notifies you as soon as the connectivity between your on-premises resources and Azure VNETs is lost. This will help you take proactive action before receiving user escalations and reduce the down time 
 

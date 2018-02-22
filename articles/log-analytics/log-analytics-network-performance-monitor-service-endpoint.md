@@ -1,6 +1,6 @@
 ---
 title: Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
-description: Network Performance Monitor in Azure Log Analytics helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks.
+description: The Service Endpoint Manager capability in Network Performance Monitor allows you to monitor network connectivity to any endpoint that has an open TCP port.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -18,7 +18,9 @@ ms.author: magoedte
 ---
 # Service Endpoint Manager
 
-The Service Endpoint Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, SQL databases, etc. With **Service Endpoint Monitor**, you can: 
+The Service Endpoint Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, SQL databases, etc. 
+
+You can perform the following functions with **Service Endpoint Monitor**: 
 
 - Monitor the network connectivity to your applications and network services (such as Office 365, Dynamics CRM, internal line of business applications, SQL database, etc) from multiple branch offices/locations 
 - Built-in tests to monitor network connectivity to Office365 and Dynamics365 endpoints 
@@ -31,6 +33,10 @@ The Service Endpoint Manager capability in [Network Performance Monitor](log-ana
 
 
 ## Configuration 
+To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and click the **Configure** button.
+
+![Network Performance Monitor configure](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+
 
 ### Configure OMS agents for the monitoring.  
 Enable the following firewall rules on the nodes used for monitoring so that the solution can discover the topology from your nodes to the service endpoint: 
@@ -46,18 +52,15 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 ### Create Service Endpoint Monitor tests 
 
-Move to NPM’s Configuration page by clicking on the Configuration  button located on the upper left side corner of the solution dashboard.  
-
- 
-
 Start creating your tests to monitor network connectivity to the service endpoints 
 
 1. Click on the **Service Endpoint Monitor** tab.
 2. Click **Add Test** and enter the Test name and description. 
 3. Select the type of test:<br>Select **Web test** if you are monitoring connectivity to a service that responds to HTTP/S requests, such as outlook.office365.com, bing.com.<br>Select **Network test** if you are monitoring connectivity to a service that responds to TCP request but does not respond to HTTP/S request, such as a SQL server, FTP server, SSH port etc. 
 4. If you do not wish to perform network measurements (network latency, packet loss, topology discovery), then uncheck the textbox. We recommend you keep it checked to get maximum benefit from the capability. 
-5. Enter the target URL/FQDN/IP Address to which you want to monitor network connectivity.  6. Enter the port number of the target service. 
-7. Enter the frequency with which you want the test to run. 
+5. Enter the target URL/FQDN/IP Address to which you want to monitor network connectivity.  
+6. Enter the port number of the target service. 
+7. Enter the frequency you want the test to run. 
 8. Select the nodes from which you want to monitor the network connectivity to service. 
 
     >[!NOTE]
@@ -67,13 +70,13 @@ Start creating your tests to monitor network connectivity to the service endpoin
 10. Choose monitoring conditions. You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated. 
 11. Click **Save** to save the configuration. 
 
-![Service Endpoint Monitor Configuration](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+ ![Service Endpoint Monitor Configuration](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
-You can click **Manage Alert** to edit the alert settings. It can take some time for the changes to take place. Move to the Network Performance Monitor dashboard to see the **Service Endpoint Monitoring** page. You can now click on the page and start using the preview capability. 
+
 
 ## Walkthrough 
 
-Move to the NPM dashboard view and observe the **Service Endpoint Monitor** page to get a summary of the health of the different tests you’ve created.  
+Move to the Network Performance Monitoring dashboard view and observe the **Service Endpoint Monitor** page to get a summary of the health of the different tests you’ve created.  
 
 ![Service Endpoint Monitor Page](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

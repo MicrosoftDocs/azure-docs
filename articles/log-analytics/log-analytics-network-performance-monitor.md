@@ -27,13 +27,13 @@ NPM detects network issues like traffic blackholing, routing errors, and issues 
 
 NPM offers three broad capabilities: 
 
-**Performance Monitor:** Monitor network connectivity across cloud deployments and on-premises locations, multiple data centers and branch offices, mission critical multi-tier applications/micro-services. With Performance Monitor, you can detect network issues before your users complain.  
+[Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md): Monitor network connectivity across cloud deployments and on-premises locations, multiple data centers and branch offices, mission critical multi-tier applications/micro-services. With Performance Monitor, you can detect network issues before your users complain.  
 
-**Service Endpoint Monitor:** You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and where network bottlenecks are occurring. Know about outages before your users and see the exact location of the issues along your network path. 
+[Service Endpoint Monitor](log-analytics-network-performance-monitor-service-endpoint.md): You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and where network bottlenecks are occurring. Know about outages before your users and see the exact location of the issues along your network path. 
 
 This capability helps you perform http, https, tcp and icmp based tests to monitor in near real time or historically the availability and response time of your service, and the contribution of the network in packet loss and latency. With network topology map, you will be able to isolate network slowdowns by identifying problem spots that occur along the network path from the node to the service, with latency data on each hop. With Built-in tests, monitor network connectivity to Office365 and Dynamics CRM without any pre-configuration. With this capability, you can monitor network connectivity to any TCP capable endpoint such as websites, SaaS, PaaS applications, SQL databases, etc.  
 
-**￼ExpressRoute Monitor:** Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
+[￼ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
  
 
 ## Set up and configure
@@ -46,13 +46,13 @@ Use the basic processes to install agents at [Connect Windows computers to Log A
 
 **Performance Monitor:** Install OMS agents on at least one node connected to each subnetwork from which you want to monitor network connectivity to other subnetworks.  
 
-If you are unsure about the topology of your network, install the agents on servers with critical workloads between which you want to monitor the network performance. For example, if you want to monitor network connection between a Web server and a server running SQL, install an agent on both servers. Agents monitor network connectivity (links) between hosts  not the hosts themselves. So, to monitor a network link, you must install agents on both endpoints of that link.  
+To monitor a network link, you must install agents on both endpoints of that link.  If you are unsure about the topology of your network, install the agents on servers with critical workloads between which you want to monitor the network performance. For example, if you want to monitor network connection between a Web server and a server running SQL, install an agent on both servers. Agents monitor network connectivity (links) between hosts  not the hosts themselves. 
 
 **Service Endpoint Monitor:** Install OMS agent on each node from which you want to monitor the network connectivity to the service endpoint. For example, if you intend to monitor network connectivity to Office365 from your office site O1, O2 and O3, then install the OMS agent on at least one node each in O1, O2 and O3. 
 
 **ExpressRoute Monitor:** Install at least one OMS agent in your Azure VNET and at least one agent in your on-premises subnetwork which are connected through the ExpressRoute Private Peering.  
 
-### Configure OMS agents for the monitoring  
+### Configure OMS agents for monitoring  
 
 NPM uses synthetic transactions to monitor network performance between source and destination agents. The solution offers a choice between TCP and ICMP as the protocol for monitoring in case of Performance Monitor and Service Endpoint Monitor capabilities, whereas TCP is used for ExpressRoute Monitor. You need to ensure that the firewall allows communication between the OMS agents being used for monitoring on the protocol you’ve chosen for monitoring.  
 
@@ -84,39 +84,37 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 ### Configure the solution 
 
 1. Add the Network Performance Monitor solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
-2. Navigate to the NetworkMonitoring(<WorkspaceName>) resource that you created. Click on the tile titled **Network Performance Monitor** with the message _Solution requires additional configuration.
+2. Open your Log Analytics workspace and click on the **Overview** tile.  
+3. Click on the tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*.
     ![NPM Tile](media/log-analytics-network-performance-monitor/npm-config.png)
-3. On the **SETUP** page, you will see the option to install OMS agents and configure the agents for monitoring in the **Common Settings** view. As explained above , if you’ve already installed and configured OMS agents, then click on the **SETUP** View for configuring the capability you are interested in using.  
+3. On the **Setup** page, you will see the option to install OMS agents and configure the agents for monitoring in the **Common Settings** view. As explained above , if you’ve already installed and configured OMS agents, then click on the **Setup** View for configuring the capability you are interested in using.  
 
     **Performance Monitor View** - Choose what protocol should be used for synthetic transactions in the Default performance monitor rule and click on Save and Continue. Note that this protocol selection only holds for the system-generated default rule, and you will need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the Default rule settings in the Performance Monitor tab (this will appear after you complete your day-0 configuration) and change the protocol later. In case you aren’t interested in the Perfomance Monitor capability, you can disable the default rule from the Default rule settings in the Performance Monitor tab. 
 
     ![NPM Configuration](media/log-analytics-network-performance-monitor/npm-synthetic-transactions.png)
     
-    **Service Endpoint Monitor View** - The capability provides built-in preconfigured tests to monitor network connectivity to Office365 and Dynamcis365 from your agents. Choose the Office365 and Dynamcis365 services that you are interested in monitoring by checking the checkbox beside them. Choose the agents from which you want to monitor, by clicking on the Add Agents button. If you don’t want to use this capability or want to set it up later, you can choose to skip this and directly click on Save and Continue without choosing anything.  
+    **Service Endpoint Monitor View** - The capability provides built-in preconfigured tests to monitor network connectivity to Office365 and Dynamcis365 from your agents. Choose the Office365 and Dynamcis365 services that you are interested in monitoring by checking the checkbox beside them. Choose the agents from which you want to monitor, by clicking on the Add Agents button. If you don’t want to use this capability or want to set it up later, you can choose to skip this and directly click on **Save** and **Continue** without choosing anything.  
 
     ![NPM Configuration](media/log-analytics-network-performance-monitor/npm-service-endpoint-monitor.png)
 
-    **ExpressRoute Monitor View** - Click on the Discover Now button to discover all the ExpressRoute private peerings that are connected to the VNETs in the Azure subscription linked with this OMS workspace.  
+    **ExpressRoute Monitor View** - Click on the **Discover Now** button to discover all the ExpressRoute private peerings that are connected to the VNETs in the Azure subscription linked with this Log Analytics workspace.  
 
 
->[!NOTE] 
-> The ExpressRoute peering discovery works only in the Azure portal. In case you are accessing the solution from OMS portal, you will need to open the Azure portal and trigger discovery from there. Once the ExpressRoute peerings are discovered, you can continue to use the solution from either of the two portals.  
+    >[!NOTE] 
+    > The solution currently discovers only ExpressRoute private peerings. 
 
->[!NOTE] 
-> The solution currently discovers only ExpressRoute private peerings. 
+    >[!NOTE] 
+    > Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this Log Analytics workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you will need to create a Log Analytics workspace in those subscriptions and use NPM to monitor those peerings. 
 
->[!NOTE] 
-> Only those private peerings are discovered which are connected to the VNETs associated with the subscription linked with this OMS workspace. If your ExpressRoute is connected to VNETs outside of the subscription linked to this workspace, you will need to create an OMS workspace in those subscriptions and use NPM to monitor those peerings. 
+    ![NPM Configuration](media/log-analytics-network-performance-monitor/npm-express-route.png)
 
-![NPM Configuration](media/log-analytics-network-performance-monitor/npm-express-route.png)
+    Once the discovery is complete, the discovered private peerings will be listed in a table.  
 
-Once the discovery is complete, the discovered private peerings will be listed in a table.  
+    ![NPM Configuration](media/log-analytics-network-performance-monitor/npm-private-peerings.png)
+    
+    The monitoring for these peerings will initially be in disabled state. Click on each peering that you are interested in monitoring and configure monitoring for them from the right-hand side (RHS) details view.  Click on Save button to save the configuration. See [Configure ExpressRoute monitoring]() to learn more.  
 
-![NPM Configuration](media/log-analytics-network-performance-monitor/npm-private-peerings.png)
- 
-The monitoring for these peerings will initially be in disabled state. Click on each peering that you are interested in monitoring and configure monitoring for them from the right-hand side (RHS) details view.  Click on Save button to save the configuration. See [Configure ExpressRoute monitoring]() to learn more.  
-
-Once the setup is complete, it takes 30 minutes to an hour for the data to populate. While the solution is aggregating data from your network, you will see ‘Solution requires additional configuration’ on the NPM overview tile. Once the data is collected and indexed, the overview tile will change and inform you the summary of the health of your network. You can then choose to edit the monitoring of the nodes on which OMS agents are installed, as well as the subnets discovered from your environment 
+    Once the setup is complete, it takes 30 minutes to an hour for the data to populate. While the solution is aggregating data from your network, you will see ‘Solution requires additional configuration’ on the NPM overview tile. Once the data is collected and indexed, the overview tile will change and inform you the summary of the health of your network. You can then choose to edit the monitoring of the nodes on which OMS agents are installed, as well as the subnets discovered from your environment 
 
 #### Edit monitoring settings for subnets and nodes 
 
@@ -139,9 +137,9 @@ All the nodes that have an agent installed on them are listed in the **Nodes** t
 
 
 Configure the capability(s) you are interested in: 
-- Configure Performance Monitor 
-- Configure Service Endpoint Monitor 
-- Configure ExpressRoute Monitor 
+- Configure [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
+- Configure [Service Endpoint Monitor](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
+- Configure [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -231,7 +229,7 @@ Note that the topology shown in the map is layer 3 topology and doesn't contain 
 
 ## Log Analytics Search 
 
-All data that is exposed graphically through the NPM dashboard and drill down pages is also available natively in Log Analytics search. You can perform interactive analysis of data in the repository, corelate data from different sources, create custom alerts, create custom views and export the data to Excel, PowerBI or a shareable link. The Common Queries area in the dashboard has some useful queries that you can use as the starting point for creating your own queries and reports. 
+All data that is exposed graphically through the NPM dashboard and drill down pages is also available natively in [Log Analytics search](log-analytics-log-search-new.md). You can perform interactive analysis of data in the repository, corelate data from different sources, create custom alerts, create custom views and export the data to Excel, PowerBI or a shareable link. The Common Queries area in the dashboard has some useful queries that you can use as the starting point for creating your own queries and reports. 
 
  
 
@@ -242,7 +240,4 @@ All data that is exposed graphically through the NPM dashboard and drill down pa
 **Join our cohort** - We’re always interested in having new customers join our cohort. As part of it, you get early access to new features and help us improve Network Performance Monitor. If you're interested in joining, fill-out this [quick survey](https://aka.ms/npmcohort). 
 
 ## Next steps 
-- Learn more about Performance Monitor, Service Endpoint Monitor and ExpressRoute Monitor 
-- Search logs to view detailed network performance data records. 
-
- 
+- Learn more about [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md), [Service Endpoint Monitor](log-analytics-network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md). 
