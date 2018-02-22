@@ -26,6 +26,16 @@ Azure Storage Explorer (Preview) is a standalone app that enables you to easily 
 ## Prerequisites
 * [Download and install Storage Explorer (Preview)](http://www.storageexplorer.com)
 
+> [!NOTE]
+> For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
+> * libgconf-2-4
+> * libsecret
+> * Up-to-date GCC
+>
+> Depending on your distro, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
+>
+>
+
 ## Connect to a storage account or service
 Storage Explorer (Preview) provides several ways to connect to storage accounts. For example, you can:
 * Connect to storage accounts associated with your Azure subscriptions.
@@ -236,6 +246,20 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
 
     ![connection-string][22]
 
+ ## Connect to Azure Data Lake Store by URI
+If you want to get access to the resources, which do not exist in your subscription. But others grant you to get the Uri for the resources. In this case, you can connect to Data Lake Store using the Uri after you have signed in. Refer to following steps.
+1. Open Storage Explorer (Preview).
+2. In the left pane, expand **Local and Attached**.
+3. Right-click **Data Lake Store**, and - from the context menu - select **Connect to Data Lake Store...**.
+
+    ![connect to Data Lake Store context menu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Enter the Uri, then the tool navigates to the location of the URL you just entered.
+
+    ![connect to Data Lake Store context dialog](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![connect to Data Lake Store result](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## Search for storage accounts
 If you need to find a storage resource and do not know where it is, you can use the search box at the top of the left pane to search for the resource.
 
@@ -251,6 +275,7 @@ As you type in the search box, the left pane displays all resources that match t
 ## Next steps
 * [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md)
 * [Manage Azure Cosmos DB in Azure Storage Explorer  (Preview)](./cosmos-db/storage-explorer.md)
+* [Manage Azure Data Lake Store resources with Storage Explorer (preview)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png
