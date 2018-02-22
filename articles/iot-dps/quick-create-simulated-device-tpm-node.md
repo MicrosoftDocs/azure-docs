@@ -111,22 +111,11 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     npm init
     ```
 
-1. At your command prompt in the **registerdevice** folder, run the following command to install the **azure-iot-device-mqtt** and **azure-iot-security-tpm** packages:
+1. At your command prompt in the **registerdevice** folder, run the following command to install the **azure-iot-device-mqtt**, **azure-iot-security-tpm**, and **azure-iot-provisioning-device-http** packages:
    
     ```cmd/sh
-    npm install azure-iot-device-mqtt azure-iot-security-tpm --save
+    npm install azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http --save
     ```
-
-1. Install the **ffi** and **node-gyp** packages:
-
-    ```cmd/sh
-    npm install ffi -g
-    npm install node-gyp -g
-    ```
-
-    > [!NOTE]
-    > There are known issues to installing the above packages. To resolve most errors, run `npm install --global --production windows-build-tools` and `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version.
-    > 
 
 1. Using a text editor, create a new **RegisterDevice.js** file in the **registerdevice** folder.
 
