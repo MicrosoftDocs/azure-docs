@@ -12,26 +12,31 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/21/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
 
 ---
 
-# Register tenants for usage tracking in Azure Stack
+# Manage tenant registration in Azure Stack
 
 *Applies to: Azure Stack integrated systems*
 
-You can use PowerShell or the Billing API endpoints to manage your use tracking. This article contains details about operations you can use to manage your usage tracking. You can find details about how to add, list, or remove tenant mappings.
+This article contains details about operations you can use to manage your tenant registrations, and how tenant usage is tracked. You can find details about how to add, list, or remove tenant mappings.You can use PowerShell or the Billing API endpoints to manage your use tracking.
 
 ## Add tenant to registration
 
-You can add or update the registration resource. If you want to change the subscription associated with a tenant, you can call PUT/New-AzureRMResource again. The old mapping will be overwritten.
+You will use this operation when you want to add a new tenant to your registration, so that their usage is reported under an Azure subscription connected with their Azure Active Directory (Azure AD) tenant.
+
+You can also use this operation if you want to change the subscription associated with a tenant, you can call PUT/New-AzureRMResource again. The old mapping will be overwritten.
+
+Please note that only one Azure subscription can be associated with a tenant. If you try to add a second subscription to an existing tenant, the first subscription will be over-written. 
+
 
 | Parameter                  | Description |
 |---                         | --- |
 | registrationSubscriptionID | The Azure subscription that was used for the initial registration. |
-| customerSubscriptionID     | The  Azure subscription (not Azure Stack) belonging to the customer to be registered. Must be created in the CSP offer. In practice, this means through Partner Center. If a customer has more than one tenant, this subscription must be created in the tenant that will be used to log into Azure Stack. |
+| customerSubscriptionID     | The  Azure subscription (not Azure Stack) belonging to the customer to be registered. Must be created in the Cloud Service Provider (CSP) offer. In practice, this means through Partner Center. If a customer has more than one tenant, this subscription must be created in the tenant that will be used to log into Azure Stack. |
 | resourceGroup              | The resource group in Azure in which your registration is stored. |
 | registrationName           | The name of the registration of your Azure Stack. It is an object stored in Azure. The name is usually in the form azurestack-CloudID, where CloudID is the Cloud ID of your Azure Stack deployment. |
 
@@ -107,10 +112,9 @@ api-version=2017-06-01 HTTP/1.1`
 }
 ```
 
-
 ## Remove a tenant mapping
 
-You can remove a tenant that has been added to a registration.
+You can remove a tenant that has been added to a registration. If that tenant is still using resources on Azure Stack, their usage will be charged to the subscription used in the initial Azure Stack registration.
 
 ### Parameters
 
@@ -122,8 +126,6 @@ You can remove a tenant that has been added to a registration.
 | customerSubscriptionId     | The customer subscription ID.  |
 
 ### PowerShell
-
-<Summary>
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

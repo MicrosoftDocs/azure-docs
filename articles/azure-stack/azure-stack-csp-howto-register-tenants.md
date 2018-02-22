@@ -1,5 +1,5 @@
 ---
-title: Register tenants in Azure Stack | Microsoft Docs
+title: Add tenants for usage and billing to Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -18,42 +18,35 @@ ms.reviewer: alfredo
 
 ---
 
-# Add tenants to Azure Stack
+# Add tenants for usage and billing to Azure Stack
 
 *Applies to: Azure Stack integrated systems*
 
-Registering tenants ensures that each tenant’s usage will be reported and billed against that tenant’s CSP subscription. If you do not go through this process, tenant usage will be charged to the subscription used in the initial registration.
+This article describes the step required to configure Azure Stack so that when a new tenant uses resources thier usage will be reported to the their Cloud Service Provider (CSP) subscription. 
+
+CSP often provides service to multiple customers (tenants) on their Azure Stack deployment. Registering tenants ensures that each tenant’s usage will be reported and billed to that tenant’s CSP subscription. If you do not complete the steps in this article, tenant usage will be charged to the subscription used in the initial registration of Azure Stack.
 
 ## Create a new customer in Partner Center
 
-Add the customer in Partner Center and creates an Azure subscription. For instruction, see [Add a new customer](https://msdn.microsoft.com/en-us/partner-center/add-a-new-customer).
+Add the customer in Partner Center and creates an Azure subscription. For instructions, see [Add a new customer](https://msdn.microsoft.com/en-us/partner-center/add-a-new-customer).
 
-## Enable new customer tenant in Azure Stack
+## Configure usage reporting by adding a new tenant to your registration
 
-1. Update the registration with the new customer’s subscription. This ensures usage is reported against the correct customer in Partner Center. 
+Update your registration with the new customer’s subscription. Azure will report the customer's usage using the customer identity from Partner Central. This step ensure that each customer’s usage is reported under that customer’s individual CSP subscription. This will make tracking user usage and billing much easier.
 
-2. Add the new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](/azure-stack-enable-multitenancy.md).
+> [!Note]  
+> To carry out this step, you must have [registered Azure Stack](azure-stack-register.md).
 
-
-## Log into Azure Stack using the principal tenant
-
-Add tenants to your registration.  
-
-1. Open Windows PowerShell with an elevated prompt, and run:
-
-    ```PowerShell
-        Login-AzureRmAccount
-    ```  
+1. Open Windows PowerShell with an elevated prompt, and run:  
+    `Login-AzureRmAccount`
 2. Type your Azure credentials.
-
-## Add new tenant to registration
-
-In your PowerShell session, run:
+3. In the PowerShell session, run:
 
 ```powershell
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
-| parameter | Description |
+### New-AzureRmResource PowerShell paramaters
+| Parameter | Description |
 | --- | --- | 
 |registrationSubscriptionID | The Azure subscription that was used for the initial registration. |
 | customerSubscriptionID | The Azure subscription (not Azure Stack) belonging to the customer to be registered. Must be created in the CSP offer. In practice, this means through Partner Center. If a customer has more than one tenant, this subscription must be created in the tenant that will be used to log into Azure Stack.
@@ -64,6 +57,9 @@ In your PowerShell session, run:
 > [!Note]  
 > Tenants need to be registered with each Azure Stack they use. If a tenant uses more than one Azure Stack, you need to update the initial registrations of each deployment with the tenant subscription.
 
+## Add the new tenant to Azure Stack
+
+Add the new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
 
 ## Next steps
 
