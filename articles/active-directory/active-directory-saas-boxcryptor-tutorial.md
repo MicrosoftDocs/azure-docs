@@ -160,7 +160,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Boxcryptor test user
 
-In this section, you create a user called Britta Simon in Boxcryptor. Work with [Boxcryptor support team](mailto:support@boxcryptor.com) to add the users in the Boxcryptor platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Boxcryptor. Work with [Boxcryptor support team](mailto:support@boxcryptor.com) to add the users or the domain which is needed to be whitelisted in the Boxcryptor platform. If the domain is added by the team, users will get automatically provisioned to the Boxcryptor platform Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
