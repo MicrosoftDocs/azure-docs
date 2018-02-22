@@ -47,9 +47,9 @@ az group create --name myResourceGroup --location eastus
 ## Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-This example creates a storage account named `mystorageaccount<random number>` and puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique, so we use `$RANDOM` to append a number to the end to make it unique. 
+This example creates a storage account named `mystorageaccount<random number>` and puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique, using `$RANDOM` to appends a number to the end to make it unique. 
 
-Create a new storage account, within the resource group that you created, that will be used to host the file share using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mystorageaccount* using locally redundant storage. When finished, it displays information about the new storage account in a table format.
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mystorageaccount* using locally redundant storage. When finished, it displays information about the new storage account in a table format.
 
 ```azurecli-interactive 
 az storage account create --resource-group myResourceGroup \
@@ -59,7 +59,7 @@ az storage account create --resource-group myResourceGroup \
 	--out table
 ```
 
-The output should list the name of the storage account. We will be using the name of the storage account in the rest of the steps in this article, so create a variable to hold the storage account name. In this example, our storage account name is *mystorageaccount12345*.
+The output should list the name of the storage account. We are using the name of the storage account in the rest of the steps in this article, so create a variable to hold the storage account name. In this example, the storage account name is *mystorageaccount12345*.
 
 ```azurecli-interactive
 STORAGEACCOUNT=mystorageaccount12345
@@ -75,7 +75,7 @@ az storage account keys list \
     --output table
 ```
 
-We will be using the storage account key in the rest of the steps in this article, so create a variable to hold the storage account key. Replace the value of the key with your own value for **key1**. 
+We are using the storage account key in the rest of the steps in this article, so create a variable to hold the storage account key. Replace the value of the key with your own value for **key1**. 
 
 ```azurecli-interactive
 STORAGEKEY=WaAD6NOz/BYR< snip - replace with your own key >Wv1pWjGOG1Q==
@@ -89,7 +89,7 @@ Now you can create your first file share. A storage account can contain an unlim
 
 Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-Create file shares using [az storage share create](/cli/azure/storage/share#create). This example creates a share named *myshare* with a 10 GiB quota. Be sure to enter your own storage account name and key.
+Create file shares using [az storage share create](/cli/azure/storage/share#create). This example creates a share named *myshare* with a 10-GiB quota. Be sure to enter your own storage account name and key.
 
 ```azurecli-interactive
 az storage share create --name myshare \
@@ -141,7 +141,7 @@ az storage file list \
 
 ## Download a file
 
-Use [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) to download a copy of the file you just uploaded to your Cloud Shell.
+Use [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) to download a copy of the file you uploaded to your Cloud Shell.
 
 This example downloads the *SampleUpload* file from your Azure file share to your Cloud Shell as a file named *SampleDownload.txt*.
 
@@ -229,7 +229,7 @@ jq '.[] | select(.name == "myshare") | select(.snapshot != null) | .snapshot' | 
 tr -d '"'
 ```
 
-Restore a file using [az storage file copy start](/cli/azure/storage/file/copy#az_storage_file_copy_start). For the purposes of this quickstart, we'll first delete our `SampleUpload.txt` file we previously uploaded so we can restore it from the snapshot.
+Restore a file using [az storage file copy start](/cli/azure/storage/file/copy#az_storage_file_copy_start).  First we'll first delete the `SampleUpload.txt` file we uploaded so we can restore it from the snapshot.
 
 ```azurecli-interactive
 # Delete SampleUpload.txt
