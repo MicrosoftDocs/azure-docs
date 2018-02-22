@@ -113,14 +113,14 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
 
 1. Launch Workbench by selecting the **Launch Workbench** button on the last screen of the installer. 
 
-   If you closed the installer, it's no problem. On Windows, just launch it using the **Machine Learning Workbench** desktop shortcut. For macOS users, simply select **Azure ML Workbench** in your Launchpad.
+   If you closed the installer, it's no problem. On Windows, just launch it using the **Machine Learning Workbench** desktop shortcut. For macOS users, select **Azure ML Workbench** in your Launchpad.
 
-2. On the first screen, select **Sign in** to authenticate with the Azure Machine Learning Workbench. Use the same credentials you used earlier when you signed into the Azure portal and created your Experimentation and Model Management accounts. 
+2. On the first screen, select **Sign in** to authenticate with the Azure Machine Learning Workbench. Use the same credentials you used in the Azure portal to create the Experimentation and Model Management accounts. 
 
-   Once you are signed in, Workbench looks for any Experimentation accounts across all of the Azure subscriptions linked to that sign-in.  Workbench uses the first Experimentation account it finds and displays all workspaces and projects associated with that account. 
+   Once you are signed in, Workbench uses the first Experimentation account it finds in your Azure subscriptions.  Workbench uses the first Experimentation account it finds and displays all workspaces and projects associated with that account. 
 
    >[!TIP]
-   > Switch to a different Experimentation account using the icon in the lower-left corner of the Workbench application window.
+   > You can switch to a different Experimentation account using the icon in the lower-left corner of the Workbench application window.
 
 ## Create a project in Workbench
 
@@ -181,7 +181,7 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
 The Azure command-line interface (CLI) 2.0 is also installed. The CLI interface allows you to access and interact with your Azure services using the `az` commands.  Specifically, there are commands Azure Machine Learning services users can use to perform all tasks required for an end-to-end data science workflow. [Learn more.](tutorial-iris-azure-cli.md)
 
-You can launch this CLI from the Workbench's toolbar using **File --> Open Commmand Prompt**.
+You can launch this CLI from the Workbench's toolbar using **File --> Open Command Prompt**.
 
 You can get help on commands in the CLI using the --help argument.
 
@@ -196,4 +196,4 @@ For a more in-depth experience of this workflow, including how to deploy your Ir
 > [Classifying Iris tutorial (Part 1)](tutorial-classifying-iris-part-1.md)
 
 >[!NOTE]
-> While you have your model management account, your environment is not completely set up for deploying web services.  Learn how to set up your [deployment environment](deployment-setup-configuration.md).
+> While you have your model management account, your environment is not set up for deploying web services yet.  Learn how to set up your [deployment environment](deployment-setup-configuration.md).
