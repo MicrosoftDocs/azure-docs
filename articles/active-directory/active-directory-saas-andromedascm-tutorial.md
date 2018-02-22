@@ -78,8 +78,6 @@ In this section, you configure and test Azure AD single sign-on with Andromeda S
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Andromeda SCM is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Andromeda SCM needs to be established.
 
-In Andromeda SCM, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with Andromeda SCM, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
@@ -123,11 +121,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	![Configure Single Sign-On attb](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
-	> [!NOTE]
+	> [!Important]
 	> Clear out the NameSpace definitions while setting these up.
-
-	> [!NOTE]
-	> There are not real values. These values are only for demo purpose, please use your organisation roles.
 	
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
@@ -136,6 +131,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| role 		  | DEMO |
 	| type 		  | DEFAULT |
 	| company       | COMP02    |
+
+	> [!NOTE]
+	> There are not real values. These values are only for demo purpose, please use your organisation roles.
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -191,7 +189,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
 	
-	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType** and **Role** are required. In this section we define attributes mapping (name and values) within Azure portal
+	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType** and **Role** are required. In this section we define attributes mapping (name and values) which correlate to those defined within Azure portal
 
 	![Andromeda SCM attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
