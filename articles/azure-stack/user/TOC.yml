@@ -45,12 +45,13 @@
         href: azure-stack-vm-considerations.md
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
+      - name: Protect VMs
+        href: azure-stack-manage-vm-backup.md
     - name: Storage
       items:
       - name: Overview
         href: azure-stack-storage-overview.md
       - name: Storage considerations
-        href: azure-stack-acs-differences.md
       - name: Storage development tools
         href: azure-stack-storage-dev.md
       - name: Data transfer tools
