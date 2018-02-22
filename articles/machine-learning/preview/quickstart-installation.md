@@ -23,6 +23,7 @@ This quickstart shows you how to:
 > * Log into Workbench with your experimentation account
 > * Create a project
 > * Run a script in that project  
+> * Access the command-line interface
 
 ## Prerequisites
 
@@ -106,7 +107,7 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
    |Windows|C:\Users\<user>\AppData\Local\AmlWorkbench|
    |macOS|/Applications/Azure ML Workbench.app|
 
-   The installer downloaded and setup all the necessary dependencies, such as Python, Miniconda, and other related libraries. You also now have the Azure command-line interface (CLI) installed. 
+   The installer downloaded and setup all the necessary dependencies, such as Python, Miniconda, and other related libraries. 
   
 ## Start and sign into Azure Machine Learning Workbench
 
@@ -176,6 +177,16 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
 3. Select a completed run in the Jobs pane to see a detailed view for that specific execution. Details include additional metrics, the files that it produced, and other potentially useful logs.
 
+## Start the command-line interface (CLI)
+
+The Azure command-line interface (CLI) 2.0 is also installed. The CLI interface allows you to access and interact with your Azure services using the `az` commands.  Specifically, there are commands Azure Machine Learning services users can use to perform all tasks required for an end-to-end data science workflow. [Learn more.](tutorial-iris-azure-cli.md)
+
+You can launch this CLI from the Workbench's toolbar using **File --> Open Commmand Prompt**.
+
+You can get help on commands in the CLI using the --help argument.
+
+```az ml --help```
+
 ## Next steps
 You have now created the necessary an Azure Machine Learning accounts and installed the Azure Machine Learning Workbench application. In that application, you have created a project, ran a script, and explored the run history of the script.
 
@@ -184,7 +195,5 @@ For a more in-depth experience of this workflow, including how to deploy your Ir
 > [!div class="nextstepaction"]
 > [Classifying Iris tutorial (Part 1)](tutorial-classifying-iris-part-1.md)
 
->[!TIP]
-> Switch to a different Experimentation account using the icon in the lower-left corner of the Workbench application window.
-
-You've set up only For information about creating an environment for deploying your web services, see [Deployment environment setup](deployment-setup-configuration.md).
+>[!NOTE]
+> While you have your model management account, your environment is not completely set up for deploying web services.  Learn how to set up your [deployment environment](deployment-setup-configuration.md).
