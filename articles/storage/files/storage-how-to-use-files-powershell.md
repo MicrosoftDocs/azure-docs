@@ -5,25 +5,28 @@ services: storage
 documentationcenter: ''
 author: wmgries	
 manager: klaasl
-editor: cynthn
+editor: 
 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2018
+ms.date: 02/22/2018
 ms.author: wgries
 ---
 
 # Managing Azure file shares with Azure PowerShell 
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. Learn how to:
-- Create a resource group and a storage account
-- Create an Azure file share within the storage account 
-- Create a directory within the share, and upload and download files to it
-- Copy files between Azure file shares
-- Work with share snapshots 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. In this article you learn how to:
+
+> [!div class="checklist"]
+> Create a resource group and a storage account
+> Create an Azure file share 
+> Create a directory
+> Upload a file
+> Download a file
+> Create and use a share snapshot
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -149,35 +152,32 @@ While the `Start-AzureStorageFileCopy` cmdlet is convenient simple moves between
 ----------------------------------------------------------------
 
 
-## Create and modify share snapshots (preview)
-One additional useful task you can do with an Azure file share is to create share snapshots (preview). A snapshot preserves a point in time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
+## Optional: Use snapshots
+A snapshot preserves a point in time copy of an Azure file share. File share snapshots are similar to other technologies you may already be familiar with like: 
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
 
-You can create a share snapshot for a share by using the `Snapshot` method on PowerShell object for a file share, which is retrieved with the [`Get-AzureStorageShare`](/powershell/module/azure.storage/get-azurestorageshare) cmdlet. 
+Create a share snapshot for a share by using the `Snapshot` method on a file share object. Get the file share object using the [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare) cmdlet. 
 
 ```azurepowershell-interactive
 $share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
 $snapshot = $share.Snapshot()
 ```
 
-## Browse share snapshots
-You can browse the contents of the share snapshot by passing the snapshot reference (`$snapshot`) to the `-Share` parameter of the `Get-AzureStorageFile` cmdlet.
+Browse the contents of the share snapshot by passing the snapshot reference **$snapshot** to the `-Share` parameter of the [Get-AzureStorageFile](/powershell/module/azure.storage/get-azurestoragefile) cmdlet.
 
 ```azurepowershell-interactive
 Get-AzureStorageFile -Share $snapshot
 ```
 
-## List share snapshots
-You can see the list of snapshots you've taken for your share with the following command.
+See the list of snapshots you've taken of your share using the [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare) cmdlet.
 
 ```azurepowershell-interactive
 Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
 ```
 
-## Restore from a share snapshot
-You can restore a file by using the `Start-AzureStorageFileCopy` command we used before. For the purposes of this quickstart, we'll first delete our `SampleUpload.txt` file we previously uploaded so we can restore it from the snapshot.
+Restore a file by using the [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. This example deletes the **SampleUpload.txt** file that was uploaded and then restores it from the snapshot.
 
 ```azurepowershell-interactive
 # Delete SampleUpload.txt
@@ -195,17 +195,6 @@ Start-AzureStorageFileCopy `
     -DestFilePath "myDirectory\SampleUpload.txt"
 ```
 
-### Delete a share snapshot
-You can delete a share snapshot by using the [`Remove-AzureStorageShare`](/powershell/module/azure.storage/remove-azurestorageshare) cmdlet, with the variable containing the `$snapshot` reference to the `-Share` parameter.
-
-```azurepowershell-interactive
-Remove-AzureStorageShare -Share $snapshot
-```
------------------------------------------------------------
-
-## Mounting the file share
-
-You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure PowerShell module.
 
 ## Clean up resources
 When you are done, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to remove the resource group and all related resources. 
@@ -214,21 +203,7 @@ When you are done, you can use the [Remove-AzureRmResourceGroup](/powershell/mod
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-You can alternatively remove resources one by one:
-
-- To remove the Azure file shares we created for this quickstart.
-```azurepowershell-interactive
-Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
-    Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
-}
-```
-
-- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).
-```azurepowershell-interactive
-Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
-```
 
 ## Next steps
-- [Managing file shares with Azure CLI](storage-quickstart-files-cli.md)
-- [Managing file shares with the Azure portal](storage-how-to-use-files-portal.md)
-- [Planning for an Azure Files deployment](storage-files-planning.md)
+
+You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure PowerShell module.
