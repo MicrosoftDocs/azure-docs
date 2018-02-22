@@ -56,12 +56,11 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 import com.microsoft.azure.eventhubs.*;
-import com.microsoft.azure.servicebus.*;
 
 public class Send
 {
     public static void main(String[] args) 
-            throws ServiceBusException, ExecutionException, InterruptedException, IOException
+            throws ExecutionException, IOException
     {
 ```
 
