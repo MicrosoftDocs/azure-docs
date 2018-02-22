@@ -72,7 +72,7 @@ To begin analyzing an image, set `image_url` to the URL of any image that you wa
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
 ```
 
-The following code uses the Python `requests` library to call out to the Computer Vision Analyze API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The types of features to recognize is passed in via the `params` dictionary. 
+The following code uses the Python `requests` library to call out to the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The types of features to recognize is passed in via the `params` dictionary. 
 
 To see the full list of options that you can use, see the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa).
 
