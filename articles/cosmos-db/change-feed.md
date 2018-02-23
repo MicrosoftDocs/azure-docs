@@ -153,7 +153,7 @@ This section walks through how to use the SQL SDK to work with a change feed.
     ```
 
 > [!NOTE]
-> In place of the pkRange.Id, you can specify a single partition key ID for which to get a change feed. For example, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> In place of the PartitionKeyRangeId, you can specify a single partition key ID for which to get a change feed. For example, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
 > 
 >
 
