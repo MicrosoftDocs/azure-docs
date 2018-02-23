@@ -94,7 +94,7 @@ This update includes the following improvements and fixes for Azure Stack.
 The following are post-installation known issues for build  **1802xx.x**
 
 #### Portal
-- The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use one of the following links:     
+- The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
 
 - It is not possible to edit storage metrics for blob, table, and queue in the administrator portal.
