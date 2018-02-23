@@ -62,6 +62,17 @@ For more information, see the following articles:
 * [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
 * [Blog post](https://aka.ms/NPMExRmonitorGA)
 
+## Service Endpoint Monitor
+
+With Service Endpoint monitoring, you can now test reachability of applications and detect performance bottlenecks across on-premises, carrier networks and cloud/private data centers.
+
+* Monitor end-to-end network connectivity to applications
+
+For more information, see the following articles:
+
+* [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
+* [Blog post](https://aka.ms/svcendptmonitor)
+
 ## Next steps
 
 * [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
