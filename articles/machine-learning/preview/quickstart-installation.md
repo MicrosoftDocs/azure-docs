@@ -107,11 +107,14 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
    |Windows|C:\Users\<user>\AppData\Local\AmlWorkbench|
    |macOS|/Applications/Azure ML Workbench.app|
 
-   The installer downloaded and setup all the necessary dependencies, such as Python, Miniconda, and other related libraries. 
+   The installer downloaded and setup all the necessary dependencies, such as Python, Miniconda, and other related libraries.    This installation also includes the Azure cross-platform command-line tool, or Azure CLI.
+
   
 1. Launch Workbench by selecting the **Launch Workbench** button on the last screen of the installer. 
 
-   If you closed the installer, it's no problem. On Windows, just launch it using the **Machine Learning Workbench** desktop shortcut. For macOS users, select **Azure ML Workbench** in your Launchpad.
+   If you closed the installer, it's no problem. 
+   + On Windows, launch it using the **Machine Learning Workbench** desktop shortcut. 
+   + On macOS, select **Azure ML Workbench** in Launchpad.
 
 1. On the first screen, select **Sign in** to authenticate with the Azure Machine Learning Workbench. Use the same credentials you used in the Azure portal to create the Experimentation and Model Management accounts. 
 

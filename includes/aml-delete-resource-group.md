@@ -7,6 +7,10 @@ If you're not going to continue to use this app, delete all resources created by
 
    ![Delete in Azure portal](../../../includes/media/aml-delete-resource-group/delete-resources.png)
 
+   ![Delete in Azure portal](../../includes/media/aml-delete-resource-group/delete-resources.png)
+ 
+   ![Delete in Azure portal](./media/aml-delete-resource-group/delete-resources.png)
+
 2. From the list of resource groups, select the resource group you created, and then click **Delete resource group**.
 
 3. Type the name of the resource group to delete, and then click **Delete**.

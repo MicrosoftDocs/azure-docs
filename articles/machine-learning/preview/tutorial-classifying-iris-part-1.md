@@ -20,9 +20,9 @@ Azure Machine Learning services (preview) is an integrated, end-to-end data scie
 This tutorial is part one of a three-part series. In this tutorial, we walk through the basics of Azure Machine Learning services (preview). You learn how to:
 
 > [!div class="checklist"]
-> * Create a project in Azure Machine Learning Workbench.
-> * Create a data preparation package.
-> * Generate Python/PySpark code to invoke a data preparation package.
+> * Create a project in Azure Machine Learning Workbench
+> * Create a data preparation package
+> * Generate Python/PySpark code to invoke a data preparation package
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the macOS experience is almost identical.
 
@@ -34,14 +34,16 @@ In order to complete this tutorial, you must have:
 - An Azure Machine Learning Experimentation account
 - Azure Machine Learning Workbench installed
 
-You can follow the instructions in the [Quickstart: Install and start](quickstart-installation.md) article to install the Azure Machine Learning Workbench application. This installation also includes the Azure cross-platform command-line tool, or Azure CLI.
+If you don't have these arleady, follow the steps in the [Quickstart: Install and start](quickstart-installation.md) article to set up this account and install the Azure Machine Learning Workbench application. 
 
 ## Create a new project in Azure Machine Learning Workbench
+
+If you followed the steps in the [Quickstart: Install and start](quickstart-installation.md) article you should already have this project and can skip to the next section.
+
 1. Open the Azure Machine Learning Workbench app, and log in if needed. 
    
-   On Windows, just launch it using the **Machine Learning Workbench** desktop shortcut. 
-   
-   For macOS users, select **Azure ML Workbench** in your Launchpad.
+   + On Windows, launch it using the **Machine Learning Workbench** desktop shortcut. 
+   + On macOS, select **Azure ML Workbench** in Launchpad.
 
 1. Select the plus sign (+) in the **PROJECTS** pane and choose **New Project**.  
 
@@ -163,12 +165,13 @@ You can follow the instructions in the [Quickstart: Install and start](quickstar
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
-In this first part of the three-part tutorial series, you have used Azure Machine Learning Workbench to:
-> [!div class="checklist"]
-> * Create a new project. 
-> * Create a data preparation package.
-> * Generate Python/PySpark code to invoke a data preparation package.
 
-You are ready to move on to the next part in the series, where you learn how to build an Azure Machine Learning model:
+In this tutorial, you used Azure Machine Learning Workbench to:
+> [!div class="checklist"]
+> * Create a new project
+> * Create a data preparation package
+> * Generate Python/PySpark code to invoke a data preparation package
+
+You are ready to move on to the next part in the tutorial series, where you learn how to build an Azure Machine Learning model:
 > [!div class="nextstepaction"]
 > [Tutorial 2 - Classifying Iris: Build models](tutorial-classifying-iris-part-2.md)
