@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 # Certificate credentials for application authentication
 
-Azure Active Directory allows an application to use its own credentials for authentication, for example, in the OAuth 2.0 Client Credentials Grant flow and the On-Behalf-Of flow.
+Azure Active Directory allows an application to use its own credentials for authentication, for example, in the OAuth 2.0 [Client Credentials Grant flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds#second-case-access-token-request-with-a-certificate) and the [On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of).
 One form of credential that can be used is a JSON Web Token(JWT) assertion signed with a certificate that the application owns.
 
 ## Format of the assertion
