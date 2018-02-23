@@ -19,7 +19,7 @@ ms.author: mbullwin
 
 Azure Application Insights provides in-depth monitoring of your web application down to the code level. You can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them.
 
-This article walks you through creating a sample ASP.NET Core application in Visual Studio and how to start monitoring with Azure Application Insights.
+This article walks you through creating a sample ASP.NET Core [Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) application in Visual Studio, and how to start monitoring with Azure Application Insights.
 
 ## Prerequisites
 
@@ -187,9 +187,9 @@ Now that you have completed the previous steps you can test out and confirm that
 
 ## App Insights SDK Comparison
 
-The Application Insights product group has been working hard to achieve as close to feature parity as possible between the for the [full .NET Framework](https://github.com/Microsoft/ApplicationInsights-dotnet) and those that target .Net Core. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for App Insights has largely closed the feature gap.
+The Application Insights product group has been working hard to achieve as close to feature parity as possible between the [full .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) and the .Net Core SDK. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for App Insights has largely closed the feature gap.
 
-To understand more about the [differences between .NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+To understand more about the differences and tradeoffs between [.NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
 
    | SDK Comparison | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
