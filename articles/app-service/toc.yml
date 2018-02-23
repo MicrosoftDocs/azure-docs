@@ -113,6 +113,8 @@
       href: app-service-deployment-credentials.md
     - name: Create staging environments
       href: web-sites-staged-publishing.md
+    - name: Resource Manager template guidance
+      href: web-sites-rm-template-guidance.md
   - name: Map custom domain
     items:
     - name: Buy domain
