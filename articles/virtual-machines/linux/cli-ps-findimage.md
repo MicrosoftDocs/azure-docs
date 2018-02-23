@@ -14,19 +14,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2018
+ms.date: 02/23/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
 # How to find Linux VM images in the Azure Marketplace with the Azure CLI
-This topic describes how to use the Azure CLI 2.0 to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Linux VM.
+This topic describes how to use the Azure CLI 2.0 to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
 Make sure that you installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and are logged in to an Azure account (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
-
-
 
 ## List popular images
 
@@ -36,7 +34,7 @@ Run the [az vm image list](/cli/azure/vm/image#az_vm_image_list) command, withou
 az vm image list --output table
 ```
 
-The output includes the URN (the value in the *Urn* column), which you can use to specify the image. When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*, a shortened form such as *UbuntuLTS*.
+The output includes the image URN (the value in the *Urn* column). When creating a VM with one of these popular Marketplace images, you can alternatively specify the *UrnAlias*, a shortened form such as *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -156,7 +154,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Use this information to find offers from a specific publisher. For example, if Canonical is an image publisher in the West US location, find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
+Use this information to find offers from a specific publisher. For example, if *Canonical* is an image publisher in the West US location, find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -175,7 +173,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-You see that in the West US region, Canonical publishes the *UbuntuServer* offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you have discovered:
+You see that in the West US region, Canonical publishes the *UbuntuServer* offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you discovered:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -247,15 +245,18 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 
-Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
+Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. 
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-## Deploy a licensed image
-To test whether a particular image is licensed, run an [az vm image show](/cli/azure/image#az_image_show) command similar to the following:
+### View plan properties
+To view an image's purchase plan information, run the [az vm image show](/cli/azure/image#az_image_show) command. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
+
+For example, the Canonical Ubuntu Server 16.04 LTS image doesn't have additional terms, because the `plan` information is `null`:
 
 ```azurecli
 az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+```
 
 Output:
 
@@ -272,7 +273,8 @@ Output:
   "tags": null
 }
 ```
-Note in this case that the `plan` value is `null`. However, running a similar command for a licensed image shows additional plan information:
+
+Running a similar command for the RabbitMQ Certified by Bitnami image shows the following `plan` properties: `name`, `product`, and `publisher`. (Some images also have a `promotion code` property.) To deploy this image, see the following sections to accept the terms and enable programmatic deployment.
 
 ```azurecli
 az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
@@ -297,20 +299,20 @@ Output:
 }
 ```
 
-
-For an image that has non-null plan information, ensure that you view and accept the license terms and by using the [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms) command. When you accept the terms, you enable programmatic deployment For example:
+### Accept the terms
+To view and accept the license terms, use the [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
-Output:
+The output includes a `licenseTextLink` to the license terms, and indicates that the value of `accepted` is `true`:
 
 ```
 {
   "accepted": true,
   "additionalProperties": {},
-  "id": "/subscriptions/e44f251c-c67e-4760-9ed6-bf99a306ecff/providers/Microsoft.MarketplaceOrdering/offertypes/bitnami/offers/rabbitmq/plans/rabbitmq",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.MarketplaceOrdering/offertypes/bitnami/offers/rabbitmq/plans/rabbitmq",
   "licenseTextLink": "https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_BITNAMI%253a24RABBITMQ%253a24RABBITMQ%253a24IGRT7HHPIFOBV3IQYJHEN2O2FGUVXXZ3WUYIMEIVF3KCUNJ7GTVXNNM23I567GBMNDWRFOY4WXJPN5PUYXNKB2QLAKCHP4IE5GO3B2I.txt",
   "name": "rabbitmq",
   "plan": "rabbitmq",
@@ -321,9 +323,19 @@ Output:
   "signature": "WVIEA3LAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNKLNLWI",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
+```
 
+### Deploy using purchase plan parameters
+After accepting the terms for the image, you can deploy a VM in the subscription. To deploy the image by using the `az vm create` command, provide parameters for the purchase plan in addition to a URN for the image. For example, to deploy a VM with the RabbitMQ Certified by Bitnami image:
 
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 
 ```
 
+
+
 ## Next steps
+To create a virtual machine quickly by using the image information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
