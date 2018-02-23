@@ -24,6 +24,8 @@ Scheduled Events is an Azure Metadata Service that gives your application time t
 
 For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
 
+[!IMPORTANT] Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
+
 ## Why Scheduled Events?
 
 Many applications can benefit from time to prepare for virtual machine maintenance. The time can be used to perform application specific tasks that improve availability, reliability, and serviceability including: 
@@ -64,22 +66,15 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-### Enabling Scheduled Events
-The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
+### Enabling and Disabling Scheduled Events
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
 
-> [!NOTE]
-> Scheduled Events is automatically disabled for your service if your service doesn't call the end point for 1 day. Once Scheduled Events is disabled for your service, there will be no events created for user initiated maintenance.
+Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
-### User initiated maintenance
+### User Initiated Maintenance
 User initiated virtual machine maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. This allows you to test the maintenance preparation logic in your application and allows your application to prepare for user initiated maintenance.
 
 Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
-
-> [!NOTE] 
-> Currently a maximum of 100 user initiated maintenance operations can be simultaneously scheduled.
-
-> [!NOTE] 
-> Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
 
 ## Using the API
 
@@ -112,7 +107,7 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event properties
+### Event Properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -122,7 +117,7 @@ In the case where there are scheduled events, the response contains an array of 
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
 | NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### Event scheduling
+### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
 
 |EventType  | Minimum Notice |
@@ -130,6 +125,14 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
+
+### Event Scope		
+Scheduled events are delivered to:		  
+ - All Virtual Machines in a Cloud Service		
+ - All Virtual Machines in an Availability Set		
+ - All Virtual Machines in a Scale Set Placement Group. 		
+
+As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 
 ### Starting an event 
 
@@ -216,7 +219,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## Next steps 
 
-- Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) for a demo. 
+- Watch a [Scheduled Events Demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) on Azure Friday. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
