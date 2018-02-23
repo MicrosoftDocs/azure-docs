@@ -44,22 +44,20 @@ you can create an AS2 agreement by following these steps.
 
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal").  
 
-2.	From the left menu, select **All services**. 
-In the search box, enter **integration** as your filter. 
-In the results list, select **Integration Accounts**.
+2. On the main Azure menu, select **All services**. 
+In the search box, enter "integration", 
+and then select **Integration accounts**.
 
-    > [!TIP]
-    > If you don't see **All services**, you might have to expand the menu first. 
-    > At the top of the collapsed menu, select **Show menu**.
+   ![Find your integration account](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-	![All services, filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > If you don't see **All services**, you might have to expand the menu first. 
+   > At the top of the collapsed menu, select **Show text labels**.
 
-3. In the **Integration Accounts** blade that opens, 
-select the integration account where you want to create the agreement.
-If you don't see any integration accounts, 
-[create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
+3. Under **Integration Accounts**, select the integration 
+account where you want to create the agreement.
 
-	![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Choose the **Agreements** tile. If you don't have an Agreements tile, 
 add the tile first.
