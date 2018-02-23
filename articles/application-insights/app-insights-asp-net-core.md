@@ -125,7 +125,7 @@ Technically **Failed Requests** are being collected, but none have occurred yet.
 
    ![Screenshot of Visual Studio Solution Explorer](./media/app-insights-asp-net-core/0015-solution-explorer-about.png)
 
-2. Add an Exception under ``_Message=_`` > save the change to the file.
+2. Add an Exception under ``Message=`` > save the change to the file.
 
    ```C#
    throw new Exception("Test Exception");
