@@ -49,7 +49,7 @@ When you're ready, choose **Create**.
    ![Provide details for your integration account](./media/logic-apps-enterprise-integration-accounts/account-4.png)
 
    Azure provisions your integration account 
-   in the selected location, which should complete within 1 minute.
+   in the selected location, which should complete within one minute.
 
 5. Refresh the page. You see your new integration account listed.
 

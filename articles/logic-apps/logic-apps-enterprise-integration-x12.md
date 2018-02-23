@@ -55,7 +55,7 @@ and then select **Integration accounts**.
    ![Find your integration account](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
    > [!TIP]
-   > If you don't see **All services**, you might have to expand the menu first. 
+   > If **All services** doesn't appear, you might have to expand the menu first. 
    > At the top of the collapsed menu, select **Show menu**.
 
 3. Under **Integration Accounts**, 
@@ -68,7 +68,7 @@ If you don't have an Agreements tile, add the tile first.
 
    ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. In the Agreements blade that opens, choose **Add**.
+5. Under **Agreements**, choose **Add**.
 
    ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
@@ -299,7 +299,7 @@ If a character set isn't specified for a given message schema, then the default 
 | Property | Description |
 | --- | --- |
 | Character Set to be used |To validate the properties, select the X12 character set. The options are Basic, Extended, and UTF8. |
-| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the following separator descriptions. |
+| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the separator descriptions below. |
 | Input Type |Select an input type from the drop-down list. |
 | Component Separator |To separate composite data elements, enter a single character. |
 | Data Element Separator |To separate simple data elements within composite data elements, enter a single character. |
@@ -329,15 +329,15 @@ If you don't specify any rules, then validation uses the "Default" row.
 ## Find your created agreement
 
 1.	After you finish setting all your agreement properties, 
-on the **Add** blade, choose **OK** to finish creating your agreement 
-and return to your integration account blade.
+on the **Add** page, choose **OK** to finish creating your agreement 
+and return to your integration account.
 
 	Your newly added agreement now appears in your **Agreements** list.
 
 2.	You can also view your agreements in your integration account overview. 
-On your integration account blade, choose **Overview**, then select the **Agreements** tile.
+On your integration account menu, choose **Overview**, then select the **Agreements** tile.
 
-	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## View the swagger
 See the [swagger details](/connectors/x12/). 

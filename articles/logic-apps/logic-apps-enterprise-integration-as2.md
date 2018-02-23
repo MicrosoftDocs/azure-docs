@@ -64,7 +64,7 @@ add the tile first.
 
 	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. In the Agreements blade that opens, choose **Add**.
+5. Under **Agreements**, choose **Add**.
 
 	![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -204,16 +204,16 @@ messages that conform to your selected settings.
 
 ## Find your created agreement
 
-1.	After you finish setting all your agreement properties, 
-on the **Add** blade, choose **OK** to finish creating your agreement 
-and return to your integration account blade.
+1. After you finish setting all your agreement properties, 
+on the **Add** page, choose **OK** to finish creating your agreement 
+and return to your integration account.
 
 	Your newly added agreement now appears in your **Agreements** list.
 
-2.	You can also view your agreements in your integration account overview. 
-On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
+2. You can also view your agreements in your integration account overview. 
+On your integration account menu, choose **Overview**, then select the **Agreements** tile. 
 
-	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## View the swagger
 See the [swagger details](/connectors/as2/). 

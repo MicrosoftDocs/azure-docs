@@ -57,7 +57,7 @@ and then select **Integration accounts**.
    ![Find your integration account](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
    > [!TIP]
-   > If you don't see **All services**, you might have to expand the menu first. 
+   > If **All services** doesn't appear, you might have to expand the menu first. 
    > At the top of the collapsed menu, select **Show text labels**.
 
 3. Under **Integration Accounts**, select the integration 
@@ -72,7 +72,7 @@ add the tile first.
 
 5. On the Agreements page, choose **Add**.
 
-	![Choose "Add"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. Under **Add**, enter a **Name** for your agreement. 
 For **Agreement type**, select **EDIFACT**. 
@@ -239,7 +239,7 @@ If a character set is not specified for a given message schema, then the default
 | Property | Description |
 | --- | --- |
 | UNB1.1 (System Identifier) |Select the EDIFACT character set to be applied on the outgoing interchange. |
-| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the following separator descriptions. |
+| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the separator descriptions below. |
 | Input Type |Select an input type from the drop-down list. |
 | Component Separator |To separate composite data elements, enter a single character. |
 | Data Element Separator |To separate simple data elements within composite data elements, enter a single character. |
@@ -270,15 +270,15 @@ If you don't specify any rules, then validation uses the "Default" row.
 ## Find your created agreement
 
 1.	After you finish setting all your agreement properties, 
-on the **Add** blade, choose **OK** to finish creating your agreement 
-and return to your integration account blade.
+on the **Add** page, choose **OK** to finish creating your agreement 
+and return to your integration account.
 
 	Your newly added agreement now appears in your **Agreements** list.
 
 2.	You can also view your agreements in your integration account overview. 
-On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
+On your integration account menu, choose **Overview**, then select the **Agreements** tile. 
 
-	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## View Swagger file
 To view the Swagger details for the EDIFACT connector, see [EDIFACT](/connectors/edifact/).
