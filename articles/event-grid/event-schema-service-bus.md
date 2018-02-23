@@ -90,8 +90,8 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | nameSpaceName | string | The Service Bus namespace the resource exists in. |
-| requestUri | string |  |
-| entityType | string |  |
+| requestUri | string | The URI to the specific queue or subscription emitting the event. |
+| entityType | string | The type of Service Bus entity emitting events (queue or subscription). |
 | queueName | string | The queue with active messages if subscribing to a queue. Value null if using topics / subscriptions. |
 | topicName | string | The topic the Service Bus subscription with active messages belongs to. Value null if using a queue. |
 | subscriptionName | string | The Service Bus subscription with active messages. Value null if using a queue. |
