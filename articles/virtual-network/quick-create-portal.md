@@ -31,11 +31,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a virtual network
 
-1. Click **+ New** on the upper left-hand corner of the Azure portal.
+1. Select **+ New** on the upper left-hand corner of the Azure portal.
 
 2. Select **Networking**, and then select **Virtual network**.
 
-3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, *myResourceGroup* for **Resource group**, select a **Location** and your **Subscription**, accept the remaining defaults, and then click **Create**. 
+3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, *myResourceGroup* for **Resource group**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**. 
 
     ![Enter basic information about your virtual network](./media/quick-create-portal/virtual-network.png)
 
@@ -47,25 +47,25 @@ A virtual network enables several types of Azure resources to communicate privat
 
 ### Create virtual machines
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Select the **New** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
 
-3. Enter virtual machine information shown in the picture that follows. The **User name** and **Password** you enter are used to log in to the virtual machine in a later step. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Select your **Subscription**, choose to use the existing *myResourceGroup* resource group, and ensure that the **Location** selected is the same location you created the virtual network in. When complete, click **OK**.
+3. Enter virtual machine information shown in the picture that follows. The **User name** and **Password** you enter are used to log in to the virtual machine in a later step. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Select your **Subscription**, choose to use the existing *myResourceGroup* resource group, and ensure that the **Location** selected is the same location you created the virtual network in. When complete, select **OK**.
 
     ![Enter basic information about a virtual machine](./media/quick-create-portal/virtual-machine-basics.png)
 
-4. Select a size for the virtual machine and then click **Select**. To see more sizes, select **View all** or change the **Supported disk type** filter. The sizes that appear for you may be different than the following example: 
+4. Select a size for the virtual machine and then select **Select**. To see more sizes, select **View all** or change the **Supported disk type** filter. The sizes that appear for you may be different than the following example: 
 
     ![Select a size for a virtual machine](./media/quick-create-portal/virtual-machine-size.png)
 
-5. Under **Settings**, *myVirtualNetwork* should already be selected for **Virtual network**, but if it's not, click **Virtual network**, then select *myVirtualNetwork*. Leave *default* selected for **Subnet**, and then click **OK**.
+5. Under **Settings**, *myVirtualNetwork* should already be selected for **Virtual network**, but if it's not, select **Virtual network**, then select *myVirtualNetwork*. Leave *default* selected for **Subnet**, and then select **OK**.
 
     ![Select a virtual network](./media/quick-create-portal/virtual-machine-network-settings.png)
 
-6. On the **Summary** page, click **Create** to start the virtual machine deployment. 
+6. On the **Summary** page, select **Create** to start the virtual machine deployment. 
 
-7. The virtual machine takes a few minutes to create. After creation, the virtual machine is pinned to the Azure portal dashboard and the virtual machine summary automatically opens. Click **Networking**.
+7. The virtual machine takes a few minutes to create. After creation, the virtual machine is pinned to the Azure portal dashboard and the virtual machine summary automatically opens. Select **Networking**.
 
     ![Virtual machine networking information](./media/quick-create-portal/virtual-machine-networking.png)
 
@@ -75,17 +75,17 @@ A virtual network enables several types of Azure resources to communicate privat
 
 8. Complete steps 1-7 again, but in step 3, name the virtual machine *myVm2*. 
 
-9. After the virtual machine is created, click **Networking**, as you did in step 7. You see the **Private IP** address is *10.0.0.5*. Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
+9. After the virtual machine is created, select **Networking**, as you did in step 7. You see the **Private IP** address is *10.0.0.5*. Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
 
 ### Connect to a virtual machine
 
-1. Remotely connect to the *myVm1* virtual machine. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, click it. Click the **Connect** button.
+1. Remotely connect to the *myVm1* virtual machine. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, select it. Select the **Connect** button.
 
     ![Virtual machine overview](./media/quick-create-portal/virtual-machine-overview.png)
 
-2. After clicking the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
+2. After selecting the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
 
-3. Open the downloaded rdp file. If prompted, click **Connect**. Enter the user name and password you specified when creating the virtual machine, and then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
+3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the virtual machine, and then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to proceed with the connection.
 
 ### Validate communication
 
@@ -117,7 +117,7 @@ You receive four replies from bing.com. By default, any virtual machine in a vir
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, and all its contents. At the top of the Azure portal, enter *myResourceGroup*. When **myResourceGroup** appears in the search results, click it. Click **Delete**.
+When no longer needed, delete the resource group, and all its contents. At the top of the Azure portal, enter *myResourceGroup*. When **myResourceGroup** appears in the search results, select it. Select **Delete**.
 
 ## Next steps
 
