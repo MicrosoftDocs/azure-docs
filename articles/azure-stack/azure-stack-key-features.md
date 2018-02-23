@@ -3,7 +3,7 @@ title: Key features and concepts in Azure Stack | Microsoft Docs
 description: Learn about the key features and concepts in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: brenduns
-ms.reviewer:
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 
 ---
 # Key features and concepts in Azure Stack
