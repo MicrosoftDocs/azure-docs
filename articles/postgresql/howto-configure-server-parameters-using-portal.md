@@ -4,11 +4,11 @@ description: This article describes how to configure the server parameters in Az
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 02/28/2018
 ---
 
 # Configure server parameters in Azure portal

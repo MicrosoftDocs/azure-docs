@@ -4,11 +4,11 @@ description: This article describes how to configure and access metric alerts fo
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 02/28/2018
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL 

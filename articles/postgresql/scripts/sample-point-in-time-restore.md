@@ -1,16 +1,16 @@
 ---
-title: "Azure CLI script: Restore an Azure Database for PostgreSQL server"
+title: Azure CLI script - Restore an Azure Database for PostgreSQL server
 description: This sample Azure CLI script shows how to restore an Azure Database for PostgreSQL server and its databases to a previous point in time.
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/12/2018
+ms.date: 02/28/2018
 ---
 
 # Restore an Azure Database for PostgreSQL server using Azure CLI

@@ -4,11 +4,11 @@ description: This article describes several libraries and drivers that developer
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/28/2018
 ---
 # Connection libraries for Azure Database for PostgreSQL
 This article lists libraries and drivers that developers can use to develop applications to connect to and query Azure Database for PostgreSQL.

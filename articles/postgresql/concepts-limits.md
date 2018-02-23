@@ -7,9 +7,8 @@ ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/28/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.

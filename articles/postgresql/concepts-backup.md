@@ -7,9 +7,8 @@ ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 02/28/2018
 ---
 
 # Backup and restore in Azure Database for PostgreSQL

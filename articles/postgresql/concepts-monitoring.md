@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/28/2018
 ---
 # Monitoring in Azure Database for PostgreSQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. 

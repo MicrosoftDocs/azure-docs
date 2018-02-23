@@ -4,11 +4,11 @@ description: This article describes how to perform a minimal downtime migration 
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 02/28/2018
 ---
 
 # Minimal-downtime migration to Azure Database for PostgreSQL

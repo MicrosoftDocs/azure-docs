@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 02/13/2018
+ms.date: 02/28/2018
 ---
 # What is Azure Database for PostgreSQL?
 

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/28/2018
 ---
 # Azure Database for PostgreSQL servers
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL servers.

@@ -1,6 +1,6 @@
 ---
-title: "Pricing Tiers in Azure Database for PostreSQL | Microsoft Docs"
-description: "Pricing Tiers in Azure Database for PostreSQL"
+title: Pricing Tiers in Azure Database for PostreSQL | Microsoft Docs
+description: This article describes the pricing tiers available in Azure Database for PostgreSQL
 services: postresql
 author: jan-eng
 ms.author: janeng
@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: PostreSQL-database
 ms.topic: article
-ms.date: 2/16/2018
+ms.date: 02/28/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers

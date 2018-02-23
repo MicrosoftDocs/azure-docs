@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI

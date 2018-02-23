@@ -4,11 +4,11 @@ description: This article describes how to configure and access the server logs 
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 02/28/2018
 ---
 
 # Configure and access server logs in the Azure portal

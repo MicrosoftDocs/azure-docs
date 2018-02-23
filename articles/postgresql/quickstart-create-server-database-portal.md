@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal: Create an Azure Database for PostgreSQL server | Microsoft Docs'
+title: Azure portal: Create an Azure Database for PostgreSQL server
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL server by using the Azure portal user interface.
 services: postgresql
 author: rachel-msft
@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/13/2018
+ms.date: 02/28/2018
 ---
 
 # Create an Azure Database for PostgreSQL server in the Azure portal
