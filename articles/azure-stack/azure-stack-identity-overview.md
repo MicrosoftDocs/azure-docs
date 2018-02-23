@@ -27,7 +27,7 @@ Your choice between Azure AD and AD FS might be limited by the mode in which you
 - When you deploy in a disconnected mode without a connection to the Internet, only AD FS is supported.
 
 For more information about these choices, view the following articles depending on your Azure Stack environment:
-- Azure Stack Deployment Kit, see [Identity considerations](azure-stack-datacenter-integration#identity-considerations).
+- Azure Stack Deployment Kit, see [Identity considerations](azure-stack-datacenter-integration.md#identity-considerations).
 - Azure Stack integrated systems, see [Deployment planning decisions for Azure Stack integrated systems](azure-stack-deployment-decisions.md).
 
  
@@ -87,7 +87,7 @@ When you register an application, two objects are created:
    
 - **Service principal object** – A service principal is a credential that is created for an application in the directory where the application is first registered. A service principal is also created in the directory of each additional tenant where that application is used. This relationship can be a one-to-many with the software application.   
 
-To learn more about application and service principal objects, see [Application and service principal objects in Azure Active Directory (Azure AD)](azure/active-directory/develop/active-directory-application-objects.md). 
+To learn more about application and service principal objects, see [Application and service principal objects in Azure Active Directory (Azure AD)](azure/active-directory/develop/active-directory-application-objects). 
 
 ### Service principals 
 A service principal is a set of *credentials* for an application or service that grant access to resources in Azure Stack. Use of a service principal separates the application permissions from the permissions of the user that uses the application.
@@ -110,7 +110,7 @@ To learn about service principals for Azure Stack, see [Create service principal
 ### Services
 Services in Azure Stack that interact with the Identity provider, are registered as applications with the identity provider. Like applications, registration enables a service to authenticate with the identity system. 
 
-All Azure services use [OpenID Connect](azure/active-directory/develop/active-directory-protocols-openid-connect-code.md) protocols and [JSON Web Tokens](/azure/active-directory/develop/active-directory-token-and-claims) (JWT) to establish their identity. Due to consistent use of protocols by Azure AD and AD FS, you can use Azure [Active Directory Authentication Library](azure/active-directory/develop/active-directory-authentication-libraries.md) (ADAL) to authenticate on-premises or to Azure (in a connected scenario). ADAL also enables you to use tools like Azure PowerShell and CLI for cross-cloud and on-premises resource management. 
+All Azure services use [OpenID Connect](azure/active-directory/develop/active-directory-protocols-openid-connect-code) protocols and [JSON Web Tokens](/azure/active-directory/develop/active-directory-token-and-claims) (JWT) to establish their identity. Due to consistent use of protocols by Azure AD and AD FS, you can use Azure [Active Directory Authentication Library](azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) to authenticate on-premises or to Azure (in a connected scenario). ADAL also enables you to use tools like Azure PowerShell and CLI for cross-cloud and on-premises resource management. 
 
 
 ### Identities and your identity system 

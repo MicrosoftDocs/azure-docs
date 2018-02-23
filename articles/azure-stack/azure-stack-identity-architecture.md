@@ -56,7 +56,7 @@ With this topology:
 - Azure Stack registers all applications and services to the same Azure AD tenant directory. 
 - Azure Stack authenticates only the users and applications from that directory, including Tokens. 
 - Identities for administrators (cloud operators) and tenant users are in the same directory tenant. 
-- To enable a user from another directory to access this Azure Stack environment, you must [invite the user as a guest](azure-stack-identity-overview#guest-users.md) to the tenant directory.  
+- To enable a user from another directory to access this Azure Stack environment, you must [invite the user as a guest](azure-stack-identity-overview.md#guest-users) to the tenant directory.  
 
 ### Azure AD – multi-tenant
 Cloud operators can configure Azure Stack to allow access to applications by tenants from one or more organizations. Users access applications through the user portal. In this configuration, the Admin portal (used by the cloud operator) is limited to users from a single directory. 
