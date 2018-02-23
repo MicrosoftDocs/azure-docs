@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/23/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
 ---
@@ -135,8 +135,9 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
 
 **Symptom**: Certchecker gives a warning about using Pre-1803 (as in the example above from step 7):
->WARNING: Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. Refer to deployment documentation for further informat
-ion.
+
+> [!WARNING]
+> Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. Refer to deployment documentation for further information.
 
 **Cause**: CertChecker detected the use of a single ACS folder, this is correct for deployments before 1803. For Azure Stack version 1803 and above deployments, the folder structure changes to ACSTable, ACSQueue, ACSBlob. Certchecker has already be updated to support this functionality.
 
