@@ -31,11 +31,15 @@ Protection of Azure File Shares connected to Sync Groups is in limited preview. 
 
 ### In which geos can I back up Azure File shares <br/>
 Backup for Azure File shares is currently in Preview and is available only in the following geos: 
--	Canada Central (CNC)
+-	Australia South East (ASE) 
+- Brazil South (BRS)
+- Canada Central (CNC)
+-	Canada East (CE)
 -	Central US (CUS)
 -	East Asia (EA)
 -	East Australia (AE) 
 -	East US (EUS)
+-	East US 2 (EUS2)
 -	India Central (INC) 
 -	North Central US (NCUS) 
 -	North Europe (NE) 
@@ -43,16 +47,10 @@ Backup for Azure File shares is currently in Preview and is available only in th
 -	South East Asia (SEA)
 -	UK South (UKS) 
 -	UK West (UKW) 
+-	West Europe (WE) 
+-	West US (WUS)
 -	West Central US (WCUS)
 -	West US 2 (WUS 2)
-
-Backup for Azure File shares will be available in the following geos starting *February 26*.
--	Australia South East (ASE) 
--	Canada East (CE) 
--	Brazil South (BRS) 
--	East US 2 (EUS2) 
--	West Europe (WE) 
--	West US (WUS)  
 
 Please write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
