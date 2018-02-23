@@ -27,15 +27,13 @@ maps, certificates, and so on.
 
 ## Create an integration account
 
-1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
-From the left menu, select **All services**.
+1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
 
-	![Select "All services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+2. From the main Azure menu, select **All services**. 
+In the search box, enter "integration", 
+and then select **Integration Accounts**.
 
-2. In the search box, type "integration" for your filter. 
-In the results list, select **Integration Accounts**.
-
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
+	![Create integration account](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 3. At the top of the page, choose **Add**.
 
@@ -45,12 +43,12 @@ In the results list, select **Integration Accounts**.
 You can either create a new **Resource group** or select an existing resource group. 
 Then select a **Location** for hosting your integration account and a **Pricing Tier**. 
 
-	When you're ready, choose **Create**.
+   When you're ready, choose **Create**.
 
-	![Provide details for your integration account](./media/logic-apps-enterprise-integration-accounts/account-4.png)
+   ![Provide details for your integration account](./media/logic-apps-enterprise-integration-accounts/account-4.png)
 
-	Azure provisions your integration account 
-	in the selected location, which should complete within 1 minute.
+   Azure provisions your integration account 
+   in the selected location, which should complete within 1 minute.
 
 5. Refresh the page. You see your new integration account listed.
 
