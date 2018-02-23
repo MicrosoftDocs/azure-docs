@@ -130,42 +130,76 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
 
 ## Create a Managed Instance
 
+The following steps show you how to create your Managed Instance after your preview has been approved.
 
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
+3. Click **Create**.
 
-## Create a virtual machine in the same VNET but different subnet
+   ![managed instance create](./media/sql-database-managed-instance-quickstart/managed-instance-create.png)
 
-Create this virtual machine using the virtual network created earlier. Later in this tutorial, you create a Managed Instance in this same virtual network and connect to it using SQL Server Management Studio.
+3. Select your subscription and verify that the preview terms show **Accepted**.
+
+   ![managed instance preview accepted](./media/sql-database-managed-instance-quickstart/preview-accepted.png)
+
+4. Fill out the Managed Instance form with the requested information, using the information in the following table.
+
+   | Setting| Suggested value | Description |
+   | ------ | --------------- | ----------- |
+   |**Managed instance name**|Any valid name|For valid instance names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Mnaged instance admin login**|Any valid user name|For valid user names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Resource Group**|The resource group that you created earlier||
+   |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
+   |**Virtual network**|The virtual network that you created earlier|
+
+   ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance-create-form.png)
+
+5. Click **Pricing tier** to review the pricing tier options.
+6. Use the sliders to select the amount of storage and the number of virtual cores. When complete, click **Apply** to save your selection.  
+
+   ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance-pricing-tier.png)
+
+7. Click **Create** to deploy the Managed Instance.
+
+While deployment occurs, continue to the next procedure
+ 
+## Create a virtual machine in the same VNET
+
+The following steps show you how to create a virtual machine in the same VNET in which the Managed Instance is being created. 
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3. Fill out the virtual machine table form with the requested information, using the information in the following table and screenshot.
+
+   ![compute](./media/sql-database-managed-instance-quickstart/compute.png)
+
+3. Fill out the virtual machine form with the requested information, using the information in the following table.
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
    |**Name**|Any valid name|For valid virtual machine names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-    **VM disk type**|SSD|SSDs provide the best balance between price and performance.|   
+   | **VM disk type**|SSD|SSDs provide the best balance between price and performance.|   
    |**User name**|Any valid user name|For valid user names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
-   |**Password**||Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
+   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
-   |**Resource Group**|The resource group that you created earlier|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
+   |**Resource Group**|The resource group that you created earlier||
+   |**Location**|The location that you previously selected||
    |**Already have a Windows license**|No|If you own Windows licenses with active Software Assurance (SA), use Azure Hybrid Benefit to save compute cost|
    ||||
 
    ![virutal machine create form](./media/sql-database-managed-instance-quickstart/virtual-machine-create-form.png)
 
 3. Click **OK**.
-4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
+4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. For this quickstart tutorial, you only need a small virtual machine.
 
     ![VM sizes](./media/sql-database-managed-instance-quickstart/virtual-machine-size.png)  
 
 5. Click **Select**.
-6. Under **Settings**, keep the defaults. 
+6. Under **Settings**, review but keep the default settings. 
 
     ![VM settings](./media/sql-database-managed-instance-quickstart/virtual-machine-settings.png)  
-
 7. Click **OK**.
-8. On the summary page, review the offer detaials and then click **Create** to start the virtual machine deployment.
+8. On the summary page, review the offer details and then click **Create** to start the virtual machine deployment.
  
 ## Connect to virtual machine
 
