@@ -25,7 +25,7 @@ This article shows you how to set up alerts using the new Alerts (Preview) inter
 - Criteria: Specific condition or logic that when seen in Signal, should trigger action
 - Action: Specific call sent to a receiver of a notification - email, SMS, webhook etc.
 
-Alerts (Preview) uses the term **Log Alerts** to describe Alerts where signal is custom query based on [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). The metric alert capability called [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md) in the existing alerts experience is referred as **Metric Alerts** in the Alerts (Preview). In *Metric Alerts*, some resource types provide [multidimensional metrics](monitoring-metric-charts.md) for specific Azure resource and hence alerts for such resource can be made more specific using additional filters on dimensions; such alerts are referred to as **Multi-Dimensional Metric Alerts**.
+Alerts (Preview) uses the term **Log Alerts** to describe Alerts where signal is custom query based on [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Azure Application Insights](../application-insights/app-insights-analytics.md). The metric alert capability called [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md) in the existing alerts experience is referred as **Metric Alerts** in the Alerts (Preview). In *Metric Alerts*, some resource types provide [multidimensional metrics](monitoring-metric-charts.md) for specific Azure resource and hence alerts for such resource can be made more specific using additional filters on dimensions; such alerts are referred to as **Multi-Dimensional Metric Alerts**.
 Azure Alerts (Preview) also provides a unified view to all your alert rules and ability to manage them a single place; including viewing any unresolved alerts. Learn more about functionality from [Azure Alerts(Preview) - Overview](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
@@ -78,16 +78,13 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
     ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics*/*Application Insights*, then once appropriate **resource** is chosen, click *Done*. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option for chosen log monitor service like *Log Analytics*/*Application Insights*.
+8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics* or *Application Insights*, then once appropriate **resource** is chosen, click *Done*. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option for chosen log monitor service like *Log Analytics* or *Application Insights*.
 
    ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Alerts preview** lists saved log searches as signal type - Log (Saved Query), when resource chosen is Log Analytics.
-   So that you can perfect your query in Analytics and then save them for future use - more details available at [using log search in log analytics](../log-analytics/log-analytics-log-searches.md). Then you can create alert rules based on these queries directly, as shown in the following sample screen with saved searches:
-
-   ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Alerts (Preview) lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts - more details on using saving query available at [using log search in log analytics](../log-analytics/log-analytics-log-searches.md) or [shared query in application insights analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
 
