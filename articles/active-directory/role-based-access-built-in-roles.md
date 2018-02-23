@@ -52,6 +52,7 @@ This article only addresses the different roles that exist today. When you assig
 | [DevTest Labs User](#devtest-labs-user) |Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
 | [DocumentDB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
+| [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) |Can read Azure Cosmos DB account data |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) |Can manage Intelligent Systems accounts |
 | Logic App Contributor | Can manage all aspects of a Logic App, but not create a new one. |
 | Logic App Operator |Can start and stop workflows defined within a Logic App. |
