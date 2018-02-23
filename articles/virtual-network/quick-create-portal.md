@@ -121,6 +121,5 @@ When no longer needed, delete the resource group, and all its contents. At the t
 
 In this article, you deployed a default virtual network with one subnet. To learn how to create a custom virtual network with multiple subnets, continue to the tutorial for creating a custom virtual network.
 
-
 > [!div class="nextstepaction"]
 > [Create a custom virtual network](virtual-networks-create-vnet-arm-pportal.md#portal)
