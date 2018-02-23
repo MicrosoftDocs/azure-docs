@@ -57,7 +57,7 @@ setx account_key=<youraccountkey>
 ---
 
 ## Configure your environment
-Take the folder from your local git folder and place it in a directory served by your PHP server.
+Take the folder from your local git folder and place it in a directory served by your PHP server. Then, open a command prompt scoped to that same directory and enter: `php composer.phar install`
 
 ## Run the sample
 This sample creates a test file in the '.' folder. The sample program uploads the test file to Blob storage, lists the blobs in the container, and downloads the file with a new name. 
