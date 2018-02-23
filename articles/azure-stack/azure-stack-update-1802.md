@@ -104,7 +104,7 @@ The following are post-installation known issues for build  **1802xx.x**
 
 - You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
-    - When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected. Moving resource groups between subscriptions is not currently supported.
+- When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected as Azure Stack does not support moving resource groups between subscriptions.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
@@ -154,7 +154,7 @@ There are no known issues after updating to 1802.
 
 #### SQL and MySQL
  - Before proceeding, review the important note in [before you begin](#before-you-begin) near the start of these release notes.
-- It can take up to one hour before tenants can create databases in a new SQL or MySQL deployment.
+- It can take up to one hour before users can create databases in a new SQL or MySQL deployment.
 
 - Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
