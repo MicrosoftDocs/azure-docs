@@ -169,9 +169,9 @@
     - name: Identity
       items:
       - name: Identity overview
-        href: azure-stack-identity-overview
+        href: azure-stack-identity-overview.md
       - name: Identity archictecture
-        href: azure-stack-identity-archictecture
+        href: azure-stack-identity-archictecture.md
       - name: Manage RBAC
         href: azure-stack-manage-permissions.md
       - name: Add users for Azure AD
