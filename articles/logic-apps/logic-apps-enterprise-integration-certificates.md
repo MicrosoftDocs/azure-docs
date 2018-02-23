@@ -133,6 +133,6 @@ account where you want to add the certificate.
 
    ![See the new certificate](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)
 
-# Next steps
+## Next steps
 
 * [Create a B2B agreement](logic-apps-enterprise-integration-agreements.md)
