@@ -130,13 +130,13 @@ spec:
 
 Create the DaemonSet with the following command:
 
-```azurecli-interactive
+```azurecli
 kubectl create -f oms-daemonset.yaml
 ```
 
 To see that the DaemonSet is created, run:
 
-```azurecli-interactive
+```azurecli
 kubectl get daemonset
 ```
 

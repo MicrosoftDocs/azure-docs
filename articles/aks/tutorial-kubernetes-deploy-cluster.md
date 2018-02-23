@@ -27,10 +27,11 @@ In subsequent tutorials, the Azure Vote application is deployed to the cluster, 
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-## Enabling AKS preview for your Azure subscription
+## Enable AKS preview
+
 While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
 
-```azurecli-interactive
+```azurecli
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -85,19 +86,19 @@ Authentication needs to be configured between the AKS cluster and the ACR regist
 
 First, get the ID of the service principal configured for AKS. Update the resource group name and AKS cluster name to match your environment.
 
-```azurecli-interactive
+```azurecli
 CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
 Get the ACR registry resource id. Update the `--name` to the name of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
-```azurecli-interactive
+```azurecli
 ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Create the role assignment, which grants the proper access.
 
-```azurecli-interactive
+```azurecli
 az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
 ```
 

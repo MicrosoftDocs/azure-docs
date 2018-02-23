@@ -34,7 +34,7 @@ If you have not done these steps, and would like to follow along, return to the 
 
 Before upgrading a cluster, use the `az aks get-versions` command to check which Kubernetes releases are available for upgrade.
 
-```azurecli-interactive
+```azurecli
 az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
@@ -50,7 +50,7 @@ default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7           
 
 Use the `az aks upgrade` command to upgrade the cluster nodes. The following examples updates the cluster to version `1.8.2`.
 
-```azurecli-interactive
+```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
@@ -114,7 +114,7 @@ Output:
 
 You can now confirm the upgrade was successful with the `az aks show` command.
 
-```azurecli-interactive
+```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
