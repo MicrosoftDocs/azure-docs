@@ -27,11 +27,11 @@ The Certificate Checker tool (Certchecker) performs the following checks:
 - **Signature Algorithm**. Checks the Signature Algorithm is not SHA1 
 - **Private Key**. Checks the private key is present and is exported with the Local Machine attribute. 
 - **Cert Chain**. Checks certificate chain is in tact including for self-signed certificates. 
-- **DNS Names**. Checks the SAN contain relevant DNS names for each endpoint or if a supporting wildcard is present. 
+- **DNS Names**. Checks the SAN contains relevant DNS names for each endpoint or if a supporting wildcard is present. 
 - **Key Usage**. Checks Key Usage contains Digital Signature and Key Encipherment and Enhanced Key Usage contains Server Authentication and Client Authentication. 
 - **Key Size**. Checks Key Size is 2048 or larger 
 - **Chain Order**. Checks the order of the other certificates making the chain is correct. 
-- **Other Certificates**. Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and it’s chain. 
+- **Other Certificates**. Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and its chain. 
 - **No Profile**. Checks a new user can load the PFX data without a user profile loaded, mimicking the behavior of gMSA accounts during certificate servicing.   
 
 > [!IMPORTANT]
@@ -137,7 +137,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 **Symptom**: Certchecker gives a warning about using Pre-1803 (as in the example above from step 7):
 
 > [!WARNING]
-> Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. Refer to deployment documentation for further information.
+> Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. For more information see the deployment documentation.
 
 **Cause**: CertChecker detected the use of a single ACS folder, this is correct for deployments before 1803. For Azure Stack version 1803 and above deployments, the folder structure changes to ACSTable, ACSQueue, ACSBlob. Certchecker has already be updated to support this functionality.
 
@@ -146,9 +146,9 @@ If deploying 1803 and above, replace ACS with ACSTable, ACSQueue, ACSBlob and co
 
 **Symptom**: Tests are skipped
 
-**Cause**: CertChecker will skip certain tests if a dependency isn’t met:
-- Other certificates will be skipped if Certificate Chain fails.
-- No Profile will be skipped if:
+**Cause**: CertChecker skips certain tests if a dependency isn’t met:
+- Other certificates are skipped if Certificate Chain fails.
+- No Profile is skipped if:
   - There is a security policy restricting the ability to create a temporary user and run powershell as that user.
   - Private Key check fails.
 
@@ -156,7 +156,7 @@ If deploying 1803 and above, replace ACS with ACSTable, ACSQueue, ACSBlob and co
 
 
 ## Prepare deployment script certificates 
-As a final step, all certificates that you’ve prepared need to be placed in the appropriate directories on the deployment host. On your deployment host, create a folder named **Certificates** and place your exported certificate files in the corresponding subfolders specified in the [mandatory certificates](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates) section:
+As a final step, all certificates that you’ve prepared need to be placed in the appropriate directories on the deployment host. On your deployment host, create a folder named. Certificates** and place your exported certificate files in the corresponding subfolders specified in the [mandatory certificates](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates) section:
 
 ```
 \Certificates
