@@ -127,7 +127,7 @@ The following parameters are set at run time for these topologies:
 
 * `${kafka.zookeeper.hosts}`: The hosts that Zookeeper runs on in the Kafka cluster.
 
-For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## Download and compile the project
 
