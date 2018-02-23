@@ -41,6 +41,8 @@ The following table outlines key differences and envisioned usage scenarios betw
 |SQL IaaS |For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
+![positioning](./media/sql-database-managed-instance/positioning.png)  
+
 ## Key features and capabilities of a Managed Instance 
 
 | **PaaS benefits** | **Business continuity** |
@@ -61,7 +63,8 @@ The following list describes key characteristic of the General Purpose service t
 
 In this tier, you can independently select storage and compute capacity. 
 
-The following diagram illustrates the active compute and the redundant nodes in this service tier. 
+The following diagram illustrates the active compute and the redundant nodes in this service tier.
+ 
 ![General Purpose service tier](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
 The following outlines key features of the General Purpose service tier:
@@ -89,8 +92,6 @@ The following outlines key features of the General Purpose service tier:
 
 Managed Instance offers 99.99% uptime SLA with automatic failover. High availability configuration is automatically provisioned and does not require any additional configuration. Managed Instance deploys a set of virtual machines (“virtual cluster”) whose size is automatically adjusted to ensure the uptime SLA. Managed instances that are deployed in different subnets do not share same virtual cluster.
 
-![high availability](./media/sql-database-managed-instance/high-availability.png)  
-
 ## Advanced security and compliance 
 
 ### Managed Instance security isolation 
@@ -103,7 +104,7 @@ Managed Instance provide additional security isolation from other tenants in the
 
 The following diagram outlines isolation design: 
 
-![high availability](./media/sql-database-managed-instance/security-isolation-design.png) 
+![high availability](./media/sql-database-managed-instance/high-availability.png)  
 
 ### Auditing for compliance and security 
 
@@ -179,9 +180,10 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
  
 ### Managed Instance administration features  
 
-Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, database replication (including system databases), high availability configuration, geo-replication, configuration of health and performance monitoring data streams, etc. Azure SQL Database enables DBAs to put their Tier2/Tier3 databases on auto-pilot even for advanced scenarios such as workload tuning and focus on Tier1 / business critical workloads. 
+Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, database replication (including system databases), high availability configuration, configuration of health and performance monitoring data streams, etc. Azure SQL Database enables DBAs to put their Tier2/Tier3 databases on auto-pilot even for advanced scenarios such as workload tuning and focus on Tier1 / business critical workloads. 
 
-For a list of supported, partially supported, and unsupported features, see [SQL Database features](sql-database-features.md)
+> [!IMPORTANT]
+> For a list of supported, partially supported, and unsupported features, see [SQL Database features](sql-database-features.md). For a list of T-SQL differences in Managed Instances versus SQL Server, see [Azure SQL Database Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md)
  
 ## Next steps
 
