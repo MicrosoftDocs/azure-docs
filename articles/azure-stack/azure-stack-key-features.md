@@ -140,7 +140,10 @@ While the infrastructure of Azure Stack is already resilient to failures, the un
  
 - **Update domains**. Update domains are another Azure concept that provides high availability in availability sets. An update domain is a logical group of underlying hardware that can undergo maintenance at the same time. VMs located in the same update domain will be restarted together during planned maintenance. As tenants create VMs within an availability set, the Azure platform automatically distributes VMs across these update domains. In Azure Stack, VMs are live migrated across the other online hosts in the cluster before their underlying host is updated. Since there is no tenant downtime during a host update, the update domain feature on Azure Stack only exists for template compatibility with Azure. 
 
+### Upgrade scenarios 
+VMs in availability sets created before Azure Stack version 1802 are given a default number of fault and update domains (1 and 1 respectively). To achieve high availablity for VMs in these pre-existing availability sets, you must first delete the existing VMs and then redeploy them into a new availability set with the correct fault and update domain counts as described in [Change the availability set for a Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
 
+For VM scale sets, an availability set is created internally with a default fault domain and update domain count (3 and 5 respectively). Any VM scale sets created before the 1802 update will be placed in an availability set with the default fault and update domain counts (1 and 1 respectively). To update these VM scale set instances to achieve the newer spread, scale out the VM scale sets by the number of instances that were present before the 1802 update and then delete the older instances of the VM scale sets. 
 
 ## Role Based Access Control (RBAC)
 You can use RBAC to grant system access to authorized users, groups, and services by assigning them roles at a subscription, resource group, or individual resource level. Each role defines the access level a user, group, or service has over Microsoft Azure Stack resources.
