@@ -103,30 +103,30 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
 
 6. Click **Routes** and then click **Add**.
 
-7.  Add 0.0.0.0/0 Next Hop Internet route as the **only** route, using the information in the following table.
+7.  Add **0.0.0.0/0 Next Hop Internet route** as the **only** route, using the information in the following table.
 
-   | Setting| Suggested value | Description |
-   | ------ | --------------- | ----------- |
-   |**Route name**|Any valid name|For valid route names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Address prefix**|0.0.0.0/0|The destination IP address in CIDR notation that this route applies to.|
-   |**Next hop type**|Internet|The next hop handles the matching packets for this route|
-   |||
+    | Setting| Suggested value | Description |
+    | ------ | --------------- | ----------- |
+    |**Route name**|Any valid name|For valid route names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+    |**Address prefix**|0.0.0.0/0|The destination IP address in CIDR notation that this route applies to.|
+    |**Next hop type**|Internet|The next hop handles the matching packets for this route|
+    |||
 
-   ![route](./media/sql-database-managed-instance-quickstart/route.png)
+    ![route](./media/sql-database-managed-instance-quickstart/route.png)
 
 8. Click **OK**.
 9. To set this route table on the subnet where Managed Instance is to be deployed, open the virtual network that you created earlier.
 10. Click **Subnets** and then click the subnet that you created earlier.
 
-   ![subnet](./media/sql-database-managed-instance-quickstart/subnet.png)
+    ![subnet](./media/sql-database-managed-instance-quickstart/subnet.png)
 
 11. Click **Route table** and then select the **myMI_route_table**.
 
-   ![set route table](./media/sql-database-managed-instance-quickstart/set-route-table.png)
+    ![set route table](./media/sql-database-managed-instance-quickstart/set-route-table.png)
 
 12. Click **Save**
 
-   ![set route table-save](./media/sql-database-managed-instance-quickstart/set-route-table-save.png)
+    ![set route table-save](./media/sql-database-managed-instance-quickstart/set-route-table-save.png)
 
 ## Create a Managed Instance
 
@@ -156,13 +156,21 @@ The following steps show you how to create your Managed Instance after your prev
    ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance-create-form.png)
 
 5. Click **Pricing tier** to review the pricing tier options.
-6. Use the sliders to select the amount of storage and the number of virtual cores. When complete, click **Apply** to save your selection.  
-
+6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When complete, click **Apply** to save your selection.  
    ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance-pricing-tier.png)
 
 7. Click **Create** to deploy the Managed Instance.
+8. Click the **Notifications** icon to view the status of deployment.
+ 
+   ![deployment progress](./media/sql-database-managed-instance-quickstart/deployment-progress.png)
 
-While deployment occurs, continue to the next procedure
+9. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
+ 
+   ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance.png)
+
+10. Record the host name that you specified, as you will need it later in this quickstart tutorial to connect to your Managed Instance using SQL Server Management Studio.
+
+While deployment occurs, continue to the next procedure.
  
 ## Create a virtual machine in the same VNET
 
@@ -203,22 +211,53 @@ The following steps show you how to create a virtual machine in the same VNET in
  
 ## Connect to virtual machine
 
-Create a remote desktop connection to the virtual machine.
+The following steps show you how to connect to your newly created virtual machine using a remote desktop connection.
 
 1. After deployment completes, go to the virtual machine resource.
 
     ![VM](./media/sql-database-managed-instance-quickstart/vm.png)  
 
 2. Click the **Connect** button on the virtual machine properties. A Remote Desktop Protocol file (.rdp file) is created and downloaded.
-3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+3. To connect to your VM, open the downloaded RDP file. 
+4. When prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
 
-4. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
+5. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
 
-5. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
+6. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
-## Install SSMS and connect to the Managed Instance
+You are connected to your virtual machine in the Server Manager dashboard.
+
+## Install SQL Server Management Studio (SSMS) and connect to the Managed Instance
+
+The following steps show you how to download and install SSMS, and then connect to your Managed Instance.
+
+1. In Server Manager, click **Local Server** in the left-hand pane.
+
+    ![server manager properties](./media/sql-database-managed-instance-quickstart/server-manager-properties.png)  
+
+2. In the **Properties** pane, click **On** to modify the IE Enhanced Security Configuration.
+3. In the **Internet Explorer Enhanced Security Configuration** dialog box, click **Off** in the Administrators section of the dialog box and then click **OK**.
+
+    ![internet explorer enhanced security configuration](./media/sql-database-managed-instance-quickstart/internet-explorer-security-configuration.png)  
+
+4. open **Internet Explorer** from the task bar.
+5. Click **OK** to complete the setup of Internet Explorer 11.
+6. Enter https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms in the URL address box and click **Enter**. 
+7. Download the most recent version of SQL Server Management Studio and click **Run** when prompted.
+8. When prompted, click **Install** to begin.
+9. When the installation completes, click **Close**.
+10. Open SSMS.
+11. In the **Connect to Server** dialog box, enter the **host name* for your Managed Instance in the **Server name** box and then click **Connect**.
+
+    ![ssms connect](./media/sql-database-managed-instance-quickstart/ssms-connect.png)  
+
 
 ## Download Wide World Importers backup file and restore to Managed Instance.
+
+Use the following steps to download the Wide World Importers backup file and restore it to your Managed Instance using SSMS.
+
+1. Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak in the URL address box and then, when prompted, click **Save** to save this file in the Downloads folder.
+2. 
 
 ## Next steps
 
