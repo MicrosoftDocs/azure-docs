@@ -17,7 +17,7 @@ ms.date: 02/05/2018
 ms.author: vinagara
 
 ---
-# Create, view and manage alerts using Azure Monitor - Alerts (Preview)
+# Create, view, and manage alerts using Azure Monitor - Alerts (Preview)
 
 ## Overview
 This article shows you how to set up alerts using the new Alerts (Preview) interface inside Azure portal. Definition of an Alert rule is in three parts:
@@ -25,14 +25,14 @@ This article shows you how to set up alerts using the new Alerts (Preview) inter
 - Criteria: Specific condition or logic that when seen in Signal, should trigger action
 - Action: Specific call sent to a receiver of a notification - email, SMS, webhook etc.
 
-Alerts (Preview) uses the term **Log Alerts** to describe Alerts where signal is custom query based on [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Azure Application Insights](../application-insights/app-insights-analytics.md). The metric alert capability called [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md) in the existing alerts experience is referred as **Metric Alerts** in the Alerts (Preview). In *Metric Alerts*, some resource types provide [multidimensional metrics](monitoring-metric-charts.md) for specific Azure resource and hence alerts for such resource can be made more specific using additional filters on dimensions; such alerts are referred to as **Multi-Dimensional Metric Alerts**.
+Alert (Preview) uses the term **Log Alerts** to describe Alerts where signal is custom query based on [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Azure Application Insights](../application-insights/app-insights-analytics.md). The metric alert capability called [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md) in the existing alerts experience is referred as **Metric Alerts** in the Alerts (Preview). In *Metric Alerts*, some resource types provide [multidimensional metrics](monitoring-metric-charts.md) for specific Azure resource and hence alerts for such resource can be made more specific using additional filters on dimensions; such alerts are referred to as **Multi-Dimensional Metric Alerts**.
 Azure Alerts (Preview) also provides a unified view to all your alert rules and ability to manage them a single place; including viewing any unresolved alerts. Learn more about functionality from [Azure Alerts(Preview) - Overview](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> While Azure Alerts (Preview) offers a new and enhanced experience for creating alerts in Azure. The existing [Azure Alerts](monitoring-overview-alerts.md) experience remain usable
+> While Azure Alerts (Preview) offers a new and enhanced experience for creating alerts in Azure. The existing [Azure Alerts](monitoring-overview-alerts.md) experience remains usable
 >
 
-Detailed following is step-by-step guide to using Azure Alerts (Preview).
+Detailed next is step-by-step guide to using Azure Alerts (Preview).
 
 ## Create an alert rule with the Azure portal
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
@@ -119,7 +119,7 @@ For **Log Alerts** alerts can be based on:
     For **Log Alerts** some additional functionality is available to override the default Actions:
 
     - **Email Notification**: Overrides subject in the email, sent via Action Group. You cannot modify the body of the mail.
-    - **Include custom Json payload**: Overrides the webhook Json used by Action Groups and instead replace the default payload with a custom payload. For more details on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md)
+    - **Include custom Json payload**: Overrides the webhook Json used by Action Groups and instead replace the default payload with a custom payload. For more information on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md)
 
         ![Action Overrides for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
@@ -136,7 +136,7 @@ For **Log Alerts** alerts can be based on:
 2. The **Alerts (Preview) Dashboard** is displayed - wherein all Azure Alerts are unified and displayed in a singular board
    ![Alert Dashboard](./media/monitoring-overview-unified/alerts-preview-overview.png)
 3. From Top Left to Right, the Dashboard shows at a glance, the following - which can be clicked to see a detailed listing:
-    - *Fired Alerts*: The number of Alerts currently which have met logic and in fired state
+    - *Fired Alerts*: The number of Alerts currently, which have met logic and in fired state
     - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled
 4. A list of all fired alerts is shown which the user can click to view details
 5. Aiding in finding specific the alerts; one can use the dropdown options on top for filtering specific *Subscription, Resource Group and/or Resource*. Further for any unresolved alert, one use the *Filter alert* option to find for provided keyword - specific matching alerts with *Name, Alert Criteria, Resource Group, and Target Resource*

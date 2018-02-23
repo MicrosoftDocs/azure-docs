@@ -24,13 +24,13 @@ Currently Azure Alerts (Preview), supports log alerts on queries from [Azure Log
 
 > [!WARNING]
 
-> Currently, log alerts in Azure Alerts (Preview) doesn't support cross-workspace or cross-app queries.
+> Currently, log alert in Azure Alerts (Preview) doesn't support cross-workspace or cross-app queries.
 
 Also, users can perfect their queries in Analytics platform of choice in Azure and then *import them for use in Alerts (Preview) by saving the query*. Steps to follow:
 - For Application Insights: Go-to Analytics portal, validate query and its results. Then save with unique name into *Shared Queries*.
 - For Log Analytics: Go-to Log Search, validate query and its results. Then use save with unique name into any category.
 
-Then when [creating a log alert in Alerts (Preview)](monitor-alerts-unified-usage.md), you will see the saved query listed as signal type **Log (Saved Query)**; as illustated in below example:
+Then when [creating a log alert in Alerts (Preview)](monitor-alerts-unified-usage.md), you see the saved query listed as signal type **Log (Saved Query)**; as illustrated in below example:
  ![Saved Query imported to Alerts](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
@@ -54,26 +54,26 @@ Each alert rule in Log Analytics is one of two types.  Each of these types is de
 
 The differences between alert rule types are as follows.
 
-- **Number of results** alert rule always creates a single alert while **Metric measurement** alert rule creates an alert for each object that exceeds the threshold.
+- **Number of results alert rules always creates a single alert while **Metric measurement** alert rule creates an alert for each object that exceeds the threshold.
 - **Number of results** alert rules create an alert when the threshold is exceeded a single time. **Metric measurement** alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
 
 ## Number of results alert rules
-**Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold. This type of alert rule is ideal for working with events such as Windows event logs, Syslog, WebApp Response and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time window.
+**Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold. This type of alert rule is ideal for working with events such as Windows event logs, Syslog, WebApp Response, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time window.
 
-**Threshold**: The threshold for a **Number of results** alert rule is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
+**Threshold**: The threshold for a **Number of results alert rules is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
 
 To alert on a single event, set the number of results to greater than 0 and check for the occurrence of a single event that was created since the last time the query was run. Some applications may log an occasional error that shouldn't necessarily raise an alert.  For example, the application may retry the process that created the error event and then succeed the next time.  In this case, you may not want to create the alert unless multiple events are created within a particular time window.  
 
 In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case, you would set the threshold to **less than 1**.
 
 ### Example
-Consider a scenario where you want to know when your web-based App gives a response to users with code 500 (i.e.) Internal Server Error. You would create an alert rule with the following details:  
+Consider a scenario where you want to know when your web-based App gives a response to users with code 500 (that is) Internal Server Error. You would create an alert rule with the following details:  
 **Query:** requests | where resultCode == "500"<br>
 **Time window:** 30 minutes<br>
 **Alert frequency:** five minutes<br>
 **Threshold value:** Great than 0<br>
 
-Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it will fire the alert and trigger the action configured.
+Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and trigger the action configured.
 
 ## Metric measurement alert rules
 
@@ -94,7 +94,7 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 
 **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time window specified for the alert.
 > [!NOTE]
-> Bin function must be used in query. Also if unequal time interval are produced for time window by use of Bin function - Alert will instead use bin_at function instead to ensure there is a fixed point
+> Bin function must be used in query. Also if unequal time intervals are produced for time window by use of Bin function - Alert will instead use bin_at function instead to ensure there is a fixed point
 
 **Threshold**: The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value, then an alert is created for that object.
 
