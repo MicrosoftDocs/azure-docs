@@ -38,7 +38,7 @@ In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** 
 
 Click on the name of your app that you want to configure Docker Hub continuous deployment for.
 
-In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the value `true`.
+In **Docker Container**, select 'On' then press Save to enable Continuous Deployment.
 
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
