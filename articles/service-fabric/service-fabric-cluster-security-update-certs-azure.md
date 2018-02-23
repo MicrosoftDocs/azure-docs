@@ -1,4 +1,4 @@
----
+--
 title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 02/23/2018
 ms.author: chackdan
 
 ---
@@ -46,6 +46,9 @@ To remove a secondary certificate from being used for cluster security, Navigate
 If your intent is to remove the certificate that is marked primary, then you will need to swap it with the secondary first, and then delete the secondary after the upgrade has completed.
 
 ## Add a secondary certificate using Resource Manager Powershell
+> [!UPDATE]
+We now have a better and easier way to add a secondary certificate using [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). You don't need to follow rest of the steps in this section if you use Add-AzureRmServiceFabricClusterCertificate.
+
 
 These steps assume that you are familiar with how Resource Manager works and have deployed atleast one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 
