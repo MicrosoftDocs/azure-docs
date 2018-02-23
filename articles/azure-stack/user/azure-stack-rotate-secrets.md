@@ -86,7 +86,7 @@ To rotate all secrets in Azure Stack, including external certificates:
 **Synopsis**
 
 Rotates the secrets of an Azure Stack System. Only executed against the Azure Stack Privileged Endpoint.
-  
+
 **Syntax**
 
 Path (Default)
