@@ -9,11 +9,11 @@
     href: model-management-overview.md
 - name: Quickstarts
   items:
-  - name: Install and create
+  - name: Install and start
     href: quickstart-installation.md
 - name: Tutorials
   items:
-  - name: 1 - Prepare data
+  - name: 1/: Prepare data
     href: tutorial-classifying-iris-part-1.md
   - name: 2 - Build a model 
     href: tutorial-classifying-iris-part-2.md

@@ -3,17 +3,18 @@ title: Prepare data for classifying Iris tutorial in Azure Machine Learning serv
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part one and discusses data preparation.
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/28/2018
 ---
 
-# Classify Iris part 1: Prepare the data
+# Tutorial: Classify Iris part 1 - Preparing the data
+
 Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is part one of a three-part series. In this tutorial, we walk through the basics of Azure Machine Learning services (preview). You learn how to:
@@ -22,31 +23,39 @@ This tutorial is part one of a three-part series. In this tutorial, we walk thro
 > * Create a data preparation package.
 > * Generate Python/PySpark code to invoke a data preparation package.
 
-This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
+This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the macOS experience is almost identical.
 
 ## Prerequisites
-- Create an Azure Machine Learning Experimentation account.
-- Install Azure Machine Learning Workbench.
 
-You can follow the instructions in the [Install and create Quickstart](quickstart-installation.md) article to install the Azure Machine Learning Workbench application. This installation also includes the Azure cross-platform command-line tool, or Azure CLI.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+In order to complete this tutorial, you must have:
+- An Azure Machine Learning Experimentation account
+- Azure Machine Learning Workbench installed
+
+You can follow the instructions in the [Quickstart: Install and start](quickstart-installation.md) article to install the Azure Machine Learning Workbench application. This installation also includes the Azure cross-platform command-line tool, or Azure CLI.
 
 ## Create a new project in Azure Machine Learning Workbench
-1. Open the Azure Machine Learning Workbench app, and log in if needed. In the **PROJECTS** pane, select the plus sign (**+**) to create a **New Project**.
+1. Open the Azure Machine Learning Workbench app, and log in if needed. 
+
+1. Select the plus sign (+) in the **PROJECTS** pane and choose **New Project**.  
 
    ![New workspace](media/tutorial-classifying-iris/new_ws.png)
 
-2. Fill in the **Create New Project** details: 
+1. Fill out of the form fields and select the **Create** button to create a new project in the Workbench.
+
+   Field|Suggested value for tutorial|Description
+   ---|---|---
+   Project name | myIris |Enter a unique name that identifies your account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
+   Project directory | c:\Temp\ | Specify the directory in which the project is created.
+   Project description | _leave blank_ | Optional field useful for describing the projects.
+   Visualstudio.com |_leave blank_ | Optional field. A project can optionally be associated with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Workspace | IrisGarden | Choose a workspace that you have created for your Experimentation account in the Azure portal.
+   Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 
    ![New project](media/tutorial-classifying-iris/new_project.png)
-
-   - Fill in the **Project name** box with a name for the project. For example, use the value **myIris**.
-   - Select the **Project directory** in which the project is created. For example, use the value `C:\Temp\`. 
-   - Enter the **Project description**, which is optional. 
-   - The **Git Repository** field is also optional and can be left blank. You can provide an existing empty Git repo (a repo with no master branch) on Visual Studio Team Services. If you use a Git repo that already exists, you can enable the roaming and sharing scenarios later. For more information, see [Use Git repo](using-git-ml-project.md). 
-   - Select a **Workspace**, for example, this tutorial uses **IrisGarden**. 
-   - Select the **Classifying Iris** template from the project template list. 
-
-3. Select the **Create** button. The project is now created and opened for you.
+ 
+ A new project is created and the project dashboard opens with that project. At this point, you can explore the project home page, data sources, notebooks, and source code files. 
 
 ## Create a data preparation package
 1. Open the **iris.csv** file from the **File View**. The file is a table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.

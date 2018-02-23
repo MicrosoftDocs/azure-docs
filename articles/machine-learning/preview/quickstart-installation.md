@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 2/22/2018
 ---
 
-# Quickstart: Get started with Azure Machine Learning services
+# Quickstart: Install and get started with Azure Machine Learning services
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 This quickstart shows you how to:
@@ -51,7 +51,7 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
 
 1. In the **ML Experimentation** pane, configure your Machine Learning Experimentation account. 
 
-   Setting|Suggested value|Description
+   Setting|Suggested value for tutorial|Description
    ---|---|---
    Experimentation account name | _Unique name_ |Enter a unique name that identifies your account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
    Subscription | _Your subscription_ |Choose the Azure subscription that you want to use for your experiment. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed.
@@ -59,7 +59,7 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
    Location | _The region closest to your users_ | Choose the location closest to your users and the data resources.
    Number of seats | 2 | Enter the number of seats. Learn how [seating impacts pricing](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>For this Quickstart, you only need two seats. Seats can be added or removed as needed in the Azure portal.
    Storage account | _Unique name_ | Select **Create new** and provide a name to create an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). Or, select **Use existing** and select your existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. 
-   Workspace for Experimentation account | _Unique name_ | Provide a name for a workspace for this account. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. This workspace contains the tools you need to create, manage, and publish experiments.
+   Workspace for Experimentation account | IrisGarden | Provide a name for a workspace for this account. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. This workspace contains the tools you need to create, manage, and publish experiments.
    Assign owner for the workspace | _Your account_ | Select your own account as the workspace owner.
    Create Model Management account | **check** |Create a Model Management account now so that this resource is available when you want to deploy and manage your models as real-time web services. <br/><br/>While optional, we recommend creating the Model Management account at the same time as the Experimentation account.
    Account name | _Unique name_ | Choose a unique name that identifies your Model Management account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
@@ -124,24 +124,27 @@ In Azure Machine Learning, a project is the logical container for all the work b
 
 Here, we are creating a new Workbench project using a template that includes the [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set). The tutorials that follow this quickstart depend on this data to build a model that predicts the type of iris based on some of its physical characteristics.  
 
-1. With Azure Machine Learning Workbench open, select **File** > **New Project** from the toolbar. 
+1. With Azure Machine Learning Workbench open, select the plus sign (+) in the **PROJECTS** pane and choose **New Project**.  
 
-1. Enter a name for your project in the **Project name** field.
+   ![New workspace](media/tutorial-classifying-iris/new_ws.png)
 
-1. Specify to choose the directory for your project in the **Project directory** field.
+1. Fill out of the form fields and select the **Create** button to create a new project in the Workbench.
 
-1. You can leave **Project description** and **Visualstudio.com GIT Repository URL** blank for now.
-   >[!TIP]
-   >A project can optionally be associated with a Git repository for source control and collaboration. [Learn how to set that up.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo).
+   Field|Suggested value for tutorial|Description
+   ---|---|---
+   Project name | myIris |Enter a unique name that identifies your account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
+   Project directory | c:\Temp\ | Specify the directory in which the project is created.
+   Project description | _leave blank_ | Optional field useful for describing the projects.
+   Visualstudio.com |_leave blank_ | Optional field. A project can optionally be associated with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Workspace | IrisGarden | Choose a workspace that you have created for your Experimentation account in the Azure portal.
+   Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 
-1. Choose a workspace.
+   ![New project](media/tutorial-classifying-iris/new_project.png)
+ 
+ A new project is created and the project dashboard opens with that project. At this point, you can explore the project home page, data sources, notebooks, and source code files. 
 
-1. Select **Classifying Iris** as the project template. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
-
-1. Select **Create** to create the project. A new project is created and the project dashboard opens with that project. At this point, you can explore the project home page, data sources, notebooks, and source code files. 
-
-   >[!TIP]
-   >You can configure Workbench to work with a Python IDE for a smooth data science development experience. Then, you can interact with your project in the IDE. [Learn how](how-to-configure-your-IDE.md). 
+>[!TIP]
+>You can configure Workbench to work with a Python IDE for a smooth data science development experience. Then, you can interact with your project in the IDE. [Learn how](how-to-configure-your-IDE.md). 
 
 ## Run a Python script
 

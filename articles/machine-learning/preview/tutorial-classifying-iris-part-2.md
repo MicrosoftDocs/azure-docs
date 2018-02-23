@@ -3,17 +3,17 @@ title: Build a model for Azure Machine Learning services (preview) | Microsoft D
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part two and discusses experimentation.
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
-ms.date: 11/06/2017
+ms.date: 02/28/2018
 ---
 
-# Classify Iris part 2: Build a model
+# Tutorial: Classify Iris part 2 - Build a model
 Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is part two of a three-part series. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
