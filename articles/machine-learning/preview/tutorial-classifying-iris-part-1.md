@@ -57,7 +57,7 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
    Project directory | c:\Temp\ | Specify the directory in which the project is created.
    Project description | _leave blank_ | Optional field useful for describing the projects.
    Visualstudio.com |_leave blank_ | Optional field. A project can optionally be associated with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Workspace | IrisGarden | Choose a workspace that you have created for your Experimentation account in the Azure portal.
+   Workspace | IrisGarden (if it exists) | Choose a workspace that you have created for your Experimentation account in the Azure portal. <br/>If you followed the Quickstart, you should have a workspace by the name IrisGarden. If not, select the one you created when you created your Experimentation account or any other you want to use.
    Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 
    ![New project](media/tutorial-classifying-iris/new_project.png)
@@ -65,6 +65,8 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
  A new project is created and the project dashboard opens with that project. At this point, you can explore the project home page, data sources, notebooks, and source code files. 
 
 ## Create a data preparation package
+
+
 1. Open the **iris.csv** file from the **File View**. The file is a table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
