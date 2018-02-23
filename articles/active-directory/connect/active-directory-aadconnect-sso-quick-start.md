@@ -121,7 +121,7 @@ By default, the browser automatically calculates the correct zone, either Intern
 
 #### Mozilla Firefox (all platforms)
 
-Mozilla Firefox doesn't automatically use Kerberos authentication. Each user must manually add the Azure AD URLs to their Firefox settings by using the following steps:
+Mozilla Firefox doesn't automatically use Kerberos authentication. Each user must manually add the Azure AD URL to their Firefox settings by using the following steps:
 1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
 2. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
 3. Right-click and select **Modify**.
@@ -134,7 +134,7 @@ Ensure that the machine running the Mac OS is joined to Azure AD. For instructio
 
 #### Google Chrome (all platforms)
 
-If you have overriden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoftazuread-sso.com) to them as well.
+If you have overriden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoftazuread-sso.com) tothem as well.
 
 #### Google Chrome (Mac OS only)
 
