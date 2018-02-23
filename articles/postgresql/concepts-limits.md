@@ -1,6 +1,6 @@
 ---
-title: Limitations in Azure Database for PostgreSQL  | Microsoft Docs
-description: Describes limitations in Azure Database for PostgreSQL.
+title: Limitations in Azure Database for PostgreSQL
+description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,7 +14,7 @@ ms.date: 02/28/2018
 The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
 
 ## Pricing Tier Maximums
-Azure Database for PostgreSQL has multiple pricing tiers you can choose from when creating a server. For more information, see [what’s available in each pricing tier](concepts-pricing-tiers.md).  
+Azure Database for PostgreSQL has multiple pricing tiers you can choose from when creating a server. For more information, see [Pricing tiers in Azure Database for PostgreSQL](concepts-pricing-tiers.md).  
 
 There is a maximum number of connections, compute units, and storage in each pricing tier, as follows: 
 
@@ -57,7 +57,7 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 - Dynamically moving servers across subscriptions and resource groups is currently not supported.
 
 ### Point-in-time-restore (PITR)
-1.	When using the PITR feature, the new server will be created with the same configurations as the server it is based on.
+1.	When using the PITR feature, the new server is created with the same configurations as the server it is based on.
 2.	Restoring a deleted server is not supported.
 
 ## Next steps
