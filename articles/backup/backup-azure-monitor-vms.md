@@ -67,9 +67,9 @@ To set up email notifications for alerts
    ### What alert types are available for Azure IaaS VM backup?
    | Alert Level | Alerts sent |
    | --- | --- |
-   | Critical |Backup failure, recovery failure |
-   | Warning |None |
-   | Informational |None |
+   | Critical | for Backup failure, recovery failure |
+   | Warning | for Backup jobs succeeded with warnings ( eg: some writers failed while creating a snapshot) |
+   | Informational | currently, no informational alerts are available for Azure VM backup |
 
 ### Are there situations where email isn't sent even if notifications are configured?
 There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent to avoid alert noise:
@@ -210,4 +210,4 @@ Event logs enable great post-mortem and audit support for the backup operations.
 
 For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). Learn about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](backup-azure-manage-vms.md).
+For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-arm-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). Learn about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](backup-azure-manage-vms.md).

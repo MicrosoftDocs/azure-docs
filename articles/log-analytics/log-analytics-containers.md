@@ -3,7 +3,7 @@ title: Container Monitoring solution in Azure Log Analytics | Microsoft Docs
 description: The Container Monitoring solution in Log Analytics helps you view and manage your Docker and Windows container hosts in a single location.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 
 ---
 # Container Monitoring solution in Log Analytics
@@ -133,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Switching from using an installed Linux agent to one in a container**
 
-If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) to understand how to successfully uninstall the agent.  
+If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md) to understand how to successfully uninstall the agent.  
 
 #### Configure an OMS agent for Docker Swarm
 
@@ -398,8 +398,8 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
         ```
     3. Create your omsagent daemon-set by running ``` kubectl create -f omsagentsecret.yaml ```
     4. To check, run the following:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -414,13 +414,13 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
     5. Create your omsagent daemon-set by running ```kubectl create -f ws-omsagent-de-secrets.yaml```
@@ -433,9 +433,9 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
     omsagent   1         1         <none>          1h
     ```
 
-3. To install the agent on the Worker Node, which are running Windows, follow the steps in the section [install and configure Windows container hosts](#install-and-configure-windows-container-hosts).	
+3. To install the agent on the Worker Node, which are running Windows, follow the steps in the section [install and configure Windows container hosts](#install-and-configure-windows-container-hosts).
 
-#### Use Helm to deploy OMS Agent on Linux Kubernetes 
+#### Use Helm to deploy OMS Agent on Linux Kubernetes
 To use helm to deploy OMS Agent on your Linux Kubernetes environment, perform the following steps.
 
 1. Create your omsagent daemon-set by running ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
@@ -511,9 +511,9 @@ For more information about the Docker daemon configuration used with Windows Con
 
 #### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agent.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
 
-You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agents.md) are currently supported for Service Fabric.
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agent.md) are currently supported for Service Fabric.
 
 You can verify that the Container Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
 
@@ -530,7 +530,7 @@ The Container Monitoring solution collects various performance metrics and log d
 Data is collected every three minutes by the following agent types.
 
 - [OMS Agent for Linux](log-analytics-linux-agents.md)
-- [Windows agent](log-analytics-windows-agents.md)
+- [Windows agent](log-analytics-windows-agent.md)
 - [Log Analytics VM extension](log-analytics-azure-vm-extension.md)
 
 
@@ -649,7 +649,7 @@ That shows the list of performance metrics that are collected for an individual 
 ## Example log search queries
 It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Sample Queries** area to help you build more advanced queries.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Containers queries](./media/log-analytics-containers/containers-queries.png)
 

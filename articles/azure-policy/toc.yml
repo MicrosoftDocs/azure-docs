@@ -1,3 +1,5 @@
+- name: Azure policy documentation
+  href: index.yml
 - name: Overview
   items:
   - name: Overview of Azure Policy

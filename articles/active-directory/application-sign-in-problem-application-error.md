@@ -4,7 +4,7 @@ description: How to resolve issues with Azure AD sign in when the application it
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -19,7 +19,7 @@ ms.author: asteen
 
 # Error on an application's page after signing in
 
-In this scenario, Azure AD has signed the user in, but the application is displaying an error not allowing the user to successfully finish the sign in flow. In this scenario, the application is not accepting the response issue by Azure AD.
+In this scenario, Azure AD has signed the user in, but the application is displaying an error not allowing the user to successfully finish the sign-in flow. In this scenario, the application is not accepting the response issue by Azure AD.
 
 There are some possible reasons why the application didn’t accept the response from Azure AD. If the error in the application is not clear enough to know what is missing in the response, then:
 
@@ -31,15 +31,15 @@ There are some possible reasons why the application didn’t accept the response
 
 ## Missing attributes in the SAML response
 
-To add an attribute in the Azure AD configuration to be sent in the Azure AD response, follow the steps below:
+To add an attribute in the Azure AD configuration to be sent in the Azure AD response, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -47,9 +47,9 @@ To add an attribute in the Azure AD configuration to be sent in the Azure AD res
 
 6.  Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
-8.  click **View and edit all other user attributes under** the **User Attributes** section to edit the attributes to be sent to the application in the SAML token when user sign in.
+8.  click **View and edit all other user attributes under** the **User Attributes** section to edit the attributes to be sent to the application in the SAML token when users sign in.
 
    To add an attribute:
 
@@ -67,15 +67,15 @@ The sign-in to the application is failing because the SAML response is missing a
 
 ## Add an attribute in the Azure AD application configuration:
 
-To change the User Identifier value, follow the steps below:
+To change the User Identifier value, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -83,7 +83,7 @@ To change the User Identifier value, follow the steps below:
 
 6.  Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  Under the **User attributes**, select the unique identifier for your users in the **User Identifier** dropdown.
 
@@ -95,15 +95,15 @@ Azure AD select the format for the NameID attribute (User Identifier) based on t
 
 ## The application expects a different signature method for the SAML response
 
-To change what parts of the SAML token are digitally signed by Azure Active Directory. Follow the steps below:
+To change what parts of the SAML token are digitally signed by Azure Active Directory. Follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -111,7 +111,7 @@ To change what parts of the SAML token are digitally signed by Azure Active Dire
 
 6.  Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  click **Show advanced certificate signing settings** under the **SAML Signing Certificate** section.
 
@@ -129,15 +129,15 @@ Next time the user signs in to the application, Azure AD sign the part of the SA
 
 By default, Azure AD signs the SAML token using the most security algorithm. Changing the sign algorithm to SHA-1 is not recommended unless required by the application.
 
-To change the signing algorithm, follow the steps below:
+To change the signing algorithm, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -145,7 +145,7 @@ To change the signing algorithm, follow the steps below:
 
 6.  Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  click **Show advanced certificate signing settings** under the **SAML Signing Certificate** section.
 

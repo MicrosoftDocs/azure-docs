@@ -3,8 +3,8 @@ title: 'Deploy App Services: Azure Stack | Microsoft Docs'
 description: Detailed guidance for deploying App Service in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,17 +13,19 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: anwestg
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 # Add an App Service resource provider to Azure Stack
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
 > [!IMPORTANT]
 > Prior to running the installer, make sure that you have followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -70,7 +72,7 @@ To deploy App Service resource provider, follow these steps:
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
 8. On the next page:
-    1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
+    1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity (from Azure AD).
     2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
     3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
     4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
@@ -98,7 +100,7 @@ To deploy App Service resource provider, follow these steps:
 
     > [!NOTE]
     > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Role | Minimum instances | Minimum SKU | Notes |
@@ -154,7 +156,7 @@ After you deploy and register the App Service resource provider, test it to make
 >
 You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 >
-As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
+To create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
 1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 

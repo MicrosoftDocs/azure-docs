@@ -5,7 +5,7 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
@@ -24,7 +24,7 @@ To perform this transform, follow these steps:
 3. You can update the combined value in the newly created column. The updated value is used as an example to learn the transform.
 4. Click **OK** to accept the transform.
 
-### Transform editor: advanced mode
+### Transform editor: Advanced mode
 
 Advanced Mode provides a richer experience for Combining columns. 
 
@@ -33,6 +33,10 @@ Selecting **Separator** under **Combine Columns by** enables user to specify Str
 Selecting **Examples** under **Combine Columns by** enables user to provide examples of combined values. To promote a row as an example, double-click on the rows in the grid. Type in the expected output in the text box against the promoted row. Tab out from the **Separator** text box to preview the results in the data gird. Press **OK** to commit the transform. 
 
 User can switch between the **Basic Mode** and the **Advanced Mode** by clicking the links in the Transform Editor.
+
+### Transform editor: Send Feedback
+
+Clicking on the **Send feedback** link opens the **Feedback** dialog with the comments box prepopulated with the examples user has provided. User should review the content of the comments box and provide more details to help us understand the issue. If the user does not want to share data with Microsoft, user should delete the prepopulated example data before clicking the **Send Feedback** button. 
 
 ### Editing existing transformation
 

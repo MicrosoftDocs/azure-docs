@@ -6,7 +6,7 @@
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
-  manager: femila
+  manager: mtillman
   editor: ''
 
   ms.assetid:
@@ -150,9 +150,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## Get all users with license errors in a group
 
-Given a group that contains some license-related errors, you can now list all users affected by those errors. A user can have errors
-from other groups, too. However, in this example we limit results only to errors relevant to the group in question by checking the
-**ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
+Given a group that contains some license-related errors, you can now list all users affected by those errors. A user can have errors from other groups, too. However, in this example we limit results only to errors relevant to the group in question by checking the **ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
 
 ```
 #a sample group with errors

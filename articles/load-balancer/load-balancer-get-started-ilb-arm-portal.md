@@ -4,7 +4,7 @@ description: Learn how to create an Internal load balancer in Resource Manager u
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jennoc
 editor: ''
 tags: azure-service-management
 
@@ -31,9 +31,6 @@ ms.author: kumud
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
-
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Get started creating an Internal load balancer using Azure portal
@@ -41,9 +38,9 @@ ms.author: kumud
 Use the following steps to create an internal load balancer from the Azure portal.
 
 1. Open a browser, navigate to the [Azure portal](http://portal.azure.com), and sign in with your Azure account.
-2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
+2. In the upper left hand side of the screen, click **Create a resource** > **Networking** > **Load balancer**.
 3. In the **Create load balancer** blade, enter a **Name** for your load balancer.
-4. Under **Scheme**, click **Internal**.
+4. Under **Type**, click **Internal**.
 5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
 
    > [!NOTE]
@@ -66,16 +63,16 @@ Configure a backend address pool and a probe before configuring a load balancing
 ### Step 1: Configure a backend pool
 
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer that you created earlier.
-2. In the **Settings** blade, click **Backend pools**.
-3. In the **Backend address pools** blade, click **Add**.
-4. In the **Add backend pool** blade, enter a **Name** for the backend pool, and then click **OK**.
+2. In the **Settings** page, click **Backend pools**.
+3. In the **Backend address pools** page, click **Add**.
+4. In the **Add backend pool** page, enter a **Name** for the backend pool, and then click **OK**.
 
 ### Step 2: Configure a probe
 
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer that you created earlier.
-2. In the **Settings** blade, click **Probes**.
-3. In the **Probes**  blade, click **Add**.
-4. In the **Add probe** blade, enter a **Name** for the probe.
+2. In the **Settings** page, click **Health probes**.
+3. In the **Health probes** page, click **Add**.
+4. In the **Add health probe** page, enter a **Name** for the probe.
 5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP-based applications).
 6. Under **Port**, specify the port to use when accessing the probe.
 7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
@@ -86,10 +83,10 @@ Configure a backend address pool and a probe before configuring a load balancing
 ### Step 3: Configure load balancing rules
 
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer that you created earlier.
-2. In the **Settings** blade, click **Load balancing rules**.
-3. In the **Load balancing rules** blade, click **Add**.
-4. In the **Add load balancing rule** blade, enter a **Name** for the rule.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP-based applications).
+2. In the **Settings** page, click **Load balancing rules**.
+3. In the **Load balancing rules** page, click **Add**.
+4. In the **Add load balancing rule** page, enter a **Name** for the rule.
+5. Under **Protocol**, select **TCP** or **UDP**.
 6. Under **Port**, specify the port clients connect to in the load balancer.
 7. Under **Backend port**, specify the port to be used in the backend pool (usually, the load balancer port and the backend port are the same).
 8. Under **Backend pool**, select the backend pool you created earlier.

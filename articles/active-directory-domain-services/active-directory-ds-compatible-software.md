@@ -4,7 +4,7 @@ description: Third party software that works with Azure Active Directory Domain 
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef

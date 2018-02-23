@@ -3,7 +3,7 @@ title: Upload VHD file to Azure DevTest Labs using Microsoft Azure Storage Explo
 description: Upload VHD file to lab's storage account using Microsoft Azure Storage Explorer
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 
@@ -35,7 +35,7 @@ The following steps walk you through uploading a VHD file to DevTest Labs using 
 
 	1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 	
-	1. Select **More services**, and then select **DevTest Labs** from the list.
+	1. Select **All services**, and then select **DevTest Labs** from the list.
 	
 	1. From the list of labs, select the desired lab.  
 	

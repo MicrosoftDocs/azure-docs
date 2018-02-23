@@ -23,7 +23,7 @@ Before you can query an [Azure Search index](search-what-is-an-index.md), you mu
 
 This article covers the mechanics of using [indexers](search-indexer-overview.md), but also describes features only available with Azure SQL databases (for example, integrated change tracking). 
 
-In addition to Azure SQL databases, Azure Search provides indexers for [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), and [Azure table storage](search-howto-indexing-azure-tables.md). To request support for other data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
+In addition to Azure SQL databases, Azure Search provides indexers for [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), and [Azure table storage](search-howto-indexing-azure-tables.md). To request support for other data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## Indexers and data sources
 
@@ -41,7 +41,7 @@ You can set up and configure an Azure SQL indexer using:
 
 * Import Data wizard in the [Azure portal](https://portal.azure.com)
 * Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure Search [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 In this article, we'll use the REST API to create **indexers** and **data sources**.
 

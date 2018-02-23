@@ -109,10 +109,10 @@ To specify a particular run configuration, a pair of files is needed. They are t
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
+$ az ml computetarget attach remotedocker -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password>
 
 # create a compute context pointing to an HDI cluster head-node via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> --type cluster
+$ az ml computetarget attach cluster -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> 
 ```
 
 This command creates a pair of files based on the compute target specified. Let's say you named your compute target _foo_. This command generates _foo.compute_ and _foo.runconfig_ in your **aml_config** folder.
@@ -162,8 +162,8 @@ _"az ml experiment submit foo.runconfig"_  automatically runs the command with _
 **Environment Variables**: This section enables users to set environment variables as part of their runs. User can specify environment variables using name-value pairs in the following format:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 These environment variables can be accessed in user's code. For example, this phyton code prints the environment variable named "EXAMPLE_ENV_VAR"

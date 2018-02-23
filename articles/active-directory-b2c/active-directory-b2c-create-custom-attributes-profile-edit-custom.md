@@ -4,7 +4,7 @@ description: A Walkthrough on using extension properties, custom attributes, and
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor:
 
 ms.assetid:

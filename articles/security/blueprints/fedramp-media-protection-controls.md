@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - Media Protection
-description: Web Applications for FedRAMP - Media Protection
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Media Protection
+description: FedRAMP Web Applications Automation - Media Protection
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
 
+# Media Protection (MP)
+
 > [!NOTE]
 > These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
-    
-    
-
-# Media Protection (MP)
 
 ## NIST 800-53 Control MP-1
 

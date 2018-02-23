@@ -1,11 +1,11 @@
 ---
-title: 'How Azure AD SSPR works | Microsoft Docs'
+title: Self-service password reset how it works - Azure Active Directory
 description: Azure AD self-service password reset deep dive
 services: active-directory
 keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro;seohack1
 
 ---
 # Self-service password reset in Azure AD deep dive
@@ -75,7 +75,7 @@ By default, only the cloud attributes office phone and mobile phone are synchron
 
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled and requires.
 
-If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
+If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](https://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
 ### The number of authentication methods required
 
@@ -177,7 +177,7 @@ To enable this option, a user who is enabled for password reset has to complete 
 * Federated applications
 * Custom applications by using Azure AD
 
-When requiring registration is disabled, users can still manually register their contact information. They can either visit [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
+When requiring registration is disabled, users can still manually register their contact information. They can either visit [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
 
 > [!NOTE]
 > Users can dismiss the password reset registration portal by selecting **cancel** or by closing the window. But they are prompted to register each time they sign in until they complete their registration.
@@ -204,7 +204,7 @@ Example: There are four administrators in an environment. Administrator A resets
 
 ## On-premises integration
 
-If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](active-directory-passwords-writeback.md#configuring-password-writeback).
+If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](active-directory-passwords-writeback.md#configure-password-writeback).
 
 ![Writeback][Writeback]
 
@@ -214,7 +214,7 @@ This page provides you a quick status of the on-premises writeback client one of
 * Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
 * Unfortunately, we can’t check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) to be able to check your connection status.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
-* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to restore the connection.
+* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](active-directory-passwords-writeback.md#configure-password-writeback) to restore the connection.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
 
 ### Write back passwords to your on-premises directory

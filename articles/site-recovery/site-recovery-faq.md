@@ -2,18 +2,11 @@
 title: 'Azure Site Recovery: Frequently asked questions | Microsoft Docs'
 description: This article discusses popular questions about Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/18/2018
 ms.author: raynew
 
 ---
@@ -85,7 +78,7 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the proc
 Yes. When you create a Site Recovery vault in a region, we ensure that all metadata that we need to enable and orchestrate replication and failover remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
-For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) are supported.
+For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
 
 ## Replication
 
@@ -163,10 +156,10 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 * [Read more](site-recovery-failback-azure-to-vmware.md) about failing back VMware VMs and physical servers
 
 ### If my on-premises host is not responding or crashed, can I failover back to a different host?
-Yes, you can use the alternate location recovery to failback to a different host from Azure. Read more about the options in the below links for VMware and Hyper-v virtual machines.
+Yes, you can use the alternate location recovery to failback to a different host from Azure. Read more about the options in the below links for VMware and Hyper-V virtual machines.
 
-* [For VMware virtual machines](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [For Hyper-v virtual machines](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [For Hyper-V virtual machines](hyper-v-azure-failback.md#perform-failback)
 
 ## Service providers
 ### I'm a service provider. Does Site Recovery work for dedicated and shared infrastructure models?

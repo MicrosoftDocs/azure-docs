@@ -3,8 +3,8 @@ title: How to assign an MSI access to an Azure resource, using PowerShell
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using PowerShell.
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Assign a Managed Service Identity (MSI) access to a resource using PowerShell
@@ -24,7 +24,7 @@ Once you've configured an Azure resource with an MSI, you can give the MSI acces
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) if you haven't already.
 

@@ -28,7 +28,7 @@ For example, you can find messages based on a specific interchange control numbe
 ## Requirements
 
 * A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's set up with monitoring and logging. 
@@ -57,7 +57,7 @@ This example shows how you can find messages based on their interchange control 
 (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
 > and start at Step 4. Otherwise, start at Step 1.
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
+1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
 Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)

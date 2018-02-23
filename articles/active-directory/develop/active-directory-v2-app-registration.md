@@ -4,7 +4,7 @@ description: How to register an app with Microsoft for enabling sign-in and acce
 services: active-directory
 documentationcenter: ''
 author: lnalepa
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6

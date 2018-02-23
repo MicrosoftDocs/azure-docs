@@ -3,8 +3,8 @@ title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
-author: fimguy
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
-ms.author: fimguy
+ms.author: billmath
 
 ---
 # Connector Version Release History
@@ -41,7 +41,7 @@ Related links:
 
 * Lotus Notes:
   * Filtering custom certifiers option
-  * Import of the class ImportOperations was fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
+  * Import of the class ImportOperations fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
 * Generic LDAP:
   * OpenLDAP Directory uses DN as anchor rather than entryUUI. New option to GLDAP connector which allows to modify anchor
 * Generic SQL:

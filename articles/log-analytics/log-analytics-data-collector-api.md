@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
 
 ---
@@ -47,7 +47,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 ### Request URI parameters
 | Parameter | Description |
 |:--- |:--- |
-| CustomerID |The unique identifier for the Microsoft Operations Management Suite workspace. |
+| CustomerID |The unique identifier for the Log Analytics workspace. |
 | Resource |The API resource name: /api/logs. |
 | API Version |The version of the API to use with this request. Currently, it's 2016-04-01. |
 
@@ -68,7 +68,7 @@ Here's the format for the authorization header:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is the unique identifier for the Operations Management Suite workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) that is constructed from the request and then computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Then, you encode it by using Base64 encoding.
+*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) that is constructed from the request and then computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Then, you encode it by using Base64 encoding.
 
 Use this format to encode the **SharedKey** signature string:
 
@@ -202,7 +202,8 @@ In the next sections, you'll find samples of how to submit data to the Log Analy
 
 For each sample, do these steps to set the variables for the authorization header:
 
-1. In the Operations Management Suite portal, select the **Settings** tile, and then select the **Connected Sources** tab.
+1. In the Azure portal, locate your Log Analytics workspace.
+2. Select **Advanced Settings** and then **Connected Sources**.
 2. To the right of **Workspace ID**, select the copy icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, select the copy icon, and then paste the ID as the value of the **Shared Key** variable.
 
@@ -258,7 +259,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -289,7 +290,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### C# sample
@@ -309,7 +310,7 @@ namespace OIAPIExample
 		// An example JSON object, with key/value pairs
 		static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-		// Update customerId to your Operations Management Suite workspace ID
+		// Update customerId to your Log Analytics workspace ID
 		static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
 		// For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -387,7 +388,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

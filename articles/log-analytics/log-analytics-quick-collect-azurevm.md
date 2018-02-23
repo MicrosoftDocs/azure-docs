@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -26,7 +26,7 @@ This quickstart assumes you have an existing Azure virtual machine. If not you c
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create a workspace
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Click **Create**, and then select choices for the following items:
 
   * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
@@ -43,7 +43,10 @@ While the information is verified and the workspace is created, you can track it
 ## Enable the Log Analytics VM Extension
 For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
 
-You may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.  The upgrade is not needed for the purposes of this quickstart.<br>
+>[!NOTE]
+>The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
+
+If you created a workspace in Azure Government cloud, you may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.  The upgrade is not needed for the purposes of this quickstart.<br>
 
 ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
@@ -80,7 +83,13 @@ Log Analytics can collect events from the Windows event logs or Linux Syslog and
 Now that you have enabled data collection, lets run a simple log search example to see some data from the target VMs.  
 
 1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
-2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Type=Perf` and then hit enter or click the search button to the right of the query field.<br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> For example, the query in the following image returned 78,000 Performance records.  Your results will be significantly less.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+
+   >[!NOTE]
+   >If your workspace is created in Azure Government cloud, you will use the query `Type=Perf`.  
+   >
+
+For example, the query in the following image returned 78,000 Performance records.  Your results will be significantly less.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## Clean up resources
 When no longer needed, delete the Log Analytics workspace. To do so, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)

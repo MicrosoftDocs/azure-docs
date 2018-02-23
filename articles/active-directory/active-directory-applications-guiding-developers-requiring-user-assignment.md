@@ -4,7 +4,7 @@ description: How to require user assignment for Azure applications.
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3

@@ -4,7 +4,7 @@ description: This article provides answers to frequently asked questions about T
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 02/01/2018
 ms.author: kumud
 ---
 
@@ -276,7 +276,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../cli-install-nodejs.md).
 
-Azure does not provide historical information about past endpoint health or the ability to raise alerts about changes to endpoint health.
+You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### Can I monitor HTTPS endpoints?
 
@@ -287,6 +287,10 @@ Traffic manager cannot provide any certificate validation, including:
 * Server-side certificates are not validated
 * SNI server-side certificates are not supported
 * Client certificates are not supported
+
+### I stopped an Azure cloud service / web application endpoint in my Traffic Manager profile but I am not receiving any traffic even after I restarted it. How can I fix this?
+
+When an Azure cloud service / web application endpoint is stopped Traffic Manager stops checking its health and restarts the health checks only after it detects that the endpoint has restarted. To prevent this delay, disable and then reenable that endpoint in the Traffic Manager profile after you restart the endpoint.   
 
 ### Can I use Traffic Manager even if my application does not have support for HTTP or HTTPS?
 
@@ -316,42 +320,7 @@ Traffic Manager uses host headers in HTTP and HTTPS health checks. The host head
 
 ### What are the IP addresses from which the health checks originate?
 
-The following list contains the IP addresses from which Traffic Manager health checks can originate. You may use this list to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
-* 52.173.90.107
-* 52.173.250.232
-* 104.45.149.110
-* 40.114.5.197
-* 52.240.151.125
-* 52.240.144.45
-* 13.65.95.152
-* 13.65.92.252
-* 40.78.67.110
-* 104.42.192.195
+Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view the JSON file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 
@@ -363,7 +332,7 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 
 ### How do I configure nested profiles?
 
-Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
+Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal.
 
 ### How many layers of nesting does Traffic Manger support?
 
