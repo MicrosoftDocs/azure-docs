@@ -23,19 +23,24 @@ This article helps you use the Change Tracking solution to easily identify chang
 
 You install the solution to update the type of agent that you have installed. Changes to installed software, Windows services, and Linux daemons on the monitored servers are read. Then, the data is sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
-## Enable Change tracking
+## Enable Change Tracking and Inventory
 
-First you need to enable Change tracking and Inventory for your VM for this tutorial. If you have previously enabled another automation solution for a VM, this step is not necessary.
 
-1. On the left menu, select **Virtual machines** and select a VM from the list
-1. On the left menu, under the **OPERATIONS** section, click **Inventory**. The **Change tracking** page opens.
+To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
 
-![Enable change](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-The **Change Tracking** screen opens. Configure the location, Log analytics workspace, and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
-    A status bar notifies you that the solution is being enabled. This process can take up to 15 minutes.
+1. In the Azure portal, navigate to your Automation Account
+1. Select **Inventory** under **CONFIGURATION**.
+2. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**. 
+
+This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
+
+## Configuring Change Tracking and Inventory
+
+As mentioned, Change Tracking allows you to track changes to files and registry settings on computers that have been onboarded to the solution. To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
 
 ### Configure Linux files to track
-Use the following steps to configure files to track on Linux computers.
+
+Use the following steps to configure file tracking on Linux computers.
 
 1. In your Automation Account, select **Change tracking** under **CONFIGURATION MANAGEMENT**. Click **Edit Settings** (the gear symbol).
 2. On the **Change Tracking** page, select **Linux Files**, then click **+ Add** to add a new file to track.
@@ -52,11 +57,12 @@ Use the following steps to configure files to track on Linux computers.
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
 |Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced<br>**Manage** - Follows the symbolic links and allows alter the treatment of returned content      |
 
-   > [!NOTE]   
-   > The "Manage" links option is not recommended. File content retrieval is not supported.
+> [!NOTE]
+> The "Manage" links option is not recommended. File content retrieval is not supported.
 
 ### Configure Windows files to track
-Use the following steps to configure files to track on Windows computers.
+
+Use the following steps to configure files tracking on Windows computers.
 
 1. In your Automation Account, select **Change tracking** under **CONFIGURATION MANAGEMENT**. Click **Edit Settings** (the gear symbol).
 2. On the **Change Tracking** page, select **Windows Files**, then click **+ Add** to add a new file to track.
@@ -70,7 +76,8 @@ Use the following steps to configure files to track on Windows computers.
 |Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
 
 ### Configure Windows registry keys to track
-Use the following steps to configure registry keys to track on Windows computers.
+
+Use the following steps to configure registry key tracking on Windows computers.
 
 1. In your Automation Account, select **Change tracking** under **CONFIGURATION MANAGEMENT**. Click **Edit Settings** (the gear symbol).
 2. On the **Change Tracking** page, select **Windows Registry**, then click **+ Add** to add a new registry key to track.
@@ -107,14 +114,8 @@ The Change Tracking solution is currently experiencing the following issues:
 * Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
 
 ## Change Tracking data collection details
+
 Change Tracking collects software inventory and Windows Service metadata using the agents that you have enabled.
-
-The following table shows data collection methods and other details about how data is collected for Change Tracking.
-
-| Platform | Direct Agent | Operations Manager agent | Linux agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows and Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutes to 50 minutes, depending on the change type. For more information, view the following table. |
-
 
 The following table shows the data collection frequency for the types of changes.
 
@@ -130,7 +131,7 @@ The following table shows the data collection frequency for the types of changes
 
 ### Registry key change tracking
 
-The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the default registry keys that are tracked by the solution and why each is tracked.
+The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of default registry keys that configured when the solution is enabled. These keys are configured 
 
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
     - Monitors scripts that run at startup.

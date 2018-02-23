@@ -70,7 +70,7 @@ Click **+ Add Azure VM**, select a VM from the list. On the **Update Management*
 
 From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
 
-Click **Add non-Azure machine**. This opens up a new browser window with the instructions on how to install and configure the Microsoft Monitoring Agent on the machine so the machine can begin reporting to the solution.
+Click **Add non-Azure machine**. This opens up a new browser window with the instructions on how to install and configure the Microsoft Monitoring Agent on the machine so the machine can begin reporting to the solution. If you are onboarding a machine that currently managed by System Center Operations Manager, a new agent is not required, the workspace information is entered into the existing agent.
 
 ## Onboard machines in the workspace
 
