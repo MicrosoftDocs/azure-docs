@@ -187,7 +187,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
 ## App Insights SDK Comparison
 
-The Application Insights product group has been working hard to achieve as close to feature parity as possible between the SDKs for the full .NET Framework and those that target the open-source .Net Core. The 2.2.0 release of the ASP.NET Core SDK for App Insights has largely closed the feature gap.
+The Application Insights product group has been working hard to achieve as close to feature parity as possible between the for the [full .NET Framework](https://github.com/Microsoft/ApplicationInsights-dotnet) and those that target .Net Core. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for App Insights has largely closed the feature gap.
 
 To understand more about the [differences between .NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
 
