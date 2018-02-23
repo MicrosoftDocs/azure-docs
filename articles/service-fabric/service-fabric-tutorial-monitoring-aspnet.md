@@ -1,6 +1,6 @@
 ---
 title: Monitoring and Diagnostics for ASP.NET Core services in Azure Service Fabric | Microsoft Docs
-description: Learn how to set up monitoring and diagnostics for a Azure Service Fabric ASP.NET Core application.
+description: In this tutorial, you learn how to set up monitoring and diagnostics for a Azure Service Fabric ASP.NET Core application.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Monitor and diagnose an ASP.NET Core application on Service Fabric
+# Tutorial: monitor and diagnose an ASP.NET Core application on Service Fabric
 This tutorial is part four of a series. It goes through the steps to set up monitoring and diagnostics for an ASP.NET Core application running on a Service Fabric cluster using Application Insights. We will collect telemetry from the application developed in the first part of the tutorial, [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md). 
 
 In part four of the tutorial series, you learn how to:
