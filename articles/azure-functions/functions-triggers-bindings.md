@@ -40,7 +40,7 @@ When you develop functions by using Visual Studio to create a class library, you
 
 For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
 
-## Example trigger and output binding
+## Example trigger and binding
 
 Suppose you want to write a new row to Azure Table storage whenever a new message appears in Azure Queue storage. This scenario can be implemented using an Azure Queue storage trigger and an Azure Table storage output binding. 
 
@@ -351,7 +351,7 @@ public static void Run(
 }
 ```
 
-## Binding expressions - trigger file name
+### Binding expressions - trigger file name
 
 The `path` for a Blob trigger can be a pattern that lets you refer to the name of the triggering blob in other bindings and function code. The pattern can also include filtering criteria that specify which blobs can trigger a function invocation.
 
@@ -417,7 +417,7 @@ public static void Run(
 
 You can also create expressions for parts of the file name such as the extension. For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
  
-## Binding expressions - trigger metadata
+### Binding expressions - trigger metadata
 
 In addition to the data payload provided by a trigger (such as the content of the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
 
@@ -453,7 +453,7 @@ These metadata values are accessible in *function.json* file properties. For exa
 
 Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
 
-## Binding expressions - JSON payloads
+### Binding expressions - JSON payloads
 
 When a trigger payload is JSON, you can refer to its properties in configuration for other bindings in the same function and in function code.
 
@@ -524,7 +524,7 @@ module.exports = function (context, info) {
 }
 ```
 
-### Dot notation
+#### Dot notation
 
 If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
 
@@ -556,7 +556,7 @@ public class BlobName
 }
 ```
 
-## Binding expressions - create GUIDs
+### Binding expressions - create GUIDs
 
 The `{rand-guid}` binding expression creates a GUID. The following blob path in a `function.json` file creates a blob with a name like *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
 
@@ -569,7 +569,7 @@ The `{rand-guid}` binding expression creates a GUID. The following blob path in 
 }
 ```
 
-## Binding expressions - current time
+### Binding expressions - current time
 
 The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following blob path in a `function.json` file creates a blob with a name like *2018-02-16T17-59-55Z.txt*.
 
