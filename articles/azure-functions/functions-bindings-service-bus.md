@@ -151,7 +151,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
 
   The attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. For more information, see the [Trigger - configuration](#trigger---configuration) section.
 
-Here's an example that shows the attribute used with a string parameter:
+  Here's an example that shows the attribute used with a string parameter:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    

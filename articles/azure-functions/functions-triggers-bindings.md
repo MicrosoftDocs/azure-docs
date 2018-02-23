@@ -296,7 +296,7 @@ For languages that are dynamically typed such as JavaScript, use the `dataType` 
 
 Other options for `dataType` are `stream` and `string`.
 
-## Binding expressions
+## Binding expressions and patterns
 
 One of the most powerful features of triggers and bindings is *binding expressions*. In the *function.json* file and in function parameters and code, you can use expressions that resolve to values from various sources.
 
@@ -311,7 +311,7 @@ Types of binding expressions
 * [New GUID](#binding-expressions---create-guids)
 * [Current date and time](#binding-expressions---current-time)
 
-## Binding expressions - app settings
+### Binding expressions - app settings
 
 As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store files such as *function.json* in public source control repositories.
 
