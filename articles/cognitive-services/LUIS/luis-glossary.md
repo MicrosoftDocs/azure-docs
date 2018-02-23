@@ -32,7 +32,7 @@ Same as [active version](#active-version)
 
 ## <a name="endpoint"></a>Endpoint
 
-The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and deployed. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **Publish** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and deployed. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Publish](publishapp.md)** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 An example endpoint looks like:
 
