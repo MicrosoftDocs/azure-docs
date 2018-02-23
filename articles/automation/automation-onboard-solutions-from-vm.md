@@ -15,7 +15,7 @@ manager: carmonm
 
 # Onboard Update Management, Change Tracking, and Inventory solutions from an Azure Virtual Machine
 
-Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. This article covers onboarding these solutions from an Azure Virtual Machine.
+Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), or by [runbook](automation-onboard-solutions). This article covers onboarding these solutions from an Azure Virtual Machine.
 
 ## Log in to Azure
 
