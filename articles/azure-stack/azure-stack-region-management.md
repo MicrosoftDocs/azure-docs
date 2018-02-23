@@ -41,7 +41,7 @@ Azure Stack has a set of region management capabilities available in the **Regio
 
 3. **Updates**. In this tile, you can view the current version of your Azure Stack infrastructure, available updates, and the update history. You can also update your integrated system.
 
-4. **Resource providers**. Resource providers is the place to manage the tenant functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
+4. **Resource providers**. Resource providers is the place to manage the user functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
 
 5. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running.
 

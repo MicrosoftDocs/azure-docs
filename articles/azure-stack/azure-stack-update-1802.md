@@ -35,7 +35,6 @@ The Azure Stack 1802 update build number is **1802xx.x**.
 > [!IMPORTANT]    
 > Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates).
 
-
 > [!IMPORTANT]    
 > When you use SQL or MySQL resource providers, they must run version 1712 before you start the install of Azure Stack version 1802. If the providers are version 1711 or earlier and you have installed Azure Stack version 1802, you can no longer update those resource providers to a more recent release.
 >
@@ -101,7 +100,7 @@ The following are post-installation known issues for build  **1802xx.x**
 
 - It is not possible to edit storage metrics for blob, table, and queue in the administrator portal.
 
-- It might not be possible to view compute or storage resources in the administrator portal. This cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
+- It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
 
 - You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
@@ -109,7 +108,7 @@ The following are post-installation known issues for build  **1802xx.x**
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
-- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell verify permissions.
+- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
 
 #### Health and monitoring
@@ -121,13 +120,13 @@ There are no known issues after updating to 1802.
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-- Azure Stack supports using only Fixed type VHDs. Some images offered through the marketplace on Azure Stack use dynamic VHDs. Resizing a virtual machine (VM) with a dynamic disk attached to it leaves the VM in a failed state.
+- Azure Stack supports using only Fixed type VHDs. Some images offered through the marketplace on Azure Stack use dynamic VHDs but those have been removed. Resizing a virtual machine (VM) with a dynamic disk attached to it leaves the VM in a failed state.
 
   To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. Then convert the VHD from a dynamic disk to a fixed disk, and then re-create the virtual machine.
 
-- When you create an availability set in the console by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
+- When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- When you create virtual machines on the Azure Stack tenant portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
 - When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -135,7 +134,7 @@ There are no known issues after updating to 1802.
 
   You can then try to redownload the VM image that previously failed.
 
--  If provisioning an extension on a VM deployment takes too long, tenants should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+-  If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
 
 #### Networking
