@@ -42,7 +42,7 @@
 #### [Use Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Automatic OS upgrades](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Modify a scale set](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
 ### [Networking for scale sets](virtual-machine-scale-sets-networking.md)
 ### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)

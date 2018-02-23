@@ -162,8 +162,8 @@ _"az ml experiment submit foo.runconfig"_  automatically runs the command with _
 **Environment Variables**: This section enables users to set environment variables as part of their runs. User can specify environment variables using name-value pairs in the following format:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 These environment variables can be accessed in user's code. For example, this phyton code prints the environment variable named "EXAMPLE_ENV_VAR"
