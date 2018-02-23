@@ -128,10 +128,10 @@ Technically **Failed Requests** are being collected, but none have occurred yet.
 2. Add an Exception under _Message=_ > save the change to the file.
 
    ```C#
-   throw new Exception("Fatal Exception: Scott Guthrie spotted wearing a blue shirt");
+   throw new Exception("Test Exception");
    ```
 
-   ![Screenshot of exception code](./media/app-insights-asp-net-core/0016-exception.png)
+   ![Screenshot of exception code](./media/app-insights-asp-net-core/00016-exception.png)
 
 ### Live Stream
 
@@ -185,6 +185,22 @@ Now that you have completed the previous steps you can test out and confirm that
 
    (If your PowerShell script is still running you should see live metrics, if has stopped run the script again with Live Stream open.)
 
+## App Insights SDK Comparison
+
+The Application Insights product group has been working extremely hard to achieve as close to feature parity as possible between the SDK's for the full .NET Framework and those that target the open-source .Net Core. The 2.2.0 release of the ASP.NET Core SDK for App Insights has largely closed the feature gap.
+
+To understand more about the [differences between .NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+
+   | SDK Comparison | ASP.NET        | ASP.NET Core > 2.2.0    | ASP.NET Core <= 2.2.0 |
+  |--: | ------------- |:------------------------|:----------------------|
+   | **Live Metrics**      | **+** |**-** | **+** |
+   | **Server Telemetry Channel** | **+** |**-** | **+**|
+   |**Adaptive Sampling**| **+** | **-** | **+**|
+   | **SQL Dependency Calls**     | **+** |**-** | **+**|
+   | **Performance Counters*** | **+** | **-**| **-**|
+
+_Performance Counters_ in this context refers to [server-side performance counters](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) like processor, memory, and disk utilization.
+
 ## Open source SDK
 [Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
@@ -193,7 +209,6 @@ Now that you have completed the previous steps you can test out and confirm that
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## Next steps
-* [Add telemetry to your web pages](app-insights-javascript.md) to monitor page usage and performance.
-* [Monitor dependencies](app-insights-asp-net-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
+* [Explore Users Flows](app-insights-usage-flows) to understand how users navigate through your site.
 * [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world.
