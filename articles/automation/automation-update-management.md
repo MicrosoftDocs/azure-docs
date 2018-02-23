@@ -107,12 +107,17 @@ For more information on how solution management packs are updated, see [Connect 
 
 To confirm directly connected machines are communicating with Log Analytics, after a few minutes you can run the following log search:
 
-* Linux - `Heartbeat
-| where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table`
+#### Linux
+```
+Heartbeat
+| where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
+```
 
-* Windows - `Heartbeat
+#### Windows
+```
+Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table`
-
+```
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
 1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   

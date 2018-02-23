@@ -49,7 +49,8 @@ After completing the update deployment through Azure Automation, the target comp
 
 ### Manage software updates from Azure Automation
 
-To manage updates for Windows Server VMs that are Configuration Manager clients, you need to configure client policy to disable the Software Update Management feature for all clients managed by this solution.  By default, client settings target all devices in the hierarchy.  For more information about this policy setting and how to configure it, review [how to configure client settings in System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
+To manage updates for Windows Server VMs that are Configuration Manager clients, you need to configure client policy to disable the Software Update Management feature for all clients managed by this solution.  By default, client settings target all devices in the hierarchy.  For more information about this policy setting and how to configure it, review [how to configure client settings in System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings).
 
-After performing this configuration change, you create a new deployment following the steps described in [Creating an Update Deployment](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) and select the appropriate Configuration Manager collection represented as an OMS computer group from the drop-down list. 
+After performing this configuration change, you create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** drop-down to select the appropriate Configuration Manager collection.
 
+## Next steps

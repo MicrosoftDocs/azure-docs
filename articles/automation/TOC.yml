@@ -33,17 +33,17 @@
         href: automation-onboard-solutions-from-vm.md
       - name: Onboard from Automation account
         href: automation-onboard-solutions-from-automation-account.md
-    - name: Update management
+    - name: Update Management
       items:
-      - name: Update management overview
+      - name: Update Management overview
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
       - name: Integrate SCCM with OMS Update Management
         href: oms-solution-updatemgmt-sccmintegration.md
-    - name: Change tracking
+    - name: Change Tracking
       items:
-      - name: Track changes in your VMs
+      - name: Change Tracking overview
         href: automation-change-tracking.md
     - name: Inventory
       items:
