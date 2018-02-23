@@ -15,6 +15,8 @@ ms.author: v-geberr;
 # Data extraction
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
 
+In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
+
 ## Data location and key usage
 LUIS provides the data from the published endpoint. The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
 

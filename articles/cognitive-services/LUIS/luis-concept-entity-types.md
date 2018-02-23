@@ -18,6 +18,8 @@ Entities are key data in your application’s domain. An entity represents a cla
 --> 
 Entities are important words in utterances that describe information relevant to the intent, and sometimes they are essential to it. Entities belong to classes of similar objects. 
 
+Entities are shared among intents. They don't belong to any single intent. Intents and entities can be semantically associated but it is not an exclusive relationship.
+
 In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent.
 
 You do not need to create entities for every concept in your app, but only for those required for the app to take action. 

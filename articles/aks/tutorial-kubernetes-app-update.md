@@ -132,11 +132,11 @@ kubectl get pod
 Output:
 
 ```
-NAME                               READY     STATUS    RESTARTS   AGE
-azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
-azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
-azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
-azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
+NAME                               READY     STATUS        RESTARTS   AGE
+azure-vote-back-2978095810-gq9g0   1/1       Running       0          5m
+azure-vote-front-1297194256-tpjlg  1/1       Running       0          1m
+azure-vote-front-1297194256-tptnx  1/1       Running       0          5m
+azure-vote-front-1297194256-zktw9  1/1       Terminating   0          1m
 ```
 
 ## Test updated application
