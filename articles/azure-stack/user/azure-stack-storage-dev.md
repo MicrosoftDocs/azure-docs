@@ -43,14 +43,13 @@ The supported REST API versions for Azure Stack Storage are 2017-04-17, 2016-05-
 To install via Composer: (take blob as example).
 
 1. Create a file named **composer.json** in the root of the project with following code:
-
-```php
-  {
-    "require": {
-    "Microsoft/azure-storage-blob":"1.0.0"
+  ```php
+    {
+      "require": {
+      "Microsoft/azure-storage-blob":"1.0.0"
+      }
     }
-  }
-```
+  ```
 2. Download [composer.phar](http://getcomposer.org/composer.phar) to the project root.
 3. Run: `php composer.phar install`.
 
@@ -71,18 +70,15 @@ To install via Composer: (take blob as example).
 To install via Composer:
 
 1. Create a file named **composer.json** in the root of the project with following code:
-
-```php
-  {
-        "require":{
-        "Microsoft/azure-storage":"0.15.0"
-        }
-  }
-```
-
+  ```php
+    {
+          "require":{
+          "Microsoft/azure-storage":"0.15.0"
+          }
+    }
+  ```
 2. Download [composer.phar](http://getcomposer.org/composer.phar) into the project root.
- 3. Run: `php composer.phar install`.
->
+3. Run: `php composer.phar install`.
 
 ## Endpoint declaration
 

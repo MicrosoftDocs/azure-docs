@@ -53,8 +53,10 @@ There are also some differences with storage metrics:
 ## API version
 The following versions are supported with Azure Stack Storage:
 
+Azure Storage services APIs:
+
 1802 update or newer:
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/versioning-for-the-azure-storage-services)
+ - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
  - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
@@ -64,7 +66,11 @@ Previous versions:
  - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
 
 
-`Remove this text? Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)`
+Azure Storage services management APIs:
+
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## Next steps
 
