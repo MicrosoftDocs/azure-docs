@@ -31,6 +31,11 @@ In Azure AD, a policy object represents a set of rules that are enforced on indi
 
 You can designate a policy as the default policy for your organization. The policy is applied to any application in the organization, as long as it is not overridden by a policy with a higher priority. You also can assign a policy to specific applications. The order of priority varies by policy type.
 
+> [!NOTE]
+> Configurable token lifetime policy is not supported for SharePoint Online.  Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
+>* The default lifetime for the SharePoint Online access token is 1 hour. 
+>* The default max inactive time of the SharePoint Online refresh token is 90 days.
+>
 
 ## Token types
 
