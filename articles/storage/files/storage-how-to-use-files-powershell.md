@@ -16,9 +16,9 @@ ms.date: 02/22/2018
 ms.author: wgries
 ---
 
-# Managing Azure file shares with Azure PowerShell 
+# Quickstart: Managing Azure file shares with Azure PowerShell 
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. In this article you learn how to:
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. In this article you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group and a storage account
@@ -149,11 +149,10 @@ Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDi
 While the `Start-AzureStorageFileCopy` cmdlet is convenient simple moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves. Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell. 
 
 
-----------------------------------------------------------------
-
 
 ## Optional: Use snapshots
-A snapshot preserves a point in time copy of an Azure file share. File share snapshots are similar to other technologies you may already be familiar with like: 
+
+A snapshot preserves a point-in-time copy of an Azure file share. File share snapshots are similar to other technologies you may already be familiar with like: 
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
