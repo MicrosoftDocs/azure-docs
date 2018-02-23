@@ -125,7 +125,7 @@ Technically **Failed Requests** are being collected, but none have occurred yet.
 
    ![Screenshot of Visual Studio Solution Explorer](./media/app-insights-asp-net-core/0015-solution-explorer-about.png)
 
-2. Add an Exception under _Message=_ > save the change to the file.
+2. Add an Exception under ``_Message=_`` > save the change to the file.
 
    ```C#
    throw new Exception("Test Exception");
@@ -187,7 +187,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
 ## App Insights SDK Comparison
 
-The Application Insights product group has been working hard to achieve as close to feature parity as possible between the [full .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) and the .Net Core SDK. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for App Insights has largely closed the feature gap.
+The Application Insights product group has been working hard to achieve as close to feature parity as possible between the [full .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) and the .Net Core SDK. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for Application Insights has largely closed the feature gap.
 
 To understand more about the differences and tradeoffs between [.NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
 
