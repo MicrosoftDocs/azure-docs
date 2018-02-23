@@ -139,7 +139,7 @@ The purpose of monitoring changes to registry keys is to pinpoint extensibility 
 |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
 |&#9;Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.    |
 |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
-|&#9;Monitors scripts that run at startup.     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors scripts that run at startup.     |
 |Row5     |
 |Row6     |
 |Row7     |
