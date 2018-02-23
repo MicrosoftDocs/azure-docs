@@ -41,6 +41,8 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 * Determine the specific segment on the network, that is responsible for degraded performance
 * Monitor the health of the network, without the need for SNMP
 
+![portal](.\media\network-monitoring-overview\npm-topology-map.png)<br><br>
+
 For more information, view the following articles:
 
 * [Configure a Network Performance Monitor Solution in Log Analytics](../log-analytics/log-analytics-network-performance-monitor.md) 
