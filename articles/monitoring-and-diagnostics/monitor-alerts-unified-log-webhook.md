@@ -24,7 +24,7 @@ When an [alert is created in Azure (Preview)](monitor-alerts-unified-usage.md), 
 
 ## Webhook actions
 
-Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it uses any payload it receives.   Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](../log-analytics/log-analytics-alerts-webhooks.md).
+Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it uses any payload it receives.   Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  
 
 Webhook actions require the properties in the following table:
 
@@ -75,7 +75,7 @@ To include search results in a custom payload, ensure that **IncudeSearchResults
 This section shows sample payload for webhook for Log Alerts, including when payload is standard and when its custom.
 
 > [!NOTE]
-> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [OMS alert management](../operations-management-suite/operations-management-suite-overview.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema 
+> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [OMS alert management](../log-analytics/log-analytics-alerts-creating.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema.
 
 ### Standard Webhook for Log Alerts 
 Both of these examples have stated a dummy payload with only two columns and two rows.
