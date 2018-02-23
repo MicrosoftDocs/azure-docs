@@ -4495,7 +4495,12 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-run-hadoop-with-hdinsight.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/run-hadoop-with-hdinsight",
+            "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/run-hadoop-with-hdinsight.md",
+            "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive",
             "redirect_document_id": false
         },
         {
