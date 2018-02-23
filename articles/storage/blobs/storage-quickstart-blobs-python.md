@@ -5,10 +5,10 @@ services: storage
 author: tamram
 manager: jeconnoc 
 
+ms.custom: mvc
 ms.service: storage
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
 ---
 
