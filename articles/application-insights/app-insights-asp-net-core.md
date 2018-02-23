@@ -209,6 +209,6 @@ _Performance Counters_ in this context refers to [server-side performance counte
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## Next steps
-* [Explore Users Flows](app-insights-usage-flows) to understand how users navigate through your site.
+* [Explore Users Flows](app-insights-usage-flows) to understand how users navigate through your app.
 * [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world.
