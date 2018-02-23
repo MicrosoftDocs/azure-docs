@@ -4499,7 +4499,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cosmos-db/run-hadoop-with-hdinsight",
+            "source_path": "articles/cosmos-db/run-hadoop-with-hdinsight.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive",
             "redirect_document_id": false
         },
