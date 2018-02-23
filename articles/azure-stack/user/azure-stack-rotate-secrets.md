@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Secret Rotation | Microsoft Docs
+title: Azure Stack secret rotation | Microsoft Docs
 description: Learn how to rotate Azure Stack secrets. 
 services: azure-stack
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: ppacent
 
 ---
-# Azure Stack Secret Rotation
+# Azure Stack secret rotation
 
 *These instructions apply only to Azure Stack Integrated Systems Version 1802 and Later. Do not attempt secret rotation on pre-1802 Azure Stack Versions as it leads to environment failure.*
 
@@ -51,7 +51,7 @@ Secret Rotation is a remediation for the following alerts:
 - Pending external certificate expiration 
 
 
-## Pre-Steps 
+## Pre-steps 
 1. Schedule a maintenance window for Secret Rotation. Secret Rotation generally lasts about seven hours and has the potential to impact infrastructure and Tenant services. Tenant services can be down for up to 40 minutes during this time.
 2. Prepare a new set of replacement external certificates matching the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3. Create a fileshare that is accessible from your ERCS VMs. 
@@ -59,13 +59,13 @@ Secret Rotation is a remediation for the following alerts:
   > [!NOTE]
   > A Fileshare on the HLH should suffice for this step.
 
-4. Open a Powershell ISE console and navigate to your fileshare from Pre-Step #3. 
+4. Open a Powershell ISE console and navigate to your fileshare from pre-step #3. 
 5. Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 ## Rotating All Secrets 
 To rotate all secrets in Azure Stack, including external certificates: 
 
-1. Within the newly created /Certificates directory from Pre-Step #5, place your certificates from Pre-Step #2 in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates). 
+1. Within the newly created /Certificates directory from pre-step #5, place your certificates from pre-step #2 in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates). 
 2. Create a Powershell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) and store it as a variable.
   
   > [!IMPORTANT]
@@ -108,8 +108,8 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
 
     > Parameter Sets: (All)  
 
-    > Aliases:   
-  
+    > Aliases:
+ 
     > Required: False  
 
     > Position: Named  
@@ -121,8 +121,8 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
 
     > Parameter Sets: (All)
 
-    > Aliases:   
-  
+    > Aliases:
+ 
     > Required: False  
 
     > Position: Named  
@@ -131,7 +131,7 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
 
 ### Examples
  
-**Rotate Only Internal Infrastructure Secrets**
+**Rotate only internal infrastructure secrets**
 
 ```powershell  
 PS C:\> Start-SecretRotation  
@@ -139,7 +139,7 @@ PS C:\> Start-SecretRotation 
 
 This command rotates all of the infrastructure secrets exposed to Azure Stack internal network. Start-SecretRotation rotates all stack-generated secrets, but because there are no provided certificates, external endpoint certificates will not be rotated.  
 
-**Rotate Internal and External Infrastructure Secrets**
+**Rotate internal and external infrastructure secrets**
   
 ```powershell
 PS C:\> Invoke-Command -session $YourPEPSession -ScriptBlock { 
