@@ -245,7 +245,9 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 
-Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. 
+Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the image. 
+
+If you deploy a VM with a Resource Manager template, you set the image parameters individually. See the [template reference](../templates/microsoft.compute/virtualmachines.md).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
