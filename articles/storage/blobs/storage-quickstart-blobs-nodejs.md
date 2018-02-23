@@ -1,18 +1,18 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using Node.js| Microsoft Docs
-description: Quickly learn to transfer objects to/from Azure Blob storage using Node.js
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Node.js | Microsoft Docs
+description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/06/2018
-ms.author: tamram
+ms.date: 02/22/2018
+ms.author: cshoe
 ---
 
-# Transfer objects to/from Azure Blob storage using Node.js
+# Quickstart: Upload, download, and list blobs using Node.js
 
 In this quickstart, you learn how to use Node.js to upload, download, and list block blobs in a container in Azure Blob storage.
 
