@@ -49,7 +49,7 @@ User accounts (identities) are standard accounts that authenticate individuals u
 How you create and manage users and groups depends on the identity solution you use. 
 
 In Azure Stack, user accounts: 
-- Are created in the _&lt;username>@&lt;domain>_ format. Although AD FS maps user accounts to an Active Directory, AD FS does not support use of the _&lt;domain>\<alias>_ format. 
+- Are created in the <i>&lt;username>@&lt;domain></i> format. Although AD FS maps user accounts to an Active Directory, AD FS does not support use of the _&lt;domain>\<alias>_ format. 
 - Can be set up to use multi-factor authentication. 
 - Are restricted to the directory where they first register, which is their organizations directory.
 - Can be imported from your on-premises directories. For more information, see  [Integrate your on-premises directories with Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect) in the Azure documentation.  
