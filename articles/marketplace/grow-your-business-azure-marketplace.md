@@ -82,7 +82,7 @@ A marketing campaign is a series of promotional activities or marketing tactics 
 
 #### Know your audience
 
-First, verify who is the buyer and who is the influencer. Your tactics and calls to action for each group may differ. Ask these evaluation questions:
+First, verify who is the buyer and who is the influencer. Your tactics and calls to action for each group might differ. Ask these evaluation questions:
 
 - How much control does the buyer have over the purchasing decision? 
 - How much influence does the influencer have? 
@@ -93,40 +93,42 @@ Knowing the answers to these questions will help you make decisions about where 
 
 #### Define where your audience Learns
 
-Buyers are 90% of the way through their journey by the time they visit a marketplace. Buyers get this far along in the decision-making process by learning about solutions and assessing options in advance. You want to design a campaign that aims to be where your buyers and influencers learn. Every audience for each industry, vertical, or category is different. Does your audience learn online, through email, at trade shows, through social media, or through conversations with trusted advisors? Depending on where and how your audience learns you'll want to design activities and distribute your marketing dollars accordingly. The combination of these tactics becomes your campaign strategy.
+Buyers are 90 percent of the way through their journey by the time they visit a marketplace. Buyers get this far along in the decision-making process by learning about solutions and assessing options in advance. You want to design a campaign that aims to be where your buyers and influencers learn. 
+
+Every audience for each industry, vertical, or category is different. Does your audience learn online, through email, at trade shows, through social media, or through conversations with trusted advisors? Depending on where and how your audience learns, you'll want to design activities and distribute your marketing dollars accordingly. The combination of these tactics becomes your campaign strategy.
 
 #### Create clear campaign goals
 
-You'll need to define success for your marketplace campaign and create clear KPIs. You may run multiple campaigns with different end goals. We all want to grow sales. The ultimate end-goal is increased revenue or customer acquisition. However, your marketing campaigns may be tied to goals at other stages of the buying cycle.
+You'll need to define success for your marketplace campaign and create clear KPIs. You might run multiple campaigns with different end goals. We all want to grow sales. The ultimate end goal is increased revenue or customer acquisition. However, your marketing campaigns might be tied to goals at other stages of the buying cycle.
 
-For instance, if you have newly launched your product in our Marketplace you may find your focus is best spent on audience education and lead generation. Success might be defined by the number of leads generated from your marketplace listing. In this case your marketing tactics (and landing page) would focus on drawing customers to your marketplace listing.
+For instance, if you have newly launched your product in the Marketplace, you might find your focus is best spent on audience education and lead generation. Success might be defined by the number of leads generated from your marketplace listing. In this case, your marketing tactics (and landing page) would focus on drawing customers to your marketplace listing.
 
-If you have a trial set up in marketplace and you know that your product requires some level of engagement and experience before purchase, you may make your campaign goal the number of trials downloaded. In this case, the CTA for your campaign tactics would focus sharply on encouraging a trial in marketplace. 
+If you have a trial set up in the Marketplace and you know that your product requires some level of engagement and experience before purchase, you might make your campaign goal the number of trials downloaded. In this case, the CTA for your campaign tactics would focus sharply on encouraging a trial in marketplace. 
 
-If your product or category is more well-known and you have purchase capabilities set up in marketplace you may decide to skip the trial step and direct your audience directly to your 'buy now' link in marketplace.
+If your product or category is more well-known and you have purchase capabilities set up in the Marketplace, you might decide to skip the trial step and direct your audience directly to your "buy now" link in the Marketplace.
 
-At a more mature point in your offer's history, you may decide to focus your campaign efforts on upselling your customer base and in this case drive action toward increased purchase in Marketplace. Your tactics would focus on encouraging customers to 'buy now' in marketplace. Your KPI might be the revenue generated through Marketplace.
+At a more mature point in your offer's history, you might decide to focus your campaign efforts on upselling your customer base and drive action toward increased purchase in Marketplace. Your tactics would focus on encouraging customers to "buy now" in marketplace. Your KPI might be the revenue generated through the Marketplace.
 
-Whatever your offer's maturity and the goals of your organization, staying focused on this goal and mapping out a set of integrated marketing tactics aligned to this goal is key to maximizing your campaign effectiveness.
+Whatever your offer's maturity and the goals of your organization, staying focused on this goal and mapping out a set of integrated marketing tactics aligned to this goal are key to maximizing your campaign effectiveness.
 
-As part of being a new publisher in the Azure Marketplace, we'll offer you some free Marketplace GTM benefits. You should think critically about how to leverage these benefits in your campaign strategy. Let our marketing team know your marketplace campaign goals and your desired audience action. We can customize these deliverables to work into your plan.
+As part of being a new publisher in the Azure Marketplace, we'll offer you some free Marketplace GTM benefits. You should think critically about how to use these benefits in your campaign strategy. Let our marketing team know your marketplace campaign goals and your desired audience action. We can customize these deliverables to work into your plan.
 
-For additional go-to-market support including templates, web content, training, and tools to promote your business visit [www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), a program of the Microsoft Partner Network.
+For additional go-to-market support--including templates, web content, training, and tools to promote your business--visit [Microsoft Go To Market](https://www.MicrosoftGoToMarket.com). For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), a program of the Microsoft Partner Network.
 
 #### Marketplace GTM benefits
 
-New listings in Marketplace become eligible to receive free Marketplace GTM Benefits. Once listed, our team of marketing specialists will reach out to you to kick-start these activities. There is nothing for you to do except to engage with us once we reach out. 
+New listings in Marketplace become eligible to receive free Marketplace GTM benefits. Our team of marketing specialists will reach out to you to kick-start these activities. There is nothing for you to do except to engage with us when we reach out. 
 
-The activities we provide differ depending on your solution status in our marketplace. Benefits significantly increase for offers that come with a trial experience or transact capabilities within marketplace.
+The activities we provide differ depending on your solution status in the Marketplace. Benefits significantly increase for offers that come with a trial experience or transact capabilities within the Marketplace.
 
-To maximize the impact of these activities, we'd encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. 
+To maximize the impact of these activities, we encourage you to have your launch plan ready to execute. You might want to use your landing page for many of these tactics. 
 
 >[!NOTE]
 >OCP Catalog (One Commercial Partner Catalog) is a benefit of members in the Microsoft Partner Network. 
 
-![Marketplace GTM Benefits](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+![Marketplace GTM benefits](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
 
-For support including templates, web content, training, and tools to promote your business, visit [Microsoft Go To Market](https://www.microsoftgotomarket.com).
+For support--including templates, web content, training, and tools to promote your business--visit [Microsoft Go To Market](https://www.microsoftgotomarket.com).
 
 #### Enable lead sharing
 
@@ -134,29 +136,33 @@ Ensure that lead management is enabled in your Marketplace offer so that you rec
 
 Best practices for using these leads include:
 
-- Qualifying the leads and scoring them as sales opportunities
-- Nurturing them to enter a sales pipeline
-- Align these efforts with your overall marketing campaign strategy
+- Qualify the leads and score them as sales opportunities.
+- Nurture them to enter a sales pipeline.
+- Align these efforts with your overall marketing campaign strategy.
 
-These leads demonstrate targeted user interest in your Marketplace offer and in your technology, and so should be treated as a way to find potentially highly engaged customers. When a lead is created in Marketplace, a similar lead is created in the Microsoft field seller CRM. 
+These leads demonstrate targeted user interest in your Marketplace offer and in your technology. So you should treat them as a way to find potentially highly engaged customers. When a lead is created in the Marketplace, a similar lead is created in the Microsoft field seller CRM. 
 
-However, Marketplace leads are different from Microsoft seller-qualified leads that are a feature of the Co-Selling program. See below to learn about how to access the Co-Sell program. 
+However, Marketplace leads are different from Microsoft seller-qualified leads that are a feature of the Co-Sell program. The next section describes how to access the Co-Sell program. 
 
 #### Promote your business through Microsoft
 
-There are many people and teams within Microsoft whose sole goal is to support our partners and reduce any friction you have in selling with us. Now that you've listed in our marketplace you've opened access to our marketplace programs and resources. 
+There are many people and teams within Microsoft whose sole goal is to support our partners and reduce any friction you have in selling with us. Now that you've listed in the Marketplace, you've opened access to its programs and resources. 
 
-If you haven't already signed up to the [Microsoft Partner Network (MPN)](https://partner.microsoft.com), this should be your first step. MPN offers guidance for navigating Microsoft ' from new business opportunities, connecting with teams or partners, to information about solutions and training to help grow your skill set.
-The best next steps you can take to open access to even more partner benefits and resources are:
+If you haven't already signed up to the [Microsoft Partner Network (MPN)](https://partner.microsoft.com), this should be your first step. MPN offers guidance on topics like these:
+- New business opportunities.
+- Connecting with teams or partners.
+- Solutions and training to help grow your skill set.
 
-1.	Leverage your [Core Benefits](https://partner.microsoft.com/en-US/membership/core-benefits)
-    As part of our Microsoft Partner Network, you receive a set of core benefits that can help you save time and money while you strengthen your capabilities, better serve customers, and build connections to reach your full business potential.
+The best next steps that you can take to open access to even more partner benefits and resources are:
 
-2.	Earn your [Cloud Platform Competency](https://partner.microsoft.com/en-us/membership/cloud-platform-competency)
-    Earning a competency allows you to differentiate yourself within Microsoft's expansive partner network as well as demonstrate technical expertise and customer success in market. Earning a competency is also a prerequisite for many key partner programs like Co-Sell.
+1.	Use your [core benefits](https://partner.microsoft.com/en-US/membership/core-benefits).
+    As part of our Microsoft Partner Network, you receive a set of core benefits that can help you save time and money. They can also help you strengthen your capabilities, better serve customers, and build connections to reach your full business potential.
 
-3.	Become [Co-Sell Ready](https://partner.microsoft.com/en-US/reach-customers/promote-your-business)
-    This program allows you to collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. Your solution becomes visible to our sellers in their solution catalog and our sellers are rewarded for collaborating and winning with you.
+2.	Earn your [Cloud Platform competency](https://partner.microsoft.com/en-us/membership/cloud-platform-competency).
+    Earning a competency helps you differentiate yourself within Microsoft's expansive partner network as well as demonstrate technical expertise and customer success in the market. Earning a competency is also a prerequisite for many key partner programs like Co-Sell.
+
+3.	Become [Co-Sell ready](https://partner.microsoft.com/en-US/reach-customers/promote-your-business).
+    This program allows you to collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. Your solution becomes visible to our sellers in their solution catalog. Our sellers are rewarded for collaborating and winning with you.
 
 #### Merchandising 
 As part of the publishing process, you considered what type of offer to create and had the opportunity to choose a category for your offer in Azure Marketplace. Make sure you select a category that is accurate for your solution so that it appears accurately to potential customers. 
