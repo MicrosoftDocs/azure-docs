@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/23/2018
 ms.author: jeedes
 
 ---
@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Zwayam, you need to complete 
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Zwayam test user](#create-a-Zwayam-test-user)** - to have a counterpart of Britta Simon in Zwayam that is linked to the Azure AD representation of user.
+3. **[Create a Zwayam test user](#create-a-zwayam-test-user)** - to have a counterpart of Britta Simon in Zwayam that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
