@@ -21,7 +21,7 @@ This article provides recommendations for creating Azure Resource Manager templa
 
 ## Define dependencies
 
-Defining dependencies for Web Apps requires an understanding of how the resources within a Web App interact. Defining resources in an incorrect order may cause deployment errors or create a race condition that stalls the deployment.
+Defining dependencies for Web Apps requires an understanding of how the resources within a Web App interact. If you specify dependencies in an incorrect order, you may cause deployment errors or create a race condition that stalls the deployment.
 
 > [!WARNING]
 > If you include an MS Deploy site extension in your template, you must set any cofiguration resources as dependent on the MS Deploy resource. Configuration changes cause the site to restart asynchronously. By making the configuration resources dependent on MS Deploy, you ensure MS Deploy finishes before the site restarts. Without these dependencies, the site might restart during MS Deploy's deployment process. For an example template, see [Wordpress Template with Web Deploy Dependency](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
@@ -52,6 +52,36 @@ You deploy resources in the following order:
 **Tier 5**
 * Host name bindings (depends on certificate if present; otherwise, a higher-level resource)
 * Site extensions (depends on configuration settings if present; otherwise, a higher-level resource)
+
+Typically, your solution includes only some of these resources and tiers. For missing tiers, map lower resources to the next higher tier.
+
+The following example shows part of a template. The connection string configuration value depends on the MSDeploy extension. The MSDeploy extension depends on the web app and database.
+
+```json
+{
+    "name": "[parameters('name')]",
+    "type": "Microsoft.Web/sites",
+    "resources": [
+      {
+          "name": "MSDeploy",
+          "type": "Extensions",
+          "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', parameters('name'))]",
+            "[concat('SuccessBricks.ClearDB/databases/', parameters('databaseName'))]"
+          ],
+          ...
+      },
+      {
+          "name": "connectionstrings",
+          "type": "config",
+          "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
+          ],
+          ...
+      }
+    ]
+}
+```
 
 ## Unique web app name
 
