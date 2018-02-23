@@ -77,7 +77,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice 			  {ENTERPRISEPREMIUM,EMSPRE
 
 ## Get statistics for groups with licenses
 You can report basic statistics for groups with licenses. In the example
-below we list the total user count, the count of users with licenses
+below, the script lists the total user count, the count of users with licenses
 already assigned by the group, and the count of users for whom licenses
 could not be assigned by the group.
 
@@ -150,7 +150,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## Get all users with license errors in a group
 
-Given a group that contains some license related errors, you can now list all users affected by those errors. A jser can have errors
+Given a group that contains some license-related errors, you can now list all users affected by those errors. A user can have errors
 from other groups, too. However, in this example we limit results only to errors relevant to the group in question by checking the
 **ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
 
@@ -178,10 +178,10 @@ ObjectId                             DisplayName      License Error
 ```
 ## Get all users with license errors in the entire tenant
 
-To list all users who have license errors from one or more groups, the following script can be used. This script will list one row per user, per license error which allows you to clearly identify the source of each error.
+The following script can be used to get all users who have license errors from one or more groups. The script prints one row per user, per license error, which allows you to clearly identify the source of each error.
 
 > [!NOTE]
-> This script will enumerate all users in the tenant, which might not be optimal for large tenants.
+> This script enumerates all users in the tenant, which might not be optimal for large tenants.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
