@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/23/2018
 ms.author: brenduns
 
 ---
@@ -22,7 +22,6 @@ ms.author: brenduns
 
 This article lists the virtual machine (VM) sizes that are supported by Azure Stack. 
 
-For VMs with multiple attached data disks, the maximum throughput of each individual data disk is 500 IOPS for HHD, and 2300 IOPS for SSD.
 
 ## General purpose
 
