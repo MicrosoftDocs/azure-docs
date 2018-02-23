@@ -1,6 +1,5 @@
 # Overview
-## [Event Hubs Overview](event-hubs-about.md)
-## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [What is Event Hubs?](event-hubs-about.md)
 
 # Quickstarts
 ## [Send and receive events - Portal](event-hubs-quickstart-portal.md)
