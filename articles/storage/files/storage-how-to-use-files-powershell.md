@@ -1,10 +1,10 @@
 ---
-title: Managing Azure file shares with Azure PowerShell
-description: Learn to use Azure PowerShell to manage Azure Files.
+title: Managing Azure file shares with Azure PowerShell | Microsoft Docs
+description: Learn to manage Azure file shares using Azure PowerShell.
 services: storage
 documentationcenter: ''
 author: wmgries	
-manager: klaasl
+manager: jeconnoc
 editor: 
 
 ms.service: storage
@@ -37,7 +37,7 @@ If would like to install and use the PowerShell locally, this guide requires the
 ## Create a resource group
 A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the[`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. 
 
-The following example creates a resource group named *myResourceGroup* in the *East US* region:
+The following example creates a resource group named **myResourceGroup** in the **East US** region:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup `
@@ -48,12 +48,12 @@ New-AzureRmResourceGroup `
 ## Create a storage account
 A storage account is a shared pool of storage you can use to deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-This example creates a storage account named `mystorageaccount<random number>` and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so use `Get-Random` to append a number to the name to make it unique. 
+This example creates a storage account named `mystorageaccount<random number>` and puts a reference to that storage account in the variable **$storageAcct**. Storage account names must be unique, so use `Get-Random` to append a number to the name to make it unique. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzureRmStorageAccount `
                   -ResourceGroupName "myResourceGroup" `
-                  -Name "mystorageaccount$(Get-Random)" `
+                  -Name "mystorageacct$(Get-Random)" `
                   -Location eastus `
                   -SkuName Standard_LRS 
 ```
@@ -72,7 +72,7 @@ New-AzureStorageShare `
 
 
 ### Create directory
-To create a new directory named *myDirectory* at the root of your Azure file share, use the [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet.
+To create a new directory named **myDirectory** at the root of your Azure file share, use the [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet.
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -84,11 +84,15 @@ New-AzureStorageDirectory `
 ### Upload a file
 To demonstrate how to upload a file using the [`Set-AzureStorageFileContent`](/powershell/module/azure.storage/set-azurestoragefilecontent) cmdlet, we first need to create a file inside your PowerShell Cloud Shell's scratch drive to upload. 
 
-This example puts the current date and time into a new file on your scratch drive, then uploads the file to the file share.
+Create a simple file by putting the current date and time into a new file on your scratch drive.
 
 ```azurepowershell-interactive
 Get-Date | Out-File -FilePath "C:\Users\ContainerAdministrator\CloudDrive\SampleUpload.txt" -Force
+```
 
+Upload the file to the file share.
+
+```azurepowershell-interactive
 Set-AzureStorageFileContent `
    -Context $storageAcct.Context `
    -ShareName "myshare" `
@@ -99,7 +103,10 @@ Set-AzureStorageFileContent `
 After uploading the file, use the [`Get-AzureStorageFile`](/powershell/module/Azure.Storage/Get-AzureStorageFile) cmdlet to check to make sure that the file was uploaded to your Azure file share. 
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
+Get-AzureStorageFile `
+   -Context $storageAcct.Context `
+   -ShareName "myshare" `
+   -Path "myDirectory" | Get-AzureStorageFile
 ```
 
 ### Download a file
@@ -109,11 +116,15 @@ You can use the [`Get-AzureStorageFileContent`](/powershell/module/azure.storage
 Get-AzureStorageFileContent `
     -Context $storageAcct.Context `
     -ShareName "myshare" `
-    -Path "myDirectory\SampleUpload.txt" ` 
+    -Path "myDirectory\SampleUpload.txt" `
     -Destination "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt"
 ```
 
 After downloading the file, use the **dir** command to check to make sure that the file was downloaded. 
+
+```azurepowershell-interactive
+dir C:\Users\ContainerAdministrator\CloudDrive\
+```
 
 ## Copy files
 
@@ -121,17 +132,27 @@ To copy files from one file share to another file share using the [`Start-AzureS
 
 This example creates a new share and copies the file you just uploaded to the new share. 
 
+Create the new share.
+
 ```azurepowershell-interactive
 New-AzureStorageShare `
     -Name "myshare2" `
     -Context $storageAcct.Context
-  
+```
+
+Create the new directory
+
+```azurepowershell-interactive
 New-AzureStorageDirectory `
    -Context $storageAcct.Context `
    -ShareName "myshare2" `
    -Path "myDirectory2"
+```
 
-Start-AzureStorageFileCopy 
+Copy the file to the new directory.
+
+```azurepowershell-interactive
+Start-AzureStorageFileCopy `
     -Context $storageAcct.Context `
     -SrcShareName "myshare" `
     -SrcFilePath "myDirectory\SampleUpload.txt" `
@@ -143,7 +164,10 @@ Start-AzureStorageFileCopy
 Now, if you list the files in the new share, you should see your copied file.
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDirectory2" 
+Get-AzureStorageFile `
+   -Context $storageAcct.Context `
+   -ShareName "myshare2" `
+   -Path "myDirectory2" | Get-AzureStorageFile
 ```
 
 While the `Start-AzureStorageFileCopy` cmdlet is convenient simple moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves. Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell. 
@@ -176,26 +200,32 @@ See the list of snapshots you've taken of your share using the [Get-AzureStorage
 Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
 ```
 
-Restore a file by using the [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. This example deletes the **SampleUpload.txt** file that was uploaded and then restores it from the snapshot.
+Restore a file by using the [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. This example deletes the **SampleUpload.txt** file that was uploaded and then restores it from the snapshot as **SampleRestore.txt**.
+
+
+Delete SampleUpload.txt
 
 ```azurepowershell-interactive
-# Delete SampleUpload.txt
 Remove-AzureStorageFile `
     -Context $storageAcct.Context `
     -ShareName "myshare" `
     -Path "myDirectory\SampleUpload.txt"
+```
 
-# Restore SampleUpload.txt from the share snapshot
+Restore SampleUpload.txt from the share snapshot
+
+```azurepowershell-interactive
 Start-AzureStorageFileCopy `
     -SrcShare $snapshot `
     -SrcFilePath "myDirectory\SampleUpload.txt" `
     -DestContext $storageAcct.Context `
     -DestShareName "myshare" `
-    -DestFilePath "myDirectory\SampleUpload.txt"
+    -DestFilePath "myDirectory\SampleRestore.txt"
 ```
 
 
 ## Clean up resources
+
 When you are done, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to remove the resource group and all related resources. 
 
 ```azurepowershell-interactive
