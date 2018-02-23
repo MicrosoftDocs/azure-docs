@@ -98,7 +98,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
   "query": "order two dozen eggs",
   "topScoringIntent": {
     "intent": "OrderFood",
-    "score": 0.105443209
+    "score": 0.9468431361
   },
   "intents": [
     {
