@@ -17,7 +17,7 @@ ms.date: 02/22/2018
 ms.author: wgries
 ---
 
-# Managing Azure file shares with the Azure portal 
+# Quickstart: Managing Azure file shares with the Azure portal 
 
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com). In this article you learn how to:
 
