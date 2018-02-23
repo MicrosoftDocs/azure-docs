@@ -1,14 +1,14 @@
 ---
-title: "Pricing Tiers in Azure Database for MySQL | Microsoft Docs"
+title: "Pricing Tiers in Azure Database for MySQL"
 description: "Pricing Tiers in Azure Database for MySQL"
 services: mysql
-author: seanli1988
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 2/16/2018
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL pricing tiers
