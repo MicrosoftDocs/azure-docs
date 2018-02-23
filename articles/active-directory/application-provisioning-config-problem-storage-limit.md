@@ -39,6 +39,5 @@ There are two possible ways to work around this issue today:
 
 2. **Reduce the amount of configuration data stored** - All data entered in the [Admin credentials](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) section of the provisioning tab is stored in the same place as the SAML certificate. While it may not be possible to reduce the length of all of this data, some optional configuration fields like the **Notification Email** can be removed.
 
-
 ## Next steps
 [Configure user provisioning and de-provisioning to SaaS applications](active-directory-saas-app-provisioning.md)
