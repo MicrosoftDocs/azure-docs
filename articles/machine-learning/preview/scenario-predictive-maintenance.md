@@ -53,7 +53,7 @@ Create a new project by using this example as a template:
 
 ## Prepare the notebook server computation target
 
-To run on your local machine, from the Machine Learning Workbench **File** menu, select either **Open Command Prompt** or **Open PowerShell CLI**. The CLI interface allows you to access your Azure services by using the `az` commands. First, login to your Azure account with the command:
+To run on your local machine, from the Machine Learning Workbench **File** menu, select either **Open Command Prompt** or **Open PowerShell CLI**. The CLI interface allows you to access your Azure services by using the `az` commands. First, log in to your Azure account with the command:
 
 ```
 az login
@@ -102,14 +102,14 @@ The content for the scenario is available at the [GitHub repository](https://git
 
 The [Readme](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) file outlines the workflow from preparing the data, building a model, and then deploying a solution for production. Each step of the workflow is encapsulated in a Jupyter notebook in the [Code](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) folder within the repository.   
 
-[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): This notebook downloads the five input .csv files, and does some preliminary data cleanup and visualization. The notebook converts each data set to PySpark format and stores it in an Azure Blob container for use in the Feature Engineering Notebook.
+[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): This notebook downloads the five input .csv files, and does some preliminary data cleanup and visualization. The notebook converts each data set to PySpark format and stores it in an Azure blob container for use in the Feature Engineering Notebook.
 
 [Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): 
-The model features are constructed from the raw data set from Azure Blob storage by using a standard time series approach for telemetry, errors, and maintenance data. The failure-related component replacements are used to construct the model labels that describe which component failed. The labeled feature data is saved in an Azure Blob for the Model Building Notebook.
+The model features are constructed from the raw data set from Azure Blob storage by using a standard time series approach for telemetry, errors, and maintenance data. The failure-related component replacements are used to construct the model labels that describe which component failed. The labeled feature data is saved in an Azure blob for the Model Building Notebook.
 
 [Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): The Model Building Notebook uses the labeled feature data set and splits the data into train and dev data sets along the date-time stamp. The notebook is set up as an experiment with pyspark.ml.classification models. The training data is vectorized. The user can experiment with either a **DecisionTreeClassifier** or **RandomForestClassifier** to manipulate hyperparameters to find the best performing model. Performance is determined by evaluating measurement statistics on the dev data set. These statistics are logged back in to the Machine Learning Workbench runtime screen for tracking. At each run, the notebook saves the resulting model to the local disk that's running the Jupyter notebook kernel. 
 
-[Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): This notebook uses the last model that's saved to the local (Jupyter notebook kernel) disk to build the components for deploying the model into an Azure web service. The full operational assets are compacted into the o16n.zip file that's stored in another Azure Blob container. The zipped file contains:
+[Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): This notebook uses the last model that's saved to the local (Jupyter notebook kernel) disk to build the components for deploying the model into an Azure web service. The full operational assets are compacted into the o16n.zip file that's stored in another Azure blob container. The zipped file contains:
 
 * **service_schema.json**: The schema definition file for the deployment. 
 * **pdmscore.py**: The **init()** and **run()** functions that are required by the Azure web service.
