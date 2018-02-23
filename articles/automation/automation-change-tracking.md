@@ -131,30 +131,34 @@ The following table shows the data collection frequency for the types of changes
 
 ### Registry key change tracking
 
-The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of default registry keys that configured when the solution is enabled. These keys are configured 
+The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys you must enable each one.
 
-- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
-    - Monitors scripts that run at startup.
-- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
-    - Monitors scripts that run at shutdown.
-- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - Monitors keys that are loaded before the user signs in to their Windows account. The key is used for 32-bit programs running on 64-bit computers.
-- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
-    - Monitors changes to application settings.
-- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
-    - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
-- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
-    - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
-- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
-    - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
-- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
-    - Monitors for icon overlay handler registration.
-- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
-    - Monitors for icon overlay handler registration for 32-bit programs running on 64-bit computers.
-- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation.
-- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation for 32-bit programs running on 64-bit computers.
+
+|  |
+|---------|
+|**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
+|Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.    |
+|**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
+|Monitors scripts that run at startup.     |
+|Row5     |
+|Row6     |
+|Row7     |
+|Row8     |
+|Row9     |
+|Row10     |
+
+- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers** - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
+- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup** - Monitors scripts that run at startup.
+- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown** - Monitors scripts that run at shutdown.
+- **HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run** - Monitors keys that are loaded before the user signs in to their Windows account. The key is used for 32-bit programs running on 64-bit computers.
+- **HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components** - Monitors changes to application settings.
+- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers** - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
+- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers** - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
+- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers**- Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
+- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers** - Monitors for icon overlay handler registration.
+- **HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers** - Monitors for icon overlay handler registration for 32-bit programs running on 64-bit computers.
+- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects** - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation.
+- **HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects** - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation for 32-bit programs running on 64-bit computers.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
