@@ -44,13 +44,17 @@ For information about which bindings are in preview or are approved for producti
 
 In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
 
-Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The way you install and register binding extensions depends on how you develop your functions: 
+Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you install and register binding extensions depends on how you develop your functions: 
 
 + [Locally in C# using Visual Studio or VS Code](#precompiled-functions-c)
 + [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [In the Azure portal](#azure-portal-development) 
 
-For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview.
+There are a core set of bindings in version 2.x that are not provided as extensions. You do not need to register extensions for the following triggers and bindings: HTTP, timer, and Azure Storage. 
+
+For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview. 
+
+The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension are required by the other dependencies in your function app.    
 
 ###  Local C# development using Visual Studio or VS Code 
 
