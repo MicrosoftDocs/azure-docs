@@ -54,7 +54,7 @@ To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowle
 
 ![Acknowledge the alarms](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
-When you acknowledge the alarm, the status of the occurence changes to **Acknowledged**.
+When you acknowledge the alarm, the status of the occurrence changes to **Acknowledged**.
 
 In the list, you can see the **Prototype** device responsible for firing the temperature alarm:
 
@@ -82,7 +82,7 @@ To view the details of a specific job or method call, choose it in the list in t
 
 ## Next steps
 
-In this tutorial, we showed you how to:
+In this tutorial, you saw how to:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
