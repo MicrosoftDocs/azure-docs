@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
 
@@ -26,17 +26,40 @@ ms.reviewer: alfredo
 
 ## Cloud Service Provider subscription types
 
-`Section that covers different CSP subscriptions to be used for registration, refer to “register with Azure Stack” for process.`
+Section that covers different CSP subscriptions to be used for registration. 
 
-## Add tenants to Azure Stack
+The types of subscriptions that can be used for registration are:
+•	Cloud Service Provider 
+•	Partner Shared Services subscription 
 
-`We should call this add end customers or users to Azure Stack. There are 3 steps in the process – create customer in partner center, onboard customer tenant in Azure Stack, add customer’s tenant to registration for usage reporting. These articles can have links to their respective docs. We should also mention that if the end customer wants the CSP to manage their Azure Stack subscription/resources, they can refer to the article in the user documentation section.`
+### CSP Shared Services
 
-## Register customers for usage tracking
+Cloud Service Provider Shared Services (CSPSS) subscriptions are the preferred choice for registration when a Direct CSP or a CSP Distributor operates the Azure Stack.
 
-`Register customers for usage tracking (3rd part of previous step)`
+CSPSS subscriptions are associated with a shared-services tenant. When you register Azure Stack, you need to provide credentials for an account that is an owner of the subscription. The account you use to register Azure Stack can be different from the administrator account that you use for deployment; the two do *not* need to belong to the same domain. In other words, you may deploy using the tenant that you already use. For example you may use ContosoCSP.onmicrosoft.com, then register using a different tenant, for example IURContosoCSP.onmicrosoft.com. You will of course need to remember that you log in using ContosoCSP.onmicrosoft.com when you do day-to-do Azure Stack administration. When you sign in to Azure using IURContosoCSP.onmicrosoft.com when you need to do registration operations.
 
-### Use and billing error codes for CSPs
+Please refer to the following for a description of CSPSS subscriptions, and instructions on how to create subscription [Add Azure Partner Shared Services](https://msdn.microsoft.com/partner-center/shared-services).
+
+### CSP subscriptions
+
+Cloud Service Provider (CSP) subscriptions are the preferred choice for registration when a CSP Reseller or an end customer operates the Azure Stack.
+
+## Register Azure Stack with your subscription
+
+To register with Azure Stack, see [Register Azure Stack with your Azure Subscription](azure-stack-registration.md).
+
+
+## Add end customers or users to Azure Stack
+
+1. Create customer in partner center. For steps, see [Add a new customer](https://msdn.microsoft.com/partner-center/add-a-new-customer).
+2. Onboard customer tenant in Azure Stack For steps, see [Add tenants for usage and billing](azure-stack-csp-howto-register-tenants.md)
+3. Add customer’s tenant to registration for usage reporting. For steps, see [Add tenants for usage and billing](azure-stack-csp-howto-register-tenants.md)
+
+> [!note]  
+> If the customer wants the you as the CSP to manage their Azure Stack subscription or resources, the refer the customer to [Create Azure CSP as guest with user role to tenant](user\azure-stack-csp-enable-billing-usage-tracking.md).
+
+
+## Use and billing error codes for CSPs
 
 The following error messages can be encountered when adding tenants to a registration.
 
@@ -53,7 +76,7 @@ The following error messages can be encountered when adding tenants to a registr
 
 ## Usage reporting infrastructure for Cloud Service Providers
 
-Azure Stack includes the infrastructure needed to track usage as it occurs and forward it to Azure, where Azure Commerce processes it and charges it against Azure subscriptions, in the same way as usage that takes place in the public Azure cloud.
+Azure Stack includes the infrastructure needed to track usage as it occurs and forward it to Azure, where Azure Commerce processes it and charges it against Azure subscriptions, in the same way as usage that takes place in the global Azure cloud.
 
 You should be aware that certain concepts are consistent between Azure and Azure Stack has local subscriptions, which fulfill a similar role to Azure subscription, but are only valid locally. Local subscriptions are mapped to Azure subscriptions when usage is forwarded to Azure.
 
@@ -72,7 +95,7 @@ You can find out about the Azure Stack meters used in Commerce and their prices 
 
 We have seen that Azure Stack usage data is forwarded to Azure Commerce and billed to Azure subscription. You may wonder: how does Commerce know which subscription to charge?
 
-Another question you may have is: when an Azure Stack is going to be shared among multiple end customers (multiple AAD tenants from an identity point of view), there is a need to report each customer’s usage on a different subscription.How does Azure Stack deal with multitenancy (the ability to support different organizations on the same Azure Stack)? Can you report each end customer’s usage to the customer’s subscription? The answer is yes, and here is how. 
+Another question you may have is: when an Azure Stack is going to be shared among multiple end customers (multiple AAD tenants from an identity point of view), there is a need to report each customer’s usage on a different subscription. How does Azure Stack deal with multitenancy (the ability to support different organizations on the same Azure Stack)? Can you report each end customer’s usage to the customer’s subscription? The answer is yes, and here is how. 
 
 Azure Stack supports these requirements using a feature called registration. A registration is an object, stored in Azure, which documents which Azure subscription(s) to use to charge for a given Azure Stack.
 

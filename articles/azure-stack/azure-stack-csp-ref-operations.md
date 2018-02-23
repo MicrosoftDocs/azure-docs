@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
 
@@ -22,15 +22,15 @@ ms.reviewer: alfredo
 
 *Applies to: Azure Stack integrated systems*
 
-This article contains details about operations you can use to manage your tenant registrations, and how tenant usage is tracked. You can find details about how to add, list, or remove tenant mappings.You can use PowerShell or the Billing API endpoints to manage your use tracking.
+This article contains details about operations you can use to manage your tenant registrations, and how tenant usage is tracked. You can find details about how to add, list, or remove tenant mappings. You can use PowerShell or the Billing API endpoints to manage your use tracking.
 
 ## Add tenant to registration
 
-You will use this operation when you want to add a new tenant to your registration, so that their usage is reported under an Azure subscription connected with their Azure Active Directory (Azure AD) tenant.
+You use this operation when you want to add a new tenant to your registration, so that their usage is reported under an Azure subscription connected with their Azure Active Directory (Azure AD) tenant.
 
-You can also use this operation if you want to change the subscription associated with a tenant, you can call PUT/New-AzureRMResource again. The old mapping will be overwritten.
+You can also use this operation if you want to change the subscription associated with a tenant, you can call PUT/New-AzureRMResource again. The old mapping is overwritten.
 
-Please note that only one Azure subscription can be associated with a tenant. If you try to add a second subscription to an existing tenant, the first subscription will be over-written. 
+Note that only one Azure subscription can be associated with a tenant. If you try to add a second subscription to an existing tenant, the first subscription is over-written. 
 
 
 | Parameter                  | Description |
@@ -114,7 +114,7 @@ api-version=2017-06-01 HTTP/1.1`
 
 ## Remove a tenant mapping
 
-You can remove a tenant that has been added to a registration. If that tenant is still using resources on Azure Stack, their usage will be charged to the subscription used in the initial Azure Stack registration.
+You can remove a tenant that has been added to a registration. If that tenant is still using resources on Azure Stack, their usage is charged to the subscription used in the initial Azure Stack registration.
 
 ### Parameters
 

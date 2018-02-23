@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
 
@@ -22,9 +22,9 @@ ms.reviewer: alfredo
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the step required to configure Azure Stack so that when a new tenant uses resources thier usage will be reported to the their Cloud Service Provider (CSP) subscription. 
+This article describes the step required to configure Azure Stack so that when a new tenant uses resources their usage will be reported to their Cloud Service Provider (CSP) subscription. 
 
-CSP often provides service to multiple customers (tenants) on their Azure Stack deployment. Registering tenants ensures that each tenant’s usage will be reported and billed to that tenant’s CSP subscription. If you do not complete the steps in this article, tenant usage will be charged to the subscription used in the initial registration of Azure Stack.
+CSP often provides service to multiple customers (tenants) on their Azure Stack deployment. Registering tenants ensures that each tenant’s usage will be reported and billed to that tenant’s CSP subscription. If you do not complete the steps in this article, tenant usage is charged to the subscription used in the initial registration of Azure Stack.
 
 ## Create a new customer in Partner Center
 
@@ -32,7 +32,7 @@ Add the customer in Partner Center and creates an Azure subscription. For instru
 
 ## Configure usage reporting by adding a new tenant to your registration
 
-Update your registration with the new customer’s subscription. Azure will report the customer's usage using the customer identity from Partner Central. This step ensure that each customer’s usage is reported under that customer’s individual CSP subscription. This will make tracking user usage and billing much easier.
+Update your registration with the new customer’s subscription. Azure reports the customer's usage using the customer identity from Partner Central. This step ensures that each customer’s usage is reported under that customer’s individual CSP subscription. This makes tracking user usage and billing much easier.
 
 > [!Note]  
 > To carry out this step, you must have [registered Azure Stack](azure-stack-register.md).
@@ -45,7 +45,7 @@ Update your registration with the new customer’s subscription. Azure will repo
 ```powershell
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
-### New-AzureRmResource PowerShell paramaters
+### New-AzureRmResource PowerShell parameters
 | Parameter | Description |
 | --- | --- | 
 |registrationSubscriptionID | The Azure subscription that was used for the initial registration. |
