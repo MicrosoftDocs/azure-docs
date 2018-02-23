@@ -2,16 +2,10 @@
 title: Perform operations on Azure Blob storage (object storage) with the Azure CLI | Microsoft Docs
 description: Learn how to upload and download blobs in Azure Blob storage, as well as construct a shared access signature (SAS) to manage access to a blob in your storage account.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid:
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram

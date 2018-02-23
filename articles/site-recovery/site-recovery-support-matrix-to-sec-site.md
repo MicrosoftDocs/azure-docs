@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
 
 ---

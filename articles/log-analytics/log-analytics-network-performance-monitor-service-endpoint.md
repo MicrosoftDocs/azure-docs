@@ -16,9 +16,9 @@ ms.date: 02/20/2018
 ms.author: abshamsft
 
 ---
-# Service Endpoint Manager
+# Service Endpoint Monitor
 
-The Service Endpoint Manager capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
+The Service Endpoint Monitor capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) allows you to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
 
 You can perform the following functions with **Service Endpoint Monitor**: 
 
