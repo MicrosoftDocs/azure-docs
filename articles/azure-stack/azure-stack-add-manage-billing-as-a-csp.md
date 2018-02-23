@@ -55,7 +55,25 @@ To register with Azure Stack, see [Register Azure Stack with your Azure Subscrip
 > [!note]  
 > If the customer wants the you as the CSP to manage their Azure Stack subscription or resources, the refer the customer to [Create Azure CSP as guest with user role to tenant](user\azure-stack-csp-enable-billing-usage-tracking.md).
 
-## Usage reporting infrastructure for Cloud Service Providers
+## Reference for Cloud Service Providers
+
+### Charging the right subscriptions: the importance of registration
+
+Azure Stack uses a feature called registration. A registration is an object, stored in Azure, which documents which Azure subscription(s) to use to charge for a given Azure Stack.
+
+Using registration Azure Stack can:
+ - Forward Azure Stack usage data to Azure Commerce and bill to an Azure subscription.
+ - Report each customer’s usage on a different subscription with a multitenant Azure Stack deployment. Multitenancy enables Azure Stack to support different organizations on the same Azure Stack instance.
+
+For each Azure Stack, there is going one default subscription and as many tenant subscriptions as needed. The default subscription is an Azure subscription that is charged if there is no tenant-specific subscription. It must be the first to be registered. For multi-tenant usage reporting to work, the subscription must be a CSP or CSPSS subscription.
+
+Then, the registration is updated with an Azure subscription for each tenant that is going to use Azure Stack. Tenant subscriptions must be of the CSP type and must roll up to the partner who owns the default subscription. In other words, you cannot register someone else’s customers.
+
+When Azure Stack forwards usage information to global Azure, a service in Azure consults the registration and maps each tenant’s usage to the appropriate tenant subscription. If a tenant has not been registered, that usage goes to the default subscription for the Azure Stack instance from which it originated.
+
+Since tenant subscriptions are CSP subscriptions, their bill is sent to the CSP partner, and usage information is not visible to the end customer.
+
+### Usage reporting infrastructure for Cloud Service Providers
 
 Azure Stack includes the infrastructure needed to track usage as it occurs and forward it to Azure, where Azure Commerce processes it and charges it against Azure subscriptions, in the same way as usage that takes place in the global Azure cloud.
 
@@ -72,24 +90,6 @@ You can find out about the Azure Stack meters used in Commerce and their prices 
 3. Open the **Azure in Global CSP price list** spreadsheet.
 4. Filter on **Region = Azure Stack**.
 
-## Charging the right subscriptions: the importance of registration
-
-We have seen that Azure Stack usage data is forwarded to Azure Commerce and billed to Azure subscription. You may wonder: how does Commerce know which subscription to charge?
-
-Another question you may have is: when an Azure Stack is going to be shared among multiple end customers (multiple AAD tenants from an identity point of view), there is a need to report each customer’s usage on a different subscription. How does Azure Stack deal with multitenancy (the ability to support different organizations on the same Azure Stack)? Can you report each end customer’s usage to the customer’s subscription? The answer is yes, and here is how. 
-
-Azure Stack supports these requirements using a feature called registration. A registration is an object, stored in Azure, which documents which Azure subscription(s) to use to charge for a given Azure Stack.
-
-For each Azure Stack, there is going to be one default subscription and as many tenant subscriptions as needed:
-
- - The default subscription is an Azure subscription that is charged if there is no tenant-specific subscription. It must be the first to be registered. For multi-tenant usage reporting to work, the subscription must be a CSP or CSPSS subscription.
-
- - Then, the registration is updated with an Azure subscription for each tenant that is going to use the Azure Stack. Tenant subscriptions must be of the CSP type and must roll up to the partner who owns the default subscription (in other words, you cannot register someone else’s customers!).
-When usage information is forwarded to Azure, a service in Azure consults the registration and maps each tenant’s usage to the appropriate tenant subscription. If a tenant has not been registered, that usage goes to the default subscription for the Azure Stack from which it originated.
-Since tenant subscriptions are CSP subscriptions, their bill is sent to the CSP partner, and usage information is not visible to the end customer.
-
-## Reference for Cloud Service Providers
-
 ### Usage and billing error codes
 
 The following error messages can be encountered when adding tenants to a registration.
@@ -105,7 +105,7 @@ The following error messages can be encountered when adding tenants to a registr
 | InvalidCSPSubscription          | The provided _customer subscription identifier_ is not a valid CSP subscription. Make sure a valid Azure subscription is provided.                                                                                                                                                        | This is mostly likely to be due to the customer subscription being mistyped.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | MetadataResolverBadGatewayError | One of the upstream servers returned an unexpected error. Try again later. If the problem persists, Contact support.                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-## Terms used for billing and usage
+### Terms used for billing and usage
 
 The following terms and concepts are used for usage and billing in Azure Stack:
 

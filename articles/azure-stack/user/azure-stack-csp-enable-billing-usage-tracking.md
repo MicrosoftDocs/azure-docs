@@ -22,7 +22,7 @@ ms.reviewer: alfredop
 
 *Applies to: Azure Stack integrated systems*
 
-If you're using Azure Stack with a Cloud Service Provider (CSP), your access to resource in your Azure subscription and in Azure Stack may be managed by the provider. Or you may manage your own subscription. This article looks at how you can enable your service provider to access subscription on your behalf, or make sure the service provider can manage your service.
+If you're using Azure Stack with a Cloud Service Provider (CSP), your access to resource in your Azure subscription and in Azure Stack may be managed by the provider. Or you may manage your own subscription. This article looks at how you can enable your service provider to access your subscription on your behalf, or to make sure the service provider can manage your service.
 
 > [!Note]  
 >  If the following steps are skipped, the CSP cannot manage your Azure Stack subscription on your behalf.
