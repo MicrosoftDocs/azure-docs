@@ -159,9 +159,9 @@ $skuName="2016-Datacenter"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `--image` parameter when you create a VM with the [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the image. You can also use the URN the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet. 
+Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `--image` parameter when you create a VM with the [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the image. You can also use the URN with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet. 
 
-If you deploy a VM with a Resource Manager template, you set the image parameters individually. See the [template reference](../templates/microsoft.compute/virtualmachines.md).
+If you deploy a VM with a Resource Manager template, you set the image parameters individually. See the [template reference](../../templates/microsoft.compute/virtualmachines.md).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
@@ -227,7 +227,6 @@ DataDiskImages   : []
 
 ```
 
-
 ### Accept the terms
 
 To view the license terms, use the [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.compute/get-azurermmarketplaceterms) cmdlet and pass in the purchase plan parameters. The output provides a link to the terms for the Marketplace image and shows whether you previously accepted the terms. For example:
@@ -292,7 +291,7 @@ $vmConfig = Set-AzureRmVMOperatingSystem -Windows -VM $vmConfig -ComputerName "m
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "imagePublisher" -Offer "imageOffer" -Skus "imageSku" -Version "imageVersion"
 ...
 ```
-You then pass the VM configuration along with network configuration objects to the New-AzureRmVM cmdlet.
+You then pass the VM configuration along with network configuration objects to the `New-AzureRmVM` cmdlet.
 
 ## Next steps
 To create a virtual machine quickly with `New-AzureRmVM` by using basic image information, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).
