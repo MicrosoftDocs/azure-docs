@@ -13,13 +13,13 @@
     href: quickstart-installation.md
 - name: Tutorials
   items:
-  - name: 1&#58; Prepare data
+  - name: '1: Prepare data'
     href: tutorial-classifying-iris-part-1.md
-  - name: 2&#58; Build models 
+  - name: '2: Build models' 
     href: tutorial-classifying-iris-part-2.md
-  - name: 3&#58; Deploy models
+  - name: '3: Deploy models'
     href: tutorial-classifying-iris-part-3.md
-  - name: 4&#58; Advanced data preparation
+  - name: '4: Advanced data preparation'
     href: tutorial-bikeshare-dataprep.md  
 - name: Concepts   
   items: 
