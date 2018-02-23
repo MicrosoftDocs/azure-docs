@@ -1,5 +1,5 @@
 ---
-title: Build a model for Azure Machine Learning services (preview) | Microsoft Docs
+title: Build a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part two and discusses experimentation.
 services: machine-learning
 author: hning86
@@ -8,7 +8,7 @@ manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
 ---

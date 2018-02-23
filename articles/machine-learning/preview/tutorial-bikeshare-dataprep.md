@@ -1,6 +1,6 @@
 ---
 title: Bike-share tutorial - Advanced data preparation with Azure Machine Learning Workbench
-description: And end-to-end data preparation tutorial using Azure Machine Learning Workbench
+description: In this tutorial, you perform an end-to-end data preparation task using Azure Machine Learning Workbench
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -8,13 +8,13 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial, azure
-ms.topic: article
+ms.custom: mvc
+ms.topic: tutorial
 ms.date: 09/21/2017
 ---
 
 
-# Tutorial: Advanced data preparation with Azure Machine Learning Workbench (Bike share data)
+# Tutorial: Use Azure Machine Learning Workbench for advanced data preparation (Bike share data)
 Azure Machine Learning services (preview) is an integrated, end-to-end data science, and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
 In this tutorial, you use Azure Machine Learning services (preview) to learn how to:

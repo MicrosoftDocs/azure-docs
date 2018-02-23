@@ -1,11 +1,11 @@
 If you're not going to continue to use this app, delete all resources created by this quickstart with the following steps so you don't incur any charges:
 
 >[!NOTE]
->These resources are useful if you plan to follow the other tutorials now.
+>These resources are useful when following the other Azure Machine Learning services tutorials now.
 
 1. In the Azure portal, select **Resource groups** on the far left.  
 
-   ![Azure portal](../media/aml-delete-resource-group/delete-resources.png)
+   ![Azure portal](../../media/aml-delete-resource-group/delete-resources.png)
 
 2. From the list of resource groups, select the resource group you created, and then click **Delete resource group**.
 
