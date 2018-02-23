@@ -18,7 +18,7 @@ ms.date: 02/22/2018
 ms.author: ajaycode
 
 ---
-# Network Monitoring Solutions 
+# Network monitoring solutions 
 
 Azure offers a host of solutions to monitor your networking assets. Azure has solutions and utilities to monitor network connectivity, the health of ExpressRoute circuits, and analyze network traffic in the cloud.
 
@@ -31,14 +31,14 @@ Network Performance Monitor (NPM) is a suite of capabilities, each of which is g
 * Mission critical multi-tier applications/micro-services
 * User locations and web-based applications (HTTP/HTTPs) 
 
-## Performance Monitor (NPM)
+## Performance Monitor
 
-Performance Monitor is network monitoring for cloud, hybrid, and on-premises environments. You can monitor network connectivity across remote branch & field offices, store locations, data centers, and clouds. You can detect network issues before your users complain. The key advantages are:
+Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, and on-premises environments. You can monitor network connectivity across remote branch and field offices, store locations, data centers, and clouds. You can detect network issues before your users complain. The key advantages are:
 
 * Monitor loss and latency across various subnets and set alerts
 * Monitor all paths (including redundant paths) on the network
-* Troubleshoot transient & point-in-time network issues, that are difficult to replicate
-* Determine the specific segment on the network,  that is responsible for degraded performance
+* Troubleshoot transient and point-in-time network issues, that are difficult to replicate
+* Determine the specific segment on the network, that is responsible for degraded performance
 * Monitor the health of the network, without the need for SNMP
 
 For more information, view the following articles:
@@ -47,9 +47,9 @@ For more information, view the following articles:
 * [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Product Updates: [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## ExpressRoute Monitor (NPM)
+## ExpressRoute Monitor
 
-Network Performance Monitoring for ExpressRoute offers comprehensive ExpressRoute monitoring for private peering connections. You can monitor E2E connectivity and performance between your branch offices and Azure over ExpressRoute. The key capabilities are:
+NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for private peering connections. You can monitor E2E connectivity and performance between your branch offices and Azure over ExpressRoute. The key capabilities are:
 
 * Auto-detection of ER circuits associated with your subscription
 * Detection of network topology  from on-premises to your cloud applications
