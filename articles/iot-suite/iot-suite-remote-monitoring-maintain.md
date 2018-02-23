@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -53,6 +53,8 @@ The detail view of the alarm shows:
 To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowledge**. This action enables other operators to see that you have seen the alarm and are working on it.
 
 ![Acknowledge the alarms](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
+
+When you acknowledge the alarm, the status of the occurence changes to **Acknowledged**.
 
 In the list, you can see the **Prototype** device responsible for firing the temperature alarm:
 
