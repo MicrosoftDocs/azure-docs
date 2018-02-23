@@ -29,13 +29,13 @@ Azure Stack collects and groups usage data for all resources, and forwards this 
 
 ## Usage pipeline
 
-Each resource provider in Azure Stack emits usage data per resource usage. The Usage Service periodically(hourly and daily) aggregates usage data and stores it in the usage database. Azure Stack operators and users can locally access the stored usage data through the Azure Stack Resource Usage APIs.
+Each resource provider in Azure Stack emits usage data per resource usage. The Usage Service periodically (hourly and daily) aggregates usage data and stores it in the usage database. Azure Stack operators and users can locally access the stored usage data through the Azure Stack Resource Usage APIs.
 
 If you have [Registered your Azure Stack instance with Azure](azure-stack-register.md), Usage Bridge is configured to send the usage data to Azure Commerce. After the data is available in Azure, you can access it through the billing portal or by using  Azure Resource Usage APIs. Refer to the [Usage data reporting](azure-stack-usage-reporting.md) topic to learn more about what usage data is reported to Azure. 
 
 The following image shows the key components in the usage pipeline:
 
-![Usage pipeline](\media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![Usage pipeline](media\azure-stack-billing-and-chargeback\usagepipeline.png)
 
 ## What usage information can I find, and how?
 
