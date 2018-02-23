@@ -20,22 +20,22 @@ ms.reviewer: ppacent
 ---
 # Azure Stack secret rotation
 
-*These instructions apply only to Azure Stack Integrated Systems Version 1802 and Later. Do not attempt secret rotation on pre-1802 Azure Stack Versions as it leads to environment failure.*
+*These instructions apply only to Azure Stack Integrated Systems Version 1802 and Later. Do not attempt secret rotation on pre-1802 Azure Stack Versions*
 
 Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure’s resources and services. Here “secrets” describes the following: 
 - Infrastructure service account passwords 
 - Internal infrastructure certificates 
 - Infrastructure service storage account keys 
-- Infrastructure service certificates for external-facing services, including 
-- Administrator Portal 
-- Public Portal 
-- Administrator Azure Resource Manager 
-- Public Azure Resource Manager 
-- Administrator Keyvault 
-- Keyvault 
-- ACS (including Blob, Table, and Queue Storage) 
-- ADFS<sup>*</sup>  
-- Graph<sup>*</sup>
+- Infrastructure service certificates for external-facing services, including: 
+    - Administrator Portal 
+    - Public Portal 
+    - Administrator Azure Resource Manager 
+    - Public Azure Resource Manager 
+    - Administrator Keyvault 
+    - Keyvault 
+    - ACS (including Blob, Table, and Queue Storage) 
+    - ADFS<sup>*</sup>  
+    - Graph<sup>*</sup>
 
 > <sup>*</sup> Only applicable if the environment’s identity provider is ADFS.
 
@@ -45,14 +45,15 @@ Azure Stack uses various secrets to maintain secure communication between the Az
 In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements. 
 
 ## Alert Remediations 
-Secret Rotation is a remediation for the following alerts: 
+When secrets are nearing expiration the following alerts will be generated and displayed in the Administrator Portal: 
 - Pending service account password expiration 
 - Pending internal certificate expiration 
 - Pending external certificate expiration 
 
+Running secret rotation using the instructions below will remediate these alerts.
 
 ## Pre-steps 
-1. Schedule a maintenance window for Secret Rotation. Secret Rotation generally lasts about seven hours and has the potential to impact infrastructure and Tenant services. Tenant services can be down for up to 40 minutes during this time.
+1. We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both user workloads and portal operations.
 2. Prepare a new set of replacement external certificates matching the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3. Create a fileshare that is accessible from your ERCS VMs. 
   
