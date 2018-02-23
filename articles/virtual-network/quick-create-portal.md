@@ -113,7 +113,9 @@ Ping is successful because you allowed it through the Windows firewall on the *m
 ping bing.com
 ```
 
-You receive four replies from bing.com. By default, any virtual machine in a virtual network can communicate outbound to the Internet.
+You receive four replies from bing.com. By default, any virtual machine in a virtual network can communicate outbound to the Internet. 
+
+Exit the remote desktop session.
 
 ## Clean up resources
 
