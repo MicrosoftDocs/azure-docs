@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/22/2018
 ms.author: vidarmsft
 ---
 
@@ -55,7 +55,7 @@ However, the StorSimple Data Manager can be used to transform data in the follow
 
 ![Regions available for data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
 
-This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 26 regions, you can transform your data using this service.
+This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 19 regions, you can transform your data using this service.
 
 
 ## Choosing a region
