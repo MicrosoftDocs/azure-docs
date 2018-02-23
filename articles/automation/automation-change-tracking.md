@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/23/2018
 ms.author: gwallace
 ms.custom: H1Hack27Feb2017
 
@@ -133,52 +133,73 @@ The following table shows the data collection frequency for the types of changes
 
 The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys you must enable each one.
 
-
 |  |
 |---------|
 |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
-|&#9;Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.    |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.    |
 |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors scripts that run at startup.     |
-|Row5     |
-|Row6     |
-|Row7     |
-|Row8     |
-|Row9     |
-|Row10     |
-
-- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers** - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
-- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup** - Monitors scripts that run at startup.
-- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown** - Monitors scripts that run at shutdown.
-- **HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run** - Monitors keys that are loaded before the user signs in to their Windows account. The key is used for 32-bit programs running on 64-bit computers.
-- **HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components** - Monitors changes to application settings.
-- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers** - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
-- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers** - Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
-- **HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers**- Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.
-- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers** - Monitors for icon overlay handler registration.
-- **HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers** - Monitors for icon overlay handler registration for 32-bit programs running on 64-bit computers.
-- **HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects** - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation.
-- **HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects** - Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation for 32-bit programs running on 64-bit computers.
-- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
-    - Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.
-- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
-    - Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons for 32-bit programs running on 64-bit computers.
-- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
-    - Monitors the 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc. Similar to the [drivers] section in the SYSTEM.INI file.
-- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
-    - Monitors the 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc for 32-bit programs running on 64-bit computers. Similar to the [drivers] section in the SYSTEM.INI file.
-- HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
-    - Monitors the list of known or commonly used system DLLs; this system prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.
-- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
-    - Monitors the list of packages able to receive event notifications from Winlogon, the interactive logon support model for the Windows operating system.
+|**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors scripts that run at shutdown.     |
+|**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors keys that are loaded before the user signs in to their Windows account. The key is used for 32-bit programs running on 64-bit computers.    |
+|**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors changes to application settings.     |
+|**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.|
+|**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with Explorer.exe.|
+|**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors for icon overlay handler registration.|
+|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors for icon overlay handler registration for 32-bit programs running on 64-bit computers.|
+|**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation.|
+|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation for 32-bit programs running on 64-bit computers.|
+|**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.|
+|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons for 32-bit programs running on 64-bit computers.|
+|**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors the 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc. Similar to the [drivers] section in the SYSTEM.INI file.|
+|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors the 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc for 32-bit programs running on 64-bit computers. Similar to the [drivers] section in the SYSTEM.INI file.|
+|**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of known or commonly used system DLLs; this system prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.|
+|**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of packages able to receive event notifications from Winlogon, the interactive logon support model for the Windows operating system.|
 
 ## Use Change Tracking
 
-After the solution is installed, you can view the summary of changes for your monitored computers by selecting **Change Tracking** under **CONFIGURATION MANAGEMENT** in your Automation account.
+After the solution is enabled, you can view the summary of changes for your monitored computers by selecting **Change Tracking** under **CONFIGURATION MANAGEMENT** in your Automation account.
 
-You can view changes to your computers and then drill-into details for each event.
+You can view changes to your computers and then drill-into details for each event. Drop downs are available at the top of the chart to limit the chart and detailed information based on change ttpe and time ranges.  You can also click and drag on the chart to select a custom time range.
 
 ![image of Change Tracking dashboard](./media/automation-change-tracking/change-tracking-dash01.png)
 
+Clicking on a change or event brings up the detailed information about that change. As you can see from the example, the startup type of the service was changed from manual to auto.
+
+![image of change tracking details](./media/automation-change-tracking/change-tracking-details.png)
+
+## Search logs
+
+In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page
+
+### Sample queries
+
+The following table provides sample log searches for change records collected by this solution:
+
+|Query  |Description  |
+|---------|---------|
+|ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Shows the most recent inventory records for Windows Services that were set to Auto but were reported as being Stopped<br>Results are limited to the most recent record for that SoftwareName and Computer      |
+|ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Shows the change records for removed software|
+
 ## Next steps
+
+Visit the tutorial on Change Tracking to learn more about using the solution:
+
+> [!div class="nextstepaction"]
+> [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
+
 * Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.

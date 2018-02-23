@@ -187,21 +187,21 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
 
-## Sample log searches
+## Search logs
 
-The following table provides sample log searches for update records collected by this solution.
+In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page
+
+### Sample queries
+
+The following table provides sample log searches for update records collected by this solution:
 
 | Query | Description |
 | --- | --- |
 |Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |All computers with missing updates<br>Add one of the following to limit the OS:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
-| Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where (Classification == "Security Updates" or Classification == "Critical Updates") |All computers with missing critical or security updates<br>For Update Rollups change to:<br>Classification == "Update Rollups" | 
-| Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where Computer in ((UpdateSummary &#124; where WindowsUpdateSetting == "Manual"<br>&#124;  distinct Computer))<br>&#124; distinct KBID| Critical or security updates needed by machines where updates are manually applied |
 | Event<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |Error events for machines that have missing critical or security required updates |
 | Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Distinct missing updates across all computers | 
 | UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computers with updates that failed in an update run<br>Add one of the following to limit the OS:<br>OSType = "Windows"<br>OSType == "Linux" | 
-| UpdateSummary<br>&#124; summarize AggregatedValue = count() by WSUSServer |WSUS computer membership | 
-| UpdateSummary<br>&#124; where WindowsUpdateSetting == "Manual" |Computers with automatic update disabled | 
 | Update<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |List of all the Linux machines, which have a package update available, which addresses Critical or Security vulnerability | 
 | UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Computers that were updated in this update run (replace value with your Update Deployment name | 
 
