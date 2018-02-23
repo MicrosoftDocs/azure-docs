@@ -1,6 +1,6 @@
 ---
 title: Installation Quickstart for Azure Machine Learning services | Microsoft Docs
-description: Learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
+description: In this Quickstart Learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib, j-martens
@@ -13,17 +13,16 @@ ms.topic: quickstart
 ms.date: 2/22/2018
 ---
 
-# Quickstart: Create Azure Machine Learning accounts and install Azure Machine Learning Workbench
+# Quickstart: Get started with Azure Machine Learning services
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 This quickstart shows you how to:
 
-* Create experimentation and model management accounts for Azure Machine Learning services
-* Install the Azure Machine Learning Workbench desktop application
-* Log into Workbench with your experimentation account
-* Create a project
+* Create service accounts for Azure Machine Learning services
+* Install and log in to Azure Machine Learning Workbench.
+* Create a project in Workbench
 * Run a script in that project  
-* Access the command-line interface
+* Access the command-line interface (CLI)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -32,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - Windows 10 or Windows Server 2016
 - macOS Sierra or High Sierra
 
-## Create Azure Machine Learning accounts
+## Create Azure Machine Learning services accounts
 Use the Azure portal to provision your Azure Machine Learning accounts: 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now. 
 
@@ -78,11 +77,14 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
    ![Azure portal notifications](media/quickstart-installation/portal-notification.png)
 
 
-## Install Azure Machine Learning Workbench
+## Install & log in to Workbench
 
 Azure Machine Learning Workbench is available for Windows or macOS. See the list of [supported platforms](#prerequisites).
 
-1. Download and launch the latest Azure Machine Learning Workbench installer. 
+>[!WARNING]
+>The installation might take around 30 minutes to complete. 
+
+1. Download and launch the latest Workbench installer. 
    >[!IMPORTANT]
    >Download the installer fully on disk, and then run it from there. Do not run it directly from your browser's download widget.
 
@@ -96,10 +98,7 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
    &nbsp;&nbsp;&nbsp;&nbsp;A. Download [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg). <br/>
    &nbsp;&nbsp;&nbsp;&nbsp;B. Double-click on the downloaded installer in Finder.
 
-1. Follow the on-screen instructions in your installer to completion.
-   
-   >[!IMPORTANT]
-   >The installation might take around 30 minutes to complete. 
+1. Follow the on-screen instructions in your installer to completion. **The installation might take around 30 minutes to complete.**  
    
    | |Workbench installation path|
    |--------|------------------------------------------------|
@@ -108,13 +107,11 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
 
    The installer downloaded and setup all the necessary dependencies, such as Python, Miniconda, and other related libraries. 
   
-## Start and sign into Azure Machine Learning Workbench
-
 1. Launch Workbench by selecting the **Launch Workbench** button on the last screen of the installer. 
 
    If you closed the installer, it's no problem. On Windows, just launch it using the **Machine Learning Workbench** desktop shortcut. For macOS users, select **Azure ML Workbench** in your Launchpad.
 
-2. On the first screen, select **Sign in** to authenticate with the Azure Machine Learning Workbench. Use the same credentials you used in the Azure portal to create the Experimentation and Model Management accounts. 
+1. On the first screen, select **Sign in** to authenticate with the Azure Machine Learning Workbench. Use the same credentials you used in the Azure portal to create the Experimentation and Model Management accounts. 
 
    Once you are signed in, Workbench uses the first Experimentation account it finds in your Azure subscriptions.  Workbench uses the first Experimentation account it finds and displays all workspaces and projects associated with that account. 
 
@@ -176,7 +173,7 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
 3. Select a completed run in the Jobs pane to see a detailed view for that specific execution. Details include additional metrics, the files that it produced, and other potentially useful logs.
 
-## Start the command-line interface (CLI)
+## Start the CLI
 
 The Azure command-line interface (CLI) 2.0 is also installed. The CLI interface allows you to access and interact with your Azure services using the `az` commands.  Specifically, there are commands Azure Machine Learning services users can use to perform all tasks required for an end-to-end data science workflow. [Learn more.](tutorial-iris-azure-cli.md)
 
@@ -188,7 +185,7 @@ You can get help on commands in the CLI using the --help argument.
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 You have now created the necessary an Azure Machine Learning accounts and installed the Azure Machine Learning Workbench application. In that application, you have created a project, ran a script, and explored the run history of the script.
