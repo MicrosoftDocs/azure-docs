@@ -36,7 +36,7 @@ The following sections discuss common concepts for identity providers and their 
 ![Terminology for identity providers](media/azure-stack-identity-overview/terminology.png)
 
 
-### Directories, tenants, and organizations.
+### Directories tenants and organizations
 A directory is a container that holds information about *users*, *applications*, *groups*, and *service principals*.
  
 A directory tenant is an *organization*, like Microsoft or your own company. 
@@ -49,7 +49,7 @@ User accounts (identities) are standard accounts that authenticate individuals u
 How you create and manage users and groups depends on the identity solution you use. 
 
 In Azure Stack, user accounts: 
-- Are created in the *&lt;username>@&lt;domain>* format. Although AD FS maps user accounts to an Active Directory, AD FS does not support use of the *&lt;domain>\<alias>* format. 
+- Are created in the _&lt;username>@&lt;domain>_ format. Although AD FS maps user accounts to an Active Directory, AD FS does not support use of the _&lt;domain>\<alias>_ format. 
 - Can be set up to use multi-factor authentication. 
 - Are restricted to the directory where they first register, which is their organizations directory.
 - Can be imported from your on-premises directories. For more information, see  [Integrate your on-premises directories with Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect) in the Azure documentation.  
@@ -72,6 +72,7 @@ Applications include:
 
 Applications can support two types of tenancy: 
 - **Single-tenant** applications support users and services only from the same directory where the application is registered. 
+
   > [!NOTE]    
   > Because AD FS supports only a single directory, applications you create in an AD FS topology are by design, single-tenant applications.
 - **Multi-tenant** applications support use by users and services from both the directory where the application is registered, and from additional tenant directories.  With multi-tenant applications, users of another tenant directory (another Azure AD tenant) can sign in to your application.     
@@ -104,7 +105,6 @@ Credentials for service principals can either be Key (generated through the Azur
 > When you use AD FS with Azure Stack, only the administrator can create service principals. With AD FS, service principals require certificates and are created through the privileged endpoint (PEP). For more information, see, [Provide applications access to Azure Stack](azure-stack-create-service-principals.md).
 
 To learn about service principals for Azure Stack, see [Create service principals](azure-stack-create-service-principals.md).
-).
 
 
 ### Services
@@ -118,7 +118,7 @@ Identities for Azure Stack include user accounts, groups, and service principals
 When you install Azure Stack, several built-in applications and services automatically register with your identity provider in the directory tenant. Some services that register are used for administration. Other services are available for users. The default registrations give core services identities that can interact with each other, and with identities you add later.
 If you set up Azure AD with multi-tenancy, some applications propagate to the new directories.  
 
-## Authentication and Authorization
+## Authentication and authorization
  
 
 ### Authentication by applications and users
@@ -138,7 +138,7 @@ For applications and users, the architecture of Azure Stack is described by four
 ![Information needed for authentication](media/azure-stack-identity-overview/authentication.png)
 
 
-### Authenticate to Azure Resource Manager:
+### Authenticate to Azure Resource Manager
 To authenticate with the identity provider and receive a JWT, you must have the following information: 
 1.	**URL for the identity system (Authority)** – The URL at which your identity provider can be reached. For example, *&lt;https://login.windows.net>*. 
 2.	**App ID URI for Azure Resource Manager** –  The unique identifier for the Azure Resource Manager that is registered with your identity provider, and unique to each Azure Stack installation.
@@ -177,7 +177,7 @@ Details about using Azure PowerShell to authenticate with Azure Stack can be fou
 ### Authenticate with Azure CLI
 Details about using Azure PowerShell to authenticate with Azure Stack can be found at [Install and configure CLI for use with Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli.md).
 
-## Next Steps:
+## Next steps
 - [Identity architecture](azure-stack-identity-architecture.md)   
 - [Datacenter integration - Identity](azure-stack-integrate-identity.md)
 

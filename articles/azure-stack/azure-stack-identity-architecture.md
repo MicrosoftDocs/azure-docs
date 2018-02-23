@@ -92,6 +92,6 @@ With this topology:
 
 
 
-## Next Steps
+## Next steps
 - [Identity overview](azure-stack-identity-overview.md)   
 - [Datacenter integration - Identity](azure-stack-integrate-identity.md)
