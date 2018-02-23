@@ -57,7 +57,7 @@ Create a new project by using this example as a template:
 
 ## Prepare the notebook server computation target
 
-To run on your local machine, from the Machine Learning Workbench **File** menu, select either **Open Command Prompt** or **Open PowerShell CLI**. The CLI interface allows you to access your Azure services by using the `az` commands. First, login to your Azure account with the command:
+To run on your local machine, from the Machine Learning Workbench **File** menu, select either **Open Command Prompt** or **Open PowerShell CLI**. The CLI interface allows you to access your Azure services by using the `az` commands. First, log in to your Azure account with the command:
 
 ```
 az login
