@@ -137,11 +137,15 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Migrate to SQL Database
     items:
-    - name: Overview
+    - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
-    - name: T-SQL changes
+    - name: Migrate to Managed Instance
+      href: sql-database-managed-instance-migrate.md
+    - name: SQL Database T-SQL changes
       href: sql-database-transact-sql-information.md
-    - name: Manage database after migration
+    - name: Managed Instance T-SQL changes
+      href: sql-database-managed-instance-transact-sql-information.md
+    - name: Manage SQL Database after migration
       href: sql-database-manage-after-migration.md
   - name: Load & move data
     items:
