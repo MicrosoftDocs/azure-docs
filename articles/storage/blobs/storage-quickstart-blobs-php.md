@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the phpqs.php file.  
 
 ## Configure your storage connection string
-In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **accountname** and **accountkey** values with your account name and key.
+In the application, you must provide credentials for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **accountname** and **accountkey** values with your account name and key.
 
 # [Linux] (#tab/linux)
 
