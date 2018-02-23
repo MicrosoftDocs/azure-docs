@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -37,10 +37,18 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
 
 1. Install nodejs and NPM on your machine
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
@@ -121,11 +129,6 @@ template includes a simple test script that you can use to interact with the act
 To add another service to an application already created using `yo`, perform the following steps:
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfcsharp:AddService`
-
-## Migrating from project.json to .csproj
-1. Running 'dotnet migrate' in project root directory will migrate all the project.json to csproj format.
-2. Update the project references accordingly to csproj files in project files.
-3. Update the project file names to csproj files in build.sh.
 
 ## Next steps
 

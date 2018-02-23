@@ -74,7 +74,7 @@ so you can view your current directory.
 
    > [!TIP]
    > If the main Azure menu doesn't show **Azure Active Directory**, 
-   > choose **More services**. In the **Filter** box, 
+   > choose **All services**. In the **Filter** box, 
    > type "Azure Active Directory" as your filter, 
    > then choose **Azure Active Directory**.
 

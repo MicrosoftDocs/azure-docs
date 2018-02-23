@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/18/2018
 ms.author: tamram
 
 ---
@@ -32,30 +32,32 @@ This guide will show you how to perform common scenarios using Blob storage. The
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Ruby application
-Create a Ruby application. For instructions,
-see [Ruby on Rails Web application on an Azure VM](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+Create a Ruby application. For instructions, see [Create a Ruby App in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
+
 
 ## Configure your application to access Storage
 To use Azure Storage, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-2. Type "gem install azure" in the command window to install the gem and dependencies.
+2. Type "gem install azure-storage-blob" in the command window to install the gem and dependencies.
 
 ### Import the package
 Using your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:
 
 ```ruby
-require "azure"
+require "azure/storage/blob"
 ```
 
 ## Set up an Azure Storage Connection
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY**
-for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::Blob::BlobService** with the following code:
+for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information using **Azure::Blob::BlobService::create** with the following code:
 
 ```ruby
-Azure.config.storage_account_name = "<your azure storage account>"
-Azure.config.storage_access_key = "<your azure storage access key>"
+blob_client = Azure::Storage::Blob::BlobService.create(
+    storage_account_name: account_name,
+    storage_access_key: account_key
+	)
 ```
 
 To obtain these values from a classic or Resource Manager storage account in the Azure portal:
@@ -69,12 +71,12 @@ To obtain these values from a classic or Resource Manager storage account in the
 ## Create a container
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-The **Azure::Blob::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
+The **Azure::Storage::Blob::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
 
 The following code example creates a container or prints the error if there is any.
 
 ```ruby
-azure_blob_service = Azure::Blob::BlobService.new
+azure_blob_service = Azure::Storage::Blob::BlobService.create_from_env
 begin
     container = azure_blob_service.create_container("test-container")
 rescue
@@ -118,17 +120,19 @@ puts blob.name
 
 ## List the blobs in a container
 To list the containers, use **list_containers()** method.
-To list the blobs within a container, use **list\_blobs()** method.
+To list the blobs within a container, use **list\_blobs()** method. In order to list all blobs in a container, you must follow a continuation token returned by service and continue running list_blobs with this token. See the [List Blobs REST API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) for details.
 
-This outputs the urls of all the blobs in all the containers for the account.
+The following code outputs the all the blobs in a container.
 
 ```ruby
-containers = azure_blob_service.list_containers()
-containers.each do |container|
-    blobs = azure_blob_service.list_blobs(container.name)
+nextMarker = nil
+loop do
+    blobs = azure_blob_service.list_blobs(container_name, { marker: nextMarker })
     blobs.each do |blob|
-    puts blob.name
+        puts "\tBlob name #{blob.name}"
     end
+    nextMarker = blobs.continuation_token
+    break unless nextMarker && !nextMarker.empty?
 end
 ```
 
@@ -153,6 +157,6 @@ azure_blob_service.delete_blob(container.name, "image-blob")
 To learn about more complex storage tasks, follow these links:
 
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+* [Azure Storage SDK for Ruby](https://github.com/azure/azure-storage-ruby) repository on GitHub
 * [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

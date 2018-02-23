@@ -96,7 +96,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    azure vm image list
    ```
 
-   On the [Azure portal](http://portal.azure.com), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking _More services_ at the bottom of the Azure service list, and then looking in the **Compute** services.   
+   On the [Azure portal](http://portal.azure.com), the new image appears in the **VM images (classic)** that belongs to the **Compute** services. You can access **VM images (classic)** by clicking **All services** at the top of the Azure service list, and then looking in the **Compute** services.   
 
    ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
 
@@ -108,6 +108,6 @@ Alternatively, use the [Azure portal](http://portal.azure.com) to create a custo
 **See also:** [Azure Linux Agent User Guide](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
-[How to Create a Custom Virtual Machine]:create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
-[How to Create a Linux Virtual Machine]:create-custom.md
+[How to Create a Custom Virtual Machine]:create-custom-classic.md
+[How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
+[How to Create a Linux Virtual Machine]:create-custom-classic.md

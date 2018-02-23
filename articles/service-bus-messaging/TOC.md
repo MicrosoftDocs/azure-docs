@@ -4,7 +4,7 @@
 ## [Service Bus architecture](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create a namespace](service-bus-create-namespace-portal.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # How To
 ## Plan and design
@@ -35,12 +34,15 @@
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
 ## Develop
+### [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Message handling
 #### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 #### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 #### [Message sequencing and timestamps](message-sequencing.md)
 #### [Message expiration (Time to Live)](message-expiration.md)
+#### [Message handling using Azure Event Grid](service-bus-to-event-grid-integration-concept.md)
+#### [Azure Event Grid examples](service-bus-to-event-grid-integration-example.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
 #### [Migrate from ACS to SAS](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures](service-bus-sas.md)

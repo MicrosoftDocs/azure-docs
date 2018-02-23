@@ -3,7 +3,7 @@ title: Work with share snapshots (preview) | Microsoft Docs
 description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
 ---
 
@@ -241,6 +241,40 @@ In the output, you see that the contents of the downloaded file and its properti
     "serverEncrypted": true
   }
 }
+```
+
+### File share snapshot operations in Azure PowerShell
+You can use Azure Powershell to perform same operations such as listing share snapshots, browsing share snapshot content, restoring or downloading files from share snapshot, or deleting share snapshots.
+
+#### List share snapshots
+
+You may list share snapshots of a particular share using `Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### Browse share snapshots
+You may also browse into a particular share snapshot to view its content using `Get-AzureStorageFile` with the value of `-Share` pointing to the particular snapshot
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### Restore from share snapshots
+
+You can restore a file by copying or downloading a file from the share snapshot using `Get-AzureStorageFileContent` command
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
 ## Delete a share snapshot

@@ -3,7 +3,7 @@ title: Managed Service Identity (MSI) for Azure Active Directory
 description: An overview of Managed Service Identity for Azure resources.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
+ms.author: skwan
 
 ---
 
@@ -60,6 +60,8 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 |                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity and Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Use Managed Service Identity with Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Event Hubs   | [Use Managed Service Identity with Azure Event Hubs](../event-hubs/event-hubs-managed-service-identity.md) |
 
 ## Which Azure services support Managed Service Identity?
 
@@ -82,12 +84,12 @@ The following services support Azure AD authentication, and have been tested wit
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 | [Azure portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net/ | Available | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 | |
-| Azure SQL | https://database.windows.net/ | Available | October 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net/ | Available | December 2017 | |
-| Azure Service Bus | https://servicebus.azure.net/ | Available | December 2017 | |
+| Azure Resource Manager | https://management.azure.com | Available | September 2017 | [Azure portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net | Available | September 2017 | |
+| Azure Data Lake | https://datalake.azure.net | Available | September 2017 | |
+| Azure SQL | https://database.windows.net | Available | October 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net | Available | December 2017 | |
+| Azure Service Bus | https://servicebus.azure.net | Available | December 2017 | |
 
 ## How much does Managed Service Identity cost?
 
