@@ -60,7 +60,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
 
 For more information about the `BlobTrigger` attribute, see [Trigger - attributes](#trigger---attributes).
 
@@ -85,7 +85,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
 
 For more information about *function.json* file properties, see the [Configuration](#trigger---configuration) section explains these properties.
 
@@ -132,7 +132,7 @@ Here's the *function.json* file:
 }
 ```
 
-The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
 
 For more information about *function.json* file properties, see the [Configuration](#trigger---configuration) section explains these properties.
 
@@ -237,7 +237,7 @@ In JavaScript, access the input blob data using `context.bindings.<name from fun
 
 ## Trigger - blob name patterns
 
-You can specify a blob name pattern in the `path` property in *function.json* or in the `BlobTrigger` attribute constructor. The name pattern can be a [filter or binding expression](functions-triggers-bindings.md#binding-expressions). The following sections provide examples.
+You can specify a blob name pattern in the `path` property in *function.json* or in the `BlobTrigger` attribute constructor. The name pattern can be a [filter or binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns). The following sections provide examples.
 
 ### Get file name and extension
 

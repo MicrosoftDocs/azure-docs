@@ -104,7 +104,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-For more information, see **Binding expressions and patterns** in [Triggers and bindings](functions-triggers-bindings.md#binding-expressions).
+For more information, see **Binding expressions and patterns** in [Triggers and bindings](functions-triggers-bindings.md#binding-expressions-and-patterns).
 
 ### Conversion to function.json
 
