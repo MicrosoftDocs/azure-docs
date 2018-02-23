@@ -65,8 +65,8 @@
     "externalReference": [],
     "globalMetadata": {
       "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/visualstudio-docs",
-      "feedback_product_url": "https://developercommunity.visualstudio.com/",
+      "feedback_github_repo": "MicrosoftDocs/azure-docs",
+      "feedback_product_url": "https://feedback.azure.com/forums/34192--general-feedback",
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
       "searchScope": ["Azure"],
