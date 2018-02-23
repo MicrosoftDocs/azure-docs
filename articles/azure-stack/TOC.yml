@@ -133,7 +133,7 @@
       href: azure-stack-manage-windows-azure-pack.md
     - name: Start and stop Azure Stack 
       href: azure-stack-start-and-stop.md
-    - name: Manage storage
+    - name: Manage capacity
       items:
         - name: Manage storage resources
           href: azure-stack-manage-storage-accounts.md

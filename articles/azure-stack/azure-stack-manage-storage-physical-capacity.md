@@ -1,5 +1,5 @@
 ---
-title: Manage storage capacity in Azure Stack | Microsoft Docs
+title: Manage physical memory capacity for Azure Stack | Microsoft Docs
 description: Monitor and manage available storage space for Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.reviewer: Thomas.Roettinger
 
 ---
 
-# Manage physical storage capacity for Azure Stack
+# Manage physical memory capacity for Azure Stack
 
 *Applies to: Azure Stack integrated systems*
 
@@ -32,7 +32,7 @@ The following flow diagram shows the general process to add memory to each scale
 
 ![Add memory into each scale unit node](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
 
-## Add Memory to an existing node
+## Add memory to an existing node
 The following steps provide a high-level overview of the add memory process. 
 
 > [!Warning]  
