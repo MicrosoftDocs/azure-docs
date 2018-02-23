@@ -80,11 +80,8 @@ Now let's deploy our first template.
 8. To use the application, simply navigate to the web app URL (in the example above, the URL would be http://mydemodocdbwebapp.azurewebsites.net).  You'll see the following web application:
    
    ![Sample Todo application](./media/create-website/image2.png)
-9. Go ahead and create a couple of tasks in the web app and then return to the Resource group blade in the Azure portal. Click the Azure Cosmos DB account resource in the Resources list and then click **Query Explorer**.
-    ![Screenshot of the Summary lens with the web app highlighted](./media/create-website/TemplateDeployment8.png)  
+9. Go ahead and create a couple of tasks in the web app and then return to the Resource group blade in the Azure portal. Click the Azure Cosmos DB account resource in the Resources list and then click **Data Explorer**.
 10. Run the default query, "SELECT * FROM c" and inspect the results.  Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.  Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items which have been marked as complete.
-    
-    ![Screenshot of the Query Explorer and Results blades showing the query results](./media/create-website/image5.png)
 11. Feel free to explore the Azure Cosmos DB portal experience or modify the sample Todo application.  When you're ready, let's deploy another template.
 
 <a id="Build"></a> 

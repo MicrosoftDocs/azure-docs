@@ -131,7 +131,7 @@ To create a database and a corresponding collection add the following code to th
       wcout << ex.message();
     }
 
-To summarize, this code creates an Azure Cosmos DB database, collection, and documents, which you can query in Document Explorer in Azure portal. 
+To summarize, this code creates an Azure Cosmos DB database, collection, and documents, which you can query in Data Explorer in Azure portal. 
 
 ![C++ tutorial - Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](media/sql-api-cpp-get-started/docs.png)
 
