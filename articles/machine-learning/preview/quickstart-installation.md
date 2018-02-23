@@ -188,7 +188,7 @@ You can get help on commands in the CLI using the --help argument.
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-db-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 You have now created the necessary an Azure Machine Learning accounts and installed the Azure Machine Learning Workbench application. In that application, you have created a project, ran a script, and explored the run history of the script.
