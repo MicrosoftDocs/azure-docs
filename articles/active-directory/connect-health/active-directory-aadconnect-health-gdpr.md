@@ -51,7 +51,7 @@ If you stop data collection and monitoring for an individual monitored server or
 - All data belonging to the instance of the monitored service is deleted as per the Microsoft Azure Data Retention Policy.
 
 ### Disable data collection and monitoring for a monitored server
-See [how to remove a server from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+See [how to remove a server from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### Disable data collection and monitoring for an instance of a monitored service
 See [how to remove a service instance from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
