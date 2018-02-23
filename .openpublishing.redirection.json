@@ -16934,6 +16934,11 @@
             "source_path": "articles/app-service/containers/quickstart-go.md",
             "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
             "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/active-directory/active-directory-conditional-access-unlicensed-usage-report.md",
+            "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
     }
    ]
 }
