@@ -191,8 +191,8 @@ The Application Insights product group has been working hard to achieve as close
 
 To understand more about the [differences between .NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
 
-   | SDK Comparison | ASP.NET        | ASP.NET Core > 2.2.0    | ASP.NET Core <= 2.2.0 |
-  |--: | ------------- |:------------------------|:----------------------|
+   | SDK Comparison | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
+  |:-- | :-------------: |:------------------------:|:----------------------:|
    | **Live Metrics**      | **+** |**-** | **+** |
    | **Server Telemetry Channel** | **+** |**-** | **+**|
    |**Adaptive Sampling**| **+** | **-** | **+**|
