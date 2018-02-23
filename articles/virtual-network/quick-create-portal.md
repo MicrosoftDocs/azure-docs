@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a virtual network using the Azure portal
 
-In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them.
+In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network to test private network communication between them.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -41,9 +41,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
     The **Address space** is specified in CIDR notation. A virtual network contains zero or more subnets. The default subnet **Address range** of 10.0.0.0/24 uses the entire address range of the virtual network, so another subnet cannot be created within the virtual network using the default address space and range. The specified address range includes the IP addresses 10.0.0.0-10.0.0.254. Only 10.0.0.4-10.0.0.254 are available however, because Azure reserves the first four addresses (0-3) and the last address in each subnet. The available IP addresses are assigned to resources deployed within a virtual network.
 
-## Create virtual machines
+## Test network communication
 
-A virtual network enables several types of Azure resources to communicate privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate and understand how communication between virtual machines in a virtual network works in a later step.
+A virtual network enables several types of Azure resources to communicate privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate private communication between them in a later step.
+
+### Create virtual machines
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
@@ -75,17 +77,17 @@ A virtual network enables several types of Azure resources to communicate privat
 
 9. After the virtual machine is created, click **Networking**, as you did in step 7. You see the **Private IP** address is *10.0.0.5*. Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
 
-## Connect to a virtual machine
+### Connect to a virtual machine
 
 1. Remotely connect to the *myVm1* virtual machine. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, click it. Click the **Connect** button.
 
     ![Virtual machine overview](./media/quick-create-portal/virtual-machine-overview.png)
 
-
 2. After clicking the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
+
 3. Open the downloaded rdp file. If prompted, click **Connect**. Enter the user name and password you specified when creating the virtual machine, and then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
-## Validate communication
+### Validate communication
 
 Attempting to ping a Windows virtual machine fails, because ping is not allowed through the Windows firewall, by default. To allow ping to *myVm1*, enter the following command from a command prompt:
 
