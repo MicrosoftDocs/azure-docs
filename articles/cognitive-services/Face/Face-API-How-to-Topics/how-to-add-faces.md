@@ -14,7 +14,9 @@ ms.author: anroth
 
 # How to add faces
 
-This guide demonstrates the best practice to add massive number of persons and faces to a person group, which also applies to face lists. The samples are written in C# using the Face API client library.
+This guide demonstrates the best practice to add massive number of persons and faces to a PersonGroup.
+The same strategy also applies to FaceList and LargePersonGroup.
+The samples are written in C# using the Face API client library.
 
 ## <a name="step1"></a> Step 1: Initialization
 
@@ -63,10 +65,10 @@ FaceServiceClient faceServiceClient = new FaceServiceClient("Your subscription k
 
 The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
 
-## <a name="step3"></a> Step 3: Create the person group
+## <a name="step3"></a> Step 3: Create the PersonGroup
 
-A person group named "MyPersonGroup" is created to save the persons.
-We also enqueue the request time to `_timeStampQueue` to ensure the overall validation.
+A PersonGroup named "MyPersonGroup" is created to save the persons.
+The request time is enqueued to `_timeStampQueue` to ensure the overall validation.
 
 ```CSharp
 const string personGroupId = "mypersongroupid";
@@ -75,7 +77,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step4"></a> Step 4: Create the persons to the person group
+## <a name="step4"></a> Step 4: Create the persons to the PersonGroup
 
 Persons are created concurrently and `await WaitCallLimitPerSecondAsync()` is also applied to avoid exceeding the call limit.
 
@@ -92,7 +94,7 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="step5"></a> Step 5: Add faces to the persons
 
-Adding faces to different persons are processed concurrently, while it is recommended to add faces to one specific person sequentially.
+Adding faces to different persons are processed concurrently, while for one specific person is sequential.
 Again, `await WaitCallLimitPerSecondAsync()` is invoked to ensure the request frequency is within the scope of limitation.
 
 ```CSharp
@@ -115,17 +117,20 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="summary"></a> Summary
 
-In this guide, you have learned the process of creating a person group with massive number of persons and faces. Several reminders:
+In this guide, you have learned the process of creating a PersonGroup with massive number of persons and faces. Several reminders:
 
-- This strategy also applies to add faces to face lists. Adding/Deleting faces to different face lists can be processed concurrently, and same operations to one specific face list should be done sequentially.
+- This strategy also applies to FaceList and LargePersonGroup.
+- Adding/Deleting faces to different FaceLists or Persons in LargePersonGroup can be processed concurrently.
+- Same operations to one specific FaceList or Person in LargePersonGroup should be done sequentially.
 - To keep the simplicity, the handling of potential exception is omitted in this guide. If you want to enhance more robustness, proper retry policy should be applied.
 
 The following are a quick reminder of the features previously explained and demonstrated:
 
-- Creating person groups using the [Person Group - Create a Person Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API
-- Creating persons using the [Person - Create a Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API
-- Adding faces to persons using the [Person - Add a Person Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API
+- Creating PersonGroups using the [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API
+- Creating persons using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API
+- Adding faces to persons using the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API
 
-## <a name="related"></a> Next steps
+## <a name="related"></a> Related Topics
 - [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
+- [How to Use the Large Scale](how-to-use-large-scale.md)

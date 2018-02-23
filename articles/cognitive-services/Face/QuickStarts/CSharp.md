@@ -15,15 +15,15 @@ ms.author: anroth
 # Face API C# Quick Starts
 This article provides information and code samples to help you quickly get started using the Face API with C# to accomplish the following tasks: 
 * [Detect Faces in Images](#Detect) 
-* [Create a Person Group](#Create)
+* [Create a PersonGroup](#Create)
 
 ## Prerequisites
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 * Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in images with Face API using C# <a name="Detect"> </a>
-Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
+Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+method to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in several Face API scenarios. 
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
@@ -73,7 +73,7 @@ namespace CSHttpClientSample
 		{
 			// Get the path and filename to process from the user.
 			Console.WriteLine("Detect faces:");
-			Console.Write("Enter the path to an image with faces that you wish to analzye: ");
+			Console.Write("Enter the path to an image with faces that you wish to analyze: ");
 			string imageFilePath = Console.ReadLine();
 
 			// Execute the REST API call.
@@ -306,12 +306,12 @@ Response:
    }
 ]
 ```
-## Create a Person Group with Face API using C# <a name="Create"> </a>
+## Create a PersonGroup with Face API using C# <a name="Create"> </a>
 
-Use the [Person Group - Create a Person Group method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) to
-create a person group with specified personGroupId, name, and user-provided userData.
+Use the [PersonGroup - Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
+method to create a PersonGroup with specified personGroupId, name, and user-provided userData.
 
-#### Person Group - create a Person Group C# example request
+#### PersonGroup - Create C# example request
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the region where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 

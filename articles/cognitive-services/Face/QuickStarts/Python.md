@@ -46,7 +46,7 @@ Here is the URL of the image. You can experiment with different images  by chang
 image_url = 'https://how-old.net/Images/faces2/main007.jpg'
 ```
 
-The next few lines of code call into the Face API to detect the faces in the image. In this instance, the image is specified via a publically visible URL. You can also pass an image directly as part of the request body. For more information, see the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+The next few lines of code call into the Face API to detect the faces in the image. In this instance, the image is specified via a publicly visible URL. You can also pass an image directly as part of the request body. For more information, see the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 
 ```python

@@ -63,7 +63,7 @@ Follow these instructions to configure the client library:
 
 1. In **Solution Explorer**, check your project references. The references **Microsoft.ProjectOxford.Common**, **Microsoft.ProjectOxford.Face**, and **Newtonsoft.Json** are automatically added when the installation succeeds.
 
-   ![GetStartedCSharp-CheckInstrallation.png](../Images/GetStartedCSharp-CheckInstallation.png)
+   ![GetStartedCSharp-CheckInstallation.png](../Images/GetStartedCSharp-CheckInstallation.png)
 
 ## <a name="step3"></a>Step 4: Copy and paste the initial code
 

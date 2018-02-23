@@ -14,20 +14,20 @@ ms.author: anroth
 
 # Face API JavaScript Quick Starts
 
-This article provides information and code samples to help you quickly get started using the Face API with JavaScript to accomplish the following tasks: 
-* [Detect Faces in Images](#Detect) 
+This article provides information and code samples to help you quickly get started using the Face API with JavaScript to accomplish the following tasks:
+* [Detect Faces in Images](#Detect)
 * [Identify Faces in Images](#Identify)
 
 Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect faces in images with Face API using JavaScript <a name="Detect"> </a>
 
-Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
-* Face ID: Unique ID used in several Face API scenarios. 
+Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+method to detect faces in an image and return face attributes including:
+* Face ID: Unique ID used in several Face API scenarios.
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
+* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
 
 #### Face Detect JavaScript example request
 
@@ -39,7 +39,7 @@ To run the sample, perform the following steps:
 1. Drag-and-drop the file into your browser.
 1. Click the `Analyze faces` button.
 
-```html 
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,28 +81,28 @@ To run the sample, perform the following steps:
         // Perform the REST API call.
         $.ajax({
             url: uriBase + "?" + $.param(params),
-            
+
             // Request headers.
             beforeSend: function(xhrObj){
                 xhrObj.setRequestHeader("Content-Type","application/json");
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
             },
-            
+
             type: "POST",
-            
+
             // Request body.
             data: '{"url": ' + '"' + sourceImageUrl + '"}',
         })
-        
+
         .done(function(data) {
             // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
         })
-        
+
         .fail(function(jqXHR, textStatus, errorThrown) {
             // Display error message.
             var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
-            errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ? 
+            errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
                 jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
             alert(errorString);
         });
@@ -133,7 +133,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage" value="ht
 
 #### Face Detect response
 
-A successful response is returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON. Following is an example of a successful response:
 
 ```json
 [
@@ -231,8 +231,8 @@ A successful response is returned in JSON. Following is an example of a successf
 
 Copy the following and save it to a file such as `test.html`. Change the `url` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and add the request body. To run the sample, drag-and-drop the file into your browser.
 
-Use the [Face - Identify method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
-identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time
+Use the [Face - Identify](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
+method to identify people based on a detected face and people database (defined as a PersonGroup) which needs to be created in advance and can be edited over time
 
 #### Face Identify JavaScript example request
 
@@ -250,10 +250,10 @@ identify people based on a detected face and people database (defined as a perso
         var params = {
             // Request parameters
         };
-      
+
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the
             //   URL below with "westus".
             url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify?" + $.param(params),
             beforeSend: function(xhrObj){
@@ -282,7 +282,7 @@ identify people based on a detected face and people database (defined as a perso
 
 #### Face Identify response
 
-A successful response is returned in JSON. Following is an example of a successful response: 
+A successful response is returned in JSON. Following is an example of a successful response:
 
 ```json
 [
