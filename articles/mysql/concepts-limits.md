@@ -2,8 +2,8 @@
 title: Limitations in Azure Database for MySQL
 description: Describes preview limitations in Azure Database for MySQL.
 services: mysql
-author: jasonh
-ms.author: kamathsun
+author: kamathsun
+ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
