@@ -52,8 +52,8 @@ Secret Rotation is a remediation for the following alerts:
 
 
 ## Pre-Steps 
-1. Schedule a maintenance window for Secret Rotation. Secret Rotation generally lasts about seven hours and has the potential to impact infrastructure and Tenant services. Tenant services can be down for up to 40 minutes during this time. 
-2. Prepare a new set of replacement external certificates matching the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs). 
+1. Schedule a maintenance window for Secret Rotation. Secret Rotation generally lasts about seven hours and has the potential to impact infrastructure and Tenant services. Tenant services can be down for up to 40 minutes during this time.
+2. Prepare a new set of replacement external certificates matching the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3. Create a fileshare that is accessible from your ERCS VMs. 
   
   > [!NOTE]
@@ -83,21 +83,27 @@ To rotate all secrets in Azure Stack, including external certificates:
 2. In the Privileged Endpoint session run **Start-SecretRotation** with no arguments.
 
 ## Start-SecretRotation reference 
-**Synopsis**  
+**Synopsis**
+
 Rotates the secrets of an Azure Stack System. Only executed against the Azure Stack Privileged Endpoint.
   
-**Syntax**  
-Path (Default)  
+**Syntax**
+
+Path (Default)
+
+
 ```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredential> [-CertificatePassword <SecureString>]  
 ```
-**DESCRIPTION**  
+
+**DESCRIPTION**
+
 The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure Stack system. By default it rotates all secrets exposed to the internal infrastructure network, with user-input it also rotates the certificates of all external network infrastructure endpoints. When rotating external network infrastructure endpoints, Start-SecretRotation should be executed via an Invoke-Command script block with the Azure Stack environment's privileged endpoint session passed in as the session parameter.
  
 **Parameters**
 
-- **-PfxFilesPath**. The fileshare path to the \Certificates directory containing all external network endpoint certificates. Only required when rotating internal AND external secrets. End directory must be “Certificates”.
-- **-PathAccessCredential**
+- **PfxFilesPath**. The fileshare path to the \Certificates directory containing all external network endpoint certificates. Only required when rotating internal AND external secrets. End directory must be “Certificates”.
+- **PathAccessCredential**
     > Type: String  
 
     > Parameter Sets: (All)  
@@ -110,7 +116,7 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
 
     > Default value: None  
   
-- **-CertificatePassword**. The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when both internal AND external secrets are rotated.  
+- **CertificatePassword**. The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when both internal AND external secrets are rotated.  
     > Type: SecureString
 
     > Parameter Sets: (All)
