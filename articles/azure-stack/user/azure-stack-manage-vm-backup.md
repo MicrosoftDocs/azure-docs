@@ -12,8 +12,8 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.topic: 02get-started-article
+ms.date: 02/20/2017
 ms.author: mabrigg
 ms.reviewer: hector.linares
 ---
@@ -45,7 +45,7 @@ Plan your backup-recovery and disaster-recovery strategy for each application to
 | **Azure Stack deployed into CSP datacenter and operated by CSP** | User VMs are deployed to the CSP operated Azure Stack. User VMs are restored from backup or failed over directly to Azure. | CSP operates the primary and secondary instances of Azure Stack in their own datacenters. User VMs are restored or failed over between the two Azure Stack instances. | CSP operates Azure Stack in the primary site. Customer’s datacenter is the restore or failover target. |
 | **Azure Stack deployed into customer datacenter and operated by customer** | User VMs are deployed to the customer operated Azure Stack. User VMs are restored from backup or failed over directly to Azure. | Customer operates the primary and secondary instances of Azure Stack in their own datacenters. User VMs are restored or failed over between the two Azure Stack instances. | Customer operates Azure Stack in the primary site. CSP’s datacenter is the restore or failover target. |
 
-![Source-target combinations](\media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Source-target combinations](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
 
 ## Application recovery objectives
 
@@ -91,14 +91,14 @@ With this approach, the application is only deployed in one cloud. The VM is the
  - RPO: Variable data loss
  - Deployment topology: Active/passive stand-by
 
-![Replication-manual failover](\media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Replication-manual failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
 
 ### Backup-restore
 
 The most common protection scheme for VM-based applications is to use backup software. Backing up a VM typically includes the operating system, operating system configuration, application binaries, and application data. The backups are created by taking a snapshot of the volumes, disks, or the entire VM. With Azure Stack, you have the flexibility of backing up from within the context of the guest OS or from the Azure Stack storage and compute APIs. Azure Stack does not support taking backups at the hypervisor level. 
  
-![Backup-restor](\media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
  
 Recovering the application requires restoring one or more VMs to the same cloud or to a new cloud. You can target a cloud in your datacenter or the public cloud. Which cloud you target is completely within your control and is based on your data privacy and sovereignty requirements. 
  
