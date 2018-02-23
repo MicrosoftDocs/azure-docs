@@ -6,7 +6,7 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 ## Contribute to Azure technical documentation
 We welcome contributions from our community as well as from Microsoft employees from outside the documentation teams. How you contribute depends on who you are and the sort of changes you'd like to contribute:
 
-* **Community - minor updates**: If you are contributing minor updates out of the goodness of your heart, you can find the article in this repository, or visit the article on [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) and click the **Edit** link in the article that goes to the GitHub source for the article. Then, just use the GitHub UI to make your updates. Or, you are welcome to fork the repository and submit updates from your fork.
+* **Community - minor updates**: If you are contributing minor updates out of the goodness of your heart, you can find the article in this repository, or visit the article on [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) and click the **Edit** link in the article that goes to the GitHub source for the article. Then, just use the GitHub UI to make your updates. Or, you are welcome to fork the repository and submit updates from your fork. See our general [contributor guide](https://docs.microsoft.com/contribute/) for more information.
 
 * **Community - new articles + major changes**: If you're part of the Azure community and you want to create a new article or submit major changes, you need to work with an employee to help bring that new content in through a combination of work in the public and private repository. To start the collaboration, please create an issue in our public repository. Follow the instructions provided in the issue template.
 
@@ -20,7 +20,7 @@ Minor corrections or clarifications you submit for documentation and code exampl
 If you submit a pull request with significant changes to documentation and code examples, you'll see a message in the pull request asking you to submit an online contribution license agreement (CLA). We need you to complete the online form before we can review your pull request.
 
 ## Tools and setup
-Community contributors can use the GitHub UI or fork the repo to contribute. Employees should visit [the internal contributor's guide](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) for more information about how to contribute to the technical documentation set.
+Community contributors can use the GitHub UI or fork the repo to contribute - more information is available in our [contributor guide](https://docs.microsoft.com/contribute). 
 
 ## Repository organization
 The content in the azure-docs repository follows the organization of documentation on https://docs.microsoft.com/azure. This repository contains two root folders:
