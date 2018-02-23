@@ -1,9 +1,9 @@
 ---
-title: Getting started with Azure CDN | Microsoft Docs
-description: This article shows how to enable the Azure Content Delivery Network (CDN) by creating a new CDN profile and endpoint.
+title: Quickstart: Create a new Azure CDN profile and endpoint | Microsoft Docs
+description: This article shows how to enable Azure Content Delivery Network (CDN) by creating a new CDN profile and CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
+author: dksimpson
 manager: akucer
 editor: ''
 
@@ -13,24 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/06/2018
+ms.date: 02/22/2018
 ms.author: mazha
 ms.custom: mvc
 
 ---
-# Getting started with Azure CDN
-In this article, you enable [Azure Content Delivery Network (CDN)](cdn-overview.md) by creating a new CDN profile and endpoint. 
+# Quickstart: Create a new Azure CDN profile and endpoint
+In this article, you enable Azure Content Delivery Network (CDN) by creating a new CDN profile and CDN endpoint. 
 
-A CDN profile is a collection of CDN endpoints. Each profile can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because CDN pricing is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of Azure CDN pricing tiers.
-
-> [!NOTE]
-> An Azure subscription has default limits for the following resources:
-> - The number of CDN profiles that can be created
-> - The number of endpoints that can be created in a CDN profile 
-> - The number of custom domains that can be mapped to an endpoint
->
-> For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
->
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,61 +34,37 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
 1. In the [Azure portal](https://portal.azure.com), navigate to your CDN profile. You may have pinned it to the dashboard in the previous step. If not, you can find it by selecting **All services**, then selecting **CDN profiles**. In the **CDN profiles** pane, select the profile to which you plan to add your endpoint. 
    
     The CDN profile pane appears.
-   
-    ![CDN profile](./media/cdn-create-new-endpoint/cdn-profile-settings.png)
 
 2. Select **Endpoint**.
    
-    ![Add endpoint button](./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png)
+    ![CDN profile](./media/cdn-create-new-endpoint/cdn-profile-settings.png)
    
     The **Add an endpoint** pane appears.
+
+    Use the settings specified in the table following the image.
    
     ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
-3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.
-
-4. For **Origin type**, choose one of the following origin types: 
-   - **Storage** for an Azure Storage account
-   - **Cloud service** for an Azure Cloud Service
-   - **Web App** for an Azure Web App
-   - **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere)
-   
-    ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-
-5. For **Origin hostname**, select or enter your origin domain. The drop-down lists all available origins of the type you specified in step 4. If you selected **Custom origin** as your origin type, enter the domain of your custom origin.
+    | Setting | Suggested value | Description |
+    | ------- | --------------- | ----------- |
+    | **Name** | Enter a unique name for the new CDN endpoint. |This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.|
+    | **Origin type** | Select **Custom origin**. | You can choose one of the following origin types: <br/>- **Storage** for an Azure Storage account <br />- **Cloud service** for an Azure Cloud Service <br />- **Web App** for an Azure Web App <br />- **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere) |
+    | **Origin hostname** | Enter a unique host name. | The drop-down lists all available origins of the origin type you specified. If you select **Custom origin** as your origin type, you must enter the domain of your custom origin. |
+    | **Origin path** | Leave blank. | Specifies the path to the resources that you want to cache. To allow caching of any resource at the specified domain, leave it blank.|
+    | **Origin host header** | Leave the default value. | Specifies the host header you want Azure CDN to send with each request. Some types of origins, such as Azure Storage and Web Apps, require the host header to match the domain of the origin. Unless you have an origin that requires a host header different from its domain, you should leave the default value. | 
+    | **Protocol** | Leave the HTTP and HTTPS protocols selected. | The protocols used to access your resources at the origin. At least one protocol (HTTP or HTTPS) must be selected. Use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. <br />When you access CDN content by using HTTPS, Azure CDN has the following constraints: <br />- You must use the SSL certificate provided by the CDN. Third-party certificates are not supported.<br /> - HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products. It is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).|
+    | **Origin port** | Leave the default port values. | The port used to access your resources at the origin. The endpoint itself is available only to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port** value. <br />Endpoints in **Azure CDN from Akamai** profiles do not allow the full TCP port range for origin ports. For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx). |  
     
-6. For **Origin path**, enter the path to the resources that you want to cache. To allow caching of any resource at the domain you specified in step 5, leave it blank.
-    
-7. For **Origin host header**, enter the host header you want Azure CDN to send with each request, or leave the default.
-   
-   > [!WARNING]
-   > Some types of origins, such as Azure Storage and Web Apps, require the host header to match the domain of the origin. Unless you have an origin that requires a host header different from its domain, you should leave the default value.
-   > 
-    
-8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin. At least one protocol (HTTP or HTTPS) must be selected. Use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. 
-   
-   > [!NOTE]
-   > The **Origin port** value determines only the port the endpoint uses to retrieve information from the origin. The endpoint itself is available only to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port** value.  
-   > 
-   > Endpoints in **Azure CDN from Akamai** profiles do not allow the full TCP port range for origin ports. For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
-   > 
-   > When you access CDN content by using HTTPS, Azure CDN has the following constraints:
-   > 
-   > * Use the SSL certificate provided by the CDN. Third-party certificates are not supported.
-   > * HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
-    
-9. Select **Add** to create the new endpoint.
+3. Select **Add** to create the new endpoint.
    
    After the endpoint is created, it appears in the list of endpoints for the profile.
     
    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   > [!IMPORTANT]
-   > Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. For **Azure CDN from Akamai** profiles, propagation usually completes within one minute. For **Azure CDN from Verizon** profiles, propagation usually completes within 90 minutes, but in some cases can take longer.
-    > 
-    > If you attempt to use the CDN domain name before the endpoint configuration has propagated to the POPs, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
-    > 
-    > 
+   Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. For **Azure CDN from Akamai** profiles, propagation usually completes within one minute. For **Azure CDN from Verizon** profiles, propagation usually completes within 90 minutes, but in some cases can take longer.
+   
+   If you attempt to use the CDN domain name before the endpoint configuration has propagated to the POPs, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
+
 
 ## Clean up resources
 To delete a profile or endpoint when it is no longer needed, select it and then select **Delete**. 

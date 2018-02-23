@@ -9,23 +9,20 @@
     ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
 
     The **CDN profile** pane appears.
+
+    Use the settings specified in the table following the image.
    
     ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
-3. For **Name**, enter a unique name for your CDN profile.
-    
-4. For **Subscription**, select the subscription to use for this CDN profile.
-   
-5. For **Resource group**, select or create a resource group. For information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-6. For **Resource group location**, select the Azure location to store your CDN profile information. This location has no impact on CDN endpoint locations.
-    
-7. For **Pricing tier**, select a tier. For a comparison of the features available with each pricing tier, see [Azure CDN features](../articles/cdn/cdn-overview.md#azure-cdn-features).
-   
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
-8. Optionally, select **Create a new CDN endpoint now** to display the options for creating an endpoint at the same time that you create the profile. For more information, see [Create a new CDN endpoint](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
+    | Setting | Suggested value | Description |
+    | ------- | --------------- | ----------- |
+    | **Name** | Enter a name for the new CDN profile. | Each profile name must be unique.|
+    | **Subscription** | Select the subscription to use for this CDN profile. | The available subscriptions are accessed from the drop-down list.|
+    | **Resource group** | Enter a unique name for the resource group. | Any available resource groups are accessed from the drop-down list. For information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).|
+    | **Resource group location** | Select a location from the drop-down list  | Specifies the Azure location to store your CDN profile information. This location has no impact on CDN endpoint locations.|
+    | **Pricing tier** | Select **Standard Verizon** | For a comparison of the features available with each pricing tier, see [Azure CDN features](../articles/cdn/cdn-overview.md#azure-cdn-features).|
    
-9. If you want to save the profile to your dashboard after it is created to make it easier to find, select **Pin to dashboard**.
+3. Select **Pin to dashboard** to save the profile to your dashboard after it is created to make it easier to find.
     
-10. Select **Create** to create the profile. 
+4. Select **Create** to create the profile. 
 
