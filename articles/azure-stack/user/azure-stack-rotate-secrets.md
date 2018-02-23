@@ -55,8 +55,10 @@ Secret Rotation is a remediation for the following alerts:
 1. Schedule a maintenance window for Secret Rotation. Secret Rotation generally lasts about 7 hours and has the potential to impact infrastructure and Tenant services. Tenant services can be down for up to 40 minutes during this time. 
 2. Prepare a new set of replacement external certificates matching the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs). 
 3. Create a fileshare which is accessible from your ERCS VMs. 
+  
   > [!NOTE]
   > A Fileshare on the HLH should suffice for this step.
+
 4. Open a Powershell ISE console and navigate to your fileshare from Pre-Step #3. 
 5. Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
@@ -65,7 +67,10 @@ To rotate all secrets in Azure Stack, including external certificates:
 
 1. Within the newly created /Certificates directory from Pre-Step #5, place your certificates from Pre-Step #2 in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates). 
 2. Create a Powershell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) and store it as a variable.
-  - Do not enter the session, store it as a variable.
+  
+  > [!IMPORTANT]
+  > Do not enter the session, store it as a variable.
+
 3. Run **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Pass your Privileged Endpoint powershell session variable stored from Step 2 as the **Session** parameter. Run **Start-SecretRotation** with the following parameters:
 - **PfxFilesPath** should be the network path to your Certificates directory created earlier.  
 - **PathAccessCredential** should be a PSCredential object for credentials to the share. 
@@ -119,7 +124,6 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
     > Default value: None  
 
 ### Examples
- 
  
 **Rotate Only Internal Infrastructure Secrets**
 
