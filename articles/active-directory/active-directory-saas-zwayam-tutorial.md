@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type the URL: `https://sso.zwayam.com/zwayam-saml/saml/metadata`
 
 	> [!NOTE] 
-	> The SIgn-on URL value is not real. **SAML Entity ID** value is explained later in this tutorial.
+	> The Sign-on URL value is not real. **SAML Entity ID** value is explained later in this tutorial.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
