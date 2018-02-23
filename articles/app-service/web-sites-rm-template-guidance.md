@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/23/2018
 ms.author: tomfitz
 
 ---
@@ -21,7 +21,7 @@ This article provides recommendations for creating Azure Resource Manager templa
 
 ## Define dependencies
 
-Defining dependencies for web apps can be complicated. If you set the dependencies incorrectly, you may see a deployment error or create a race condition that stalls the deployment.
+Defining dependencies for Web Apps requires an understanding of how the resources within a Web App interact. Defining resources in an incorrect order may cause deployment errors or create a race condition that stalls the deployment.
 
 > [!WARNING]
 > If you include an MS Deploy site extension in your template, you must set any cofiguration resources as dependent on the MS Deploy resource. Configuration changes cause the site to restart asynchronously. By making the configuration resources dependent on MS Deploy, you ensure MS Deploy finishes before the site restarts. Without these dependencies, the site might restart during MS Deploy's deployment process. For an example template, see [Wordpress Template with Web Deploy Dependency](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
@@ -55,7 +55,7 @@ You deploy resources in the following order:
 
 ## Unique web app name
 
-The name for your web app must be globally unique. You can use a naming convention that is likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/resource-group-template-functions-string#uniquestring) to assist with generating a unique name.
+The name for your web app must be globally unique. You can use a naming convention that is likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) to assist with generating a unique name.
 
 ```json
 {
