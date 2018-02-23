@@ -44,7 +44,7 @@ When you launch Azure ML Workbench and log in for the first time, and if you don
 Click on the **Command Line Window** link in the dialog box to launch the command line window.
 
 ### Option 2. launch Azure ML CLI from Azure ML Workbench app
-If you already have access to an Experimentation Account, you can log in successfully. And you can then open the command line window by clicking on **File** --> **Open Commmand Prompt** menu.
+If you already have access to an Experimentation Account, you can log in successfully. And you can then open the command line window by clicking on **File** --> **Open Command Prompt** menu.
 
 ### Option 3. enable Azure ML CLI in an arbitrary command-line window
 You can also enable Azure ML CLI in any command-line window. Simply launch a command window, and enter the following commands:

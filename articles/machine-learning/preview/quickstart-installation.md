@@ -1,6 +1,6 @@
 ---
 title: Installation Quickstart for Azure Machine Learning services | Microsoft Docs
-description: This Quickstart shows how to create Azure Machine Learning resources, and how to install Azure Machine Learning Workbench.
+description: Learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib, j-martens
@@ -13,31 +13,30 @@ ms.topic: quickstart
 ms.date: 2/22/2018
 ---
 
-# Create Azure Machine Learning accounts and install Azure Machine Learning Workbench
+# Quickstart: Create Azure Machine Learning accounts and install Azure Machine Learning Workbench
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
 This quickstart shows you how to:
-> [!div class="checklist"]
-> * Create experimentation and model management accounts for Azure Machine Learning services
-> * Install the Azure Machine Learning Workbench desktop application
-> * Log into Workbench with your experimentation account
-> * Create a project
-> * Run a script in that project  
-> * Access the command-line interface
 
-## Prerequisites
+* Create experimentation and model management accounts for Azure Machine Learning services
+* Install the Azure Machine Learning Workbench desktop application
+* Log into Workbench with your experimentation account
+* Create a project
+* Run a script in that project  
+* Access the command-line interface
 
-You can install the Azure Machine Learning Workbench application on the following operating systems:
-- Windows 10
-- Windows Server 2016
-- macOS Sierra
-- macOS High Sierra
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+<a name="prerequisites"></a>You can install the Azure Machine Learning Workbench application on the following operating systems:
+- Windows 10 or Windows Server 2016
+- macOS Sierra or High Sierra
 
 ## Create Azure Machine Learning accounts
 Use the Azure portal to provision your Azure Machine Learning accounts: 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription. 
-   
-   If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now and sign in to the portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now. 
+
+   ![Azure portal](media/quickstart-installation/portal-dashboard.png)
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
 
@@ -186,6 +185,10 @@ You can launch this CLI from the Workbench's toolbar using **File --> Open Comma
 You can get help on commands in the CLI using the --help argument.
 
 ```az ml --help```
+
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-db-delete-resource-group.md)]
 
 ## Next steps
 You have now created the necessary an Azure Machine Learning accounts and installed the Azure Machine Learning Workbench application. In that application, you have created a project, ran a script, and explored the run history of the script.
