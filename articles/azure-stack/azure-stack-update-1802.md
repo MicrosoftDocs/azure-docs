@@ -37,8 +37,8 @@ The Azure Stack 1802 update build number is **1802xx.x**.
 
 > [!IMPORTANT]    
 > When you use SQL or MySQL resource providers, they must run version 1712 before you start the install of Azure Stack version 1802. If the providers are version 1711 or earlier and you have installed Azure Stack version 1802, you can no longer update those resource providers to a more recent release.
->
-> When a SQL or MySQL resource provider releases that matches the version of Azure Stack you run, we recommend you install that new version. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.
+
+
 
 ### Prerequisites
 Install the Azure Stack [1712 Update](azure-stack-update-1712.md) before applying this update.
@@ -50,6 +50,7 @@ Install the Azure Stack [1712 Update](azure-stack-update-1712.md) before applyin
 
 ### New features and fixes
 This update includes the following improvements and fixes for Azure Stack.
+
 - **Support is added for the following Azure Storage Service API versions**:
     - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services)
     - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -82,8 +83,7 @@ This update includes the following improvements and fixes for Azure Stack.
 -->
 
 ### Windows Server 2016 new features and fixes
-- [February 13, 2018—KB4074590 (OS Build 14393.2068)](https://support.microsoft.com/en-us/help/4074590) - This Windows update includes quality improvements. No new operating system features are being introduced in this update.
-
+- [February 13, 2018—KB4074590 (OS Build 14393.2068)](https://support.microsoft.com/en-us/help/4074590) - This Windows update includes quality improvements.
 
 
 ### Known issues with the update process    
@@ -96,7 +96,6 @@ The following are post-installation known issues for build  **1802xx.x**
 #### Portal
 - The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use one of the following links:     
     - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
-    - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.
 
 - It is not possible to edit storage metrics for blob, table, and queue in the administrator portal.
 
@@ -104,7 +103,7 @@ The following are post-installation known issues for build  **1802xx.x**
 
 - You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
-- When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected as Azure Stack does not support moving resource groups between subscriptions.
+- When you view the properties of a resource or resource group, the **Move** button is disabled. This behavior is expected. Moving resources or resource groups between resource groups or subscriptions is not currently supported.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
@@ -160,8 +159,6 @@ There are no known issues after updating to 1802.
 
 
 > [!NOTE]  
-> The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.  
->   
 > After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.      
 >   
 > The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.

@@ -3,7 +3,7 @@ title: Microsoft Azure Stack Development Kit release notes | Microsoft Docs
 description: Improvements, fixes, and known issues for Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: ''
-author: andredm7
+author: brenduns
 manager: femila
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: andredm
+ms.author: brenduns
+ms.reviewer: chjoy
 
 ---
 
@@ -25,38 +26,26 @@ ms.author: andredm
 These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](azure-stack-updates.md#determine-the-current-version).
 
 ## Build 201802xx.x
-Release date: 02/27/2018
+Release date: February 27, 2018
 
 ### New features and fixes
 See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fixes) section of the Azure Stack 1802 update release notes for Azure Stack integrated systems.
 
-	> [!IMPORTANT]
-	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
+> [!IMPORTANT]    
+> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 
 ### Known issues
  
-#### Deployment
-- You must specify a time server by IP address during deployment.
-
-#### Infrastructure management
-- Do not enable infrastructure backup on the **Infrastructure backup** blade.
-- The baseboard management controller (BMC) IP address and model are not shown in the essential information of a scale unit node. This behavior is expected in Azure Stack Development Kit.
-
 #### Portal
 - The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use one of the following links:     
     - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.
-    - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
 
 - It is not possible to edit storage metrics for blob, table, and queue in the administrator portal.
 
-- You may see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
-
-- When you view the properties of a resource group, the **Move** button is disabled. This behavior is expected as Azure Stack does not support moving resource groups between subscriptions.
+- When you view the properties of a resource or resource group, the **Move** button is disabled. This behavior is expected. Moving resources or resource groups between resource groups or subscriptions is not currently supported.
  
-- You will see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
-
-- If the **Component** link is clicked from any **Infrastructure Role** alert, the resulting **Overview** blade tries to load and fails. Additionally the **Overview** blade does not time out.
+- You see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
@@ -71,8 +60,6 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 - Azure Stack supports using only Fixed type VHDs. Some images offered through the marketplace on Azure Stack use dynamic VHDs but those have been removed. Resizing a virtual machine (VM) with a dynamic disk attached to it leaves the VM in a failed state.
 
   To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. Then convert the VHD from a dynamic disk to a fixed disk, and then re-create the virtual machine.
-
-- When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
 - When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
@@ -93,7 +80,7 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 
   This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one.
 
-- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs, which breaks instances of Linux. 
+- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs, which break instances of Linux. 
 
 - Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
@@ -101,11 +88,10 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
  
 
 #### SQL/MySQL 
-- It can take up to one hour before users can create databases in a new SQL or MySQL deployment.
+- It can take up to one hour before users can create databases in a new SQL or MySQL SKU.
 
-- Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
-  > [!NOTE]    
-  > You should not have impact to your existing SQL or MySQL resource provider users when updating your Azure Stack Integrated Systems to the 1712 version. You can continue to use your current SQL or MySQL resource provider builds until a new Azure Stack update is available.
+- The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+
 
 #### App Service
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.
