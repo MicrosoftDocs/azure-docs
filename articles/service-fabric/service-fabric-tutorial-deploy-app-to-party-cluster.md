@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
 ms.custom: mvc
 
@@ -55,7 +55,7 @@ To get access to a Party Cluster, browse to this site: http://aka.ms/tryservicef
 You can use your own cluster instead of the Party Cluster, if you want.  The ASP.NET core web front-end uses the reverse proxy to communicate with the stateful service back-end.  Party Clusters and the local development cluster have reverse proxy enabled by default.  If you deploy the Voting sample application to your own cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 > [!NOTE]
-> Party clusters are not secured, so your applications and any data you put in them may be visible to others. Don't deploy anything you don't want others to see. Be sure to read over our Terms of Use for all the details.
+> Party clusters are secured with certificates, ake sure to follow the instrcutions on the Party Cluster site to download and install the client certificaaete in order for you to be able to authenticate with the cluster.
 
 ## Deploy the app to the Azure
 Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
