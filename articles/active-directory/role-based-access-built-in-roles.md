@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 
@@ -380,6 +380,19 @@ Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as Docume
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Cosmos DB Account Reader Role
+Can read Azure Cosmos DB account data.
+
+| **Actions** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Read roles and role assignments, can read permissions given to each user|
+|Microsoft.DocumentDB/*/read|Read any collection|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Read the readonly keys pane|
+|Microsoft.Insights/Metrics/read|Read account metrics|
+|Microsoft.Insights/MetricDefinitions/read|Read metrics definitions|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Read resource groups|
+|Microsoft.Support/*|Create and manage support tickets|
 
 ### Intelligent Systems Account Contributor
 Can manage Intelligent Systems accounts
