@@ -3,6 +3,7 @@
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
+## [Organize resources with management groups](management-groups-overview.md)
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
-### [Organize subscriptions with management groups](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Create management groups](management-groups-create.md)
+### [Manage your management groups](management-groups-manage.md)
 ### [Governance examples](resource-manager-subscription-examples.md)
 ### [Managed applications](../managed-applications/overview.md)
 
