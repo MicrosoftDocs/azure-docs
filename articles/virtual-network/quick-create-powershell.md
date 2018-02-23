@@ -137,7 +137,7 @@ To validate communication with *myVm2*, enter the following command from a comma
 mstsc /v:myVm2
 ```
 
-The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet and because remote desktop is open through the Windows firewall, by default. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. From a commmand prompt, ping my *myVm1*, from *myVm2*.
+The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet and because remote desktop is open through the Windows firewall, by default. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. From a command prompt, ping my *myVm1*, from *myVm2*.
 
 ```
 ping myvm1
@@ -151,9 +151,11 @@ ping bing.com
 
 You receive four replies from bing.com. By default, any virtual machine in a virtual network can communicate outbound to the Internet.
 
+Exit the remote desktop session. 
+
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group and all of the resources it contains. Exit the remote desktop session, then run the following command from your computer to delete the resource group:
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group and all of the resources it contains:
 
 ```azurepowershell-interactive 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
