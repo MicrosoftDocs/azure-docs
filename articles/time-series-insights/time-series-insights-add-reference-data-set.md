@@ -61,27 +61,27 @@ Reference data is not joined retroactively. This means that only current and fut
 
    ![Add reference data](media/add-reference-data-set/parse_data.png)
 
-   - Review each column to see the data type assumed, and change the data type if needed.  Select the data type symbol in the column heading: **#** for double (numerical data), **T|F** for boolean, or **Abc** for string.
+9. Review each column to see the data type assumed, and change the data type if needed.  Select the data type symbol in the column heading: **#** for double (numerical data), **T|F** for boolean, or **Abc** for string.
 
-      ![Choose data types on the column headings.](media/add-reference-data-set/choose_datatypes.png)
+   ![Choose data types on the column headings.](media/add-reference-data-set/choose_datatypes.png)
 
-   - Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source. Ensure that the reference data key column names match exactly to the event name to your incoming data, including case-sensitivity. The non-key column names are used to augment the incoming data with the corresponding reference data values.
+10. Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source. Ensure that the reference data key column names match exactly to the event name to your incoming data, including case-sensitivity. The non-key column names are used to augment the incoming data with the corresponding reference data values.
 
-   - Click **Add a row** or **Add a column** to add more reference data values, as needed.
+11. Click **Add a row** or **Add a column** to add more reference data values, as needed.
 
-   - Type a value in the **Filter the rows...** field to review specific rows as needed. The filter is useful for reviewing data, but is not applied when uploading the data.
+12. Type a value in the **Filter the rows...** field to review specific rows as needed. The filter is useful for reviewing data, but is not applied when uploading the data.
  
-9. Name the data set, by filling in the **Data set name** field above the data grid.
+13. Name the data set, by filling in the **Data set name** field above the data grid.
 
    ![Name the data set.](media/add-reference-data-set/name_reference_dataset.png)
 
-10. Provide the **Primary Key** column in the data set, by selecting the drop-down above the data grid.
+14. Provide the **Primary Key** column in the data set, by selecting the drop-down above the data grid.
 
    ![Select the key column(s).](media/add-reference-data-set/set_primary_key.png)
 
    Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down to remove the secondary key.
 
-11.  To upload the data, select the **Upload rows** button.
+15.  To upload the data, select the **Upload rows** button.
 
    ![Upload](media/add-reference-data-set/upload_rows.png)
 
