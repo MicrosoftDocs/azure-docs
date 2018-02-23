@@ -16,7 +16,7 @@ ms.date: 02/22/2018
 ms.author: wgries
 ---
 
-# Managing Azure file shares with the CLI
+# Quickstart: Managing Azure file shares using the CLI
 
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. In this article you learn how to:
 
@@ -99,7 +99,7 @@ az storage share create --name myshare \
 ```
 
 ## Create a directory
-Create  a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) command.
+Create  a new directory named *myDirectory* at the root of your Azure file share, use the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
 
 Adding a directory provides a hierarchical structure for managing your file share. You can create multiple levels, but you must ensure that all parent directories exist before creating a subdirectory. For example, for path myDirectory/mySubDirectory, you must first create directory myDirectory, then create mySubDirectory.
 
@@ -115,7 +115,7 @@ az storage directory create \
 ```
 
 ## Upload a file
-Upload a file to the file share using the [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) command. In this example, we create a simple file *SampleUpload.txt* in Cloud Shell and then upload that file to the *myDirectory* directory of the *myshare* file share. 
+Upload a file to the file share using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command. In this example, we create a simple file *SampleUpload.txt* in Cloud Shell and then upload that file to the **myDirectory** directory of the **myshare** file share. 
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -128,7 +128,7 @@ az storage file upload \
    --path "myDirectory/SampleUpload.txt"
 ```
 
-Use [`az storage file list`](/cli/azure/storage/file#az_storage_file_list) to make sure that the file was uploaded to your Azure file share.
+Use [az storage file list](/cli/azure/storage/file#az_storage_file_list) to make sure that the file was uploaded to your Azure file share.
 
 ```azurecli-interactive
 az storage file list \
@@ -141,7 +141,7 @@ az storage file list \
 
 ## Download a file
 
-Use [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) to download a copy of the file you uploaded to your Cloud Shell.
+Use [az storage file download](/cli/azure/storage/file#az_storage_file_download) to download a copy of the file you uploaded to your Cloud Shell.
 
 This example downloads the *SampleUpload* file from your Azure file share to your Cloud Shell as a file named *SampleDownload.txt*.
 
@@ -154,21 +154,37 @@ az storage file download \
    --dest "~/clouddrive/SampleDownload.txt"
 ```
 
+Check to see if the file was downloaded.
+
+```azurecli-interactive
+dir ~/clouddrive/
+```
+
 ## Copy files
 Copy files from one file share to another file share, using the [az storage file copy](/cli/azure/storage/file/copy). This example creates a second Azure file share named *share2* and a new directory in that share named *myDirectory2*, then copies the file *SampleUpload.txt* as a new file named *SampleCopy.txt*.
+
+Create a share named **share2**.
 
 ```azurecli-interactive
 az storage share create \
    --account-name $STORAGEACCOUNT \
    --account-key $STORAGEKEY \
    --name "myshare2"
+```
 
+Create a directory named **myDirectory2** in **myshare2**.
+
+```azurecli-interactive
 az storage directory create \
    --account-name $STORAGEACCOUNT \
    --account-key $STORAGEKEY \
    --share-name "myshare2" \
    --name "myDirectory2"
+```
 
+Copy **SampleUpload.txt** to the directory of the new share using the name **SampleCopy.txt**.
+
+```azurecli-interactive
 az storage file copy start \
    --account-name $STORAGEACCOUNT \
    --account-key $STORAGEKEY \
@@ -185,6 +201,7 @@ az storage file list \
    --account-name $STORAGEACCOUNT \
    --account-key $STORAGEKEY \
    --share-name "myshare2" \
+   --path "myDirectory2" \
    --output table
 ```
 
@@ -199,74 +216,76 @@ A snapshot preserves a point in time copy of an Azure file share. File share sna
 Create a share snapshot by using [az storage share snapshot](/cli/azure/storage/share#az_storage_share_snapshot).
 
 ```azurecli-interactive
-SNAPSHOT=$(az storage share snapshot \
-    --account-name $STORAGEACCT \
+az storage share snapshot \
+    --account-name $STORAGEACCOUNT \
     --account-key $STORAGEKEY \
-    --name "myshare" | \
-    jq ".snapshot" |
-    tr -d '"')
+    --name "myshare" \
+	--output table
 ```
 
-Browse the contents of a share snapshot by passing the timestamp of the share snapshot we captured in the variable **$SNAPSHOT** to the `az storage file list` command.
+The snapshot will be named something like *2018-02-22T20:02:15.0000000Z* which is based on the date and time of the snapshot. Create a variable to store the name of the snapshot to be used later. Replace the snapshot name in this example with the name of your shapshot, listed in the output of the last command.
+
+```azurecli-interactive
+SNAPSHOT=2018-02-22T20:02:15.0000000Z
+```
+
+Browse the contents of a share snapshot by passing the variable for the snapshot name to [az storage file list](/cli/azure/storage/file#az_storage_file_list).
 
 ```azurecli-interactive
 az storage file list \
-    --account-name $STORAGEACCT \
+    --account-name $STORAGEACCOUNT \
     --account-key $STORAGEKEY \
     --share-name "myshare" \
     --snapshot $SNAPSHOT \
     --output table
 ```
 
-You can see the list of snapshots you've taken for your share.
+Restore a file using [az storage file copy start](/cli/azure/storage/file/copy#az_storage_file_copy_start).  First, delete the `SampleUpload.txt` file so it can be restored from the snapshot.
 
 ```azurecli-interactive
-az storage share list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --include-snapshot | \
-jq '.[] | select(.name == "myshare") | select(.snapshot != null) | .snapshot' | \
-tr -d '"'
-```
-
-Restore a file using [az storage file copy start](/cli/azure/storage/file/copy#az_storage_file_copy_start).  First we'll first delete the `SampleUpload.txt` file we uploaded so we can restore it from the snapshot.
-
-```azurecli-interactive
-# Delete SampleUpload.txt
 az storage file delete \
-    --account-name $STORAGEACCT \
+    --account-name $STORAGEACCOUNT \
     --account-key $STORAGEKEY \
     --share-name "myshare" \
     --path "myDirectory/SampleUpload.txt"
+```	
 
-# Build the source URI for snapshot restore
-URI=$(az storage account show \
-    --resource-group "myResourceGroup" \
-    --name $STORAGEACCT | \
-    jq ".primaryEndpoints.file" | \
-    tr -d '"')
+Build a URI for the source file from the variables we have created.
 
-URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+```azurecli-interactive
+URI="http://"$STORAGEACCOUNT".file.core.windows.net/myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+```
 
-# Restore SampleUpload.txt from the share snapshot
+Restore **SampleUpload.txt** from the share snapshot as **SampleRestored.txt**.
+
+```azurecli-interactive
 az storage file copy start \
-    --account-name $STORAGEACCT \
+    --account-name $STORAGEACCOUNT \
     --account-key $STORAGEKEY \
     --source-uri $URI \
     --destination-share "myshare" \
-    --destination-path "myDirectory/SampleUpload.txt"
+    --destination-path "myDirectory/SampleRestored.txt"
+```
+
+Use [az storage file list](/cli/azure/storage/file#az_storage_file_list) to make sure that the file was restored to your file share.
+
+```azurecli-interactive
+az storage file list \
+   --account-name $STORAGEACCOUNT \
+   --account-key $STORAGEKEY \
+   --share-name "myshare" \
+   --path "myDirectory" \
+   --output table
 ```
 
 
 ## Clean up resources
-When you are done, you can use the [`az group delete`](/cli/azure/group#delete) command to remove the resource group and all related resources. 
+When you are done, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group and all related resources. 
 
 ```azurecli-interactive 
 az group delete --name "myResourceGroup"
 ```
 
-
 ## Next steps
-- [Managing file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Managing file shares with the Azure portal](storage-how-to-use-files-portal.md)
-- [Planning for an Azure Files deployment](storage-files-planning.md)
+
+You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure PowerShell module.
