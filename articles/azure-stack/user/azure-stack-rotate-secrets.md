@@ -20,7 +20,7 @@ ms.reviewer: ppacent
 ---
 # Azure Stack Secret Rotation
 
-*These instructions apply only to Azure Stack Integrated Systems Version 1802 and Later. Secret Rotation should not be attempted on pre-1802 Azure Stack Versions as it will lead to environment failure.*
+*These instructions apply only to Azure Stack Integrated Systems Version 1802 and Later. Do not attempt secret rotation on pre-1802 Azure Stack Versions as it leads to environment failure.*
 
 Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure’s resources and services. Here “secrets” describes the following: 
 - Infrastructure service account passwords 
@@ -29,8 +29,8 @@ Azure Stack uses various secrets to maintain secure communication between the Az
 - Infrastructure service certificates for external-facing services, including 
 - Administrator Portal 
 - Public Portal 
-- Administrator ARM 
-- Public ARM 
+- Administrator Azure Resource Manager 
+- Public Azure Resource Manager 
 - Administrator Keyvault 
 - Keyvault 
 - ACS (including Blob, Table, and Queue Storage) 
@@ -42,7 +42,7 @@ Azure Stack uses various secrets to maintain secure communication between the Az
 > [!NOTE]
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
 
-In order to maintain the integrity of the Azure Stack infrastructure, operators will need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements. 
+In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements. 
 
 ## Alert Remediations 
 Secret Rotation is a remediation for the following alerts: 
@@ -52,9 +52,9 @@ Secret Rotation is a remediation for the following alerts:
 
 
 ## Pre-Steps 
-1. Schedule a maintenance window for Secret Rotation. Secret Rotation generally lasts about 7 hours and has the potential to impact infrastructure and Tenant services. Tenant services can be down for up to 40 minutes during this time. 
+1. Schedule a maintenance window for Secret Rotation. Secret Rotation generally lasts about seven hours and has the potential to impact infrastructure and Tenant services. Tenant services can be down for up to 40 minutes during this time. 
 2. Prepare a new set of replacement external certificates matching the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs). 
-3. Create a fileshare which is accessible from your ERCS VMs. 
+3. Create a fileshare that is accessible from your ERCS VMs. 
   
   > [!NOTE]
   > A Fileshare on the HLH should suffice for this step.
