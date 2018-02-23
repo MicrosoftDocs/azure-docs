@@ -96,11 +96,13 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
    **On macOS:** 
 
    &nbsp;&nbsp;&nbsp;&nbsp;A. Download [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg). <br/>
-   &nbsp;&nbsp;&nbsp;&nbsp;B. Double-click on the downloaded installer in Finder.
+   &nbsp;&nbsp;&nbsp;&nbsp;B. Double-click on the downloaded installer in Finder.<br/><br/>
 
-1. Follow the on-screen instructions in your installer to completion. **The installation might take around 30 minutes to complete.**  
+1. Follow the on-screen instructions in your installer to completion. 
+
+   **The installation might take around 30 minutes to complete.**  
    
-   | |Workbench installation path|
+   | |Installation path to Azure Machine Learning Workbench|
    |--------|------------------------------------------------|
    |Windows|C:\Users\<user>\AppData\Local\AmlWorkbench|
    |macOS|/Applications/Azure ML Workbench.app|
@@ -178,11 +180,11 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
 ## Start the CLI
 
-The Azure command-line interface (CLI) 2.0 is also installed. The CLI interface allows you to access and interact with your Azure services using the `az` commands.  Specifically, there are commands Azure Machine Learning services users can use to perform all tasks required for an end-to-end data science workflow. [Learn more.](tutorial-iris-azure-cli.md)
+The Azure Machine Learning command-line interface (CLI) is also installed. The CLI interface allows you to access and interact with your Azure Machine Learning services using the `az` commands to perform all tasks required for an end-to-end data science workflow. [Learn more.](tutorial-iris-azure-cli.md)
 
-You can launch this CLI from the Workbench's toolbar using **File --> Open Command Prompt**.
+You can launch the azure-cli-ml CLI from the Workbench's toolbar using **File --> Open Command Prompt**.
 
-You can get help on commands in the CLI using the --help argument.
+You can get help on commands in the azure-cli-ml CLI using the --help argument.
 
 ```az ml --help```
 
@@ -196,7 +198,7 @@ You have now created the necessary an Azure Machine Learning accounts and instal
 For a more in-depth experience of this workflow, including how to deploy your Iris model as a web service, follow the full-length *Classifying Iris* tutorial. The tutorial contains detailed steps for [data preparation](tutorial-classifying-iris-part-1.md), [experimentation](tutorial-classifying-iris-part-2.md), and [model management](tutorial-classifying-iris-part-3.md). 
 
 > [!div class="nextstepaction"]
-> [Classifying Iris tutorial (Part 1)](tutorial-classifying-iris-part-1.md)
+> [Tutorial: Classifying Iris (Part 1)](tutorial-classifying-iris-part-1.md)
 
 >[!NOTE]
 > While you have your model management account, your environment is not set up for deploying web services yet.  Learn how to set up your [deployment environment](deployment-setup-configuration.md).

@@ -28,6 +28,12 @@ In this tutorial, you use Azure Machine Learning services (preview) to learn how
 > * Execute scripts in a cloud Azure HDInsight environment.
 
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Prerequisites
 * Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quickstart-installation.md).
 * If you don't have the Azure CLI installed, follow the instructions to [install the latest Azure CLI version].(https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)

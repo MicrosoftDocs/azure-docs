@@ -18,6 +18,7 @@ ms.date: 02/28/2018
 Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is part one of a three-part series. In this tutorial, we walk through the basics of Azure Machine Learning services (preview). You learn how to:
+
 > [!div class="checklist"]
 > * Create a project in Azure Machine Learning Workbench.
 > * Create a data preparation package.
@@ -37,6 +38,10 @@ You can follow the instructions in the [Quickstart: Install and start](quickstar
 
 ## Create a new project in Azure Machine Learning Workbench
 1. Open the Azure Machine Learning Workbench app, and log in if needed. 
+   
+   On Windows, just launch it using the **Machine Learning Workbench** desktop shortcut. 
+   
+   For macOS users, select **Azure ML Workbench** in your Launchpad.
 
 1. Select the plus sign (+) in the **PROJECTS** pane and choose **New Project**.  
 
@@ -153,6 +158,10 @@ You can follow the instructions in the [Quickstart: Install and start](quickstar
 
    For more information on how to prepare data in Azure Machine Learning Workbench, see the [Get started with data preparation](data-prep-getting-started.md) guide.
 
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Next steps
 In this first part of the three-part tutorial series, you have used Azure Machine Learning Workbench to:
 > [!div class="checklist"]
@@ -162,4 +171,4 @@ In this first part of the three-part tutorial series, you have used Azure Machin
 
 You are ready to move on to the next part in the series, where you learn how to build an Azure Machine Learning model:
 > [!div class="nextstepaction"]
-> [Build a model](tutorial-classifying-iris-part-2.md)
+> [Tutorial 2 - Classifying Iris: Build models](tutorial-classifying-iris-part-2.md)

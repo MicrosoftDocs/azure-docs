@@ -28,6 +28,8 @@ This tutorial is part three of a three-part series. In this part of the tutorial
 
  This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 Complete the first two parts of this tutorial series:
 
@@ -317,6 +319,10 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
       ```
 
 
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Next steps
 In this third part of the three-part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
@@ -331,4 +337,4 @@ You have successfully run a training script in various compute environments, cre
 
 You are now ready to do advanced data preparation:
 > [!div class="nextstepaction"]
-> [Advanced data preparation](tutorial-bikeshare-dataprep.md)
+> [Tutorial 4 - Advanced data preparation](tutorial-bikeshare-dataprep.md)

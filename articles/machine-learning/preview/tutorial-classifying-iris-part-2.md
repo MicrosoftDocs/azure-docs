@@ -30,6 +30,8 @@ This tutorial is part two of a three-part series. In this part of the tutorial, 
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 Finish the first part of this tutorial series. Follow the [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application prior to beginning the steps in this tutorial.
 
@@ -371,6 +373,10 @@ You can also run this script in an HDInsight Spark cluster. Learn [how to create
    >When you execute against a remote HDInsight cluster, you can also view the Yet Another Resource Negotiator (YARN) job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` by using the `admin` user account.
 
 
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Next steps
 In this second part of the three-part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
@@ -386,4 +392,4 @@ In this second part of the three-part tutorial series, you have learned how to u
 You are ready to move on to the third part in the series. Now that you have created the logistic regression model, let's deploy it as a real-time web service.
 
 > [!div class="nextstepaction"]
-> [Deploy a model](tutorial-classifying-iris-part-3.md)
+> [Tutorial 3 - Classifying Iris: Deploy models](tutorial-classifying-iris-part-3.md)
