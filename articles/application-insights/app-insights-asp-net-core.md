@@ -131,7 +131,7 @@ Technically **Failed Requests** are being collected, but none have occurred yet.
    throw new Exception("Test Exception");
    ```
 
-   ![Screenshot of exception code](./media/app-insights-asp-net-core/00016-exception.png)
+   ![Screenshot of exception code](./media/app-insights-asp-net-core/000016-exception.png)
 
 ### Live Stream
 
@@ -187,7 +187,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
 ## App Insights SDK Comparison
 
-The Application Insights product group has been working extremely hard to achieve as close to feature parity as possible between the SDK's for the full .NET Framework and those that target the open-source .Net Core. The 2.2.0 release of the ASP.NET Core SDK for App Insights has largely closed the feature gap.
+The Application Insights product group has been working hard to achieve as close to feature parity as possible between the SDKs for the full .NET Framework and those that target the open-source .Net Core. The 2.2.0 release of the ASP.NET Core SDK for App Insights has largely closed the feature gap.
 
 To understand more about the [differences between .NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
 
@@ -201,7 +201,7 @@ To understand more about the [differences between .NET and .NET Core](https://do
 
 _Performance Counters_ in this context refers to [server-side performance counters](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) like processor, memory, and disk utilization.
 
-## Open source SDK
+## Open-source SDK
 [Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
 ## Video
