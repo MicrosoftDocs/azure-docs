@@ -56,14 +56,14 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     .
 ```
 
-As you can see, the "instanceId" property is just a decimal number. The instance IDs may be re-used for new instances once old instances are deleted.
+As you can see, the "instanceId" property is just a decimal number. The instance IDs may be reused for new instances once old instances are deleted.
 
 >[!NOTE]
 > There is **no guarantee** on the way instance IDs are assigned to the VMs in the scale set. They might seem sequentially increasing at times, but this is not always the case. Do not take a dependency on the specific way in which instance IDs are assigned to the VMs.
 
 ## Scale set VM names
 
-In the sample output above, we also see a "name" for the VM. This name takes the form "{scale-set-name}_{instance-id}". This is the name that you see in the Azure portal when you list instances in a scale set:
+In the sample output above, there is also a "name" for the VM. This name takes the form "{scale-set-name}_{instance-id}". This name is the one that you see in the Azure portal when you list instances in a scale set:
 
 ![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
@@ -71,7 +71,7 @@ The {instance-id} part of the name is the same decimal number as the "instanceId
 
 ## Instance Metadata VM name
 
-If you query the [instance metadata](../virtual-machines/windows/instance-metadata-service.md) from within a scale set VM, you will also see a "name":
+If you query the [instance metadata](../virtual-machines/windows/instance-metadata-service.md) from within a scale set VM, you see a "name" in the output:
 
 ```
 {
@@ -89,7 +89,7 @@ This name is the same as the name discussed previously.
 
 Each VM in a scale set also gets a computer name assigned to it. This computer name is the hostname of the VM in the [Azure-provided DNS name resolution within the virtual network](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). This computer name is of the form "{computer-name-prefix}{base-36-instance-id}".
 
-The {base-36-instance-id} is in [base 36](https://en.wikipedia.org/wiki/Base36) and is always six digits in length. If the base 36 representation of the number takes fewer than six digits, the {base-36-instance-id} is padded with zeros to make it six digits in length. For instance, for an instance with {computer-name-prefix} "nsgvmss" and instance ID 85, the computer name will be "nsgvmss00002D".
+The {base-36-instance-id} is in [base 36](https://en.wikipedia.org/wiki/Base36) and is always six digits in length. If the base 36 representation of the number takes fewer than six digits, the {base-36-instance-id} is padded with zeros to make it six digits in length. For example, an instance with {computer-name-prefix} "nsgvmss" and instance ID 85 will have computer name "nsgvmss00002D".
 
 >[!NOTE]
 > The computer name prefix is a property of the scale set model that you can set, so it can be different from the scale set name itself.
