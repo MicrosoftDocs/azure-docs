@@ -1,5 +1,5 @@
 ---
-title: Grow your business with the Azure Marketplace
+title: Grow your business by using the Azure Marketplace
 description: Step-by-step guide and publishing checklists for new publishers to the Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
@@ -20,12 +20,12 @@ ms.author: ellacroi
 
 
 
-# Grow your business with the Azure Marketplace
+# Grow your business by using the Azure Marketplace
 
 After you have developed the technical assets for your Azure Marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product by following marketing best practices. 
 
 >[!NOTE]
->To learn about the publishing process and technical requirements, please read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
+>To learn about the publishing process and technical requirements, read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
 
 ## How marketing helps
 
@@ -36,7 +36,7 @@ The quality of your app publication and your commitment to customer-centric dema
 This section walks you through marketing best practices for an offer, according to the following checklist:
 
 - I've optimized my listing to drive traffic and engagement.
-- I've created messaging on my website, leveraging a unique landing page, to drive traffic to my Marketplace listing.
+- I've created messaging on my website, and created a unique landing page, to drive traffic to my Marketplace listing.
 - I've published a test drive or other trial so that customers can experience my offer running live on Azure.
 - I've planned and built my own marketing and promotion campaigns to drive awareness and engagement.
 - I've enabled on-demand lead generation so that every time someone acts to test or deploy my application, I receive their name and contact information.
@@ -44,32 +44,32 @@ This section walks you through marketing best practices for an offer, according 
 
 ### Create a great listing
 
-Your listing in the Marketplace can sometimes be your first interaction with a potential customer. Like any first impression, you want to make it strong and something your audience wants to follow up on. There are some basic things you can do to help make this first impression in the Marketplace great!
+Your listing in the Marketplace can sometimes be your first interaction with a potential customer. Like any first impression, you want to make it strong and something your audience wants to follow up on. There are some basic things you can do to help make this first impression in the Marketplace great:
 
-- **Be found:** Write your offer description by using key words and terms that your buyer will search for. 
+- **Be found:** Write your offer description by using keywords and terms that your buyer will search for. 
 - **Be visual:** Images and videos help show users your key features and can help illustrate your experience. Think about what you can show that helps deliver your value proposition or answer your buyer's top questions.
 - **Provide an experience:** Customers like to try before they buy. Leads generated from demos, trials, and test drives result in more customer deals. The stronger the trial experience you can provide, the stronger the lead you'll generate. We've found that test drive leads result (on average) in 40 percent closed deals.
-- **Help your audience learn:** Though we encourage you to keep your overview space clear and simple, there's also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customer's needs. Don't be afraid to direct them to additional materials to learn more. It's a bonus if these learning materials or links can track into your content marketing strategy, so you can be consistently nurturing leads.
+- **Help your audience learn:** Though we encourage you to keep your overview space clear and simple, there's plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customers' needs. Don't be afraid to direct them to additional materials to learn more. It's a bonus if these learning materials or links can track into your content marketing strategy, so you can be consistently nurturing leads.
 - **Take advantage of ratings and reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews also helps bump up your offer in search results and into key featured areas.
 
 ### Build a great landing page
 A landing page on your company website is a gateway from your demand generation activities to your listing in the Azure Marketplace. 
 
-Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Sample actions would be "Test drive our solution" or "Get a solution now." Your landing page can be used across multiple marketing tactics--anything from events, webcasts, and social media to whitepapers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
+Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Sample actions would be "Test drive our solution" or "Get a solution now." Your landing page can be used across multiple marketing tactics--for example, events, webcasts, social media, white papers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
 
 When you have a campaign plan ready, follow these best practices and consider what to avoid to maximize the effectiveness of your landing page: 
 
 
 |Best practice  |What to avoid  |
 |---------|---------|
-|**Articulate what customer problem your solution solves, and how you use Azure to make it happen**    |  Failing to articulate the ways in which your solution plus Azure work together       |
+|**Articulate what customer problem your solution solves, and how you use Azure to make it happen**    |  Failing to articulate the ways in which your solution works with Azure       |
 |**Create a short, easy-to-remember URL**    |    Using long URLs that aren't memorable and are hard to locate     |
-|**Add relevant visual content: a customer testimonial video or solution architecture are best practices**   |   Using too much text, which can make your audience tune out and stop exploring with you      |
+|**Add relevant visual content, like a customer testimonial video or a solution architecture**   |   Using too much text, which can make your audience tune out and stop exploring with you      |
 |**Create a clear call to action to direct visitors to your Marketplace catalog page**    |   Having too many links or possible actions on the page       |
-|**Put your call to action in a header or clearly delineated section**    |  Embedding the links to your Marketplace listing in a paragraph of text       |
-|**Research best keywords and optimize the page for search**    | Assuming that your product name generates higher search rankings        |
-|**Leverage keywords from your advertising campaigns**    |  Using many different keywords across your web properties, which will dilute your advertising investments       |
-|**Put relevant product names and keywords 'above the fold'**     | Making users scroll to see what product or solution you are showcasing        |
+|**Put your call to action in a header or a clearly delineated section**    |  Embedding the links to your Marketplace listing in a paragraph of text       |
+|**Research the best keywords and optimize the page for search**    | Assuming that your product name generates higher search rankings        |
+|**Use keywords from your advertising campaigns**    |  Using many different keywords across your web properties, which will dilute your advertising investments       |
+|**Put relevant product names and keywords "above the fold"**     | Making users scroll to see what product or solution you are showcasing        |
 |**Use brand imagery (such as Azure Certified) to validate your solution, and in accordance with Microsoft branding guidelines**    |    Using unapproved Microsoft brand imagery     |
 
 > [!NOTE]
@@ -91,7 +91,7 @@ First, verify who is the buyer and who is the influencer. Your tactics and calls
 
 Knowing the answers to these questions will help you make decisions about where to invest your dollars and how to distribute your dollars.
 
-##### Define where your audience Learns
+##### Define where your audience learns
 
 Buyers are 90 percent of the way through their journey by the time they visit a marketplace. Buyers get this far along in the decision-making process by learning about solutions and assessing options in advance. You want to design a campaign that aims to be where your buyers and influencers learn. 
 
@@ -101,11 +101,11 @@ Every audience for each industry, vertical, or category is different. Does your 
 
 You'll need to define success for your Marketplace campaign and create clear KPIs. You might run multiple campaigns with different end goals. We all want to grow sales. The ultimate end goal is increased revenue or customer acquisition. However, your marketing campaigns might be tied to goals at other stages of the buying cycle.
 
-For instance, if you have newly launched your product in the Marketplace, you might find your focus is best spent on audience education and lead generation. Success might be defined by the number of leads generated from your Marketplace listing. In this case, your marketing tactics (and landing page) would focus on drawing customers to your Marketplace listing.
+For instance, if you have newly launched your product in the Marketplace, you might find that your focus is best spent on audience education and lead generation. Success might be defined by the number of leads generated from your Marketplace listing. In this case, your marketing tactics (and landing page) would focus on drawing customers to your Marketplace listing.
 
 If you have a trial set up in the Marketplace and you know that your product requires some level of engagement and experience before purchase, you might make your campaign goal the number of trials downloaded. In this case, the CTA for your campaign tactics would focus sharply on encouraging a trial in the Marketplace. 
 
-If your product or category is more well-known and you have purchase capabilities set up in the Marketplace, you might decide to skip the trial step and direct your audience directly to your "buy now" link in the Marketplace.
+If your product or category is well known and you have purchase capabilities set up in the Marketplace, you might decide to skip the trial step and direct your audience to your "buy now" link in the Marketplace.
 
 At a more mature point in your offer's history, you might decide to focus your campaign efforts on upselling your customer base and drive action toward increased purchase in the Marketplace. Your tactics would focus on encouraging customers to "buy now" in the Marketplace. Your KPI might be the revenue generated through the Marketplace.
 
