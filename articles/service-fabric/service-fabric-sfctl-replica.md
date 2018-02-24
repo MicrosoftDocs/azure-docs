@@ -89,8 +89,7 @@ Gets the health of a Service Fabric replica. Use EventsHealthStateFilter to filt
 ## sfctl replica info
 Gets the information about a replica of a Service Fabric partition.
 
-The respons include the ID, role, status, health, node name, uptime, and other details about
-        the replica.
+The response include the id, role, status, health, node name, uptime, and other details about the replica.
 
 ### Arguments
 

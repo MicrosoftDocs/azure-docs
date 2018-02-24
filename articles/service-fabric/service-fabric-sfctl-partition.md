@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
 
 ---
@@ -103,7 +103,7 @@ Gets the list of partitions of a Service Fabric service. The s the partition
 
 |Argument|Description|
 | --- | --- |
-| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,                             hierarchical names are delimited with the "~" character. For example,                             if the service name is "fabric://myapp/app1/svc1", the service identity                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                             versions.|
+| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,                             hierarchical names are delimited with the "~" character. For example,                             if the service name is "fabric:/myapp/app1/svc1", the service identity                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                             versions.|
 | --continuation-token| The continuation token parameter is used to obtain next set of results.         A continuation token with a non empty value is included in the response         of the API when the results from the system do not fit in a single         response. When this value is passed to the next API call, the API         returns next set of results. If there are no further results, then the         continuation token does not contain a value. The value of this         parameter should not be URL encoded.|
 | --timeout -t        | Server timeout in seconds.  Default: 60.|
 
@@ -179,8 +179,8 @@ This API is useful for testing failover. If used to target a stateless service p
 | --- | --- |
 | --operation-id           [Required]| A GUID that identifies a call of this API.  This is passed                     into the corresponding GetProgress API.|
 | --partition-id           [Required]| The identity of the partition.|
-| --restart-partition-mode [Required]| - Invalid - Reserved.  Do not pass into API. -                     AllReplicasOrInstances - All replicas or instances in the                     partition are restarted at once. - OnlyActiveSecondaries -                     Only the secondary replicas are restarted. .|
-| --service-id             [Required]| The identity of the service. This is typically the full                     name of the service without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited                                         with the "~" character. For example, if the service name is                                         "fabric://myapp/app1/svc1", the service identity would be                                         "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                                         versions.|
+| --restart-partition-mode [Required]| Describe which partitions to restart.|
+| --service-id             [Required]| The identity of the service. This is typically the full                     name of the service without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited                                         with the "~" character. For example, if the service name is                                         "fabric:/myapp/app1/svc1", the service identity would be                                         "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                                         versions.|
 | --timeout -t                    | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
