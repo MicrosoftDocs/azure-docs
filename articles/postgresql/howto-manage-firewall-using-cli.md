@@ -42,7 +42,7 @@ To allow access to a singular IP address, provide the same address in the `--sta
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
-To allow applications from Azure IP addresses to connect to your Azure Database for MySQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
+To allow applications from Azure IP addresses to connect to your Azure Database for PostgreSQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver--name AllowAllAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
