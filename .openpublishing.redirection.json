@@ -685,12 +685,17 @@
         },
         {
             "source_path": "articles/resource-manager-resource-explorer.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-rest-api",
+            "redirect_url": "/rest/api/",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/resource-manager-rest-api.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-rest-api",
+            "redirect_url": "/rest/api/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-rest-api.md",
+            "redirect_url": "/rest/api/",
             "redirect_document_id": false
         },
         {

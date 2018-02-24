@@ -32,7 +32,6 @@ Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fa
 
 * At least 4 GB of RAM.
 * The latest version of [Docker](https://www.docker.com/).
-* Access to the Service Fabric [onebox Docker container image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/).
 
 >[!TIP]
 >
@@ -42,10 +41,10 @@ Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fa
 ## Create a local container and set up Service Fabric
 To set up a local Docker container and have a Service Fabric cluster running on it, perform the following steps:
 
-1. Pull the Service Fabric onebox container image from the Docker hub repository:
+1. Pull the Service Fabric onebox container image from the Docker hub repository. By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
 
     ```bash
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Update the Docker daemon configuration on your host with the following settings and restart the Docker daemon: 
@@ -68,14 +67,14 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 3. Start a Service Fabric onebox container instance and use the image that you pulled down in the first step:
 
     ```bash
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     >Provide a name for your container instance so it can be handled in a more readable manner. 
     >
     >If your application is listening on certain ports, the ports must be specified by using additional `-p` tags. For example, if your application is listening on port 8080, add the following `-p` tag:
     >
-    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
 4. Log on to the Docker container in interactive SSH mode:
@@ -157,7 +156,7 @@ Azure Service Fabric provides a plug-in for the Eclipse Neon for the Java IDE. T
 The last step is to instantiate the container with a path that is shared with your host. The plug-in requires this type of instantiation to work with the Docker container on your Mac. For example:
 
 ```bash
-docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
 ```
 
 The attributes are defined as follows:
