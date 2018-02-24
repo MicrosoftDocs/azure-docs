@@ -1,6 +1,6 @@
 ---
 title: Deploy an Azure Service Fabric application with continuous integration (Team Services) | Microsoft Docs
-description: Learn how to set up continuous integration and deployment for a Service Fabric application using Visual Studio Team Services.  Deploy an application to a Service Fabric cluster in Azure.
+description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Visual Studio Team Services.  Deploy an application to a Service Fabric cluster in Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Deploy an application with CI/CD to a Service Fabric cluster
+# Tutorial: deploy an application with CI/CD to a Service Fabric cluster
 This tutorial is part three of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Visual Studio Team Services.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
 
 In part three of the series, you learn how to:
