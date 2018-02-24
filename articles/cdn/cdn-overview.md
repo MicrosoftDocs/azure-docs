@@ -78,7 +78,7 @@ There are three Azure CDN products: **Azure CDN Standard from Akamai**, **Azure 
 | IPv4/IPv6 dual-stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
- **Security** | 
+ **Security** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | HTTPS support with CDN endpoint |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Custom domain HTTPS](cdn-custom-ssl.md) | |**&#x2713;** |**&#x2713;** |
 | [Custom domain name support](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -86,7 +86,7 @@ There are three Azure CDN products: **Azure CDN Standard from Akamai**, **Azure 
 | [Token authentication](cdn-token-auth.md)|  |  |**&#x2713;**| 
 | [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
-| **Analytics and reporting** |
+| **Analytics and reporting** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Core reports from Verizon](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
 | [Custom reports from Verizon](cdn-verizon-custom-reports.md) | |**&#x2713;** |**&#x2713;** |
@@ -95,7 +95,7 @@ There are three Azure CDN products: **Azure CDN Standard from Akamai**, **Azure 
 | [Edge node performance](cdn-edge-performance.md) | | |**&#x2713;** |
 | [Real-time alerts](cdn-real-time-alerts.md) | | |**&#x2713;** |
 ||||
-| **Ease of use** | 
+| **Ease of use** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | |**&#x2713;** |
