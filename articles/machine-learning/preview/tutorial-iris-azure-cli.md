@@ -244,7 +244,7 @@ Create a web service that returns a prediction using the model you deployed.
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## Step 10. Run the web service
+## Step 11. Run the web service
 Using the web service ID from the output of the previous step, call the web service and test it. 
 
 ```azure-cli
@@ -255,7 +255,7 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## Deleting all the resources 
+## Step 12. Deleting all the resources 
 Let's complete this tutorial by deleting all the resources that were created, unless you want to keep working on it. 
 
 To do so, delete the resource group holding the resources. 
