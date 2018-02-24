@@ -1,5 +1,5 @@
 ---
-title: Configure SSL connectivity in Azure Database for PostgreSQL | Microsoft Docs
+title: Configure SSL connectivity in Azure Database for PostgreSQL
 description: Instructions and information to configure Azure Database for PostgreSQL and associated applications to properly use SSL connections.
 services: postgresql
 author: JasonMAnderson

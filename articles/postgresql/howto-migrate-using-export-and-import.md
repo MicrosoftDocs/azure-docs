@@ -1,5 +1,5 @@
 ---
-title: Migrate a database using Import and Export in Azure Database for PostgreSQL | Microsoft Docs
+title: Migrate a database using Import and Export in Azure Database for PostgreSQL
 description: Describes how extract a PostgreSQL database into a script file and import the data into the target database from that file.
 services: postgresql
 author: rachel-msft

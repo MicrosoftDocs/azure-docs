@@ -1,5 +1,5 @@
 ---
-title: Monitoring in Azure Database for PostgreSQL  | Microsoft Docs
+title: Monitoring in Azure Database for PostgreSQL
 description: This article describes the metrics for monitoring and alerting for Azure Database for PostgreSQL, including CPU, storage, and connection statistics.
 services: postgresql
 author: rachel-msft

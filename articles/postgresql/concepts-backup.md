@@ -1,5 +1,5 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL | Microsoft Docs
+title: Backup and restore in Azure Database for PostgreSQL
 description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server.
 services: postgresql
 author: kamathsun

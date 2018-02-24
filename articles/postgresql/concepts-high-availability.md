@@ -1,5 +1,5 @@
 ---
-title: High availability concepts in Azure Database for PostgreSQL | Microsoft Docs
+title: High availability concepts in Azure Database for PostgreSQL
 description: This topic provides information of high availability when using Azure Database for PostgreSQL
 services: postgresql
 author: rachel-msft

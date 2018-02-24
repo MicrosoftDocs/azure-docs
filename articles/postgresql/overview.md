@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Database for PostgreSQL relational database service | Microsoft Docs
+title: Overview of Azure Database for PostgreSQL relational database service
 description: Provides an overview of Azure Database for PostgreSQL relational database service.
 services: postgresql
 author: kamathsun

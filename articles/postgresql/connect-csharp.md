@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Database for PostgreSQL from C# | Microsoft Docs
+title: Connect to Azure Database for PostgreSQL from C#
 description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
 author: rachel-msft

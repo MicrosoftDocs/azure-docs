@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Database for PostgreSQL using Ruby | Microsoft Docs
+title: Connect to Azure Database for PostgreSQL using Ruby
 description: This quickstart provides a Ruby code sample you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
 author: rachel-msft
