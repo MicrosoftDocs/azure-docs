@@ -24,7 +24,7 @@ Find out how much time is spent in each method of your live web application when
 
 ## Pre-requisites
 
-* Please make sure you have a Linux development environment. [Create a Linux virtual machine with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal)
+* Make sure you have a Linux development environment. [Create a Linux virtual machine with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal)
 * Install .NET core SDK 2.1.2 or later following instruction at [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/linuxubuntu)
 * Install Git in your Linux development machines
 
@@ -34,7 +34,7 @@ Find out how much time is spent in each method of your live web application when
 
 ## Setup development environment and run the app locally for collecting profiler traces
 
-1. Clone the following project repository. This is an ASP.NET core 2.0 MVC web app with Application Insights enabled
+1. Clone the following project repository that contains an ASP.NET core 2.0 MVC web app with Application Insights enabled
 
     ```
     TODO: give link
@@ -49,20 +49,20 @@ Find out how much time is spent in each method of your live web application when
     ```
 
 4. Add Profiler Nuget package in the project
-    * Navigate to the project folder where .csproj file is in
+    * Navigate to the project folder that contains the project file. ```.csproj```
     * Add package by the following command:
 
         ```
         TODO: command to add NuGet package
         ```
 
-5. Set the following environment variables in your command prompt to enable service profiler. This will make the projec tot run for 2 minutes after the first request is hit.
+5. To enable service profiler, set the following environment variables in your command prompt. This setting will make the project to run for 2 minutes after the first request is hit.
 
     ```
     export ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=ServiceProfiler.EventPipe.AspNetCore
     ```
 
-Alternatively, you can control the trace timing by using the following code in IServiceCollection:
+Alternatively, you can change the profiling running time interval by using the following code in IServiceCollection:
 
     ```csharp
     services.AddServiceProfiler(TimeSpan.FromSeconds(45), TimeSpan.FromMinutes(30), TimeSpan.FromSeconds(10));
@@ -74,7 +74,7 @@ Alternatively, you can control the trace timing by using the following code in I
     dotnet run
     ```
 
-7. Access the website from your browser to generate some requests. Then navigate to your Application Insights resource, Performance Blade, click on the "Profiler traces" button at the bottom right corner to view traces.
+7. Access the website from your browser to generate some requests. To view traces, navigate to your Application Insights resource, Performance Blade, click on the "Profiler traces" button at the bottom right corner.
 
     TODO: screenshot
 
@@ -82,7 +82,7 @@ Alternatively, you can control the trace timing by using the following code in I
 
 1. Stop running your site locally
 
-2. Create a .dockerfile to build your image
+2. Create a ```.dockerfile``` to build your image
 
     ```
     FROM microsoft/aspnetcore-build:2.0.5-2.1.4 AS build-env
@@ -109,7 +109,7 @@ Alternatively, you can control the trace timing by using the following code in I
     ENTRYPOINT ["dotnet", "ServiceProfilerE2EBase.dll"]
     ```
 
-3. Create a .dockerignore file to exclude the following folders
+3. Create a ```.dockerignore``` file to exclude the following folders
     ```
     bin\
     obj\
@@ -118,8 +118,8 @@ Alternatively, you can control the trace timing by using the following code in I
     ```
     docker run -p 80:8080 saars/netcore-sp-docker:0.2.0
     ```
-5. Publish the docker container to Azure App Serivces by following instructions at [Use a custom Docker image for Web App for Containers](../app-service/containers/tutorial-custom-docker-image.md)
+5. Publish the docker container to Azure app services by following instructions at [Use a custom Docker image for Web App for Containers](../app-service/containers/tutorial-custom-docker-image.md)
 
-6. Access your site in a browser to generate some traffice
+6. Access your site in a browser to generate some traffic
 
 7. Navigate to your Application Insights resource and view your Profiler traces
