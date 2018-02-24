@@ -16,6 +16,8 @@ ms.custom: mvc
 
 ---
 
+# Connect MXChip IoT DevKit to Azure IoT Hub Device Provisioning Service
+
 This article describes how to configure DevKit in order to make it automatically register to IoT Hub using the Device Provisioning Service. In this tutorial, you will learn how to:
 
 * Configure global endpoint of DPS on device
@@ -36,7 +38,7 @@ To complete the steps in this tutorial, you need the following:
 To enable the DevKit to connect to the Device Provisioning Service instance you created:
 
 1. In the Azure portal, select the **Overview** of your Device Provisioning Service and note down the **Global device endpoint** and **ID Scope** value.
-  ![DPS Global Endpoint and ID Scope](./media/how-to-connect-to-mxchip-iot-devkit/dps-global-endpoint.png)
+  ![DPS Global Endpoint and ID Scope](./media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
 2. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) to have the latest version installed.
 
@@ -48,7 +50,7 @@ To enable the DevKit to connect to the Device Provisioning Service instance you 
 4. Launch VS Code and connect DevKit to computer, open the folder that contains the code you cloned.
 
 5. Open **DevKitDPS.ino**, Find, and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just note down.
-  ![DPS Endpoint](./media/how-to-connect-to-mxchip-iot-devkit/endpoint.png)
+  ![DPS Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png)
   You can leave the **registrationId** as blank, the application generates one for you based on the MAC address and firmware version. If you want to customize it, the Registration ID has to use alphanumeric, lowercase, and hyphen combinations only with maximum 128 characters long. For more information, see [Manage device enrollments with Azure portal](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
 
 6. Use **Quick Open** in VS Code (Windows: `Ctrl+P`, macOS: `Cmd+P`) and type **task device-upload** to build and upload the code to the DevKit.
@@ -82,40 +84,33 @@ To save Unique Device Secret on the DevKit:
 5. Without closing the serial monitor window, press reset button on the DevKit.
 
 6. Note down **DevKit MAC Address** and **DevKit Firmware Version** value.
-  ![Firmware version](./media/how-to-connect-to-mxchip-iot-devkit/firmware-version.png)
+  ![Firmware version](./media/how-to-connect-mxchip-iot-devkit/firmware-version.png)
 
 ## Generate X.509 certificate
-
-{% include switch.html content = page.variable %}
 
 ### Windows
 
 1. Open file explorer and go to the folder contain the DSP sample code you cloned, there is a **.build** folder, find, and copy **DPS.ino.bin** and **DPS.ino.map** in it.
-  ![Generated files](./media/how-to-connect-to-mxchip-iot-devkit/generated-files.png)
-
-**Note:** If you have changed the `built.path` configuration for Arduino to other folder. You need to find those files in the folder you configured.
-{: .notice--info}
+  ![Generated files](./media/how-to-connect-mxchip-iot-devkit/generated-files.png)
+  > [!NOTE]
+  > If you have changed the `built.path` configuration for Arduino to other folder. You need to find those files in the folder you configured.
 
 2. Paste these two files into **tools** folder on the same level with **.build** folder.
 
 3. Run **dps_cert_gen.exe**, follow the prompts to enter your **UDS**, **MAC address** for the DevKit and the **firmware version** to generate the X.509 certificate.
-  ![Run dps-cert-gen.exe](./media/how-to-connect-to-mxchip-iot-devkit/dps-cert-gen.png)
+  ![Run dps-cert-gen.exe](./media/how-to-connect-mxchip-iot-devkit/dps-cert-gen.png)
 
 4. Observe the success of generation, a **.pem** certificate is saved in the same folder.
-
-### macOS
-
-*Coming soon.*
 
 ## Create a device enrollment entry in the Device Provisioning Service
 
 1. In the Azure portal, navigate to your provisioning service. Click **Manage enrollments**, and select the **Individual Enrollments** tab.
-  ![Individual enrollments](./media/how-to-connect-to-mxchip-iot-devkit/individual-enrollments.png)
+  ![Individual enrollments](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
 
 2. Click **Add**.
 
 3. In **Mechanism**, choose **X.509**.
-  ![Upload cert](./media/how-to-connect-to-mxchip-iot-devkit/upload-cert.png)
+  ![Upload cert](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
 4. In **Certificate .pem or .cer file**, upload the **.pem** certificate you just have.
 
@@ -129,7 +124,7 @@ To save Unique Device Secret on the DevKit:
 
 You should see the DevKit start the registration with your Device Provisioning Service.
 
-![VS Code output](./media/how-to-connect-to-mxchip-iot-devkit/vscode-output.png)
+![VS Code output](./media/how-to-connect-mxchip-iot-devkit/vscode-output.png)
 
 ## Verify the DevKit is registered on IoT Hub
 
@@ -140,7 +135,7 @@ Once your device boots, the following actions should take place:
 3. On successful registration, the Device Provisioning Service sends the IoT hub URI, device ID, and the encrypted key back to the device.
 4. The IoT Hub client application on the device then connects to your hub.
 5. On successful connection to the hub, you should see the device appear in the IoT hub's Device Explorer.
-  ![Device registered](./media/how-to-connect-to-mxchip-iot-devkit/device-registered.png)
+  ![Device registered](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
 ## Change device ID
 
@@ -153,7 +148,7 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## Next Steps
+## Next steps
 
 Now that you have learned to prepare the DevKit to enroll a device securely to DPS using DICE, so that it can automatically register to IoT Hub with zero-touch. In this tutorial, you learned how to:
 

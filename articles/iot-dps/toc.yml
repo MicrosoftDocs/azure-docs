@@ -90,7 +90,7 @@
   - name: Use SDK tools to develop
     href: how-to-use-sdk-tools.md
   - name: Connect to MXChip IoT DevKit
-    href: how-to-connect-to-mxchip-iot-devkit.md
+    href: how-to-connect-mxchip-iot-devkit.md
 - name: Reference
   items:
   - name: REST
