@@ -162,10 +162,9 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 | --- | --- |
 |   --debug                      | Increase logging verbosity to show all debug logs.|
 |    --help -h                    | Show this help message and exit.|
- |   --output -o                  | Output format.  Allowed values: json, jsonc, table, tsv.
-                                   Default: json.|
- |   --query                      | JMESPath query string. See http://jmespath.org/ for more                                   information and examples.|
- |   --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
+|   --output -o                  | Output format.  Allowed values: json, jsonc, table, tsv. Default: json.|
+|   --query                      | JMESPath query string. See http://jmespath.org/ for more                                   information and examples.|
+|   --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
