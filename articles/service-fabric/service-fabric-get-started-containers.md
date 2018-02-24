@@ -409,9 +409,6 @@ If the underlying OS on the VM is build 16299 (version 1709), Service Fabric pic
 
 The untagged container image will work as an override for the one provide in the ServiceManifest. So image "myregistry.azurecr.io/samples/helloworldappDefault" will override the ImageName "myregistry.azurecr.io/samples/helloworldapp" in the ServiceManifest.
 
-for ex: If you are running Os build version 14393 then the image ""myregistry.azurecr.io/samples/helloworldapp1701" will be used.
-If you are running build version other than 14393/16299 then image "myregistry.azurecr.io/samples/helloworldappDefault" will be used for the container. 
-
 ## Complete example Service Fabric application and service manifests
 Here are the complete service and application manifests used in this article.
 
