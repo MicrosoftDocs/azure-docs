@@ -2,10 +2,10 @@
 ## [About Azure CDN](cdn-overview.md)
 
 # Quickstarts
-## [Enable Azure CDN](cdn-create-new-endpoint.md)
+## [Create a profile and endpoint](cdn-create-new-endpoint.md)
 
 # Tutorials
-## [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
+## [Add a custom domain](cdn-map-content-to-custom-domain.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
