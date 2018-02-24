@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL using Ruby | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Ruby'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
 services: mysql
 author: jasonwhowell
@@ -10,7 +10,7 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Ruby to connect and query data

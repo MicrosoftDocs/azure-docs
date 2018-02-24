@@ -1,14 +1,14 @@
 ---
-title: Configure and access server logs for Azure Database for MySQL in Azure Portal | Microsoft Docs
+title: Configure and access server logs for Azure Database for MySQL in Azure Portal
 description: This article describes how to configure and access the server logs in Azure Database for MySQL from the Azure Portal.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 02/28/2018
 ---
 
 # Configure and access server logs in the Azure portal
