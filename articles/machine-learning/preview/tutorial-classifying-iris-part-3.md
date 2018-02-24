@@ -1,19 +1,19 @@
 ---
-title: Deploy a model for Azure Machine Learning services (preview) | Microsoft Docs
+title: Deploy a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part three and discusses the deploying model.
 services: machine-learning
 author: raymondl
-ms.author: raymondl, aashishb
+ms.author: raymondl, j-martens, aashishb
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/29/2017
+ms.date: 02/28/2018
 ---
 
-# Classify Iris part 3: Deploy a model
+# Tutorial: Classify Iris part 3: Deploy a model
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is part three of a three-part series. In this part of the tutorial, you use Machine Learning (preview) to:
@@ -26,7 +26,9 @@ This tutorial is part three of a three-part series. In this part of the tutorial
 > * Run the real-time web service.
 > * Examine the output blob data. 
 
- This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
+This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 Complete the first two parts of this tutorial series:
@@ -194,17 +196,17 @@ Now you're ready to create the real-time web service.
 
    The following switches are used with the **az ml service create realtime** command:
 
-   a. `-n`: The app name, which must be all lowercase.
+   * `-n`: The app name, which must be all lowercase.
 
-   b. `-f`: The scoring script file name.
+   * `-f`: The scoring script file name.
 
-   c. `--model-file`: The model file. In this case, it's the pickled model.pkl file.
+   * `--model-file`: The model file. In this case, it's the pickled model.pkl file.
 
-   d. `-r`: The runtime of the model. In this case, it's a Python model. Valid runtimes are `python` and `spark-py`.
+   * `-r`: The runtime of the model. In this case, it's a Python model. Valid runtimes are `python` and `spark-py`.
 
-   e. `--collect-model-data true`: This switch enables data collection.
+   * `--collect-model-data true`: This switch enables data collection.
 
-   f. `-c`: Path to the conda dependencies file where additional packages are specified.
+   * `-c`: Path to the conda dependencies file where additional packages are specified.
 
    >[!IMPORTANT]
    >The service name, which is also the new Docker image name, must be all lowercase. Otherwise, you get an error. 
@@ -272,18 +274,13 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
    az ml service usage realtime -i <web service ID>
    ```
 
-2. To test the service, execute the returned service run command.
-
+2. To test the service, execute the returned service run command:
+    
    ```azurecli
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
-    The output is "2", which is the predicted class. Your result might be different. 
 
-3. To run the service from outside the CLI, you need to get the keys for authentication.
-
-   ```azurecli
-   az ml service keys realtime -i <web service ID>
-   ```
+   The output is **"2"**, which is the predicted class. (Your result might be different.) 
 
 ## View the collected data in Azure Blob storage
 
@@ -314,20 +311,24 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 6. You can consume this data from Azure Blob storage. There are a variety of tools that use both Microsoft software and open-source tools, such as:
 
-   a. Machine Learning: Open the CSV file by adding the CSV file as a data source.
+   * Machine Learning: Open the CSV file by adding the CSV file as a data source.
 
-   b. Excel: Open the daily CSV files as a spreadsheet.
+   * Excel: Open the daily CSV files as a spreadsheet.
 
-   c. [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Create charts with data pulled from the CSV data in blobs.
+   * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Create charts with data pulled from the CSV data in blobs.
 
-   d. [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Load the CSV data into a hive table, and perform SQL queries directly against the blobs.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Load the CSV data into a hive table, and perform SQL queries directly against the blobs.
 
-   e. [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Create a dataframe with a large portion of CSV data.
+   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Create a dataframe with a large portion of CSV data.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
       ```
 
+
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 In this third part of the three-part tutorial series, you have learned how to use Machine Learning to:
@@ -343,4 +344,4 @@ You have successfully run a training script in various compute environments, cre
 
 You are now ready to do advanced data preparation:
 > [!div class="nextstepaction"]
-> [Advanced data preparation](tutorial-bikeshare-dataprep.md)
+> [Tutorial 4 - Advanced data preparation](tutorial-bikeshare-dataprep.md)
