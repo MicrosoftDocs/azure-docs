@@ -101,4 +101,4 @@ When Azure VMs are created from storage after failover, they're joined to this n
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare the on-premises VMware infrastructure for disaster recovery to Azure](tutorial-prepare-on-premises-vmware.md)
+> [Prepare the on-premises Hyper-V infrastructure for disaster recovery to Azure](hyper-v-prepare-on-premises-tutorial.md)
