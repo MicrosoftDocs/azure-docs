@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ---
 
 # Azure Database for PostgreSQL: Use Python to connect and query data
