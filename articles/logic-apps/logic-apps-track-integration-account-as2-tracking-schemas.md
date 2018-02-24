@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
+
+ms.custom: H1Hack27Feb2017 
 
 ---
-# AS2 tracking schemas
+# Start or enable tracking of AS2 messages and MDNs to monitor success, errors, and message properties
 You can use these AS2 tracking schemas in your Azure integration account to help you monitor business-to-business (B2B) transactions:
 
 * AS2 message tracking schema

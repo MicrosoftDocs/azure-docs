@@ -22,7 +22,7 @@ Azure provides security mechanisms to aid in the management and monitoring of Az
 
 The security of your Microsoft cloud services is a partnership and shared responsibility between you and Microsoft. Shared responsibility means Microsoft is responsible for the Microsoft Azure and physical security of its data centers (by using security protections such as locked badge entry doors, fences, and guards). In addition, Azure provides strong levels of cloud security at the software layer that meets the security, privacy, and compliance needs of its demanding customers.
 
-You own your data and identities, the responsibility for protecting them, the security of your on-premises resources, and the security of cloud components over which you have control. Microsoft provides you with security controls and capabilities to help you protect your data and applications. Your responsibility for security is based on the type of cloud service.
+You own your data and identities, the responsibility for protecting them, the security of your on-premises resources, and the security of cloud components over which you have control. Microsoft provides you with security controls and capabilities to help you protect your data and applications. Your degree of responsibility for security is based on the type of cloud service.
 
 The following chart summarizes the balance of responsibility for both Microsoft and the customer.
 
@@ -62,8 +62,8 @@ Learn more:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](azure-security-antimalware.md)
-* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/windows/classic/install-trend.md)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/windows/classic/install-symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## Multi-Factor Authentication

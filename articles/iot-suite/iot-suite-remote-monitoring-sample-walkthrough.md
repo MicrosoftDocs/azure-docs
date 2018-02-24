@@ -1,6 +1,6 @@
 ---
-title: Remote Monitoring preconfigured solution walkthrough | Microsoft Docs
-description: A description of the Azure IoT preconfigured solution remote monitoring and its architecture.
+title: Architecture of remote monitoring solution - Azure | Microsoft Docs
+description: A walkthrough of the architecture of the remote monitoring preconfigured solution.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -11,215 +11,133 @@ editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 11/10/2017
 ms.author: dobett
 
 ---
-# Remote monitoring preconfigured solution walkthrough
-## Introduction
-The IoT Suite remote monitoring [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario and you can use it as a starting point for your own implementation. You can [customize][lnk-customize] the solution to meet your own specific business requirements.
+# Remote monitoring preconfigured solution architecture
+
+The IoT Suite remote monitoring [preconfigured solution](iot-suite-what-are-preconfigured-solutions.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](iot-suite-remote-monitoring-customize.md) it to meet your own specific business requirements.
 
 This article walks you through some of the key elements of the remote monitoring solution to enable you to understand how it works. This knowledge helps you to:
 
 * Troubleshoot issues in the solution.
-* Plan how to customize to the solution to meet your own specific requirements. 
+* Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
 
 ## Logical architecture
-The following diagram outlines the logical components of the preconfigured solution:
+
+The following diagram outlines the logical components of the remote monitoring preconfigured solution overlaid on the [IoT architecture](iot-suite-what-is-azure-iot.md):
 
 ![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## Simulated devices
-In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). When you deploy the preconfigured solution, you also automatically provision four simulated devices that run in an [Azure WebJob][lnk-webjobs]. The simulated devices make it easy for you to explore the behavior of the solution without the need to deploy any physical devices. To deploy a real physical device, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
+## Why microservices?
 
-Each simulated device can send the following message types to IoT Hub:
+Cloud architecture has evolved since Microsoft released the first preconfigured solutions. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) have emerged as a proven practice to achieve scale and flexibility without sacrificing development speed. Several Microsoft services use this architectural pattern internally with great reliability and scalability results. The updated preconfigured solutions put these learnings into practice so you can also benefit from them.
 
-| Message | Description |
-| --- | --- |
-| Startup |When the device starts, it sends a **device-info** message containing information about itself to the back end. This data includes the device id, the device metadata, a list of the commands the device supports, and the current configuration of the device. |
-| Presence |A device periodically sends a **presence** message to report whether the device can sense the presence of a sensor. |
-| Telemetry |A device periodically sends a **telemetry** message that reports simulated values for the temperature and humidity collected from the device's simulated sensors. |
+> [!TIP]
+> To learn more about microservice architectures, see [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) and [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-The simulated devices send the following device properties in a **device-info** message:
+## Device connectivity
 
-| Property | Purpose |
-| --- | --- |
-| Device ID |Id that is either provided or assigned when a device is created in the solution. |
-| Manufacturer |Device manufacturer |
-| Model Number |Model number of the device |
-| Serial Number |Serial number of the device |
-| Firmware |Current version of firmware on the device |
-| Platform |Platform architecture of the device |
-| Processor |Processor running the device |
-| Installed RAM |Amount of RAM installed on the device |
-| Hub Enabled State |IoT Hub state property of the device |
-| Created Time |Time the device was created in the solution |
-| Updated Time |Last time properties were updated for the device |
-| Latitude |Latitude location of the device |
-| Longitude |Longitude location of the device |
+The solution includes the following components in the device connectivity part of the logical architecture:
 
-The simulator seeds these properties in simulated devices with sample values.  Each time the simulator initializes a simulated device, the device posts the pre-defined metadata to IoT Hub. Note how this overwrites any metadata updates made in the device portal.
+### Simulated devices
 
-The simulated devices can handle the following commands sent from the solution dashboard through the IoT hub:
+The solution includes a microservice that enables you to manage a pool of simulated devices to test the end-to-end flow in the solution. The simulated devices:
 
-| Command | Description |
-| --- | --- |
-| PingDevice |Sends a *ping* to the device to check it is alive |
-| StartTelemetry |Starts the device sending telemetry |
-| StopTelemetry |Stops the device from sending telemetry |
-| ChangeSetPointTemp |Changes the set point value around which the random data is generated |
-| DiagnosticTelemetry |Triggers the device simulator to send an additional telemetry value (externalTemp) |
-| ChangeDeviceState |Changes an extended state property for the device and sends the device info message from the device |
+* Generate device-to-cloud telemetry.
+* Respond to cloud-to-device method calls from IoT Hub.
 
-The device command acknowledgment to the solution back end is provided through the IoT hub.
+The microservice provides a RESTful endpoint for you to create, start, and stop simulations. Each simulation consists of a set of virtual devices of different types, that send telemetry and respond to method calls.
 
-## IoT Hub
-The [IoT hub][lnk-iothub] ingests data sent from the devices into the cloud and makes it available to the Azure Stream Analytics (ASA) jobs. IoT hub also sends commands to your devices on behalf of the device portal. Each stream ASA job uses a separate IoT Hub consumer group to read the stream of messages from your devices.
+You can provision simulated devices from the dashboard in the solution portal.
 
-## Azure Stream Analytics
-In the remote monitoring solution, [Azure Stream Analytics][lnk-asa] (ASA) dispatches device messages received by the IoT hub to other back-end components for processing or storage. Different ASA jobs perform specific functions based on the content of the messages.
+### Physical devices
 
-**Job 1: Device Info** filters device information messages from the incoming message stream and sends them to an Event Hub endpoint. A device sends device information messages at startup and in response to a **SendDeviceInfo** command. This job uses the following query definition to identify **device-info** messages:
+You can connect physical devices to the solution. You can implement the behavior of your simulated devices using the Azure IoT device SDKs.
 
-```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
-```
+You can provision physical devices from the dashboard in the solution portal.
 
-This job sends its output to an Event Hub for further processing.
+### IoT Hub and the IoT manager microservice
 
-**Job 2: Rules** evaluates incoming temperature and humidity telemetry values against per-device thresholds. Threshold values are set in the rules editor available in the solution dashboard. Each device/value pair is stored by timestamp in a blob which Stream Analytics reads in as **Reference Data**. The job compares any non-empty value against the set threshold for the device. If it exceeds the '>' condition, the job outputs an **alarm** event that indicates that the threshold is exceeded and provides the device, value, and timestamp values. This job uses the following query definition to identify telemetry messages that should trigger an alarm:
+The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `telemetry-agent` microservice.
 
-```
-WITH AlarmsData AS 
-(
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Temperature' as ReadingType,
-     Stream.Temperature as Reading,
-     Ref.Temperature as Threshold,
-     Ref.TemperatureRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+The IoT hub in the solution also:
 
-UNION ALL
+* Maintains an identity registry that stores the IDs and authentication keys of all the devices permitted to connect to the portal. You can enable and disable devices through the identity registry.
+* Invokes methods on your devices on behalf of the solution portal.
+* Maintains device twins for all registered devices. A device twin stores the property values reported by a device. A device twin also stores desired properties, set in the solution portal, for the device to retrieve when it next connects.
+* Schedules jobs to set properties for multiple devices or invoke methods on multiple devices.
 
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Humidity' as ReadingType,
-     Stream.Humidity as Reading,
-     Ref.Humidity as Threshold,
-     Ref.HumidityRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-)
+The solution includes the `iot-manager` microservice to handle interactions with your IoT hub such as:
 
-SELECT *
-INTO DeviceRulesMonitoring
-FROM AlarmsData
+* Creating and managing IoT devices.
+* Managing device twins.
+* Invoking methods on devices.
+* Managing IoT credentials.
 
-SELECT *
-INTO DeviceRulesHub
-FROM AlarmsData
-```
+This service also runs IoT Hub queries to retrieve devices belonging to user-defined groups.
 
-The job sends its output to an Event Hub for further processing and saves details of each alert to blob storage from where the solution dashboard can read the alert information.
+The microservice provides a RESTful endpoint to manage devices and device twins, invoke methods, and run IoT Hub queries.
 
-**Job 3: Telemetry** operates on the incoming device telemetry stream in two ways. The first sends all telemetry messages from the devices to persistent blob storage for long-term storage. The second computes average, minimum, and maximum humidity values over a five-minute sliding window and sends this data to blob storage. The solution dashboard reads the telemetry data from blob storage to populate the charts. This job uses the following query definition:
+## Data processing and analytics
 
-```
-WITH 
-    [StreamData]
-AS (
-    SELECT
-        *
-    FROM [IoTHubStream]
-    WHERE
-        [ObjectType] IS NULL -- Filter out device info and command responses
-) 
+The solution includes the following components in the data processing and analytics part of the logical architecture:
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    Temperature,
-    Humidity,
-    ExternalTemperature,
-    EventProcessedUtcTime,
-    PartitionId,
-    EventEnqueuedUtcTime,
-    * 
-INTO
-    [Telemetry]
-FROM
-    [StreamData]
+### Device telemetry
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    AVG (Humidity) AS [AverageHumidity],
-    MIN(Humidity) AS [MinimumHumidity],
-    MAX(Humidity) AS [MaxHumidity],
-    5.0 AS TimeframeMinutes 
-INTO
-    [TelemetrySummary]
-FROM [StreamData]
-WHERE
-    [Humidity] IS NOT NULL
-GROUP BY
-    IoTHub.ConnectionDeviceId,
-    SlidingWindow (mi, 5)
-```
+The solution includes two microservices to handle device telemetry.
 
-## Event Hubs
-The **device info** and **rules** ASA jobs output their data to Event Hubs to reliably forward on to the **Event Processor** running in the WebJob.
+The [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice:
 
-## Azure storage
-The solution uses Azure blob storage to persist all the raw and summarized telemetry data from the devices in the solution. The dashboard reads the telemetry data from blob storage to populate the charts. To display alerts, the dashboard reads the data from blob storage that records when telemetry values exceeded the configured threshold values. The solution also uses blob storage to record the threshold values you set in the dashboard.
+* Stores telemetry in Cosmos DB.
+* Analyzes the telemetry stream from devices.
+* Generates alarms according to defined rules.
 
-## WebJobs
-In addition to hosting the device simulators, the WebJobs in the solution also host the **Event Processor** running in an Azure WebJob that handles device information messages and command responses. It uses:
+The alarms are stored in Cosmos DB.
 
-* Device information messages to update the device registry (stored in the DocumentDB database) with the current device information.
-* Command response messages to update the device command history (stored in the DocumentDB database).
+The `telemetry-agent` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
 
-## DocumentDB
-The solution uses a DocumentDB database to store information about the devices connected to the solution. This information includes device metadata and the history of commands sent to devices from the dashboard.
+* Define monitoring rules such as the thresholds that trigger alarms
+* Retrieve the list of past alarms.
 
-## Web apps
-### Remote monitoring dashboard
-This page in the web application uses PowerBI javascript controls (See [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) to visualize the telemetry data from the devices. The solution uses the ASA telemetry job to write the telemetry data to blob storage.
+Use the RESTful endpoint provided by this microservice to manage telemetry, rules, and alarms.
 
-### Device administration portal
-This web app enables you to:
+### Storage
 
-* Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific DocumentDB database.
-* Manage device properties. This action includes viewing existing properties and updating with new properties.
-* Send commands to a device.
-* View the command history for a device.
-* Enable and disable devices.
+The [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is an adapter in front of the main storage service used for the preconfigured solution. It provides simple collection and key-value storage.
+
+The standard deployment of the preconfigured solution uses Cosmos DB as its main storage service.
+
+The Cosmos DB database stores data in the preconfigured solution. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
+
+## Presentation
+
+The solution includes the following components in the presentation part of the logical architecture:
+
+The [web user interface is a React Javascript application](https://github.com/Azure/pcs-remote-monitoring-webui). The application:
+
+* Uses Javascript React only and runs entirely in the browser.
+* Is styled with CSS.
+* Interacts with public facing microservices through AJAX calls.
+
+The user interface presents all the preconfigured solution functionality, and interacts with other services such as:
+
+* The [authentication](https://github.com/Azure/pcs-auth-dotnet) microservice to protect user data.
+* The [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) microservice to list and manage the IoT devices.
+
+The [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice enables the user interface to store and retrieve configuration settings.
 
 ## Next steps
-The following TechNet blog posts provide more detail about the remote monitoring preconfigured solution:
 
-* [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+If you want to explore the source code and developer documentation, start with one the two main GitHub repositories:
 
-You can continue getting started with IoT Suite by reading the following articles:
+* [Preconfigured solution for remote monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Preconfigured solution for remote monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Preconfigured solution for remote monitoring architecture)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-* [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
-* [Permissions on the azureiotsuite.com site][lnk-permissions]
-
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
+For more conceptual information about the remote monitoring preconfigured solution, see [Customize the preconfigured solution](iot-suite-remote-monitoring-customize.md).

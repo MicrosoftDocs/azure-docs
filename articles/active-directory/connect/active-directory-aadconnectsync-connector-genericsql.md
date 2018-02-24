@@ -3,8 +3,8 @@ title: Generic SQL Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: billmath
+manager: bhu
 editor: ''
 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 12/19/2017
 ms.author: billmath
 
 ---
@@ -110,13 +110,14 @@ On this page, you are going to configure how the attribute names and types are g
 * **SQL query**: This option allows you to provide a SQL query that returns a single column with attribute names, for example `SELECT [Column Name] FROM TABLENAME`. The returned column must be of type string (varchar).
 
 ### Schema 3 (Define anchor and DN)
-This page allows you to configure anchor and DN attribute for each detected object type. You can select multiple attribute to make the anchor unique.
+This page allows you to configure anchor and DN attribute for each detected object type. You can select multiple attributes to make the anchor unique.
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
 
 * Multi-valued and Boolean attributes are not listed.
 * Same attribute cannot use for DN and anchor, unless **DN is Anchor** is selected on the Connectivity page.
 * If **DN is Anchor** is selected on the Connectivity page, this page requires only the DN attribute. This attribute would also be used as the anchor attribute.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### Schema 4 (Define attribute type, reference, and direction)
@@ -126,7 +127,8 @@ This page allows you to configure the attribute type, such as integer, binary, o
 
 * **DataType**: Used to map the attribute type to those types known by the sync engine. The default is to use the same type as detected in the SQL schema, but DateTime and Reference are not easily detectable. For those, you need to specify **DateTime** or **Reference**.
 * **Direction**: You can set the attribute direction to Import, Export, or ImportExport. ImportExport is default.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Notes:
 
@@ -141,10 +143,30 @@ On this page, you configure for all reference attributes which partition (object
 
 If you use **DN is anchor**, then you must use the same object type as the one you are referring from. You cannot reference another object type.
 
+>[!NOTE]
+Starting in the March 2017 update there is now an option for "*" When this option is chosen then all possible member types will be imported.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+>[!IMPORTANT]
+ As of May 2017 the “*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> If "*" is selected then the name of the column with the object type must also be specified.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
+
+After import you will see something similar to the image below:
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
 ### Global Parameters
 The Global Parameters page is used to configure Delta Import, Date/Time format, and Password method.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+
 
 The Generic SQL Connector supports the following methods for Delta Import:
 
@@ -206,7 +228,11 @@ Generic SQL Connector support Full and Delta Import using these methods:
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Table/View**  
-To import multi-valued attributes for an object, you have to provide the comma-separated table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table.
+To import multi-valued attributes for an object, you have to provide the table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table. If there are more than one multi-valued table in the data source, you can  use union to a single view.
+
+>[!IMPORTANT]
+The Generic SQL management agent can work only with one multi-valued table. Do not put into Name of Multi-Valued table/views more than one name of table. It is the limitation of Generic SQL.
+
 
 Example: You want to import the Employee object and all its multi-valued attributes. There are two tables, named Employee (main table) and Department (multi-valued).
 Do the following:
@@ -231,7 +257,7 @@ Do the following:
 
 ![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)
 
-* Multiple result set queries not supported.
+* Multiple result sets queries not supported.
 * SQL query supports the pagination and provide start Index and End Index as a variable to support pagination.
 
 ### Delta Import
@@ -266,7 +292,7 @@ If you choose the Stored Procedure option, Export requires three different Store
 * **Add SP Name**: This SP runs if any object comes to connector for insertion in the respective table.
 * **Update SP Name**: This SP runs if any object comes to connector for update in the respective table.
 * **Delete SP Name**: This SP runs if any object comes to connector for deletion in the respective table.
-* Attribute selected from the schema used as a parameter value to the stored procedure. For example, `EmployeeName: INPUT: @EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
+* Attribute selected from the schema used as a parameter value to the stored procedure. For example, `@EmployeeName: INPUT: EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
 * To run parameterized stored procedure, provide parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
 
 **SQL query**  
@@ -281,4 +307,3 @@ If you choose the SQL query option, Export requires three different queries to p
 
 ## Troubleshooting
 * For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

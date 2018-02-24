@@ -4,7 +4,7 @@ description: Understand synchronization in an Azure Active Directory Domain Serv
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---

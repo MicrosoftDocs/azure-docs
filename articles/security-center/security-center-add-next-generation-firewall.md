@@ -13,38 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
 # Add a Next Generation Firewall in Azure Security Center
-Azure Security Center may recommend that you add a next generation firewall (NGFW) from a Microsoft partner in order to increase your security protections. This document walks you through an example of how to do this.
+Azure Security Center may recommend that you add a next generation firewall (NGFW) from a Microsoft partner to increase your security protections. This document walks you through an example of how to do this.
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Add a Next Generation Firewall**.
    ![Add a Next Generation Firewall][1]
 2. In the **Add a Next Generation Firewall** blade, select an endpoint.
    ![Select an endpoint][2]
-3. A second **Add a Next Generation Firewall** blade opens. You can choose to use an existing solution if available or you can create a new one. In this example there are no existing solutions available so we'll create a new NGFW.
-   ![Create new Next Generation Firewall][3]
-4. To create a new NGFW, select a solution from the list of integrated partners. In this example we will select **Check Point**.
+3. A second **Add a Next Generation Firewall** blade opens. You can choose to use an existing solution if available or you can create a new one. In this example, there are no existing solutions available so we create an NGFW.
+   ![Create Next Generation Firewall][3]
+4. To create an NGFW, select a solution from the list of integrated partners. In this example, we select **Check Point**.
    ![Select Next Generation Firewall solution][4]
 5. The **Check Point** blade opens providing you information about the partner solution. Select **Create** in the information blade.
    ![Firewall information blade][5]
-6. The **Create virtual machine** blade opens. Here you can enter information required to spin up a virtual machine (VM) that will run the NGFW. Follow the steps and provide the NGFW information required. Select OK to apply.
+6. The **Create virtual machine** blade opens. Here you can enter information required to spin up a virtual machine (VM) that runs the NGFW. Follow the steps and provide the NGFW information required. Select OK to apply.
    ![Create virtual machine to run NGFW][6]
 
 ## Route traffic through NGFW only
-Return to the **Recommendations** blade. A new entry was generated after you added a NGFW via Security Center, called **Route traffic through NGFW only**. This recommendation is created only if you installed your NGFW through Security Center. If you have Internet-facing endpoints, Security Center will recommend that you configure Network Security Group rules that force inbound traffic to your VM through your NGFW.
+Return to the **Recommendations** blade. A new entry was generated after you added an NGFW via Security Center, called **Route traffic through NGFW only**. This recommendation is created only if you installed your NGFW through Security Center. If you have Internet-facing endpoints, Security Center recommends that you configure Network Security Group rules that force inbound traffic to your VM through your NGFW.
 
 1. In the **Recommendations blade**, select **Route traffic through NGFW only**.
    ![Route traffic through NGFW only][7]
-2. This opens the blade **Route traffic through NGFW only** which lists VMs that you can route traffic to. Select a VM from the list.
+2. This opens the blade **Route traffic through NGFW only**, which lists VMs that you can route traffic to. Select a VM from the list.
    ![Select a VM][8]
 3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps. Select **Edit inbound rules** to proceed with editing an inbound rule. The expectation is that **Source** is not set to **Any** for the Internet-facing endpoints linked with the NGFW. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
    ![Configure rules to limit access][9]

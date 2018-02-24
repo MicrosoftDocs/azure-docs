@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
 
 ---
 # Media Encoder Premium Workflow formats and codecs
 > [!NOTE]
-> For premium encoder questions, email mepd at Microsoft.com.
+> For premium encoder questions, email mepd@microsoft.com.
 > 
 > Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 > 

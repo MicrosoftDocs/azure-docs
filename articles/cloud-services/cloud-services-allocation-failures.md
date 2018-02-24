@@ -13,8 +13,8 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 1/6/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: v-six
 
 ---

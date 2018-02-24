@@ -3,7 +3,7 @@ title: Debug your Azure Service Fabric Application in Eclipse| Microsoft Docs
 description: Improve the reliability and performance of your services by developing and debugging them in Eclipse on a local development cluster.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
+author: suhuruli
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
-ms.author: vturecek;mikhegn
+ms.date: 11/02/2017
+ms.author: suhuruli;mikhegn
 
 ---
 # Debug your Java Service Fabric application using Eclipse

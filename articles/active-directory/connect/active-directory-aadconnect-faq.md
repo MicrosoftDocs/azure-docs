@@ -4,14 +4,14 @@ description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/12/2017
 ms.author: billmath
 
 ---
@@ -28,9 +28,15 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 With the builds from February 2016, this is supported.
 
 **Q: Does the AD DS health agent work on server core?**  
-Yes. After installing the agent, you can complete the registration process using the following PowerShell commandlet: 
+Yes. After installing the agent, you can complete the registration process using the following PowerShell cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**Q: Does AADConnect support syncing from two domains to on Azure AD?**</br>
+Yes, this is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md)
+ 
+**Q: Do we support having multiple connectors for same Active Directory domain in Azure AD connect?**</br> 
+No, this is not supported 
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**  
@@ -39,8 +45,14 @@ All networking software, physical devices, or anything else that limits the maxi
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
 
+**Q: Are Forests with disjoint AD domains supported?**  
+No, Azure AD Connect does not support on-premises forests containing disjoint namespaces.
+
 **Q: Are "dotted" NetBios named supported?**  
 No, Azure AD Connect does not support on-premises forests/domains where the NetBios name contains a period "." in the name.
+
+**Q: Is pure IPv6 environment supported?**  
+No, Azure AD Connect does not support pure IPv6 environment.
 
 ## Federation
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
@@ -73,7 +85,16 @@ No, this is currently not supported.
 With the exception of the cmdlets documented on this site, other PowerShell cmdlets found in Azure AD Connect are not supported for customer use.
 
 **Q: Can I use "Server export/server import" found in *Synchronization Service Manager* to move configuration between servers?**  
-No. This option will not retrieve all configuration settings and should not be used. You should instead use the wizard to create the base configuration on the second server and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. See [Move custom configuration from active to staging server](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server).
+No. This option will not retrieve all configuration settings and should not be used. You should instead use the wizard to create the base configuration on the second server and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. See [Swing migration](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
+
+**Q: Can passwords be cached for the Azure sign-in page and can this be prevented since it contains a password input element with the autocomplete = "false" attribute?**</br>
+We currently do not support modifying the HTML attributes of the Password input field, including the autocomplete tag. We are currently working on a feature that will allow for custom Javascript which will allow you to add any attribute to the password field. This should be available later part of 2017.
+
+**Q: On the Azure sign-in page, usernames for users who have previously signed in successfully are shown.  Can this behavior be turned off?**</br>
+We currently do not support modifying the HTML attributes of the sign-in page. We are currently working on a feature that will allow for custom Javascript which will allow you to add any attribute to the password field. This should be available later part of 2017.
+
+**Q: Is there a way to prevent concurrent sessions?**</br>
+No.
 
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
@@ -86,7 +107,7 @@ No. This option will not retrieve all configuration settings and should not be u
 
 * You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
-[Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
+[How to get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Use this link to get support through the Azure portal.
 

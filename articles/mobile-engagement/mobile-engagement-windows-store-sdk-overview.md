@@ -1,10 +1,10 @@
 ---
-title: Windows Universal SDK Integration
+title: Azure Mobile Engagement Windows Universal SDK Integration | Microsoft Docs
 description: Windows Universal Integration for SDK for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: piyushjo;ricksal
+ms.date: 11/03/2016
+ms.author: piyushjo
 
 ---
 # Windows Universal SDK Integration for Azure Mobile Engagement
@@ -37,10 +37,9 @@ You can add these features:
 [How to use the advanced Mobile Engagement tagging API in your Windows Universal app](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## Release notes
-### 3.4.0 (04/19/2016)
-* Reach overlay improvements.
-* Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
-* Fixed in-activity notifications targeting the first activity not displayed on App start.
+### 3.4.1 (11/03/2016)
+
+* Stability improvements.
 
 For earlier versions, see the [complete release notes](mobile-engagement-windows-store-release-notes.md)
 

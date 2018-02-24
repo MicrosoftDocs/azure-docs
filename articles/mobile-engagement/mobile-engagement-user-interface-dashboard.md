@@ -4,7 +4,7 @@ description: Learn how to view and manage charts of data about your application 
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c

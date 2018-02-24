@@ -3,7 +3,7 @@ title: Use Power BI with SQL Data Warehouse | Microsoft Docs
 description: Tips for using Power BI with Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: martinle;barbkess
 
 ---
 # Use Power BI with SQL Data Warehouse
@@ -35,7 +36,7 @@ These restrictions and notes may change as we continue to improve the experience
 ## Using the ‘Open in Power BI’ button
 The easiest way to move between your SQL Data Warehouse and Power BI is with the Open in Power BI button. This button allows you to seamlessly begin creating new dashboards in Power BI.  
 
-1. To get started navigate to your SQL Data Warehouse instance in the Azure Classic Portal.
+1. To get started navigate to your SQL Data Warehouse instance in the Azure portal.
 2. Click the 'Open in Power BI' button.
 3. If we are not able to sign you in directly, or if you do not have a Power BI account, you will need to sign-in.  
 4. You will be directed to the SQL Data Warehouse connection page, with the information from your SQL Data Warehouse pre-populated.

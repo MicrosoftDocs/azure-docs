@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of uploading files into a
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
+ms.date: 04/17/2017
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using the Aspera Server On Demand service on Azure
+# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure
 
 ## Overview
 
@@ -25,11 +25,12 @@ ms.author: juliako
   
 **Aspera Server On Demand** for Azure is available for purchase from the [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). In order to complete a purchase of **Aspera Server On Demand** for Azure, please log into Azure Marketplace with your Windows Live ID.
 
-This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On Demand** service on Azure. 
+This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On-Demand** service on Azure. 
 
+You can find an example that shows how to use Azure functions with Aspera and Media Services [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->There is a limit to the maximum file size supported for processing with Azure Media Services media processors (MPs). Please see [this](media-services-quotas-and-limitations.md) topic for details about the file size limitation.
+>There is a limit to the maximum file size supported for processing with Azure Media Services media processors (MPs). See [this](media-services-quotas-and-limitations.md) article for details about the file size limitation.
 >
 
 ## Prerequisites 
@@ -52,7 +53,7 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Fill in the specifics for your Server on Demand subscription.
+3. Fill in the specifics for your Server on-Demand subscription.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
@@ -114,11 +115,18 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
 	![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
+## Resources
+
+The following resources were mentioned in this article. 
+
+* [Connect Browser Plugin](http://downloads.asperasoft.com/connect2/)
+* [Connect Guide](http://downloads.asperasoft.com/en/documentation/8)
+* [Aspera Client](http://downloads.asperasoft.com/en/downloads/2)
+* [Client Guide](http://downloads.asperasoft.com/en/documentation/2)
+
 ## Next steps
 
-You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
-
-You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ). 
+You can now [copy blobs from a storage account into an AMS account ](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

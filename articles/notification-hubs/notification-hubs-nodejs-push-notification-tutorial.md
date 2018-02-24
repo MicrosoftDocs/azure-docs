@@ -5,7 +5,7 @@ keywords: push notification,push notifications,node.js push,ios push
 services: notification-hubs
 documentationcenter: nodejs
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
@@ -78,7 +78,7 @@ The connection **connectionstring** value can be obtained from the [Azure Portal
 ![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md).
+> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](../cli-install-nodejs.md).
 > 
 > 
 
@@ -194,7 +194,6 @@ The sample snippets above allow you to easily build service infrastructure to de
 [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
 [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[Azure Classic Portal]: http://manage.windowsazure.com
 [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
 [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png

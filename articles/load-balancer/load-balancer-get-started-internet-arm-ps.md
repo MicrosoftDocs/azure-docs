@@ -1,9 +1,9 @@
 ---
-title: Create an Azure Internet-facing load balancer - PowerShell | Microsoft Docs
-description: Learn how to create an Internet-facing load balancer in Resource Manager by using PowerShell
+title: Create a public load balancer - PowerShell | Microsoft Docs
+description: Learn how to create a public load balancer in Resource Manager by using PowerShell
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
-# <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
+# <a name="get-started"></a>Creating a public load balancer in Resource Manager by using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -25,17 +25,15 @@ ms.author: kumud
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the Resource Manager deployment model. You can also [learn how to create an Internet-facing load balancer by using the classic deployment model](load-balancer-get-started-internet-classic-cli.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Deploying the solution by using Azure PowerShell
 
-The following procedures explain how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
+The following procedures explain how to create a public load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
 
 You must create and configure the following objects to deploy a load balancer:
 
@@ -251,7 +249,7 @@ For guidance on creating a virtual machine and assigning a NIC, see [Create an A
 2. Load the back-end configuration to a variable.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Load the already created network interface into a variable. The variable name is **$nic**. The network interface name is the same one from the earlier example.
@@ -279,7 +277,7 @@ For guidance on creating a virtual machine and assigning a NIC, see [Create an A
 1. By using the load balancer from the earlier example, assign a load balancer object to the variable **$slb** by using `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. In the following example, you add an inbound NAT rule--by using port 81 in the front-end pool and port 8181 for the back-end pool--to an existing load balancer.
@@ -299,7 +297,7 @@ For guidance on creating a virtual machine and assigning a NIC, see [Create an A
 Use the command `Remove-AzureLoadBalancer` to delete a previously created load balancer named **NRP-LB** in a resource group called **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]

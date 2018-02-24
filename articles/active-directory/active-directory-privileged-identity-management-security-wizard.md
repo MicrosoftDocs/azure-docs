@@ -3,8 +3,8 @@ title: The Azure AD Privileged Identity Management security wizard
 description: The first time you use the Azure Active Directory Privileged Identity Management extension, you will be presented with a security wizard. This article describes the steps for using the wizard.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: a53a3719-8cc7-4fc7-8164-aafca192871b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
-
+ms.date: 02/27/2017
+ms.author: billmath
+ms.custom: pim ; H1Hack27Feb2017
 ---
-# The Azure AD Privileged Identity Management security wizard
+# Using the security wizard in Azure AD Privileged Identity Management 
 If you're the first person to run Azure Privileged Identity Management (PIM) for your organization, you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use PIM to reduce those risks. You don't need to make any changes to existing role assignments in the wizard, if you prefer to do it later.
 
 ## What to expect

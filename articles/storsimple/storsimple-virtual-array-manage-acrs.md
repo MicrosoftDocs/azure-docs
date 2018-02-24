@@ -4,7 +4,7 @@ description: Describes how to manage access control records (ACRs) to determine 
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Use the StorSimple Device Manager service to manage access control records for the StorSimple Virtual Array
+# Use StorSimple Device Manager to manage access control records for StorSimple Virtual Array
 
 ## Overview
 

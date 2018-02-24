@@ -1,10 +1,10 @@
 ---
 title: Encode an asset with Media Encoder Standard using .NET | Microsoft Docs
-description: This topic shows how to use .NET to encode an asset using Media Encoder Strandard.
+description: This article shows how to use .NET to encode an asset using Media Encoder Strandard.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
@@ -13,18 +13,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2017
 ms.author: juliako;anilmur
 
 ---
 # Encode an asset with Media Encoder Standard using .NET
-Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. 
+Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the Azure Marketplace. 
 
-This topic shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+This article shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoders presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
+It is recommended to always encode your source files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
 
-If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
+If your output asset is storage encrypted, you must configure asset delivery policy. For more information, see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 
 > [!NOTE]
 > MES produces an output file with a name that contains the first 32 characters of the input file name. The name is based on what is specified in the preset file. For example, "FileName": "{Basename}_{Index}{Extension}". {Basename} is replaced by the first 32 characters of the input file name.
@@ -35,7 +35,7 @@ If your output asset is storage encrypted, you must configure asset delivery pol
 [Formats and codecs](media-services-media-encoder-standard-formats.md)
 
 ### MES Presets
-Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is configured using one of the encoders presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### Input and output metadata
 When you encode an input asset (or assets) using MES, you get an output asset at the successful completion of that encode task. The output asset contains video, audio, thumbnails, manifest, etc. based on the encoding preset you use.
@@ -47,20 +47,75 @@ The output asset also contains a file with metadata about the output asset. The 
 If you want to examine either of the two metadata files, you can create a SAS locator and download the file to your local computer. You can find an example on how to create a SAS locator and download a file Using the Media Services .NET SDK Extensions.
 
 ## Download sample
-Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+You can get and run a sample that shows how to encode with MES from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## Example
+## .NET sample code
+
 The following code example uses Media Services .NET SDK to perform the following tasks:
 
 * Create an encoding job.
 * Get a reference to the Media Encoder Standard encoder.
-* Specify to use the "H264 Multiple Bitrate 720p" preset. You can see all the presets [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). You can also examine the schema to which these presets must comply [here](https://msdn.microsoft.com/library/mt269962.aspx) topic.
+* Specify to use the [Adaptive Streaming](media-services-autogen-bitrate-ladder-with-mes.md) preset. 
 * Add a single encoding task to the job. 
 * Specify the input asset to be encoded.
-* Create an output asset that will contain the encoded asset.
+* Create an output asset that contains the encoded asset.
 * Add an event handler to check the job progress.
 * Submit the job.
-  
+
+#### Create and configure a Visual Studio project
+
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+
+#### Example 
+
+```
+using System;
+using System.Linq;
+using System.Configuration;
+using System.IO;
+using System.Threading;
+using Microsoft.WindowsAzure.MediaServices.Client;
+
+namespace MediaEncoderStandardSample
+{
+    class Program
+    {
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+
+        private static readonly string _supportFiles =
+            Path.GetFullPath(@"../..\Media");
+
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+
+
+            // Get an uploaded asset.
+            var asset = _context.Assets.FirstOrDefault();
+
+            // Encode and generate the output using the "Adaptive Streaming" preset.
+            EncodeToAdaptiveBitrateMP4Set(asset);
+
+            Console.ReadLine();
+        }
+
         static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
         {
             // Declare a new job.
@@ -70,10 +125,10 @@ The following code example uses Media Services .NET SDK to perform the following
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.None);
 
             // Specify the input asset to be encoded.
@@ -121,7 +176,6 @@ The following code example uses Media Services .NET SDK to perform the following
             }
         }
 
-
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
         {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -132,7 +186,16 @@ The following code example uses Media Services .NET SDK to perform the following
 
             return processor;
         }
+    }
+}
+```
 
+## Advanced Encoding Features to explore
+* [How to generate thumbnails](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Generating thumbnails during encoding](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Crop videos during encoding](media-services-crop-video.md)
+* [Customizing encoding presets](media-services-custom-mes-presets-with-dotnet.md)
+* [Overlay or watermark a video with an image](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -140,7 +203,7 @@ The following code example uses Media Services .NET SDK to perform the following
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## See Also
+## Next steps
 [How to generate thumbnail using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services Encoding Overview](media-services-encode-asset.md)
 

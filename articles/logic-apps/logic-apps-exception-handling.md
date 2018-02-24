@@ -1,9 +1,9 @@
 ---
-title: Logic Apps Exception Handling | Microsoft Docs
-description: Learn patterns for error and exception handling with Azure Logic Apps
+title: Error and exception handling for Logic Apps in Azure | Microsoft Docs
+description: Patterns for error and exception handling in Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: derek1ee
 manager: anneta
 editor: ''
 
@@ -14,37 +14,39 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
+ms.author: LADocs; deli
 
 ---
-# Logic Apps Error and Exception Handling
-Logic Apps provides a rich set of tools and patterns to help ensure your integrations are robust and resilient against failures.  One of the challenges with any integration architecture is ensuring that downtime or issues of dependent systems are handled appropriately.  Logic Apps makes handling errors a first class experience, giving you the tools you need to act on exceptions and errors within your workflows.
+# Handle errors and exceptions in Logic Apps
+
+Logic Apps in Azure provides rich tools and patterns to help you ensure that your integrations are robust and resilient against failures. Any integration architecture poses the challenge of appropriately handling downtime or issues from dependent systems. Logic Apps makes handling errors a first-class experience. It gives you the tools you need to act on exceptions and errors in your workflows.
 
 ## Retry policies
-The most basic type of exception and error handling is a retry-policy.  This policy defines if the action should retry if initial request timed out or failed (any request that resulted in a 429 or 5xx response).  By default, all actions retry 4 additional times over 20-second intervals.  So if the first request received a `500 Internal Server Error` response, the workflow engine pauses for 20 seconds, and attempt the request again.  If after all retries the response is still an exception or failure, the workflow will continue and mark the action status as `Failed`.
 
-You can configure retry policies in the **inputs** of a particular action.  A retry-policy can be configured to try as many as 4 times over 1 hour intervals.  Full details on the input properties can be [found on MSDN][retryPolicyMSDN].
+A retry policy is the most basic type of exception and error handling. If an initial request times out or fails (any request that results in a 429 or 5xx response), a retry policy defines if and how the action should be retried. 
+
+There are four types of retry policies: default, none, fixed interval, and exponential interval. If a retry policy is not provided in the workflow definition, the default policy as defined by the service is used. 
+
+You can configure retry policies in the *inputs* for a particular action or trigger if it is retryable. Similarly, you can configure retry policies (if applicable) in Logic App Designer. To set up a retry policy, in Logic App Designer, go to **Settings** for a specific action.
+
+For information about the limitations of retry policies, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md). For more information about supported syntax, see the [retry policy section in Workflow Actions and Triggers][retryPolicyMSDN].
+
+### Default
+
+If you don't define a retry policy (**retryPolicy** is undefined), the default policy is used. The default policy is an exponential interval policy that sends up to four retries, at exponentially increasing intervals scaled by 7.5 seconds. The interval is capped at between 5 and 45 seconds. This default policy is equivalent to the policy in this example HTTP workflow definition:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-If you wanted your HTTP action to retry 4 times and wait 10 minutes between each attempt you would have the following definition:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
@@ -52,10 +54,55 @@ If you wanted your HTTP action to retry 4 times and wait 10 minutes between each
 }
 ```
 
-For more details on supported syntax, view the [retry-policy section on MSDN][retryPolicyMSDN].
+### None
 
-## RunAfter property to catch failures
-Each logic app action declares which actions need to complete before the action will start.  You can think of this as the ordering of steps in your workflow.  This ordering is known as the `runAfter` property in the action definition.  It is an object that describes which actions and action statuses would execute the action.  By default, all actions added through the designer are set to `runAfter` the previous step if the previous step was `Succeeded`.  However, you can customize this value to fire actions  when previous actions are `Failed`, `Skipped`, or a possible set of these values.  If you wanted to add an item to a designated Service Bus topic after a specific action `Insert_Row` fails, you would use the following `runAfter` configuration:
+If **retryPolicy** is set to **none**, a failed request is not retried.
+
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | **none** |
+
+### Fixed interval
+
+If **retryPolicy** is set to **fixed**, the policy retries a failed request by waiting the specified interval of time before sending the next request.
+
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | **fixed** |
+| count | Yes | Integer | Number of retry attempts. Must be between 1 and 90. |
+| interval | Yes | String | Retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and PT1D. |
+
+### Exponential interval
+
+If **retryPolicy** is set to **exponential**, the policy retries a failed request after a random time interval from an exponentially growing range. Each retry attempt is guaranteed to be sent at a random interval that is greater than **minimumInterval** and less than **maximumInterval**. A uniform random variable in the range indicated in the following table is generated for each retry up to and including **count**:
+
+**Random variable range**
+
+| Retry number | Minimum interval | Maximum interval |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
+| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
+| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| ... |
+
+For exponential type policies, **count** and **interval** are required. Values for **minimumInterval** and **maximumInterval** are optional. You can add them to override the default values of PT5S and PT1D, respectively.
+
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | **exponential** |
+| count | Yes | Integer | Number of retry attempts. Must be between 1 and 90.  |
+| interval | Yes | String | Retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and PT1D. |
+| minimumInterval | No | String | Retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and **interval**. |
+| maximumInterval | No | String | Retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between **interval** and PT1D. |
+
+## Catch failures with the runAfter property
+
+Each logic app action declares which actions must finish before the action starts. It's similar to ordering the steps in your workflow. In the action definition, this ordering is known as the **runAfter** property. 
+
+The **runAfter** property is an object that describes which actions and action statuses execute the action. By default, all actions that you added by using Logic App Designer are set to run after the preceding step, if the preceding step result is **Succeeded**. 
+
+However, you can customize the **runAfter** value to fire actions when preceding actions have a result of **Failed**, **Skipped**, or a possible set of these values. If you want to add an item to a designated Azure Service Bus topic after a specific action **Insert_Row** fails, you could use the following **runAfter** configuration:
 
 ```json
 "Send_message": {
@@ -83,7 +130,7 @@ Each logic app action declares which actions need to complete before the action 
 }
 ```
 
-Notice the `runAfter` property is set to fire if the `Insert_Row` action is `Failed`.  To run the action if the action status is `Succeeded`, `Failed`, or `Skipped` the syntax would be:
+Note that **runAfter** is set to fire if the **Insert_Row** action result is **Failed**. To run the action if the action status is **Succeeded**, **Failed**, or **Skipped**, use this syntax:
 
 ```json
 "runAfter": {
@@ -94,21 +141,27 @@ Notice the `runAfter` property is set to fire if the `Insert_Row` action is `Fai
 ```
 
 > [!TIP]
-> Actions that run after a preceding action have failed, and complete successfully, will be marked as `Succeeded`.  This behavior means if you successfully catch all failures in a workflow the run itself is marked as `Succeeded`.
-> 
-> 
+> Actions that run and finish successfully after a preceding action has failed are marked as **Succeeded**. This means that if you successfully catch all failures in a workflow, the run itself is marked as **Succeeded**.
 
 ## Scopes and results to evaluate actions
-Similar to how you can run after individual actions, you can also group actions together inside a [scope](../logic-apps/logic-apps-loops-and-scopes.md) - which act as a logical grouping of actions.  Scopes are useful both for organizing your logic app actions, and for performing aggregate evaluations on the status of a scope.  The scope itself will receive a status after all the actions within a scope have completed.  The scope status is determined with the same criteria as a run -- if the final action in an execution branch is `Failed` or `Aborted` the status is `Failed`.
 
-You can `runAfter` a scope has been marked `Failed` to fire specific actions for any failures that occurred within the scope.  Running after a scope fails allows you to create a single action to catch failures if *any* actions within the scope fail.
+You can group actions together inside a [scope](../logic-apps/logic-apps-loops-and-scopes.md), similar to the way you run after individual actions. A scope acts a logical grouping of actions. 
 
-### Getting the context of failures with results
-Catching failures from a scope is very useful, but you may also want the context to understand exactly which actions failed, and any errors or status codes that were returned.  The `@result()` workflow function provides context into the result of all actions within a scope.
+Scopes are useful, both for organizing your Logic App actions, and for performing aggregate evaluations on the status of a scope. The scope itself receives a status after all actions in a scope have finished. The scope status is determined with the same criteria as a run. If the final action in an execution branch is **Failed** or **Aborted**, the status is **Failed**.
 
-`@result()` takes a single parameter, scope name, and returns an array of all the action results from within that scope.  These action objects include the same attributes as the `@actions()` object, including action start time, action end time, action status, action inputs, action correlation IDs, and action outputs.  You can easily pair an `@result()` function with a `runAfter` to send context of any actions that failed within a scope.
+To fire specific actions for any failures that occurred within the scope, you can use **runAfter** with a scope that is marked **Failed**. If *any* actions in the scope fail, if you use **runAfter** for a scope, you can create a single action to catch failures.
 
-If you want to execute an action *for each* action in a scope that `Failed`, you can pair `@result()` with a **[Filter Array](../connectors/connectors-native-query.md)** action and a **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)** loop.  This allows you to filter the array of results to actions that failed.  You can take the filtered result array and perform an action for each failure using the **ForEach** loop.  Here's an example below, followed by a detailed explanation.  This example will send an HTTP POST request with the response body of any actions that failed within the scope `My_Scope`.
+### Get the context of failures with results
+
+Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed, and to understand any errors or status codes that were returned. The **@result()** workflow function provides context about the result of all actions in a scope.
+
+The **@result()** function takes a single parameter (scope name) and returns an array of all the action results from within that scope. These action objects include the same attributes as the **@actions()** object, including action start time, action end time, action status, action inputs, action correlation IDs, and action outputs. 
+
+To send context of any actions that failed within a scope, you can easily pair an **@result()** function with a **runAfter** property.
+
+To execute an action *for each* action in a scope that has a **Failed** result, and to filter the array of results to actions that failed, you can pair **@result()** with a [Filter_array](../connectors/connectors-native-query.md) action and a [foreach](../logic-apps/logic-apps-loops-and-scopes.md) loop. With the filtered result array, you can perform an action for each failure by using the **foreach** loop. 
+
+Here's an example that sends an HTTP POST request with the response body of any actions that failed in the scope My_Scope:
 
 ```json
 "Filter_array": {
@@ -149,16 +202,21 @@ If you want to execute an action *for each* action in a scope that `Failed`, you
 }
 ```
 
-Here's a detailed walkthrough of what's happening:
+Here's a detailed walkthrough to describe what happens in the preceding example:
 
-1. **Filter Array** action to filter the `@result('My_Scope')` to get the result of all actions within `My_Scope`
-2. Condition of the **Filter Array** is any `@result()` item with the status equal to `Failed`.  This will filter the array of all action results from `My_Scope` to only an array of failed action results.
-3. Perform a **For Each** action on the **Filtered Array** outputs.  This will perform an action *for each* failed action result we filtered above.
-   * If there was a single action in the scope that failed, the actions in the `foreach` would only run once.  Many failed actions would cause one action per failure.
-4. Send an HTTP POST on the `foreach` item response body, or `@item()['outputs']['body']`.  The `@result()` item shape is the same as the `@actions()` shape, and can be parsed the same way.
-5. Also included two custom headers with the failed action name `@item()['name']` and the failed run client tracking ID `@item()['clientTrackingId']`.
+1. To get the result of all actions within My_Scope, the **Filter_array** action filters **@result('My_Scope')**.
 
-For reference, here is an example of a single `@result()` item.  You can see the `name`, `body`, and `clientTrackingId` properties parsed in the example above.  It should be noted that outside of a `foreach`, `@result()` returns an array of these objects.
+2. The condition for **Filter_array** is any **@result()** item that has a status equal to **Failed**. This condition filters the array from all action results from My_Scope, to an array with only failed action results.
+
+3. Perform a **foreach** action on the *filtered array* outputs. This step performs an action *for each* failed action result that was previously filtered.
+
+	If a single action in the scope failed, the actions in the **foreach** run only once. Multiple failed actions cause one action per failure.
+
+4. Send an HTTP POST on the **foreach** item response body, or **@item()['outputs']['body']**. The **@result()** item shape is the same as the **@actions()** shape. It can be parsed the same way.
+
+5. Include two custom headers with the failed action name **@item()['name']** and the failed run client tracking ID **@item()['clientTrackingId']**.
+
+For reference, here's an example of a single **@result()** item. It shows the **name**, **body**, and **clientTrackingId** properties that are parsed in the preceding example. Outside a **foreach** action, **@result()** returns an array of these objects.
 
 ```json
 {
@@ -178,7 +236,7 @@ For reference, here is an example of a single `@result()` item.  You can see the
         },
         "body": {
             "code": "ResourceNotFound",
-            "message": "/docs/foo/bar does not exist"
+            "message": "/docs/folder-name/resource-name does not exist"
         }
     },
     "startTime": "2016-08-11T03:18:19.7755341Z",
@@ -190,16 +248,20 @@ For reference, here is an example of a single `@result()` item.  You can see the
 }
 ```
 
-You can use the expressions above to perform different exception handling patterns.  You may choose to execute a single exception handling action outside the scope that accepts the entire filtered array of failures and remove the `foreach`.  You can also include other useful properties from the `@result()` response shown above.
+For different exception handling patterns, you can use the expressions described earlier in the article. You might choose to execute a single exception handling action outside the scope that accepts the entire filtered array of failures, and remove the **foreach**. You can also include other useful properties from the **@result()** response, as described earlier.
 
 ## Azure Diagnostics and telemetry
-The patterns above are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself.  [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) provides a simple way to send all workflow events (including all run and action statuses) to an Azure Storage account or an Azure Event Hub.  You can monitor the logs and metrics, or publish them into any monitoring tool you prefer, to evaluate run statuses.  One potential option is to stream all the events through Azure Event Hub into [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).  In Stream Analytics you can write live queries off of any anomalies, averages, or failures from the diagnostic logs.  Stream Analytics can easily output to other data sources like queues, topics, SQL, DocumentDB, and Power BI.
 
-## Next Steps
-* [See how one customer built robust error handling with Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-* [Find more Logic Apps examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Learn how to create automated deployments of logic apps](../logic-apps/logic-apps-create-deploy-template.md)
-* [Design and deploy logic apps from Visual Studio](logic-apps-deploy-from-vs.md)
+The patterns described in this article provide great ways to handle errors and exceptions inside a run, but you can also identify and respond to errors independent of the run itself. [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) provides a simple way to send all workflow events (including all run and action statuses) to an Azure storage account or to an event hub in Azure Event Hubs. 
+
+To evaluate run statuses, you can monitor logs and metrics, or publish them to any monitoring tool that you prefer. A potential option is to stream all the events through Event Hubs to [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, like to queues, topics, SQL, Azure Cosmos DB, or Power BI.
+
+## Next steps
+
+* See how a customer [builds error handling with Logic Apps in Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md).
+* Find more [Logic Apps examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md).
+* Learn how to create [automated deployments for logic apps](../logic-apps/logic-apps-create-deploy-template.md).
+* Learn how to [build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md).
 
 <!-- References -->
-[retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
+[retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

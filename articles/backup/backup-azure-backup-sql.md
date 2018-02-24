@@ -17,7 +17,7 @@ ms.date: 09/27/2016
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 
 ---
-# Azure Backup for SQL Server workloads using DPM
+# Back up SQL Server to Azure as a DPM workload
 This article leads you through the configuration steps for backup of SQL Server databases using Azure Backup.
 
 To back up SQL Server databases to Azure, you need an Azure account. If you don’t have an account, you can create a free trial account in just couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).

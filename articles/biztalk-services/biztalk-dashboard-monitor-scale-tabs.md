@@ -1,6 +1,6 @@
 ---
 title: Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Docs
-description: 'Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS'
+description: Learn about the controls and monitor performance for BizTalk Services
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -18,13 +18,16 @@ ms.author: mandia
 
 ---
 # Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
-When you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
-## Quick Start (![Quick Start][QuickStart])
+## Quickstart (![Quickstart][Quickstart])
 Depending on the BizTalk Services Edition, all options listed may not be available. 
 
 <table border="1">
@@ -78,9 +81,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -163,7 +166,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
-<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure classic portal.</td>
+<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access.</td>
 </tr>
 <tr>
 <td><strong>Subscription ID</strong></td>
@@ -171,7 +174,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 </table>
 
-[BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
+[BizTalk Services: Provisioning](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
 
 ##### Manage, Connection Information, Sync Keys, and Delete in the task bar:
 <table border="1">
@@ -200,9 +203,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>Select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -323,9 +326,7 @@ Sets the Backup Status to None or Automatic. When set to None, no backups are au
 [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) provides the details. 
 
 ## <a name="HybridConnections"></a>Hybrid Connections
-Hybrid Connections connect an Azure application, like Web Apps or Mobile Apps in Azure App Service, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure classic portal.
-
-To create Hybrid Connections in Azure App Service, see [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md).
+Hybrid Connections connect an Azure application, like Web Apps or Mobile Apps in Azure App Service, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in BizTalk Services.
 
 To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](integration-hybrid-connection-overview.md).
 
@@ -339,11 +340,11 @@ Now that you're familiar with the different tabs, you can learn more about the A
 ## See Also
 * [Hybrid Connections](integration-hybrid-connection-overview.md)  
 * [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
-* [BizTalk Services: Provisioning Using Azure classic portal](biztalk-provision-services.md)  
+* [BizTalk Services: Provisioning](biztalk-provision-services.md)  
 * [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
 * [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png

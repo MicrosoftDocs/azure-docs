@@ -90,7 +90,7 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
 
 **Create a storage account from the Microsoft Azure portal**
 
-1. Click **New**.
+1. Click **Create a resource**.
 2. Select **Storage**.
 3. Fill in the storage account name, and then select a location.
    
@@ -123,7 +123,7 @@ Then you can create a container within that storage account by using the [NewAzu
 >  
 > 
 > ### Create a storage account by using the command-line tool for Mac and Linux
-> From [Linux command-line tool](../virtual-machines/virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), create a storage account as follows.
+> From [Linux command-line tool](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), create a storage account as follows.
 > 
 > 
 

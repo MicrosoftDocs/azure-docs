@@ -13,27 +13,29 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.date: 1/4/2018
+ms.author: saurse;trinadhk;markgal;
 
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
-> [!div class="op_single_selector"]
-> * [Azure portal](backup-azure-restore-windows-server.md)
-> * [Classic portal](backup-azure-restore-windows-server-classic.md)
->
->
 
-This article covers the steps required to perform two types of restore operations:
+This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) agent. When you restore data, it is possible to:
 
 * Restore data to the same machine from which the backups were taken.
-* Restore data to any other machine.
+* Restore data to an alternate machine.
 
-In both cases, the data is retrieved from the Azure Recovery Services vault.
+In January 2017, Microsoft released a Preview update to the MARS agent. Along with bug fixes, this update enables Instant Restore, which allows you to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer thereby selectively restoring files.
+
+> [!NOTE]
+> The [January 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) is required if you want to use Instant Restore to restore data. Also the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) for the latest list of locales that support Instant Restore. Instant Restore is **not** currently available in all locales.
+>
+
+Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they have been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-## Use Instant Restore to restore data to the same machine
+## Use Instant Restore to recover data to the same machine
+
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
 
 1. Open the **Microsoft Azure Backup** snap in. If you don't know where the snap in was installed, search the computer or server for **Microsoft Azure Backup**.
@@ -48,11 +50,8 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 
     ![Choose This server option to restore the data to the same machine](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. On the **Select Recovery Mode** pane, choose whether to restore:
-    - **Individual files and folders** - use this option if you want to restore specific files and folders.
-    - **Volume** - use this option to restore all files and folders in the selected volume.
-
-    and then click **Next**.
+4. On the **Select Recovery Mode** pane, choose
+**Individual files and folders** and then click **Next**.
 
     ![Browse files](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
 
@@ -70,9 +69,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 
     ![Recovery options](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
-   * You have an option of restoring to the original location (in which the file/folder would be overwritten) or to another location in the same machine.
-   * If the file/folder you wish to restore exists in the target location, you can create copies (two versions of the same file), overwrite the files in the target location, or skip the recovery of the files which exist in the target.
-   * It is highly recommended that you leave the default option of restoring the ACLs on the files which are being recovered.
+
 8. In Windows Explorer, copy the files and/or folders you want to restore and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume and verify the correct versions are recovered.
 
     ![Copy and paste files and folders from mounted volume to local location](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
@@ -82,16 +79,13 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
     ![Unmount the volume and confirm](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you do not click Unmount, the Recovery Volume will remain mounted for six hours from the time when it was mounted. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted, will run after the recovery volume is unmounted.
+    > If you do not click Unmount, the Recovery Volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended upto a maximum of 24 hours in case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted, will run after the recovery volume is unmounted.
     >
 
 
 ## Use Instant Restore to restore data to an alternate machine
 If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.
 
-> [!NOTE]
-> The [January 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) is required if you want to use Instant Restore to restore data to an alternate machine. Also the backup data must be protected in vaults in locales listed in the support article. Instant Restore is not currently available in all locales.
->
 
 The terminology used in these steps includes:
 
@@ -119,6 +113,7 @@ The terminology used in these steps includes:
 5. Provide the vault credential file that corresponds to the *Sample vault*, and click **Next**.
 
     If the vault credential file is invalid (or expired), download a new vault credential file from the *Sample vault* in the Azure portal. Once you provide a valid vault credential, the name of the corresponding Backup Vault appears.
+
 
 6. On the **Select Backup Server** pane, select the *Source machine* from the list of displayed machines and provide the passphrase. Then click **Next**.
 
@@ -149,8 +144,35 @@ The terminology used in these steps includes:
     ![Encryption](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you do not click Unmount, the Recovery Volume will remain mounted for six hours from the time when it was mounted. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted, will run after the recovery volume is unmounted.
+    > If you do not click Unmount, the Recovery Volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended upto a maximum of 24 hours in case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted, will run after the recovery volume is unmounted.
     >
+
+## Troubleshooting
+If Azure Backup does not successfully mount the recovery volume even after several minutes of clicking **Mount** or fails to mount the recovery volume with one or more errors, follow the steps below to begin recovering normally.
+
+1.  Cancel the ongoing mount process in case it has been running for several minutes.
+
+2.  Ensure that you are on the latest version of the Azure Backup agent. To find out the version information of Azure Backup agent, click on **About Microsoft Azure Recovery Services Agent** on the **Actions** pane of Microsoft Azure Backup console and ensure that the **Version** number is equal to or higher than the version mentioned in [this article](https://go.microsoft.com/fwlink/?linkid=229525). You can download the latest version from [here](https://go.microsoft.com/fwLink/?LinkID=288905)
+
+3.  Go to **Device Manager** -> **Storage Controllers** and ensure that you can locate **Microsoft iSCSI Initiator**. If you can locate it, directly go to step 7 below. 
+
+4.  If you cannot locate Microsoft iSCSI Initiator service as mentioned in step 3, check to see if you can find an entry under **Device Manager** -> **Storage Controllers** called **Unknown Device** with Hardware ID **ROOT\ISCSIPRT**.
+
+5.  Right click on **Unknown Device** and select **Update Driver Software**.
+
+6.	Update the driver by selecting the option to  **Search automatically for updated driver software**. Completion of the update should change **Unknown Device** to **Microsoft iSCSI Initiator** as shown below. 
+
+    ![Encryption](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
+
+7.  Go to **Task Manager** -> **Services (Local)** -> **Microsoft iSCSI Initiator Service**. 
+
+    ![Encryption](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
+    
+8.  Restart the Microsoft iSCSI Initiator service by right-clicking on the service, clicking on **Stop** and further right clicking again and clicking on **Start**.
+
+9.  Retry recovering using Instant Restore. 
+
+If the recovery still fails, reboot your server/client. If a reboot is not desirable or the recovery still fails even after rebooting the server, try recovering from an Alternate Machine, and contact Azure Support by going to [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and submitting a support request.
 
 ## Next steps
 * Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).

@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Mobile Apps Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Mobile Apps in Azure App Service to build and host native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova.
+services: app-service-mobile
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service-mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Mobile Apps Documentation
 
@@ -126,7 +137,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating a xamarin.Android app</h3>
+                        <h3>Get started creating a Xamarin.Android app</h3>
                     </div>
                 </div>
             </div>
@@ -144,7 +155,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating a xamarin.Forms app</h3>
+                        <h3>Get started creating a Xamarin.Forms app</h3>
                     </div>
                 </div>
             </div>

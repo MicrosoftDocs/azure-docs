@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
 
 ---
@@ -287,7 +287,7 @@ I am using Visual Studio and I want to...
 * [Setup remote desktop for a cloud service instance][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]: cloud-services-role-enable-remote-desktop.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md

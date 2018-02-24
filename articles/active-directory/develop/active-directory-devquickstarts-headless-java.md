@@ -1,10 +1,10 @@
 ---
-title: Azure AD Java Getting Started | Microsoft Docs
+title: Azure AD Java command line getting started | Microsoft Docs
 description: How to build a Java command line app that signs users in to access an API.
 services: active-directory
 documentationcenter: java
-author: brandwe
-manager: mbaldwin
+author: navyasric
+manager: mtillman
 editor: ''
 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 09/16/2016
-ms.author: brandwe
+ms.date: 01/23/2017
+ms.author: nacanuma
+ms.custom: aaddev
 
 ---
 # Using Java Command Line App To Access An API with Azure AD
@@ -42,13 +43,13 @@ To enable your app to authenticate users, you'll first need to register a new ap
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+3. Click on **All services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
 5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
-  * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
 6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application tab.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`.
 
 Once in the portal for your app create a **Key** from the **Settings** page for your application and copy it down.  You will need it shortly.
 

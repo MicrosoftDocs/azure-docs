@@ -3,7 +3,7 @@ title: Manage databases in Azure SQL Data Warehouse | Microsoft Docs
 description: Overview of managing SQL Data Warehouse databases. Includes management tools, DWUs and scale-out performance, troubleshooting query performance, establishing good security policies, and restoring a database from data corruption or from a regional outage.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # Manage databases in Azure SQL Data Warehouse
@@ -43,7 +44,7 @@ To get started with the Azure portal, see [Create a SQL Data Warehouse (Azure po
 ### SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) in Visual Studio allows you to connect to, manage, and develop your databases. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), try using SSDT in Visual Studio.
 
-SSDT includes the SQL Server Object Explorer which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure Classic Portal.  
+SSDT includes the SQL Server Object Explorer which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure portal.  
 
 To get started with SSDT in Visual Studio, see [Query Azure SQL Data Warehouse with Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
@@ -58,7 +59,7 @@ To get started, see [Connect and query with sqlcmd][Connect and query with sqlcm
 ## Scale compute
 In SQL Data Warehouse, you can quickly scale performance out or back by increasing or decreasing compute resources of CPU, memory, and I/O bandwidth. To scale performance, all you need to do is adjust the number of data warehouse units (DWUs) that SQL Data Warehouse allocates to your database. SQL Data Warehouse quickly makes the change and handles all the underlying changes to hardware or software.
 
-To learn more about scaling DWUs, see [Scale performance][Scale performance].
+To learn more about scaling DWUs, see [Scale performance].
 
 ## Pause and resume
 To save costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. You won't be charged for DWUs while the database is paused.
@@ -99,7 +100,7 @@ Using good database design principles will make it easier to manage your databas
 [Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
 [Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
+[Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

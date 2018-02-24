@@ -3,8 +3,8 @@ title: Azure AD Connect sync service features and configuration | Microsoft Docs
 description: Describes service side features for Azure AD Connect sync service.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
-ms.author: andkjell;markvi
+ms.date: 07/13/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect sync service features
@@ -25,7 +25,7 @@ The synchronization feature of Azure AD Connect has two components:
 
 This topic explains how the following features of the **Azure AD Connect sync service** work and how you can configure them using Windows PowerShell.
 
-These settings are configured by the [Azure Active Directory Module for Windows PowerShell](http://aka.ms/aadposh). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
+These settings are configured by the [Azure Active Directory Module for Windows PowerShell](https://aka.ms/aadposh). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
 
 To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
@@ -36,7 +36,6 @@ The following settings can be configured by `Set-MsolDirSyncFeature`:
 
 | DirSyncFeature | Comment |
 | --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Allows objects to join on userPrincipalName in addition to primary SMTP address. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Allows the sync engine to update the userPrincipalName attribute for managed/licensed (non-federated) users. |
 
@@ -53,12 +52,13 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Enabling device writeback](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect sync: Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |
+| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
 | PasswordSync |[Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | UnifiedGroupWriteback |[Preview: Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Not currently supported. |
 
 ## Duplicate attribute resiliency
-Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned. When the conflict is resolved, the temporary UPN is changed to the proper value automatically. This behavior can be enabled for UPN and proxyAddress separately. For more details, see [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
+Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned. When the conflict is resolved, the temporary UPN is changed to the proper value automatically. For more details, see [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
 ## UserPrincipalName soft match
 When this feature is enabled, soft-match is enabled for UPN in addition to the [primary SMTP address](https://support.microsoft.com/kb/2641663), which is always enabled. Soft-match is used to match existing cloud users in Azure AD with on-premises users.

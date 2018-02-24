@@ -1,4 +1,4 @@
----
+﻿---
 title: Grant permission to many applications to access an Azure key vault | Microsoft Docs
 description: Learn how to grant permission to many applications to access a key vault
 services: key-vault
@@ -24,8 +24,8 @@ ms.author: ambapat
 Key Vault access control policy only supports 16 entries. However you can create an Azure Active Directory security group. Add all the associated service principals to this security group and then grant access to this security group to Key Vault.
 
 Here are the pre-requisites:
-* [Install Azure Active Directory V2 PowerShell module](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Install Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Install Azure Active Directory V2 PowerShell module](https://www.powershellgallery.com/packages/AzureAD).
+* [Install Azure PowerShell](/powershell/azure/overview).
 * To run the following commands, you need permissions to create/edit groups in the Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator.
 
 Now run the following commands in PowerShell.

@@ -3,7 +3,7 @@ title: Variable assets in Azure Automation | Microsoft Docs
 description: Variable assets are values that are available to all runbooks and DSC configurations in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: georgewallace
 manager: jwhit
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 07/09/2017
 ms.author: magoedte;bwren
 
 ---
@@ -48,20 +48,20 @@ The following are a list of variable types available in Automation:
 * Boolean
 * Null
 
-## Cmdlets and workflow activities
+## AzureRM PowerShell cmdlets
+For AzureRM, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [AzureRM.Automation module](/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
 
-The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](/powershell/azureps-cmdlets-docs) which is available for use in Automation runbooks and DSC configuration.
-
-|Cmdlets|Description|
+| Cmdlets | Description |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Retrieves the value of an existing variable.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Creates a new variable and sets its value.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Removes an existing variable.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Sets the value for an existing variable.|
 
-The workflow activities in the following table are used to access Automation variables in a runbook. They are only available for use in a runbook or DSC configuration, and do not ship as part of the Azure PowerShell module.
+## Activities
+The activities in the following table are used to access credentials in a runbook and DSC configurations.
 
-|Workflow Activities|Description|
+| Activities | Description |
 |:---|:---|
 |Get-AutomationVariable|Retrieves the value of an existing variable.|
 |Set-AutomationVariable|Sets the value for an existing variable.|
@@ -69,23 +69,23 @@ The workflow activities in the following table are used to access Automation var
 > [!NOTE] 
 > You should avoid using variables in the –Name parameter of **Get-AutomationVariable**  in a runbook or DSC configuration since this can complicate discovering dependencies between runbooks or DSC configuration, and Automation variables at design time.
 
+The functions in the following table are used to access and retrieve variables in a Python2 runbook. 
+
+|Python2 Functions|Description|
+|:---|:---|
+|automationassets.get_automation_variable|Retrieves the value of an existing variable. |
+|automationassets.set_automation_variable|Sets the value for an existing variable. |
+
+> [!NOTE] 
+> You must import the "automationassets" module at the top of your Python runbook in order to access the asset functions.
+
 ## Creating a new Automation variable
 
 ### To create a new variable with the Azure portal
 
-1. From your automation account, click **Assets** at the top of the window.
-1. At the bottom of the window, click **Add Setting**.
-1. Click **Add Variable**.
-1. Complete the wizard and click the checkbox to save the new variable.
-
-
-### To create a new variable with the Azure portal
-
-1. From your automation account, click the **Assets** part to open the **Assets** blade.
-1. Click the **Variables** part to open the **Variables** blade.
-1. Click **Add a variable** at the top of the blade.
-1. Complete the form and click **Create** to save the new variable.
-
+1. From your Automation account, click the **Assets** tile and then on the **Assets** blade, select **Variables**.
+2. On the **Variables** tile, select **Add a variable**.
+3. Complete the options on the **New Variable** blade and click **Create** save the new variable.
 
 ### To create a new variable with Windows PowerShell
 
@@ -93,10 +93,10 @@ The [New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.
 
 The following sample commands show how to create a variable of type string and then return its value.
 
-	New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
+	New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
     –Encrypted $false –Value 'My String'
-	$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+	$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
 The following sample commands show how to create a variable with a complex type and then return its properties. In this case, a virtual machine object from **Get-AzureRmVm** is used.
@@ -113,7 +113,7 @@ The following sample commands show how to create a variable with a complex type 
 
 ## Using a variable in a runbook or DSC configuration
 
-Use the **Set-AutomationVariable** activity to set the value of an Automation variable in a runbook or DSC configuration, and the **Get-AutomationVariable** to retrieve it.  You shouldn't use the **Set-AzureAutomationVariable** or  **Get-AzureAutomationVariable** cmdlets in a runbook or DSC configuration since they are less efficient than the workflow activities.  You also cannot retrieve the value of secure variables with **Get-AzureAutomationVariable**.  The only way to create a new variable from within a runbook or DSC configuration is to use the [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx)  cmdlet.
+Use the **Set-AutomationVariable** activity to set the value of an Automation variable in a PowerShell runbook or DSC configuration, and the **Get-AutomationVariable** to retrieve it.  You shouldn't use the **Set-AzureAutomationVariable** or  **Get-AzureAutomationVariable** cmdlets in a runbook or DSC configuration since they are less efficient than the workflow activities.  You also cannot retrieve the value of secure variables with **Get-AzureAutomationVariable**.  The only way to create a new variable from within a runbook or DSC configuration is to use the [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx)  cmdlet.
 
 
 ### Textual runbook samples
@@ -122,8 +122,8 @@ Use the **Set-AutomationVariable** activity to set the value of an Automation va
 
 The following sample commands show how to set and retrieve a variable in a textual runbook. In this sample, it is assumed that variables of type integer named *NumberOfIterations* and *NumberOfRunnings* and a variable of type string named *SampleMessage* have already been created.
 
-	$NumberOfIterations = Get-AutomationVariable -Name 'NumberOfIterations'
-	$NumberOfRunnings = Get-AutomationVariable -Name 'NumberOfRunnings'
+	$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+	$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
 	$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
 	
 	Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -131,7 +131,7 @@ The following sample commands show how to set and retrieve a variable in a textu
 	for ($i = 1; $i -le $NumberOfIterations; $i++) {
 	   Write-Output "$i`: $SampleMessage"
 	}
-	Set-AutomationVariable –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+	Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### Setting and retrieving a complex object in a variable
 
@@ -139,7 +139,6 @@ The following sample code shows how to update a variable with a complex value in
 
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-
 
 In the following code, the value is retrieved from the variable and used to start the virtual machine.
 
@@ -165,6 +164,27 @@ In the following code, the collection is retrieved from the variable and used to
           Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
        }
     }
+    
+#### Setting and retrieving a variable in Python2
+The following sample code shows how to use a variable, set a variable, and handle an exception for a non-existent variable in a Python2 runbook.
+
+	import automationassets
+	from automationassets import AutomationAssetNotFound
+
+	# get a variable
+	value = automationassets.get_automation_variable("test-variable")
+	print value
+
+	# set a variable (value can be int/bool/string)
+	automationassets.set_automation_variable("test-variable", True)
+	automationassets.set_automation_variable("test-variable", 4)
+	automationassets.set_automation_variable("test-variable", "test-string")
+
+	# handle a non-existent variable exception
+	try:
+	    value = automationassets.get_automation_variable("non-existing variable")
+	except AutomationAssetNotFound:
+	    print "variable not found"
 
 
 ### Graphical runbook samples
@@ -182,4 +202,3 @@ The following image shows sample activities to update a variable with a simple v
 
 * To learn more about connecting activities together in graphical authoring, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md) 
-

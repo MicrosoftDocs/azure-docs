@@ -1,10 +1,10 @@
 ---
-title: Create an Internet-facing load balancer - Azure CLI | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in Resource Manager using the Azure CLI
+title: Create a public load balancer - Azure CLI | Microsoft Docs
+description: Learn how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jennoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ---
-# Creating an internet load balancer using the Azure CLI
+# Creating a public load balancer using the Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -25,17 +25,18 @@ ms.author: kumud
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
+This article covers the Resource Manager deployment model. You can also [Learn how to create a public load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Deploying the solution using the Azure CLI
 
-The following steps show how to create an Internet facing load balancer using Azure Resource Manager with CLI. With Azure Resource Manager each resource is created and configured individually, then put together to create a resource.
+The following steps show how to create a public load balancer using Azure Resource Manager with CLI. With Azure Resource Manager each resource is created and configured individually, then put together to create a resource.
 
 You must create and configure the following objects to deploy a load balancer:
 
@@ -49,7 +50,7 @@ For more information see [Azure Resource Manager support for Load Balancer](load
 
 ## Set up CLI to use Resource Manager
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
@@ -81,7 +82,7 @@ For more information see [Azure Resource Manager support for Load Balancer](load
     ```
 
    > [!IMPORTANT]
-   > The load balancer will use the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer Fully Qualified Domain Name (FQDN).
+   > The load balancer uses the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer Fully Qualified Domain Name (FQDN).
    > In this example, the FQDN is *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## Create a load balancer
@@ -128,7 +129,7 @@ This example creates the following items.
 2. Create a load balancer rule.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Create a health probe.

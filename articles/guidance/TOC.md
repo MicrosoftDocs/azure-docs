@@ -62,10 +62,7 @@
 ### [Data partitioning guidance](..\best-practices-data-partitioning.md)
 ### [Monitoring and diagnostics guidance](..\best-practices-monitoring.md)
 ### [Microsoft cloud services and network security](..\best-practices-network-security.md)
-### [Patterns for designing Azure Resource Manager templates](..\best-practices-resource-manager-design-templates.md)
 ### [Recommended naming conventions for Azure resources](guidance-naming-conventions.md)
-### [Security considerations for Azure Resource Manager](..\best-practices-resource-manager-security.md)
-### [Sharing state in Azure Resource Manager templates](..\best-practices-resource-manager-state.md)
 ### [Retry general guidance](..\best-practices-retry-general.md)
 ### [Retry service specific guidance](..\best-practices-retry-service-specific.md)
 ### [Scalability checklist](..\best-practices-scalability-checklist.md)
@@ -98,3 +95,6 @@
 #### [Use client assertion to get access tokens](guidance-multitenant-identity-client-assertion.md)
 #### [Use Azure Key Vault to protect application secrets](guidance-multitenant-identity-keyvault.md)
 #### [Deploying virtual appliances in high availability](guidance-nva-ha.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

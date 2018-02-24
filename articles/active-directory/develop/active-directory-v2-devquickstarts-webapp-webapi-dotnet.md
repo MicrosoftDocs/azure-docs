@@ -1,10 +1,10 @@
 ---
-title: Use Azure AD v2.0 to secure a .NET MVC web app that calls a web API | Microsoft Docs
+title: Azure AD v2.0 .NET web app calling API getting started | Microsoft Docs
 description: How to build a .NET MVC Web App that calls web services using personal Microsoft accounts and work or school accounts for sign-in.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 56be906e-71de-469d-9a5c-9fc08aae4223
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Calling a web API from a .NET web app
@@ -64,7 +65,7 @@ Now configure the OWIN middleware to use the [OpenID Connect authentication prot
 * Open the file `App_Start\Startup.Auth.cs` and add `using` statements for the libraries from above.
 * In the same file, implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIDConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -112,7 +113,7 @@ In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in ta
 * And add another `using` statement to the `App_Start\Startup.Auth.cs` file for MSAL.
 * Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use MSAL to acquire an access token to the To-Do List API, and will store the token in MSAL's token cache for later:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -140,7 +141,7 @@ Now it's time to actually use the access_token you acquired in step 3.  Open the
     `using Microsoft.Identity.Client;`
 * In the `Index` action, use MSAL's `AcquireTokenSilentAsync` method to get an access_token that can be used to read data from the To-Do List service:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -156,7 +157,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * The sample then adds the resulting token to the HTTP GET request as the `Authorization` header, which the To-Do List service uses to authenticate the request.
 * If the To-Do List service returns a `401 Unauthorized` response, the access_tokens in MSAL have become invalid for some reason.  In this case, you should drop any access_tokens from the MSAL cache and show the user a message that they may need to sign in again, which will restart the token acquisition flow.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -171,7 +172,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Similarly, if MSAL is unable to return an access_token for any reason, you should instruct the user to sign in again.  This is as simple as catching any `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

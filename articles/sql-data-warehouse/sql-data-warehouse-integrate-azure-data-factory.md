@@ -3,7 +3,7 @@ title: Use Azure Data Factory with SQL Data Warehouse | Microsoft Docs
 description: Tips for using Azure Data Factory (ADF) with Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: elbutter;barbkess
 
 ---
 # Use Azure Data Factory with SQL Data Warehouse
@@ -41,7 +42,7 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ../data-factory/data-factory-data-movement-activities.md
+[Copy data with Azure Data Factory]: ../data-factory/copy-activity-overview.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integrate.md
 

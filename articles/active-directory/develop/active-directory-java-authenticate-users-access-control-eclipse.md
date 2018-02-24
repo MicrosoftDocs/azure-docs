@@ -4,7 +4,7 @@ description: Learn how to develop and use Access Control with Java in Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: ''
 
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
+ms.custom: aaddev
 
 ---
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse

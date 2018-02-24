@@ -1,19 +1,19 @@
 ---
-title: Windows Phone Silverlight SDK Overview
+title: Azure Mobile Engagement Windows Phone Silverlight SDK Overview | Microsoft Docs
 description: Overview of the Windows Phone Silverlight SDK for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 0e3d2420-0509-4952-8891-392e3dad9aaf
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 
 ---
@@ -28,10 +28,10 @@ Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)
 3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ## Release notes
-### 3.3.0 (04/19/2016)
-Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.4.0**
+###3.3.1 (11/03/2016)
+Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.1**
 
-* Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
+* Stability improvements.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-phone-release-notes.md)
 

@@ -4,7 +4,7 @@ description: A description of changes that are being made to the app model v2.0 
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: e6c5b891-0b5d-47dc-8184-5d0ef6a1a006
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Important Updates to the v2.0 Authentication Protocols

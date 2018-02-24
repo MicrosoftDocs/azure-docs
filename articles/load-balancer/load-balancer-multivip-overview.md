@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2016
+ms.date: 09/25/2017
 ms.author: chkuhtz
 ---
 
 # Multiple VIPs for Azure Load Balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer allows you to load balance services on multiple ports, multiple IP addresses, or both. You can use public and internal load balancer definitions to load balance flows across a set of VMs.
 
@@ -92,7 +94,7 @@ The following diagram illustrates this configuration:
 
 For this scenario, every VM in the backend pool has three network interfaces:
 
-* DIP: a Virtual NIC associated with the VM (Azure's NIC resource)
+* DIP: a Virtual NIC associated with the VM (IP configuration of Azure's NIC resource)
 * VIP1: a loopback interface within guest OS that is configured with IP address of VIP1
 * VIP2: a loopback interface within guest OS that is configured with IP address of VIP2
 

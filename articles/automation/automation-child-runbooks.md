@@ -3,7 +3,7 @@ title: Child runbooks in Azure Automation | Microsoft Docs
 description: Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: georgewallace
 manager: jwhit
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/17/2016
+ms.date: 02/02/2017
 ms.author: magoedte;bwren
 
 ---
@@ -27,7 +27,7 @@ When you invoke a runbook inline, it runs in the same job as the parent runbook.
 
 When a runbook is published, any child runbooks that it calls must already be published. This is because Azure Automation builds an association with any child runbooks when a runbook is compiled. If they aren’t, the parent runbook will appear to publish properly, but will generate an exception when it’s started. If this happens, you can republish the parent runbook in order to properly reference the child runbooks. You do not need to republish the parent runbook if any of the child runbooks are changed because the association will have already been created.
 
-The parameters of a child runbook called inline can be any data type including complex objects, and there is no [JSON serialization](automation-starting-a-runbook.md#runbook-parameters) as there is when you start the runbook using the Azure Management Portal or with the Start-AzureRmAutomationRunbook cmdlet.
+The parameters of a child runbook called inline can be any data type including complex objects, and there is no [JSON serialization](automation-starting-a-runbook.md#runbook-parameters) as there is when you start the runbook using the Azure portal or with the Start-AzureRmAutomationRunbook cmdlet.
 
 ### Runbook types
 Which types can call each other:
@@ -51,8 +51,7 @@ The following example invokes a test child runbook that accepts three parameters
 Following is the same example using a PowerShell runbook as the child.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
-    $output = .\PS-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
-
+    $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 
 ## Starting a child runbook using cmdlet
@@ -66,7 +65,7 @@ Parameters for a child runbook started with a cmdlet are provided as a hashtable
 The following example starts a child runbook with parameters and then waits for it to complete using the Start-AzureRmAutomationRunbook -wait parameter. Once completed, its output is collected from the child runbook.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
+    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## Comparison of methods for calling a child runbook

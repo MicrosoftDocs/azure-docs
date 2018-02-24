@@ -4,7 +4,7 @@ description: Windows Universal Apps SDK Upgrade Procedures for Azure Mobile Enga
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
@@ -293,7 +293,7 @@ If you want to specify it at runtime instead, you can call the following method 
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-The connection string for your application is displayed on the Azure Classic Portal.
+The connection string for your application is displayed on the Azure Portal.
 
 ### Items name change
 All items named *capptain* have been named *engagement*. Similarly for *Capptain* to *Engagement*.

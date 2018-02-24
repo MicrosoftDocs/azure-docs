@@ -3,7 +3,7 @@ title: Enable Remote Desktop Connection for a Role in Azure Cloud Services | Mic
 description: How to configure your azure cloud service application to allow remote desktop connections
 services: cloud-services
 documentationcenter: ''
-author: seanmck
+author: mmccrory
 manager: timlt
 editor: ''
 
@@ -14,17 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: seanmck
+ms.author: mmccrory
 
 ---
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
 
@@ -44,7 +41,7 @@ The Azure portal uses the Remote Desktop Extension approach so you can enable Re
     ![Cloud services remote desktop](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) and then return to this dialog.
+   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) and then return to this dialog.
    >
    >
 3. In **Roles**, select the role you want to update or select **All** for all roles.
@@ -62,6 +59,10 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 
 4. Click **Open** and then **Connect** to start the Remote Desktop connection.
 
-## Next steps
+>[!NOTE]
+> If your cloud service is sitting behind an NSG, you may need to create rules that allow traffic on ports **3389** and **20000**.  Remote Desktop uses port **3389**.  Cloud Service instances are load balanced, so you can't directly control which instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents manage RDP traffic and allow the client to send an RDP cookie and specify an individual instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents require that port **20000*** be opened, which may be blocked if you have an NSG.
 
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)
+## Additional resources
+
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md)
