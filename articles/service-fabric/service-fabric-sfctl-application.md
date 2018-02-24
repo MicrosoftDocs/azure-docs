@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2018
+ms.date: 02/23/2018
 ms.author: ryanwi
 
 ---
@@ -35,7 +35,7 @@ Create, delete, and manage applications and application types.
 | list         | Gets the list of applications created in the Service Fabric cluster that match filters specified as the parameter.|
 | load | Gets load information about a Service Fabric application. |
 | manifest     | Gets the manifest describing an application type.|
-| provision    | Provisions or registers a Service Fabric application type with the cluster.|
+| provision    | Provisions or registers a Service Fabric application type with the cluster using the .sfpkg package in the external store or using the application package in the image store.|
 | report-health| Sends a health report on the Service Fabric application.|
 | type         | Gets the list of application types in the Service Fabric cluster matching exactly the specified name.|
 | type-list    | Gets the list of application types in the Service Fabric cluster.|
@@ -81,7 +81,7 @@ Deletes an existing Service Fabric application. An application must be created b
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "~" character. For example, if the application name is "fabric://myapp/app1", the application identity would be "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
+| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "~" character. For example, if the application name is "fabric:/myapp/app1", the application identity would be "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
 | --force-remove          | Remove a Service Fabric application or service forcefully without        going through the graceful shutdown sequence. This parameter can be        used to forcefully delete an application or service for which        delete is timing out due to issues in the service code that        prevents graceful close of replicas.|
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
 
@@ -97,12 +97,14 @@ Deletes an existing Service Fabric application. An application must be created b
 
 ## sfctl application deployed
 Gets the information about an application deployed on a Service Fabric node.
+
+Gets the information about an application deployed on a Service Fabric node.  This query returns system application information if the application ID provided is for system application. Results encompass deployed applications in active, activating, and downloading states. This query requires that the node name corresponds to a node on the cluster. The query fails if the provided node name does not point to any active Service Fabric nodes on the cluster.
      
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "~" character. For example, if the application name is "fabric://myapp/app1", the application identity would be "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
+| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "~" character. For example, if the application name is "fabric:/myapp/app1", the application identity would be "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
 | --node-name      [Required]| The name of the node.|
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
 
@@ -125,7 +127,7 @@ Returns the heath state of the service fabric application. The response reports 
 
 |Argument|Description|
 | --- | --- |
-| --application-id                 [Required]| The identity of the application. This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0,                 hierarchical names are delimited with the "~"                 character. For example, if the application name is                 "fabric://myapp/app1", the application identity                 would be "myapp~app1" in 6.0+ and "myapp/app1" in                 previous versions.|
+| --application-id                 [Required]| The identity of the application. This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0,                 hierarchical names are delimited with the "~"                 character. For example, if the application name is                 "fabric:/myapp/app1", the application identity                 would be "myapp~app1" in 6.0+ and "myapp/app1" in                 previous versions.|
 | --deployed-applications-health-state-filter| Allows filtering of the deployed applications health state objects returned in the result of application health query based on their health state. The possible values for this parameter include integer value of one of the following health states. Only deployed applications that match the filter will be returned. All deployed applications are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values obtained using bitwise 'OR' operator. For example, if the provided value is 6 then health state of deployed applications with HealthState value of OK (2) and Warning (4) are returned. - Default - Default value. Matches any HealthState. The value is zero. - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1. - Ok - Filter that matches input with HealthState value Ok. The value is 2. - Warning - Filter that matches input with HealthState value Warning. The value is 4. - Error - Filter that matches input with HealthState value Error. The value is 8. - All - Filter that matches input with any HealthState value. The value is 65535.|
 | --events-health-state-filter            | Allows filtering the collection of HealthEvent objects returned based on health state. The possible values for this parameter include integer value of one of the following health states. Only events that match the filter are returned. All events are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values obtained using bitwise 'OR' operator. For example, If the provided value is 6 then all of the events with HealthState value of OK (2) and Warning (4) are returned. - Default - Default value. Matches any HealthState. The value is zero. - None - Filter that doesn’t match any HealthState value. Used in order to return no results on a given collection of states. The value is 1. - Ok - Filter that matches input with HealthState value Ok. The value is 2. - Warning - Filter that matches input with HealthState value Warning. The value is 4. - Error - Filter that matches input with HealthState value Error. The value is 8. - All - Filter that matches input with any HealthState value. The value is 65535.|
 | --exclude-health-statistics | Indicates whether the health statistics should be                 returned as part of the query result. False by                 default. The statistics show the number of children                 entities in health state Ok, Warning, and Error.|
@@ -151,7 +153,7 @@ Returns the information about the application that was created or in the process
 
 |Argument|Description|
 | --- | --- |
-| --application-id      [Required]| The identity of the application. This is typically the full             name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited      with the "~" character. For example, if the application name      is "fabric://myapp/app1", the application identity would be      "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
+| --application-id      [Required]| The identity of the application. This is typically the full             name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited      with the "~" character. For example, if the application name      is "fabric:/myapp/app1", the application identity would be      "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
 | --exclude-application-parameters| The flag that specifies whether application parameters will be             excluded from the result.|
 | --timeout -t                 | Server timeout in seconds.  Default: 60.|
 
@@ -166,19 +168,19 @@ Returns the information about the application that was created or in the process
 | --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl application list
-Gets the list of applications created in the Service Fabric cluster that
-    match filters specified as the parameter.
+Gets the list of applications created in the Service Fabric cluster that match filters specified as the parameter.
 
-Gets the information about the applications that were created or in the process of being created in the Service Fabric cluster and match filters specified as the parameter. The response includes the name, type, status, parameters, and other details about the application. If the applications do not fit in a page, one page of results is returned as well as a continuation token, which can be used to get the next page.
+Gets the information about the applications that were created or in the process of being created in the Service Fabric cluster and match filters specified as the parameter. The response includes the name, type, status, parameters, and other details about the application. If the applications do not fit in a page, one page of results is returned as well as a continuation token, which can be used to get the next page. Filters ApplicationTypeName and ApplicationDefinitionKindFilter cannot be specified at the same time.
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-|--application-definition-kind-filter| Used to filter on ApplicationDefinitionKind for          application query operations. - Default - Default value. Filter that matches input with any ApplicationDefinitionKind value. The value is 0. - All - Filter that matches input with any ApplicationDefinitionKind value. The value is 65535. - ServiceFabricApplicationDescription - Filter that matches input with ApplicationDefinitionKind value ServiceFabricApplicationDescription. The value is 1. - Compose - Filter that matches input with ApplicationDefinitionKind value Compose. The value is 2. Default: 65535.|
+|--application-definition-kind-filter| Used to filter on ApplicationDefinitionKind which is the mechanism used to define a Service Fabric application. - Default - Default value, which performs the same function as selecting "All". The value is 0. - All - Filter that matches input with any ApplicationDefinitionKind value. The value is 65535. - ServiceFabricApplicationDescription - Filter that matches input with ApplicationDefinitionKind  alue ServiceFabricApplicationDescription. The value is 1. - Compose - Filter that matches input with ApplicationDefinitionKind value Compose. The value is 2.|
 | --application-type-name      | The application type name used to filter the applications to             query for. This value should not contain the application type             version.|
 | --continuation-token         | The continuation token parameter is used to obtain next set of             results. A continuation token with a non empty value is             included in the response of the API when the results from the             system do not fit in a single response. When this value is             passed to the next API call, the API returns next set of             results. If there are no further results, then the continuation             token does not contain a value. The value of this parameter             should not be URL encoded.|
 | --exclude-application-parameters| The flag that specifies whether application parameters are             excluded from the result.|
+| --max-results|The maximum number of results to be returned as part of the paged queries. This parameter defines the upper bound on the number of results returned. The results returned can be less than the specified maximum results if they do not fit in the message as per the max message size restrictions defined in the configuration. If this parameter is zero or not specified, the paged queries includes as much results as possible that fit in the return message.|
 | --timeout -t                 | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -199,7 +201,7 @@ Returns the load information about the application that was created or in the pr
 ### Arguments
 |Argument|Description|
 | --- | --- |
-|--application-id [Required]| The identity of the application. This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "~" character. For example, if the application name is "fabric://myapp/app1", the application identity would be "myapp~app1" in 6.0+ and "myapp/app1" in previous versions. |
+|--application-id [Required]| The identity of the application. This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "~" character. For example, if the application name is "fabric:/myapp/app1", the application identity would be "myapp~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --timeout -t               | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -235,16 +237,25 @@ Gets the manifest describing an application type. The response contains the appl
 | --verbose                         | Increase logging verbosity. Use --debug for full debug                  logs.|
 
 ## sfctl application provision
-Provisions or registers a Service Fabric application type with the cluster.
+Provisions or registers a Service Fabric application type with the cluster using the .sfpkg package in the external store or using the application package in the image store.
+
+Provisions a Service Fabric application type with the cluster. This is required before any new applications can be instantiated. The provision operation can be performed either on the application package specified by the relativePathInImageStore, or by using the URI of the external .sfpkg. Unless --external-provision is set, this command will expect image store
+
+provision.
         
-Provisions or registers a Service Fabric application type with the cluster. This is required before any new applications can be instantiated.
+
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --application-type-build-path [Required]| The relative image store path to the application                     package.|
-| --timeout -t                         | Server timeout in seconds.  Default: 60.|
+| --application-package-download-uri| The path to the '.sfpkg' application package from where the application package can be downloaded using HTTP or HTTPS protocols. For provision kind external store only. The application package can be stored in an external  store that provides GET operation to download the file. Supported protocols are HTTP and  HTTPS, and the path must allow READ access.|
+| --application-type-build-path       | For provision kind image store only. The relative path for the application package in the image store specified during  the prior upload operation. |
+| --application-type-name| For provision kind external store only. The application type name represents the name of the application type found in  the application manifest.|
+| --application-type-version| For provision kind external store only. The application type version represents the version of the application type found in the application manifest.|
+| --external-provision| The location from where application package can be registered or provisioned. Indicates that the provision is for an application package that was previously uploaded to an external store. The application package ends with the  extension *.sfpkg.|
+| --no-wait| Indicates whether or not provisioning should occur asynchronously.  When set to true, the provision operation returns when the request is accepted by the system, and the provision operation continues without any timeout limit. The default value is false. For large application packages, we recommend setting the value to true.|
+| --timeout -t                      | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
 
@@ -267,6 +278,7 @@ Returns the information about the application types that are provisioned or in t
 |Argument|Description|
 | --- | --- |
 | --application-type-name [Required]| The name of the application type.|
+| --application-type-version        | The version of the application type.|
 | --continuation-token           | The continuation token parameter is used to obtain next set               of results. A continuation token with a non empty value is               included in the response of the API when the results from               the system do not fit in a single response. When this value               is passed to the next API call, the API returns next set of               results. If there are no further results, then the               continuation token does not contain a value. The value of               this parameter should not be URL encoded.|
 | --exclude-application-parameters  | The flag that specifies whether application parameters will               be excluded from the result.|
 | --max-results                  | The maximum number of results to be returned as part of the               paged queries. This parameter defines the upper bound on the               number of results returned. The results returned can be less               than the specified maximum results if they do not fit in the               message as per the max message size restrictions defined in               the configuration. If this parameter is zero or not               specified, the paged query includes as much results as               possible that fit in the return message.|
@@ -292,7 +304,8 @@ Removes or unregisters a Service Fabric application type from the cluster. This 
 |Argument|Description|
 | --- | --- |
 | --application-type-name    [Required]| The name of the application type.|
-| --application-type-version [Required]| The application type version.|
+| --application-type-version [Required]| The version of the application type as defined in the application manifest.|
+|--async-parameter                    | The flag indicating whether or not unprovision should occur asynchronously. When set to true, the unprovision operation returns when the request is accepted by the system, and the unprovision operation continues without any timeout limit. The default value is false. However, we recommend to set it to true for large application packages that were provisioned.|
 | --timeout -t                      | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -314,7 +327,7 @@ Validates the supplied application upgrade parameters and starts upgrading the a
 
 |Argument|Description|
 | --- | --- |
-| --app-id             [Required]| The identity of the application. This is typically the full            name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For example, if the application name is 'fabric://myapp/app1', the application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
+| --app-id             [Required]| The identity of the application. This is typically the full            name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For example, if the application name is 'fabric:/myapp/app1', the application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
 | --app-version        [Required]| Target application version.|
 | --parameters         [Required]| A JSON encoded list of application parameter overrides to be            applied when upgrading the application.|
 | --default-service-health-policy| JSON encoded specification of the health policy used by default            to evaluate the health of a service type.|
