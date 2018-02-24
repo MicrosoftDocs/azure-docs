@@ -1,6 +1,6 @@
 ---
 title: Failover and scale an Azure Service Fabric containers app | Microsoft Docs
-description: Learn how failover is handled in an Azure Service Fabric containers application.  Also learn how to scale the containers and services running in a cluster.
+description: In this tutorial, you learn how failover is handled in an Azure Service Fabric containers application.  Also learn how to scale the containers and services running in a cluster.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -19,13 +19,13 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Demonstrate fail over and scaling of container services with Service Fabric
+# Tutorial: demonstrate fail over and scaling of container services with Service Fabric
 
 This tutorial is part three of a series. In this tutorial, you learn how failover is handled in Service Fabric container applications. Additionally, you learn how to scale containers. In this tutorial, you:
 
 > [!div class="checklist"]
 > * Learn about container failover in a Service Fabric cluster  
-> * Scale the web front-end containers in an appliction
+> * Scale the web front-end containers in an application
 
 ## Prerequisites
 The application from [Part 2](service-fabric-tutorial-package-containers.md) is running in an active Service Fabric cluster.
@@ -42,7 +42,7 @@ To fail over the front-end container, do the following steps:
 
 ![noderestart][noderestart]
 
-Notice how the node name indicating where the front-end containers runs, now changes to another node in the cluster. After a few moments, you should be able to browse to the application again and see the application now running on a different node.
+Notice how the node name (which indicates where the front-end containers run) changes to another node in the cluster. After a few moments, you should be able to browse to the application again and see the application now running on a different node.
 
 ## Scale containers and services in a cluster
 Service Fabric containers can be scaled across a cluster to accommodate for the load on the services. You scale a container by changing the number of instances running in the cluster.
@@ -71,7 +71,7 @@ In this tutorial, container failover was demonstrated as well as scaling of an a
 
 > [!div class="checklist"]
 > * Learn about container failover in a Service Fabric cluster  
-> * Scale the web front-end containers in an appliction
+> * Scale the web front-end containers in an application
 
 In this tutorial series, you learned how to: 
 > [!div class="checklist"]

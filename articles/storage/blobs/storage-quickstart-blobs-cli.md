@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Read, write, and list blobs in Azure Storage using the Azure CLI | Microsoft Docs
-description: In this quickstart, you use the Azure CLI to create a storage account and a container. Then you learn to upload a blob to Azure Storage, download a blob, and list blobs in a container.
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using the Azure CLI | Microsoft Docs
+description: In this quickstart, you use the Azure CLI to create a storage account and a container. Then you use the CLI to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -12,7 +12,7 @@ ms.date: 02/22/2018
 ms.author: tamram
 ---
 
-# Quickstart: Read, write, and list blobs using the Azure CLI
+# Quickstart: Upload, download, and list blobs using the Azure CLI
 
 The Azure CLI is Azure's command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also  install it on macOS, Linux, or Windows and run it from the command line. In this quickstart, you learn to use the Azure CLI to upload and download data to and from Azure Blob storage.
 
