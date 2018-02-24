@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -229,7 +229,7 @@ In this quick start, you deployed a Kubernetes cluster and deployed a multi-cont
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage an AKS cluster][aks-tutorial]:
+> [ASK tutorial][aks-tutorial]:
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

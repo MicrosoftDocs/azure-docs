@@ -90,7 +90,7 @@ First, get the ID of the service principal configured for AKS. Update the resour
 CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
-Get the ACR registry resource id. Update the `--name` to the name of your ACR registry and the resource group to the resource group where the ACR registry is located.
+Get the ACR registry resource id. Update the regsitry name to that of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
 ```azurecli
 ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
