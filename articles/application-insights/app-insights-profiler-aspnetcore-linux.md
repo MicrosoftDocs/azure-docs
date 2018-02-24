@@ -20,7 +20,7 @@ ms.author: mbullwin
 
 *This feature is currently in preview
 
-Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Profiler is now available for ASP.NET core web apps hosted in Linux on App Services. This guide provides step-by-step instruction on how to setup the environment. We will firstly experiment with running the web app in your local development machine and see how profiler traces will be collected by Application Insights. Then learn more about deploying this app to Azure.
+Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Profiler is now available for ASP.NET core web apps hosted in Linux on App Services. This guide provides step-by-step instruction on how profiler traces can be collected when the app runs locally and on Azure.
 
 ## Pre-requisites
     * Please make sure you have a Linux development environment. [Create a Linux virtual machine with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal)
