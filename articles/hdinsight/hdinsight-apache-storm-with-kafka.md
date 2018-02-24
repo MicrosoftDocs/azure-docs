@@ -32,7 +32,7 @@ The code for the example used in this document is available at [https://github.c
 
 To compile this project, you need the following configuration for your development environment:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher. HDInsight 3.5 or higher require Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -117,7 +117,7 @@ This project contains two topologies:
     This topology uses the Storm HdfsBolt to write data to default storage for the Storm cluster.
 ### Flux
 
-The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
+The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
 
 The following parameters are set at run time for these topologies:
 
@@ -127,7 +127,7 @@ The following parameters are set at run time for these topologies:
 
 * `${kafka.zookeeper.hosts}`: The hosts that Zookeeper runs on in the Kafka cluster.
 
-For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## Download and compile the project
 
