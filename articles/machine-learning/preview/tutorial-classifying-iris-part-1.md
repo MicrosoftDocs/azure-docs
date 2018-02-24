@@ -36,7 +36,7 @@ In order to complete this tutorial, you must have:
 
 If you don't have these arleady, follow the steps in the [Quickstart: Install and start](quickstart-installation.md) article to set up this account and install the Azure Machine Learning Workbench application. 
 
-## Create a new project in Azure Machine Learning Workbench
+## Create a new project in Workbench
 
 If you followed the steps in the [Quickstart: Install and start](quickstart-installation.md) article you should already have this project and can skip to the next section.
 
@@ -65,6 +65,8 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
  A new project is created and the project dashboard opens with that project. At this point, you can explore the project home page, data sources, notebooks, and source code files. 
 
 ## Create a data preparation package
+
+In this part of the tutorial, you explore the data we use and start the data preparation process. You create a data preparation package and perform a few transformations. A data preparation package (*.dprep file) is the primary container for your data preparation work in Azure Machine Learning Workbench. When you wrangle your data in Azure Machine Learning Workbench, the definitions and code you generate during that data prep process are stored in this local data preparation package file.
 
 
 1. Open the **iris.csv** file from the **File View**. The file is a table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
@@ -134,6 +136,8 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
 13. Close the data preparation editor. Select **Close** (x) on the **iris-1** tab with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
 
 ## Generate Python/PySpark code to invoke a data preparation package
+
+<!-- The output/results of a Package can be explored in Python or via a Jupyter Notebook. A Package can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight. A Package contains one or more Dataflows that are the steps and transforms applied to the data. A Package may use another Package as a Data Source (referred to as a Reference Data Flow). -->
 
 1. Right-click the **iris-1.dprep** file to bring up the context menu, and then select **Generate Data Access Code File**. 
 

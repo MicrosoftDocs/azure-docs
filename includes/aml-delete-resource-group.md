@@ -1,3 +1,16 @@
+---
+title: "include file"
+description: "include file"
+services: machine-learning
+author: j-martens
+ms.service: machine-learning
+ms.author: jmartens
+manager: cgronlund
+ms.custom: "include file"
+ms.topic: "include"
+ms.date: 02/28/2018
+---
+
 If you're not going to continue to use this app, delete all resources created by this quickstart with the following steps so you don't incur any charges:
 
 >[!NOTE]

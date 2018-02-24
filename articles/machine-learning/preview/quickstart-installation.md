@@ -1,6 +1,6 @@
 ---
 title: Installation Quickstart for Azure Machine Learning services | Microsoft Docs
-description: In this Quickstart Learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
+description: In this Quickstart, you can learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib, j-martens
@@ -77,7 +77,7 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
    ![Azure portal notifications](media/quickstart-installation/portal-notification.png)
 
 
-## Install & log in to Workbench
+## Install and log in to Workbench
 
 Azure Machine Learning Workbench is available for Windows or macOS. See the list of [supported platforms](#prerequisites).
 
@@ -141,7 +141,7 @@ Here, we are creating a new Workbench project using a template that includes the
    Project directory | c:\Temp\ | Specify the directory in which the project is created.
    Project description | _leave blank_ | Optional field useful for describing the projects.
    Visualstudio.com |_leave blank_ | Optional field. A project can optionally be associated with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Workspace | IrisGarden | Choose a workspace that you have created for your Experimentation account in the Azure portal.
+   Workspace | IrisGarden (if it exists) | Choose a workspace that you have created for your Experimentation account in the Azure portal. <br/>If you followed the Quickstart, you should have a workspace by the name IrisGarden. If not, select the one you created when you created your Experimentation account or any other you want to use.
    Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 
    ![New project](media/tutorial-classifying-iris/new_project.png)
