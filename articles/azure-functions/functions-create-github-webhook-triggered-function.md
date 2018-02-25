@@ -103,7 +103,7 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 ## Next steps
 
-You have created a function that runs when a request is received from a GitHub webhook.
+You have created a function that is triggered when a request is received from a GitHub webhook.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
