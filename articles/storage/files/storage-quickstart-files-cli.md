@@ -17,9 +17,7 @@ ms.author: wgries
 ---
 
 # Managing Azure file shares using the Azure CLI
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the Azure CLI. In this article you learn how to:
-
-This guide walks you through the basics of working with Azure file shares using Azure CLI. Learn how to: 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using Azure CLI. Learn how to: 
 
 [!div class="checklist"]
 * Create a resource group and a storage account

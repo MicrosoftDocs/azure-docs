@@ -1,6 +1,6 @@
 ---
 title: Managing Azure file shares with Azure PowerShell
-description: Learn to use Azure PowerShell to manage Azure Files.
+description: Learn to manage Azure file shares using Azure PowerShell.
 services: storage
 documentationcenter: ''
 author: wmgries	
@@ -17,12 +17,15 @@ ms.author: wgries
 ---
 
 # Managing Azure file shares with Azure PowerShell 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using PowerShell. Learn how to:
-- Create a resource group and a storage account
-- Create an Azure file share within the storage account 
-- Create a directory within the share, and upload and download files to it
-- Copy files between Azure file shares
-- Work with share snapshots 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using PowerShell. Learn how to: 
+
+[!div class="checklist"]
+* Create a resource group and a storage account
+* Create an Azure file share 
+* Create a directory
+* Upload a file 
+* Download a file
+* Create and use a share snapshot
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## Create a storage account
-A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
+A storage account is a shared pool of storage you can use to deploy Azure file shares, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
 If you don't already have an existing storage account, you can create a new one using [`New-AzureRmStorageAccount`](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named `mystorageaccount<random number>` and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so use `Get-Random` to append a pseudorandom number to the end to make it unique. 
 
@@ -91,7 +94,9 @@ New-AzureStorageDirectory `
 ```
 
 ### Upload a file
-To demonstrate how to upload a file using the [`Set-AzureStorageFileContent`](/powershell/module/azure.storage/set-azurestoragefilecontent) cmdlet, we first need to create a file inside your PowerShell Cloud Shell's scratch drive to upload. The following commands will create and then upload the file.
+To demonstrate how to upload a file using the [`Set-AzureStorageFileContent`](/powershell/module/azure.storage/set-azurestoragefilecontent) cmdlet, we first need to create a file inside your PowerShell Cloud Shell's scratch drive to upload. 
+
+This example puts the current date and time into a new file on your scratch drive, then uploads the file to the file share.
 
 ```azurepowershell-interactive
 # this expression will put the current date and time into a new file on your scratch drive
@@ -129,6 +134,12 @@ Get-AzureStorageFileContent `
     -Path "myDirectory\SampleUpload.txt" ` 
     -Destination "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt"
 ```
+
+After downloading the file, you can use the `Get-ChildItem` to see that the file has been downloaded to your PowerShell Cloud Shell's scratch drive.
+
+```azurepowershell-interactive
+Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
+``` 
 
 ### Copy files
 One common task is to copy files from one file share to another file share, or to/from an Azure Blob storage container. To demonstrate this functionality, you can create a new share and copy the file you just uploaded over to this new share using the [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. 
