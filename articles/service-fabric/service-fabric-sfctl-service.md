@@ -149,7 +149,7 @@ Gets the health of the specified Service Fabric service.
 Gets the health information of the specified service. Use EventsHealthStateFilter to filter
         the collection of health events reported on the service based on the health state. Use
         PartitionsHealthStateFilter to filter the collection of partitions returned. If you specify
-        a service that does not exist in the health store, this cmdlet returns an error. .
+        a service that does not exist in the health store, this cmdlet returns an error.
 
 ### Arguments
 
