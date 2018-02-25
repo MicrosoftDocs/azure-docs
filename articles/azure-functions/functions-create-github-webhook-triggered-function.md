@@ -76,8 +76,8 @@ Next, you will create a webhook in your GitHub repository.
 | Setting | Suggested value | Description |
 |---|---|---|
 | **Payload URL** | Copied value | Use the value returned by  **</> Get function URL**. |
-| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | **Content type** | application/json | The function expects a JSON payload. |
+| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | Event triggers | Let me select individual events | We only want to trigger on issue comment events.  |
 | | Issue comment |  |
 
