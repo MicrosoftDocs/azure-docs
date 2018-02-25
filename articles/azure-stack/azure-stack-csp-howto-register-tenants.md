@@ -59,9 +59,13 @@ Update your registration with the new customer’s subscription. Azure reports t
 
 ## Add the new tenant to Azure Stack
 
-Add the new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
+You can configure Azure Stack to support users from multiple Azure AD tenants to use services in Azure Stack. To provide services to an end user, you either:
+
+ - Manage the end customer account and their Azure AD tenant for them. In this case, yo will add their new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
+ - Manage the end customer tenant from a guest account with owner privileges for the Azure AD tenant. Create the guest account, and send the information to your end customer. The end customer than add **owner** privileges to the guest account.
 
 ## Next steps
 
  - To review the error messages if they are triggered in your registration process, see [Tenant registration error messages](/azure-stack-csp-ref-error-codes.md).
  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - To review how an end customer may add you, as the CSP, as the manager for their Azure Stack, tenant, see [Enable a Cloud Service Provider to manage your Azure Stack subscription](user\azure-stack-csp-enable-billing-usage-tracking.md).

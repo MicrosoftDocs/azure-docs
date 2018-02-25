@@ -32,7 +32,7 @@ If you're using Azure Stack with a Cloud Service Provider (CSP), your access to 
 1. Add your CSP as guest user with the user role to your tenant directory.  For steps on adding a user, see [Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
 2. The CSP will then create the local Azure Stack subscription for you.
 3. You are ready to start using Azure Stack.
-3. Your should then create a resource in your subscription to verify that they can manage your resources. For example, you can [Create a Windows virtual machine with the Azure Stack portal](azure-stack-quick-windows-portal.md).
+3. Your CSP should then create a resource in your subscription to verify that they can manage your resources. For example, they can [Create a Windows virtual machine with the Azure Stack portal](azure-stack-quick-windows-portal.md).
 
 ## Enable the Cloud Service Provider to manage your subscription
 
@@ -40,12 +40,13 @@ Add the CSP as owner to your subscription. For steps on adding the CSP user to y
 
 ## Enable the Cloud Service Provider to manage your subscription using RBAC rights
 
-You can also allow the CSP to manager your resources by granting the CSP Role-Based Access Control (RBAC) rights to your subscription.
+You can also allow the CSP to manager your resources by granting the CSP Role-Based Access Control (RBAC) rights to your subscription. The CSP will use a guest user account. 
 
-1. The CSP gives you user credentials they have created in the CSP Azure AD tenant. This user is used to manage your Azure Stack subscription.
-2. Add the CSP provided user as a guest user with the user role in your Azure AD tenant directory. For steps on adding a user, see [Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
-3. Add the new user from CSP’s directory tenant as an owner to your Azure Stack user subscription. For steps on adding the CSP user to your subscription, see [Use Role-Based Access Control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
-4. Your CSP should then create a resource in your subscription to verify that they can manage your resources.
+Guest users are user accounts from other directory tenants that have been granted access to resources in your directory. To support guest user, you must use Azure AD and enable support for multi-tenancy. When supported, you can invite a guest user to access resources in your directory tenant, which enables collaboration with outside organizations.
+ 
+To invite guest users, cloud operators and users can use [Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Invited users get access to documents, resources, and applications from your directory while you maintain control over your own resources and data.
+ 
+As a guest user, you can log into another organizations directory tenant. To do so, you must append that organizations directory name to the portal URL. For example if you belong to contoso.com but want to log into the Fabrikam directory, you use https://portal.local.azurestack.external/fabrikam.onmicrosoft.com. 
 
 ## Next steps
 
