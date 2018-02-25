@@ -18,11 +18,15 @@ ms.author: wgries
 ---
 
 # Managing Azure file shares with the Azure portal 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This guide walks you through the basics of working with Azure file shares using the [Azure portal](https://portal.azure.com). Learn how to:
-- Create a resource group and a storage account
-- Create an Azure file share within the storage
-- Create a directory within the share, and upload and download files to it
-- Work with share snapshots
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using PowerShell. Learn how to:
+
+[!div class="checklist"]
+* Create a resource group and a storage account
+* Create an Azure file share 
+* Create a directory
+* Upload a file 
+* Download a file
+* Create and use a share snapshot
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -135,7 +139,7 @@ You can download a copy of the file you uploaded by right clicking on the file. 
 ![A screenshot of the download button in the context menu for a file](media/storage-how-to-use-files-portal/download-file-1.png) 
 
 ## Create and modify share snapshots (preview)
-One additional useful task you can do with an Azure file share is to create share snapshots (preview). A snapshot preserves a point in time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
+One additional useful task you can do with an Azure file share is to create share snapshots (preview). A snapshot preserves a point-in-time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
