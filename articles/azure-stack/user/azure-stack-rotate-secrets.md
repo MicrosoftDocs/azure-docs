@@ -1,6 +1,6 @@
 ---
 title: Azure Stack secret rotation | Microsoft Docs
-description: Learn how to rotate Azure Stack secrets. 
+description: Describes how to rotate Azure Stack secrets. 
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
