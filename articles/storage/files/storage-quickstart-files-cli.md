@@ -1,5 +1,5 @@
 ---
-title: Managing Azure file shares with the Azure CLI
+title: Managing Azure file shares using the Azure CLI
 description: Learn to use the Azure CLI to manage Azure Files.
 services: storage
 documentationcenter: na
@@ -16,13 +16,18 @@ ms.date: 02/17/2018
 ms.author: wgries
 ---
 
-# Managing Azure file shares with the Azure CLI
+# Managing Azure file shares using the Azure CLI
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using the Azure CLI. In this article you learn how to:
+
 This guide walks you through the basics of working with Azure file shares using Azure CLI. Learn how to: 
-- Create a resource group and a storage account
-- Create an Azure file share within the storage account 
-- Create a directory within the share, and upload and download files to it
-- Copy files between Azure file shares
-- Work with share snapshots 
+
+[!div class="checklist"]
+* Create a resource group and a storage account
+* Create an Azure file share 
+* Create a directory
+* Upload a file 
+* Download a file
+* Create and use a share snapshot
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -88,9 +93,9 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## Create a storage account
-A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
+A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of file shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-If you don't already have an existing storage account, you can create a new one using the [az storage account create](/cli/azure/storage/account#create) command. This example creates a storage account named `mystorageaccount<random number>` and puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique, so we use `$RANDOM` to append a pseudorandom number to the end to make it unique. 
+If you don't already have an existing storage account, you can create a new one using the [az storage account create](/cli/azure/storage/account#create) command. This example creates a storage account named `mystorageaccount<random number>` and puts the name of that storage account in the variable `$STORAGEACCT`. To make the storage account name unique, use `$RANDOM` to append a pseudorandom number to the end to make it unique. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -114,7 +119,7 @@ tr -d '"')
 ```
 
 ## Create an Azure file share
-Now you can create your first Azure file share. You can create file shares using [az storage share create](/cli/azure/storage/share#create) command. This example creates a share named `myshare`. 
+Now you can create your first Azure file share. You can create file shares using [az storage share create](/cli/azure/storage/share#create) command. This example creates an Azure file share named `myshare`. 
 
 ```azurecli-interactive
 az storage share create \
@@ -172,7 +177,7 @@ az storage file list \
 ```
 
 ### Download a file
-You can use the [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) command to download a copy of the file you just uploaded to the scratch drive of your Cloud Shell.
+You can use the [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) command to download a copy of the file you uploaded to the scratch drive of your Cloud Shell.
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before
@@ -264,7 +269,7 @@ tr -d '"'
 ```
 
 ### Restore from a share snapshot
-You can restore a file by using the `az storage file copy start` command we used before. For the purposes of this quickstart, we'll first delete our `SampleUpload.txt` file we previously uploaded so we can restore it from the snapshot.
+You can restore a file by using the `az storage file copy start` command we used before. First, we'll delete our `SampleUpload.txt` file we uploaded so we can restore it from the snapshot.
 
 ```azurecli-interactive
 # Delete SampleUpload.txt
