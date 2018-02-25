@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Domain** field, populate the Domain as described in Step 6.
 	
-6. The **Domain** for your Replicon tenant account is obtained based steps mentioned at, [Replicon Service Endpoint](https://www.replicon.com/help/determining-the-url-for-your-service-calls) from the URL upon successful login to  Replicon. The domain would be subdomain of **serviceEndpointRootURL** as highlighted. 
+6. Obtain **serviceEndpointRootURL** for your Replicon tenant account based on steps mentioned at, [Replicon Service Help](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Upon obtaining the URL , the **domain** would be subdomain of **serviceEndpointRootURL** as highlighted. 
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 
