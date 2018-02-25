@@ -65,7 +65,7 @@ Gets the health of a Service Fabric stateful service replica or stateless
     service instance.
 
 Gets the health of a Service Fabric replica. Use EventsHealthStateFilter to filter the
-        collection of health events reported on the replica based on the health state. .
+        collection of health events reported on the replica based on the health state.
 
 ### Arguments
 
