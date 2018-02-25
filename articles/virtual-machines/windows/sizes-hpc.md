@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
 
 ---
@@ -34,13 +34,7 @@ This interface allows the RDMA-capable instances to communicate over an InfiniBa
 
 Following are requirements for RDMA-capable Windows VMs to access the Azure RDMA network: 
 
-* **Operating system**
-  
-  Windows Server 2012 R2, Windows Server 2012
-  
-  > [!NOTE]
-  > Currently, Windows Server 2016 does not support RDMA connectivity in Azure.
-  >
+* **Operating system** - Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 * **Availability set or cloud service** – Deploy the RDMA-capable VMs in the same availability set (when you use the Azure Resource Manager deployment model) or the same cloud service (when you use the classic deployment model). If you use Azure Batch, the RDMA-capable VMs must be in the same pool.
 
@@ -50,7 +44,7 @@ Following are requirements for RDMA-capable Windows VMs to access the Azure RDMA
 
 * **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/16. To run MPI applications on instances deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
 
-* **HpcVmDrivers VM extension** - On RDMA-capable VMs, you must add the HpcVmDrivers extension to install Windows network device drivers for RDMA connectivity. (In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically.) To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/overview) cmdlets. 
+* **HpcVmDrivers VM extension** - On RDMA-capable VMs, add the HpcVmDrivers extension to install Windows network device drivers for RDMA connectivity. (In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically.) To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
   
   The following command installs the latest version 1.1 HpcVMDrivers extension on an existing RDMA-capable VM named *myVM* deployed in the resource group named *myResourceGroup* in the *West US* region:
