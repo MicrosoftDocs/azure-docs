@@ -101,21 +101,21 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/Replicon1.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, **CompanyId**, and **Domain** of your Replicon's account.	
+5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, **CompanyId**, and **Domain** of your Replicon's account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Replicon Tenant. Example: admin.
+	*   In the **Admin Username** field, populate the username of the admin account on your Replicon Tenant. Example: contosoadmin.
 
 	*   In the **Admin Password** field, populate the password corresponding to the Admin Username.
 
-	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID used for log-in shown in the image, is Contoso.
+	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID based on the below log-in , is Contoso.
 
 	![Replicon Login](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
 	*   In the **Domain** field, populate the Domain as described in Step 6.
 	
-6. The **Domain** for your Replicon tenant account is obtained from the URL upon successful login to  Replicon. The domain would be subdomain as highlighted. 
+6. The **Domain** for your Replicon tenant account is obtained based steps mentioned at, [Replicon Service Endpoint](https://www.replicon.com/help/determining-the-url-for-your-service-calls) from the URL upon successful login to  Replicon. The domain would be subdomain of **serviceEndpointRootURL** as highlighted. 
 
-	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLanding.png)
+	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Replicon. If the connection fails, ensure your Replicon account has Admin permissions and try again.
 
