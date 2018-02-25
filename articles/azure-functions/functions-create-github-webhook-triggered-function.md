@@ -37,7 +37,7 @@ Learn how to create a function that is triggered by an HTTP webhook request with
 
 ![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Next, you will create a function in the new function app.
+Next, you create a function in the new function app.
 
 <a name="create-function"></a>
 
@@ -59,7 +59,7 @@ Next, you will create a function in the new function app.
 
     ![Review the function code](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
 
-Next, you will create a webhook in your GitHub repository.
+Next, you create a webhook in your GitHub repository.
 
 ## Configure the webhook
 
