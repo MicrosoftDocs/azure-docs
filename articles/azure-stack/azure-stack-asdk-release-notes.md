@@ -55,7 +55,8 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 
 -	In the admin portal you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
-  This alert can be safely ignored. 
+
+    This alert can be safely ignored. 
 
  
 #### Marketplace

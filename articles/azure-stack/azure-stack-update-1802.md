@@ -112,8 +112,9 @@ The following are post-installation known issues for build  **1802xx.x**
 - In the dashboard of the admin portal, the Update tile might display an image of a rainy cloud. To resolve this issue, click on the tile to refresh it.
 
 -	In the admin portal you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
-    - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
-  This alert can be safely ignored. 
+    - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*     
+  
+    This alert can be safely ignored. 
 
 
 #### Health and monitoring
