@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Send and receive Event Hubs messages using PowerShell | Microsoft Docs
-description: Quickly learn to create an Event Hubs namespace with an event hub using PowerShell
+title: Azure Quickstart - process event streams using PowerShell | Microsoft Docs
+description: Quickly learn to process event streams using PowerShell
 services: event-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -11,14 +11,15 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2018
+ms.date: 02/26/2018
 ms.author: sethm
 
 ---
 
-# Send and receive events using PowerShell
+# Process event streams using PowerShell
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to send and receive events to and from an event hub, after using PowerShell to create an Event Hubs namespace and an event hub within that namespace.
 
