@@ -99,7 +99,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-Successcenter-provisioning-tutorial/ProvisioningCredentials.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, and **Domain** of your Cornerstone OnDemand's account.
 
