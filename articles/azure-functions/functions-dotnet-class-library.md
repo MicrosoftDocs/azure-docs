@@ -106,7 +106,50 @@ The generated *function.json* file includes a `configurationSource` property tha
 }
 ```
 
-The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source code is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### Microsoft.NET.Sdk.Functions NuGet package
+
+The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project and a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks and the same `Sdk` package:
+
+**Functions 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.6" />
+</ItemGroup>
+```
+
+**Functions 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.6" />
+</ItemGroup>
+```
+
+Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those target the .NET Framework, while 2.x triggers and bindings target .NET Core.
+
+The `Sdk` package also depends on `Newtonsoft.Json`, and indirectly on `WindowsAzure.Storage`. These dependencies determine the versions of those packages that you can use with your code. The reason for the restriction is to ensure compatibility with the version of .NET that the project targets.
+
+The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### Runtime version
+
+Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects. The Core Tools is a commnd-line interface for the Functions runtime and is also known as the Functions CLI.
+
+ You can install the CLI by using npm and run it at a command prompt, but the version you install that way is not used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores CLI versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the CLI is included in the **Azure Functions and Web Jobs Tools** extension.  You can see what version is being used in the console output when you run a Functions project:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## Supported types for bindings
 
