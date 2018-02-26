@@ -64,7 +64,8 @@ If you need step by step guidance on how to set up such a configuration in Azure
 
 - [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
 - [Your SAP on Azure – Part 4 – High Availability for SAP HANA using System Replication](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
-- 
+
+ 
 
 
 
