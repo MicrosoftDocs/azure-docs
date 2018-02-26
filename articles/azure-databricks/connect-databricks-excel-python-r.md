@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/16/2018
+ms.date: 03/02/2018
 ms.author: nitinme
 ms.custom: mvc
 
@@ -24,7 +24,7 @@ In this article, you learn how to use the Databricks ODBC driver to connect Azur
 
 ## Prerequisites
 
-* Create an Azure Databricks workspace and cluster. For instructions, see [Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md).
+* You must have an an Azure Databricks workspace, a Spark cluster, and sample data associated with your cluster. If you do not already have these, complete the quickstart at [Run a Spark job on Azure Databricks using the Azure portal](quickstart-create-databricks-workspace-portal.md).
 
 * Download the Databricks ODBC driver from [here](https://databricks.com/spark/odbc-driver-download). Install the 32-bit or 64-bit version depending on the application from where you want to connect to Azure Databricks. For example, to connect from Excel, you must install the 32-bit version of the driver. To connect from R and Python, you must install the 64-bit version of the driver.
 
