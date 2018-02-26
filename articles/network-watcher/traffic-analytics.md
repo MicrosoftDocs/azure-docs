@@ -271,7 +271,3 @@ Do you have malicious traffic in your environment? Where is it originating from?
     ![](media/traffic-analytics/26.png)
 
     ![](media/traffic-analytics/27.png)
-
-## Feedback 
-
-If you have any issues or feedback, send mail to [TrafficAnalyticsHelp@microsoft.com](mailto:TrafficAnalyticsHelp@microsoft.com).
