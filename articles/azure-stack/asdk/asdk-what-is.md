@@ -46,29 +46,14 @@ The ASDK provides the following benefits to Azure Stack Operators:
 ## ASDK and multi-node Azure Stack differences
 The ASDK differs from multi-node Azure Stack deployments in a few ways.
 
-### Scale 
-The ASDK is deployed to a single development kit host computer. With all components deployed on the single machine, there are limited physical resources available for user resources. With ASDK deployments, both the Azure Stack infrastructure VMs and tenant VMs coexist on the same computer. This configuration is not intended for scale or performance evaluation. 
+- **Scale**. The ASDK is deployed to a single development kit host computer. With all components deployed on the single machine, there are limited physical resources available for user resources. With ASDK deployments, both the Azure Stack infrastructure VMs and tenant VMs coexist on the same computer. This configuration is not intended for scale or performance evaluation. Additionally, the ASDK can only be associated with a single Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) identity provider. 
 
-The ASDK is associated with a single Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) identity provider. You can create multiple users in this directory and assign subscriptions to each user.
+- **Resilience**. While the ASDK can be configured with mirrored storage (if the hardware meets certain requirements), the ASDK is usually configured as a simple space. In this basic configuration, each hard disk becomes a single point of failure for the entire cluster. 
 
-### Resilience
-While the ASDK can be configured with mirrored storage (if the hardware meets certain requirements), the ASDK is usually configured as a simple space. In this basic configuration, each hard disk becomes a single point of failure for the entire cluster. 
+- **Networking**. The ASDK uses a BGPNAT VM (which does not exist in multi-node deployments) to route ASDK network traffic. THe BGPNAT VM acts as an edge router and provides NAT and VPN capabilities for Azure Stack. So, with the ASDK, there are no switch requirements because all network traffic goes through the development kit host computer network interface card (NIC) and network or domain-specific VMs installed as part of the ASDK.  
 
-### Networking
-The ASDK uses a BGPNAT VM (which does not exist in multi-node deployments) to route ASDK network traffic. THe BGPNAT VM acts as an edge router and provides NAT and VPN capabilities for Azure Stack. So, with the ASDK, there are no switch requirements because all network traffic goes through the development kit host computer network interface card (NIC) and network or domain-specific VMs installed as part of the ASDK.  
+- **Patch and update process**. ASDK deployments do not have a patch and update process like production, multi-node Azure Stack deployments. To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer. Perform proper backup of development workloads and infrastructure-as-code artifacts
 
-### Patch and update process
-ASDK deployments do not have a patch and update process like production, multi-node Azure Stack deployments. To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer. Perform proper backup of development workloads and infrastructure-as-code artifacts
+## Next steps
 
-
-## Common Azure Stack Development Kit evaluation scenarios
-The following are tutorials to common ASDK evaluation scenarios to help you get started:
-
-1. [Add an Azure Stack marketplace item](asdk-marketplace-item.md)
-2. [Offer IaaS services](asdk-offer-services.md)
-3. [Modify or update offers and plans](asdk-change-offers.md)
-4. [Subscribe to an offer](asdk-subscribe-services.md)
-5. [Create a VM from a template](asdk-create-vm-template.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the ASDK](asdk-deploy-qs.md)
+[Deploy the ASDK](asdk-deploy-qs.md)
