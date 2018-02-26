@@ -2,7 +2,7 @@
 [OpenFaaS](https://www.openfaas.com/) is a framework for building Serverless functions on top of containers.  As an Open Source project it has gained large-scale adoption within the community.
 
 ## Prerequisites
-In order to complete the steps within this article, you will need the following.
+In order to complete the steps within this article, you need the following.
 
 * Basic understanding of Kubernetes.
 * An Azure Container Service (AKS) cluster and AKS credentials configured on your development system.
@@ -69,7 +69,7 @@ service "gateway" created
 ```
 
 ### Get Gateway Endpoint IP address
-Once the service has been deployed, you will see the Gateway public IP address within the Kubernetes published services.
+Once the service has been deployed, you see the Gateway public IP address within the Kubernetes published services.
 
 ```
 ➜  kubectl get svc -n openfaas
@@ -107,7 +107,7 @@ And let's use curl for this endpoint
 Install the [FaaS CLI](https://github.com/openfaas/faas-cli) so that you can deploy your functions quickly.
 
 ### Deploy Cosmos DB
-Create a new resource group for backing services outside of the AKS cluster group.
+Create a new resource group for backing services.
 
 ```
 ➜  az group create -n serverless-backing -l eastus
@@ -170,16 +170,16 @@ Notice that the connection string has been altered to reference the **plans** da
 
 ##  Deploying a function in OpenFaaS
 
-In order to deploy the pre-built Golang container, you need values for the following variables:
+To deploy the pre-built Golang container, you need values for the following variables:
 
-* OpenFaaS Gateway IP: This is the URL for your deployed OpenFaaS Gateway with AKS, it is the same as your OpenFaaS UI URL without the ui suffix, in the case of this example: ```http://52.226.73.206:8080```
+* OpenFaaS Gateway IP: The URL for your deployed OpenFaaS Gateway with AKS, it is the same as your OpenFaaS UI URL without the ui suffix, in the case of this example: ```http://52.226.73.206:8080```
 
-* image: For this example you can use the pre-built container which has been pushed to Docker Hub
+* image: You can use the pre-built container which has been pushed to Docker Hub
  ```shanepeckham/openfaascosmos```
 
 * Name: This is the name of your function, it can be anything
 
-* env: This is an environment variable which will be used to pass our CosmosDB connection string at runtime, you should not store the connection details within code, ideally you would use a Kubernetes secret or inject this via Azure Key Vault. This will have the format ```--env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"```
+* env: The environment variable to pass the CosmosDB connection string at runtime.  You should not store the connection details within code, ideally you would use a Kubernetes secret or inject this via Azure Key Vault. This will have the format ```--env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"```
 
 You can now use the faas-cli to deploy the pre-built container to the OpenFaaS Gateway. To do so you need to run the following command:
 
@@ -214,4 +214,3 @@ You can also test our function within the OpenFaaS UI, see below:
 
 ![alt text](media/container-service-serverless/OpenFaaSUI.png)
 
-You have now successfully deployed a function to OpenFaaS and queried your plans Database and Collection in Azure CosmosDB!
