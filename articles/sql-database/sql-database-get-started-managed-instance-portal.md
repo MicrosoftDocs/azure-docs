@@ -11,7 +11,7 @@ ms.custom: managed instance
 ms.workload: "Active"
 ms.tgt_pltfrm: portal
 ms.devlang: 
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: carlrab
 
@@ -34,18 +34,18 @@ Managed Instance is being released initially as a limited public preview that re
 2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
 3. Click **Create**.
 
-   ![managed instance create](./media/sql-database-managed-instance-quickstart/managed-instance-create.png)
+   ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 3. Select your subscription, click **Preview terms**, and then provide the requested information.
 
-   ![managed instance preview terms](./media/sql-database-managed-instance-quickstart/preview-terms.png)
+   ![managed instance preview terms](./media/sql-database-managed-instance-tutorial/preview-terms.png)
 
 5. Click **OK** when completed.
 
-   ![managed instance preview terms](./media/sql-database-managed-instance-quickstart/preview-approval-pending.png)
+   ![managed instance preview terms](./media/sql-database-managed-instance-tutorial/preview-approval-pending.png)
 
 > [!NOTE]
-> While awaiting preview approval, you can continue and complete the next few sections of this quickstart tutorial.
+> While awaiting preview approval, you can continue and complete the next few sections of this tutorial.
 
 ## Configure a virtual network (VNET)
 
@@ -54,7 +54,7 @@ The following steps show you how to create a new [Azure Resource Manager (ARM)](
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Virtual Network**, verify the **Resource Manager** is selected as the deployment mode, and then click **Create**.
 
-   ![virtual network create](./media/sql-database-managed-instance-quickstart/virtual-network-create.png)
+   ![virtual network create](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
 3. Fill out the virtual network form with the requested information, using the information in the following table.
 
@@ -70,7 +70,7 @@ The following steps show you how to create a new [Azure Resource Manager (ARM)](
    |**Service endpoints**|Disabled|Enable one or more service endpoints for this subnet|
    ||||
 
-   ![virtual network create form](./media/sql-database-managed-instance-quickstart/virtual-network-create-form.png)
+   ![virtual network create form](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
 4. Click **Create**.
 
@@ -81,7 +81,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Route table**, and then click **Create** on the Route table page. 
 
-   ![route table create](./media/sql-database-managed-instance-quickstart/route-table-create.png)
+   ![route table create](./media/sql-database-managed-instance-tutorial/route-table-create.png)
 
 3. Fill out the route table form with the requested information, using the information in the following table.
 
@@ -94,12 +94,12 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
    |**Disable BCP route propogation**|Disabled||
    ||||
 
-   ![route table create form](./media/sql-database-managed-instance-quickstart/route-table-create-form.png)
+   ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
 4. Click **Create**.
 5. After the route table has been created, open the newly created route table.
 
-   ![route table](./media/sql-database-managed-instance-quickstart/route-table.png)
+   ![route table](./media/sql-database-managed-instance-tutorial/route-table.png)
 
 6. Click **Routes** and then click **Add**.
 
@@ -112,21 +112,21 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
     |**Next hop type**|Internet|The next hop handles the matching packets for this route|
     |||
 
-    ![route](./media/sql-database-managed-instance-quickstart/route.png)
+    ![route](./media/sql-database-managed-instance-tutorial/route.png)
 
 8. Click **OK**.
 9. To set this route table on the subnet where Managed Instance is to be deployed, open the virtual network that you created earlier.
 10. Click **Subnets** and then click the subnet that you created earlier.
 
-    ![subnet](./media/sql-database-managed-instance-quickstart/subnet.png)
+    ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
 
 11. Click **Route table** and then select the **myMI_route_table**.
 
-    ![set route table](./media/sql-database-managed-instance-quickstart/set-route-table.png)
+    ![set route table](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
 12. Click **Save**
 
-    ![set route table-save](./media/sql-database-managed-instance-quickstart/set-route-table-save.png)
+    ![set route table-save](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 ## Create a Managed Instance
 
@@ -136,11 +136,11 @@ The following steps show you how to create your Managed Instance after your prev
 2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
 3. Click **Create**.
 
-   ![managed instance create](./media/sql-database-managed-instance-quickstart/managed-instance-create.png)
+   ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 3. Select your subscription and verify that the preview terms show **Accepted**.
 
-   ![managed instance preview accepted](./media/sql-database-managed-instance-quickstart/preview-accepted.png)
+   ![managed instance preview accepted](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
 4. Fill out the Managed Instance form with the requested information, using the information in the following table.
 
@@ -153,22 +153,22 @@ The following steps show you how to create your Managed Instance after your prev
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|The virtual network that you created earlier|
 
-   ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance-create-form.png)
+   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
 5. Click **Pricing tier** to review the pricing tier options.
 6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When complete, click **Apply** to save your selection.  
-   ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance-pricing-tier.png)
+   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
 7. Click **Create** to deploy the Managed Instance.
 8. Click the **Notifications** icon to view the status of deployment.
  
-   ![deployment progress](./media/sql-database-managed-instance-quickstart/deployment-progress.png)
+   ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
 9. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
  
-   ![managed instance create form](./media/sql-database-managed-instance-quickstart/managed-instance.png)
+   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
-10. Record the host name that you specified, as you will need it later in this quickstart tutorial to connect to your Managed Instance using SQL Server Management Studio.
+10. Record the host name that you specified, as you will need it later in this tutorial to connect to your Managed Instance using SQL Server Management Studio.
 
 While deployment occurs, continue to the next procedure.
  
@@ -179,7 +179,7 @@ The following steps show you how to create a virtual machine in the same VNET in
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
 
-   ![compute](./media/sql-database-managed-instance-quickstart/compute.png)
+   ![compute](./media/sql-database-managed-instance-tutorial/compute.png)
 
 3. Fill out the virtual machine form with the requested information, using the information in the following table.
 
@@ -195,17 +195,17 @@ The following steps show you how to create a virtual machine in the same VNET in
    |**Already have a Windows license**|No|If you own Windows licenses with active Software Assurance (SA), use Azure Hybrid Benefit to save compute cost|
    ||||
 
-   ![virutal machine create form](./media/sql-database-managed-instance-quickstart/virtual-machine-create-form.png)
+   ![virutal machine create form](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
 3. Click **OK**.
-4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. For this quickstart tutorial, you only need a small virtual machine.
+4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. For this tutorial, you only need a small virtual machine.
 
-    ![VM sizes](./media/sql-database-managed-instance-quickstart/virtual-machine-size.png)  
+    ![VM sizes](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
 5. Click **Select**.
 6. Under **Settings**, review but keep the default settings. 
 
-    ![VM settings](./media/sql-database-managed-instance-quickstart/virtual-machine-settings.png)  
+    ![VM settings](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 7. Click **OK**.
 8. On the summary page, review the offer details and then click **Create** to start the virtual machine deployment.
  
@@ -215,7 +215,7 @@ The following steps show you how to connect to your newly created virtual machin
 
 1. After deployment completes, go to the virtual machine resource.
 
-    ![VM](./media/sql-database-managed-instance-quickstart/vm.png)  
+    ![VM](./media/sql-database-managed-instance-tutorial/vm.png)  
 
 2. Click the **Connect** button on the virtual machine properties. A Remote Desktop Protocol file (.rdp file) is created and downloaded.
 3. To connect to your VM, open the downloaded RDP file. 
@@ -233,12 +233,12 @@ The following steps show you how to download and install SSMS, and then connect 
 
 1. In Server Manager, click **Local Server** in the left-hand pane.
 
-    ![server manager properties](./media/sql-database-managed-instance-quickstart/server-manager-properties.png)  
+    ![server manager properties](./media/sql-database-managed-instance-tutorial/server-manager-properties.png)  
 
 2. In the **Properties** pane, click **On** to modify the IE Enhanced Security Configuration.
 3. In the **Internet Explorer Enhanced Security Configuration** dialog box, click **Off** in the Administrators section of the dialog box and then click **OK**.
 
-    ![internet explorer enhanced security configuration](./media/sql-database-managed-instance-quickstart/internet-explorer-security-configuration.png)  
+    ![internet explorer enhanced security configuration](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 
 4. open **Internet Explorer** from the task bar.
 5. Click **OK** to complete the setup of Internet Explorer 11.
@@ -249,7 +249,7 @@ The following steps show you how to download and install SSMS, and then connect 
 10. Open SSMS.
 11. In the **Connect to Server** dialog box, enter the **host name* for your Managed Instance in the **Server name** box and then click **Connect**.
 
-    ![ssms connect](./media/sql-database-managed-instance-quickstart/ssms-connect.png)  
+    ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 
 
 ## Download Wide World Importers backup file and restore to Managed Instance.
