@@ -1,10 +1,10 @@
 ---
 title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: PowerShell: Azure | Microsoft Docs'
-description: This article helps you create and install VPN client configuration files for Point-to-Site connections that use certificate authentication.
+description: Create and install Windows and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
 
 ---
-# Create and install VPN client configuration files for native Azure certificate authentication P2S configurations
+# Create and install VPN client configuration files for native Azure certificate authentication Point-to-Site configurations
 
 VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows or Mac IKEv2 VPN client to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication.
-
->[!NOTE]
->IKEv2 for P2S is currently in Preview.
->
 
 ### <a name="workflow"></a>P2S Workflow
 
@@ -68,13 +64,19 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the Point-to-Site section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
 
+>[!NOTE]
+>You must have Administrator rights on the Windows client computer from which you want to connect.
+>
+>
+
 Use the following steps to configure the native Windows VPN client for certificate authentication:
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package. 
 2. Double-click the package to install it. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
 3. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to. 
+4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>VPN client configuration on Macs (OSX)
+## <a name="installmac"></a>VPN client configuration on Macs (OS X)
 
 Azure does not provide mobileconfig file for native Azure certificate authentication. You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. The **Generic** folder has all the information that you need to configure it. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder. The Generic folder contains the following files:
 
@@ -91,28 +93,31 @@ Click **Add** to import.
     >[!NOTE]
     >Double-clicking on the certificate may not display the **Add** dialog, but the certificate is installed in the correct store. You can check for the certificate in the login keychain under the certificates category.
   
-2. Open the **Network** dialog under **Network Preferences** and click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure VNet.
+2. Verify that you have installed a client certificate that was issued by the root certificate that you uploaded to Azure when you configured you P2S settings. This is different from the VPNServerRoot that you installed in the previous step. The client certificate is used for authentication and is required. For more information about generating certificates, see [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. Open the **Network** dialog under **Network Preferences** and click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure VNet.
 
   The **Interface** value is 'VPN' and **VPN Type** value is 'IKEv2'. Specify a name for the profile in the **Service Name** field, then click **Create** to create the VPN client connection profile.
 
   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-3. In the **Generic** folder, from the **VpnSettings.xml** file, copy the **VpnServer** tag value. Paste this value in the **Server Address** and **Remote ID** fields of the profile.
+4. In the **Generic** folder, from the **VpnSettings.xml** file, copy the **VpnServer** tag value. Paste this value in the **Server Address** and **Remote ID** fields of the profile.
 
   ![server info](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-4. Click **Authentication Settings** and select **Certificate**. 
+5. Click **Authentication Settings** and select **Certificate**. 
 
   ![authentication settings](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Click **Select…** to choose the client certificate that you want to use for authentication. A client certificate should already be installed on the machine (see step #2 in the **P2S Workflow** section above).
+6. Click **Select…** to choose the client certificate that you want to use for authentication. This is the certificate that you installed in Step 2.
 
   ![certificate](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-6. **Choose An Identity** displays a list of certificates for you to choose from. Select the proper certificate, then click **Continue**.
+7. **Choose An Identity** displays a list of certificates for you to choose from. Select the proper certificate, then click **Continue**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. In the **Local ID** field, specify the name of the certificate (from Step 6). In this example, it is "ikev2Client.com". Then, click **Apply** button to save the changes.
+8. In the **Local ID** field, specify the name of the certificate (from Step 6). In this example, it is "ikev2Client.com". Then, click **Apply** button to save the changes.
 
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-8. On the **Network** dialog, click **Apply** to save all changes. Then, click **Connect** to start the P2S connection to the Azure VNet.
+9. On the **Network** dialog, click **Apply** to save all changes. Then, click **Connect** to start the P2S connection to the Azure VNet.
 
 ## Next Steps
 
 Return to the article to [complete your P2S configuration](vpn-gateway-howto-point-to-site-rm-ps.md).
+
+For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

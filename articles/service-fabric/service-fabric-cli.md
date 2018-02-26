@@ -2,13 +2,13 @@
 title: Get started with Azure Service Fabric CLI 
 description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 
 ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
-ms.author: edwardsa
+ms.author: bikang
 
 ---
 # Azure Service Fabric CLI
@@ -104,6 +104,19 @@ If the installation on Windows subsystem for Linux fails with incorrect folder p
 ```bash
 sudo pip3 install sfctl
 ```
+
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+To install Service Fabric CLI on Redhat, run the following commands:
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+
+For testing the installation you can refer to the steps mentioned in **Ubuntu and Windows subsystem for Linux** section
 
 <a name = "cli-mac"></a>
 ### MacOS

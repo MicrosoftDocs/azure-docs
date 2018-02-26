@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure AD sign-in and sign-out using Node.js | Microsoft Docs
+title: Azure AD Node.js web app getting started | Microsoft Docs
 description: Learn how to build a Node.js Express MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: nodejs
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
 
 ---
-# Node.js web app sign-in and sign-out with Azure AD
+# Azure AD Node.js web app getting started
 Here we use Passport to:
 
 * Sign the user in to the app with Azure Active Directory (Azure AD).
@@ -45,14 +45,14 @@ The completed application is provided at the end of this tutorial as well.
 
 2. In the menu at the top of the page, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
 
-3. Select **More Services** in the menu on the left side of the screen, and then select **Azure Active Directory**.
+3. Select **All services** in the menu on the left side of the screen, and then select **Azure Active Directory**.
 
 4. Select **App registrations**, and then select **Add**.
 
 5. Follow the prompts to create a **Web Application** and/or **WebAPI**.
   * The **name** of the application describes your application to users.
 
-  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
+  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return`.
 
 6. After you register, Azure AD assigns your app a unique application ID. You need this value in the following sections, so copy it from the application page.
 7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.

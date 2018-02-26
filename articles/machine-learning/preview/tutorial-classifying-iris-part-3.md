@@ -1,19 +1,19 @@
 ---
-title: Deploy a model for Azure Machine Learning services (preview) | Microsoft Docs
+title: Deploy a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part three and discusses the deploying model.
 services: machine-learning
 author: raymondl
-ms.author: raymondl, aashishb
+ms.author: raymondl, j-martens, aashishb
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
-ms.topic: hero-article
-ms.date: 11/29/2017
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 02/28/2018
 ---
 
-# Classify Iris part 3: Deploy a model
+# Tutorial: Classify Iris part 3 - Deploy a model
 Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is part three of a three-part series. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
@@ -27,6 +27,8 @@ This tutorial is part three of a three-part series. In this part of the tutorial
 > * Examine the output blob data. 
 
  This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 Complete the first two parts of this tutorial series:
@@ -130,34 +132,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location **c:\temp\myIris>**.
 
-2. Make sure the Azure resource provider **Microsoft.ContainerRegistry** is registered in your subscription. You must register this resource provider before you can create an environment in step 3. You can check to see if it's already registered by using the following command:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   You should see output like this: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   If **Microsoft.ContainerRegistry** is not registered, you can register it by using the following command:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Registration can take a few minutes. You can check on its status by using the previous **az provider list** command or the following command:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   The third line of the output displays **"registrationState": "Registering"**. Wait a few moments and repeat the **show** command until the output displays **"registrationState": "Registered"**.
-
-3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
+2. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
 
    Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
@@ -169,25 +144,36 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    
    The cluster name is a way for you to identify the environment. The location should be the same as the location of the Model Management account you created from the Azure portal.
 
-4. Create a Model Management account. (This is a one-time setup.)  
+   In order to make sure that environment is setup successfully use the following command to check the status:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Please make sure "Provisioning State" has value as "Succeeded" (as shown below) before you set the environment in step 5.
+
+   ![Provisioning State](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
+3. Create a Model Management account. (This is a one-time setup.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Set the Model Management account.  
+4. Set the Model Management account.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Set the environment.
+5. Set the environment.
 
-   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 4. Use the same resource group name that was output in the command window when the setup process finished.
+   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 2. Use the same resource group name that was output in the command window when the setup process finished.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. To verify that you have properly configured your operationalized environment for local web service deployment, enter the following command:
+6. To verify that you have properly configured your operationalized environment for local web service deployment, enter the following command:
 
    ```azurecli
    az ml env show
@@ -202,7 +188,7 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    This command generates a web service ID you can use later.
 
@@ -210,8 +196,9 @@ Now you're ready to create the real-time web service.
    * `-n`: The app name, which must be all lowercase.
    * `-f`: The scoring script file name.
    * `--model-file`: The model file. In this case, it's the pickled model.pkl file.
-   * `-r`: The type of model. In this case, it's a Python model.
+   * `-r`: The runtime of the model. In this case, it's a Python model. Valid runtimes are `python` and `spark-py`.
    * `--collect-model-data true`: This enables data collection.
+   * `-c`: Path to the conda dependencies file where additional packages are specified.
 
    >[!IMPORTANT]
    >The service name, which is also the new Docker image name, must be all lowercase. Otherwise, you get an error. 
@@ -250,10 +237,10 @@ First, register the model. Then generate the manifest, build the Docker image, a
 
 3. Create a Docker image.
 
-   To create a Docker image, use the following command and provide the manifest ID value output from the previous step:
+   To create a Docker image, use the following command and provide the manifest ID value output from the previous step. You can also optionally include the conda dependencies using the `-c` switch.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    This command generates a Docker image ID.
    
@@ -279,23 +266,18 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
    ```
 
 2. To test the service, execute the returned service run command:
-
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
+
    The output is **"2"**, which is the predicted class. (Your result might be different.) 
-
-3. To run the service from outside the CLI, you need to get the keys for authentication:
-
-   ```azurecli
-   az ml service keys realtime -i <web service ID>
-   ```
 
 ## View the collected data in Azure Blob storage
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Locate your storage accounts. To do so, select **More Services**.
+2. Locate your storage accounts. To do so, select **All Services**.
 
 3. In the search box, enter **Storage accounts**, and then select **Enter**.
 
@@ -331,6 +313,10 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
       ```
 
 
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Next steps
 In this third part of the three-part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
@@ -345,4 +331,4 @@ You have successfully run a training script in various compute environments, cre
 
 You are now ready to do advanced data preparation:
 > [!div class="nextstepaction"]
-> [Advanced data preparation](tutorial-bikeshare-dataprep.md)
+> [Tutorial 4 - Advanced data preparation](tutorial-bikeshare-dataprep.md)

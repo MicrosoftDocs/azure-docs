@@ -76,6 +76,14 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
    ![Open Program.cs][1]
 
+6. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
+
 6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
     ```csharp
@@ -103,11 +111,19 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
+8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
@@ -152,13 +168,13 @@ The following steps show you how to create an IoT Edge module based on .NET core
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
-        int counterValue = Interlocked.Increment(ref counter);
+        var counterValue = Interlocked.Increment(ref counter);
 
         try {
             DeviceClient deviceClient = (DeviceClient)userContext;
 
-            byte[] messageBytes = message.GetBytes();
-            string messageString = Encoding.UTF8.GetString(messageBytes);
+            var messageBytes = message.GetBytes();
+            var messageString = Encoding.UTF8.GetString(messageBytes);
             Console.WriteLine($"Received message {counterValue}: [{messageString}]");
 
             // Get message body
@@ -189,7 +205,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 Console.WriteLine("Error in sample: {0}", exception);
             }
             // Indicate that the message treatment is not completed
-            DeviceClient deviceClient = (DeviceClient)userContext;
+            var deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
         catch (Exception ex)

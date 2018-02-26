@@ -9,19 +9,19 @@ author: ayoolubeko
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/02/2017
+ms.date: 01/10/2018
 ms.author: ayolubek
 ---
-# Azure portal: Use the SQL Query Editor to connect and query data
+# Azure portal: Use the SQL Query editor to connect and query data
 
-The SQL Query Editor is a browser query tool that provides an efficient and lightweight way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse without leaving the Azure portal. This quickstart demonstrates how to use the Query Editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
+The SQL Query editor is a browser query tool that provides an efficient and lightweight way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse without leaving the Azure portal. This quickstart demonstrates how to use the Query editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
 
@@ -29,28 +29,27 @@ This quickstart uses as its starting point the resources created in one of these
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query editor access to your databases and data warehouses.
+
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
 
 ## Connect using SQL Authentication
-> [!NOTE]
-> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query Editor access to your databases and data warehouses.
 
 1. Click **SQL databases** from the left-hand menu and click the database you would like to query.
 
-2. On the SQL database page for your database, click **Tools** on the toolbar. The Tools page opens.
+2. On the SQL database page for your database, find and click **Query editor (preview)** in the left-hand menu.
 
-    ![tools menu](./media/sql-database-connect-query-portal/tools-menu.png)
+    ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
+3. Click **Login** and then, when prompted, select **SQL Server authentication** and then provide the server admin login and password you provided when creating the database.
 
-4. Click **Login** and then, when prompted, select **SQL Server authentication** and then provide the server admin login and password you provided when creating the database.
+    ![login](./media/sql-database-connect-query-portal/login-menu.png)
 
-    ![login](./media/sql-database-connect-query-portal/login-menu.png) 
-
-5. Click **OK to login**.
+4. Click **OK to login**.
 
 
 ## Connect using Azure AD
@@ -66,11 +65,11 @@ Configuring an Active Directory administrator enables you to use a single identi
 
 3. In the Active Directory admin blade, click the **Set admin** command, and select the user or group that will be the Active Directory administrator.
 
-    ![select active directory](./media/sql-database-connect-query-portal/select-active-directory.png) 
+    ![select active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
 4. At the top of the Active Directory admin blade, click the **Save** command to set your Active Directory administrator.
 
-Navigate to the SQL database you would like to query, click the **Tools command** on the toolbar, and select the **Query editor (preview)** option. The Query editor page opens and automatically connects you to the database.
+Navigate to the SQL database you would like to query, click **Data explorer (preview)** from the left-hand menu. The Data explorer page opens and automatically connects you to the database.
 
 
 ## Run query using Query Editor
@@ -150,13 +149,13 @@ There are a few things to know when working with the Query Editor while it remai
 
 1. Make sure that you have set the "Allow access to Azure Services" option in your Azure SQL Server firewall settings to "ON". This option gives the SQL Query Editor access to your SQL databases and datawarehouses.
 
-2. Azure Active Directory Administrator login does not work with accounts that have 2-factor authenticated enabled. 
+2. Azure Active Directory Administrator login does not work with accounts that have 2-factor authenticated enabled.
 
 3. Email accounts (for example outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) are not yet supported as Active Directory administrators. Make sure to choose a user that was either created natively in the Azure Active Directory, or federated into the Azure Active directory
 
 4. Spatial data types queries are not yet supported in the Query editor. Querying spatial columns will result in a 'System.IO.FileNotFoundException' error.
 
-5. There is no support for IntelliSense for database tables and views. However, the editor does support auto-complete on names that have already been typed. 
+5. There is no support for IntelliSense for database tables and views. However, the editor does support auto-complete on names that have already been typed.
 
 6. Pressing the F5 key will refresh the Query editor page and lose the query that is being worked on. Use the Run button on the toolbar to execute queries.
 

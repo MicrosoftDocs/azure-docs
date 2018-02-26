@@ -301,7 +301,7 @@ subnet/address | Subnet address of the VM | 2017-04-02
 subnet/prefix | Subnet prefix, example 24 | 2017-04-02 
 ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02 
 macAddress | VM mac address | 2017-04-02 
-scheduledevents | Currently in Public Preview See [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | See [scheduledevents](scheduled-events.md) | 2017-03-01
 
 ## Example scenarios for usage  
 
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Language | Example 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## FAQ
@@ -408,4 +411,4 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
     
 ## Next steps
 
-- Learn more about the [Scheduled Events](scheduled-events.md) API **in public preview** provided by the Instance Metadata service.
+- Learn more about [Scheduled Events](scheduled-events.md).

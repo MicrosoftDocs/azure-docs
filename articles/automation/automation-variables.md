@@ -48,20 +48,20 @@ The following are a list of variable types available in Automation:
 * Boolean
 * Null
 
-## Scripting the creation and management of variables
+## AzureRM PowerShell cmdlets
+For AzureRM, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [AzureRM.Automation module](/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
 
-The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configuration.
-
-|Cmdlets|Description|
+| Cmdlets | Description |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Retrieves the value of an existing variable.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Creates a new variable and sets its value.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Removes an existing variable.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Sets the value for an existing variable.|
 
-The workflow activities in the following table are used to access Automation variables in a runbook. They are only available for use in a runbook or DSC configuration, and do not ship as part of the Azure PowerShell module.
+## Activities
+The activities in the following table are used to access credentials in a runbook and DSC configurations.
 
-|Workflow Activities|Description|
+| Activities | Description |
 |:---|:---|
 |Get-AutomationVariable|Retrieves the value of an existing variable.|
 |Set-AutomationVariable|Sets the value for an existing variable.|
@@ -93,10 +93,10 @@ The [New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.
 
 The following sample commands show how to create a variable of type string and then return its value.
 
-	New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
+	New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
     –Encrypted $false –Value 'My String'
-	$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+	$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
 The following sample commands show how to create a variable with a complex type and then return its properties. In this case, a virtual machine object from **Get-AzureRmVm** is used.
@@ -122,8 +122,8 @@ Use the **Set-AutomationVariable** activity to set the value of an Automation va
 
 The following sample commands show how to set and retrieve a variable in a textual runbook. In this sample, it is assumed that variables of type integer named *NumberOfIterations* and *NumberOfRunnings* and a variable of type string named *SampleMessage* have already been created.
 
-	$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-	$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+	$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+	$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
 	$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
 	
 	Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -131,7 +131,7 @@ The following sample commands show how to set and retrieve a variable in a textu
 	for ($i = 1; $i -le $NumberOfIterations; $i++) {
 	   Write-Output "$i`: $SampleMessage"
 	}
-	Set-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+	Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### Setting and retrieving a complex object in a variable
 
@@ -202,4 +202,3 @@ The following image shows sample activities to update a variable with a simple v
 
 * To learn more about connecting activities together in graphical authoring, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md) 
-

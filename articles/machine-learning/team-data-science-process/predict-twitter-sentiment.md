@@ -1,6 +1,6 @@
 ---
-title: Predict Twitter sentiment with word embeddings using the Team Data Science Process - Azure | Microsoft Docs
-description: The steps needed to execute your data-science projects
+title: Predict Twitter sentiment with word embeddings by using the Team Data Science Process in Azure | Microsoft Docs
+description: The steps that are needed to execute your data-science projects.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -18,120 +18,131 @@ ms.author: bradsev;
 
 ---
 
-# Predict Twitter sentiment with word embeddings using the Team Data Science Process
+# Predict Twitter sentiment with word embeddings by using the Team Data Science Process
 
-This article shows how to collaborate effectively when using the **Word2Vec** word embedding algorithm and the **Sentiment Specific Word Embedding (SSWE) Algorithm** to predict Twitter sentiment with the [Azure Machine Learning](../preview/index.yml). For additional details on the task of predicting twitter sentiment polarity, see [repository](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction). The key to facilitating effective team collaboration on data science projects is to standardize the structure and documentation of the projects with an established data science lifecycle. The [Team Data Science Process (TDSP)](overview.md) provides just such a structured [lifecycle](lifecycle.md). 
+This article shows you how to collaborate effectively by using the _Word2Vec_ word embedding algorithm and the _Sentiment-Specific Word Embedding (SSWE)_ algorithm to predict Twitter sentiment with [Azure Machine Learning](../preview/index.yml). For more information on predicting Twitter sentiment polarity, see the [MachineLearningSamples-TwitterSentimentPrediction repository](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) on GitHub. The key to facilitating effective team collaboration on data-science projects is to standardize the structure and documentation of the projects with an established data-science lifecycle. The [Team Data Science Process (TDSP)](overview.md) provides this type of structured [lifecycle](lifecycle.md). 
 
-Creating data science projects with the **TDSP template** provides this standardized framework for Azure Machine Learning projects. Previously, the TDSP team had released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Now the creation of Azure Machine Learning projects that are instantiated with [TDSP structure and documentation templates for Azure Machine Learning](https://github.com/amlsamples/tdsp) has been enabled. For instructions on how to use TDSP structure and templates in Azure Machine Learning, see [Structure projects with the Team Data Science Process template](../preview/how-to-use-tdsp-in-azure-ml.md). 
+Creating data-science projects with the _TDSP template_ provides the standardized framework for Azure Machine Learning projects. Previously, the TDSP team released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Now Machine Learning projects that are instantiated with [TDSP templates for Azure Machine Learning](https://github.com/amlsamples/tdsp) are enabled. For instructions, see how to use [TDSP structure projects with the TDSP template](../preview/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
 
 
-## The sentiment polarity sample
+## Twitter sentiment polarity sample
 
-A sample that shows you how to instantiate and execute a machine learning project using the Team Data Science Process structure and templates in the Azure Machine Learning Work Bench has been provided in this [walkthrough](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). The modeling task is to predict sentiment polarity (positive or negative) using the text from tweets. This article outline the data modeling tasks covered in the walkthrough. The walkthrough covers the following tasks:
+This article uses a sample to show you how to instantiate and execute a Machine Learning project. The sample uses the TDSP structure and templates in Azure Machine Learning Workbench. The complete sample is provided in [this walkthrough](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). The modeling task predicts sentiment polarity (positive or negative) by using the text from tweets. This article outlines the data-modeling tasks that are described in the walkthrough. The walkthrough covers the following tasks:
 
-- Data exploration, training, and deployment of a machine learning model which address the prediction problem described in the Use Case Overview. For this purpose, [Twitter Sentiment data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) is used.
-- Execution of the project in Azure Machine Learning using the Team Data Science Process (TDSP) template from Azure Machine Learning for this project. For project execution and reporting, the TDSP lifecycle is used.
-- Operationalization of the solution directly from Azure Machine Learning in Azure Container Services.
+- Data exploration, training, and deployment of a machine learning model that address the prediction problem that's described in the use case overview. [Twitter sentiment data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) is used for these tasks.
+- Execution of the project by using the TDSP template from Azure Machine Learning for this project. For project execution and reporting, the TDSP lifecycle is used.
+- Operationalization of the solution directly from Azure Machine Learning in Azure Container Service.
 
-The project highlights several features of Azure Machine Learning, such TDSP structure instantiation and use, execution of code in Azure Machine Learning Work Bench, and easy operationalization in Azure Container Services using Docker and Kubernetes.
+The project highlights the following features of Azure Machine Learning:
+
+- Instantiation and use of the TDSP structure.
+- Execution of code in Azure Machine Learning Workbench.
+- Easy operationalization in Container Service by using Docker and Kubernetes.
 
 ## Team Data Science Process
-You use the TDSP project structure and documentation templates to execute this sample. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+To execute this sample, you use the TDSP project structure and documentation templates in Azure Machine Learning Workbench. The sample implements the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), as shown in the following figure:
 
 ![TDSP lifecycle](./media/predict-twitter-sentiment/tdsp-lifecycle.PNG)
 
-![Instantiate TDSP](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
+The TDSP project is created in Azure Machine Learning Workbench based on [these instructions](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), as shown in the following figure:
+
+![Create TDSP in Azure Machine Learning Workbench](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
 
 
-## [Data acquisition and understanding](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
-The first step in this sample is to download the sentiment140 dataset and divide it into training and testing datasets. The sentiment140 dataset contains the actual content of the tweet (with emoticons removed) along with the polarity of each of the tweet (negative=0, positive=4), with neutral tweets removed. When divided, the resulting training data has 1.3 million rows and testing data has 320k rows.
+## [Data acquisition and preparation](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
+The first step in this sample is to download the sentiment140 dataset and divide the data into training and testing datasets. The sentiment140 dataset contains the actual content of the tweet (with emoticons removed). The dataset also contains the polarity of each tweet (negative=0, positive=4) with the neutral tweets removed. After the data is divided, the training data has 1.3 million rows and the testing data has 320,000 rows.
 
 
-## [Modeling](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
+## [Model development](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
 
-This part of the sample is further divided into three parts:
- 
-- **Feature Engineering** corresponds to the generation of features using different word embedding algorithms. 
-- **Model Creation** deals with the training of different models like _logistic regression_ and _gradient boosting_ to predict sentiment of the input text. 
-- **Model Evaluation** applies the trained model over the testing data.
+The next step in the sample is to develop a model for the data. The modeling task is divided into three parts:
+
+- Feature engineering: Generate features for the model by using different word embedding algorithms. 
+- Model creation: Train different models to predict the sentiment of the input text. Examples of these models include _Logistic Regression_ and _Gradient Boosting_.
+- Model evaluation: Evaluate the trained models over the testing data.
 
 
 ### [Feature Engineering](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/01_FeatureEngineering)
 
-Word2Vec and SSWE are the word embedding algorithms used here to generate word embeddings. 
+The Word2Vec and SSWE algorithms are used to generate word embeddings. 
 
 
-#### Word2Vec
+#### Word2Vec algorithm
 
-The Word2Vec algorithm is used in the Skipgram mode. This way of generating word embeddings is explained in the paper by Tomas Mikolov et al.: [Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546).
+The Word2Vec algorithm is used in the Skip-Gram model. This model is explained in the paper by Tomas Mikolov, et al. "[Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems.](https://arxiv.org/abs/1310.4546)" 2013.
 
-Skip-gram is a shallow neural network. Its input is the target word encoded as a one hot vector, which is uses to predict nearby words. If **V** is the size of the vocabulary, then the size of the output layer would be __C*V__ where C is the size of the context window. The skip-gram based architecture is shown in the following figure:
+The Skip-Gram model is a shallow neural network. The input is the target word that's encoded as a one-hot vector, which is used to predict nearby words. If **V** is the size of the vocabulary, then the size of the output layer is __C*V__ where C is the size of the context window. The following figure shows an architecture that's based on the Skip-Gram model:
 
-![Skip-gram Model](./media/predict-twitter-sentiment/skip-gram-model.PNG)
+![Skip-Gram model](./media/predict-twitter-sentiment/skip-gram-model.PNG)
 
-***Skip-gram model***
+The detailed mechanics of the Word2Vec algorithm and Skip-Gram model are beyond the scope of this sample. For more information, see the following references:
 
-The detailed mechanics of the word2vec algorithm and skip-gram model are beyond the scope of this sample. Readers are interested in more details about its workings can consult the following references:
-
-- [The code 02_A_Word2Vec.py referenced TensorFlow examples](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
-- [Vector Representation of Words](https://www.tensorflow.org/tutorials/word2vec)
+- [02_A_Word2Vec.py code with referenced TensorFlow examples](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) 
+- [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec)
 - [How exactly does word2vec work?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
 - [Notes on Noise Contrastive Estimation and Negative Sampling](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf)
 
 
-#### SSWE
-The **Sentiment Specific Word Embedding (SSWE) Algorithm** tries to overcome a weakness of Word2vec algorithm that the words with similar contexts and opposite polarity can have similar word vectors. This similarity means that Word2vec may not perform accurately for the tasks like sentiment analysis. The SSWE algorithm tries to handle this weakness by incorporating both the sentence polarity and the word's context into its loss function.
-
-This sample uses a variant of SSWE. The SSWE uses both the original ngram and corrupted ngram as input and it uses a ranking style hinge loss function for both the syntactic loss and the semantic loss. Ultimate loss function is the weighted combination of both the syntactic loss and semantic loss. For the purpose of simplicity, only the semantic cross entropy is used as the loss function. As you see later on, even with this simpler loss function the performance of the SSWE embedding is better than the Word2Vec embedding.
-
-The SSWE inspired neural network model that you use in this sample is shown in the following figure:
-
-![ROC Model Comparison](./media/predict-twitter-sentiment/embedding-model-2.PNG)
-
-***Convolutional model to generate sentiment-specific word embedding.***
 
 
-After the training process is done, two embedding files in the TSV format are generated for the modeling stage.
+#### Sentiment-Specific Word Embedding algorithm
+The SSWE algorithm tries to overcome a weakness of the Word2Vec algorithm where words with similar contexts and opposite polarity can have similar word vectors. The similarities can cause the Word2Vec algorithm to not perform accurately for tasks like sentiment analysis. The SSWE algorithm tries to handle this weakness by incorporating both the sentence polarity and the word's context into its loss function.
 
-For more information about the SSWE algorithms, see the paper by Duyu Tang et al.: [Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146) 
+The sample uses a variant of the SSWE algorithm as follows:
+
+- Both the original _ngram_ and the corrupted _ngram_ are used as inputs.
+- A ranking style hinge loss function is used for both the syntactic loss and the semantic loss.
+- The ultimate loss function is the weighted combination of both the syntactic loss and the semantic loss.
+- For simplicity, only the semantic cross entropy is used as the loss function.
+
+The sample shows that even with the simpler loss function, the performance of the SSWE embedding is better than the Word2Vec embedding. The following figure shows the convolutional model that's used to generate sentiment-specific word embedding:
+
+![Neural network model inspired by SSWE](./media/predict-twitter-sentiment/embedding-model-2.PNG)
+
+After the training process is done, two embedding files in the tab-separated values (TSV) format are generated for the modeling stage.
+
+For more information about the SSWE algorithms, see the paper by Duyu Tang, et al. "[Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification](http://www.aclweb.org/anthology/P14-1146)." Association for Computational Linguistics (1). 2014.
 
 
-### [Model Creation](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/02_ModelCreation)
-Once the word vectors have been generated using either of the SSWE or Word2vec algorithms, the next step is to train the classification models to predict actual sentiment polarity. Two types of features, Word2Vec and SSWE, are being applied to two models, the GBM model and Logistic regression model. So  four different models are being trained.
+### [Model creation](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/02_ModelCreation)
+After the word vectors are generated by using the SSWE or Word2Vec algorithm, the classification models are trained to predict the actual sentiment polarity. Two types of features: Word2Vec and SSWE, are applied to two models: the Gradient Boosting model and the Logistic Regression model. As a result, four different models are trained.
 
 
-### [Model Evaluation](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/03_ModelEvaluation)
-Now you use the four models trained in previous step in testing data to evaluate the model's performance. 
+### [Model evaluation](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/03_ModelEvaluation)
+After the models are trained, the models are used to test Twitter text data and evaluate each model's performance. The sample evaluates the following four models:
 
-1. Gradient Boosting over SSWE embedding
-2. Logistic Regression over SSWE embedding
-3. Gradient Boosting over Word2Vec embedding
-4. Logistic Regression over Word2Vec embedding
+- Gradient Boosting over SSWE embedding.
+- Logistic Regression over SSWE embedding.
+- Gradient Boosting over Word2Vec embedding.
+- Logistic Regression over Word2Vec embedding.
 
-![ROC Model Comparison](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+A comparison of the performance of the four models is shown in the following figure:
 
-The GBM model with SSWE features is the best one using the AUC metric.
+![Receiver operating characteristic (ROC) model comparison](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+
+The Gradient Boosting model with the SSWE feature gives the best performance when comparing the models by using the area under curve (AUC) metric.
 
 
 ## [Deployment](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
-This part deploys the trained sentiment prediction model (SSWE embedding + GBM model) to a web service on a cluster in the Azure Container Service (ACS). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information on the operationalization process [here](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+The final step is deployment of the trained sentiment prediction model to a web service on a cluster in Azure Container Service. The sample uses the Gradient Boosting model with the SSWE embedding algorithm as the trained model. The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment, as shown in the following figure: 
 
-![kubenetes_dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
+![Kubernetes dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
+For more information on the operationalization process, see [Deploying an Azure Machine Learning model as a web service](../preview/model-management-service-deploy.md).
 
 ## Conclusion
 
-The details on how to train a word-embedding model using the Word2Vec and SSWE algorithms were explained and the extracted embeddings were used as features to train several models to predict sentiment scores for Twitter text data. The Sentiment Specific Wording Embeddings(SSWE) feature with Gradient Boosted Tree model gave the best performance. This model was then deployed as a real-time web service in Azure Container Services using Azure Machine Learning Work Bench.
+In this article, you learned how to train a word-embedding model by using the Word2Vec and Sentiment-Specific Word Embedding algorithms. The extracted embeddings were used as features to train several models to predict sentiment scores for Twitter text data. The SSWE feature used with the Gradient Boosting model gave the best performance. The model was then deployed as a real-time web service in Container Service by using Azure Machine Learning Workbench.
 
 
 ## References
 
-* [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
-* [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure ML Work Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
-* [US Income data-set from UCI ML repository](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Biomedical Entity Recognition using TDSP Template](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
-* [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546)
+* [TDSP project templates for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
+* [Azure Machine Learning Workbench](../preview/index.yml)
+* [US income data-set from UCI ML repository](https://archive.ics.uci.edu/ml/datasets/adult)
+* [Biomedical entity recognition by using TDSP templates](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Mikolov, Tomas, et al. "Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems." 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory hybrid identity design considerations - determine directory synchronization requirements | Microsoft Docs
+title: Hybrid identity design - directory sync requirements Azure | Microsoft Docs
 description: Identify what requirements are needed for synchronizing all the users between on=premises and cloud for the enterprise.
 documentationcenter: ''
 services: active-directory
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-
+ms.custom: seohack1
 ---
 # Determine directory synchronization requirements
 Synchronization is all about providing users an identity in the cloud based on their on-premises identity. Whether or not they will use synchronized account for authentication or federated authentication, the users will still need to have an identity in the cloud.  This identity will need to be maintained and updated periodically.  The updates can take many forms, from title changes to password changes.  

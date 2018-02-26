@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2017
 ---
 
 # Tutorial: Classifying Iris using the command-line interface
-Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
+Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
 In this tutorial, you learn to use the command-line interface (CLI) tools in Azure Machine Learning preview features to: 
 > [!div class="checklist"]
@@ -24,14 +24,16 @@ In this tutorial, you learn to use the command-line interface (CLI) tools in Azu
 > * Promote and register a trained model
 > * Deploy a web service to score new data
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
-- You need access to an Azure subscription and permissions to create resources in that subscription. 
-- You need to install Azure Machine Learing Workbench application by following the [Install and create Quickstart](quickstart-installation.md). 
+To complete this tutorial, you need:
+- Access to an Azure subscription and permissions to create resources in that subscription. 
+  
+  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-  >[!NOTE]
-  >You only need to install the Azure Machine Learning Workbench locally. You only need to follow the steps in the sections entitled Install Azure Machine Learning Workbench, since the account creation, and create a new project steps will be done by command line in this article.
+- Azure Machine Learning Workbench application installed as described in [Quickstart: Install and start Azure Machine Learning services](quickstart-installation.md). 
+
+  >[!IMPORTANT]
+  >Do not create the Azure Machine Learning service accounts since you will do that using the CLI in this article.
  
 ## Getting started
 Azure Machine Learning command-line interface (CLI) allows you to perform all tasks required for an end-to-end data science workflow. You can access the CLI tools in the following ways:
@@ -41,13 +43,13 @@ When you launch Azure ML Workbench and log in for the first time, and if you don
 
 ![no account found](media/tutorial-iris-azure-cli/no_account_found.png)
 
-Click on the **Command Line Window** link in the dialog box to launch the command line window.
+Click on the **Command Line Window** link in the dialog box to launch the command-line window.
 
 ### Option 2. launch Azure ML CLI from Azure ML Workbench app
-If you already have access to an Experimentation Account, you can log in successfully. And you can then open the command line window by clicking on **File** --> **Open Commmand Prompt** menu.
+If you already have access to an Experimentation Account, you can log in successfully. And you can then open the command-line window by clicking on **File** --> **Open Command Prompt** menu.
 
 ### Option 3. enable Azure ML CLI in an arbitrary command-line window
-You can also enable Azure ML CLI in any command-line window. Simply launch a command window, and enter the following commands:
+You can also enable Azure ML CLI in any command-line window. Do so by launching a command window, and enter the following commands:
 
 ```sh
 # Windows Command Prompt
@@ -62,12 +64,12 @@ PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 To make the change permanent, you can use `SETX` on Windows. For macOS, you can use `setenv`.
 
 >[!TIP]
->You can enable Azure CLI in your favorite terminal window by setting the above environment variables.
+>You can enable Azure CLI in your favorite terminal window by setting the preceding environment variables.
 
 ## Step 1. Log in to Azure
-The first step is to open the CLI from the AMLWorkbench App (File > Open Command Prompt). Doing so ensures we use the right python environment and we have the ML CLI commands available. 
+The first step is to open the CLI from the AMLWorkbench App (File > Open Command Prompt). Doing so ensures that you have the correct python environment and that the ML CLI commands are available. 
 
-We then need to set the right context in your CLI to access and manage Azure resources.
+Now, you can set the right context in your CLI to access and manage Azure resources.
  
 ```azure-cli
 # log in
@@ -81,7 +83,8 @@ $ az account set -s <subscription id or name>
 ```
 
 ## Step 2. Create a new Azure Machine Learning Experimentation Account and Workspace
-We start by creating a new Experimentation account and a new workspace. See [Azure Machine Learning concepts](overview-general-concepts.md) for more details about experimentation accounts and workspaces.
+
+In this step, you create a new Experimentation account and a new workspace. See [Azure Machine Learning concepts](overview-general-concepts.md) for more details about experimentation accounts and workspaces.
 
 > [!NOTE]
 > Experimentation accounts require a storage account, which is used to store the outputs of your experiment runs. The storage account name has to be globally unique in Azure because there is an url associated with it. If you don't specify an existing storage account, your experimentation account name is used to create a new storage account. Make sure to use a unique name, or you will get an error such as _"The storage account named \<storage_account_name> is already taken."_ Alternatively, you can use the `--storage` argument to supply an existing storage account.
@@ -101,7 +104,7 @@ az ml workspace create --name <workspace name> --account <experimentation accoun
 ```
 
 ## Step 2.a (optional) Share a workspace with co-worker
-Here we explore how to share access to a workspace with a co-worker. The steps to share access to an experimentation account or to a project would be the same. Only the way of getting the Azure Resource ID would need to be updated.
+Here you can explore how to share access to a workspace with a co-worker. The steps to share access to an experimentation account or to a project would be the same. Only the way of getting the Azure Resource ID would need to be updated.
 
 ```azure-cli
 # find the workspace Azure Resource ID
@@ -132,7 +135,7 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### Create a new project associated with a cloud Git repository
-We can create a new project associated with a VSTS (Visual Studio Team Service) Git repository. Every time an experiment is submitted, a snapshot of the entire project folder is committed to the remote Git repo. See [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) for more details.
+You can create a new project associated with a VSTS (Visual Studio Team Service) Git repository. Every time an experiment is submitted, a snapshot of the entire project folder is committed to the remote Git repo. See [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) for more details.
 
 > [!NOTE]
 > Azure Machine Learning only supports empty Git repos created in VSTS.
@@ -144,7 +147,7 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 > If you are getting an error "Repository url might be invalid or user might not have access", you can create a security token in VSTS (under _Security_, _Add personal access tokens_ menu) and use the `--vststoken` argument when creating your project. 
 
 ### <a name="sample_create"></a>Create a new project from a sample
-In this example, we create a new project using a sample project as a template.
+In this example, you create a new project using a sample project as a template.
 
 ```azure-cli
 # List the project samples, find the Classifying Iris sample
@@ -156,10 +159,10 @@ az ml project create --name <project name> --workspace <workspace name> --accoun
 Once your project is created, use `cd` command to enter the project directory.
 
 ## Step 4 Run the training experiment 
-The steps below assume that you have a project with the Iris sample (see [Create a new project from an online sample](#sample_create)).
+The following steps assume that you have a project with the Iris sample (see [Create a new project from an online sample](#sample_create)).
 
 ### Prepare your environment 
-For the Iris sample, we need to install matplotlib.
+For the Iris sample, you must install matplotlib.
 
 ```azure-cli
 $ pip install matplotlib
@@ -185,10 +188,10 @@ Following command lists all the previous runs executed.
 ```azure-cli
 $ az ml history list -o table
 ```
-Running the above command will display a list of all the runs belonging to this project. You can see that accuracy and regularization rate metrics are listed too. This make it easy to identify the best run from the list.
+Running the preceding command displays a list of all the runs belonging to this project. You can see that accuracy and regularization rate metrics are listed too. This makes it easy to identify the best run from the list.
 
 ## Step 5.a View attachment created by a given run 
-To view the attachment associated with a given run, we can use the info command of run history. Find a run id of a specific run from the above list.
+To view the attachment associated with a given run, you can use the info command of run history. Find a run ID of a specific run from the preceding list.
 
 ```azure-cli
 $ az ml history info --run <run id> --artifact driver_log
@@ -202,7 +205,7 @@ $ az ml history info --run <run id> --artifact <artifact location>
 ```
 
 ## Step 6. Promote artifacts of a run 
-One of the runs we made has a better AUC, so we want to use it to create a scoring web service to deploy to production. In order to do so, we first need to promote the artifacts into an asset.
+One of the runs has a better AUC, so this is the one to use when creating a scoring web service to deploy to production. In order to do so, you first need to promote the artifacts into an asset.
 
 ```azure-cli
 $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
@@ -211,14 +214,14 @@ $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name 
 This creates an `assets` folder in your project directory with a `model.pkl.link` file. This link file is used to reference a promoted asset.
 
 ## Step 7. Download the files to be operationalized
-We now need to download the promoted model, so we can use them to create our prediction web service. 
+Download the promoted model so you can use them to create a prediction web service. 
 
 ```azure-cli
 $ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
-## Step 8. Setup your model management environment 
-We create an environment to deploy web services. We can run the web service on the local machine using Docker. Or deploy it to an ACS cluster for high-scale operations. 
+## Step 8. Set up your model management environment 
+Create an environment to deploy web services. You can run the web service on the local machine using Docker. Or deploy it to an ACS cluster for high-scale operations. 
 
 ```azure-cli
 # Create new local operationalization environment
@@ -235,14 +238,14 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 ```
 
 ## Step 10. Create a web service
-We then create a web service that returns a prediction using the model we deployed. 
+Create a web service that returns a prediction using the model you deployed. 
 
 ```azure-cli
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## Step 10. Run the web service
-Using the web service id from the output of the previous step, we can call the web service and test it. 
+## Step 11. Run the web service
+Using the web service ID from the output of the previous step, call the web service and test it. 
 
 ```azure-cli
 # Get web service usage infomration
@@ -252,22 +255,22 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## Deleting all the resources 
-Let's complete this tutorial by deleting all the resources we have created, unless you want to keep working on it! 
+## Step 12. Deleting all the resources 
+Let's complete this tutorial by deleting all the resources that were created, unless you want to keep working on it. 
 
-To do so, we simply delete the resource group holding all our resources. 
+To do so, delete the resource group holding the resources. 
 
 ```azure-cli
 az group delete --name <resource group name>
 ```
 
 ## Next Steps
-In this tutorial, you have learned to use the Azure Machine Learning preview features to 
+In this tutorial, you have learned to use the Azure Machine Learning to: 
 > [!div class="checklist"]
 > * Set up an experimentation account, creating workspace
 > * Create projects
 > * Submit experiments to multiple compute target
 > * Promote and register a trained model
 > * Create a model management account for model management
-> * Create an environment to deploy a web service
+> * Create an environment for deploying web services
 > * Deploy a web-service and score with new data

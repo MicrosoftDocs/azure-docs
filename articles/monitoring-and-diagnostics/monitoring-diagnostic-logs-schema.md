@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
 
 ---
@@ -54,7 +54,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
 |---|---|---|
-|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|
@@ -113,6 +112,8 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
@@ -122,6 +123,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Sql/servers/databases|Timeouts|Timeouts|
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Audit|Audit Logs|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 

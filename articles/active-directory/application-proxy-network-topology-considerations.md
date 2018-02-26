@@ -3,7 +3,7 @@ title: Network topology considerations when using Azure Active Directory Applica
 description: Covers network topology considerations when using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: daveba
 manager: mtillman
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ---

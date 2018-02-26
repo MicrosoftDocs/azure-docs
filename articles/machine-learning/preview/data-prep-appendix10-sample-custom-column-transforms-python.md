@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 02/01/2018
 ---
 
 # Sample of custom column transforms (Python) 
@@ -50,6 +50,12 @@ Number of seconds since the Unix Epoch (assuming Col1 is already a date):
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
+## Hash a column value into a new column
+```python
+    import hashlib
+    hash(row["MyColumnToHashCol1"])
+
+```
 
 
 

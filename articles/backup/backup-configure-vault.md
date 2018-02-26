@@ -14,20 +14,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/15/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
 
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
-> [!div class="op_single_selector"]
-> * [Azure portal](backup-configure-vault.md)
-> * [Classic portal](backup-configure-vault-classic.md)
->
->
-
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
-
-[!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -39,7 +31,7 @@ A Recovery Services vault is an entity that stores all the backups and recovery 
 
 ### To create a Recovery Services vault
 1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
-2. On the Hub menu, click **More services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
+2. On the Hub menu, click **All services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

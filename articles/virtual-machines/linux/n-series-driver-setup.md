@@ -4,7 +4,7 @@ description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in 
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -99,18 +99,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
+### CentOS or Red Hat Enterprise Linux 7.3 or 7.4
 
-1. Install the latest Linux Integration Services for Hyper-V.
+1. Update the kernel.
 
-  > [!IMPORTANT]
-  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the HPC image, LIS should not be upgraded, and kernel updates are disabled by default.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -122,8 +125,6 @@ sudo reboot
 3. Reconnect to the VM and continue installation with the following commands:
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -160,20 +161,22 @@ If the driver is installed, you will see output similar to the following. Note t
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)
 
 
-
 ## RDMA network connectivity
 
 RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
 ### Distributions
 
-Deploy RDMA-capable N-series VMs from one of the following images in the Azure Marketplace that supports RDMA connectivity:
+Deploy RDMA-capable N-series VMs from an image in the Azure Marketplace that supports RDMA connectivity on N-series VMs:
   
-* **Ubuntu** - Ubuntu Server 16.04 LTS. Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
+* **Ubuntu 16.04 LTS** - Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **CentOS-based HPC** - CentOS-based 7.3 HPC. RDMA drivers and Intel MPI 5.1 are installed on the VM. 
+> [!NOTE]
+> CentOS-based HPC images are not currently recommended for RDMA connectivity on N-series VMs. RDMA is not supported on the latest CentOS 7.4 kernel that supports NVIDIA GPUs.
+> 
+
 
 ## Install GRID drivers for NV VMs
 
@@ -212,11 +215,11 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
@@ -235,7 +238,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 9. Reboot the VM and proceed to verify the installation.
 
 
-### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
+### CentOS or Red Hat Enterprise Linux 
 
 1. Update the kernel and DKMS.
  
@@ -260,9 +263,9 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -277,11 +280,11 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
@@ -341,8 +344,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 This file can be invoked as root on boot by creating an entry for it in `/etc/rc.d/rc3.d`.
 
 ## Troubleshooting
-
-* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77.
 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
 

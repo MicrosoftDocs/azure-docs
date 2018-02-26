@@ -1,5 +1,5 @@
 1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **New** > **Databases** > **Azure Cosmos DB**.
+2. Click **Create a resource** > **Databases** > **Azure Cosmos DB**.
    
    ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -17,7 +17,7 @@
 
     Then click **Create**.
 
-    ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 4. The account creation takes a few minutes. During account creation the portal displays the **Deploying Azure Cosmos DB** tile on the right side, you may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress. 
 

@@ -1,6 +1,6 @@
 ---
-title: Upload an Azure Management API Certificate | Microsoft Docs
-description: Learn how to upload the Management API certificate for the Azure portal.
+title: Upload an Azure Service Management Certificate | Microsoft Docs
+description: Learn how to upload the Service Management certificate for the Azure portal.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -17,7 +17,7 @@ ms.date: 08/01/2017
 ms.author: adegeo
 
 ---
-# Upload an Azure Management API Management Certificate
+# Upload an Azure Service Management Certificate
 Management certificates allow you to authenticate with the classic deployment model provided by Azure. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. 
 
 > [!WARNING]
@@ -35,7 +35,7 @@ You can also use [Azure Active Directory](https://azure.microsoft.com/en-us/serv
 Once you have a management certificate created, (.cer file with only the public key) you can upload it into the portal. When the certificate is available in the portal, anyone with a matching certificate (private key) can connect through the Management API and access the resources for the associated subscription.
 
 1. Log in to the [Azure portal](http://portal.azure.com).
-2. Click **More services** at the bottom Azure service list, then select **Subscriptions** in the _General_ service group.
+2. Click **All services** at the bottom Azure service list, then select **Subscriptions** in the _General_ service group.
 
     ![Subscription menu](./media/azure-api-management-certs/subscriptions_menu.png)
 

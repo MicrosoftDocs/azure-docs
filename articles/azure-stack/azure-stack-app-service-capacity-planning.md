@@ -3,8 +3,8 @@ title: Capacity planning for Azure App Service server roles in Azure Stack | Mic
 description: Capacity planning for Azure App Service server roles in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,11 +13,12 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
-ms.author: anwestg
-
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 ---
 # Capacity planning for Azure App Service server roles in Azure Stack
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 To provision a production ready deployment of Azure App Service on Azure Stack, you must plan for the capacity you expect the system to support.  Here is guidance on the minimum number of instances and compute SKUs you should use for any production deployment.
 

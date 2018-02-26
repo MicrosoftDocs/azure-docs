@@ -8,7 +8,7 @@
       href: web-search-endpoints.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: Quickstarts
+- name: API Quickstarts
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
@@ -22,6 +22,18 @@
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
+- name: SDK (preview)
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Web Search SDK C# quickstart (preview)
+    href: web-search-sdk-quickstart.md 
+  - name: Web Search SDK Node.js quickstart (preview)
+    href: web-search-sdk-node-quickstart.md 
+  - name: Web Search SDK Python quickstart (preview)
+    href: web-sdk-python-quickstart.md
+  - name: Web Search SDK Java quickstart (preview)
+    href: web-sdk-java-quickstart.md    
 - name: How To Guides
   items:
   - name: Use and display results

@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 12/20/2017
 ms.author: jgao
 
 ---
@@ -37,7 +37,7 @@ Before you begin this article, you must have the following items:
 
 * **Visual Studio 2013/2015/2017**.
 
-## Submit Hive queries using HDInsight .NET SDK
+## Run a Hive Query
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
 **To Submit jobs**

@@ -15,12 +15,6 @@ metadata:
   ms.author: routlaw
 abstract:
   description: Use Terraform to reliably version and create infrastructure on Azure. Learn how to create resources, use Azure Terraform modules, and maintain your infrastructure with code using our Quickstarts and tutorials.
-  aside:
-    image:
-      alt: Terraform logo.
-      height: 110
-      src: media/Terraform_VerticalLogo_FullColor.svg
-      width: 250  
 sections:
 - title: Quickstarts
   items:
@@ -30,11 +24,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+        src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
       text: Install and configure Terraform
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+        src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
       text: Create a Linux VM
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
 - title: Step-by-Step Tutorials

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Automate management tasks on SQL VMs (Resource Manager) | Microsoft Docs
 description: This article describes how to manage the SQL Server agent extension, which automates specific SQL Server administration tasks. These include Automated Backup, Automated Patching, and Azure Key Vault Integration.
 services: virtual-machines-windows
 documentationcenter: ''
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-resource-manager
 
@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.custom: H1Hack27Feb2017
 ---
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classic](../classic/sql-server-agent-extension.md)
-> 
-> 
+> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 The SQL Server IaaS Agent Extension (SQLIaaSExtension) runs on Azure virtual machines to automate administration tasks. This article provides an overview of the services supported by the extension as well as instructions for installation, status, and removal.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [SQL Server Agent Extension for SQL Server VMs Classic](../classic/sql-server-agent-extension.md).
+To view the classic version of this article, see [SQL Server Agent Extension for SQL Server VMs Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Supported services
 The SQL Server IaaS Agent Extension supports the following administration tasks:
@@ -67,6 +64,9 @@ The SQL Server IaaS Agent Extension is automatically installed when you provisio
 ```powershell
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 ```
+
+> [!IMPORTANT]
+> If the extension is not already installed, installing the extension restarts the SQL Server service.
 
 It is also possible to install the SQL Server IaaS Agent Extension on an OS-only Windows Server virtual machine. This is only supported if you have also manually installed SQL Server on that machine. Then install the extension manually by using the same **Set-AzureVMSqlServerExtension** PowerShell cmdlet.
 

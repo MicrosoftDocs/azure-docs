@@ -38,7 +38,7 @@ for tracking messages:
 ## Requirements
 
 * A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
+Learn [how to create a logic app](quickstart-create-first-logic-app-workflow.md) 
 and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's set up with monitoring and logging. 
@@ -63,7 +63,7 @@ To have OMS track B2B messages for your logic app,
 you must add the **Logic Apps B2B** solution to the OMS portal. 
 Learn more about [adding solutions to OMS](../log-analytics/log-analytics-get-started.md).
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
+1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
 Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)

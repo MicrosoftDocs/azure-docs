@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article 
-ms.date: 09/11/2017
+ms.date: 02/01/2018
 ---
 
 # Sample of custom data flow transforms (Python) 
@@ -78,3 +78,8 @@ The data now looks like the following:
 |              |Texas         |San Antonio|
 |              |Texas         |Houston    |
 
+
+### Min-max normalization
+```python
+    df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
+```

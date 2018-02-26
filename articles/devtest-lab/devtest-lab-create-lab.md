@@ -3,7 +3,7 @@ title: Create a lab in Azure DevTest Labs | Microsoft Docs
 description: Create a lab in Azure DevTest Labs for virtual machines
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: tarcher	
+ms.author: v-craic	
 
 ---
 # Create a lab in Azure DevTest Labs
@@ -29,9 +29,9 @@ To create a lab, you need:
 The following steps illustrate how to use the Azure portal to create a lab in Azure DevTest Labs. 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. From the main menu on the left side, select **More Services** (at the bottom of the list).
+1. From the main menu on the left side, select **All Services** (at the top of the list).
 
-	![More services menu option](./media/devtest-lab-create-lab/more-services-menu-option.png)
+	![All services menu option](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. From the list of available services, **DevTest Labs**.
 1. In the **DevTest Labs** area, select **Add**.

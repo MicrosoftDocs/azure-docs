@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
 ---
 # Scale your Power BI Embedded capacity
@@ -22,15 +22,16 @@ This article walks through how to scale a Power BI Embedded capacity in Microsof
 
 This assumes you have created a Power BI Embedded capacity. If you have not, see [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) to get started.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+> [!NOTE]
+> A scaling operation can take about a minute. During this time, the capacity will not be available. Embedded content may fail to load.
 
 ## Scale a capacity
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-2. Select **More services** > **Power BI Embedded** to see your capacities.
+2. Select **All services** > **Power BI Embedded** to see your capacities.
 
-    ![More services within Azure portal](media/scale-capacity/azure-portal-more-services.png)
+    ![All services within Azure portal](media/scale-capacity/azure-portal-more-services.png)
 
 3. Select the capacity you want to scale.
 
