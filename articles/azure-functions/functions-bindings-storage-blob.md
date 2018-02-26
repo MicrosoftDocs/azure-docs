@@ -29,7 +29,7 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are not supported. Blob storage triggers and bindings require a general-purpose storage account. 
+> [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are not supported for blob triggers. Blob storage triggers require a general-purpose storage account. For input and output bindings you can use blob-only storage accounts.
 
 ## Trigger
 
