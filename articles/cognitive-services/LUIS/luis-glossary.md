@@ -120,6 +120,15 @@ The subscription key is the key associated with the LUIS service [you created in
 
 [Testing](train-test.md#test-your-app) a LUIS app means passing an utterance to LUIS and viewing the JSON results.
 
+## <a name="timezoneoffset"></a>Timezone offset
+
+The endpoint includes timezoneOffset. This is the number in minutes you want to add or remove from the datetimeV2 prebuilt entity. For example, if the utterance is "what time is it now?", the datetimeV2 returned will be the current time for the client request. If your client request is coming from a bot or other application that is not the same as your bot's user, you should pass in the offset between the bot and the user. 
+
+|timezoneOffset value| in minutes |
+|:--|--|
+|-120|subtract 2 hours|
+|30|add 30 minutes|
+
 ## <a name="train"></a>Train
 
 Training is the process of teaching LUIS about any changes to the [active version](#active-version) since the last training.
