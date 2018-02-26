@@ -14,6 +14,7 @@
 
 # How-to 
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
+## [Import a Power BI Desktop file](analysis-services-import-pbix.md)
 ## [Backup and restore](analysis-services-backup.md)
 ## [Refresh with REST API](analysis-services-async-refresh.md)
 ## [Configure scale-out](analysis-services-scale-out.md)
