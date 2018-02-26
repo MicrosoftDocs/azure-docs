@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 02/21/2018
+ms.date: 02/26/2018
 ms.author: tomfitz
 ms.custom: mvc
 ---

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/26/2018
 ms.author: tomfitz
 
 ---
@@ -24,7 +24,7 @@ This article provides recommendations for creating Azure Resource Manager templa
 Defining dependencies for Web Apps requires an understanding of how the resources within a Web App interact. If you specify dependencies in an incorrect order, you may cause deployment errors or create a race condition that stalls the deployment.
 
 > [!WARNING]
-> If you include an MS Deploy site extension in your template, you must set any cofiguration resources as dependent on the MS Deploy resource. Configuration changes cause the site to restart asynchronously. By making the configuration resources dependent on MS Deploy, you ensure MS Deploy finishes before the site restarts. Without these dependencies, the site might restart during MS Deploy's deployment process. For an example template, see [Wordpress Template with Web Deploy Dependency](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
+> If you include an MS Deploy site extension in your template, you must set any configuration resources as dependent on the MS Deploy resource. Configuration changes cause the site to restart asynchronously. By making the configuration resources dependent on MS Deploy, you ensure MS Deploy finishes before the site restarts. Without these dependencies, the site might restart during MS Deploy's deployment process. For an example template, see [Wordpress Template with Web Deploy Dependency](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
 
 The following image shows the dependency order for various App Service resources.
 
@@ -37,21 +37,21 @@ You deploy resources in the following order:
 * Any other related resources like databases or storage accounts
 
 **Tier 2**
-* Web app (depends on app service plan)
-* Application Insights that target the server farm (depends on app service plan)
+* Web app - depends on app service plan
+* Application Insights that target the server farm - depends on app service plan
 
 **Tier 3**
-* Source control (depends on web app)
-* MSDeploy site extension (depends on web app)
-* Application Insights that target the server farm (depends on web app)
+* Source control - depends on web app
+* MSDeploy site extension - depends on web app
+* Application Insights that target the server farm - depends on web app
 
 **Tier 4**
-* App Service Certificate (depends on source control or MSDeploy if either is present; otherwise, depends on web app)
-* Configuration settings (depends on source control or MSDeploy if either is present; otherwise, depends on web app)
+* App Service Certificate - depends on source control or MSDeploy if either is present; otherwise, depends on web app
+* Configuration settings (connection strings, web config values, app settings) - depends on source control or MSDeploy if either is present; otherwise, depends on web app
 
 **Tier 5**
-* Host name bindings (depends on certificate if present; otherwise, a higher-level resource)
-* Site extensions (depends on configuration settings if present; otherwise, a higher-level resource)
+* Host name bindings - depends on certificate if present; otherwise, a higher-level resource
+* Site extensions - depends on configuration settings if present; otherwise, a higher-level resource
 
 Typically, your solution includes only some of these resources and tiers. For missing tiers, map lower resources to the next higher tier.
 
