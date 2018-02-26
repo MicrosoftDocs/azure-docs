@@ -26,6 +26,34 @@ Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), e
 
 Used to author the app. Not used for production-level endpoint queries. Refer to [Key limits](luis-boundaries.md#key-limits) for more information.  Previously named "Programmatic" key. 
 
+## <a name="batch-test-json-file"></a>Batch text JSON file
+
+The batch file is a JSON array. Each element in the array has 3 properties: `text`, `intent`, and `entities`. The `entities` property is an array. The array can be empty. If the `entities` array is not empty, it needs to accurately identify the entities.
+
+```JSON
+[
+    {
+        "text": "drive me home",
+        "intent": "None",
+        "entities": []
+    },
+    {
+        "text": "book a flight to orlando on the 25th",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entity": "orlando",
+                "type": "Location",
+                "startIndex": 18,
+                "endIndex": 25
+            }
+        ]
+    }
+]
+
+```
+
+
 ## <a name="currently-editing"></a>Currently editing
 
 Same as [active version](#active-version)
