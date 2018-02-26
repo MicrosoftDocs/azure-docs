@@ -87,7 +87,7 @@ $CertPassword = "CertPasswordHere"  | ConvertTo-SecureString
 $CertShareCred = Get-Credential 
 $CertSharePath = <NetworkPathofCertShare>   
 Invoke-Command -session $PEPsession -ScriptBlock { 
-Start-SecretRotation -PfxFilesPath $CertSharePath -PathAccessCredential $CertShareCred -CertificatePassword $CertPassword }  
+Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 ```
 
 
