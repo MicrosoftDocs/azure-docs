@@ -180,7 +180,7 @@ Refresh the browser app at `http://localhost:5000`. The error message in the **C
 
 Congratulations, you're running an API in Azure App Service with CORS support.
 
-## App Service CORS versus your CORS
+## App Service CORS vs. your CORS
 
 You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you may want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify one set of accepted origins for all API routes and methods, you would want to use your own CORS code (see how ASP.NET Core does it at [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors)).
 
