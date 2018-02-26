@@ -11,14 +11,15 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2018
+ms.date: 02/26/2018
 ms.author: sethm
 
 ---
 
-# Send and receive events using PowerShell
+# Process event streams using PowerShell and .NET
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to send and receive events to and from an event hub, after using PowerShell to create an Event Hubs namespace and an event hub within that namespace.
 
@@ -26,9 +27,7 @@ If you do not have an Azure subscription, start by creating a [free account][].
 
 This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
-## Setup steps
-
-### Log in to Azure
+## Log in to Azure
 
 Log in to your Azure subscription with the **Login-AzureRmAccount** cmdlet and follow the on-screen directions.
 
@@ -36,7 +35,7 @@ Log in to your Azure subscription with the **Login-AzureRmAccount** cmdlet and f
 Login-AzureRmAccount
 ```
 
-### Create a resource group
+## Create a resource group
 
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group.
 
@@ -46,7 +45,7 @@ You create a new resource group with the **[New-AzureRmResourceGroup][]** cmdle
 New-AzureRmResourceGroup -Name eventhubsResourceGroup -Location eastus
 ```
 
-### Create an Event Hubs namespace
+## Create an Event Hubs namespace
 
 An Event Hubs namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more event hubs. The following example creates a namespace in your resource group. Replace `<namespace_name>` with a unique name for your namespace:
 
@@ -54,7 +53,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its [
 New-AzureRmEventHubNamespace -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -Location eastus
 ```
 
-### Get namespace credentials
+## Get namespace credentials
 
 To obtain the connection string, which contains the credentials you need to connect to the event hub, run the following cmdlet:
 
@@ -62,7 +61,7 @@ To obtain the connection string, which contains the credentials you need to conn
 Get-AzureRmServiceBusKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
 ```
 
-### Create an event hub
+## Create an event hub
 
 To create an event hub, specify the namespace in which you want to create it. The following example shows how to create an event hub:
 
@@ -70,7 +69,7 @@ To create an event hub, specify the namespace in which you want to create it. Th
 New-AzureRmEventHub -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Location eastus
 ```
 
-### Create a storage account for Event Processor Host
+## Create a storage account for Event Processor Host
 
 The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, the Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access.
 
