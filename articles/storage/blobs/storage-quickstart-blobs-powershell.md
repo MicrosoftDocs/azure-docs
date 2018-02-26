@@ -1,24 +1,18 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using PowerShell | Microsoft Docs
-description: Quickly learn to transfer objects to/from Azure Blob storage using PowerShell
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Azure PowerShell | Microsoft Docs
+description: In this quickstart, you use Azure PowerShell to create a storage account and a container. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-documentationcenter: storage
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
 ---
 
-# Transfer objects to/from Azure Blob storage using Azure PowerShell
+# Quickstart: Upload, download, and list blobs using Azure PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to transfer files between local disk and Azure Blob storage.
 
