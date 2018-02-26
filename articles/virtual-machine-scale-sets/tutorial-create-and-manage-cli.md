@@ -1,6 +1,6 @@
 ---
-title: Create and manage Virtual Machine Scale Sets with the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a virtual machine scale set with the Azure CLI 2.0, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
+title: Tutorial - Create and manage an Azure virtual machine scale set | Microsoft Docs
+description: Learn how to use the Azure CLI 2.0 to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and manage a virtual machine scale set with the Azure CLI 2.0
+# Tutorial: Create and manage a virtual machine scale set with the Azure CLI 2.0
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -61,7 +61,7 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VM instances. To distribute traffic to the individual VM instances, a load balancer is also created.
 
 
-## View VM instances in a scale set
+## View the VM instances in a scale set
 To view a list of VM instances in a scale set, use [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) as follows:
 
 ```azurecli-interactive
@@ -111,7 +111,7 @@ The following example output shows the instance name, public IP address of the l
 }
 ```
 
-SSH to your first VM instance. Specify your own public IP address and port number with the `-p` parameter, as shown from the preceding command:
+SSH to your first VM instance. Specify your public IP address and port number with the `-p` parameter, as shown from the preceding command:
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50001

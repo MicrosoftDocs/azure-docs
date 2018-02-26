@@ -1,5 +1,5 @@
 ---
-title: Autoscale a virtual machine scale set with Azure PowerShell | Microsoft Docs
+title: Tutorial - Autoscale a scale set with Azure PowerShell | Microsoft Docs
 description: Learn how to automatically scale a virtual machine scale set with Azure PowerShell as CPU demands increases and decreases
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Automatically scale a virtual machine scale set with Azure PowerShell
+# Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -271,9 +271,12 @@ Create a remote connection to your first VM instance. Specify your own public IP
 mstsc /v 52.168.121.216:50001
 ```
 
-Once logged in, open Internet Explorer from the taskbar. Select **OK** to accept the prompt to *Use recommended security, privacy, and compatibility settings*, then type *http://download.sysinternals.com/files/CPUSTRES.zip* in the address bar.
+Once logged in, open Internet Explorer from the taskbar.
 
-As Internet Explorer Enhanced Security Configuation is enabled, choose to **Add** the *http://download.sysinternals.com* domain to your list of trusted sites. When prompted for the file download, select **Open**, then select and **Run** the *CPUSTRES.EXE* tool.
+- Select **OK** to accept the prompt to *Use recommended security, privacy, and compatibility settings*
+- Type *http://download.sysinternals.com/files/CPUSTRES.zip* in the address bar.
+- As Internet Explorer Enhanced Security Configuration is enabled, choose to **Add** the *http://download.sysinternals.com* domain to your list of trusted sites.
+- When prompted for the file download, select **Open**, then select and **Run** the *CPUSTRES.EXE* tool.
 
 To generate some CPU load, check two boxes for **Active** threads. From the **Activity** drop-down menu for both threads, select *Maximum*. You can open Task Manager to confirm that the CPU load on the VM is at 100%.
 

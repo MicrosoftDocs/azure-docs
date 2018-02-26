@@ -1,6 +1,6 @@
 ---
-title: Autoscale a virtual machine scale set with Azure templates | Microsoft Docs
-description: Learn how to automatically scale a virtual machine scale set as CPU demands increases and decreases with Azure Resource Manager templates
+title: Tutorial - Autoscale a scale set with Azure templates | Microsoft Docs
+description: Learn how to use Azure Resource Manager templates to automatically scale a virtual machine scale set as CPU demands increases and decreases
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Automatically scale a virtual machine scale set with an Azure template
+# Tutorial: Automatically scale a virtual machine scale set with an Azure template
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]

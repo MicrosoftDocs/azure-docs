@@ -1,6 +1,6 @@
 ---
-title: Install applications in a scale set with Azure templates | Microsoft Docs
-description: Learn how to install applications into virtual machine scale sets using the Custom Script Extension with Azure Resource Manager templates
+title: Tutorial - Install applications in a scale set with Azure templates | Microsoft Docs
+description: Learn how to use Azure Resource Manager templates to install applications into virtual machine scale sets with the Custom Script Extension
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use a custom image for virtual machine scale sets with an Azure template
+# Tutorial: Install applications in virtual machine scale sets with an Azure template
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 ## What is the Azure Custom Script Extension?
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time.
 
-The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine Scale Set REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
+The Custom Script extension integrates with Azure Resource Manager templates, and can also be used with the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine Scale Set REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
 To see the Custom Script Extension in action, lets create a scale set that installs the Nginx web server and outputs the hostname of the scale set VM instance. The following Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
@@ -92,7 +92,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
 
 
-## Test your web server
+## Test your scale set
 To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetPublicIP* created as part of the scale set:
 
 ```azurecli-interactive 

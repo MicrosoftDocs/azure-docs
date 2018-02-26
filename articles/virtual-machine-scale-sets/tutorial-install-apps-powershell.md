@@ -1,6 +1,6 @@
 ---
-title: Install applications in a scale set with Azure PowerShell | Microsoft Docs
-description: Learn how to install applications into virtual machine scale sets using the Custom Script Extension with Azure PowerShell
+title: Tutorial - Install applications in a scale set with Azure PowerShell | Microsoft Docs
+description: Learn how to use Azure PowerShell to install applications into virtual machine scale sets with the Custom Script Extension
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use a custom image for virtual machine scale sets with Azure PowerShell
+# Tutorial: Install applications in virtual machine scale sets with Azure PowerShell
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -199,7 +199,7 @@ Update-AzureRmVmss `
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
 
 
-## Test your web server
+## Test your scale set
 To see your web server in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
 
 ```azurepowershell-interactive
