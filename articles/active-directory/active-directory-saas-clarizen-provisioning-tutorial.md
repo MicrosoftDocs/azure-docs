@@ -127,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the user attributes that are synchronized from Azure AD to Clarizen in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Clarizen for update operations. Select the **Save** button to commit any changes.
 
-	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/UserMappingAttribute.png)
+	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/UserMappingAttributes.png)
 
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Clarizen**.
 
@@ -141,11 +141,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 15. To enable the Azure AD provisioning service for Clarizen, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/Clarizen14.png)
+	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/ProvisioningStatus.png)
 
 16. Define the users and/or groups that you would like to provision to Clarizen by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/Clarizen15.png)
+	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/ScopeSelection.png)
 
 17. When you are ready to provision, click **Save**.
 
