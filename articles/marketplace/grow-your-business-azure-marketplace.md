@@ -22,7 +22,7 @@ ms.author: ellacroi
 
 # Grow your business by using the Azure Marketplace
 
-After you have developed the technical assets for your Azure Marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product by following marketing best practices. 
+After you've developed the technical assets for your Azure Marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product by following marketing best practices. 
 
 >[!NOTE]
 >To learn about the publishing process and technical requirements, read the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
@@ -55,7 +55,7 @@ Your listing in the Marketplace can sometimes be your first interaction with a p
 ### Build a great landing page
 A landing page on your company website is a gateway from your demand generation activities to your listing in the Azure Marketplace. 
 
-Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Sample actions would be "Test drive our solution" or "Get a solution now." Your landing page can be used across multiple marketing tactics--for example, events, webcasts, social media, white papers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
+Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Example actions would be "Test drive our solution" or "Get a solution now." Your landing page can be used across multiple marketing tactics--for example, events, webcasts, social media, white papers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
 
 When you have a campaign plan ready, follow these best practices and consider what to avoid to maximize the effectiveness of your landing page: 
 
@@ -69,7 +69,7 @@ When you have a campaign plan ready, follow these best practices and consider wh
 |**Put your call to action in a header or a clearly delineated section**    |  Embedding the links to your Marketplace listing in a paragraph of text       |
 |**Research the best keywords and optimize the page for search**    | Assuming that your product name generates higher search rankings        |
 |**Use keywords from your advertising campaigns**    |  Using many different keywords across your web properties, which will dilute your advertising investments       |
-|**Put relevant product names and keywords "above the fold"**     | Making users scroll to see what product or solution you are showcasing        |
+|**Put relevant product names and keywords "above the fold"**     | Making users scroll to see what product or solution you're showcasing        |
 |**Use brand imagery (such as Azure Certified) to validate your solution, and in accordance with Microsoft branding guidelines**    |    Using unapproved Microsoft brand imagery     |
 
 > [!NOTE]
@@ -116,18 +116,20 @@ Whatever your offer's maturity and the goals of your organization, the keys to  
 
 As part of being a new publisher in the Azure Marketplace, we'll offer you some free Marketplace GTM benefits. You should think critically about how to use these benefits in your campaign strategy. Let our marketing team know your Marketplace campaign goals and your desired audience action. We can customize these deliverables to work into your plan.
 
-For additional go-to-market support--including templates, web content, training, and tools to promote your business--visit [Microsoft Go To Market](https://www.MicrosoftGoToMarket.com). For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), a program of the Microsoft Partner Network.
+For additional go-to-market support, visit [Microsoft Go To Market](https://www.MicrosoftGoToMarket.com). There, you can find templates, web content, training, and tools to promote your business. 
+
+For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing). It's a program of the Microsoft Partner Network.
 
 #### Take advantage of Marketplace GTM benefits
 
-New listings in the Marketplace become eligible to receive free Marketplace GTM benefits. Our team of marketing specialists will reach out to you to kick-start these activities. There is nothing for you to do except to engage with us when we reach out. 
+New listings in the Marketplace become eligible to receive free Marketplace GTM benefits. Our team of marketing specialists will contact you to kick-start these activities. There is nothing for you to do except to engage with us when we contact you. 
 
 The activities that we provide differ depending on your solution status in the Marketplace. Benefits significantly increase for offers that come with a trial experience or transact capabilities within the Marketplace.
 
 To maximize the impact of these activities, we encourage you to have your launch plan ready to execute. You might want to use your landing page for many of these tactics. 
 
 >[!NOTE]
->One Commercial Partner Catalog (OCP Catalog) is a benefit of members in the Microsoft Partner Network. 
+>One Commercial Partner Catalog (OCP Catalog) is a benefit of membership in the Microsoft Partner Network. 
 
 ![Marketplace GTM benefits](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
 
@@ -162,7 +164,7 @@ The best next steps that you can take to open access to even more partner benefi
     As part of the Microsoft Partner Network, you receive a set of core benefits that can help you save time and money. They can also help you strengthen your capabilities, better serve customers, and build connections to reach your full business potential.
 
 2.	Earn your [Cloud Platform competency](https://partner.microsoft.com/en-us/membership/cloud-platform-competency).
-    Earning a competency helps you differentiate yourself within Microsoft's expansive partner network. Earning a competency also helps you demonstrate technical expertise and customer success in the market. It's prerequisite for many key partner programs like Co-Sell.
+    Earning a competency helps you differentiate yourself within Microsoft's expansive partner network. Earning a competency also helps you demonstrate technical expertise and customer success in the market. It's a prerequisite for many key partner programs like Co-Sell.
 
 3.	Become [Co-Sell ready](https://partner.microsoft.com/en-US/reach-customers/promote-your-business).
     This program allows you to collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. Your solution becomes visible to our sellers in their solution catalog. Our sellers are rewarded for collaborating and winning with you.
