@@ -61,26 +61,26 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Database service   
-    items:
-    - name: Servers and databases
-      href: sql-database-servers-databases.md
-    - name: Service tiers
-      href: sql-database-service-tiers.md
-    - name: Resource limits
-      href: sql-database-resource-limits.md  
-    - name: Single databases
-      href: sql-database-single-database-resources.md
-    - name: Elastic pools
-      href: sql-database-elastic-pool.md
-    - name: Connectivity architecture
-      href: sql-database-connectivity-architecture.md 
-    - name: DTUs and eDTUs
-      href: sql-database-what-is-a-dtu.md
-    - name: DTU benchmark
-      href: sql-database-benchmark-overview.md
-    - name: SQL Server common features
-      href: sql-database-features.md
+  - name: Servers and databases
+    href: sql-database-servers-databases.md
+  - name: Managed instance
+    href: sql-database-managed-instance.md
+  - name: Service tiers
+    href: sql-database-service-tiers.md
+  - name: Resource limits
+    href: sql-database-resource-limits.md  
+  - name: Single databases
+    href: sql-database-single-database-resources.md
+  - name: Elastic pools
+    href: sql-database-elastic-pool.md
+  - name: Connectivity architecture
+    href: sql-database-connectivity-architecture.md 
+  - name: DTUs and eDTUs
+    href: sql-database-what-is-a-dtu.md
+  - name: DTU benchmark
+    href: sql-database-benchmark-overview.md
+  - name: SQL Server common features
+    href: sql-database-features.md
   - name: High availability
     href: sql-database-high-availability.md  
   - name: Security   
@@ -137,11 +137,13 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Migrate to SQL Database
     items:
-    - name: Overview
+    - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
-    - name: T-SQL changes
+    - name: SQL Database T-SQL changes
       href: sql-database-transact-sql-information.md
-    - name: Manage database after migration
+    - name: Managed Instance T-SQL changes
+      href: sql-database-managed-instance-transact-sql-information.md
+    - name: Manage SQL Database after migration
       href: sql-database-manage-after-migration.md
   - name: Load & move data
     items:
