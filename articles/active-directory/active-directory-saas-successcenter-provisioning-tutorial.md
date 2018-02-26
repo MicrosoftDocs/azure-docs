@@ -95,11 +95,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterProvisioning.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningTab.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-Successcenter-provisioning-tutorial/SuccesscenterAutomatic.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-Successcenter-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, and **Domain** of your Cornerstone OnDemand's account.
 
@@ -111,35 +111,35 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Cornerstone OnDemand. If the connection fails, ensure your Cornerstone OnDemand account has Admin permissions and try again.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterTestConnection.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/TestConnection.png)
 
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterNotificationEmail.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/EmailNotification.png)
 
 8. Click **Save**.
 
 9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cornerstone OnDemand**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenteUserMapping.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMapping.png)
 
 10. Review the user attributes that are synchronized from Azure AD to Cornerstone OnDemand in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cornerstone OnDemand for update operations. Select the **Save** button to commit any changes.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterUserMappingAtrributes.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMappingAttributes.png)
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
 
 12. To enable the Azure AD provisioning service for Cornerstone OnDemand, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterProvisioningStatus.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningStatus.png)
 
 13. Define the users and/or groups that you would like to provision to Cornerstone OnDemand by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserGroupSelection.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SyncScope.png)
 
 14. When you are ready to provision, click **Save**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SaveProvisioning.png) 
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/Save.png) 
 
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Cornerstone OnDemand.
