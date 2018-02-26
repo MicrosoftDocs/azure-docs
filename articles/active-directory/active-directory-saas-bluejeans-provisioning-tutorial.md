@@ -124,7 +124,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the user attributes that are synchronized from Azure AD to Bluejeans in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Bluejeans for update operations. Select the **Save** button to commit any changes.
 
-	![Bluejeans Provisioning](./media/active-directory-saas-Bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+	![Bluejeans Provisioning](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
 
