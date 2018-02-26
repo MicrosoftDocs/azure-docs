@@ -1,6 +1,6 @@
 ---
 title: Create a Java application for Service Fabric | Microsoft Docs
-description: Learn how to create a reliable service Java application with a front-end and a reliable service stateful back-end and deploy the application to a cluster.
+description: In this tutorial, learn how to create a reliable service Java application with a front-end, create a reliable services stateful back-end, and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
