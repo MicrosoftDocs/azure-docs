@@ -99,9 +99,10 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
 1. In the web application menu bar, click your profile name and select **Edit profile** to edit the profile you created.
 
-![Edit profile](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
+    ![Edit profile](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-Change your **Display name** and **City**.  Click **Continue** to update your profile. The new display name is displayed in the upper right portion of the web app's home page.
+2. Change your **Display name** and **City**.  
+3. Click **Continue** to update your profile. The new display name is displayed in the upper right portion of the web app's home page.
 
 ## Access a protected web API resource
 
