@@ -25,7 +25,8 @@ Scheduled Events is an Azure Metadata Service that gives your application time t
 
 For information about Scheduled Events on Windows, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md).
 
-[!IMPORTANT] Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
+> [!Note] 
+> Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
 
 ## Why use Scheduled Events?
 

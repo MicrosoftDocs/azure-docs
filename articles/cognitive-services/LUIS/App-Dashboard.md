@@ -15,7 +15,7 @@ ms.author: v-demak
 # Application Dashboard
 The app dashboard enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
 
-The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as endpoint usage over time. <!--The following image shows the **Dashboard** page.-->
+The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as [endpoint](luis-glossary.md#endpoint) usage over time. <!--The following image shows the **Dashboard** page.-->
 
 <!-- TBD: Get a working screen shot
 ![The Dashboard](./media/luis-app-dashboard/dashboard.png)
