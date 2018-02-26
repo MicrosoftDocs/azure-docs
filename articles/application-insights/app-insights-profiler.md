@@ -17,16 +17,16 @@ ms.author: mbullwin
 ---
 # Profile live Azure web apps with Application Insights
 
-*This feature of Application Insights is generally available for the API Apps feature of Azure App Service and is in preview for Azure compute resources.*
+*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources.*
 
 This article discusses the amount of time that's spent in each method of your live web application when you use [Application Insights](app-insights-overview.md). The Application Insights Profiler tool displays detailed profiles of live requests that were served by your app. Profiler highlights the *hot path* that uses the most time. Requests with various response times are profiled on a sampling basis. By using a variety of techniques, you can minimize the overhead that's associated with the application.
 
-Profiler currently works for ASP.NET and ASP.NET Core web apps that are running on API Apps. The Basic service tier or higher is required to use Profiler.
+Profiler currently works for ASP.NET and ASP.NET Core web apps that are running on Web Apps. The Basic service tier or higher is required to use Profiler.
 
-## <a id="installation"></a> Enable Profiler for your API Apps web app
-If you already have the application published to an API app, but have not done anything in the source code to use Application Insights, do the following:
+## <a id="installation"></a> Enable Profiler for your Web Apps web app
+If you already have the application published to a web app, but have not done anything in the source code to use Application Insights, do the following:
 1. Go to the **App Services** pane in the Azure portal.
-2. Under **Monitoring**, select **Application Insights**, and then either follow the instructions on the pane to create a new resource or select an existing Application Insights resource to monitor your Web App.
+2. Under **Monitoring**, select **Application Insights**, and then either follow the instructions on the pane to create a new resource or select an existing Application Insights resource to monitor your web app.
 
    ![Enable App Insights on App Services portal][appinsights-in-appservices]
 
@@ -52,7 +52,7 @@ ASP.NET Core applications require the installation of the Microsoft.ApplicationI
 
    ![Configure pane options][linked app services]
 
-Unlike web apps that are hosted through API Apps plans, applications that are hosted in Azure compute resources (for example, Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, or Azure Cloud Services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
+Unlike web apps that are hosted through Web Apps plans, applications that are hosted in Azure compute resources (for example, Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, or Azure Cloud Services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
 
 ### Enable Profiler for Azure compute resources (preview)
 
@@ -127,7 +127,7 @@ The **When** column is a visualization of how the INCLUSIVE samples collected fo
 
 The default data retention period is five days. The maximum data that's ingested per day is 10 GB.
 
-There are no charges for using the Profiler service. For you to use the Profiler service, your web app must be hosted in at least the Basic tier of API Apps.
+There are no charges for using the Profiler service. For you to use the Profiler service, your web app must be hosted in at least the Basic tier of Web Apps.
 
 ## Overhead and sampling algorithm
 
@@ -136,7 +136,7 @@ Profiler randomly runs two minutes every hour on each virtual machine that hosts
 The more servers that are available for hosting the application, the less impact Profiler has on the overall application performance. This is because the sampling algorithm results in Profiler running on only 5 percent of servers at any time. More servers are available to serve web requests to offset the server overhead caused by running Profiler.
 
 ## Disable Profiler
-To stop or restart Profiler for an individual API apps instance, under **Web Jobs**, go to the API Apps resource. To delete Profiler, go to **Extensions**.
+To stop or restart Profiler for an individual web apps instance, under **Web Jobs**, go to the Web Apps resource. To delete Profiler, go to **Extensions**.
 
 ![Disable Profiler for a web job][disable-profiler-webjob]
 
@@ -193,7 +193,7 @@ Submit a support ticket in the portal. Be sure to include the correlation ID fro
 
 ### Deployment error: Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
-If you are redeploying your web app to an API Apps resource with Profiler enabled, you might see a message like the following:
+If you are redeploying your web app to a Web Apps resource with Profiler enabled, you might see a message like the following:
 
 *Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
@@ -208,7 +208,7 @@ These parameters delete the folder that's used by Application Insights Profiler 
 
 ## Manual installation
 
-When you configure Profiler, updates are made to the web app's settings. You can apply the updates manually if your environment requires it. An example might be that your application is running in an API Apps environment for PowerApps.
+When you configure Profiler, updates are made to the web app's settings. You can apply the updates manually if your environment requires it. An example might be that your application is running in a Web Apps environment for PowerApps.
 
 1. In the **Web App Control** pane, open **Settings**.
 2. Set **.Net Framework version** to **v4.6**.
@@ -221,7 +221,7 @@ When you configure Profiler, updates are made to the web app's settings. You can
 9. Restart the web app.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
-When we developed Profiler, we added a command-line interface so that we could test Profiler on app services. By using this same interface, users can also customize how Profiler starts. At a high level, Profiler uses the API Apps Kudu System to manage profiling in the background. When you install the Application Insights Extension, we create a continuous web job that hosts Profiler. We use this same technology to create a new web job that you can customize to fit your needs.
+When we developed Profiler, we added a command-line interface so that we could test Profiler on app services. By using this same interface, users can also customize how Profiler starts. At a high level, Profiler uses the Web Apps Kudu System to manage profiling in the background. When you install the Application Insights Extension, we create a continuous web job that hosts Profiler. We use this same technology to create a new web job that you can customize to fit your needs.
 
 This section explains how to:
 
@@ -306,7 +306,7 @@ Though this method is relatively straightforward, consider the following:
 
 * Because this process utilizes command-line arguments that were originally designed for developers rather than end-users, the arguments might change in the future. Be aware of possible changes when you upgrade. It shouldn't be much of a problem, because you can add a web job, run it, and test to ensure that it works. Eventually, we will build a UI to handle this without the manual process.
 
-* The Web Jobs feature of API Apps is unique. When it runs the web job, it ensures that your process has the same environment variables and app settings that your website will have. This means that you do not need to pass the instrumentation key through the command line to Profiler. Profiler should pick up the instrumentation key from the environment. However, if you want to run Profiler on your dev box or on a machine outside of API Apps, you need to supply an instrumentation key. You can do so by passing an argument, `--ikey <instrumentation-key>`. This value must match the instrumentation key that your application is using. The log output from Profiler tells you which ikey Profiler started with and whether we detected activity from that instrumentation key while we were profiling.
+* The Web Jobs feature of Web Apps is unique. When it runs the web job, it ensures that your process has the same environment variables and app settings that your website will have. This means that you do not need to pass the instrumentation key through the command line to Profiler. Profiler should pick up the instrumentation key from the environment. However, if you want to run Profiler on your dev box or on a machine outside of Web Apps, you need to supply an instrumentation key. You can do so by passing an argument, `--ikey <instrumentation-key>`. This value must match the instrumentation key that your application is using. The log output from Profiler tells you which ikey Profiler started with and whether we detected activity from that instrumentation key while we were profiling.
 
 * Manually triggered web jobs can be triggered via Web Hook. You can get this URL by right-clicking the web job on the dashboard and viewing the properties. Or, in the toolbar, you can select **Properties** after you select the web job in the table. This approach opens up endless possibilities, such as triggering Profiler from your CI/CD pipeline (like VSTS) or something like Microsoft Flow (https://flow.microsoft.com/en-us/). Ultimately, your choice depends on how complex you want to make your *run.cmd* file (which can also be a *run.ps1* file), but the flexibility is there.
 
