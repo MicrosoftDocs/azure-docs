@@ -59,7 +59,7 @@ Running secret rotation using the instructions below will remediate these alerts
 4. Open a Powershell ISE console and navigate to your fileshare from pre-step #3. 
 5. Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
-## Rotating All Secrets 
+## Rotating all secrets 
 To rotate all secrets in Azure Stack, including external certificates: 
 
 1. Within the newly created /Certificates directory from pre-step #5, place your certificates from pre-step #2 in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates). 
@@ -92,7 +92,7 @@ Start-SecretRotation -PfxFilesPath $CertSharePath -PathAccessCredential $CertSha
 
 
 
-## Rotating Only Internal Secrets 
+## Rotating only internal secrets 
 1. Create a Powershell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. In the Privileged Endpoint session run **Start-SecretRotation** with no arguments.
 
@@ -110,13 +110,13 @@ Path (Default)
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredential> [-CertificatePassword <SecureString>]  
 ```
 
-**DESCRIPTION**
+**Description**
 
 The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure Stack system. By default it rotates all secrets exposed to the internal infrastructure network, with user-input it also rotates the certificates of all external network infrastructure endpoints. When rotating external network infrastructure endpoints, Start-SecretRotation should be executed via an Invoke-Command script block with the Azure Stack environment's privileged endpoint session passed in as the session parameter.
  
 **Parameters**
 
-- **PfxFilesPath**. The fileshare path to the \Certificates directory containing all external network endpoint certificates. Only required when rotating internal AND external secrets. End directory must be “Certificates”.
+- **PfxFilesPath**. The fileshare path to the \Certificates directory containing all external network endpoint certificates. Only required when rotating internal **and** external secrets. End directory must be *Certificates*.
 - **PathAccessCredential**
     > Type: String  
 
@@ -163,9 +163,9 @@ Start-SecretRotation -PfxFilesPath “C:\Path\to\my\Certificates” -PathAccessC
 This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack’s external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
 
 
-## Updating the passwords for the baseboard management controller (BMC)
+## Update the baseboard management controller (BMC) password
 
-The baseboard management controllers (BMC) monitor the physical state of your servers. The specifications and instructions on updating the password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. Update your passwords for Azure Stack components at a regular cadence.
+The baseboard management controllers (BMC) monitors the physical state of your servers. The specifications and instructions on updating the password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You shoul update your passwords for Azure Stack components at a regular cadence.
 
 1. Update the BMC on the Azure Stack’s physical servers by following your OEM instructions. The password for each BMC in your environment must be the same.
 2. Open a privileged endpoint in Azure Stack Sessions. For instruction, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
@@ -203,4 +203,4 @@ The baseboard management controllers (BMC) monitor the physical state of your se
 
 ## Next steps
 
-To learn more about the security and Azure Stack, see [Azure Stack infrastructure security posture](azure-stack-security-foundations.md).
+[Learn more about Azure Stack security](azure-stack-security-foundations.md).
