@@ -1,8 +1,8 @@
 # Using OpenFaaS on AKS
-[OpenFaaS](https://www.openfaas.com/) is a framework for building Serverless functions on top of containers.  As an Open Source project it has gained a lot of momentum within the community.
+[OpenFaaS](https://www.openfaas.com/) is a framework for building Serverless functions on top of containers.  As an Open Source project it has gained large-scale adoption within the community.
 
 ## Prerequisites
-You need the following items in order to complete the steps in this article.
+In order to complete the steps within this article, you will need the following.
 
 * Basic understanding of Kubernetes.
 * An Azure Container Service (AKS) cluster and AKS credentials configured on your development system.
@@ -170,7 +170,7 @@ Notice that the connection string has been altered to reference the **plans** da
 
 ##  Deploying a function in OpenFaaS
 
-In order to deploy the pre-built Golang container, you will need values for the following variables:
+In order to deploy the pre-built Golang container, you need values for the following variables:
 
 * OpenFaaS Gateway IP: This is the URL for your deployed OpenFaaS Gateway with AKS, it is the same as your OpenFaaS UI URL without the ui suffix, in the case of this example: ```http://52.226.73.206:8080```
 
