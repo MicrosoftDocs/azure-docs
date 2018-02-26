@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
 
-You can use Azure Resource Manager to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses Azure CLI 2.0 to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the Azure portal, PowerShell, .NET, ruby, or other programming languages to perform these steps and deploy your template.
+You can use [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses [Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby, or other programming languages to perform these steps and deploy your template. 
 
 
 ## Prerequisites
@@ -77,7 +77,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
    }
    ```
 
-2. Replace the **parameters** section with the following content. The parameters section specifies parameters that can be passed in from another file. This section specifies the name of the Iot hub and provisioning service to create. It also specifies the location for both the Iot hub and provisioning service. The values are restricted to Azure regions that support Iot hubs and provisioning services. For a list of current regions where these services are supported, see
+2. Replace the **parameters** section with the following content. The parameters section specifies parameters that can be passed in from another file. This section specifies the name of the Iot hub and provisioning service to create. It also specifies the location for both the Iot hub and provisioning service. The values are restricted to Azure regions that support Iot hubs and provisioning services. For a list of supported locations for device provisioning service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and search on "Device Provisioning Service".
 
    ```json
     "parameters": {
@@ -90,12 +90,12 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
         "hubLocation": {
             "type": "string",
             "allowedValues": [
-                "East US",
-                "West US",
-                "West Europe",
-                "North Europe",
-                "Southeast Asia",
-                "East Asia"
+                "eastus",
+                "westus",
+                "westeurope",
+                "northeurope",
+                "southeastasia",
+                "eastasia"
             ]
         }
     },
@@ -178,12 +178,12 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
            "hubLocation": {
                "type": "string",
                "allowedValues": [
-                   "East US",
-                   "West US",
-                   "West Europe",
-                   "North Europe",
-                   "Southeast Asia",
-                   "East Asia"
+                   "eastus",
+                   "westus",
+                   "westeurope",
+                   "northeurope",
+                   "southeastasia",
+                   "eastasia"
                ]
            }
        },
@@ -283,7 +283,7 @@ The template that you defined in the last step uses parameters to specify the na
             "value": "my-sample-provisioning-service"
         },
         "hubLocation": {
-            "value": "West US"
+            "value": "westus"
         }
     },
 
@@ -302,6 +302,9 @@ Use the following Azure CLI commands to deploy your templates and verify the dep
     ```
 
    Look for the **provisioningState** property set to "Succeeded" in the output. 
+
+   ![Provisioning output](./media/quick-setup-auto-provision-rm/output.png) 
+
 
 2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/en-us/cli/azure/resource?view=azure-cli-latest#az_resource_list) and look for the new provisioning service and IoT hub in the output:
 
