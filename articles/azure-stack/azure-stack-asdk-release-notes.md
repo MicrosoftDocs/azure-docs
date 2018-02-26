@@ -121,7 +121,7 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 
   This error occurs because of a recent GitHub support deprecation of the Tlsv1 and Tlsv1.1 cryptographic standards (the default for PowerShell). For more information, see [Weak cryptographic standards removal notice](https://githubengineering.com/crypto-removal-notice/).
 
-  To resolve this issue, add *[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12* to the top of the script to force the PowerShell console to use TLSv1.2 when downloading from GitHub repositories.
+  To resolve this issue, add `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` to the top of the script to force the PowerShell console to use TLSv1.2 when downloading from GitHub repositories.
 
 
 
