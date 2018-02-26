@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: JimacoMS2
 ms.author: v-jamebr
-ms.date: 09/05/2017
+ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -19,7 +19,11 @@ ms.custom: mvc
 
 You can use Azure Resource Manager to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses Azure CLI 2.0 to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the Azure portal, PowerShell, .NET, ruby, or other programming languages to perform these steps and deploy your template.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
 
 ## Sign in to Azure and create a resource group
