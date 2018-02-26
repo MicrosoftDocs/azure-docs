@@ -151,7 +151,6 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
             "properties": {
                 "iotHubs": [
                     {
-                        "name": "[parameters('iotHubName')]",
                         "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
                         "location": "[parameters('hubLocation')]"
                     }
@@ -220,7 +219,6 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                "properties": {
                    "iotHubs": [
                        {
-                           "name": "[parameters('iotHubName')]",
                            "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
                            "location": "[parameters('hubLocation')]"
                        }
