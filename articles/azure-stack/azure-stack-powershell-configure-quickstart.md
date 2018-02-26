@@ -65,7 +65,6 @@ Install-Module `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
@@ -136,8 +135,8 @@ Install-Module `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 cd \
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

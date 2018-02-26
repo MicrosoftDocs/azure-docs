@@ -52,7 +52,7 @@ cd \
 
 # Download the tools archive.
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-weinvoke-webrequest `
+  invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
 
