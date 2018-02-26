@@ -1,5 +1,5 @@
 ---
-title: SAP HANA Availability Guide for Azure | Microsoft Docs
+title: SAP HANA Availability on Azure VMs - Overview | Microsoft Docs
 description: Operations of SAP HANA on Azure native VMs
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -33,9 +33,9 @@ This guide also assumes that you are familiar with installing SAP HANA instances
 
 Other articles that give a good overview on SAP HANA topics in Azure are:
 
-- [Manual installation of single-instance SAP HANA on Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Manual installation of single-instance SAP HANA on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
-- [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 
 Article and content you should be familiar about SAP HANA can be listed like:
 

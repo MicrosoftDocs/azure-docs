@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Availability across Azure Region
+# SAP HANA Availability across Azure Regions
 ## Motivation to deploy across multiple Azure Regions
 Different Azure regions are separated by a larger distance. Dependent on geopolitical region, this could be hundreds of miles or even several thousand miles, like in the United States. Due to the distance between the different Azure Regions, network traffic between assets deployed in two different Azure regions experiences significant network roundtrip latency. Significant enough to exclude synchronous data exchange between two SAP HANA instances under typical SAP workload. 
 On the other side, you often are faced with the fact that there is defined requirement on distance between your primary datacenter and a secondary datacenter in order to provide availability in case of natural disaster hitting a wider area. Such as Hurricanes that hit the Caribbean and Florida area in September and October 2017. Or at least a minimum distance requirement. In most of the customer cases, this minimum distance definition requires you to design for availability across [Azure Regions](https://azure.microsoft.com/regions/). Since the distance is too large between two Azure regions to use synchronous replication mode of HANA, requirements of RTO and RPO might force you to deploy availability configurations within one region and then supplement with additional deployments in a second region.
