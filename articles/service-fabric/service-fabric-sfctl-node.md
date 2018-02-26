@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
 
 ---
@@ -27,7 +27,7 @@ Manage the nodes that form a cluster.
 |    disable       | Deactivate a Service Fabric cluster node with the specified deactivation   intent.|
 |    enable        | Activate a Service Fabric cluster node, which is currently deactivated.|
 |    health        | Gets the health of a Service Fabric node.|
-|    info          | Gets the list of nodes in the Service Fabric cluster.|
+|    info          | Gets the information about a specific node in the Service Fabric cluster.|
 |    list          | Gets the list of nodes in the Service Fabric cluster.|
 |    load          | Gets the load information of a Service Fabric node.|
 |    remove-state  | Notifies Service Fabric that the persisted state on a node has been   permanently removed or lost.|
@@ -54,7 +54,7 @@ Deactivate a Service Fabric cluster node with the specified deactivation intent.
 |Argument|Description|
 | --- | --- |
 | --node-name [Required]| The name of the node.|
-| --deactivation-intent | Describes the intent or reason for deactivating the node. The possible        values are following. - Pause - Indicates that the node should be        paused. The value is 1. - Restart - Indicates that the intent is for the        node to be restarted after a short period of time. The value is 2. -        RemoveData - Indicates the intent is for the node to remove data. The        value is 3. .|
+| --deactivation-intent | Describes the intent or reason for deactivating the node. |
 | --timeout -t       | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -117,10 +117,9 @@ Gets the health of a Service Fabric node. Use EventsHealthStateFilter to filter 
 | --verbose                | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl node info
-Gets the list of nodes in the Service Fabric cluster.
+Gets the information about a specific node in the Service Fabric cluster.
 
-Gets the information about a specific node in the Service Fabric cluster. The response include
-        the name, status, ID, health, uptime, and other details about the node.
+Gets the information about a specific node in the Service Fabric Cluster.The response include the name, status, id, health, uptime and other details about the node.
 
 ### Arguments
 
@@ -142,15 +141,14 @@ Gets the information about a specific node in the Service Fabric cluster. The re
 ## sfctl node list
 Gets the list of nodes in the Service Fabric cluster.
 
-The Nodes endpoint returns information about the nodes in the Service Fabric Cluster. The
-        response includes the name, status, ID, health, uptime, and other details about the node.
+Gets the list of nodes in the Service Fabric cluster. The response include the name, status, id, health, uptime and other details about the node.
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
 | --continuation-token| The continuation token parameter is used to obtain next set of results. A      continuation token with a non empty value is included in the response of      the API when the results from the system do not fit in a single response.      When this value is passed to the next API call, the API returns next set      of results. If there are no further results, then the continuation token      does not contain a value. The value of this parameter should not be URL      encoded.|
-| --node-status-filter| Allows filtering the nodes based on the NodeStatus. Only the nodes that      are matching the specified filter value are returned. The filter value      can be one of the following. - default - This filter value matches all      of the nodes excepts the ones with status as Unknown or Removed. -      all - This filter value matches all of the nodes. - up - This filter      value matches nodes that are Up. - down - This filter value matches      nodes that are Down. - enabling - This filter value matches nodes that      are in the process of being enabled with status as Enabling. - disabling -      This filter value matches nodes that are in the process of being      disabled with status as Disabling. - disabled - This filter value matches nodes that are Disabled. - unknown - This filter value matches      nodes whose status is Unknown. A node would be in Unknown state if Service      Fabric does not have authoritative information about that node. This can      happen if the system learns about a node at runtime. - removed - This      filter value matches nodes whose status is Removed. These are the nodes      that are removed from the cluster using the RemoveNodeState API. .      Default: default.|
+| --node-status-filter| Allows filtering the nodes based on the NodeStatus. Only the nodes that      are matching the specified filter value are returned. The filter value      can be one of the following. Default: default.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -166,7 +164,7 @@ The Nodes endpoint returns information about the nodes in the Service Fabric Clu
 ## sfctl node load
 Gets the load information of a Service Fabric node.
 
-Gets the load information of a Service Fabric node.
+Retrieves the load information of a Service Fabric node for all the metrics that have load or capacity defined.
 
 ### Arguments
 
@@ -216,7 +214,7 @@ Starts or stops a cluster node.  A cluster node is a process, not the OS instanc
         To start a node, pass in "Start" for the NodeTransitionType parameter. To stop a node, pass
         in "Stop" for the NodeTransitionType parameter. This API starts the operation - when the API
         returns the node may not have finished transitioning yet. Call GetNodeTransitionProgress
-        with the same OperationId to get the progress of the operation. .
+        with the same OperationId to get the progress of the operation. 
 
 ### Arguments
 
@@ -224,7 +222,7 @@ Starts or stops a cluster node.  A cluster node is a process, not the OS instanc
 | --- | --- |
 | --node-instance-id         [Required]| The node instance ID of the target node. This can be                       determined through GetNodeInfo API.|
 | --node-name                [Required]| The name of the node.|
-| --node-transition-type     [Required]| Indicates the type of transition to perform.                       NodeTransitionType.Start starts a stopped node.                       NodeTransitionType.Stop stops a node that is up. -                       Invalid - Reserved.  Do not pass into API. - Start -                       Transition a stopped node to up. - Stop - Transition an                       up node to stopped. .|
+| --node-transition-type     [Required]| Indicates the type of transition to perform.                       NodeTransitionType.Start starts a stopped node.                       NodeTransitionType. Stop stops a node that is up. |
 | --operation-id             [Required]| A GUID that identifies a call of this API.  This is                       passed into the corresponding GetProgress API.|
 | --stop-duration-in-seconds [Required]| The duration, in seconds, to keep the node stopped.  The                       minimum value is 600, the maximum is 14400. After this                       time expires, the node automatically comes back up.|
 | --timeout -t                      | Server timeout in seconds.  Default: 60.|
