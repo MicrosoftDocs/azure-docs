@@ -115,17 +115,17 @@ The Change Tracking solution is currently experiencing the following issues:
 
 ## Change Tracking data collection details
 
-The following table shows the data collection frequency for the types of changes. For each change type other than Windows registry settings, if there is no change in 24 hours a snapshot of the current state is sent.
+The following table shows the data collection frequency for the types of changes. For every type the data snapshot of the current state is also refreshed at least every 24 hours:
 
-| **Change type** | **Frequency** | **Does agent send differences when found?** |
-| --- | --- | --- |
-| Windows registry | 50 minutes | No |
-| Windows file | 30 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
-| Linux file | 15 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
-| Windows services | 30 minutes | Yes, every 30 minutes when changes are found. Every 24 hours a snapshot is sent, regardless of change. So, the snapshot is sent even where there are no changes. |
-| Linux daemons | 5 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
-| Windows software | 30 minutes | Yes, every 30 minutes when changes are found. Every 24 hours a snapshot is sent, regardless of change. So, the snapshot is sent even where there are no changes. |
-| Linux software | 5 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
+| **Change type** | **Frequency** |
+| --- | --- |
+| Windows registry | 50 minutes | 
+| Windows file | 30 minutes | 
+| Linux file | 15 minutes | 
+| Windows services | 30 minutes | 
+| Linux daemons | 5 minutes |
+| Windows software | 30 minutes | 
+| Linux software | 5 minutes | 
 
 ### Registry key change tracking
 
@@ -182,7 +182,7 @@ Clicking on a change or event brings up the detailed information about that chan
 
 ## Search logs
 
-In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page
+In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page.
 
 ### Sample queries
 
