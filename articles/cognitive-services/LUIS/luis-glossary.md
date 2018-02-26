@@ -30,6 +30,10 @@ Used to author the app. Not used for production-level endpoint queries. Refer to
 
 Same as [active version](#active-version)
 
+## <a name="domain"></a>Domain
+
+In the LUIS context, a **domain** is an area of knowledge. Your domain would be specific to your app area of knowledge. This can be a general area such as the travel agent app. A travel agent app can also be specific to just the areas of information for your company such as specific locations, languages, and services. 
+
 ## <a name="endpoint"></a>Endpoint
 
 The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and deployed. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Publish](publishapp.md)** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
