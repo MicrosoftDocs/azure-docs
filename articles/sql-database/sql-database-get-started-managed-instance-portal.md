@@ -1,11 +1,8 @@
 ---
-title: 'Azure portal: Create a SQL Managed Instance | Microsoft Docs'
-description: Create an Azure SQL Database Managed Instance and use SSMS to restore the Wide World Importers database backup.
+title: 'Azure portal: Create SQL Database Managed Instance | Microsoft Docs'
+description: Create an Azure SQL Database Managed Instance in a VNET and use SSMS to restore the Wide World Importers database backup.
 keywords: sql database tutorial, create a sql database managed instance
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
 ms.service: sql-database
 ms.custom: managed instance
 ms.workload: "Active"
@@ -14,6 +11,7 @@ ms.devlang:
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: carlrab
+manager: Craig.Guyer
 
 ---
 # Create an Azure SQL Database Managed Instance in the Azure portal
@@ -148,7 +146,7 @@ The following steps show you how to create your Managed Instance after your prev
    | ------ | --------------- | ----------- |
    |**Managed instance name**|Any valid name|For valid instance names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Mnaged instance admin login**|Any valid user name|For valid user names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
-   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Resource Group**|The resource group that you created earlier||
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|The virtual network that you created earlier|
@@ -188,7 +186,7 @@ The following steps show you how to create a virtual machine in the same VNET in
    |**Name**|Any valid name|For valid virtual machine names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **VM disk type**|SSD|SSDs provide the best balance between price and performance.|   
    |**User name**|Any valid user name|For valid user names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
-   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
+   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource Group**|The resource group that you created earlier||
    |**Location**|The location that you previously selected||
