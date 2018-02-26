@@ -1,5 +1,5 @@
 ---
-title: Target Updates using SCCM Collections in OMS Update Management | Microsoft Docs
+title: Target Updates using SCCM Collections in Azure Automation - Update Management | Microsoft Docs
 description: This article is intended to help you configure System Center Configuration Manager with this solution to manage updates of SCCM managed computers.
 services: automation
 documentationcenter: ''
@@ -18,11 +18,11 @@ ms.author: gwallace
 
 ---
 
-# Integrate System Center Configuration Manager with OMS Update Management
+# Integrate System Center Configuration Manager with Update Management
 
 Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
-You can report and update managed Windows servers by creating and pre-staging software update deployments in Configuration Manager, and get detailed status of completed update deployments using the [Update Management solution](automation-update-management.md). If you use Configuration Manager for update compliance reporting but not for managing update deployments with your Windows servers, you can continue reporting to Configuration Manager  while security updates are managed with the OMS Update Management solution.
+You can report and update managed Windows servers by creating and pre-staging software update deployments in Configuration Manager, and get detailed status of completed update deployments using the [Update Management solution](automation-update-management.md). If you use Configuration Manager for update compliance reporting but not for managing update deployments with your Windows servers, you can continue reporting to Configuration Manager  while security updates are managed with the Update Management solution.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ How you manage clients hosted in Azure IaaS with your existing Configuration Man
 
 Perform the following steps if you are going to continue managing update deployments from Configuration Manager. Azure Automation connects to Configuration Manager to apply updates to the client computers connected to your Log Analytics workspace. Update content is available from the client computer cache as if the deployment were managed by Configuration Manager.
 
-1. Create a software update deployment from the top-level site in your Configuration Manager hierarchy using the process described in [deploy software update process](/sccm/sum/deploy-use/deploy-software-updates).  The only setting that must be configured differently from a standard deployment is the option **Do not install software updates** to control the download behavior of the deployment package. This behavior is managed by the OMS Update Management solution by creating a scheduled update deployment in the next step.
+1. Create a software update deployment from the top-level site in your Configuration Manager hierarchy using the process described in [deploy software update process](/sccm/sum/deploy-use/deploy-software-updates).  The only setting that must be configured differently from a standard deployment is the option **Do not install software updates** to control the download behavior of the deployment package. This behavior is managed by the Update Management solution by creating a scheduled update deployment in the next step.
 
 1. In Azure Automation, select **Update Management**. Create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** drop-down to select the appropriate Configuration Manager collection. Keep in mind the following important points:
     a. If a maintenance window is defined on the selected Configuration Manager device collection, members of the collection honors it instead of the **Duration** setting defined in the scheduled deployment.

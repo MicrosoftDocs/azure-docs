@@ -39,7 +39,7 @@
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
-      - name: Integrate SCCM with OMS Update Management
+      - name: Integrate SCCM with Update Management
         href: oms-solution-updatemgmt-sccmintegration.md
     - name: Change Tracking
       items:
