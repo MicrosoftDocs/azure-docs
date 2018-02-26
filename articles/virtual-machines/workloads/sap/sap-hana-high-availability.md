@@ -450,7 +450,7 @@ sudo crm configure load update crm-defaults.txt
 
 ### Create STONITH device
 
-The STONITH device uses a Service Principal to authorize against Microsoft Azure. To create a Service Principal, follow these steps .
+The STONITH device uses a Service Principal to authorize against Microsoft Azure. To create a Service Principal, follow these steps.
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
@@ -464,7 +464,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Write down the Value. It is used as the **password** for the Service Principal
 1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
+The Service Principal does not have permissions to access your Azure resources by default. Give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
 
 1. Go to https://portal.azure.com
 1. Open the All resources blade
@@ -557,7 +557,7 @@ sudo crm configure load update crm-saphana.txt
 </pre>
 
 ### Test cluster setup
-The following chapter describe how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the virtual machine saphanavm1.
+This chapter describes how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the virtual machine saphanavm1.
 
 #### Fencing Test
 
@@ -570,7 +570,7 @@ sudo ifdown eth0
 The virtual machine should now get restarted or stopped depending on your cluster configuration.
 If you set the stonith-action to off, the virtual machine is going to be stopped and the resources are migrated to the running virtual machine.
 
-Once you start the virtual machine again, the SAP HANA resource fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+Once you start the virtual machine again, the SAP HANA resource fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, configure the HANA instance as secondary by executing this  command:
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -591,7 +591,7 @@ You can test a manual failover by stopping the pacemaker service on node saphana
 service pacemaker stop
 </code></pre>
 
-After the failover, you can start the service again. The SAP HANA resource on saphanavm1 fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+After the failover, you can start the service again. The SAP HANA resource on saphanavm1 fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, configure the HANA instance as secondary by executing this command:
 
 <pre><code>
 service pacemaker start
@@ -616,7 +616,7 @@ crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 </code></pre>
 
 This should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
-The SAP HANA resource on saphanavm1 fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+The SAP HANA resource on saphanavm1 fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, configure the HANA instance as secondary by executing this command:
 
 <pre><code>
 su - <b>hdb</b>adm
