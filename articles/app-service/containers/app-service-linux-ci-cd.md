@@ -38,7 +38,7 @@ In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** 
 
 Click on the name of your app that you want to configure Docker Hub continuous deployment for.
 
-In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the value `true`.
+In **Docker Container**, select 'On' then press Save to enable Continuous Deployment.
 
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -87,6 +87,6 @@ When the image gets updated, the web app get updated automatically with the new 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
-* [How to use a custom Docker image for Web App for Containers](quickstart-custom-docker-image.md)
+* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md)
 * [Azure App Service Web App for Containers FAQ](./app-service-linux-faq.md)
 * [Manage Web App for Containers using Azure CLI 2.0](./app-service-linux-cli.md)

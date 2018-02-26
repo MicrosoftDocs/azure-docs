@@ -41,6 +41,8 @@
 #### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 #### [Message sequencing and timestamps](message-sequencing.md)
 #### [Message expiration (Time to Live)](message-expiration.md)
+#### [Message handling using Azure Event Grid](service-bus-to-event-grid-integration-concept.md)
+#### [Azure Event Grid examples](service-bus-to-event-grid-integration-example.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
 #### [Migrate from ACS to SAS](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures](service-bus-sas.md)
