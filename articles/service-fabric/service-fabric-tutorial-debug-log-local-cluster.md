@@ -1,6 +1,6 @@
 ---
-title: Debug a Java application on local cluster | Microsoft Docs
-description: Learn how to debug and get logs from a Service Fabric Java application running on a local cluster.
+title: Debug a Java application on local Azure Service Fabric cluster | Microsoft Docs
+description: In this tututorial, learn how to debug and get logs from a Service Fabric Java application running on a local cluster.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/24/2018
+ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 
 ---
 
-#  Debug a Java application deployed on a local Service Fabric cluster 
+#  Tutorial: debug a Java application deployed on a local Service Fabric cluster 
 This tutorial is part two of a series. You learn how to attach a remote debugger using Eclipse for the Service Fabric application. Additionally, you learn how to redirect logs from the running applications to a location convenient for the developer.
 
 In part three of the series, you learn how to:
@@ -37,7 +37,15 @@ In this tutorial series you learn how to:
 
 ## Prerequisites
 Before you begin this tutorial:
-> * If you haven't completed part one of this [tutorial](service-fabric-tutorial-create-java-app.md) series, do so as the Java application from that is used for this tutorial. Alternatively, if you have your own Service Fabric Java application, the steps for this tutorial series apply. 
+- [Set up your Development Environment on Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).  
+- [Set up your Development Environment on Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
+
+## Download the Voting sample application
+If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-java-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
+
+```bash
+git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
+```
 
 ## Debug Java application using Eclipse
 
@@ -47,25 +55,25 @@ Before you begin this tutorial:
 
 3. In the Import Projects window, choose the **Select root directory** option and pick the **Voting** directory. If you followed tutorial series one, the **Voting** directory is in the **Eclipse-workspace** directory. 
 
-4. Update entryPoint.sh of the service you wish to debug, so that it starts the Java process with remote debug parameters. For this tutorial the stateless front end is used: ``Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh``. Port 8001 is set for debugging in this example.
+4. Update entryPoint.sh of the service you wish to debug, so that it starts the Java process with remote debug parameters. For this tutorial the stateless front end is used: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Port 8001 is set for debugging in this example.
 
-```bash
-java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
-```
+    ```bash
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
+    ```
 
 5. Update the Application Manifest by setting the instance count or the replica count for the service that is being debugged to one. This setting avoids conflicts for the port that is used for debugging. For example, for stateless services, set ``InstanceCount="1"`` and for stateful services set the target and min replica set sizes to 1 as follows: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
 6. In the Eclipse IDE, select **Run -> Debug Configurations -> Remote Java Application**, press the **New** button, set the properties as follows and click **Apply**.
 
-```
-Name: Voting
-Project: Voting
-Connection Type: Standard
-Host: localhost
-Port: 8001
-```
+    ```
+    Name: Voting
+    Project: Voting
+    Connection Type: Standard
+    Host: localhost
+    Port: 8001
+    ```
 
-7. Put a breakpoint on line 109 of the **Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java** file. 
+7. Put a breakpoint on line 109 of the *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* file. 
 
 8. In the Package Explorer, right click on the **Voting** project and click **Service Fabric -> Publish Application ...** 
 
@@ -77,9 +85,9 @@ Port: 8001
 
 ## Redirect application logs to custom location
 
-The following steps walk through how to redirect the application logs from the default ```/var/log/syslog``` location to a custom location. 
+The following steps walk through how to redirect the application logs from the default */var/log/syslog* location to a custom location. 
 
-1. Currently, applications running in Service Fabric Linux clusters support picking up a single log file. As a result, the logs always go to ```/tmp/mysfapp0.0.log```. Create a file named logging.properties in the following location ``Voting/VotingApplication/VotingWebPkg/Code/logging.properties`` and add the following content.
+1. Currently, applications running in Service Fabric Linux clusters support picking up a single log file. As a result, the logs always go to */tmp/mysfapp0.0.log*. Create a file named logging.properties in the following location *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* and add the following content.
 
 ```
 handlers = java.util.logging.FileHandler
@@ -91,7 +99,7 @@ java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
 ```
 
-2. Add the following parameter in the ```Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh``` for the Java execution command:
+2. Add the following parameter in the *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh* for the Java execution command:
 
 ```bash
 -Djava.util.logging.config.file=logging.properties
