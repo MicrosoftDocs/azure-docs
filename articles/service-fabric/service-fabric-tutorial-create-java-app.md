@@ -563,157 +563,157 @@ The skeleton for the front-end stateless service and the backend service is now 
 
 3. Create a file under *Voting/VotingRPC/src/rpcmethods* named *VotingRPC.java* and paste the following inside the **VotingRPC.java** file. 
 
-```java
-package rpcmethods; 
-
-import java.util.ArrayList;
-import java.util.concurrent.CompletableFuture;
-import java.util.List;
-import java.util.HashMap;
-
-import microsoft.servicefabric.services.remoting.Service;
-
-public interface VotingRPC extends Service {
-	CompletableFuture<HashMap<String, String>> getList();
-
-	CompletableFuture<Integer> addItem(String itemToAdd);
-
-	CompletableFuture<Integer> removeItem(String itemToRemove);
-}
-``` 
+    ```java
+    package rpcmethods; 
+    
+    import java.util.ArrayList;
+    import java.util.concurrent.CompletableFuture;
+    import java.util.List;
+    import java.util.HashMap;
+    
+    import microsoft.servicefabric.services.remoting.Service;
+    
+    public interface VotingRPC extends Service {
+    	CompletableFuture<HashMap<String, String>> getList();
+    
+    	CompletableFuture<Integer> addItem(String itemToAdd);
+    
+    	CompletableFuture<Integer> removeItem(String itemToRemove);
+    }
+    ``` 
 
 4. Create a file named *build.gradle* under *Voting/VotingRPC* directory and paste the following inside it. This gradle file is used to build and create the jar file that is imported by the other services. 
 
-```gradle
-apply plugin: 'java'
-apply plugin: 'eclipse'
-
-sourceSets {
-  main {
-     java.srcDirs = ['src']
-     output.classesDir = 'out/classes'
-      resources {
-       srcDirs = ['src']
-     }
-   }
-}
-
-clean.doFirst {
-    delete "${projectDir}/out"
-    delete "${projectDir}/VotingRPC.jar"
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
-}
-
-jar {
-    from configurations.compile.collect {
-        (it.isDirectory() && !it.getName().contains("native")) ? it : zipTree(it)}
-	
-    manifest {
-            attributes(
-            'Main-Class': 'rpcmethods.VotingRPC')
-        baseName "VotingRPC"
-        destinationDir = file('./')
+    ```gradle
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    
+    sourceSets {
+      main {
+         java.srcDirs = ['src']
+         output.classesDir = 'out/classes'
+          resources {
+           srcDirs = ['src']
+         }
+       }
     }
-
-    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
-}
-
-defaultTasks 'clean', 'jar'
-```
+    
+    clean.doFirst {
+        delete "${projectDir}/out"
+        delete "${projectDir}/VotingRPC.jar"
+    }
+    
+    repositories {
+        mavenCentral()
+    }
+    
+    dependencies {
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+    }
+    
+    jar {
+        from configurations.compile.collect {
+            (it.isDirectory() && !it.getName().contains("native")) ? it : zipTree(it)}
+    	
+        manifest {
+                attributes(
+                'Main-Class': 'rpcmethods.VotingRPC')
+            baseName "VotingRPC"
+            destinationDir = file('./')
+        }
+    
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
+    }
+    
+    defaultTasks 'clean', 'jar'
+    ```
 
 5. In the *Voting/settings.gradle* file, add a line to include the newly created project in the build. 
 
-```gradle 
-include ':VotingRPC'
-```
+    ```gradle 
+    include ':VotingRPC'
+    ```
 
 6. In the *Voting/VotingWebService/src/statelessservice/HttpCommunicationListener.java* file, replace the comment block with the following.  
 
-```java
-server.createContext("/getStatelessList", new HttpHandler() {
-    @Override
-    public void handle(HttpExchange t) {
-        try {                    
-            t.sendResponseHeaders(STATUS_OK,0);
-            OutputStream os = t.getResponseBody();
-            
-            HashMap<String,String> list = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").getList().get();
-            String json = new Gson().toJson(list);
-            os.write(json.getBytes(ENCODING));                   
-            os.close();
-        } catch (Exception e) {
-            logger.log(Level.WARNING, null, e);
-        }
-    }
-});
-
-server.createContext("/removeItem", new HttpHandler() {
-    @Override
-    public void handle(HttpExchange t) {
-        try {
-            OutputStream os = t.getResponseBody();
-            URI r = t.getRequestURI();     
-
-            Map<String, String> params = queryToMap(r.getQuery());
-            String itemToRemove = params.get("item");                    
-            
-            Integer num = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").removeItem(itemToRemove).get();
-            
-            if (num != 1) 
-            {
-                t.sendResponseHeaders(STATUS_ERROR, 0);
-            } else {
+    ```java
+    server.createContext("/getStatelessList", new HttpHandler() {
+        @Override
+        public void handle(HttpExchange t) {
+            try {                    
                 t.sendResponseHeaders(STATUS_OK,0);
+                OutputStream os = t.getResponseBody();
+                
+                HashMap<String,String> list = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").getList().get();
+                String json = new Gson().toJson(list);
+                os.write(json.getBytes(ENCODING));                   
+                os.close();
+            } catch (Exception e) {
+                logger.log(Level.WARNING, null, e);
             }
-
-            String json = new Gson().toJson(num);
-            os.write(json.getBytes(ENCODING));
-            os.close();
-        } catch (Exception e) {
-            logger.log(Level.WARNING, null, e);
         }
-
-    }
-});
-
-server.createContext("/addItem", new HttpHandler() {
-    @Override
-    public void handle(HttpExchange t) {
-        try {
-            URI r = t.getRequestURI();
-            Map<String, String> params = queryToMap(r.getQuery());
-            String itemToAdd = params.get("item");
-            
-            OutputStream os = t.getResponseBody();
-            Integer num = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").addItem(itemToAdd).get();
-            if (num != 1) 
-            {
-                t.sendResponseHeaders(STATUS_ERROR, 0);
-            } else {
-                t.sendResponseHeaders(STATUS_OK,0);
+    });
+    
+    server.createContext("/removeItem", new HttpHandler() {
+        @Override
+        public void handle(HttpExchange t) {
+            try {
+                OutputStream os = t.getResponseBody();
+                URI r = t.getRequestURI();     
+    
+                Map<String, String> params = queryToMap(r.getQuery());
+                String itemToRemove = params.get("item");                    
+                
+                Integer num = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").removeItem(itemToRemove).get();
+                
+                if (num != 1) 
+                {
+                    t.sendResponseHeaders(STATUS_ERROR, 0);
+                } else {
+                    t.sendResponseHeaders(STATUS_OK,0);
+                }
+    
+                String json = new Gson().toJson(num);
+                os.write(json.getBytes(ENCODING));
+                os.close();
+            } catch (Exception e) {
+                logger.log(Level.WARNING, null, e);
             }
-
-            String json = new Gson().toJson(num);
-            os.write(json.getBytes(ENCODING));
-            os.close();
-        } catch (Exception e) {
-            logger.log(Level.WARNING, null, e);
+    
         }
-    }
-});
-```
+    });
+    
+    server.createContext("/addItem", new HttpHandler() {
+        @Override
+        public void handle(HttpExchange t) {
+            try {
+                URI r = t.getRequestURI();
+                Map<String, String> params = queryToMap(r.getQuery());
+                String itemToAdd = params.get("item");
+                
+                OutputStream os = t.getResponseBody();
+                Integer num = ServiceProxyBase.create(VotingRPC.class, new URI("fabric:/VotingApplication/VotingDataService"), partitionKey, TargetReplicaSelector.DEFAULT, "").addItem(itemToAdd).get();
+                if (num != 1) 
+                {
+                    t.sendResponseHeaders(STATUS_ERROR, 0);
+                } else {
+                    t.sendResponseHeaders(STATUS_OK,0);
+                }
+    
+                String json = new Gson().toJson(num);
+                os.write(json.getBytes(ENCODING));
+                os.close();
+            } catch (Exception e) {
+                logger.log(Level.WARNING, null, e);
+            }
+        }
+    });
+    ```
 7. Add the appropriate import statement at the top of the *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* file. 
 
-```java
-import rpcmethods.VotingRPC; 
-```
+    ```java
+    import rpcmethods.VotingRPC; 
+    ```
 
 At this stage, the functionality for the front end, backend, and RPC interfaces are complete. The next stage is to configure the Gradle scripts appropriately before deploying to a Service Fabric cluster. 
 
@@ -723,157 +723,157 @@ In this section, the Gradle scripts for the project are configured.
 
 1. Replace the contents of the *Voting/build.gradle* file with the following.
 
-```gradle 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-
-subprojects {
+    ```gradle 
     apply plugin: 'java'
-} 
+    apply plugin: 'eclipse'
     
-defaultTasks 'clean', 'jar', 'copyDeps'
-```
+    subprojects {
+        apply plugin: 'java'
+    } 
+        
+    defaultTasks 'clean', 'jar', 'copyDeps'
+    ```
 
 2. Replace the contents of *Voting/VotingWeb/build.gradle* file.
 
-```gradle
-apply plugin: 'java'
-apply plugin: 'eclipse'
-
-sourceSets {
-  main {
-     java.srcDirs = ['src']
-     output.classesDir = 'out/classes'
-      resources {
-       srcDirs = ['src']
-     }
-   }
-}
-
-clean.doFirst {
-    delete "${projectDir}/../lib"
-    delete "${projectDir}/out"
-    delete "${projectDir}/../VotingApplication/VotingWebPkg/Code/lib"
-    delete "${projectDir}/../VotingApplication/VotingWebPkg/Code/VotingWeb.jar"
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
-    compile project(':VotingRPC')
-}
-
-task explodeDeps(type: Copy, dependsOn:configurations.compile) { task ->
-    configurations.compile.filter {!it.toString().contains("native")}.each{
-        from it
+    ```gradle
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    
+    sourceSets {
+      main {
+         java.srcDirs = ['src']
+         output.classesDir = 'out/classes'
+          resources {
+           srcDirs = ['src']
+         }
+       }
     }
     
-    configurations.compile.filter {it.toString().contains("native")}.each{
-        from zipTree(it)
+    clean.doFirst {
+        delete "${projectDir}/../lib"
+        delete "${projectDir}/out"
+        delete "${projectDir}/../VotingApplication/VotingWebPkg/Code/lib"
+        delete "${projectDir}/../VotingApplication/VotingWebPkg/Code/VotingWeb.jar"
     }
-    into "../lib/"
-    include "lib*.so", "*.jar"
-}
-
-task copyDeps<< {
-    copy {
-        from("../lib/")
-        into("../VotingApplication/VotingWebPkg/Code/lib")
-        include('lib*.so')
+    
+    repositories {
+        mavenCentral()
     }
-}
-
-compileJava.dependsOn(explodeDeps)
-
-jar {
-    from configurations.compile.collect {(it.isDirectory() && !it.getName().contains("native")) ? it : zipTree(it)}
-	
-    manifest {
-        attributes(
-            'Main-Class': 'statelessservice.VotingWebServiceHost')
-        baseName "VotingWeb"
-        destinationDir = file('../VotingApplication/VotingWebPkg/Code/')
+    
+    dependencies {
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile project(':VotingRPC')
     }
-
-    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
-}
-
-defaultTasks 'clean', 'jar', 'copyDeps'
-``` 
+    
+    task explodeDeps(type: Copy, dependsOn:configurations.compile) { task ->
+        configurations.compile.filter {!it.toString().contains("native")}.each{
+            from it
+        }
+        
+        configurations.compile.filter {it.toString().contains("native")}.each{
+            from zipTree(it)
+        }
+        into "../lib/"
+        include "lib*.so", "*.jar"
+    }
+    
+    task copyDeps<< {
+        copy {
+            from("../lib/")
+            into("../VotingApplication/VotingWebPkg/Code/lib")
+            include('lib*.so')
+        }
+    }
+    
+    compileJava.dependsOn(explodeDeps)
+    
+    jar {
+        from configurations.compile.collect {(it.isDirectory() && !it.getName().contains("native")) ? it : zipTree(it)}
+    	
+        manifest {
+            attributes(
+                'Main-Class': 'statelessservice.VotingWebServiceHost')
+            baseName "VotingWeb"
+            destinationDir = file('../VotingApplication/VotingWebPkg/Code/')
+        }
+    
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
+    }
+    
+    defaultTasks 'clean', 'jar', 'copyDeps'
+    ``` 
 
 3. Replace the contents of *Voting/VotingData/build.gradle* file. 
 
-```gradle
-apply plugin: 'java'
-apply plugin: 'eclipse'
-
-sourceSets {
-  main {
-     java.srcDirs = ['src']
-     output.classesDir = 'out/classes'
-      resources {
-       srcDirs = ['src']
-     }
-   }
-}
-
-clean.doFirst {
-    delete "${projectDir}/../lib"
-    delete "${projectDir}/out"
-    delete "${projectDir}/../VotingApplication/VotingDataServicePkg/Code/lib"
-    delete "${projectDir}/../VotingApplication/VotingDataServicePkg/Code/VotingDataService.jar"
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
-    compile project(':VotingRPC')
-}
-
-task explodeDeps(type: Copy, dependsOn:configurations.compile) { task ->
-    configurations.compile.filter {!it.toString().contains("native")}.each{
-        from it
+    ```gradle
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    
+    sourceSets {
+      main {
+         java.srcDirs = ['src']
+         output.classesDir = 'out/classes'
+          resources {
+           srcDirs = ['src']
+         }
+       }
     }
     
-    configurations.compile.filter {it.toString().contains("native")}.each{
-        from zipTree(it)
+    clean.doFirst {
+        delete "${projectDir}/../lib"
+        delete "${projectDir}/out"
+        delete "${projectDir}/../VotingApplication/VotingDataServicePkg/Code/lib"
+        delete "${projectDir}/../VotingApplication/VotingDataServicePkg/Code/VotingDataService.jar"
     }
-    into "../lib/"
-    include "lib*.so", "*.jar"
-}
-
-compileJava.dependsOn(explodeDeps)
-
-task copyDeps<< {
-    copy {
-        from("../lib/")
-        into("../VotingApplication/VotingDataServicePkg/Code/lib")
-        include('lib*.so')
+    
+    repositories {
+        mavenCentral()
     }
-}
-
-jar {
-    from configurations.compile.collect {
-        (it.isDirectory() && !it.getName().contains("native")) ? it : zipTree(it)}
-	
-    manifest {
-        attributes('Main-Class': 'statefulservice.VotingDataServiceHost')
-
-        baseName "VotingDataService"
-        destinationDir = file('../VotingApplication/VotingDataServicePkg/Code/')
+    
+    dependencies {
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile project(':VotingRPC')
     }
-
-    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
-}
-
-defaultTasks 'clean', 'jar', 'copyDeps'
-```
+    
+    task explodeDeps(type: Copy, dependsOn:configurations.compile) { task ->
+        configurations.compile.filter {!it.toString().contains("native")}.each{
+            from it
+        }
+        
+        configurations.compile.filter {it.toString().contains("native")}.each{
+            from zipTree(it)
+        }
+        into "../lib/"
+        include "lib*.so", "*.jar"
+    }
+    
+    compileJava.dependsOn(explodeDeps)
+    
+    task copyDeps<< {
+        copy {
+            from("../lib/")
+            into("../VotingApplication/VotingDataServicePkg/Code/lib")
+            include('lib*.so')
+        }
+    }
+    
+    jar {
+        from configurations.compile.collect {
+            (it.isDirectory() && !it.getName().contains("native")) ? it : zipTree(it)}
+    	
+        manifest {
+            attributes('Main-Class': 'statefulservice.VotingDataServiceHost')
+    
+            baseName "VotingDataService"
+            destinationDir = file('../VotingApplication/VotingDataServicePkg/Code/')
+        }
+    
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA' 
+    }
+    
+    defaultTasks 'clean', 'jar', 'copyDeps'
+    ```
 
 ## Deploy application to local cluster
 At this point, the application is ready to be deployed to a local Service Fabric cluster.
