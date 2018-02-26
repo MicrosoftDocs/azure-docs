@@ -1,6 +1,6 @@
 ---
-title: Enable Application Insights Profiler for Azure Cloud Services applications | Microsoft Docs
-description: Learn how to set up Application Insights Profiler on an application running in Azure Cloud Services.
+title: Enable Application Insights Profiler for applications that are hosted on Azure Cloud Services resources | Microsoft Docs
+description: Learn how to set up Application Insights Profiler on an application running on Azure Cloud Services.
 services: application-insights
 documentationcenter: ''
 author: ramach-msft
@@ -24,7 +24,7 @@ The examples in this article include support for Azure Virtual Machines, virtual
 
 ## Overview
 
-The following image shows how Application Insights Profiler works with Azure Cloud Services resources. Azure Cloud Services resources include Virtual Machines, scale sets, Cloud Services, and Service Fabric clusters. The image uses an Azure virtual machine as an example.  
+The following image shows how Application Insights Profiler works with applications that are hosted on Azure Cloud Services resources. Azure Cloud Services resources include Virtual Machines, scale sets, Cloud Services, and Service Fabric clusters. The image uses an Azure virtual machine as an example.  
 
   ![Diagram showing how Application Insights Profiler works with Azure Cloud Services resources](./media/enable-profiler-compute/overview.png)
 
