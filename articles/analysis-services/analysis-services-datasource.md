@@ -19,9 +19,9 @@ ms.author: owend
 
 ---
 # Data sources supported in Azure Analysis Services
-Tabular models in Azure Analysis Services can connect to data sources in the cloud and on-premises in your organization. The types of data sources you can connect to depend on many factors such as available data connectors, model compatibility level, authentication type, providers, and On-premises data gateway support. 
+This article describes cloud and on-premises data sources supported in tabular models in Azure Analysis Services. 
 
-Data connectors shown in Get Data or Import Wizard in Visual Studio are shown for both Azure Analysis Services and SQL Server Analysis Services. However, not all data sources and data connectors shown are supported in Azure Analysis Services.
+Data sources and connectors shown in Get Data or Import Wizard in Visual Studio are shown for both Azure Analysis Services and SQL Server Analysis Services. However, not all data sources and  connectors shown are supported in Azure Analysis Services. The types of data sources you can connect to depend on many factors such as model compatibility level, available data connectors, authentication type, providers, and On-premises data gateway support. 
 
 ## Azure data sources
 
@@ -46,7 +46,7 @@ In-memory and DirectQuery models connecting to Azure data sources use .NET Frame
 
 ## On-premises data sources
 
-Connecting to on-premises data sources require an On-premises gateway. When using a gateway, esure 64-bit providers are installed.
+Connecting to on-premises data sources require an On-premises gateway. When using a gateway, ensure 64-bit providers are installed.
 
 ### In-memory and DirectQuery
 
@@ -113,6 +113,6 @@ For cloud data sources:
 * If using SQL authentication, impersonation should be Service Account.
 
 ## Next steps
-If you have on-premises data sources, be sure to install the [On-premises gateway](analysis-services-gateway.md).   
-To learn more about managing your server in SSDT or SSMS, see [Manage your server](analysis-services-manage.md).
+[On-premises gateway](analysis-services-gateway.md)   
+[Manage your server](analysis-services-manage.md)   
 
