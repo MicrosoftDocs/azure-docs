@@ -109,6 +109,12 @@ The following are post-installation known issues for build  **1802xx.x**
 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
+- In the dashboard of the admin portal, the Update tile might display an image of a rainy cloud. To resolve this issue, click on the tile to refresh it.
+
+-	In the admin portal you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
+    - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
+  This alert can be safely ignored. 
+
 
 #### Health and monitoring
 There are no known issues after updating to 1802.
@@ -176,6 +182,13 @@ There are no known issues after updating to 1802.
 #### Identity
 -->
 
+#### Downloading Azure Stack Tools from GitHub
+- When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     
+    -  *invoke-webrequest : The request was aborted: Could not create SSL/TLS secure channel.*     
+
+  This error occurs because of a recent GitHub support deprecation of the Tlsv1 and Tlsv1.1 cryptographic standards (the default for PowerShell). For more information, see [Weak cryptographic standards removal notice](https://githubengineering.com/crypto-removal-notice/).
+
+  To resolve this issue, add *[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12* to the top of the script to force the PowerShell console to use TLSv1.2 when downloading from GitHub repositories.
 
 ## Download the update
 You can download the Azure Stack 1802 update package from [here]().
