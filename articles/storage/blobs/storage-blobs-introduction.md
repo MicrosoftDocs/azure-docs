@@ -2,17 +2,11 @@
 title: Introduction to Azure Blob storage | Microsoft Docs
 description:  Introduction to Azure Blob storage 
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 09/28/2017
 ms.author: tamram
 

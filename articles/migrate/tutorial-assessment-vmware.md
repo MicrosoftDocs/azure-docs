@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 06/02/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -26,10 +26,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- **VMware**: The VMs that you plan to migrate must be managed by a vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM. 
+- **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM. 
  
 > [!NOTE]
-> Support for Hyper-V is in our roadmap and will be enabled soon. 
+> Support for Hyper-V is on the roadmap and will be enabled soon. 
 
 - **vCenter Server account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format. 
@@ -113,7 +113,7 @@ will be hosted.
 ## Run the collector to discover VMs
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
-2. Provide the language, time zone and password preferences for the appliance.
+2. Provide the language, time zone, and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
 4. In the Azure Migrate Collector, open **Set up prerequisites**.
     - Accept the license terms, and read the third-party information.
@@ -123,7 +123,7 @@ will be hosted.
     > [!NOTE]
     > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported.
 
-    - The collector checks that the collectorservice is running. The service is installed by default on the collector VM.
+    - The collector checks that the collector service is running. The service is installed by default on the collector VM.
     - Download and install the VMware PowerCLI.
 
 5. In **Specify vCenter Server details**, do the following:
@@ -158,25 +158,33 @@ After VMs are discovered, you group them and create an assessment.
 6. After the assessment is created, view it in **Overview** > **Dashboard**.
 7. Click **Export assessment**, to download it as an Excel file.
 
-### Sample assessment
+### Assessment details
 
-Here's an example assessment report. It includes information about whether VMs are compatible for Azure, and estimated monthly costs. 
+An assessment includes information about whether the on-premises VMs are compatible for Azure, what would be the right VM size for running the VM in Azure and the estimated monthly Azure costs. 
 
 ![Assessment report](./media/tutorial-assessment-vmware/assessment-report.png)
 
 #### Azure readiness
 
-This view shows the readiness status for each machine.
+The Azure readiness view in the assessment shows the readiness status of each VM. Depending on the properties of the VM, each VM can be marked as:
+- Ready for Azure
+- Conditionally ready for Azure
+- Not ready for Azure
+- Readiness unknown 
 
-- For VMs that are ready, Azure Migrate recommends a VM size in Azure.
-- For VMs that aren't ready, Azure Migrate explains why, and provides remediation steps.
-- Azure Migrate suggests tools that you can use for the migration. If the machine is suitable for lift and shift migration, the Azure Site Recovery service is recommended. If it's a database machine, the Azure Database Migration Service is recommended.
+For VMs that are ready, Azure Migrate recommends a VM size in Azure. The size recommendation done by Azure Migrate depends on the sizing criterion specified in the assessment properties. If the sizing criterion is performance-based sizing, the size recommendation is done by considering the performance history of the VMs. If the sizing criterion is 'as on-premises', the recommendation is done by looking at the size of the VM on-premises (as-is sizing). Utilization data is not considered in this case. [Learn more](concepts-assessment-calculation.md) about how sizing is done in Azure Migrate. 
+
+For VMs that aren't ready or conditionally ready for Azure, Azure Migrate explains the readiness issues, and provides remediation steps. 
+
+The VMs for which Azure Migrate cannot identify Azure readiness (due to data unavailability) are marked as readiness unknown.
+
+In addition to Azure readiness and sizing, Azure Migrate also suggests tools that you can use for the migrating the VM. This requires a deeper discovery of on the on-premises environment. [Learn more](how-to-get-migration-tool.md) about how you can do a deeper discovery by installing agents on the on-premises machines. If the agents are not installed on the on-premises machines, lift and shift migration is suggested using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). If the agents are installed on the on-premises machine, Azure Migrate looks at the processes running inside the machine and identifies whether the machine is a database machine or not. If the machine is a database machine, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) is suggested, else Azure Site Recovery is suggested as the migration tool.
 
   ![Assessment readiness](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
 #### Monthly cost estimate
 
-This view shows the total compute and storage cost of running the VMs in Azure along with the details for each machine. Cost estimates are calculated using the performance-based size recommendations for a machine and its disks, and the assessment properties. 
+This view shows the total compute and storage cost of running the VMs in Azure along with the details for each machine. Cost estimates are calculated considering the size recommendations done by Azure Migrate for a machine, its disks, and the assessment properties. 
 
 > [!NOTE]
 > The cost estimation provided by Azure Migrate is for running the on-premises VMs as Azure Infrastructure as a service (IaaS) VMs. Azure Migrate does not consider any Platform as a service (PaaS) or Software as a service (SaaS) costs. 
@@ -185,10 +193,31 @@ Estimated monthly costs for compute and storage are aggregated for all VMs in th
 
 ![Assessment VM cost](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-You can drill down to see details for a specific machine.
+#### Confidence rating
 
-![Assessment VM cost](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
+Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 star (1 star being the lowest and 5 star being the highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate. 
 
+Confidence rating is useful when you are doing *performance-based sizing* as Azure Migrate may not have sufficient data points to do utilization-based sizing. For *as on-premises sizing*, the confidence rating is always 5-star as Azure Migrate has all the data points it needs to size the VM. 
+
+For performance-based sizing of the VM, Azure Migrate needs the utilization data for CPU and memory. Also, for each disk attached to the VM, it needs the read/write IOPS and throughput. Similarly for each network adapter attached to the VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided:
+
+   **Availability of data points** | **Confidence rating**
+   --- | ---
+   0%-20% | 1 Star
+   21%-40% | 2 Star
+   41%-60% | 3 Star
+   61%-80% | 4 Star
+   81%-100% | 5 Star
+
+An assessment may not have all the data points available due to one of the following reasons:
+- The statistics setting in vCenter Server is not set to level 3 and the assessment has performance-based sizing as the sizing criterion. If the statistics setting in vCenter Server is lower than level 3, performance data for disk and network is not collected from vCenter Server. In this case, the recommendation provided by Azure Migrate for disk and network is not utilization-based. For storage, Azure Migrate recommends standard disks as without considering the IOPS/throughput of the disk, Azure Migrate cannot identify if the disk will need a premium disk in Azure.
+- The statistics setting in vCenter Server was set to level 3 for a shorter duration, before kicking off the discovery. For example, let's consider the scenario where you change the statistics setting level to 3 today and kick off the discovery using the collector appliance tomorrow (after 24 hours). If you are creating an assessment for one day, you have all the data points and the confidence rating of the assessment would be 5 star. But if you are changing the performance duration in the assessment properties to one month, the confidence rating goes down as the disk and network performance data for the last one month would not be available. If you would like to consider the performance data of last one month, it is recommended that you keep the vCenter Server statistics setting to level 3 for one month before you kick off the discovery. 
+- Few VMs were shut down during the period for which the assessment is calculated. If any VMs were powered off for some duration, vCenter Server will not have the performance data for that period. 
+- Few VMs were created in between the period for which the assessment is calculated. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In such cases, the performance history of the new VMs will not be there for the entire duration.
+
+> [!NOTE]
+> If the confidence rating of any assessment is below 4 Stars, we recommend you to change the vCenter Server statistics settings level to 3, wait for the duration that you want to consider for assessment (1 day/1 week/1 month) and then do discovery and assessment. If the preceding cannot be done, performance-based sizing may not be reliable and it is recommended to switch to *as on-premises sizing* by changing the assessment properties.
+ 
 ## Next steps
 
 - [Learn](how-to-scale-assessment.md) how to discover and assess a large VMware environment.

@@ -180,12 +180,13 @@ The following sections provide details about how to connect your ServiceNow prod
 ### Prerequisites
 Ensure the following prerequisites are met:
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow supported versions: Jakarta, Istanbul, Helsinki, Geneva
+- ServiceNow supported versions: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins must do the following in their ServiceNow instance**:
 - Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see the following information as required:
 
-    - [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+	- [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)

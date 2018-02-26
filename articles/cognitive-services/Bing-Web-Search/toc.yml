@@ -32,6 +32,8 @@
     href: web-search-sdk-node-quickstart.md 
   - name: Web Search SDK Python quickstart (preview)
     href: web-sdk-python-quickstart.md
+  - name: Web Search SDK Java quickstart (preview)
+    href: web-sdk-java-quickstart.md    
 - name: How To Guides
   items:
   - name: Use and display results

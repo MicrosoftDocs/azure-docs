@@ -15,7 +15,7 @@ ms.workload: "Active"
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 02/16/2018
 ms.author: carlrab
 
 ---
@@ -35,7 +35,7 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a SQL database containing the Adventure Works LT sample data.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
@@ -154,7 +154,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-5. Close the **Data explorer** page, click **OK** to discard your unsaved edits.
+5. Close the **Query editor** page, click **OK** to discard your unsaved edits.
 
 ## Clean up resources
 

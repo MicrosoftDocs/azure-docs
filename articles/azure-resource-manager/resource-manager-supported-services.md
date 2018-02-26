@@ -260,9 +260,9 @@ Registering a resource provider configures your subscription to work with the re
 
 You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
-To see information for a particular resource provider, select **More services**.
+To see information for a particular resource provider, select **All services**.
 
-![select more services](./media/resource-manager-supported-services/more-services.png)
+![select All services](./media/resource-manager-supported-services/more-services.png)
 
 Search for **Resource Explorer** and select it from the available options.
 

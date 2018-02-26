@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
 ---
@@ -30,10 +30,11 @@ Azure Stack has a public infrastructure network using externally accessible publ
 ## Certificate requirements
 The following list describes the certificate requirements that are needed to deploy Azure Stack: 
 - Certificates must be issued from either an internal Certificate Authority or a Public Certificate Authority. If a public certificate authority is used, it must be included in the base operating system image as part of the Microsoft Trusted Root Authority Program. You can find the full list here: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as storage and Key Vault where they are required. 
+- The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as acs and Key Vault where they are required. 
 - The certificate signature algorithm cannot be SHA1, as it must be stronger. 
 - The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
 - The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.
+- The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
 - Ensure that the Subject Names and Subject Alternative Names of all certificates match the specifications described in this article to avoid failed deployments.
 

@@ -98,7 +98,87 @@ else:
     print("Didn't see any Videos..")
 
 ```
+Search for (Best restaurants in Seattle), verify number of results, and print out `name` and `URL` of first result.
+```
+def web_results_with_count_and_offset(subscription_key):
 
+    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+
+    try:
+        web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
+        print("\r\nSearched for Query# \" Best restaurants in Seattle \"")
+
+        if web_data.web_pages.value:
+
+            print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+
+            first_web_page = web_data.web_pages.value[0]
+            print("First web page name: {} ".format(first_web_page.name))
+            print("First web page URL: {} ".format(first_web_page.url))
+
+        else:
+            print("Didn't see any Web data..")
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))```
+
+```
+Search for "xbox" with `response_filter` assigned to `News`.  Print details of news results.
+```
+def web_search_with_response_filter(subscription_key):
+
+    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+
+    try:
+        web_data = client.web.search(query="xbox", response_filter=["News"])
+        print("\r\nSearched for Query# \" xbox \" with response filters \"News\"")
+
+        # News attribute since I filtered "News"
+        if web_data.news.value:
+
+            print("Webpage Results#{}".format(len(web_data.news.value)))
+
+            first_web_page = web_data.news.value[0]
+            print("First web page name: {} ".format(first_web_page.name))
+            print("First web page URL: {} ".format(first_web_page.url))
+
+        else:
+            print("Didn't see any Web data..")
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+
+```
+Search with query "Niagara Falls", using `answerCount` and `promote` parameters. Print details of results.
+```
+def web_search_with_answer_count_promote_and_safe_search(subscription_key):
+
+    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+
+    try:
+        web_data = client.web.search(
+            query="Niagara Falls",
+            answer_count=2,
+            promote=["videos"],
+            safe_search=SafeSearch.strict  # or directly "Strict"
+        )
+        print("\r\nSearched for Query# \" Niagara Falls\"")
+
+        if web_data.web_pages.value:
+
+            print("Webpage Results#{}".format(len(web_data.web_pages.value)))
+
+            first_web_page = web_data.web_pages.value[0]
+            print("First web page name: {} ".format(first_web_page.name))
+            print("First web page URL: {} ".format(first_web_page.url))
+
+        else:
+            print("Didn't see any Web data..")
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+
+```
 ## Next steps
 
 [Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
