@@ -82,7 +82,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 1. Create an Availability Set  
    Set max update domain
 1. Create a Load Balancer (internal)  
-   Select VNET of step above
+   Select VNET created in the second step
 1. Create Virtual Machine 1   
    Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 BYOS image
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
@@ -204,7 +204,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] Setup disk layout
     1. LVM  
-    We generally recommend using LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
+    We generally recommend using LVM for volumes that store data and log files. The example following assumes that the virtual machines have four data disks attached that should be used to create two volumes.
         * Create physical volumes for all disks that you want to use.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -356,7 +356,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 ## Installing SAP HANA
 
-Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide] to install SAP HANA System Replication.
+To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide].
 
 1. [A] Run hdblcm from the HANA DVD
     * Choose installation -> 1
@@ -366,7 +366,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     * Do you want to add additional hosts to the system? (y/n) [n]: -> ENTER
     * Enter SAP HANA System ID: <SID of HANA e.g. HDB>
     * Enter Instance Number [00]:   
-  HANA Instance number. Use 03 if you used the Azure Template or followed the example above
+  HANA Instance number. Use 03 if you used the Azure Template or followed the manual deployment
     * Select Database Mode / Enter Index [1]: -> ENTER
     * Select System Usage / Enter Index [4]:  
   Select the system Usage
@@ -454,7 +454,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
-   Go to Properties and write down the Directory ID. This is the **tenant ID**.
+   Go to Properties and write down the Directory ID. This ID is the **tenant ID**.
 1. Click App registrations
 1. Click Add
 1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
@@ -462,7 +462,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Write down the Application ID. It is used as the username (**login ID** in the steps following) of the Service Principal
 
 The Service Principal does not have permissions to access your Azure resources by default. Give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
 
@@ -472,7 +472,7 @@ The Service Principal does not have permissions to access your Azure resources b
 1. Click Access control (IAM)
 1. Click Add
 1. Select the role Owner
-1. Enter the name of the application you created above
+1. Enter the name of the application you created in the earlier steps
 1. Click OK
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
@@ -591,7 +591,7 @@ You can test a manual failover by stopping the pacemaker service on node saphana
 service pacemaker stop
 </code></pre>
 
-After the failover, you can start the service again. The SAP HANA resource on saphanavm1 fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, configure the HANA instance as secondary by executing this command:
+After the failover, you can start the service again. If you set AUTOMATED_REGISTER="false", the SAP HANA resource on saphanavm1 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
 
 <pre><code>
 service pacemaker start
@@ -602,7 +602,7 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
@@ -615,8 +615,8 @@ crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 </code></pre>
 
-This should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
-The SAP HANA resource on saphanavm1 fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, configure the HANA instance as secondary by executing this command:
+if you set AUTOMATED_REGISTER="false", this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
+The SAP HANA resource on saphanavm1 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -631,14 +631,14 @@ The migration creates location constraints that need to be deleted again.
 <pre><code>
 crm configure edited
 
-# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
+# Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
 You also need to clean up the state of the secondary node resource
 
 <pre><code>
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>

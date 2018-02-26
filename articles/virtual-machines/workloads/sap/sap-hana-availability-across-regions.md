@@ -1,9 +1,9 @@
 ---
 title: SAP HANA Availability across Azure Regions | Microsoft Docs
-description: Operations of SAP HANA on Azure native VMs
+description: Describes overview of availability considerations when running SPA HANA on Azure VMs
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2017
-ms.author: msjuergent
+ms.date: 02/26/2018
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP HANA Availability across Azure Regions
-## Motivation to deploy across multiple Azure Regions
+# SAP HANA Availability across Azure regions
+In this article scenarios around SAP HANA availability across different Azure regions are described and discussed. Given the fact that separate Azure regions have larger distance between them, there are special considerations that are listed in this article.
+
+## Motivation to deploy across multiple Azure regions
 Different Azure regions are separated by a larger distance. Dependent on geopolitical region, this could be hundreds of miles or even several thousand miles, like in the United States. Due to the distance between the different Azure Regions, network traffic between assets deployed in two different Azure regions experiences significant network roundtrip latency. Significant enough to exclude synchronous data exchange between two SAP HANA instances under typical SAP workload. 
 On the other side, you often are faced with the fact that there is defined requirement on distance between your primary datacenter and a secondary datacenter in order to provide availability in case of natural disaster hitting a wider area. Such as Hurricanes that hit the Caribbean and Florida area in September and October 2017. Or at least a minimum distance requirement. In most of the customer cases, this minimum distance definition requires you to design for availability across [Azure Regions](https://azure.microsoft.com/regions/). Since the distance is too large between two Azure regions to use synchronous replication mode of HANA, requirements of RTO and RPO might force you to deploy availability configurations within one region and then supplement with additional deployments in a second region.
 
@@ -42,7 +44,7 @@ In this scenario, you decided not to put any availability configuration in place
 
 A small change on the configuration could be to configure data pre-loading. However given the manual nature of failover and the fact that application layers need to move to the second region as well, it may not make sense to pre-load data. 
 
-## Combine Availability within one region and across region 
+## Combine Availability within one region and across regions 
 A combination of availability within and across regions can be driven by:
 
 - Requirement for RPO=0 within an Azure Region.
@@ -59,7 +61,7 @@ This configuration provides an RPO=0 with small RTO times within the primary reg
 > [!NOTE]
 > Since you are using the logreplay operation mode for HANA System Replication going from Tier 1 to Tier 2 (synchronous replication in primary region), the replication between Tier 2 and Tier 3 (replication to secondary site) can't be in delta_datashipping operation mode. Details of operation modes and some restrictions are documented by SAP in [Operation Modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
-## Next Steps
+## Next steps
 If you need step by step guidance on how to set up such a configuration in Azure, read the articles:
 
 - [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)

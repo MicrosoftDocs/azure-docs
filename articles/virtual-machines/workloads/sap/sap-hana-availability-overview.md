@@ -3,7 +3,7 @@ title: SAP HANA Availability on Azure VMs - Overview | Microsoft Docs
 description: Operations of SAP HANA on Azure native VMs
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/113/2018
-ms.author: msjuergent
+ms.date: 02/26/2018
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -52,7 +52,7 @@ Article and content you should be familiar about SAP HANA can be listed like:
 Beyond being familiar with deploying VMs in Azure, we also recommend reading the article [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) first before continuing with defining your availability architecture in Azure.
 
 ## Service Level agreements for different Azure components
-Azure has different availability SLAs for different components like networking, storage, and VMs. All these SLAs are documented and can be found starting with the [Microsoft Azure Service Level Agreement](https://azure.microsoft.com/support/legal/sla/) page. If you check out the [SLA for Virtual Machines](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_6/), you realize that Azure provides two different SLAs with two different configurations. The SLAs are defined like:
+Azure has different availability SLAs for different components like networking, storage, and VMs. All these SLAs are documented and can be found starting with the [Microsoft Azure Service Level Agreement](https://azure.microsoft.com/support/legal/sla/) page. If you check out the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/), you realize that Azure provides two different SLAs with two different configurations. The SLAs are defined like:
 
 - A single VM using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for the OS disk and all data disks provides a monthly up-time percentage of 99.9%
 - Multiple (at least two) VMs that are organized in an [Azure Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) provide a monthly up-time percentage of 99.95%

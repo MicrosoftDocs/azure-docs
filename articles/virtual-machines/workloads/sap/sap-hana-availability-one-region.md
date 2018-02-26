@@ -3,7 +3,7 @@ title: SAP HANA Availability within one Azure Region | Microsoft Docs
 description: Operations of SAP HANA on Azure native VMs
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2017
-ms.author: msjuergent
+ms.date: 02/26/2018
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -57,20 +57,20 @@ This single VM scenario could get improved by adding a cold failover node to an 
 As a result, we have no reference architecture that foresees a Standby node for HANA Host Auto-Failover. This also applies for SAP HANA scale-out configurations.
 
 
-## Availability Scenarios involving two different VMs
+## Availability scenarios involving two different VMs
 Using two Azure VMs within Azure Availability Sets enable you to increase the up-time between these two VMs if those VMS are placed in an Azure Availability Set within one Azure region. The base setup in Azure would look like the graphics shown here:
 ![Two VMs with all layers](./media/sap-hana-availability-one-region/two_vm_all_shell.PNG)
 
 In order to illustrate the different availability scenarios, a few of the layers above are cut and the graphics limited to the layers of VMs, hosts, Availability Sets and Azure Regions. Azure VNets, Resource Groups, and subscriptions don't play a role for the scenarios described.
 
-### Replicating Backups to second Virtual Machine
+### Replicating backups to second virtual machine
 One of the most rudimentary setups is to have backups, especially transaction log backups shipped from one VM to another Azure Virtual machine. You have the choice of any Azure Storage type. You would be responsible for scripting the copy of scheduled backups conducted on the first VM to the second VM. In case of using requiring the instances of the second VM, you would need to restore the full, incremental/differential, and transaction log backups to the point you need. 
 The architecture would look like:
 ![Two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 This setup is not too suitable for achieving great RPO and RTO times. Especially RTO times would suffer due to the need of fully restoring the complete database with the copied backups. However this setup is usable to recover from unintended data deletion on the main instances. with such a setup you are able at any time to restore to a certain point in time, extract the data, and import the deleted data into your main instance. Hence it can make sense to use such backup copy method in combination with other high availability functionality. During the time when just the backups are copied, you might get along with a smaller VM than the main SAP HANA instances is running in. But keep in mind that smaller VMs have lower number of VHDs that can be attached. Check [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) for limits of individual VM types.
 
-### Using SAP HANA System Replication without Automatic Failover
+### Using SAP HANA System Replication without automatic failover
 For the following scenarios, you are using SAP HANA System replication. SAP issued documentation can be found starting with the article [System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html). Between two Azure VMs in a single Azure region there are two different configurations that have some differences in the Recovery Time Objective. In general, the scenarios with not having automatic failover might not be too relevant for scenarios within one Azure region. Reason for that is that in most failure situations in Azure infrastructure, the Azure Service healing is going to restart the primary VM on another host. There are only some edge cases where such a configuration might help in terms of failure scenarios. Or some cases you as a customer want to realize, especially around efficiency.
 
 #### Using HANA System Replication without auto failover and without data pre-load 
@@ -88,7 +88,7 @@ This is a scenario where you use SAP HANA System Replication for the purpose of 
 The difference to the scenario introduced before is that the data, which gets replicated to the HANA Instance in the second VM is pre-loaded. This would eliminate the two advantages you can have with the scenario of not pre-loading data. In this case, you can't run another SAP HANA system on the second VM. Nor could you use a smaller VM size. Hence, this is a scenario hardly implemented with customers
 
 
-### Using SAP HANA System Replication with Automatic Failover
+### Using SAP HANA System Replication with automatic failover
 
 The standard availability configuration within one Azure region, most customers are implementing with SAP HANA, is a configuration where the two Azure virtual machines running SLES Linux have a failover cluster defined. The Linux cluster of SLES is based on the [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) framework in conjunction with a [STONITH](http://linux-ha.org/wiki/STONITH) device. 
 From an SAP HANA perspective, the replication mode used is synchronized and an automatic failover is configured. In the second VM, the SAP HANA instance acts as a hot standby node, which receives a synchronous stream of change records from the primary SAP HANA instance. As transactions get committed by the application at the HANA primary node, the primary HANA node waits to confirm the commit to the application until the secondary SAP HANA node confirmed having received the commit record. SAP HANA two different synchronous replication modes. For details and differences on these two synchronous replication modes, read the article [Replication modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html)
@@ -106,23 +106,3 @@ If you need step by step guidance on how to set up such a configuration in Azure
 - [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
 - [Your SAP on Azure – Part 4 – High Availability for SAP HANA using System Replication](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
 
-
-
-
-- 
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
- 
