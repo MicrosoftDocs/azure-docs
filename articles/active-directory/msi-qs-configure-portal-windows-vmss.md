@@ -66,6 +66,6 @@ If you have a Virtual Machine Scale Set that no longer needs an MSI:
 
 ## Next steps
 
-- Using the Azure portal, give an Azure virtual machine scale set MSI [access to another Azure resource](msi-howto-assign-access-vmss-portal.md).
+- Using the Azure portal, give an Azure virtual machine scale set MSI [access to another Azure resource](msi-howto-assign-access-portal.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
