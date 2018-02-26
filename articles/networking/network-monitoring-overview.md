@@ -41,6 +41,8 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 * Determine the specific segment on the network, that is responsible for degraded performance
 * Monitor the health of the network, without the need for SNMP
 
+![NPM topology map](./media/network-monitoring-overview/npm-topology-map.png) 
+
 For more information, view the following articles:
 
 * [Configure a Network Performance Monitor Solution in Log Analytics](../log-analytics/log-analytics-network-performance-monitor.md) 
@@ -61,6 +63,22 @@ For more information, see the following articles:
 
 * [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
 * [Blog post](https://aka.ms/NPMExRmonitorGA)
+
+## Service Endpoint Monitor
+
+With Service Endpoint monitoring, you can now test reachability of applications and detect performance bottlenecks across on-premises, carrier networks and cloud/private data centers.
+
+* Monitor end-to-end network connectivity to applications
+* Correlate application delivery with network performance, detect precise location of degradation along the path between the user and the application
+* Test application reachability from multiple user locations across the globe
+* Determine network latency and packet loss for your line of business and SaaS applications
+* Determine hot spots on the network, that may be causing poor application performance
+* Monitor reachability to  Office 365 applications, using built-in tests for Microsoft Office 365, Dynamics 365, Skype for Business and other Microsoft services
+
+For more information, see the following articles:
+
+* [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
+* [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Next steps
 
