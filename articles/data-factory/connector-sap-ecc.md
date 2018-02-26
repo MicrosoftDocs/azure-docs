@@ -154,5 +154,27 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 ]
 ```
 
+## Data type mapping for SAP ECC
+
+When copying data from SAP ECC, the following mappings are used from SAP ECC data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| SAP HANA data type | OData data type | Data factory interim data type |
+|:--- |:--- |:--- |
+| X (Binary and Raw)  | Edm.Binary | String |
+| C (String) String | Edm.Boolean | Bool |
+| C (String) String | Edm.Byte | String |
+| D (Date) | Edm.DateTime | DateTime |
+| P (BCD Packed, Currency, Decimal, Qty) | Edm.Decimal | Decimal |
+| F (Float) | Edm.Double | Double |
+| I (integer) | Edm.Single | Single |
+| C (String) String | Edm.Guid | String |
+| I (integer) | Edm.Int16 | Int16 |
+| I (integer) | Edm.Int32 | Int32 |
+| I (integer) | Edm.Int64 | Int64 |
+| I (integer) | Edm.SByte | Int16 |
+| C (String) String/ N (Numc) | Edm.String | String |
+| T (Time) | Edm.Time | TimeSpan |
+| D (Date) | Edm.DateTimeOffset | DateTimeOffset |
+
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
