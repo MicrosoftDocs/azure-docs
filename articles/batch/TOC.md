@@ -100,7 +100,6 @@
 ### [Task complete event](batch-task-complete-event.md)
 ### [Task fail event](batch-task-fail-event.md)
 ## [Batch compute node environment variables](batch-compute-node-environment-variables.md)
-### [Resource Manager template](/templates/microsoft.batch/batchaccounts)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
@@ -110,6 +109,7 @@
 ## [HPC solutions in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Resource Manager template](/azure/templates/microsoft.batch/batchaccounts)
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
