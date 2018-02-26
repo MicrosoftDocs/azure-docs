@@ -30,7 +30,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Bl
 The scenario outlined in this tutorial assumes that you already have the following:
 
 *   An Azure AD tenant
-*   A Bluejeans tenant with the [Standard](https://www.Bluejeans.com/pricing) plan or better enabled
+*   A Bluejeans tenant with the [My Company](https://www.Bluejeans.com/pricing) plan or better enabled
 *   A user account in Bluejeans with Admin permissions
 
 > [!NOTE]
@@ -104,7 +104,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Username** field, populate the username of the admin account on your Bluejeans Tenant. Example: admin@contoso.com.
 
-	*   In the **Admin Password** field, populate the password corresponding to the Admin Username.
+	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Bluejeans. If the connection fails, ensure your Bluejeans account has Admin permissions and try again.
 
@@ -113,7 +113,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Bluejeans Provisioning](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
-
 
 8. Click **Save**. 
 
