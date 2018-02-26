@@ -49,20 +49,20 @@ This page is updated monthly, so revisit it regularly.
 **Product capability:** Directory
  
 
-The navigation experience for managing users and groups has been streamlined. Now you can navigate from the directory overview directly to the list of all users, with easier access to the list of deleted users. You can also navigate from the directory overview directly to the list of all groups, with easier access to group management settings. And also from the directory overview page, you can search for a user, group, enterprise application, or app registration.
+The navigation experience for managing users and groups has been streamlined. You can now navigate from the directory overview directly to the list of all users, with easier access to the list of deleted users. You can also navigate from the directory overview directly to the list of all groups, with easier access to group management settings. And also from the directory overview page, you can search for a user, group, enterprise application, or app registration.
  
 
 ---
 
 
-### Availability of Sign-ins and Audit reports in MoonCake
+### Availability of sign-ins and audit reports in Azure Mooncake
 
 **Type:** New feature  
 **Service category:** Sovereign Clouds  
 **Product capability:** Monitoring & Reporting
  
 
-Azure AD Activity log reports are now available in "Mooncake" sovereign instance. The following logs are included:
+Azure AD Activity log reports are now available in Azure Mooncake sovereign instance. The following logs are included:
 
 - **Sign-ins activity logs**  - Includes all the sign-ins logs associated with your tenant.
 
