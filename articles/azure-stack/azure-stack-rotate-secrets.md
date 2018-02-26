@@ -88,6 +88,7 @@ $CertShareCred = Get-Credential
 $CertSharePath = <NetworkPathofCertShare>   
 Invoke-Command -session $PEPsession -ScriptBlock { 
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
+Remove-PSSession -Session $PEPSession
 ```
 
 
@@ -156,8 +157,9 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 **Rotate internal and external infrastructure secrets**
   
 ```powershell
-PS C:\> Invoke-Command -session $YourPEPSession -ScriptBlock { 
-Start-SecretRotation -PfxFilesPath “C:\Path\to\my\Certificates” -PathAccessCredential $share_credential -CertificatePassword “Password” } 
+PS C:\> Invoke-Command -session $PEPSession -ScriptBlock { 
+Start-SecretRotation -PfxFilesPath “C:\Path\to\my\Certificates” -PathAccessCredential $share_credential -CertificatePassword $securePassword } 
+Remove-PSSession -Session $PEPSession
 ```
 
 This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack’s external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
@@ -182,6 +184,7 @@ The baseboard management controllers (BMC) monitors the physical state of your s
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Set-Bmcpassword -bmcpassword $using:NewBMCpwd
     }
+    Remove-PSSession -Session $PEPSession
     ```
     
     You can also use the static PowerShell version with the Passwords as code lines:
@@ -199,6 +202,7 @@ The baseboard management controllers (BMC) monitors the physical state of your s
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Set-Bmcpassword -bmcpassword $using:NewBMCpwd
     }
+    Remove-PSSession -Session $PEPSession
     ```
 
 ## Next steps
