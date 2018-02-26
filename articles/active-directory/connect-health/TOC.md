@@ -13,7 +13,7 @@
 
 # Troubleshoot
 ## [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-## [Health service data is not up to date](active-directory-aadconnect-health-datafreshness.md)
+## [Health service data is not up to date](active-directory-aadconnect-health-faq.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
