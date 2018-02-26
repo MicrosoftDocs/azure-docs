@@ -25,7 +25,7 @@ ms.reviewer: chjoy
 
 These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](azure-stack-updates.md#determine-the-current-version).
 
-## Build 201802xx.x
+## Build 20180223.1
 Release date: February 27, 2018
 
 ### New features and fixes
