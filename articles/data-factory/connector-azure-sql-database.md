@@ -99,7 +99,7 @@ To use service principal based AAD application token authentication, follow thes
 
 2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** for your Azure SQL Server on Azure portal if you haven't done so.
 
-3. **Create a contained database user for the service principal**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. **Create a contained database user for the service principal**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -159,7 +159,7 @@ To use MSI based AAD application token authentication, follow these steps:
 
 2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** for your Azure SQL Server on Azure portal if you haven't done so.
 
-3. **Create a contained database user for the AAD group**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. **Create a contained database user for the AAD group**, by connecting to the database from/to which you want to copy data using tools like SSMS, with an AAD identity having at least ALTER ANY USER permission, and executing the following T-SQL. Learn more on contained database user from [here](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
     ```sql
     CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
