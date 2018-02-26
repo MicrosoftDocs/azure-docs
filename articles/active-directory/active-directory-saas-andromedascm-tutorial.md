@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/26/2018
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Andromeda SCM, you need the following items:
 
 - An Azure AD subscription
-- An Andromeda SCM single sign-on enabled subscription
+- An Andromeda SCM single-sign on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -104,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Andromeda SCM Domain and URLs single sign-on information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantURL>`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<tenantURL>`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
