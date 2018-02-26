@@ -33,8 +33,6 @@
       href: azure-stack-manage-permissions.md
     - name: Create service principals
       href: Azure-stack-create-service-principals.md
-    - name: Rotate Azure Stack secrets
-      href: azure-stack-rotate-secrets.md
   - name: Use services
     items:
     - name: Key considerations
