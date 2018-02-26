@@ -109,7 +109,10 @@ If your product or category is well known and you have purchase capabilities set
 
 At a more mature point in your offer's history, you might decide to focus your campaign efforts on upselling your customer base and drive action toward increased purchase in the Marketplace. Your tactics would focus on encouraging customers to "buy now" in the Marketplace. Your KPI might be the revenue generated through the Marketplace.
 
-Whatever your offer's maturity and the goals of your organization, staying focused on this goal and mapping out a set of integrated marketing tactics aligned to this goal are key to maximizing your campaign effectiveness.
+Whatever your offer's maturity and the goals of your organization, the keys to  maximizing your campaign's effectiveness are:
+
+- Staying focused on this goal
+- Mapping out a set of integrated marketing tactics aligned to this goal
 
 As part of being a new publisher in the Azure Marketplace, we'll offer you some free Marketplace GTM benefits. You should think critically about how to use these benefits in your campaign strategy. Let our marketing team know your Marketplace campaign goals and your desired audience action. We can customize these deliverables to work into your plan.
 
@@ -119,20 +122,20 @@ For additional go-to-market support--including templates, web content, training,
 
 New listings in the Marketplace become eligible to receive free Marketplace GTM benefits. Our team of marketing specialists will reach out to you to kick-start these activities. There is nothing for you to do except to engage with us when we reach out. 
 
-The activities we provide differ depending on your solution status in the Marketplace. Benefits significantly increase for offers that come with a trial experience or transact capabilities within the Marketplace.
+The activities that we provide differ depending on your solution status in the Marketplace. Benefits significantly increase for offers that come with a trial experience or transact capabilities within the Marketplace.
 
 To maximize the impact of these activities, we encourage you to have your launch plan ready to execute. You might want to use your landing page for many of these tactics. 
 
 >[!NOTE]
->OCP Catalog (One Commercial Partner Catalog) is a benefit of members in the Microsoft Partner Network. 
+>One Commercial Partner Catalog (OCP Catalog) is a benefit of members in the Microsoft Partner Network. 
 
 ![Marketplace GTM benefits](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
 
-For support--including templates, web content, training, and tools to promote your business--visit [Microsoft Go To Market](https://www.microsoftgotomarket.com).
+For support, visit [Microsoft Go To Market](https://www.microsoftgotomarket.com). There, you can find templates, web content, training, and tools to promote your business.
 
 #### Enable lead sharing
 
-Ensure that lead management is enabled in your Marketplace offer so that you receive the contact information of your Marketplace customers. These leads provide the basis for outreach for demand generation campaigns, sales motions by your field sales staff, and information about how your offer is performing. 
+Ensure that lead management is enabled in your Marketplace offer so that you receive the contact information of your Marketplace customers. These leads provide the basis for outreach in demand generation campaigns, sales motions by your field sales staff, and information about how your offer is performing. 
 
 Best practices for using these leads include:
 
@@ -140,32 +143,32 @@ Best practices for using these leads include:
 - Nurture them to enter a sales pipeline.
 - Align these efforts with your overall marketing campaign strategy.
 
-These leads demonstrate targeted user interest in your Marketplace offer and in your technology. So you should treat them as a way to find potentially highly engaged customers. When a lead is created in the Marketplace, a similar lead is created in the Microsoft field seller CRM. 
+These leads demonstrate targeted user interest in your Marketplace offer and in your technology. You should treat them as a way to find potentially highly engaged customers. When a lead is created in the Marketplace, a similar lead is created in the Microsoft field seller CRM. 
 
 However, Marketplace leads are different from Microsoft seller-qualified leads that are a feature of the Co-Sell program. The next section describes how to access the Co-Sell program. 
 
 #### Promote your business through Microsoft
 
-There are many people and teams within Microsoft whose sole goal is to support our partners and reduce any friction you have in selling with us. Now that you've listed in the Marketplace, you've opened access to its programs and resources. 
+There are many people and teams in Microsoft whose sole goal is to support our partners and reduce any friction you have in selling with us. Now that you've listed in the Marketplace, you've opened access to its programs and resources. 
 
-If you haven't already signed up to the [Microsoft Partner Network (MPN)](https://partner.microsoft.com), this should be your first step. MPN offers guidance on topics like these:
-- New business opportunities.
-- Connecting with teams or partners.
-- Solutions and training to help grow your skill set.
+If you haven't already signed up to the [Microsoft Partner Network](https://partner.microsoft.com), this should be your first step. MPN offers guidance on topics like these:
+- New business opportunities
+- Connecting with teams or partners
+- Solutions and training to help grow your skill set
 
 The best next steps that you can take to open access to even more partner benefits and resources are:
 
 1.	Use your [core benefits](https://partner.microsoft.com/en-US/membership/core-benefits).
-    As part of our Microsoft Partner Network, you receive a set of core benefits that can help you save time and money. They can also help you strengthen your capabilities, better serve customers, and build connections to reach your full business potential.
+    As part of the Microsoft Partner Network, you receive a set of core benefits that can help you save time and money. They can also help you strengthen your capabilities, better serve customers, and build connections to reach your full business potential.
 
 2.	Earn your [Cloud Platform competency](https://partner.microsoft.com/en-us/membership/cloud-platform-competency).
-    Earning a competency helps you differentiate yourself within Microsoft's expansive partner network as well as demonstrate technical expertise and customer success in the market. Earning a competency is also a prerequisite for many key partner programs like Co-Sell.
+    Earning a competency helps you differentiate yourself within Microsoft's expansive partner network. Earning a competency also helps you demonstrate technical expertise and customer success in the market. It's prerequisite for many key partner programs like Co-Sell.
 
 3.	Become [Co-Sell ready](https://partner.microsoft.com/en-US/reach-customers/promote-your-business).
     This program allows you to collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. Your solution becomes visible to our sellers in their solution catalog. Our sellers are rewarded for collaborating and winning with you.
 
 #### Invest in merchandising 
-As part of the publishing process, you considered what type of offer to create and had the opportunity to choose a category for your offer in the Azure Marketplace. Make sure you select a category that is accurate for your solution so that it appears accurately to potential customers. 
+As part of the publishing process, you considered what type of offer to create and had the opportunity to choose a category for your offer in the Azure Marketplace. Make sure you select a category that's accurate for your solution so that it appears accurately to potential customers. 
 
 In the Azure Marketplace, you become eligible for featured apps when you enable Trial and Transact functionality. To understand how featured apps fit in the context of your go-to-market benefits, review the Marketplace GTM benefits. 
 
@@ -178,15 +181,15 @@ Featured apps are chosen based on which apps provide the best customer experienc
 
 To maximize your app's chances of being featured, you should invest in the success of your Marketplace offering. Consider the following approaches to ensure a great customer experience for your offer: 
 
-- Ensure your marketing artifacts are uploaded and displaying correctly
+- Ensure that your marketing artifacts are uploaded and displaying correctly.
 - Join the [Microsoft Partner Network](https://partner.microsoft.com/membership) and engage with the partner ecosystem.
-- Drive high-quality traffic to your offer in Azure Marketplace by creating high-quality demand generation campaigns.
+- Drive high-quality traffic to your offer in the Azure Marketplace by creating high-quality demand generation campaigns.
 - Ensure that all your Azure solutions and apps are available in the Azure Marketplace.
 - Grow the consumption of your Azure Marketplace offers by driving demand, providing high-quality customer service, and providing timely updates on your product.
 
 ## Analytics and reporting
 
-In the **Insights** section of the Cloud Partner Portal, you see a high-level overview of your offer's performance. The reports included in this section are:  
+In the Insights section of the Cloud Partner Portal, you see a high-level overview of your offer's performance. The reports included in this section are:  
 - Summary snapshot of orders
 - Usage
 - Deployments
@@ -195,7 +198,7 @@ In the **Insights** section of the Cloud Partner Portal, you see a high-level ov
 - Orders and usage shown as a monthly summary or as a six-month trend view
 - Usage/orders sliced by several criteria
 
-Detailed reports show customer information, like company name and geographic location down to the postal code, so you can compare your customers and compensate your sellers. We provide the following specific attributes about your customers:
+Detailed reports show customer information, like company name and geographic location down to the postal code. You can use this information to compare your customers and compensate your sellers. We provide the following specific attributes about your customers:
 - Reseller
 - First Name
 - Last Name
@@ -213,4 +216,6 @@ Detailed reports show customer information, like company name and geographic loc
 
 The best practice for the information in these reports is to reconcile it with your own internal data. Use it to help prioritize your marketing campaign actions. 
 
-The **Analytics** section of Cloud Partner Portal Insights provides a rich dashboard based on Power BI that enables you to see traffic on your app detail page. New features for this dashboard are being rolled out in an ongoing way. Also within the Cloud Partner Portal is documentation on Microsoft Campaigns, a mechanism by which you can set up campaigns and track them in the portal.
+The Analytics section of Cloud Partner Portal Insights provides a rich dashboard based on Power BI. You can use this dashboard to see traffic on your app detail page. New features for this dashboard are rolled out in an ongoing way. 
+
+Also in the Cloud Partner Portal is documentation on Microsoft Campaigns. You can use this mechanism to set up campaigns and track them in the portal.
