@@ -559,7 +559,7 @@ The skeleton for the front-end stateless service and the backend service is now 
 
 2. In the wizard, click **General -> Folder** and name the folder **VotingRPC/src/rpcmethods** 
 
-![Create VotingRPC Package](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
+    ![Create VotingRPC Package](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
 3. Create a file under *Voting/VotingRPC/src/rpcmethods* named *VotingRPC.java* and paste the following inside the **VotingRPC.java** file. 
 

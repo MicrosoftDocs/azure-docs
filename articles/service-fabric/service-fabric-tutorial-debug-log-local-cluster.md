@@ -89,27 +89,27 @@ The following steps walk through how to redirect the application logs from the d
 
 1. Currently, applications running in Service Fabric Linux clusters support picking up a single log file. As a result, the logs always go to */tmp/mysfapp0.0.log*. Create a file named logging.properties in the following location *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* and add the following content.
 
-```
-handlers = java.util.logging.FileHandler
-
-java.util.logging.FileHandler.level = ALL
-java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
-
-# This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
-java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
-```
+    ```
+    handlers = java.util.logging.FileHandler
+    
+    java.util.logging.FileHandler.level = ALL
+    java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
+    
+    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
+    ```
 
 2. Add the following parameter in the *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh* for the Java execution command:
 
-```bash
--Djava.util.logging.config.file=logging.properties
-```
-
-The following example shows a sample execution:
-
-```bash
-java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
-```
+    ```bash
+    -Djava.util.logging.config.file=logging.properties
+    ```
+    
+    The following example shows a sample execution:
+    
+    ```bash
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
+    ```
 
 At this stage, you have learned how to debug and access your application logs while developing your Service Fabric Java applications. 
 

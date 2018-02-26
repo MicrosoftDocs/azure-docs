@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Deploy an application to a Service Fabric cluster in Azure
+# Tutorial: deploy a Java application to a Service Fabric cluster in Azure
 This tutorial is part three of a series and shows you how to deploy a Service Fabric application to a cluster in Azure.
 
 In part four of the series, you learn how to:
@@ -48,7 +48,7 @@ The following steps create the necessary resources required to deploy your appli
 
 To run your Java application in Azure without the extra resources, go to the **Set-up a party cluster** section. 
 
-1. Open terminal and download the following package that contains necessary helper scripts and the templates to create the resources in Azure
+1. Open a terminal and download the following package that contains necessary helper scripts and the templates to create the resources in Azure
 
     ```bash
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
@@ -74,7 +74,7 @@ To run your Java application in Azure without the extra resources, go to the **S
     Example: ./new-service-fabric-cluster-certificate.sh 'westus' 'testkeyvaultrg' 'testkeyvault' '<password>' 'testservicefabric.westus.cloudapp.azure.com'
     ```
 
-The preceding command returns the following information that should be noted for use later.
+    The preceding command returns the following information that should be noted for use later.
 
     ```
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
@@ -98,7 +98,7 @@ The preceding command returns the following information that should be noted for
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
     ```
 
-7. Access the [Azure portal](portal.azure.com) and navigate to the **Shared Access Signature** tab for your Storage account. Generate the SAS token as follows. 
+7. Access the [Azure portal](https://portal.azure.com) and navigate to the **Shared Access Signature** tab for your Storage account. Generate the SAS token as follows. 
 
     ![Generate SAS for Storage](./media/service-fabric-tutorial-java-deploy-azure/storagesas.png)
 
@@ -130,8 +130,8 @@ The preceding command returns the following information that should be noted for
     Please provide string value for 'receiveAuthorizationRuleName' (? for help): receiver
     ```
 
-Copy the contents of the **output** field in the JSON output of the preceding command. The sender information is used when the Service Fabric cluster is created. The receiver name and key should be saved for use in the next tutorial when the Logstash service is configured to receive messages from Event Hub. The following blob is an example JSON output: 
-
+    Copy the contents of the **output** field in the JSON output of the preceding command. The sender information is used when the Service Fabric cluster is created. The receiver name and key should be saved for use in the next tutorial when the Logstash service is configured to receive messages from Event Hub. The following blob is an example JSON output:     
+    
     ```json
     "outputs": {
         "receiver Key": {
@@ -159,14 +159,14 @@ Copy the contents of the **output** field in the JSON output of the preceding co
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
     ```
 
-Copy the value of the **sr** field in the JSON returned. The **sr** field value is the SAS token for EventHubs. The following URL is an example of the **sr** field:
+    Copy the value of the **sr** field in the JSON returned. The **sr** field value is the SAS token for EventHubs. The following URL is an example of the **sr** field:
 
     ```bash
     https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
     ```
 
-Your SAS URL for the EventHubs follows the structure: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. For example, 
-https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    Your SAS URL for the EventHubs follows the structure: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. For example, 
+    https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 12. Open the *sfdeploy.parameters.json* file and replace the following contents from the preceding steps 
 
