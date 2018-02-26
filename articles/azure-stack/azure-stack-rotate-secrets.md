@@ -203,4 +203,4 @@ The baseboard management controllers (BMC) monitors the physical state of your s
 
 ## Next steps
 
-[Learn more about Azure Stack security](azure-stack-security-foundations.md).
+[Learn more about Azure Stack security](azure-stack-security-foundations.md)
