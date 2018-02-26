@@ -1,6 +1,6 @@
 ---
 title: Bike-share tutorial - Advanced data preparation with Azure Machine Learning Workbench
-description: And end-to-end data preparation tutorial using Azure Machine Learning Workbench
+description: In this tutorial, you perform an end-to-end data preparation task using Azure Machine Learning Workbench
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -8,13 +8,13 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial, azure
-ms.topic: article
+ms.custom: mvc
+ms.topic: tutorial
 ms.date: 09/21/2017
 ---
 
 
-# Bike-share tutorial: Advanced data preparation with Azure Machine Learning Workbench
+# Tutorial: Use Azure Machine Learning Workbench for advanced data preparation (Bike share data)
 Azure Machine Learning services (preview) is an integrated, end-to-end data science, and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
 In this tutorial, you use Azure Machine Learning services (preview) to learn how to:
@@ -28,9 +28,11 @@ In this tutorial, you use Azure Machine Learning services (preview) to learn how
 > * Execute scripts in a cloud Azure HDInsight environment.
 
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 * Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quickstart-installation.md).
-* If you don't have the Azure CLI installed, follow the instructions to [install the latest Azure CLI version].(https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* If you don't have the Azure CLI installed, follow the instructions to [install the latest Azure CLI version](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 * An [HDInsights Spark cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) needs to be created in Azure.
 * An Azure Storage Account.
 * Familiarity with creating a new project in the Workbench.
@@ -782,6 +784,10 @@ print('done')
 
 2. To submit a new job, use the **Run** icon at the top of the page. Make sure **hdinsight** is selected. A **Job** is submitted with the new configuration. The output of this job is the Training Data. This data is created using the same Data Preparation steps that you created earlier. It may take few minutes to complete the job.
 
+
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 You have completed the Bike-share Data Preparation tutorial. In this tutorial, you used Azure Machine Learning services (preview) to learn how to:

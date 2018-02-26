@@ -57,7 +57,7 @@ This example shows how you can find messages based on their interchange control 
 (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
 > and start at Step 4. Otherwise, start at Step 1.
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
+1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
 Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)

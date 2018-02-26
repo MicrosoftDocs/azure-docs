@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: raynew
 
 ---
@@ -33,6 +33,8 @@ To complete this tutorial:
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
+> [!NOTE]
+> Before you begin, note that after failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
 
 
 ### Set up an Azure account
@@ -175,4 +177,4 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 ## Next steps
 
-[Run a disaster recovery drill](tutorial-dr-drill-azure.md)
+[Run a disaster recovery drill](tutorial-dr-drill-azure.md).

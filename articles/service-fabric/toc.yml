@@ -93,6 +93,8 @@
     - name: Reliable Services
       href: service-fabric-reliable-services-introduction.md
       items:
+      - name: Replica and instance lifecycle
+        href: service-fabric-concepts-replica-lifecycle.md
       - name: Reliable Services lifecycle - C#
         href: service-fabric-reliable-services-lifecycle.md
       - name: Reliable Services lifecycle - Java
@@ -143,9 +145,7 @@
     - name: Scalability of applications
       href: service-fabric-concepts-scalability.md
     - name: Availability of services
-      href: service-fabric-availability-services.md
-    - name: Replica and instance lifecycle
-      href: service-fabric-concepts-replica-lifecycle.md
+      href: service-fabric-availability-services.md    
     - name: Reconfiguration
       href: service-fabric-concepts-reconfiguration.md
     - name: Service communication
@@ -529,7 +529,11 @@
     - name: Connect to a secure cluster
       href: service-fabric-connect-to-secure-cluster.md
     - name: Patch cluster nodes
-      href: service-fabric-patch-orchestration-application.md
+      items:
+      - name: Windows
+        href: service-fabric-patch-orchestration-application.md
+      - name: Linux
+        href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
     - name: OMS
@@ -599,7 +603,7 @@
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/service-fabric/
   - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator

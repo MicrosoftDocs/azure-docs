@@ -1,6 +1,6 @@
 ---
 title: Create a .NET Service Fabric application in Azure | Microsoft Docs
-description: Create a .NET application for Azure using the Service Fabric quick start sample.
+description: In this quickstart, you create a .NET application for Azure using the Service Fabric reliable services sample application.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/02/2018
+ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
 
 ---
 
-# Create a .NET Service Fabric application in Azure
+# Quickstart: create a .NET Service Fabric application in Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster.

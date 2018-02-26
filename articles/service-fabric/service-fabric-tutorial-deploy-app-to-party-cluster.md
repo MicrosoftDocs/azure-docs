@@ -1,6 +1,6 @@
 ---
-title: Deploy an Azure Service Fabric application to a Party Cluster | Microsoft Docs
-description: Learn how to deploy an application to a Party Cluster.
+title: Deploy an Azure Service Fabric application to a cluster | Microsoft Docs
+description: In this tutorial, you learn how to deploy an application to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -19,8 +19,8 @@ ms.custom: mvc
 
 ---
 
-# Deploy an application to a Party Cluster in Azure
-This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to a Party Cluster in Azure.
+# Tutorial: deploy an application to a Service Fabric cluster in Azure
+This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to a cluster running in Azure.
 
 In part two of the tutorial series, you learn how to:
 > [!div class="checklist"]
