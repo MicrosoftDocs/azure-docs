@@ -1,0 +1,53 @@
+- name: Azure Stack Development Kit Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is the Azure Stack Development Kit (ASDK)?
+    href: asdk-what-is.md
+  - name: ASDK release notes
+    href: asdk-release-notes.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy the ASDK
+    href: asdk-deploy-qs.md 
+- name: Tutorials
+  items:
+  - name: 1. Add a marketplace item
+    href: asdk-marketplace-item.md
+- name: Concepts
+  items:
+  - name: Deployment planning considerations
+    href: asdk-deploy-considerations.md
+- name: How to
+  items:
+  - name: Deploy the ASDK
+    items:
+    - name: Download and extract the development kit
+      href: asdk-download.md
+- name: Reference
+  items:
+  - name: Azure Stack PowerShell
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+  - name: Azure Stack CLI
+    href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Related
+  items:
+  - name: Azure Stack Operator Documentation
+    href: /azure/azure-stack/
+  - name: Azure Stack User Documentation
+    href: /azure/azure-stack/user/
+- name: Resources
+  items:
+  - name: Azure Stack roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Azure Stack Documentation feedback
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Pricing information
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Training and certification
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
