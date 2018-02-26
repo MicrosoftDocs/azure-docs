@@ -15,7 +15,7 @@ ms.author: ramach
 
 ---
 
-# Enable Application Insights Profiler for Azure VMs, Service Fabric, and Cloud Services
+# Enable Application Insights Profiler for Azure VMs, Service Fabric, and Azure Cloud Services
 
 This article demonstrates how to enable Azure Application Insights Profiler on an ASP.NET application that is hosted by an Azure Cloud Services resource.
 
@@ -24,7 +24,7 @@ The examples in this article include support for Azure Virtual Machines, virtual
 
 ## Overview
 
-The following image shows how Application Insights Profiler works with applications that are hosted on Azure Cloud Services resources. Azure Cloud Services resources include Virtual Machines, scale sets, Cloud Services, and Service Fabric clusters. The image uses an Azure virtual machine as an example.  
+The following image shows how Application Insights Profiler works with applications that are hosted on Azure Cloud Services resources. Azure Cloud Services resources include Virtual Machines, scale sets, cloud services, and Service Fabric clusters. The image uses an Azure virtual machine as an example.  
 
   ![Diagram showing how Application Insights Profiler works with Azure Cloud Services resources](./media/enable-profiler-compute/overview.png)
 
@@ -49,7 +49,7 @@ To fully enable Profiler, you must change the configuration in three locations:
 
 ## Set up the application source code
 
-### ASP.NET web applications, Cloud Services web roles, or the Service Fabric ASP.NET web front end
+### ASP.NET web applications, Azure Cloud Services web roles, or the Service Fabric ASP.NET web front end
 Set up your application to send telemetry data to an Application Insights instance on each `Request` operation.  
 
 Add the [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) to your application project. Make sure that the NuGet package versions are as follows:  
@@ -58,8 +58,8 @@ Add the [Application Insights SDK](https://docs.microsoft.com/azure/application-
   - For other .NET and .NET Core applications (for example, a Service Fabric stateless service or a Cloud Services worker role):
   [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) or [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 or later.  
 
-### Cloud Services worker roles or the Service Fabric stateless back end
-In addition to completing the preceding step, if your application is *not* an ASP.NET or ASP.NET Core application (for example, if it's a Cloud Services worker role or Service Fabric stateless APIs), do the following:  
+### Azure Cloud Services worker roles or the Service Fabric stateless back end
+In addition to completing the preceding step, if your application is *not* an ASP.NET or ASP.NET Core application (for example, if it's an Azure Cloud Services worker role or Service Fabric stateless APIs), do the following:  
 
   1. Early in the application lifetime, add the following code:  
 
@@ -156,7 +156,7 @@ To set up your environment, do the following:
       For information about adding the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-### Cloud Services
+### Azure Cloud Services
 
 1. To ensure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later, it's sufficient to confirm that the *ServiceConfiguration.\*.cscfg* files have an `osFamily` value of "5" or later.
 
@@ -164,7 +164,7 @@ To set up your environment, do the following:
 
    ![Location of the diagnostics config file](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
-   If you can't find the file, to learn how to enable the Diagnostics extension in your Cloud Services project, see [Set up diagnostics for Azure Cloud Services and virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
+   If you can't find the file, to learn how to enable the Diagnostics extension in your Azure Cloud Services project, see [Set up diagnostics for Azure Cloud Services and virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
 3. Add the following `SinksConfig` section as a child element of `WadCfg`:  
 
