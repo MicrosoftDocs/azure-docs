@@ -66,9 +66,8 @@ and fetch the relevant accounts** only.
     selections and update.
 
 The search text box (on the top of the storage accounts list blade) lets
-you highlight the selected text in the list of accounts. This is
-handy in the case when the full name or id is not easily
-available.
+you highlight the selected text in the list of accounts. You can use this
+when the full name or ID is not easily available.
 
 You can use free text here to help find the account you are interested
 in.
@@ -109,11 +108,11 @@ In Azure Stack there is a simple way to do that:
 ### Some Gotchas
 * Your deleted account shows state as **out of retention**.
   
-  This means that the deleted account has exceeded the retention period
+  Out of retention means that the deleted account has exceeded the retention period
   and may not be recoverable.
 * Your deleted account does not show in the accounts list.
   
-  This could mean that the deleted account has already been garbage
+  You account may not show in the account list when the deleted account has already been garbage
   collected. In this case, it cannot be recovered. See [Reclaim capacity](#reclaim) in this topic.
 
 ## Set the retention period
@@ -218,7 +217,7 @@ You must use PowerShell to migrate containers.
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job id.
+6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job ID.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
@@ -228,7 +227,7 @@ You must use PowerShell to migrate containers.
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Check status of the migration job by its job id. When the container migration finishes, MigrationStatus is set to “Completed.”
+7. Check status of the migration job by its job ID. When the container migration finishes, MigrationStatus is set to “Completed.”
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
