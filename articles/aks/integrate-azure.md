@@ -72,7 +72,7 @@ Start by adding the Open Service Broker for Azure Helm repository:
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Next, use the following script to create a [Service Principal][create-service-principal] and populate several variables. These variables will be used when running the Helm chart to install the service broker.
+Next, use the following script to create a [Service Principal][create-service-principal] and populate several variables. These variables are used when running the Helm chart to install the service broker.
 
 ```azurecli-interactive
 SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
