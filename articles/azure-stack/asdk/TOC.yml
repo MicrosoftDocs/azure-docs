@@ -11,22 +11,50 @@
   items:
   - name: Deploy the ASDK
     href: asdk-deploy-qs.md 
+  - name: Deploy the ASDK - PowerShell
+    href: asdk-deploy-powershell-qs.md
+  - name: Redeploy the ASDK
+    href: asdk-redeploy-qs.md  
 - name: Tutorials
   items:
   - name: 1. Add a marketplace item
     href: asdk-marketplace-item.md
+  - name: 2. Offer IaaS services
+    href: asdk-offer-services.md
+  - name: 3. Modify or update offers and plans
+    href: asdk-change-offers.md 
+  - name: 4. Subscribe to an offer
+    href: asdk-subscribe-services.md
+  - name: 5. Create a virtual machine from a template
+    href: asdk-create-vm-template.md 
 - name: Concepts
   items:
   - name: Deployment planning considerations
     href: asdk-deploy-considerations.md
+  - name: Development kit architecture
+    href: asdk-architecture.md
+  - name: ASDK administration basics
+    href: asdk-admin-basics.md
+  - name: Advanced evaluation tasks
+    href: asdk-advanced-eval.md
 - name: How to
   items:
   - name: Deploy the ASDK
     items:
     - name: Download and extract the development kit
       href: asdk-download.md
+    - name: Prepare the ASDK host computer
+      href: asdk-prepare-host 
+    - name: Install the ASDK
+      href: asdk-install.md
     - name: Post-deployment configuration
       href: asdk-post-deploy.md
+  - name: Register the ASDK
+    href: asdk-register.md
+  - name: Configure Azure Stack telemetry settings
+    href: asdk-telemetry.md  
+  - name: Troubleshooting
+    href: asdk-troubleshooting.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
