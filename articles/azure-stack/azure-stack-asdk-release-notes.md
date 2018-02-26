@@ -50,6 +50,14 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
+
+- In the dashboard of the admin portal, the Update tile might display an image of a rainy cloud. To resolve this issue, click on the tile to refresh it.
+
+-	In the admin portal you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
+    - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
+
+    This alert can be safely ignored. 
+
  
 #### Marketplace
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
@@ -80,7 +88,9 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 
   This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one.
 
-- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs, which break instances of Linux. 
+- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs, which causes ILB to break when using Linux instances on the Back-End network.  ILB works fine with Windows instances on the Back-End Network.
+
+-	The IP Forwarding feature is visible in the portal, however enabling IP Forwarding has no effect. This feature is not yet supported.
 
 - Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
@@ -105,6 +115,13 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 #### Identity
 -->
 
+#### Downloading Azure Stack Tools from GitHub
+- When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     
+    -  *invoke-webrequest : The request was aborted: Could not create SSL/TLS secure channel.*     
+
+  This error occurs because of a recent GitHub support deprecation of the Tlsv1 and Tlsv1.1 cryptographic standards (the default for PowerShell). For more information, see [Weak cryptographic standards removal notice](https://githubengineering.com/crypto-removal-notice/).
+
+  To resolve this issue, add `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` to the top of the script to force the PowerShell console to use TLSv1.2 when downloading from GitHub repositories.
 
 
 
