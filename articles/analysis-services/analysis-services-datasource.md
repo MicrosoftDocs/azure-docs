@@ -19,7 +19,6 @@ ms.author: owend
 
 ---
 # Data sources supported in Azure Analysis Services
-This article describes cloud and on-premises data sources supported in tabular models in Azure Analysis Services. 
 
 Data sources and connectors shown in Get Data or Import Wizard in Visual Studio are shown for both Azure Analysis Services and SQL Server Analysis Services. However, not all data sources and  connectors shown are supported in Azure Analysis Services. The types of data sources you can connect to depend on many factors such as model compatibility level, available data connectors, authentication type, providers, and On-premises data gateway support. 
 
