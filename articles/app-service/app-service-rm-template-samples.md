@@ -17,7 +17,7 @@ ms.date: 02/26/2018
 ms.author: tomfitz
 ms.custom: mvc
 ---
-# Azure Resource Manager templates for Azure Web Apps.
+# Azure Resource Manager templates for Azure Web Apps
 
 The following table includes links to Azure Resource Manager templates. For recommendations about avoiding common errors when creating web app templates, see [Guidance on deploying web apps with Azure Resource Manager templates](web-sites-rm-template-guidance.md).
 
