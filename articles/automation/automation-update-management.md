@@ -216,6 +216,27 @@ Customers who have invested in System Center Configuration Manager to manage PCs
 
 To learn how to integrate the OMS Update Management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with OMS Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
+## Patching Linux machines
+
+Linux machines has some special configurations
+
+### Package exclusion
+
+On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades can occur via packages. This can lead to Update Management runs where the OS version number changes. Since Update Management uses the same methods to update packages as an administrator would locally on the Linux computer, this behavior is intentional.
+
+To avoid updating the OS version via Update Management runs, you use the **Exclusion** feature.
+
+In Red Hat Enterprise Linux, the package name to exclude would be: 
+redhat-release-server.x86_64
+
+![Packages to exclude for Linux](./media/automation-update-management/linuxpatches.png)
+
+### Security patches not being applied
+
+When deploying updates to a Linux machine, you can select update classifications. This filters the updates that will be applied to those that meet the specified criteria. This filter is applied locally on the machine when the update is deployed. Because Update Management performs update enrichment in the cloud, some updates may be flagged in Update Management as having security impact although the local machine does not have that information. As a result, if you apply critical updates to a Linux machine, there may be updates which are not marked as having security impact on that machine, and are not get applied. However, Update Management may still report that machine as being non-compliant because it has additional information about the relevant update.
+
+Deploying updates by update classicification may not work on OpenSuSE Linux due to the different patching model used.
+
 ## Troubleshooting
 
 This section provides information to help troubleshoot issues with the Update Management solution.
