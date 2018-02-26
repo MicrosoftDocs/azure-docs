@@ -57,13 +57,13 @@ Before configuring Cornerstone OnDemand for automatic user provisioning with Azu
 
 4. In the search box, type **Cornerstone OnDemand**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterAppSearch.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/AppSearch.png)
 
 5. In the results panel, select **Cornerstone OnDemand**, and then click the **Add** button to add Cornerstone OnDemand to your list of SaaS applications.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterAppSearchResults.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/AppSearchResults.png)
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SuccesscenterAppCreate.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/AppCreation.png)
 
 ## Assigning users to Cornerstone OnDemand
 
@@ -144,15 +144,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Cornerstone OnDemand.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
-
-
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning]
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## Next steps
+## Next steps(./active-directory-saas-provisioning-reporting.md).
+
+
 
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
 
