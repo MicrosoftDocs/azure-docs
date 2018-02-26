@@ -68,15 +68,15 @@ Azure AD Activity log reports are now available in "Mooncake" sovereign instance
 
 - **Self service Password Audit Logs** - Includes all the SSPR audit logs.
 
-- **Directory Management Audit logs** - includes all the directory management related audit logs like User management, App Management etc.
+- **Directory Management Audit logs** - Includes all the directory management related audit logs like User management, App Management, and others.
 
 With these logs, you can gain insights into how your environment is doing. The provided data enables you to:
 
-- Determine how your apps and services are utilized by your users
+- Determine how your apps and services are utilized by your users.
 
-- Troubleshoot issues preventing your users from getting their work done
+- Troubleshoot issues preventing your users from getting their work done.
 
-For more information, how to use these reports, see [Azure Active Directory reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+For more information about how to use these reports, see [Azure Active Directory reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
  
 
 ---
