@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 02/27/2018
 ms.author: mabrigg
 
 ---
@@ -65,8 +65,9 @@ Install-Module `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 cd \
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -135,6 +136,7 @@ Install-Module `
   -Force 
 
 # Download Azure Stack tools from GitHub and import the connect module.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 cd \
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
