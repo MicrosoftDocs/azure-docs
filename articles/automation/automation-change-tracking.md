@@ -19,9 +19,9 @@ ms.custom: H1Hack27Feb2017
 ---
 # Track software changes in your environment with the Change Tracking solution
 
-This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows files and registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
+This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows and Linux files, Windows registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
-You install the solution to update the type of agent that you have installed. Changes to installed software, Windows services, and Linux daemons on the monitored servers are read. Then, the data is sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
+Changes to installed software, Windows services, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
 ## Enable Change Tracking and Inventory
 
@@ -29,74 +29,74 @@ You install the solution to update the type of agent that you have installed. Ch
 To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
 
 1. In the Azure portal, navigate to your Automation Account
-1. Select **Inventory** under **CONFIGURATION**.
-2. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**. 
+1. Select **Change Tracking** under **CONFIGURATION**.
+2. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
 
 This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
 
 ## Configuring Change Tracking and Inventory
 
-As mentioned, Change Tracking allows you to track changes to files and registry settings on computers that have been onboarded to the solution. To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
+To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
 
 ### Configure Linux files to track
 
-Use the following steps to configure file tracking on Linux computers.
+Use the following steps to configure file tracking on Linux computers:
 
 1. In your Automation Account, select **Change tracking** under **CONFIGURATION MANAGEMENT**. Click **Edit Settings** (the gear symbol).
 2. On the **Change Tracking** page, select **Linux Files**, then click **+ Add** to add a new file to track.
-3. On the **Add Linux File for Change Tracking**, enter the information for the file or directory to track and click **Save**
+3. On the **Add Linux File for Change Tracking**, enter the information for the file or directory to track and click **Save**.
 
 |Property  |Description  |
 |---------|---------|
-|Enabled     | Determines if the setting is applied        |
-|Item Name     | Friendly name of the file to be tracked        |
-|Group     | A group name for logically grouping files        |
-|Enter Path     | The path to check for the file For example: "/etc/*.conf"       |
-|Path Type     | Type of item to be tracked, possible values are File and Directory        |
+|Enabled     | Determines if the setting is applied.        |
+|Item Name     | Friendly name of the file to be tracked.        |
+|Group     | A group name for logically grouping files.        |
+|Enter Path     | The path to check for the file. For example: "/etc/*.conf"       |
+|Path Type     | Type of item to be tracked, possible values are File and Directory.        |
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
-|Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced<br>**Manage** - Follows the symbolic links and allows alter the treatment of returned content      |
+|Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced.<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>**Manage** - Follows the symbolic links and allows altering of returned content.     |
 
 > [!NOTE]
 > The "Manage" links option is not recommended. File content retrieval is not supported.
 
 ### Configure Windows files to track
 
-Use the following steps to configure files tracking on Windows computers.
+Use the following steps to configure files tracking on Windows computers:
 
 1. In your Automation Account, select **Change tracking** under **CONFIGURATION MANAGEMENT**. Click **Edit Settings** (the gear symbol).
 2. On the **Change Tracking** page, select **Windows Files**, then click **+ Add** to add a new file to track.
-3. On the **Add Windows File for Change Tracking**, enter the information for the file or directory to track and click **Save**
+3. On the **Add Windows File for Change Tracking**, enter the information for the file to track and click **Save**.
 
 |Property  |Description  |
 |---------|---------|
-|Enabled     | Determines if the setting is applied        |
-|Item Name     | Friendly name of the file to be tracked        |
-|Group     | A group name for logically grouping files        |
+|Enabled     | Determines if the setting is applied.        |
+|Item Name     | Friendly name of the file to be tracked.        |
+|Group     | A group name for logically grouping files.        |
 |Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
 
 ### Configure Windows registry keys to track
 
-Use the following steps to configure registry key tracking on Windows computers.
+Use the following steps to configure registry key tracking on Windows computers:
 
 1. In your Automation Account, select **Change tracking** under **CONFIGURATION MANAGEMENT**. Click **Edit Settings** (the gear symbol).
 2. On the **Change Tracking** page, select **Windows Registry**, then click **+ Add** to add a new registry key to track.
-3. On the **Add Windows Registry for Change Tracking**, enter the information for the key to track and click **Save**
+3. On the **Add Windows Registry for Change Tracking**, enter the information for the key to track and click **Save**.
 
 |Property  |Description  |
 |---------|---------|
-|Enabled     | Determines if the setting is applied        |
-|Item Name     | Friendly name of the file to be tracked        |
-|Group     | A group name for logically grouping files        |
-|Windows Registry Key   | The path to check for the file For example: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Enabled     | Determines if the setting is applied.        |
+|Item Name     | Friendly name of the file to be tracked.        |
+|Group     | A group name for logically grouping files.        |
+|Windows Registry Key   | The path to check for the file. For example: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## Limitations
 
 The Change Tracking solution does not currently support the following items:
 
-* Folders (directories) for Windows File Tracking
-* Recursion for Windows File Tracking
-* Wild cards for Windows File Tracking
+* Folders (directories) for Windows file tracking
+* Recursion for Windows file tracking
+* Wild cards for Windows file tracking
 * Path variables
 * Network file systems
 * File Content
@@ -105,8 +105,8 @@ Other limitations:
 
 * The **Max File Size** column and values are unused in the current implementation.
 * If you collect more than 2500 files in the 30-minute collection cycle, solution performance might be degraded.
-* When network traffic is high, change records may take up to a maximum of six hours to display.
-* If you modify the configuration while a computer is shut down, the computer might post file changes that belonged to the previous configuration.
+* When network traffic is high, change records may take up to six hours to display.
+* If you modify the configuration while a computer is shut down, the computer might post changes that belonged to the previous configuration.
 
 ## Known Issues
 
@@ -115,11 +115,9 @@ The Change Tracking solution is currently experiencing the following issues:
 
 ## Change Tracking data collection details
 
-Change Tracking collects software inventory and Windows Service metadata using the agents that you have enabled.
+The following table shows the data collection frequency for the types of changes. For each change type other than Windows registry settings, if there is no change in 24 hours a snapshot of the current state is sent.
 
-The following table shows the data collection frequency for the types of changes.
-
-| **Change type** | **frequency** | **Does**  **agent**  **send differences when found?** |
+| **Change type** | **Frequency** | **Does agent send differences when found?** |
 | --- | --- | --- |
 | Windows registry | 50 minutes | No |
 | Windows file | 30 minutes | Yes. If there is no change in 24 hours, a snapshot is sent. |
@@ -178,7 +176,7 @@ You can view changes to your computers and then drill-into details for each even
 
 ![image of Change Tracking dashboard](./media/automation-change-tracking/change-tracking-dash01.png)
 
-Clicking on a change or event brings up the detailed information about that change. As you can see from the example, the startup type of the service was changed from manual to auto.
+Clicking on a change or event brings up the detailed information about that change. As you can see from the example, the startup type of the service was changed from Manual to Auto.
 
 ![image of change tracking details](./media/automation-change-tracking/change-tracking-details.png)
 
