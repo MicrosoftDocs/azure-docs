@@ -49,7 +49,7 @@ The manifest file has been pre-created with a login server name of `microsoft`. 
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
+Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file. Use the FQDN of the ACR login server name (<yourname>.azurecr.io), otherwise the deployment of the fronend pod will fail.
 
 ```yaml
 containers:
