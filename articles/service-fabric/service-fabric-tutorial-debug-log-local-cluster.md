@@ -22,18 +22,18 @@ ms.custom: mvc
 #  Tutorial: debug a Java application deployed on a local Service Fabric cluster 
 This tutorial is part two of a series. You learn how to attach a remote debugger using Eclipse for the Service Fabric application. Additionally, you learn how to redirect logs from the running applications to a location convenient for the developer.
 
-In part three of the series, you learn how to:
-
-> [!div class="checklist"]
-> * Create resources to deploy a Linux cluster in Azure
-> * Use Service Fabric party clusters 
-> * Upgrade applications 
-> * Scale the instances of both front-end and back-end services
-
-In this tutorial series you learn how to:
+In part two of the series, you learn how to:
 > [!div class="checklist"]
 > * Debug Java application using Eclipse
 > * Redirect logs to a configurable location
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> *  [Build a Java Service Fabric Reliable Services application](service-fabric-tutorial-create-java-app.md)
+> * Deploy and debug the application on a local cluster
+> * [Deploy application to an Azure cluster](service-fabric-tutorial-java-deploy-azure.md)
+> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)
+> * [Set up CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## Prerequisites
 Before you begin this tutorial:

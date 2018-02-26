@@ -22,18 +22,19 @@ ms.custom: mvc
 # Tutorial: deploy a Java application to a Service Fabric cluster in Azure
 This tutorial is part three of a series and shows you how to deploy a Service Fabric application to a cluster in Azure.
 
-In part four of the series, you learn how to:
+In part three of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Set up ELK server in Azure
-> * Configure Logstash to receive logs from Event Hubs
-> * Visualize platform and application logs in Kibana 
+> * Create a secure Linux cluster in Azure 
+> * Deploy an application to the cluster
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Create a secure Linux cluster in Azure 
-> * Create resources necessary for monitoring with ELK 
-> * Optional: How to use party clusters to try out Service Fabric
+> *  [Build a Java Service Fabric Reliable Services application](service-fabric-tutorial-create-java-app.md)
+> * [Deploy and debug the application on a local cluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * Deploy application to an Azure cluster
+> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)
+> * [Set up CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## Prerequisites
 Before you begin this tutorial:

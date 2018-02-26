@@ -22,11 +22,19 @@ ms.custom: mvc
 # Set up Jenkins environment with Service Fabric
 This tutorial is part five of a series. It shows you how to use Jenkins to deploy upgrades to your application. In this tutorial, the Service Fabric Jenkins plugin is used in combination with a Github repository hosting the Voting application to deploy the application to a cluster. 
 
-In this tutorial series you learn how to:
+In part five of the series, you learn how to:
 > [!div class="checklist"]
 > * Deploy Service Fabric Jenkins container on your machine
 > * Set up Jenkins environment for deployment to Service Fabric
 > * Upgrade your application
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * [Build a Java Service Fabric Reliable Services application](service-fabric-tutorial-create-java-app.md)
+> * [Deploy and debug the application on a local cluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Deploy application to an Azure cluster](service-fabric-tutorial-java-deploy-azure.md)
+> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)
+> * Set up CI/CD
 
 
 ## Prerequisites
@@ -36,16 +44,15 @@ In this tutorial series you learn how to:
 - Have [Docker](https://www.docker.com/community-edition) installed on your machine
 
 ## Pull and deploy Service Fabric Jenkins container image
-
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following instructions show how to set it up outside a cluster using a provided Docker image. However, a preconfigured Jenkins build environment can also be used. The following container image comes installed with the Service Fabric plugin and is ready for use with Service Fabric immediately. 
 
 1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v10``. This image comes with Service Fabric Jenkins plugin pre-installed.
 
 2. Run the container image with the location where your certificates are on your local machine mounted
 
-```bash
-docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
-```
+    ```bash
+    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    ```
 
 3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
 
@@ -68,7 +75,7 @@ docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-f
     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
     ```
 
-Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. Having a public-facing IP enables the Jenkins instance to receive notifications from GitHub.
+    Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. Having a public-facing IP enables the Jenkins instance to receive notifications from GitHub.    
 
 ## Create and configure a Jenkins job
 
@@ -82,7 +89,7 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
    a. In the general section, select the checkbox for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, ``https://github.com/testaccount/dev_test``).
 
-   b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, ``https://github.com/testaccount/dev_test.git``). Also, you can specify here which branch to build (for example, **/master**).
+   b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, *https://github.com/testaccount/dev_test.git*). Also, you can specify here which branch to build (for example, **/master**).
 
 5. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins. Use the following steps:
 
@@ -114,58 +121,58 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
 ## Update your existing application 
 
-1. Update the title of the HTML in the ```VotingApplication/VotingWebPkg/Code/wwwroot/index.html``` file with **Service Fabric Voting Sample V2**. 
+1. Update the title of the HTML in the *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* file with **Service Fabric Voting Sample V2**. 
 
-```html 
-<div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2 text-center">
-                <h2>Service Fabric Voting Sample V2</h2>
+    ```html 
+    <div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 text-center">
+                    <h2>Service Fabric Voting Sample V2</h2>
+                </div>
             </div>
         </div>
     </div>
-</div>
-```
+    ```
 
-2. Update the **ApplicationTypeVersion** and **ServiceManifestVersion** version to **2.0.0** in the ```Voting/VotingApplication/ApplicationManifest.xml``` file. 
+2. Update the **ApplicationTypeVersion** and **ServiceManifestVersion** version to **2.0.0** in the *Voting/VotingApplication/ApplicationManifest.xml* file. 
 
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
-  <Description>Voting Application</Description>
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>
-  </ServiceManifestImport>
-  <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="VotingDataServicePkg" ServiceManifestVersion="1.0.0"/>
-    </ServiceManifestImport>
-    <DefaultServices>
-      <Service Name="VotingWeb">
-         <StatelessService InstanceCount="1" ServiceTypeName="VotingWebType">
-            <SingletonPartition/>
-         </StatelessService>
-      </Service>      
-   <Service Name="VotingDataService">
-            <StatefulService MinReplicaSetSize="3" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="3">
-                <UniformInt64Partition HighKey="9223372036854775807" LowKey="-9223372036854775808" PartitionCount="1"/>
-            </StatefulService>
-        </Service>
-    </DefaultServices>      
-</ApplicationManifest>
-```
+    ```xml
+    <?xml version="1.0" encoding="utf-8" standalone="no"?>
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+      <Description>Voting Application</Description>
+      <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>
+      </ServiceManifestImport>
+      <ServiceManifestImport>
+            <ServiceManifestRef ServiceManifestName="VotingDataServicePkg" ServiceManifestVersion="1.0.0"/>
+        </ServiceManifestImport>
+        <DefaultServices>
+          <Service Name="VotingWeb">
+             <StatelessService InstanceCount="1" ServiceTypeName="VotingWebType">
+                <SingletonPartition/>
+             </StatelessService>
+          </Service>      
+       <Service Name="VotingDataService">
+                <StatefulService MinReplicaSetSize="3" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="3">
+                    <UniformInt64Partition HighKey="9223372036854775807" LowKey="-9223372036854775808" PartitionCount="1"/>
+                </StatefulService>
+            </Service>
+        </DefaultServices>      
+    </ApplicationManifest>
+    ```
 
-3. Update the **Version** field in the **ServiceManifest** and the **Version** field in the **CodePackage** tag in the ```Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml``` file to **2.0.0**.
+3. Update the **Version** field in the **ServiceManifest** and the **Version** field in the **CodePackage** tag in the *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* file to **2.0.0**.
 
-```xml
-<CodePackage Name="Code" Version="2.0.0">
-<EntryPoint>
-    <ExeHost>
-    <Program>entryPoint.sh</Program>
-    </ExeHost>
-</EntryPoint>
-</CodePackage>
-```
+    ```xml
+    <CodePackage Name="Code" Version="2.0.0">
+    <EntryPoint>
+        <ExeHost>
+        <Program>entryPoint.sh</Program>
+        </ExeHost>
+    </EntryPoint>
+    </CodePackage>
+    ```
 
 4. To initialize a Jenkins job that performs an application upgrade, push your new changes to your Github repository. 
 
