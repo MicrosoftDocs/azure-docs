@@ -32,7 +32,7 @@ continue to operate normally.  Migration restarts your service once it is transf
 Microsoft is recommending that you migrate your Azure Mobile Service to take advantage of the features of Azure App Service, including:
 
 * New host features, including [WebJobs] and [custom domain names].
-* Monitoring and troubleshooting with New Relic or [Application Insights].
+* Monitoring and troubleshooting with [Application Insights].
 * Built-in DevOps tooling, including [staging slots], roll-back, and in-production testing.
 * [Auto-scale], load balancing, and [performance monitoring].
 

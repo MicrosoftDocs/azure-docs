@@ -55,7 +55,7 @@ sections:
       title: Deploy a Windows container application with Service Fabric
       image:
         src: /azure/media/index/Fabric.svg
-    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
+    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go
       title: Create a containerized app with Azure Web App for Containers
       image:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
