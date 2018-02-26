@@ -402,12 +402,13 @@ namespace functionapp0915
             // Track a Dependency
             var dependency = new DependencyTelemetry
                 {
-                    Name = "Test Dependency",
-                    Target = "swapi.co/api/planets/1/",
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
                     Timestamp = start,
                     Duration = DateTime.UtcNow - start,
                     Success = true
-                };            
+                };
             UpdateTelemetryContext(dependency.Context, context, userName);
             telemetry.TrackDependency(dependency);
             
