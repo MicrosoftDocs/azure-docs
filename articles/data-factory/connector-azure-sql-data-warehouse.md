@@ -40,7 +40,8 @@ Specifically, this Azure SQL Data Warehouse connector supports:
 > Note PolyBase only support SQL authentcation but not Azure Active Directory authentication.
 
 > [!IMPORTANT]
-> Configure [Azure SQL Data Warehouse Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) and the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Data Warehouse from outside Azure including from on-premises data sources with Self-hosted Integration Runtime, configure appropriate IP address range for the machine that is sending data to Azure SQL Data Warehouse.
+> If you copy data using Azure Integration Runtime, configure [Azure SQL Server Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). 
+> If you copy data using Self-hosted Integration Runtime, configure the Azure SQL Server firewall to allow appropriate IP range including the machine's IP that is used to connect to Azure SQL Database.
 
 ## Getting started
 

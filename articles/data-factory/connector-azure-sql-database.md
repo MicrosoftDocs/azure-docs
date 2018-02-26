@@ -37,7 +37,8 @@ Specifically, this Azure SQL Database connector supports:
 - As sink, appending data to destination table or invoking a stored procedure with custom logic during copy.
 
 > [!IMPORTANT]
-> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory Self-hosted Integration Runtime, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
+> If you copy data using Azure Integration Runtime, configure [Azure SQL Server Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). 
+> If you copy data using Self-hosted Integration Runtime, configure the Azure SQL Server firewall to allow appropriate IP range including the machine's IP that is used to connect to Azure SQL Database.
 
 ## Getting started
 
