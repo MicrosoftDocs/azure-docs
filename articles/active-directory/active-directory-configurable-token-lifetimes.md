@@ -71,7 +71,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Property | Policy property string | Affects | Default | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
 | Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
-| Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
+| Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |14 days |10 minutes |90 days |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 | Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 | Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor<sup>2</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
@@ -85,7 +85,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Property | Affects | Default |
 | --- | --- | --- |
 | Refresh Token Max Age (issued for federated users who have insufficient revocation information<sup>1</sup>) |Refresh tokens (issued for federated users who have insufficient revocation information<sup>1</sup>) |12 hours |
-| Refresh Token Max Inactive Time (issued for confidential clients) |Refresh tokens (issued for confidential clients) |90 days |
+| Refresh Token Max Inactive Time (issued for confidential clients) |Refresh tokens (issued for confidential clients) |14 days |
 | Refresh Token Max Age (issued for confidential clients) |Refresh tokens (issued for confidential clients) |Until-revoked |
 
 * <sup>1</sup>Federated users who have insufficient revocation information include any users who do not have the "LastPasswordChangeTimestamp" attribute synced. These users are given this short Max Age because AAD is unable to verify when to revoke tokens that are tied to an old credential (such as a password that has been changed) and must check back in more frequently to ensure that the user and associated tokens are still in good standing. To improve this experience, tenant admins must ensure that they are syncing the “LastPasswordChangeTimestamp” attribute (this can be set on the user object using Powershell or through AADSync).
