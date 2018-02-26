@@ -110,7 +110,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![FloQast Domain and URLs single sign-on information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-     In the **Sign-on URL** textbox, type a URL: `https://go.floqast.com/login/sso`
+    a. In the **Sign-on URL** textbox, type the following URL: `https://go.floqast.com/login/sso`
+    
+    b. Leave **Reply URL** textbox blank
+    
+    c. Leave **Relay State** textbox blank
+
 	 
 5. FloQast application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
