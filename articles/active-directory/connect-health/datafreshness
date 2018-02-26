@@ -22,6 +22,9 @@ Azure AD Connect Health generates data fresh alert when it does not receive all 
 The **Warning** status alert will fire in if Connect Health does not receive partial data elements sent from server for 2 hours. Warning status alert will not trigger email notifications to the tenant admin. 
 The **Error** status alert will fire if Connect Health does not receive all data elements sent from server for 2 hours. Error status alert will trigger email notifications to the tenant admin.
 
+>[!IMPORTANT] 
+> Alerts follows Connect Health [data retention policy](active-directory-aadconnect-health-gdpr.md#data-retention-policy)
+
 ## Troubleshooting steps 
 1.	Make sure to go over and meet the [requirements section](active-directory-aadconnect-health-agent-install.md#requirements).
 2.	Use [test connectivity tool](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to discover connectivity issues.
