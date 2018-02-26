@@ -62,7 +62,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS Disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
 
-Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it. (Use `Get-Module` to check what version you have.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0

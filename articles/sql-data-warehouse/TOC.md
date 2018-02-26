@@ -23,6 +23,7 @@
 ### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
 ### [Performance tiers](performance-tiers.md)
 ### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Scale-out, pause, resume](sql-data-warehouse-manage-compute-overview.md)
 ### [Data warehouse backups](sql-data-warehouse-backups.md)
 ### [Auditing](sql-data-warehouse-auditing-overview.md)
 ### [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## Monitor & tune
-### [Guidelines](resource-classes-for-workload-management.md)
+### [Workload management](resource-classes-for-workload-management.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
@@ -117,12 +118,11 @@
 ### [Analyze your workload](analyze-your-workload.md)
 
 ## Scale out
-### [Manage compute - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automate compute levels](manage-compute-with-azure-functions.md)
 
 
 # Reference
-
 
 ## T-SQL
 ### [Full reference](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +130,7 @@
 ### [SQL DW statements](sql-data-warehouse-reference-tsql-statements.md)
 ## [System views](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST APIs](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)

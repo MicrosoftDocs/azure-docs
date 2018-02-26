@@ -15,14 +15,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # What's new in Azure Active Directory?
-
-
 
 
 > Stay up to date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -122,7 +120,7 @@ As of January 8, 2018, the Azure AD administration experience in the Azure class
  
 ---
 
-### Azure AD administration experience in Azure classic portal has been retired
+### The PhoneFactor web portal has been retired
 
 **Type:** Deprecated  
 **Service category:** Azure AD  
@@ -167,7 +165,7 @@ For more information, see:
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance/compliance
+**Product capability:** Governance/Compliance
  
 You now can go to the Access Panel and view the terms of use that you previously accepted.
 
@@ -218,7 +216,7 @@ For more information, see [Fewer sign-in prompts: The new "keep me signed in" ex
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance
+**Product capability:** Governance/Compliance
  
 An option for administrators requires their users to expand the terms of use prior to accepting the terms.
 
@@ -246,7 +244,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](htt
 
 **Type:** New feature  
 **Service category:** Enterprise apps  
-**Product capability:** Third-party integration
+**Product capability:** 3rd Party Integration
  
 In December 2017, the following new apps with federation support were added in the app gallery:
 
@@ -376,7 +374,7 @@ For more information, see:
 
 **Type:** New feature    
 **Service category:** Terms of use  
-**Product capability:** Governance/compliance
+**Product capability:** Governance/Compliance
 
 
 
@@ -666,7 +664,7 @@ For more information, see [Reference for MFA reporting in the Azure portal](http
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance  
+**Product capability:** Governance/Compliance  
 
 
 
@@ -709,7 +707,7 @@ For more information, see [Privileged Identity Management for Azure resources](h
 
 **Type:** New feature  
 **Service category:** Access reviews  
-**Product capability:** Governance  
+**Product capability:** Governance/Compliance  
 
 
 

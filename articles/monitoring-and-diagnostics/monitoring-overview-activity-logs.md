@@ -26,18 +26,21 @@ Figure 1: Activity Logs vs other types of logs
 
 The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside (the "control plane"). Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane").
 
-You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
-
-
 > [!WARNING]
 > The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log can be browsed in a separate section of the portal.
 >
 >
 
+You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
+
+> [!NOTE]
+
+>  [Alerts (Preview)](monitoring-overview-unified-alerts.md) currently offers an enhanced experience in creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
+
+
 View the following video introducing the Activity Log.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## Categories in the Activity Log
 The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](monitoring-activity-log-schema.md). These include:
@@ -66,10 +69,10 @@ Here are some of the things you can do with the Activity Log:
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
 ## Query the Activity Log in the Azure portal
-Within the Azure portal you can view your Activity Log in several places:
-* The **Activity Log blade**, which you can access by searching for the Activity Log under "More Services" in the left-hand navigation pane.
-* The **Monitor blade**, which appears by default in the left-hand navigation pane. The Activity Log is one section of this Azure Monitor blade.
-* Any resource's **resource blade**, for example, the configuration blade for a Virtual Machine. The Activity Log is be one of the sections on most of these resource blades, and clicking on it automatically filters the events to those related to that specific resource.
+Within the Azure portal, you can view your Activity Log in several places:
+* The **Activity Log** that you can access by searching for the Activity Log under **All services** in the left-hand navigation pane.
+* **Monitor** appears by default in the left-hand navigation pane. The Activity Log is one section of Azure Monitor.
+* Any resource's **resource**, for example, the configuration blade for a Virtual Machine. The Activity Log is be one of the sections on most of these resource blades, and clicking on it automatically filters the events to those related to that specific resource.
 
 In the Azure portal, you can filter your Activity Log by these fields:
 * Timespan - The start and end time for events.
@@ -107,7 +110,7 @@ These settings can be configured via the “Export” option in the Activity Log
 ### Configure log profiles using the Azure portal
 You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
 
-1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
+1. Navigate to **Activity Log** using the menu on the left side of the portal.
 
     ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.

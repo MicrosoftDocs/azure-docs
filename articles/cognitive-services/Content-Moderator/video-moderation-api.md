@@ -1,5 +1,5 @@
 ---
-title: Video Moderation in Azure Content Moderator | Microsoft Docs
+title: Azure Content Moderator - video moderation | Microsoft Docs
 description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
@@ -8,7 +8,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 02/02/2018
 ms.author: sajagtap
 ---
 
@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
-## Sign up for the Content Moderator media processor
+## Sign up for the Content Moderator media processor (public preview)
 
 ### Create a free Azure account
 
@@ -24,7 +24,7 @@ Today, online viewers generate billions of video views across popular and region
 
 ### Create an Azure Media Services account
 
-The Content Moderator's video capability is available as a private preview **media processor** in Azure Media Services (AMS) at no charge.
+The Content Moderator's video capability is available as a public preview **media processor** in Azure Media Services (AMS) at no charge.
 
 [Create an Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in your Azure subscription.
 
