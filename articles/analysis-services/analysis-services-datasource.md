@@ -52,12 +52,10 @@ Connecting to on-premises data sources require an On-premises gateway. When usin
 
 |Datasource | In-memory provider | DirectQuery provider |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |.NET Framework Data Provider for SQL Server |
-| SQL Server |Microsoft OLE DB Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
-| SQL Server |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
+| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | Oracle |Microsoft OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET | |
 | Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
-| Analytics Platform System |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
 | | | |
 
 \* Tabular 1400 models only.
@@ -91,6 +89,8 @@ Connecting to on-premises data sources require an On-premises gateway. When usin
 \* Tabular 1400 models only.
 
 ## Specifying a different provider
+
+Data models in Azure Analysis Services may require different data providers when connecting to certain data sources. In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. If using native providers other than SQLOLEDB, you may see error message: **The provider 'SQLNCLI11.1' is not registered**. Or, if you have a DirectQuery model connecting to on-premises data sources and you use native providers, you may see error message: **Error creating OLE DB row set. Incorrect syntax near 'LIMIT'**.
 
 When migrating an on-premises SQL Server Analysis Services tabular model to Azure Analysis Services, it may be necessary to change the provider.
 
