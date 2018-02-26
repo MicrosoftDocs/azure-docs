@@ -90,7 +90,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
    Select Storage Account 1   
    Select Availability Set  
 1. Create Virtual Machine 2   
-   Use at least SLES4SAP 12 SP1, in this in this example the SLES4SAP 12 SP1 BYOS image
+   Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 BYOS image
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS) is used  
    Select Storage Account 2    
@@ -128,12 +128,12 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 To deploy the template, follow these steps:
 
-1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal
+1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
    The database template only creates the load-balancing rules for a database whereas the converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver based system and you also want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 1. Enter the following parameters
     1. Sap System ID  
        Enter the SAP system ID of the SAP system you want to install. The ID is going to be used as a prefix for the resources that are deployed.
-    1. Stack Type (only applicable if you use the converged template)  
+    1. Stack Type (only applicable if you use the converged template)   
        Select the SAP NetWeaver stack type
     1. Os Type  
        Select one of the Linux distributions. For this example, select SLES 12 BYOS
@@ -385,7 +385,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     * Enter Database User (SYSTEM) Password:
     * Confirm Database User (SYSTEM) Password:
     * Restart system after machine reboot? [n]: -> ENTER
-    * Do you want to continue? (y/n):  
+    * Do you want to continue? (y/n):   
   Validate the summary and enter y to continue
 1. [A] Upgrade SAP Host Agent  
   Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
@@ -568,7 +568,7 @@ sudo ifdown eth0
 </code></pre>
 
 The virtual machine should now get restarted or stopped depending on your cluster configuration.
-If you set the stonith-action to off, the virtual machine is going be stopped and the resources are migrated to the running virtual machine.
+If you set the stonith-action to off, the virtual machine is going to be stopped and the resources are migrated to the running virtual machine.
 
 Once you start the virtual machine again, the SAP HANA resource fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 

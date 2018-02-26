@@ -33,12 +33,12 @@ Since you operate with a different IP address range in the Azure VNets, which ar
 In this scenario, you decided not to put any availability configuration in place within a single region. But you have the demand to have the workload served in case of a disaster. Typical cases for systems like that are non-production systems. Though you can sustain to have the system down for half a day or even a day, you cannot allow the system to be not available for 48 hours or more. In order to make the setup less costly, you run another system that is even less important ion the VM that functions as a destination, or you size the VM in secondary region smaller and choose not to pre-load the data. Since the failover is going to be manual and entails many more steps to failover the complete application stack as well, the additional time to bring down the VM, resize it and start the VM again, is acceptable.
 
 > [!NOTE]
-> Be aware that even without data pre-load in the HANA System Replication target, you need at least 64GB memory and beyond that enough memory to keep the rowstore data in memory of the target instance.
+> Even without data pre-load in the HANA System Replication target, you need at least 64GB memory and beyond that enough memory to keep the rowstore data in memory of the target instance.
 
 ![Two VMs over two regions](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
 
 > [!NOTE]
-> In this configuration, you can't provide an RPO=0 since your HANA System Replication mode is asynchronous. If you need to provide an RPO=0, this is not the configuration of choice.
+> In this configuration, you can't provide an RPO=0 since your HANA System Replication mode is asynchronous. If you need to provide an RPO=0, this configuration is not the configuration of choice.
 
 A small change on the configuration could be to configure data pre-loading. However given the manual nature of failover and the fact that application layers need to move to the second region as well, it may not make sense to pre-load data. 
 
@@ -60,7 +60,7 @@ This configuration provides an RPO=0 with small RTO times within the primary reg
 > Since you are using the logreplay operation mode for HANA System Replication going from Tier 1 to Tier 2 (synchronous replication in primary region), the replication between Tier 2 and Tier 3 (replication to secondary site) can't be in delta_datashipping operation mode. Details of operation modes and some restrictions are documented by SAP in [Operation Modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
 ## Next Steps
-If you need step by step guidance on how to setup such a configuration in Azure, read the articles:
+If you need step by step guidance on how to set up such a configuration in Azure, read the articles:
 
 - [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
 - [Your SAP on Azure – Part 4 – High Availability for SAP HANA using System Replication](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
