@@ -1,0 +1,158 @@
+---
+title: Copy data from SAP ECC using Azure Data Factory | Microsoft Docs
+description: Learn how to copy data from SAP ECC to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: jhubbard
+editor: spelluru
+
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/26/2018
+ms.author: jingwang
+
+---
+# Copy data from SAP ECC using Azure Data Factory
+
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from SAP ECC (SAP Enterprise Central Component). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
+
+## Supported capabilities
+
+You can copy data from SAP ECC to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+
+Specifically, this SAP ECC connector supports:
+
+- Copying data from any object exposed by SAP ECC OData services (e.g. SAP Table/Views, BAPI, Data Extractors, etc.) or data/IDOCs sent to SAP PI and exposed as OData.
+- Copying data using basic authentication.
+
+## Prerequisites
+
+To use this SAP ECC connector, you need expose OData services through SAP Gateway. More specifically, you need to:
+
+- **Set up SAP Gateway**. For servers with SAP NetWeaver version higher than 7.4, the SAP Gateway is already installed. Otherwise, you need to install imbedded Gateway or Gateway hub before exposing SAP ECC data through OData services. Learn how to set upa SAP Gateway from [installation guide](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
+
+- **Activate SAP OData service**. You can activate the OData Services through TCODE SICF in seconds. You can also configure which objects needs to be exposed. Learn more from [step-by-step guidance](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
+
+## Getting started
+
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+The following sections provide details about properties that are used to define Data Factory entities specific to SAP ECC connector.
+
+## Linked service properties
+
+The following properties are supported for SAP ECC linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **SapEcc** | Yes |
+| url | The url of the SAP ECC OData service. |	Yes |
+| username | The username used to connect to the SAP ECC. |	No |
+| password | The plaintext password used to connect to the SAP ECC. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+
+**Example:**
+
+```json
+{
+    "name": "SapECCLinkedService",
+    "properties": {
+        "type": "SapEcc",
+        "typeProperties": {
+            "url": "<SAP ECC OData url e.g. http://eccsvrname:8000/sap/opu/odata/sap/zgw100_dd02l_so_srv/>",
+            "username": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+## Dataset properties
+
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by SAP ECC dataset.
+
+To copy data from SAP ECC, set the type property of the dataset to **SapEccResource**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| path | Path of the SAP ECC OData entity. | Yes |
+
+**Example**
+
+```json
+{
+    "name": "SapEccDataset",
+    "properties": {
+        "type": "SapEccResource",
+        "typePoperties": {
+            "path": "<entity path e.g. dd04tentitySet>"
+        },
+        "linkedServiceName": {
+            "referenceName": "<SAP ECC linked service name>",
+            "type": "LinkedServiceReference"
+        }
+    }
+}
+```
+
+## Copy activity properties
+
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by SAP ECC source.
+
+### SAP ECC as source
+
+To copy data from SAP ECC, set the source type in the copy activity to **SapEccSource**. The following properties are supported in the copy activity **source** section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the copy activity source must be set to: **SapEccSource** | Yes |
+| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>Note at last, SAP ECC connector copies data from the combined URL: `[url specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Refer to [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Yes |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSAPECC",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<SAP ECC input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SapEccSource",
+                "query": "$top=10"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+## Next steps
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
