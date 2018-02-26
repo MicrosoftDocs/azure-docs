@@ -13,7 +13,7 @@ ms.author: v-gedod
 ---
 # Image Search SDK Java quickstart
 
-The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
+You can use the Bing Image Search SDK with the REST API to query images and parse the results.
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
@@ -72,7 +72,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search images for "Canadian Rockies". Verify the number of results.  Print `firstImageResult`, `pivotSuggestion`, and `queryExpansion`.
+Search images for "Canadian Geese." Verify the number of results. Print `firstImageResult`, `pivotSuggestion`, and `queryExpansion`.
 ```
 public static void imageSearch(String subscriptionKey)
 {
@@ -157,7 +157,7 @@ public static void imageSearch(String subscriptionKey)
 }
 
 ```
-Search search images for "Gibraltar", filtered for animated gifs and wide aspect.  Verify number of results. Print out `insightsToken`, `thumbnailUrl`, and `webUrl` of first result:
+Search images for "Gibraltar", filtered for animated GIFs and wide aspect. Verify number of results. Print out `insightsToken`, `thumbnailUrl`, and `webUrl` of first result:
 ```
 public static void imageSearchWithFilters(String subscriptionKey)
 {
