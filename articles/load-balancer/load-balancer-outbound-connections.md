@@ -32,7 +32,7 @@ There are multiple [outbound scenarios](#scenarios). You can combine these scena
 
 ## <a name="scenarios"></a>Scenario overview
 
-Azure has two major deployment models: Azure Resource Manager and classic. Azure Load Balancer and related resources are explicitly defined when you're using [Azure Resource Manager resources](#arm). Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment depend on which deployment model you use.
+Azure has two major deployment models: Azure Resource Manager and classic. Azure Load Balancer and related resources are explicitly defined when you're using [Azure Resource Manager](#arm). Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment depend on which deployment model you use.
 
 ### <a name="arm"></a>Azure Resource Manager
 
@@ -44,7 +44,7 @@ Azure currently provides three different methods to achieve outbound connectivit
 | [2. Public Load Balancer associated with a VM (no Instance Level Public IP address on the instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer front ends |Azure shares the public IP address of the public Load Balancer front ends with multiple private IP addresses. Azure uses ephemeral ports of the front ends to PAT. |
 | [3. Standalone VM (no Load Balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the availability set, and uses ephemeral ports of this public IP address. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. |
 
-If you don't want a VM to communicate with endpoints outside Azure in a public IP address space, you can use network security groups (NSGs) to block access as needed. The section [Preventing outbound connectivity](#preventoutbound) discusses NSGs in more detail. Guidance on designing, implementing, and managing a virtual network without any outbound access is outside the scope of this article.
+If you don't want a VM to communicate with endpoints outside Azure in public IP address space, you can use network security groups (NSGs) to block access as needed. The section [Preventing outbound connectivity](#preventoutbound) discusses NSGs in more detail. Guidance on designing, implementing, and managing a virtual network without any outbound access is outside the scope of this article.
 
 ### <a name="classic"></a>Classic (cloud services)
 
@@ -129,9 +129,9 @@ The following table shows the SNAT port preallocations for tiers of back-end poo
 | 401-800 | 64 |
 | 801-1,000 | 32 |
 
-Remember that the number of SNAT ports available does not translate directly to number of connections. A single SNAT port can be reused for multiple unique destinations. Ports are consumed only if it's necessary to make flows unique. For design and mitigation guidance, refer to the section about [how to manage this exhaustible resource](#snatexhaust) and the section that describes [PAT](#pat).
+Remember that the number of SNAT ports available does not translate directly to number of flows. A single SNAT port can be reused for multiple unique destinations. Ports are consumed only if it's necessary to make flows unique. For design and mitigation guidance, refer to the section about [how to manage this exhaustible resource](#snatexhaust) and the section that describes [PAT](#pat).
 
-Changing the size of your back-end pool might affect some of your established flows. If the back-end pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger back-end pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. New connection attempts succeed immediately as long as preallocated ports are available.
+Changing the size of your back-end pool might affect some of your established flows. If the back-end pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger back-end pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
 
 If the back-end pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
 
