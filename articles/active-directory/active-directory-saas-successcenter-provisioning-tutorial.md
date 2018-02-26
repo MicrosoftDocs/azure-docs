@@ -31,12 +31,12 @@ The objective of this tutorial is to demonstrate the steps to be performed in Co
 The scenario outlined in this tutorial assumes that you already have the following:
 
 *   An Azure AD tenant
-*   A Cornerstone OnDemand tenant with the [Standard](https://www.cornerstoneondemand.com/)  plan or better enabled
+*   A Cornerstone OnDemand tenant
 *   A user account in Cornerstone OnDemand with Admin permissions
 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Cornerstone OnDemand Webservice](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf), which is available to Cornerstone OnDemand teams on the Standard plan or better.
+> The Azure AD provisioning integration relies on the [Cornerstone OnDemand Webservice](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf), which is available to Cornerstone OnDemand teams.
 
 ## Adding Cornerstone OnDemand from the gallery
 Before configuring Cornerstone OnDemand for automatic user provisioning with Azure AD, you need to add Cornerstone OnDemand from the Azure AD application gallery to your list of managed SaaS applications.
@@ -107,7 +107,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
-	*   In the **Domain** field, populate the webservice URL of the cornerstone.
+	*   In the **Domain** field, populate the webservice URL of the cornerstone. Example: The service is located at `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, for Contoso the domain is `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Cornerstone OnDemand. If the connection fails, ensure your Cornerstone OnDemand account has Admin permissions and try again.
 
