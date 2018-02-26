@@ -81,7 +81,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Clarizen based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Clarizen, following the instructions provided in the [Clarizen single sign-on tutorial](active-directory-saas-Clarizen-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Clarizen, following the instructions provided in the [Clarizen single sign-on tutorial](active-directory-saas-clarizen-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Clarizen in Azure AD:
 
@@ -103,12 +103,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Username** field, populate the username of the admin account on your Clarizen Tenant. Example: admin@contoso.com.
 
-	*   In the **Admin Password** field, populate the password of the admin account corresponding to the username.
+	*   In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
 
 	*   In the **Domain** field, populate subdomain based on Step6.
-	Example: For an account with a tenant URL of https://api.Clarizen.com/v2.0, your subdomain would be **api.clarizen.com**.
-
-6. Retrieve th **serverLocation** for your Clarizen account based on steps mentioned in [Rest API Guide](https://success.clarizen.com/hc/en-us/articles/205711828-REST-API-Guide-Version-2). Upon obtaining the serverLocation fill the ***Domain**.
+	
+6. Retrieve th **serverLocation** for your Clarizen account based on steps mentioned under **Authentication** of [Rest API Guide](https://success.clarizen.com/hc/en-us/articles/205711828-REST-API-Guide-Version-2). Upon obtaining the serverLocation get the subdomain of the URL, to fill in the **Domain** field.
 
 	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/ClarizenDomain.png)
 
