@@ -30,6 +30,10 @@ Used to author the app. Not used for production-level endpoint queries. Refer to
 
 Same as [active version](#active-version)
 
+## <a name="domain"></a>Domain
+
+In the LUIS context, a **domain** is an area of knowledge. Your domain would be specific to your app area of knowledge. This can be a general area such as the travel agent app. A travel agent app can also be specific to just the areas of information for your company such as specific locations, languages, and services. 
+
 ## <a name="endpoint"></a>Endpoint
 
 The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and deployed. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Publish](publishapp.md)** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
@@ -119,6 +123,15 @@ The subscription key is the key associated with the LUIS service [you created in
 ## <a name="test"></a>Test
 
 [Testing](train-test.md#test-your-app) a LUIS app means passing an utterance to LUIS and viewing the JSON results.
+
+## <a name="timezoneoffset"></a>Timezone offset
+
+The endpoint includes timezoneOffset. This is the number in minutes you want to add or remove from the datetimeV2 prebuilt entity. For example, if the utterance is "what time is it now?", the datetimeV2 returned will be the current time for the client request. If your client request is coming from a bot or other application that is not the same as your bot's user, you should pass in the offset between the bot and the user. 
+
+|timezoneOffset value| in minutes |
+|:--|--|
+|-120|subtract 2 hours|
+|30|add 30 minutes|
 
 ## <a name="train"></a>Train
 
