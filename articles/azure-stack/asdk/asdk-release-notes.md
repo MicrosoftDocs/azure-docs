@@ -7,14 +7,14 @@ author: andredm7
 manager: femila
 editor: ''
 
-ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
+ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
-ms.author: andredm
+ms.date: 02/27/2018
+ms.author: jeffgilb
 
 ---
 

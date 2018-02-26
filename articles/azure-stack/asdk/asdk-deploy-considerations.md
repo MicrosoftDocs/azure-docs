@@ -26,14 +26,14 @@ Before you deploy the Azure Stack Development Kit (ASDK), make sure your develop
 | Component | Minimum | Recommended |
 | --- | --- | --- |
 | Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General development kit data<sup>*</sup>  |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
+| Disk drives: General development kit data<sup>*</sup>  |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks are used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks are used. |
 | Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
 | Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
 | Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
 | HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
-<sup>*</sup> You will need more than this recommended capacity if you plan on adding many of the [marketplace items](asdk-marketplace-item.md) from Azure.
+<sup>*</sup> You need more than this recommended capacity if you plan on adding many of the [marketplace items](asdk-marketplace-item.md) from Azure.
 
 **Data disk drive configuration:** All data drives must be of the same type (all SAS, all SATA, or all NVMe) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
 
@@ -53,7 +53,7 @@ Before you deploy the Azure Stack Development Kit (ASDK), make sure your develop
 * SAS SSD + SAS HDD
 * NVMe
 
-<sup>*</sup> RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
+<sup>*</sup> RAID controllers without pass-through capability can’t recognize the media type. Such controllers mark both HDD and SSD as Unspecified. In that case, the SSD is used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
 
 **Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
 

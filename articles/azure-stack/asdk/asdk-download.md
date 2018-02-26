@@ -19,7 +19,7 @@ ms.reviewer: chjoy
 ---
 
 # Download and extract the Azure Stack Development Kit (ASDK)
-After ensuring that your development kit host computer meets the basic requirements for installing the ASDK, the next step is to download and extract the the ASDK deployment package to get the Cloudbuilder.vhdx.
+After ensuring that your development kit host computer meets the basic requirements for installing the ASDK, the next step is to download and extract the ASDK deployment package to get the Cloudbuilder.vhdx.
 
 ## Download the ASDK
 1. Before you start the download, make sure that your computer meets the following prerequisites:
@@ -32,18 +32,18 @@ After ensuring that your development kit host computer meets the basic requireme
 4. Under **Download the software**, click **Azure Stack Development Kit**.
 
   > [!NOTE]
-  > The ASDK download (AzureStackDevelopmentKit.exe) is approximiately 10GB by itself. If you choose to also download the Windows Server 2016 evaluation version ISO file, the download size increases to approximately 17GB. You can use that ISO file to create and add a Windows Server 2016 virtual machine image to the Azure Stack Marketplace after ASDK installation completes. Note that this Windows Server 2016 evaluation image can only be used with the ASDK and is subject to the ASDK license terms.
+  > The ASDK download (AzureStackDevelopmentKit.exe) is approximately 10GB.
 
 ## Extract the ASDK
 1. After the download completes, click **Run** to launch the ASDK self-extractor (AzureStackDevelopmentKit.exe).
 2. Review and accept the displayed license agreement from the **License Agreement** page of the Self-Extractor Wizard and then click **Next**.
 3. Review the privacy statement information displayed on the **Important Notice** page of the Self-Extractor Wizard and then click **Next**.
 4. Select the location for Azure Stack setup files to be extracted to on the **Select Destination Location** page of the Self-Extractor Wizard and then click **Next**. The default location is *current folder*\Azure Stack Development Kit. 
-5. Review the destination location summary on the **Ready to Extract** page of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (approximately 25GB) and ThirdPartyLicenses.rtf files. This process will take some time to complete.
+5. Review the destination location summary on the **Ready to Extract** page of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (approximately 25GB) and ThirdPartyLicenses.rtf files. This process takes some time to complete.
 6. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx) on the ASDK host computer.
 
 > [!NOTE]
-> After you extract the files, you can delete the .EXE and .BIN files to recover hard disk space. Or, you can backup up these files so that you don’t need to download the files again if you need to redeploy the ASDK.
+> After you extract the files, you can delete the .EXE and .BIN files to recover hard disk space. Or, you can back up up these files so that you don’t need to download the files again if you need to redeploy the ASDK.
 
 
 ## Next steps

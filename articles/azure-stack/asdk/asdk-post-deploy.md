@@ -34,7 +34,7 @@ Set-PSRepository `
 
  Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the 2017-03-09-profile API version profile, which is available by installing the AzureRM.Bootstrapper module. 
  
- You can install the Azure Stack PowerShell with or without internet conncetivity to the ASDK host computer:
+ You can install the Azure Stack PowerShell with or without internet connectivity to the ASDK host computer:
 
 - **With an internet connection** from the ASDK host computer. Run the following PowerShell script to install these modules on your development kit installation:
 
@@ -74,7 +74,7 @@ Set-PSRepository `
     -Force `
     -RequiredVersion 1.2.11
   ```
-  Next, copy the downloaded packages to the ASDK computer and register the location as the default reposity and install the AzureRM and AzureStack modules from this repository:
+  Next, copy the downloaded packages to the ASDK computer and register the location as the default repository and install the AzureRM and AzureStack modules from this repository:
 
     ```PowerShell
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
@@ -114,14 +114,14 @@ Set-PSRepository `
   ```
 
 ## Validate the ASDK installation
-To ensure that your ASDK deployment was successful you can use the Test-AzureStack cmdlet by following these steps:
+To ensure that your ASDK deployment was successful, you can use the Test-AzureStack cmdlet by following these steps:
 
 1. Log in as AzureStack\CloudAdmin on the ASDK host computer.
 2. Open PowerShell as an administrator (not PowerShell ISE).
 3. Run: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. Run: `Test-AzureStack`
 
-The tests will take a few minutes to complete. If the installation was successful, the output will look something like:
+The tests take a few minutes to complete. If the installation was successful, the output looks something like:
 
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
@@ -135,7 +135,7 @@ After deployments that use Azure AD, you must activate both the Azure Stack admi
 - For the tenant portal, navigate to https://portal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, users in the directory can sign in to the tenant portal. 
 
 > [!NOTE] 
-> If the portals are not activated, only the directory administrator can sign in and use the portals. If any other user signs in, they will see an error that tells them that the administrator has not granted permissions to other users. When the administrator does not natively belong to the directory Azure Stack is registered to, the Azure Stack directory must be appended to the activation URL. For example, if Azure Stack is registered to fabrikam.onmicrosoft.com and the admin user is admin@contoso.com, navigate to https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com to activate the portal. 
+> If the portals are not activated, only the directory administrator can sign in and use the portals. If another user signs in, they will see an error that tells them that the administrator has not granted permissions to other users. When the administrator does not natively belong to the directory Azure Stack is registered to, the Azure Stack directory must be appended to the activation URL. For example, if Azure Stack is registered to fabrikam.onmicrosoft.com and the admin user is admin@contoso.com, navigate to https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com to activate the portal. 
 
 ## Reset the password expiration policy 
 To make sure that the password for the development kit host doesn't expire before your evaluation period ends, follow these steps after you deploy the ASDK.
@@ -149,7 +149,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ### To change the password expiration policy manually:
 1. On the development kit host, open **Group Policy Management** (GPMC.MMC) and navigate to **Group Policy Management** – **Forest: azurestack.local** – **Domains** – **azurestack.local**.
-2. Right click **Default Domain Policy** and click **Edit**.
+2. Right-click **Default Domain Policy** and click **Edit**.
 3. In the Group Policy Management Editor, navigate to **Computer Configuration** – **Policies** – **Windows Settings** – **Security Settings** – **Account Policies** – **Password Policy**.
 4. In the right pane, double-click **Maximum password age**.
 5. In the **Maximum password age Properties** dialog box, change the **Password will expire in** value to **180**, and then click **OK**.

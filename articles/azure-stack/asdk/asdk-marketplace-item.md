@@ -13,6 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
+ms.custom: mvc
 ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: chjoy
@@ -178,7 +179,7 @@ As an Azure Stack operator, you can use the [administrator portal](https://admin
 
 6. In the **Summary** blade, click **OK** to create the virtual machine.  
 > [!NOTE]
-> The virtual machine deployment will take a few minutes to complete.
+> The virtual machine deployment takes a few minutes to complete.
 
 7. To see your new virtual machine, click **Virtual machines**, then search for the virtual machine and click its name.
     ![First test VM image displayed](media/asdk-marketplace-item/first-test-vm.png)
