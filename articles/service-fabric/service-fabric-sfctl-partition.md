@@ -48,7 +48,7 @@ Gets the health information of the specified partition. Use EventsHealthStateFil
         filter the collection of health events reported on the service based on the health state.
         Use ReplicasHealthStateFilter to filter the collection of ReplicaHealthState objects on the
         partition. If you specify a partition that does not exist in the health store, this cmdlet
-        returns an error. .
+        returns an error.
 
 ### Arguments
 
@@ -171,7 +171,7 @@ This API restarts some or all replicas or instances of the
 
 This API is useful for testing failover. If used to target a stateless service partition,
         RestartPartitionMode must be AllReplicasOrInstances. Call the GetPartitionRestartProgress
-        API using the same OperationId to get the progress. .
+        API using the same OperationId to get the progress.
 
 ### Arguments
 
