@@ -41,6 +41,9 @@ The core term here, "computer", is not varied. They could say desktop compute
 ## Example utterances in each intent
 Each intent needs to have example utterances. If you have an intent but do not have any example utterances in that intent, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not be able to give accurate predictions. 
 
+## Training utterances
+Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.
+
 ## Review utterances
 After your model is trained, published, and receiving endpoint queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
