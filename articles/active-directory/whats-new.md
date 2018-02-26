@@ -188,7 +188,7 @@ The Group cmdlets that are now release for General Availability are:
 
 ---
  
-### A new release of AADConnect is available
+### A new release of Azure AD Connect is available
 
 **Type:** New feature  
 **Service category:** AD Sync  
