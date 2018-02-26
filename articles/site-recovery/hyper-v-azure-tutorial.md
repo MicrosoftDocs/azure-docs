@@ -32,7 +32,7 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 ## Select a replication goal
 
 
-1. In **All Services** > **Recovery Services vaults**, click the name of the vault we prepared in the previous tutorial, **ContosoVMVault**.
+1. In **All Services** > **Recovery Services vaults**, select the vault that was prepared in the previous tutorial, **ContosoVMVault**.
 2. In **Getting Started**, click **Site Recovery**. Then click **Prepare Infrastructure**
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
@@ -42,13 +42,13 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 
 ## Set up the source environment
 
-To set up the source environment, you add Hyper-V hosts to a Hyper-V site, download and install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register the Hyper-V site in the vault. 
+To set up the source environment, you add Hyper-V hosts to a Hyper-V site, download, and install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register the Hyper-V site in the vault. 
 
 1. In **Prepare Infrastructure**, click **Source**.
-2. Click **+Hyper-V Site**, and specify the name of the site we created in the previous tutorial, **ContosoHyperVSite**.
+2. Click **+Hyper-V Site**, and specify the name of the site created in the previous tutorial, **ContosoHyperVSite**.
 3. Click **+Hyper-V Server**.
 4. Download the Provider setup file.
-5. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
+5. Download the vault registration key. You need this key to run Provider setup. The key is valid for five days after you generate it.
 
     ![Download Provider](./media/hyper-v-azure-tutorial/download.png)
     
@@ -64,7 +64,7 @@ Run the Provider setup file (AzureSiteRecoveryProvider.exe) on each Hyper-V host
 5. In **Proxy Settings**, select **Connect directly to Azure Site Recovery without a proxy**.
 6. In **Registration**, After the server is registered in the vault, click **Finish**.
 
-Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**. This can take up to 30 minutes.
+Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**. This process can take up to 30 minutes.
 
 
 ## Set up the target environment
@@ -80,14 +80,17 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 
 ## Set up a replication policy
 
+> [!NOTE]
+> For Hyper-V to Azure replication policies, the 15-minute copy frequency option is being retired in favor of the 5-minute, and 30-second copy frequency settings. Replication policies using a 15-minute copy frequency will automatically be updated to use the 5-minute copy frequency setting. The 5-minute, and 30-second copy frequency options provides improved replication performance and better recovery point objectives compared to a 15-minute copy frequency, with minimal impact on bandwidth usage and data transfer volume.
+
 1. Click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
 2. In **Create and associate policy**, specify a policy name, **ContosoReplicationPolicy**.
 3. Leave the default settings and click **OK**.
     - **Copy frequency** indicates that delta data (after initial replication) will replicate every five minutes.
-    - **Recovery point retention** indicates that the retention windows for each recovery point will be two two hours.
+    - **Recovery point retention** indicates that the retention windows for each recovery point will be two hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time**, indicates that initial replication will start immediately.
-4. After the policy is created, click **OK**. When you create a new policy it's automatically associated with the specified Hyper-V site (**ContosoHyperVSite**)
+4. After the policy is created, click **OK**. When you create a new policy, it's automatically associated with the specified Hyper-V site (**ContosoHyperVSite**)
 
     ![Replication policy](./media/hyper-v-azure-tutorial/replication-policy.png)
 
@@ -98,7 +101,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 1. In **Replicate application**, click **Source**. 
 2. In **Source**, select the **ContosoHyperVSite** site. Then click **OK**.
 3. In **Target**, verify Azure as the target, the vault subscription, and the **Resource Manager** deployment model.
-4. Select the **contosovmsacct1910171607** storage account we created in the previous tutorial for replicated data, and the **ContosoASRnet** network, in which Azure VMs will be located after failover.
+4. Select the **contosovmsacct1910171607** storage account created in the previous tutorial for replicated data, and the **ContosoASRnet** network, in which Azure VMs will be located after failover.
 5. In **Virtual machines** > **Select**, select the VM you want to replicate. Then click **OK**.
 
  You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the virtual machine is ready for failover.
