@@ -158,7 +158,7 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
   
 ```powershell
 PS C:\> Invoke-Command -session $PEPSession -ScriptBlock { 
-Start-SecretRotation -PfxFilesPath “C:\Path\to\my\Certificates” -PathAccessCredential $share_credential -CertificatePassword $securePassword } 
+Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword } 
 Remove-PSSession -Session $PEPSession
 ```
 
