@@ -132,7 +132,7 @@ SQL Database [dynamic data masking](/sql/relational-databases/security/dynamic-d
 
 ### Threat detection 
 
-Azure SQL Database [Threat Detection](sql-database-threat-detection.md) complements auditing, by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
+Azure SQL Database [Threat Detection](sql-database-threat-detection.md) complements auditing, by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
 
 ### Azure Active Directory integration and multi-factor authentication 
 
