@@ -35,8 +35,8 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-- Install the [Azure Stack-compatible Azure PowerShell modules](https://docs.microsoftcom/azure/azure-stack/azure-stack-powershell-configure-quickstart)
-- Download the [Azure Stack tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-download)
+- Install the [Azure Stack-compatible Azure PowerShell modules](asdk-post-deploy.md#install-azure-stack-powershell)
+- Download the [Azure Stack tools](asdk-post-deploy.md#download-the-azure-stack-tools)
 - Download the [Windows Server 2106 virtual machine ISO image](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016) from the Windows Server Evaluations page
 - Deploy Azure Stack and then sign in to the [ASDK administration portal](https://adminportal.local.azurestack.external)
 

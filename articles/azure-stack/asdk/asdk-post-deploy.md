@@ -99,7 +99,8 @@ Set-PSRepository `
   # Change directory to the root directory. 
   cd \
 
-  # Download the tools archive.
+  # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
   invoke-webrequest `
     https://github.com/Azure/AzureStack-Tools/archive/master.zip `
     -OutFile master.zip
