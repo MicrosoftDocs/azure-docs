@@ -1,5 +1,5 @@
 ---
-title: Protect VMs deployed on Azure Stack  | Microsoft Docs
+title: Protect VMs deployed on Azure Stack | Microsoft Docs
 description:  Guidelines on how to protect virtual machines deployed on Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 02get-started-article
-ms.date: 02/20/2017
+ms.date: 02/26/2017
 ms.author: mabrigg
 ms.reviewer: hector.linares
 ---
@@ -28,7 +28,7 @@ To protect against data loss and unplanned downtime, you need to implement a bac
 
 ## Azure Stack infrastructure recovery
 
-Users will need to protect their VMs separately from  Azure Stack's infrastructure services.
+Users will need to protect their VMs separately from Azure Stack's infrastructure services.
 
 If the Azure Stack cloud is offline for an extended  time or permanently unrecoverable, you will need to have a plan in place to keep your application servicing user requests with minimal downtime. The operator of the Azure Stack cloud is responsible for preparing a recovery plan for the underlying Azure Stack infrastructure and services. To learn more, read the article [Recover from catastrophic data loss](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data). 
 
@@ -56,43 +56,6 @@ RTO is the maximum acceptable time that an application can be unavailable after 
 RPO is the maximum duration of data loss that is acceptable during a disaster. For example, if you store data in a single database, with no replication to other databases, and perform hourly backups, you could lose up to an hour of data.
  
 RTO and RPO are business requirements. Conduct a risk assessment to  define the application's RTO and RPO. Another common metric is **Mean Time to Recover** (MTTR), which is the average time that it takes to restore the application after a failure. MTTR is an empirical fact about a system. If MTTR exceeds the RTO, then a failure in the system will cause an unacceptable business disruption, because it won't be possible to restore the system within the defined RTO.
- 
-### Fault tolerance
-
-Azure Stack physical redundancy and infrastructure service availability only protect against hardware level faults like a failed disk, failed power supply, failed network port, or failed node. However, if your application must always be available and can never lose any data, you will need to implement fault tolerance natively in your application or enable fault tolerance with additional software. 
- 
-First, you need to ensure the application VMs are deployed using scale sets to protect against node-level failures. To protect against the cloud going offline, the same application must already be deployed to a different cloud, so it can continue servicing requests without interruption. This is typically referred to an active-active deployment.
- 
-Keep in mind that each Azure Stack cloud is independent of each other, so the clouds are always considered active from an infrastructure perspective. In this case, multiple active instances of the application are deployed to one or more active clouds. 
- 
- - RTO: No downtime
- - RPO: No data loss
- - Deployment topology: Active/Active
- 
-### High availability/automatic failover
-
-For applications where your business can tolerate a few seconds or minutes of downtime and minimal data loss, you will need to consider a high-availability configuration. High-availability applications are designed to quickly and automatically recover from faults. For local hardware faults, Azure Stack infrastructure implements high availability in the physical network using two top of rack switches. For compute level faults, Azure Stack uses multiple nodes in a scale unit. At the VM level, you can use scale sets in combination with fault domains to ensure node failures do not take down your application. 
- 
-In combination with scale sets, your application will need to support high availability natively or support the use of clustering software. For example, Microsoft SQL Server supports high availability natively for databases using synchronous-commit mode. However, if you can only support asynchronous replication, then there will be some data loss. Applications can also be deployed into a failover cluster where the clustering software handles the automatic failover of the application. 
- 
-Using this approach, the application is only active in one cloud, but the software is deployed to multiple clouds. The other clouds are in stand-by mode ready to start the application when the failover is triggered.
-
- - RTO: Downtime measured in seconds 
- - RPO: Minimal data loss
- - Deployment topology: Active/active stand-by
- 
-### Replication/manual failover
-
-An alternate approach to supporting high availability is to replicate your application VMs to another cloud and rely on a manually triggered failover. The replication of the operating system, application binaries, and application data can be performed at the VM level or guest OS level. Manage the failover using additional software separate from the application.
- 
-With this approach, the application is only deployed in one cloud. The VM is then replicated to the other cloud one in one of your datacenters or to the public cloud. If a failover is triggered, the secondary VMs will need to be powered on in the second cloud. In some cases, the failover will create the VMs and attach them to disks. This process can take an extended amount of time to complete, especially with a multi-tiered application with a specific start-up sequence. There may be additional steps that must be executed before the application is ready to start servicing requests.  
-
- - RTO: Downtime in minutes 
- - RPO: Variable data loss
- - Deployment topology: Active/passive stand-by
-
-![Replication-manual failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
-
 
 ### Backup-restore
 
@@ -106,6 +69,69 @@ Recovering the application requires restoring one or more VMs to the same cloud 
  - RPO: Minimal data loss
  - Deployment topology: Active/passive 
  
+### Backup-restore
+
+The most common protection scheme for VM-based applications is to use backup software. Backing up a VM typically includes the operating system, operating system configuration, application binaries, and application data. The backups are created by taking a snapshot of the volumes, disks, or the entire VM. With Azure Stack, you have the flexibility of backing up from within the context of the guest OS or from the Azure Stack storage and compute APIs. Azure Stack does not support taking backups at the hypervisor level. 
+ 
+![Backup-restore](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+ 
+Recovering the application requires restoring one or more VMs to the same cloud or to a new cloud. You can target a cloud in your datacenter or the public cloud. Which cloud you target is completely within your control and is based on your data privacy and sovereignty requirements. 
+ 
+ - RTO: Downtime measured in seconds 
+ - RPO: Minimal data loss
+ - Deployment topology: Active/passive
+
+#### Planning your backup strategy
+
+Planning your backup strategy and defining scale requirements starts with quantifying the number of VM instances that need to be protected. Backing up all VMs across all servers in an environment is a very common strategy. However, with Azure Stack, there are some VMs that do need to be backed up. For example, VMs in a scale-set are considered ephemeral resources that can come and go, sometimes without notice. Any durable data that needs to be protected is stored in a separate repository like a database or object store. Important considerations for backing up VMs on Azure Stack:
+
+ - **Categorization**
+    - Consider a model where users opt in to VM backup.
+    - Define a recovery SLA based on the priority of the applications or the impact to the business.
+ - **Scale**
+    - Consider staggered backups when on-boarding a large number of new VMs (if backup is required).
+    - Evaluate backup products that can efficiently capture and transmit backup data to minimize resource content on the solution.
+    - Evaluate backup products that efficiently store backup data using incremental or differential backups to minimize the need to pull full backups across all VMs in the environment.
+ - **Restore**
+    - Backup products can restore virtual disks, application data within an existing VM, or the entire VM resource and associated virtual disks. Which restore scheme you need depends on how you plan to restore the application and will impact your time to recovery of the application. For example, it may be easier to redeploy SQL server from a template and then restore the databases instead of restoring the entire VM or set of VMs.
+
+
+### Replication/manual failover
+
+An alternate approach to supporting high availability is to replicate your application VMs to another cloud and rely on a manually triggered failover. The replication of the operating system, application binaries, and application data can be performed at the VM level or guest OS level. Manage the failover using additional software separate from the application.
+ 
+With this approach, the application is only deployed in one cloud. The VM is then replicated to the other cloud one in one of your datacenters or to the public cloud. If a failover is triggered, the secondary VMs will need to be powered on in the second cloud. In some cases, the failover will create the VMs and attach them to disks. This process can take an extended amount of time to complete, especially with a multi-tiered application with a specific start-up sequence. There may be additional steps that must be executed before the application is ready to start servicing requests.
+
+![Replication-manual failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+
+ - RTO: Downtime in minutes 
+ - RPO: Variable data loss
+ - Deployment topology: Active/passive stand-by
+ 
+### High availability/automatic failover
+
+For applications where your business can tolerate a few seconds or minutes of downtime and minimal data loss, you will need to consider a high-availability configuration. High-availability applications are designed to quickly and automatically recover from faults. For local hardware faults, Azure Stack infrastructure implements high availability in the physical network using two top of rack switches. For compute level faults, Azure Stack uses multiple nodes in a scale unit. At the VM level, you can use scale sets in combination with fault domains to ensure node failures do not take down your application. 
+ 
+In combination with scale sets, your application will need to support high availability natively or support the use of clustering software. For example, Microsoft SQL Server supports high availability natively for databases using synchronous-commit mode. However, if you can only support asynchronous replication, then there will be some data loss. Applications can also be deployed into a failover cluster where the clustering software handles the automatic failover of the application. 
+ 
+Using this approach, the application is only active in one cloud, but the software is deployed to multiple clouds. The other clouds are in stand-by mode ready to start the application when the failover is triggered.
+
+ - RTO: Downtime measured in seconds 
+ - RPO: Minimal data loss
+ - Deployment topology: Active/active stand-by
+
+### Fault tolerance
+
+Azure Stack physical redundancy and infrastructure service availability only protect against hardware level faults like a failed disk, failed power supply, failed network port, or failed node. However, if your application must always be available and can never lose any data, you will need to implement fault tolerance natively in your application or enable fault tolerance with additional software. 
+ 
+First, you need to ensure the application VMs are deployed using scale sets to protect against node-level failures. To protect against the cloud going offline, the same application must already be deployed to a different cloud, so it can continue servicing requests without interruption. This is typically referred to an active-active deployment.
+ 
+Keep in mind that each Azure Stack cloud is independent of each other, so the clouds are always considered active from an infrastructure perspective. In this case, multiple active instances of the application are deployed to one or more active clouds. 
+ 
+ - RTO: No downtime
+ - RPO: No data loss
+ - Deployment topology: Active/Active
+
 ### No recovery
 
 Some applications in your environment may not need protection against unplanned downtime or data loss. For example, VMs used for development and testing typically do not need to be recovered. It is your decision to do without protection for an application or a specific VM. Azure Stack does not offer backup or replication of VMs from the underlying infrastructure. Similar to Azure, you will need to opt-in to protection for each VM in each of your subscriptions.  
@@ -124,7 +150,7 @@ Important considerations for your Azure Stack deployment:
 | Backup/restore VMs directly to global Azure or a trusted service provider | Recommended | As long as you can meet your data privacy and regulatory requirements, you can store your backups in global Azure or a trusted service provider. Ideally the service provider is also running Azure Stack so you get consistency in operational experience when you restore. |
 | Replicate/failover VMs to a separate Azure Stack instance | Recommended | In the failover case, you will need to have a second Azure Stack cloud fully operational so you can avoid extended application downtime. |
 | Replicate/failover VMs directly to Azure or a trusted service provider | Recommended | As long as you can meet your data privacy and regulatory requirements, you can replicate your data to global Azure or a trusted service provider. Ideally the service provider is also running Azure Stack so you get consistency in operational experience after failover. |
-| Deploy backup target on the same Azure Stack cloud with your application data | Not recommended | Avoid storing backups within the same Azure Stack cloud. Unplanned downtime of the cloud can keep you from your primary data and backup data. If you choose to deploy a backup targets as a virtual appliance (for the purposes of optimization for backup and restore), you must ensure all data is continuously copied to an external backup location. |
+| Deploy backup target on the same Azure Stack cloud with your application data | Not recommended | Avoid storing backups within the same Azure Stack cloud. Unplanned downtime of the cloud can keep you from your primary data and backup data. If you choose to deploy a backup target as a virtual appliance (for the purposes of optimization for backup and restore), you must ensure all data is continuously copied to an external backup location. |
 | Deploy physical backup appliance into the same rack where the Azure Stack solution is installed | Not supported | At this point in time, you cannot connect any other devices to the top of rack switches that are not part of the original solution. |
  
 ## Next steps 
