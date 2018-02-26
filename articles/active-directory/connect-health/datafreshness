@@ -26,8 +26,8 @@ The **Error** status alert will fire if Connect Health does not receive all data
 > Alerts follows Connect Health [data retention policy](active-directory-aadconnect-health-gdpr.md#data-retention-policy)
 
 ## Troubleshooting steps 
-1.	Make sure to go over and meet the [requirements section](active-directory-aadconnect-health-agent-install.md#requirements).
-2.	Use [test connectivity tool](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to discover connectivity issues.
+* Make sure to go over and meet the [requirements section](active-directory-aadconnect-health-agent-install.md#requirements).
+* Use [test connectivity tool](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to discover connectivity issues.
 
 
 ## Next steps
