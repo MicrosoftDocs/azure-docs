@@ -22,11 +22,11 @@ ms.reviewer: ppacent
 
 *These instructions apply only to Azure Stack Integrated Systems Version 1802 and Later. Do not attempt secret rotation on pre-1802 Azure Stack Versions*
 
-Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure’s resources and services. Here “secrets” describes the following: 
-- Infrastructure service account passwords 
-- Internal infrastructure certificates 
-- Infrastructure service storage account keys 
-- Infrastructure service certificates for external-facing services, including: 
+Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure resources and services. Here “secrets” refers to the following: 
+
+- **Internal secrets**. All certificates, passwords, secure strings, and keys used by the Azure Stack infrastructure without intervention of the Azure Stack Operator. 
+
+- **External Secrets**. Infrastructure service certificates for external-facing services that are provided by the Azure Stack operator. This includes the certificates for the following services: 
     - Administrator Portal 
     - Public Portal 
     - Administrator Azure Resource Manager 
@@ -34,10 +34,10 @@ Azure Stack uses various secrets to maintain secure communication between the Az
     - Administrator Keyvault 
     - Keyvault 
     - ACS (including Blob, Table, and Queue Storage) 
-    - ADFS<sup>*</sup>  
+    - ADFS<sup>*</sup>
     - Graph<sup>*</sup>
 
-> <sup>*</sup> Only applicable if the environment’s identity provider is ADFS.
+> <sup>*</sup> Only applicable if the environment’s identity provider is AD FS.
 
 > [!NOTE]
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
@@ -45,7 +45,7 @@ Azure Stack uses various secrets to maintain secure communication between the Az
 In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements. 
 
 ## Alert Remediations 
-When secrets are nearing expiration the following alerts will be generated and displayed in the Administrator Portal: 
+When secrets are within 30 days of expiration, the following alerts will be generated and displayed in the Administrator Portal: 
 - Pending service account password expiration 
 - Pending internal certificate expiration 
 - Pending external certificate expiration 
@@ -56,10 +56,6 @@ Running secret rotation using the instructions below will remediate these alerts
 1. We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both user workloads and portal operations.
 2. Prepare a new set of replacement external certificates matching the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3. Create a fileshare that is accessible from your ERCS VMs. 
-  
-  > [!NOTE]
-  > A Fileshare on the HLH should suffice for this step.
-
 4. Open a Powershell ISE console and navigate to your fileshare from pre-step #3. 
 5. Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
@@ -78,6 +74,23 @@ To rotate all secrets in Azure Stack, including external certificates:
 - **CertificatePassword** should be a secure string of the password used for all of the pfx certificate files created.
 5. Wait while your secrets rotate.
 6. After successful completion of secret rotation, remove your certificates from the share created in pre-step #3 and store in a secure location. 
+
+### Example
+```powershell
+#Create a PEP Session
+winrm s winrm/config/client '@{TrustedHosts= "<IPofERCSMachine>"}'
+$PEPCreds = Get-Credential 
+$PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint 
+
+#Run Secret Rotation
+$CertPassword = "CertPasswordHere"  | ConvertTo-SecureString 
+$CertShareCred = Get-Credential 
+$CertSharePath = <NetworkPathofCertShare>   
+Invoke-Command -session $PEPsession -ScriptBlock { 
+Start-SecretRotation -PfxFilesPath $CertSharePath -PathAccessCredential $CertShareCred -CertificatePassword $CertPassword }  
+```
+
+
 
 ## Rotating Only Internal Secrets 
 1. Create a Powershell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
