@@ -20,37 +20,39 @@ ms.reviewer: chjoy
 ---
 
 # Quickstart: Deploy the ASDK
-In this quickstart you will deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
+In this quickstart, you deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
 
-The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you'll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
+The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get started with the ASDK, you need to prepare the host computer hardware and then run some scripts (installation takes several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
 
 ## Prerequisites 
-Prepare the development kit host computer. Plan your hardware, software, and network. The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
+Before installing the ASDK, you need to prepare the computer that will host the development kit (the development kit host). The development kit host computer must meet minimum hardware, software, and network requirements. 
 
-Before you deploy the ASDK, make sure your planned development kit host computer's hardware, operating system, account, and network configurations meet the minimum requirements for installing the ASDK.
+You also need to choose between using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as the identity solution for your deployment. 
+
+Be sure that the development kit host meets the minimum hardware requirements and that you have made your identity solution decision made before starting your deployment so that the installation process runs smoothly. 
 
 **[Review the ASDK deployment planning considerations](asdk-deploy-considerations.md)**
 
 > [!TIP]
-> You can use the [Azure Stack deployment requirements check tool](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) after installing the operating system to confirm that your hardware meets all requirements.
+> You can use the [Azure Stack deployment requirements check tool](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) after installing the operating system on the development kit host computer to confirm that your hardware meets all requirements.
 
 ## Download and extract the deployment package
-After ensuring that your development kit host computer meets the basic requirements for installing the ASDK, the next step is to download and extract the the ASDK deployment package. The deployment package includes the Cloudbuilder.vhdx file which is a virtual hard drive that includes a bootable operating system and the Azure Stack installation files.
+After ensuring that your development kit host computer meets the basic requirements for installing the ASDK, the next step is to download and extract the ASDK deployment package. The deployment package includes the Cloudbuilder.vhdx file, which is a virtual hard drive that includes a bootable operating system and the Azure Stack installation files.
 
-You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+You can download the deployment package to the development kit host or to another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
 
 **[Download and extract the Azure Stack Development Kit (ASDK)](asdk-download.md)**
 
 ## Prepare the development kit host computer
-Before you can install the ASDK on the host computer, the environment must be prepared and the system configured to boot from VHD. When the host computer has been prepared, it will boot from the CloudBuilder.vhdx virtual machine hard drive so that you can begin ASDK deployment.
+Before you can install the ASDK on the host computer, the environment must be prepared and the system configured to boot from VHD. After the development kit host computer has been prepared, it boots from the CloudBuilder.vhdx virtual machine hard drive so that you can begin ASDK deployment.
 
 **[Prepare the ASDK host computer](asdk-prepare-host.md)**
 
 ## Install the ASDK on the host computer
 After preparing the development kit host computer, the ASDK can be deployed into the CloudBuilder.vhdx image. The ASDK can be deployed using a graphical user interface (GUI) provided by downloading and running the asdk-installer.ps1 PowerShell script or completely from [the command line](asdk-deploy-powershell-qs.md). 
 
-    > [!NOTE]
-    > Optionally, after the host computer has booted into the CloudBuilder.vhdx, you can configure [Azure Stack telemetry settings](asdk-telemetry.md) *before* installing the ASDK.
+  > [!NOTE]
+  > Optionally, after the host computer has booted into the CloudBuilder.vhdx, you can configure [Azure Stack telemetry settings](asdk-telemetry.md) *before* installing the ASDK.
 
 
 **[Install the Azure Stack Development Kit (ASDK)](asdk-install.md)**
@@ -65,7 +67,7 @@ You should also reset the password expiration policy to make sure that the passw
 > [!NOTE]
 > Optionally, you can also configure [Azure Stack telemetry settings](asdk-telemetry.md) *after* installing the ASDK.
 
-**[Post ASDK deployment tasks](asdk-post-deploy.md)**
+**[Post-ASDK deployment tasks](asdk-post-deploy.md)**
 
 ## Register with Azure
 If your Azure Stack deployment uses Azure AD as the identity provider, you must register Azure Stack with Azure so that you can [download Azure marketplace items](asdk-marketplace-item.md) to Azure Stack.
@@ -75,7 +77,7 @@ If your Azure Stack deployment uses Azure AD as the identity provider, you must 
 ## Next steps
 Congratulations! After completing these steps, you’ll have a development kit environment with both [administrator](https://adminportal.local.azurestack.external) and [user](https://portal.local.azurestack.external) portals. 
 
-In this quickstart, you deployed the ASDK. To start evaluating the ASDK, continue on to the tutorial for adding a marketpace item.
+In this quickstart, you deployed the ASDK. To start evaluating the ASDK, continue on to the tutorial for adding a marketplace item.
 
 > [!div class="nextstepaction"]
 > [Add an Azure Stack marketplace item](./asdk-marketplace-item.md)

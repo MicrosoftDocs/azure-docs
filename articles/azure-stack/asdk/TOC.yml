@@ -25,6 +25,8 @@
     items:
     - name: Download and extract the development kit
       href: asdk-download.md
+    - name: Post-deployment configuration
+      href: asdk-post-deploy.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
