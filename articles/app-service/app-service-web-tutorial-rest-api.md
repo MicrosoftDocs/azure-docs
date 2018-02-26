@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy a RESTful API to Azure
-> * Enable CORS to client apps
+> * Enable CORS to browser clients
 
 You can follow the steps in this tutorial on macOS, Linux, Windows.
 
@@ -66,13 +66,13 @@ dotnet restore
 dotnet run
 ```
 
-Navigate to `http://localhost:5000/swagger` in a browser to interact with the Swagger UI.
+Navigate to `http://localhost:5000/swagger` in a browser to play with the Swagger UI.
 
 ![ASP.NET Core API running locally](./media/app-service-web-tutorial-rest-api/local-run.png)
 
 Navigate to `http://localhost:5000/api/todo` and see a list of ToDo JSON items.
 
-Navigate to `http://localhost:5000` and interact with the front end browser app. Later, you will point the browser app to a remote API in App Service to test CORS functionality. Code for the browser app is found in the repository's _wwwroot_ directory.
+Navigate to `http://localhost:5000` and play with the browser app. Later, you will point the browser app to a remote API in App Service to test CORS functionality. Code for the browser app is found in the repository's _wwwroot_ directory.
 
 To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
 
@@ -130,7 +130,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ### Browse to the Azure web app
 
-Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and interact with the Swagger UI.
+Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and play with the Swagger UI.
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
@@ -154,13 +154,13 @@ In your local terminal window, run the sample app again.
 dotnet run
 ```
 
-Navigate to the Angular.js front end app at `http://localhost:5000`. Open the developer tools window in your browser (`Ctrl`+`Shift`+`i` in Chrome for Windows) and inspect the **Console** tab. You should now see the error message, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Navigate to the browser app at `http://localhost:5000`. Open the developer tools window in your browser (`Ctrl`+`Shift`+`i` in Chrome for Windows) and inspect the **Console** tab. You should now see the error message, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
 ![CORS error in browser client](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
-Because of the domain mismatch between the browser client (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`), and the fact that your API in App Service is not sending the `Access-Control-Allow-Origin` header, your browser has prevented cross-domain content from loading.
+Because of the domain mismatch between the browser app (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`), and the fact that your API in App Service is not sending the `Access-Control-Allow-Origin` header, your browser has prevented cross-domain content from loading in your browser app.
 
-In a production environment, your browser app would have a public URL instead of the localhost URL. However, the way to enable CORS to a localhost URL is the same as a public URL.
+In production, your browser app would have a public URL instead of the localhost URL, but the way to enable CORS to a localhost URL is the same as a public URL.
 
 ### Enable CORS 
 
@@ -170,11 +170,11 @@ In the Cloud Shell, enable CORS to your client's URL by using the [`az resource 
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
-You can set multiple client URLs in `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). You can also enable all client URLs with `"['*']"`.
+You can set more than one client URL in `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). You can also enable all client URLs with `"['*']"`.
 
 ### Test CORS again
 
-Refresh the browser page at `http://localhost:5000`. The error message in the **Console** window is now gone, and you can see the data from the deployed API and interact with it. Your remote API now supports CORS to your browser app.
+Refresh the browser app at `http://localhost:5000`. The error message in the **Console** window is now gone, and you can see the data from the deployed API. 
 
 ![CORS success in browser client](./media/app-service-web-tutorial-rest-api/cors-success.png)
 
@@ -182,10 +182,10 @@ Congratulations, you're running an API in Azure App Service with CORS support.
 
 ## App Service CORS versus your CORS
 
-You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you may want to specify different accepted origins for different routes or methods. Since App Service CORS lets you specify one set of accepted origins for all API routes and methods, you would want to use your own CORS utilities (see how ASP.NET Core does it at [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors)).
+You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you may want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify one set of accepted origins for all API routes and methods, you would want to use your own CORS code (see how ASP.NET Core does it at [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors)).
 
 > [!NOTE]
-> Don't try to use the two together. When used together, App Service CORS takes precedence and your own CORS code has no effect.
+> Don't try to use App Service CORS and your own CORS code together. When used together, App Service CORS takes precedence and your own CORS code has no effect.
 >
 >
 
@@ -198,7 +198,7 @@ What you learned:
 
 > [!div class="checklist"]
 > * Deploy a RESTful API to Azure
-> * Enable CORS to client apps
+> * Enable CORS to browser clients
 
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
