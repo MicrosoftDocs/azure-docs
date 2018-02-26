@@ -35,7 +35,7 @@ Specifically, this Azure Data Lake Store connector supports:
 - Copying files as-is, or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
-> If you copy data using Self-hosted Integration Runtime, configure the corporate firewall to allow outbound traffice to `<ADLS account name>.azuredatalakestore.net` and `login.microsoftonline.com/<tenant>/oauth2/token` on port 443. The latter is Azure Security Token Service (STS) that IR need communicate with to get access token.
+> If you copy data using Self-hosted Integration Runtime, configure the corporate firewall to allow outbound traffic to `<ADLS account name>.azuredatalakestore.net` and `login.microsoftonline.com/<tenant>/oauth2/token` on port 443. The latter is Azure Security Token Service (STS) that IR need communicate with to get access token.
 
 ## Get started
 
