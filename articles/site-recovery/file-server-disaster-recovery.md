@@ -42,7 +42,7 @@ In the above reference, multiple file servers referred to as members, actively p
 
     This approach is suggested in case your VMs have configurations that are not supported by Azure Site Recovery, like for example: shared cluster disk, which is sometimes commonly used in File Server environments.  DFSR also works  well in low-bandwidth environments with medium churn rate. The additional cost of having an Azure VM up and running all the time also needs to be accommodated with this.  
 
-3.	Use Azure File Sync service to replicate your files: If you are preparing for your journey to the cloud, or are already using an Azure VM, then we suggest the use of Azure File sync service, which offers syncing of fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block ](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(SMB) protocol. Azure File shares can then be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. 
+3.	Use Azure File Sync service to replicate your files: If you are preparing for your journey to the cloud, or are already using an Azure VM, then we suggest the use of Azure File Sync service, which offers syncing of fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block ](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(SMB) protocol. Azure File shares can then be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. 
 
 Following diagram, gives a pictorial representation aimed at easing out the decision of what strategy to use for your file server environment.
 
