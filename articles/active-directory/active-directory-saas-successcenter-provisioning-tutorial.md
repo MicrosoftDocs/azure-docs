@@ -105,7 +105,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Username** field, populate the username of the admin account on your Cornerstone OnDemand  Tenant. Example: admin.
 
-	*   In the **Admin Password** field, populate the password corresponding to the Admin Username.
+	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
 	*   In the **Domain** field, populate the webservice URL of the cornerstone.
 
