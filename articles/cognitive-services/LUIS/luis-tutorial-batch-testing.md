@@ -40,7 +40,7 @@ The HomeAutomation app predicts utterances such as "Turn on all the lights" and 
 ## Test data strategy
 The test data strategy for LUIS has three separate sets of data: model utterances, batch test utterances, and endpoint utterances. For this tutorial, make sure you are not using the utterances from either model utterances (added to an intent), or endpoint utterances. 
 
-The HomeAutomation prebuilt domain includes the following utterances. The [exported app](luis-resources-faq.md#batch-test-json-file) is in the LUIS-Samples repository. Do not use any of these utterances in the batch test:
+The HomeAutomation prebuilt domain includes the following utterances. The [exported app](luis-glossary.md#batch-test-json-file) is in the LUIS-Samples repository. Do not use any of these utterances in the batch test:
 
 ```
   'breezeway on please',
