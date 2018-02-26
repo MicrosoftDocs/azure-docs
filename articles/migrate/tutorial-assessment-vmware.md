@@ -41,7 +41,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 ## Create a project
 
 1. In the Azure portal, click **Create a resource**.
-2. Search for **Azure Migrate**, and select the service **Azure Migrate (preview)** in the search results. Then click **Create**.
+2. Search for **Azure Migrate**, and select the service **Azure Migrate** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
 5. Specify the location in which to create the project, then click **Create**. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can still plan your migration for any target Azure location. The location specified for the project is only used to store the metadata gathered from on-premises VMs. 

@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/23/2017
 ms.author: v-geberr
 ---
 
@@ -32,7 +32,18 @@ Same as [active version](#active-version)
 
 ## <a name="endpoint"></a>Endpoint
 
-The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and deployed. 
+The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and deployed. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Publish](publishapp.md)** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+
+An example endpoint looks like:
+
+`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
+
+|Querystring parameter|description|
+|--|--|
+|region| [published region](luis-reference-regions.md#publishing-regions) |
+|appID | LUIS app ID |
+|subscriptionID | LUIS subscription key created in Azure portal |
+|q | utterance |
 
 ## <a name="entity"></a>Entity
 
