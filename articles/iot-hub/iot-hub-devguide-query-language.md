@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
 
 ---
@@ -347,12 +347,30 @@ Refer to the [Expression and conditions][lnk-query-expressions] section for the 
 
 IoT Hub can only route based on message body contents if the message body is properly formed JSON encoded in UTF-8, UTF-16, or UTF-32. Set the content type of the message to `application/json`. Set the content encoding to one of the supported UTF encodings in the message headers. If either of the headers is not specified, IoT Hub does not attempt to evaluate any query expression involving the body against the message. If your message is not a JSON message, or if the message does not specify the content type and content encoding, you can still use message routing to route the message based on the message headers.
 
+C# example:
+
+```csharp
+var telemetryDataPoint = new
+{
+    messageId = messageId++,
+    deviceId = deviceId,
+    temperature = currentTemperature,
+    humidity = currentHumidity
+};
+var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+var message = new Microsoft.Azure.Devices.Client.Message(Encoding.ASCII.GetBytes(messageString));
+message.Properties.Add("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
+
+// set message properties to enable body based message routing.
+message.ContentType = "application/json";
+message.ContentEncoding = "utf-8";
+```
+
 You can use `$body` in the query expression to route the message. You can use a simple body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with a message header reference. For example, the following are all valid query expressions:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
