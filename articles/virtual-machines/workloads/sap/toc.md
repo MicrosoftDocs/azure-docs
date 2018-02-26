@@ -14,7 +14,8 @@
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
 ## [SAP HANA on Azure operations guide](hana-vm-operations.md)
-## [SAP HANA on Azure Availability Overview](sap-hana-availability-overview.md)
+## SAP HANA Availability in Azure Virtual Machines
+### [SAP HANA on Azure Availability Overview](sap-hana-availability-overview.md)
 ### [SAP HANA on Azure Availability within one Azure Region](sap-hana-availability-one-region.md)
 ### [SAP HANA on Azure Availability across Azure Regions](sap-hana-availability-across-regions.md)
 ## [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
