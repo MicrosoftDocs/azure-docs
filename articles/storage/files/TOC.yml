@@ -36,8 +36,6 @@
       href: storage-sync-files-deployment-guide.md
     - name: About file share snapshots
       href: storage-snapshots-files.md
-    - name: How to work with file share snapshots
-      href: storage-how-to-use-files-snapshots.md
     - name: Replication
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Scalability and performance targets

@@ -76,7 +76,7 @@ Yes. If you chose **Retain Backup Data** when you stopped protection, then you c
 ## Manage Backup
 
 ### Can I access the snapshots taken by Azure Backups and mount it? <br/>
-All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. You can mount them using the procedure [here](../storage/files/storage-how-to-use-files-snapshots.md#mount-a-file-share).
+All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files (preview)](../storage/files/storage-snapshots-files.md).
 
 ### What is the maximum retention I can configure for Backups? <br/>
 Backup for Azure File shares offers the ability to retain your daily backups up to 120 days.
