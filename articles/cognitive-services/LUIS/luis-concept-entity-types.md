@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/21/2018
 ms.author: v-demak;v-geberr;
 ---
 # Entities in LUIS
@@ -17,6 +17,8 @@ ms.author: v-demak;v-geberr;
 Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent). 
 --> 
 Entities are important words in utterances that describe information relevant to the intent, and sometimes they are essential to it. Entities belong to classes of similar objects. 
+
+Entities are shared among intents. They don't belong to any single intent. Intents and entities can be semantically associated but it is not an exclusive relationship.
 
 In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent.
 
@@ -32,13 +34,13 @@ While most LUIS apps have entities, they are not required.
 LUIS offers the following types of entities:
 
 
-| Name |Type | Description |
-| -- |--|--|
-| Prebuilt |[RegEx](#regex)| Built-in types that represent common concepts like dates, times, and geography. <br/> For more information, see [Prebuilt entities](./Pre-builtEntities.md).|
-| List | [Exact match](#exact-match)| List entities represent a fixed set of related words in your system. Each list entity may have one or more forms. They aren't machine learned, and are best used for a known set of variations on ways to represent the same concept. List entities are not labeled in utterances or trained by the system.  <br/><br/> A list entity is an explicitly specified list of values.  Unlike other entity types, LUIS does not discover additional values for list entities during training. Therefore, each list entity forms a closed set. <br/><br>If there is more than one list entity with the same value, each entity is returned in the endpoint query. | 
-| Simple | [Machine-learned](#machine-learned) | A simple entity is a generic entity that describes a single concept.  <br/> |  
-| Hierarchical | [Machine-learned](#machine-learned) | A hierarchical entity defines a category and its members. It is made up of child entities that form the members of the category. You can use hierarchical entities to define hierarchical or inheritance relationships between entities, in which children are subtypes of the parent entity. <br/><br/>For example, in a travel agent app, you could add hierarchical entities like these:<ul><li> $Location, including $FromLocation and $ToLocation as child entities that represent origin and destination locations.</li> <li> $TravelClass, including $First, $Business, and $Economy as child entities that represent the travel class.</li></ul>     | 
-| Composite | [Machine-learned](#machine-learned) | A composite entity is made up of other entities that form parts of a whole.  For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities, or prebuilt entities.  |  
+| Name |Type | Can label | Description |
+| -- |--|--|--|
+| Prebuilt |[RegEx](#regex)| X|  Built-in types that represent common concepts like numbers, dates, and email. More than one prebuilt entity may match the same word or phrase. All prebuilt entities are returned in the [endpoint](luis-glossary.md#endpoint) query. For more information, see [Prebuilt entities](./Pre-builtEntities.md).|
+| List | [Exact match](#exact-match)|X| List entities represent a fixed set of related words in your system. Each list entity may have one or more forms. They aren't machine learned, and are best used for a known set of variations on ways to represent the same concept. List entities are not labeled in utterances or trained by the system.  <br/><br/> A list entity is an explicitly specified list of values.  Unlike other entity types, LUIS does not discover additional values for list entities during training. Therefore, each list entity forms a closed set. <br/><br>If there is more than one list entity with the same value, each entity is returned in the endpoint query. | 
+| Simple | [Machine-learned](#machine-learned) | ✔ | A simple entity is a generic entity that describes a single concept and is learned from context.  <br/> |  
+| Hierarchical | [Machine-learned](#machine-learned) |✔ | A hierarchical entity is a special type of a simple entity; defining a category and its members in the form of parent-child relationship. For example, given a hierarchical entity of `Location` with children `ToLocation` and `FromLocation`, each child can be determined based on the context within the utterance. In the utterance, `Book 2 tickets from Seattle to New York`, the `ToLocation` and `FromLocation` are contextually different based the words around them. <br/><br/>If you are looking for an entity that has exact text matches for children regardless of context, you should use a List entity.|
+| Composite | [Machine-learned](#machine-learned) | ✔|A composite entity is made up of other entities that form parts of a whole.  For example, a composite entity named PlaneTicketOrder may have child entities prebuilt `number` and `ToLocation`. You build a composite entity from pre-existing simple entities, children of hierarchical entities, or prebuilt entities.  |  
 
 <a name="machine-learned"></a>
 **Machine-learned** entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](label-suggested-utterances.md). 
