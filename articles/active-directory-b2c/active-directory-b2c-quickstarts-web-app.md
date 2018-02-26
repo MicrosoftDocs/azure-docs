@@ -87,11 +87,7 @@ Azure AD B2C presents a custom login page for a fictitious brand called Wingtip 
 
     ![New account sign-up profile details](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 
-    You have successfully used the sample web app that uses an Azure AD B2C policy to:
-    
-    > [!div class="checklist"]
-    > * Authenticate using an identity provider.
-    > * Create an Azure AD B2C user account. 
+    You have successfully used the sample web app that uses an Azure AD B2C policy to authenticate using an identity provider and create an Azure AD B2C user account. 
 
 ## Edit your profile
 

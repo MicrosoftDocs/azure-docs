@@ -82,9 +82,7 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
 2. Choose the identity provider associated with the account you created. For example, if you used Twitter as the identity provider when you created your account, choose Twitter to modify the associated profile details.
 
-3. Change your **Display name** or **City**. 
-
-    ![Update profile](media/active-directory-b2c-quickstarts-desktop-app/update-profile-wpf.png)
+3. Change your **Display name** or **City** and click **Continue**.
 
     A new access token is displayed in the *Token info* text box. If you want to verify the changes to your profile, copy and paste the access token into the token decoder https://jwt.ms.
 
