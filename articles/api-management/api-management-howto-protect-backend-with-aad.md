@@ -30,7 +30,7 @@ The following video shows how to build a Web API backend and protect it using OA
 > 
 
 ## Create an Azure AD directory
-To secure your Web API backend using Azure Active Directory you must first have a an AAD tenant. In this video, a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
+To secure your Web API backend using Azure Active Directory you must first have an AAD tenant. In this video, a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 

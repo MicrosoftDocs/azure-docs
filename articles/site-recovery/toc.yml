@@ -87,6 +87,8 @@
       href: site-recovery-migrate-to-azure.md
   - name: Role-based access permissions
     href: site-recovery-role-based-linked-access-control.md
+  - name: Azure Traffic Manager with Azure Site Recovery
+    href: concepts-traffic-manager-with-site-recovery.md
   - name: FAQ
     href: site-recovery-faq.md
 - name: How-to Guides
