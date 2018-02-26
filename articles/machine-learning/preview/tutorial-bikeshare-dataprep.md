@@ -1,6 +1,6 @@
 ---
 title: Bike-share tutorial - Advanced data preparation with Azure Machine Learning Workbench
-description: An end-to-end data preparation tutorial using Azure Machine Learning Workbench
+description: In this tutorial, you perform an end-to-end data preparation task by using Azure Machine Learning Workbench
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -8,13 +8,13 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial, azure
-ms.topic: article
+ms.custom: mvc
+ms.topic: tutorial
 ms.date: 09/21/2017
 ---
 
 
-# Bike-share tutorial: Advanced data preparation with Azure Machine Learning Workbench
+# Tutorial: Use Azure Machine Learning Workbench for advanced data preparation (Bike share data)
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 In this tutorial, you use Machine Learning (preview) to learn how to:
@@ -27,14 +27,16 @@ In this tutorial, you use Machine Learning (preview) to learn how to:
 > * Execute scripts in a local Azure CLI window.
 > * Execute scripts in a cloud Azure HDInsight environment.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
 * A local installation of Azure Machine Learning Workbench. For more information, follow the [installation quickstart](quickstart-installation.md).
 * If you don't have the Azure CLI installed, follow the instructions to [install the latest Azure CLI version](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 * An [HDInsights Spark cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) created in Azure.
 * An Azure storage account.
 * Familiarity with how to create a new project in the Workbench.
-* Although it's not required, it's helpful to have [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed so that you can upload, download, and view the blobs in your storage account. 
+* Although it's not required, it's helpful to have [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed so that you can upload, download, and view the blobs in your storage account.
 
 ## Data acquisition
 This tutorial uses the [Boston hubway dataset](https://s3.amazonaws.com/hubway-data/index.html) and Boston weather data from [NOAA](http://www.noaa.gov/).
@@ -630,7 +632,7 @@ To join the weather data with the trip data, use the following steps:
 
     ![Period column](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. To remove the **Date Hour Range** and **rDate Hour Range** columns, select Ctrl (Command ⌘ on Mac), and then select each column header. Right-click, and select **Remove Column**.
+3. To remove the **Date Hour Range** and **r_Date Hour Range** columns, select Ctrl (Command ⌘ on Mac), and then select each column header. Right-click, and select **Remove Column**.
 
 ## Read data from Python
 
@@ -824,6 +826,10 @@ In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeat
 
 3. To submit a new job, select **Run**. Make sure **hdinsight** is selected. A job is submitted with the new configuration. The output of this job is the training data. This data is created by using the same data preparation steps that you followed previously. The job might take a few minutes to finish.
 
+
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 You have finished the bike-share data preparation tutorial. In this tutorial, you used Machine Learning (preview) to learn how to:

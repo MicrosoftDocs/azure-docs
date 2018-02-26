@@ -125,7 +125,7 @@ If you are using your log for prediction analysis, do not capture test utterance
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
 ## How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/luis-authoring-apis). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use a programmatic key rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./Manage-Keys.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/luis-authoring-apis). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use a [authoring key](manage-keys.md#programmatic-key) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./Manage-Keys.md).
 
 ## What is the tenant ID in the "Add a key to your app" window?
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
@@ -133,13 +133,13 @@ In Azure, a tenant represents the client or organization that's associated with 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 ## Why did I get an email saying I'm almost out of quota?
-Your programmatic/starter key is only allowed 1000 endpoint queries a month. Create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+Your authoring/starter key is only allowed 1000 endpoint queries a month. Create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
 
 ## Where is the Pattern feature that provides regular expression matching?
 The Pattern feature is currently deprecated. Pattern features in LUIS are provided by [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). If you have a regular expression you need, or a culture in which a regular expression is not provided, contribute to the Recognizers-Text project. 
 
 ## Why are there more subscription keys on my app's publish page than I assigned to the app? 
-Each LUIS app has the programmatic/starter key. LUIS subscription keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys do not appear on the publish page. 
+Each LUIS app has the authoring/starter key. LUIS subscription keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys do not appear on the publish page. 
 
 ## How do I secure my LUIS endpoint? 
 You can control who has access to your LUIS endpoint by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
@@ -156,6 +156,9 @@ Example apps illustrating specific data extraction are:
 |App|Data Extracted|
 |--|--|
 |[MyCommunicator quickstart](luis-quickstart-primary-and-secondary-data.md)|[Message] entity<br>`Text boss [I'll be late to meeting]`
+
+## Is LUIS available on-premise or in private cloud?
+No. 
 
 ## Next steps
 

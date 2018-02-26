@@ -47,7 +47,7 @@ For more information, see [MFA for Office 365 and MFA for Azure](https://blogs.t
 ## Time-bound privileges
 Some organizations may find that they have too many users in highly privileged roles. A user might have been added to the role for a particular activity, like to sign up for a service, but didn't use those privileges frequently afterward.
 
-To lower the exposure time of privileges and increase your visibility into their use, limit users to only taking on their privileges "just in time" (JIT), or assign these roles for a shortened duration with confidence the privileges will be revoked automatically. For Azure Active Directory, Azure Resources (Preview) and Microsoft Online Services, you can use [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+To lower the exposure time of privileges and increase your visibility into their use, limit users to only taking on their privileges "just in time" (JIT), or assign these roles for a shortened duration with confidence the privileges will be revoked automatically. For Azure Active Directory, Azure Resources (Preview) and Microsoft Online Services, you can use [Azure AD Privileged Identity Management (PIM)](https://aka.ms/AzurePIM).
 
 ![PIM dashboard][2]
 
@@ -65,7 +65,7 @@ With conditional access control, Azure Active Directory checks the specific cond
 * Enable [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Enable [conditional access controls](../active-directory-conditional-access-azure-portal.md)
 
-For more information on building a complete security roadmap, see the “Customer responsibilities and roadmap” section of the [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) document. For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or visit our [Cybersecurity solutions page](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+For more information on building a complete security roadmap, see the “Customer responsibilities and roadmap” section of the [Microsoft Cloud Security for Enterprise Architects](https://aka.ms/securecustomer) document. For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or visit our [Cybersecurity solutions page](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
