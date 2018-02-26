@@ -11,6 +11,10 @@
 ## [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 ## [Errors during synchronization](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
+# Troubleshoot
+## [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+## [Health service data is not up to date](active-directory-aadconnect-health-datafreshness.md)
+
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
@@ -23,5 +27,4 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
