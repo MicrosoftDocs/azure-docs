@@ -96,11 +96,8 @@ To enable the solution for all available machines and all future machines, selec
 
 Continue to the tutorials on the solutions to learn how to use them.
 
-> [!div class="nextstepaction"]
-> [Manage Updates for your VM](automation-tutorial-update-management.md)
+* [Tutorial - Manage Updates for your VM](automation-tutorial-update-management.md)
 
-> [!div class="nextstepaction"]
-> [Identify software on a VM](automation-tutorial-installed-software.md)
+* [Tutorial - Identify software on a VM](automation-tutorial-installed-software.md)
 
-> [!div class="nextstepaction"]
-> [Troubleshoot changes on a VM](automation-tutorial-troubleshoot-changes.md)
+* [Tutorial - Troubleshoot changes on a VM](automation-tutorial-troubleshoot-changes.md)
