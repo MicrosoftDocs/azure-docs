@@ -146,6 +146,7 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
 
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
@@ -154,3 +155,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
+
+<!--Image references-->
+[1]: ./media/active-directory-saas-successcenter-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-successcenter-provisioning-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-successcenter-provisioning-tutorial/tutorial_general_03.png
