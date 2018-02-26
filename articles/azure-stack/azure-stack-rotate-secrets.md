@@ -69,11 +69,11 @@ To rotate all secrets in Azure Stack, including external certificates:
   > Do not enter the session, store it as a variable.
 
 3. Run **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Pass your Privileged Endpoint powershell session variable stored from Step 2 as the **Session** parameter. Run **Start-SecretRotation** with the following parameters:
-- **PfxFilesPath** should be the network path to your Certificates directory created earlier.  
-- **PathAccessCredential** should be a PSCredential object for credentials to the share. 
-- **CertificatePassword** should be a secure string of the password used for all of the pfx certificate files created.
-5. Wait while your secrets rotate.
-6. After successful completion of secret rotation, remove your certificates from the share created in pre-step #3 and store in a secure location. 
+    - **PfxFilesPath** should be the network path to your Certificates directory created earlier.  
+    - **PathAccessCredential** should be a PSCredential object for credentials to the share. 
+    - **CertificatePassword** should be a secure string of the password used for all of the pfx certificate files created.
+4. Wait while your secrets rotate. When secret rotation succssfully completes, the message **Overall action status: Success** will be displayed. 
+5. After successful completion of secret rotation, remove your certificates from the share created in pre-step #3 and store them in a secure location. 
 
 ### Example
 ```powershell
