@@ -58,12 +58,18 @@ Save and close the file.
 
 ## Update container image
 
-Use [docker-compose][docker-compose] to re-create the front-end image and run the updated application. The `--build` argument is used to instruct Docker Compose to re-create the application image.
+Use [docker-compose][docker-compose] to re-create the front-end image. The `build` command is used to instruct Docker Compose to re-create the application image.
 
 ```console
-docker-compose up --build -d
+docker-compose build
 ```
+## Start container image
 
+Use [docker-compose][docker-compose] to run the updated application. The `up` command is used to instruct Docker Compose run the application image.
+
+```console
+docker-compose run
+```
 ## Test application locally
 
 Browse to http://localhost:8080 to see the updated application.
