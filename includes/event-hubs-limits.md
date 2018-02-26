@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: event-hubs
+author: sethmanheim
+ms.service: event-hubs
+ms.topic: include
+ms.date: 02/26/2018
+ms.author: sethm
+ms.custom: "include file"
+
+---
+
 The following table lists quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Limit | Scope | Notes | Value |
