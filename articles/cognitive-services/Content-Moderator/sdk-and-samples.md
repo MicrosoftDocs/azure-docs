@@ -50,3 +50,6 @@ See all .NET samples at the [Content Moderator .NET samples on GitHub](https://g
 - [eCommerce catalog moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration). See [tutorial](ecommerce-retail-catalog-moderation.md).
 - [Facebook content moderation](https://github.com/MicrosoftContentModerator/samples-fbPageModeration). See [tutorial](facebook-post-moderation.md).
 - [Video and transcript moderation and review solution](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) See [tutorial](video-transcript-moderation-review-tutorial-dotnet.md)
+
+## On-demand webinars
+- [Machine-assisted content moderation at scale with Content Moderator](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html)
