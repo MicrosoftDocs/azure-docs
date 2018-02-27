@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * If you don't have the Azure CLI installed, follow the instructions to [install the latest Azure CLI version](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 * An [HDInsights Spark cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) created in Azure.
 * An Azure storage account.
-* Familiarity with how to create a new project in the Workbench.
+* Familiarity with how to create a new project in Workbench.
 * Although it's not required, it's helpful to have [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed so that you can upload, download, and view the blobs in your storage account.
 
 ## Data acquisition
@@ -76,44 +76,44 @@ You can use Azure Blob storage to host your data files.
 ## Learn about the datasets
 1. The __Boston weather__ file contains the following weather-related fields, reported on an hourly basis:
 
-   a. **DATE**
+   * **DATE**
 
-   b. **REPORTTPYE**
+   * **REPORTTPYE**
 
-   c. **HOURLYDRYBULBTEMPF**
+   * **HOURLYDRYBULBTEMPF**
 
-   d. **HOURLYRelativeHumidity**
+   * **HOURLYRelativeHumidity**
 
-   e. **HOURLYWindSpeed**
+   * **HOURLYWindSpeed**
 
 2. The __hubway__ data is organized into files by year and month. For example, the file named `201501-hubway-tripdata.zip` contains a .csv file that contains data for January 2015. The data contains the following fields, with each row representing a bike trip:
 
-   a. **Trip Duration (in seconds)**
+   * **Trip Duration (in seconds)**
 
-   b. **Start Time and Date**
+   * **Start Time and Date**
 
-   c. **Stop Time and Date**
+   * **Stop Time and Date**
 
-   d. **Start Station Name & ID**
+   * **Start Station Name & ID**
 
-   e. **End Station Name & ID**
+   * **End Station Name & ID**
 
-   f. **Bike ID**
+   * **Bike ID**
 
-   g. **User Type (Casual = 24-Hour or 72-Hour Pass user; Member = Annual or Monthly Member)**
+   * **User Type (Casual = 24-Hour or 72-Hour Pass user; Member = Annual or Monthly Member)**
 
-   h. **ZIP Code (if user is a member)**
+   * **ZIP Code (if user is a member)**
 
-   i. **Gender (self-reported by member)**
+   * **Gender (self-reported by member)**
 
 ## Create a new project
-1. Start the **Azure Machine Learning Workbench** from your Start menu or launcher.
+1. Start **Machine Learning Workbench** from your Start menu or launcher.
 
 2. Create a new Machine Learning project. Select the **+** button on the **Projects** page, or select **File** > **New**:
 
-   a. Use the **Bike Share** template.
+   * Use the **Bike Share** template.
 
-   b. Name your project **BikeShare**. 
+   * Name your project **BikeShare**. 
 
 ## <a id="newdatasource"></a>Create a new data source
 
@@ -140,7 +140,7 @@ You can use Azure Blob storage to host your data files.
    ![Verify file details](media/tutorial-bikeshare-dataprep/fileparameters.png)
 
    > [!IMPORTANT]
-   > The Workbench might not detect the correct schema in some cases. Always verify that the parameters are correct for your data set. For the weather data, verify that they are set to the following values:
+   > Workbench might not detect the correct schema in some cases. Always verify that the parameters are correct for your data set. For the weather data, verify that they are set to the following values:
    >
    > * __File Type__: Delimited File (csv, tsv, txt, etc.)
    > * __Separator__: Comma [,]
@@ -151,17 +151,17 @@ You can use Azure Blob storage to host your data files.
 
    The preview of the data should display the following columns:
 
-   a. **Path**
+   * **Path**
 
-   b. **DATE**
+   * **DATE**
 
-   c. **REPORTTYPE**
+   * **REPORTTYPE**
 
-   d. **HOURLYDRYBULBTEMPF**
+   * **HOURLYDRYBULBTEMPF**
    
-   e. **HOURLYRelativeHumidity**
+   * **HOURLYRelativeHumidity**
 
-   f. **HOURLYWindSpeed**
+   * **HOURLYWindSpeed**
 
    To continue, select **Next**.
 
@@ -170,7 +170,7 @@ You can use Azure Blob storage to host your data files.
    a. For this data, change **DATA TYPE** for all the columns to **String**.
 
    > [!NOTE]
-   > String is used to highlight the capabilities of the Workbench later in this tutorial. 
+   > String is used to highlight the capabilities of Workbench later in this tutorial. 
 
    ![Review data types](media/tutorial-bikeshare-dataprep/datatypedetection.png)
 
@@ -252,11 +252,11 @@ You no longer need the __REPORTTYPE__ column. Right-click the column header, and
 ## Change datatypes and remove errors
 1. Select Ctrl (Command ⌘ on Mac) while you select column headers to select multiple columns at the same time. Use this technique to select the following column headers:
 
-   a. **HOURLYDRYBULBTEMPF**
+   * **HOURLYDRYBULBTEMPF**
 
-   b. **HOURLYRelativeHumidity**
+   * **HOURLYRelativeHumidity**
 
-   c. **HOURLYWindSpeed**
+   * **HOURLYWindSpeed**
 
 2. Right-click one of the selected column headers, and select **Convert Field Type to Numeric**. This option converts the data type for the columns to numeric.
 
@@ -272,7 +272,7 @@ You no longer need the __REPORTTYPE__ column. Right-click the column header, and
 
 ## Use by example transformations
 
-To use the data in a prediction for two-hour time blocks, you must compute the average weather conditions for two-hour periods. Take the following steps:
+To use the data in a prediction for two-hour time blocks, you must compute the average weather conditions for two-hour periods. Use the following actions:
 
 * Split the **DATE** column into separate **Date** and **Time** columns. See the following section for the detailed steps.
 
@@ -308,7 +308,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
    > Machine Learning Workbench synthesizes a program based on the examples provided by you and applies the same program on remaining rows. All other rows are automatically populated based on the example you provided. Workbench also analyzes your data and tries to identify edge cases. 
 
    > [!IMPORTANT]
-   > Identification of edge cases might not work on Mac in the current version of the Workbench. Skip the following step 3 and step 4 on Mac. Instead, select __OK__ after all the rows are populated with the derived values.
+   > Identification of edge cases might not work on Mac in the current version of Workbench. Skip the following step 3 and step 4 on Mac. Instead, select __OK__ after all the rows are populated with the derived values.
    
 3. The text **Analyzing Data** above the grid indicates that Workbench is trying to detect edge cases. When finished, the status changes to **Review next suggested row** or **No suggestions**. In this example, **Review next suggested row** is returned.
 
@@ -335,7 +335,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
    Type **Jan 01, 2015 12AM-2AM** as the example against the first row, and select Enter.
 
-   The Workbench determines the transformation based on the example you provide. In this example, the result is that the date format is changed and concatenated with the two-hour window.
+   Workbench determines the transformation based on the example you provide. In this example, the result is that the date format is changed and concatenated with the two-hour window.
 
    ![The example Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
@@ -349,7 +349,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
    ![Suggested row to review](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
 
-   The row has a null value because the source date value can be for either dd/mm/yyyy or mm/dd/yyyy. Type the correct value of **Jan 13, 2015 2AM-4AM**, and select Enter. The Workbench uses the two examples to improve the derivation for the remaining rows.
+   The row has a null value because the source date value can be for either dd/mm/yyyy or mm/dd/yyyy. Type the correct value of **Jan 13, 2015 2AM-4AM**, and select Enter. Workbench uses the two examples to improve the derivation for the remaining rows.
 
    ![Correctly formatted data](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
 
@@ -426,11 +426,11 @@ You have finished preparing the weather data. Next, prepare the trip data.
 
 1. To import the `201701-hubway-tripdata.csv` file, use the steps in the [Create a new data source](#newdatasource) section. Use the following options during the import process:
 
-    a. __File Selection__: Select **Azure Blob** when you browse to select the file.
+    * __File Selection__: Select **Azure Blob** when you browse to select the file.
 
-    b. __Sampling Scheme__: Select **Full File** sampling scheme, and make the sample active.
+    * __Sampling Scheme__: Select **Full File** sampling scheme, and make the sample active.
 
-    c. __Data Type__: Accept the defaults.
+    * __Data Type__: Accept the defaults.
 
 2. After you import the data, select __Prepare__ to begin preparing the data. Select the existing **BikeShare Data Prep.dprep** package, and then select __OK__.
 
@@ -488,13 +488,13 @@ The histogram isn't helpful because the outliers skew the graph.
 
 2. In the __Add Column (Script)__ dialog box, use the following values:
 
-    a. __New Column Name__: logtripduration
+    * __New Column Name__: logtripduration
 
-    b. __Insert this New Column After__: tripduration
+    * __Insert this New Column After__: tripduration
 
-    c. __New Column Code__: `math.log(row.tripduration)`
+    * __New Column Code__: `math.log(row.tripduration)`
 
-    d. __Code Block Type__: Expression
+    * __Code Block Type__: Expression
 
    ![Add Column (Script) dialog box](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
 
@@ -514,15 +514,15 @@ Using a filter on the data updates the inspectors with the new distribution.
 
 2. In the __Edit__ dialog box, use the following values:
 
-    a. __Filter this Number Column__: logtripduration
+    * __Filter this Number Column__: logtripduration
 
-    b. __I Want To__: Keep Rows
+    * __I Want To__: Keep Rows
 
-    c. __When__: Any of the Conditions below are True (logical OR)
+    * __When__: Any of the Conditions below are True (logical OR)
 
-    d. __If this Column__: less than
+    * __If this Column__: less than
 
-    e. __The Value__: 9
+    * __The Value__: 9
 
     ![Filter options](media/tutorial-bikeshare-dataprep/loftripfilter.png)
 
@@ -534,9 +534,9 @@ Using a filter on the data updates the inspectors with the new distribution.
 
 1. Maximize the **logtripduration** histogram. A blue histogram is overlaid on a gray histogram. This display is called the **Halo Effect**:
 
-    a. The gray histogram represents the distribution before the operation (in this case, the filtering operation).
+    * The gray histogram represents the distribution before the operation (in this case, the filtering operation).
 
-    b. The blue histogram represents the histogram after the operation. 
+    * The blue histogram represents the histogram after the operation. 
 
    The halo effect helps with visualizing the effect of an operation on the data.
 
@@ -594,9 +594,9 @@ To summarize bike demand for a two-hour period, use derived columns.
 
 6. To summarize the data, on the __Transform__ menu, select __Summarize__. To create the transformation, use the following steps:
 
-    a. Drag __Date Hour Range__ and __start station id__ to the **Group By** pane on the left.
+    * Drag __Date Hour Range__ and __start station id__ to the **Group By** pane on the left.
 
-    b. Drag __start station id__ to the **summarize data** pane on the right.
+    * Drag __start station id__ to the **summarize data** pane on the right.
 
    ![Summarization options](media/tutorial-bikeshare-dataprep/tripdatacount.png)
 
@@ -638,7 +638,7 @@ To join the weather data with the trip data, use the following steps:
 
 You can run a data preparation package from Python or PySpark and retrieve the result as a **Data Frame**.
 
-To generate an example Python script, right-click __BikeShare Data Prep__, and select __Generate Data Access Code File__. The example Python file is created in your **Project Folder** and is also loaded in a tab within the Workbench. The following Python script is an example of the code that is generated:
+To generate an example Python script, right-click __BikeShare Data Prep__, and select __Generate Data Access Code File__. The example Python file is created in your **Project Folder** and is also loaded in a tab within Workbench. The following Python script is an example of the code that is generated:
 
 ```python
 # Use the Azure Machine Learning data preparation package
@@ -705,12 +705,12 @@ To save the **Join Result** dataflow to a .csv file, you must change the `BikeSh
 
 ## Create an HDInsight run configuration
 
-1. In the Machine Learning Workbench, open the command-line window, select the **File** menu, and then select **Open Command Prompt**. Your command prompt starts in the project folder with the prompt `C:\Projects\BikeShare>`.
+1. In Machine Learning Workbench, open the command-line window, select the **File** menu, and then select **Open Command Prompt**. Your command prompt starts in the project folder with the prompt `C:\Projects\BikeShare>`.
 
     ![Open command prompt](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
 
    >[!IMPORTANT]
-   >You must use the command-line window (opened from the Workbench) to accomplish the steps that follow.
+   >You must use the command-line window (opened from Workbench) to accomplish the steps that follow.
 
 2. Use the command prompt to sign in to Azure. 
 
@@ -737,7 +737,7 @@ To save the **Join Result** dataflow to a .csv file, you must change the `BikeSh
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]
-> When a blank project is created, the default run configurations are **local** and **docker**. This step creates a new run configuration that is available in the Machine Learning Workbench when you run your scripts. 
+> When a blank project is created, the default run configurations are **local** and **docker**. This step creates a new run configuration that is available in Workbench when you run your scripts. 
 
 ## Run in an HDInsight cluster
 
@@ -758,14 +758,14 @@ In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeat
 
 1. Create a new data source by using the steps given previously, with the following changes to the process:
 
-    a. __File Selection__: When you select a file, multi-select the six remaining trip tripdata .csv files.
+    * __File Selection__: When you select a file, multi-select the six remaining trip tripdata .csv files.
 
     ![Load six remaining files](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
     > [!NOTE]
      > The __+5__ entry indicates that there are five additional files beyond the one that is listed.
 
-    b. __File Details__: Set __Promote Headers Mode__ to **All Files Have The Same Headers**. This value indicates that each of the files contains the same header.
+    * __File Details__: Set __Promote Headers Mode__ to **All Files Have The Same Headers**. This value indicates that each of the files contains the same header.
 
     ![File details selection](media/tutorial-bikeshare-dataprep/headerfromeachfile.png) 
 
