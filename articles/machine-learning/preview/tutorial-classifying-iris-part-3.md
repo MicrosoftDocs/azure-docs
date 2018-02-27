@@ -1,19 +1,19 @@
 ---
-title: Deploy a model for Azure Machine Learning services (preview) | Microsoft Docs
+title: Deploy a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part three and discusses the deploying model.
 services: machine-learning
 author: raymondl
-ms.author: raymondl, aashishb
+ms.author: raymondl, j-martens, aashishb
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/29/2017
+ms.date: 02/28/2018
 ---
 
-# Classify Iris part 3: Deploy a model
+# Tutorial: Classify Iris part 3 - Deploy a model
 Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is part three of a three-part series. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
@@ -27,6 +27,8 @@ This tutorial is part three of a three-part series. In this part of the tutorial
 > * Examine the output blob data. 
 
  This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 Complete the first two parts of this tutorial series:
@@ -264,18 +266,12 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
    ```
 
 2. To test the service, execute the returned service run command:
-
     
    ```azurecli
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
+
    The output is **"2"**, which is the predicted class. (Your result might be different.) 
-
-3. To run the service from outside the CLI, you need to get the keys for authentication:
-
-   ```azurecli
-   az ml service keys realtime -i <web service ID>
-   ```
 
 ## View the collected data in Azure Blob storage
 
@@ -317,6 +313,10 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
       ```
 
 
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Next steps
 In this third part of the three-part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
@@ -331,4 +331,4 @@ You have successfully run a training script in various compute environments, cre
 
 You are now ready to do advanced data preparation:
 > [!div class="nextstepaction"]
-> [Advanced data preparation](tutorial-bikeshare-dataprep.md)
+> [Tutorial 4 - Advanced data preparation](tutorial-bikeshare-dataprep.md)

@@ -104,21 +104,24 @@ The following snippet creates the Data Lake Store filesystem client object, whic
 Add the following snippet to your application. This snippet adds a file as well as any parent directory that do not exist.
 
     // Create a file - automatically creates any parent directories that don't exist
-    
-    string fileName = "/Test/testFilename1.txt";
-    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
+    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
+    using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
     {
-        streamWriter.WriteLine("This is test data to write");
-        streamWriter.WriteLine("This is line 2");
+        byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
+
+        textByteArray = Encoding.UTF8.GetBytes("This is the second line.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
     }
 
 ## Append to a file
 The following snippet appends data to an existing file in Data Lake Store account.
 
     // Append to existing file
-    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
+    using (var stream = client.GetAppendStream(fileName))
     {
-        streamWriter.WriteLine("This is the added line");
+        byte[] textByteArray = Encoding.UTF8.GetBytes("This is the added line.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
     }
 
 ## Read a file
