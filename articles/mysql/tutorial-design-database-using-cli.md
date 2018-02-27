@@ -45,7 +45,11 @@ The following example creates a resource group named `myresourcegroup` in the `w
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-
+## Add the extension
+Add the updated Azure Database for MySQL management extension using the following command:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
