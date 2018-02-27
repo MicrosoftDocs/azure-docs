@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Bluejeans for automatic user provisioning with Azure
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Bluejeans.
 services: active-directory
 documentationcenter: ''
-author: zhchia-msft
-writer: zhchia-msft
+author: zhchia
+writer: zhchia
 manager: beatrizd-msft
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
