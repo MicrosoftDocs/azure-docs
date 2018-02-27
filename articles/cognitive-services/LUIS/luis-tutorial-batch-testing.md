@@ -23,17 +23,48 @@ In this tutorial, you learn how to:
 * Create a batch test file 
 * Run a batch test
 * Review test results
+* Fix errors for intents
+* Retest the batch
 
 ## Prerequisites
 
 > [!div class="checklist"]
-> * [Quickstart](luis-get-started-create-app.md) using Home Automation. Make sure the prebuilt HomeAutomation domain is trained. 
+> * For this article, you also need a [LUIS.][LUIS] account in order to author your LUIS application.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
+## Create new app
+This article uses the prebuilt domain HomeAutomation. The prebuilt domain has intents, entities, and utterances for controlling HomeAutomation devices such as lights. Create the app, add the domain, train, and publish.
+
+1. In the [LUIS] website, create a new app by selecting **Create new app** on the **MyApps** page. 
+
+    ![Create new app](./media/luis-tutorial-batch-testing/create-app-1.png)
+
+2. Enter the name `Batchtest-HomeAutomation` in the dialog.
+
+    ![Enter app name](./media/luis-tutorial-batch-testing/create-app-2.png)
+
+3. Select **Prebuilt Domains** in bottom left corner. 
+
+    ![Select Prebuilt Domain](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
+
+4. Select **Add Domain** for HomeAutomation.
+
+    ![Add HomeAutomation domain](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
+
+5. Select **Train** in the top right navigation bar.
+
+    ![Select Train button](./media/luis-tutorial-batch-testing/train-button.png)
+
+6. Select **Publish** in the top right navigation bar.
+
+7. Select **Publish to production slot**. 
+
+    ![Publish the app](./media/luis-tutorial-batch-testing/publish.png)
+
 ## How batch testing improves prediction
-Batch testing can test up to 1000 utterances at a time with the current model. The batch should not have duplicates and should not have utterances already in the model -- either through [adding the utterance to an intent](add-example-utterances.md), or by [reviewing suggested utterances from the endpoint](label-suggested-utterances.md). [Export](create-new-app.md#export-app) the app in order to see the list of current utterances. The original utterances from the prebuilt HomeAutomation app are available [here]() to review. 
+Batch testing can test up to 1000 utterances at a time with the current model. The batch should not have duplicates. [Export](create-new-app.md#export-app) the app in order to see the list of current utterances. The original utterances from the prebuilt HomeAutomation app are available [here]() to review. 
 
 The HomeAutomation app predicts utterances such as "Turn on all the lights" and "Turn off the heat in the living room". 
 
