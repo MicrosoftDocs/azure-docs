@@ -8616,11 +8616,6 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-migrate-aws-to-azure.md",
-            "redirect_url": "tutorial-migrate-aws-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-migrate-aws-to-azure.md",
             "redirect_url": "migrate-tutorial-aws-azure",
             "redirect_document_id": false
         },
