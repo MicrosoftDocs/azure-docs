@@ -51,6 +51,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Your sample model is using cache memory resources. If you are not using your sample model for testing, you should remove it from your server.
 
+> [!NOTE]
+> These steps describe how to delete a model from a server by using SSMS. You can also delete a model by using the preview Web designer feature.
+
 1. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
 
 2. In **Connect to Server**, paste in the server name, then in **Authentication**, choose **Active Directory - Universal with MFA support**, enter your username, and then click **Connect**.
