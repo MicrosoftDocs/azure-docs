@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Zendesk for automatic user provisioning with Azure A
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zendesk.
 services: active-directory
 documentationcenter: ''
-author: zhchia-msft
-writer: zhchia-msft
+author: zhchia
+writer: zhchia
 manager: beatrizd-msft
 
 ms.assetid: na
