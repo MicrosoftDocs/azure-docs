@@ -65,7 +65,7 @@ With native clients available in various [languages (.NET, Java)](https://github
 
 To get started using Event Hubs, see the following articles:
 
-* [Ingest into Event Hubs](event-hubs-quickstart-namespace-powershell.md)
+* [Ingest into Event Hubs](event-hubs-quickstart-powershell.md)
 * [Event Hubs features overview](event-hubs-features.md)
 
 
