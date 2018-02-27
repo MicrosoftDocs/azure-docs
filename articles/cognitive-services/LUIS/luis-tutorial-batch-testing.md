@@ -161,7 +161,7 @@ Do not use any of the utterances already in the app for the batch test:
 
     ![Select Batch test panel](./media/luis-tutorial-batch-testing/test-2.png)
 
-3. Select **Import dataset**
+3. Select **Import dataset**.
 
     ![Select Import dataset](./media/luis-tutorial-batch-testing/test-3.png)
 
@@ -184,7 +184,7 @@ Do not use any of the utterances already in the app for the batch test:
     ![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
 ## Review batch results
-The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area of the graph.
+The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area name of the graph.
 
 Any errors are indicated by the color red. The graph is in four sections, with two of the sections displayed in red. **These are the sections to focus on**. 
 
@@ -200,18 +200,27 @@ The other two intents have errors, meaning the batch test predictions didn't mat
 
 ![None intent](./media/luis-tutorial-batch-testing/none-intent-failures.png)
 
-The two intents in the left bottom panel, in red, are the failures. Select **False Negative** in the chart to see the failed utterances. 
+The two intents (dots on the chart) in the left bottom panel, in red, are the failures. Select **False Negative** in the chart to see the failed utterances. 
 
 ![False negative failures](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
 
 The two failing utterances should have been labeled as `None` intent but were instead labeled `HomeAutomation.TurnOn` intent. Because of this failure, both intents'
 expectations (HomeAutomation.TurnOn and None) failed.
 
-To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the None intent needs new, appropriate intents. 
+To determine why the `None` utterances are failing, review the utterances currently in `None`:
+
+```
+"decrease temperature for me please"
+"dim kitchen lights to 25."
+"lower your volume"
+"turn on the internet in my bedroom please"
+```
+
+These utterances are supposed to be outside the app domain but are not. To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
 
 Three of the utterances in the `None` intent are meant to lower the automation device settings. They use words such as `dim`, `lower`, or `decrease`. The fourth utterance asks to turn on the internet. Since all four utterances are about turning on or changing the degree of power to a device, they should be moved to the `HomeAutomation.TurnOn` intent. 
 
-This is just one solution. You could also create a new intent and move the utterances using dim, lower, and decrease into that new intent. 
+This is just one solution. You could also create a new intent of `ChangeSetting` and move the utterances using dim, lower, and decrease into that new intent. 
 
 ## Fix the app based on batch results
 Move the four utterances to the `HomeAutomation.TurnOn` intent. 
@@ -222,13 +231,13 @@ Move the four utterances to the `HomeAutomation.TurnOn` intent.
 
 3. Select the `None` intent.  
 
-4. Select the checkout above the utterance list so all utterances are selected. 
+4. Select the checkbox above the utterance list so all utterances are selected. 
 
 5. In the **Reassign intent** drop-down, select `HomeAutomation.TurnOn`. 
 
     ![Move utterances](./media/luis-tutorial-batch-testing/move-utterances.png)
 
-    The four utterances disappear from the `None` intent.
+    After the four utterances are reassigned, the utterance list for the `None` intent is empty.
 
 6. Add four new intents for the None intent:
 
@@ -238,6 +247,8 @@ Move the four utterances to the `HomeAutomation.TurnOn` intent.
     "The recipe calls for more milk."
     "The pizza is done."
     ```
+
+    These utterances are definitely outside the domain of HomeAutomation. 
 
 7. Because none of these utterances should have a HomeAutomation.Device ("light", "camera"), HomeAutomation.Operation("on","off") or HomeAutomation.Room ("living room"), remove any labels by selecting the blue label in the utterance and select **Remove label**.
 
