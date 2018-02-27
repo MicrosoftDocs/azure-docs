@@ -138,7 +138,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > [!NOTE]
 > For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. You can install it from Windows Update by installing the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions.  For the list of currently supported versions, please refer to the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).:
+* Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions.  For the list of currently supported versions, please refer to the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
 
