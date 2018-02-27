@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/15/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -25,9 +25,9 @@ Windows. In this tutorial, you learn how to:
 This tutorial is the third in a series. This tutorial assumes that you finished the tasks in the previous tutorials:
 
 * [Prepare Azure](tutorial-prepare-azure.md)
-* [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
+* [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md)
 
-Before you start, it's helpful to [review the architecture](concepts-vmware-to-azure-architecture.md)
+Before you start, it's helpful to [review the architecture](vmware-azure-architecture.md)
 for disaster recovery scenarios.
 
 
@@ -64,7 +64,7 @@ To set up the configuration server as a highly available VMware VM, download a p
 1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the Deploy OVF Template wizard. 
 
-     ![OVF template](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
+     ![OVF template](./media/vmware-to-azure-tutorial/vcenter-wizard.png)
 
 3. On **Select source**, enter the location of the downloaded OVF.
 4. On **Review details**, select **Next**.
@@ -126,7 +126,7 @@ Select and verify target resources.
 2. Specify whether your target deployment model is based on Azure Resource Manager or is classic.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-   ![Target tab](./media/tutorial-vmware-to-azure/storage-network.png)
+   ![Target tab](./media/vmware-azure-tutorial/storage-network.png)
 
 ## Create a replication policy
 
@@ -138,7 +138,7 @@ Select and verify target resources.
 6. In **Recovery point retention**, use the default of 24 hours for how long the retention window is for each recovery point. For this tutorial, use 72 hours. Replicated VMs can be recovered to any point in a window.
 7. In **App-consistent snapshot frequency**, use the default of 60 minutes for the frequency that application-consistent snapshots are created. Select **OK** to create the policy.
 
-   ![Create replication policy](./media/tutorial-vmware-to-azure/replication-policy.png)
+   ![Create replication policy](./media/vmware-azure-tutorial/replication-policy.png)
 
 The policy is automatically associated with the configuration server. A matching policy
 is automatically created for failback by default. For example, if the replication policy is **rep-policy**,

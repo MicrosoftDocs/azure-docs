@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 02/27/2018
 ms.author: raynew
 
 ---
@@ -27,7 +27,7 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 
 To complete this tutorial:
 
-- Make sure that you understand the [scenario architecture and components](concepts-physical-to-azure-architecture.md).
+- Make sure that you understand the [scenario architecture and components](physical-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
@@ -106,7 +106,7 @@ Set up the configuration server, register it in the vault, and discover VMs.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
 
-   ![Set up source](./media/tutorial-physical-to-azure/source-environment.png)
+   ![Set up source](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### Register the configuration server in the vault
@@ -136,7 +136,7 @@ Select and verify target resources.
 2. Specify the target deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-   ![Target](./media/tutorial-physical-to-azure/network-storage.png)
+   ![Target](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## Create a replication policy
@@ -147,7 +147,7 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
 5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
-    ![Replication policy](./media/tutorial-physical-to-azure/replication-policy.png)
+    ![Replication policy](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.

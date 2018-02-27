@@ -1,27 +1,22 @@
 ---
-title: Troubleshoot failures during failback to on-premises from Azure and reprotect to Azure afterwards | Microsoft Docs
-description: This article describes ways to troubleshoot common errors in failing back to on-premises from Azure and during reprotect    
+title: Troubleshoot failures during failback of Azure VMs to on-premises VMware with Azure Site Recovery | Microsoft Docs
+description: This article describes ways to troubleshoot common failback and reprotection errors during failback to VMware from Azure, using Azure Site Recovery.    
 services: site-recovery
 documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
-editor: ''
-
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/19/2017
+ms.date: 02/27/2017
 ms.author: rajanaki
  
 ---
 
-# Troubleshoot errors reported during the process of failback
+# Troubleshoot failback from Azure to VMware
+
 Failback essentially involves two main steps. One is to reprotect virtual machines from Azure to on-premises, second is to actually perform the failback from Azure to on-premises.
 
-## Troubleshoot errors when reprotecting a virtual machine back to on-premises, after failover
+## Troubleshoot reprotection errors
 You may receive one of the following errors while performing reprotect of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
 

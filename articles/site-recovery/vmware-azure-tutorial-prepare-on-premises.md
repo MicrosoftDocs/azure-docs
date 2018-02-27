@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -135,4 +135,4 @@ To connect to Linux VMs using SSH after failover, do the following:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for VMware VMs](tutorial-vmware-to-azure.md)
+> [Set up disaster recovery to Azure for VMware VMs](vmware-azure-tutorial.md)

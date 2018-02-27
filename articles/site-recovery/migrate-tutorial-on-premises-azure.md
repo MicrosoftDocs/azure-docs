@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/18/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -28,9 +28,9 @@ This tutorial shows you how to migrate on-premises VMs and physical servers to A
 This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. Prepare on-premises [VMware](tutorial-prepare-on-premises-vmware.md) or Hyper-V servers.
+2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or Hyper-V servers.
 
-Before you start, it's helpful to review the [VMware](concepts-vmware-to-azure-architecture.md) or [Hyper-V](concepts-hyper-v-to-azure-architecture.md) architectures for disaster recovery.
+Before you start, it's helpful to review the [VMware](vmware-azure-architecture.md) or [Hyper-V](hyper-v-azure-architecture.md) architectures for disaster recovery.
 
 
 ## Prerequisites
@@ -48,7 +48,7 @@ Devices exported by paravirtualized drivers aren't supported.
 5. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. To quickly access the vault from the dashboard, click **Pin to dashboard** and then click **Create**.
 
-   ![New vault](./media/tutorial-migrate-on-premises-to-azure/onprem-to-azure-vault.png)
+   ![New vault](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
@@ -67,8 +67,8 @@ Select what you want to replicate, and where you want to replicate to.
 
 ## Set up the source environment
 
-- [Set up](tutorial-vmware-to-azure.md#set-up-the-source-environment) the source environment for VMware VMs.
-- [Set up](tutorial-physical-to-azure.md#set-up-the-source-environment) the source environment for physical servers.
+- [Set up](vmware-azure-tutorial.md#set-up-the-source-environment) the source environment for VMware VMs.
+- [Set up](physical-azure-disaster-recovery.md#set-up-the-source-environment) the source environment for physical servers.
 - [Set up](hyper-v-azure-tutorial.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
 
 ## Set up the target environment
@@ -81,16 +81,16 @@ Select and verify target resources.
 
 ## Set up a replication policy
 
-- [Set up a replication policy](tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
-- [Set up a replication policy](tutorial-physical-to-azure.md#create-a-replication-policy) for physical servers.
+- [Set up a replication policy](vmware-azure-tutorial.md#create-a-replication-policy) for VMware VMs.
+- [Set up a replication policy](physical-azure-disaster-recovery.md#create-a-replication-policy) for physical servers.
 - [Set up a replication policy](hyper-v-azure-tutorial.md#set-up-a-replication-policy) for Hyper-V VMs.
 
 
 ## Enable replication
 
-- [Enable replication](tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
+- [Enable replication](vmware-azure-tutoria.md#enable-replication) for VMware VMs.
 - [Enable replication](tutorial-physical-to-azure.md#enable-replication) for physical servers.
-- [Enable replication](hyper-v-azure-tutorial.md#enable-replication) for Hyper-V VMs.
+- [Enable replication](physical-azure-disaster-recovery.md#enable-replication) for Hyper-V VMs.
 
 
 ## Run a test migration
@@ -109,7 +109,7 @@ Run a failover for the machines you want to migrate.
 5. Check that the Azure VM appears in Azure as expected.
 6. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
 
-    ![Complete migration](./media/tutorial-migrate-on-premises-to-azure/complete-migration.png)
+    ![Complete migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]
@@ -123,4 +123,4 @@ In some scenarios, failover requires additional processing that takes around eig
 In this tutorial you migrated on-premises VMs to Azure VMs. Now you can configure disaster recovery for the Azure VMs.
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery](site-recovery-azure-to-azure-after-migration.md) for Azure VMs after migration from an on-premises site.
+> [Set up disaster recovery](azure-to-azure-replicate-after-migration.md) for Azure VMs after migration from an on-premises site.
