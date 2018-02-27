@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Cornerstone OnDemand for automatic user provisioning
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Cornerstone OnDemand.
 services: active-directory
 documentationcenter: ''
-author: zhchia-msft
-writer: zhchia-msft
+author: zhchia
+writer: zhchia
 manager: beatrizd-msft
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
@@ -127,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMappingAttributes.png)
 
-11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
+11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
 12. To enable the Azure AD provisioning service for Cornerstone OnDemand, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -151,8 +151,6 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## Next steps.
-
-
 
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
 
