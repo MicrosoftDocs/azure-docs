@@ -41,7 +41,7 @@ Azure currently provides three different methods to achieve outbound connectivit
 | Scenario | Method | Description |
 | --- | --- | --- |
 | [1. VM with an Instance Level Public IP address (with or without Load Balancer)](#ilpip) | SNAT, port masquerading not used |Azure uses the public IP assigned to the IP configuration of the instance's NIC. The instance has all ephemeral ports available. |
-| [2. Public Load Balancer associated with a VM (no Instance Level Public IP address on the instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer front ends |Azure shares the public IP address of the public Load Balancer front ends with multiple private IP addresses. Azure uses ephemeral ports of the front ends to PAT. |
+| [2. Public Load Balancer associated with a VM (no Instance Level Public IP address on the instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer frontends |Azure shares the public IP address of the public Load Balancer frontends with multiple private IP addresses. Azure uses ephemeral ports of the frontends to PAT. |
 | [3. Standalone VM (no Load Balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the availability set, and uses ephemeral ports of this public IP address. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. |
 
 If you don't want a VM to communicate with endpoints outside Azure in public IP address space, you can use network security groups (NSGs) to block access as needed. The section [Preventing outbound connectivity](#preventoutbound) discusses NSGs in more detail. Guidance on designing, implementing, and managing a virtual network without any outbound access is outside the scope of this article.
@@ -64,13 +64,13 @@ If your application initiates many outbound flows and you experience SNAT port e
 
 ### <a name="lb"></a>Scenario 2: Load-balanced VM without an Instance Level Public IP address
 
-In this scenario, the VM is part of a public Load Balancer back-end pool. The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a load balancer rule to create a link between the public IP front end with the back-end pool. 
+In this scenario, the VM is part of a public Load Balancer backend pool. The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool. 
 
-If you do not complete this rule configuration, the behavior is as described in the scenario for [Standalone VM with no Instance Level Public IP](#defaultsnat). It is not necessary for the rule to have a working listener in the back-end pool for the health probe to succeed.
+If you do not complete this rule configuration, the behavior is as described in the scenario for [Standalone VM with no Instance Level Public IP](#defaultsnat). It is not necessary for the rule to have a working listener in the backend pool for the health probe to succeed.
 
-When the load-balanced VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer front end. Azure uses SNAT to perform this function. Azure also uses [PAT](#pat) to masquerade multiple private IP addresses behind a public IP address. 
+When the load-balanced VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend. Azure uses SNAT to perform this function. Azure also uses [PAT](#pat) to masquerade multiple private IP addresses behind a public IP address. 
 
-Ephemeral ports of the load balancer's public IP address front end are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. In this context, the ephemeral ports used for SNAT are called SNAT ports.
+Ephemeral ports of the load balancer's public IP address frontend are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. In this context, the ephemeral ports used for SNAT are called SNAT ports.
 
 SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#snat) section. They're a finite resource that can be exhausted. It's important to understand how they are [consumed](#pat). To understand how to design for this consumption and mitigate as necessary, review [Managing SNAT exhaustion](#snatexhaust).
 
@@ -90,17 +90,17 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 You can combine the scenarios described in the preceding sections to achieve a particular outcome. When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence over [scenario 2](#lb) and [3](#defaultsnat) (Azure Resource Manager only). [Scenario 2](#lb) overrides [scenario 3](#defaultsnat) (Azure Resource Manager and classic).
 
-An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer front end. In this case, you can combine scenarios 1 and 2 for relief. For additional patterns, review [Managing SNAT exhaustion](#snatexhaust).
+An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you can combine scenarios 1 and 2 for relief. For additional patterns, review [Managing SNAT exhaustion](#snatexhaust).
 
-### <a name="multivipsnat"></a> Multiple front ends for outbound flows
+### <a name="multivipsnat"></a> Multiple frontends for outbound flows
 
-Load Balancer Basic chooses a single front end to be used for outbound flows when [multiple (public) IP front ends](load-balancer-multivip-overview.md) are candidates for outbound flows. This selection is not configurable, and you should consider the selection algorithm to be random. You can designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations).
+Load Balancer Basic chooses a single frontend to be used for outbound flows when [multiple (public) IP frontends](load-balancer-multivip-overview.md) are candidates for outbound flows. This selection is not configurable, and you should consider the selection algorithm to be random. You can designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations).
 
 ## <a name="snat"></a>Understanding SNAT and PAT
 
 ### <a name="pat"></a>Port masquerading SNAT (PAT)
 
-When a public Load Balancer resource is associated with VM instances, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the front-end Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique.  
+When a public Load Balancer resource is associated with VM instances, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the frontend Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique.  
 
 Ephemeral ports (SNAT ports) are used to achieve this after rewriting the private source IP address, because multiple flows originate from a single public IP address. 
 
@@ -114,11 +114,11 @@ For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, 
 
 ### <a name="preallocatedports"></a>Ephemeral port preallocation for port masquerading SNAT (PAT)
 
-Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the back-end pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.
+Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.
 
-Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the back-end pool size. For classic web worker roles, the allocation is per role instance. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout) happen.
+Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. For classic web worker roles, the allocation is per role instance. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout) happen.
 
-The following table shows the SNAT port preallocations for tiers of back-end pool sizes:
+The following table shows the SNAT port preallocations for tiers of backend pool sizes:
 
 | Pool size (VM instances) | Preallocated SNAT ports per IP configuration|
 | --- | --- |
@@ -131,9 +131,9 @@ The following table shows the SNAT port preallocations for tiers of back-end poo
 
 Remember that the number of SNAT ports available does not translate directly to number of flows. A single SNAT port can be reused for multiple unique destinations. Ports are consumed only if it's necessary to make flows unique. For design and mitigation guidance, refer to the section about [how to manage this exhaustible resource](#snatexhaust) and the section that describes [PAT](#pat).
 
-Changing the size of your back-end pool might affect some of your established flows. If the back-end pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger back-end pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
+Changing the size of your backend pool might affect some of your established flows. If the backend pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger backend pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
 
-If the back-end pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
+If the backend pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
 
 ## <a name="snatexhaust"></a>Managing SNAT (PAT) port exhaustion
 
@@ -159,7 +159,7 @@ When [preallocated ephemeral ports](#preallocatedports) used for [PAT](#pat) are
 Ephemeral ports have a 4-minute idle timeout (not adjustable). If the retries are too aggressive, the exhaustion has no opportunity to clear up on its own. Therefore, considering how--and how often--your application retries transactions is a critical part of the design.
 
 ### <a name="assignilpip"></a>Assign an Instance Level Public IP to each VM
-Assigning an ILPIP changes your scenario to [Instance Level Public IP to a VM](#ilpip). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective back-end pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of whitelisting a large number of individual IP addresses.
+Assigning an ILPIP changes your scenario to [Instance Level Public IP to a VM](#ilpip). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective backend pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of whitelisting a large number of individual IP addresses.
 
 >[!NOTE] 
 >This option is not available for web worker roles.
