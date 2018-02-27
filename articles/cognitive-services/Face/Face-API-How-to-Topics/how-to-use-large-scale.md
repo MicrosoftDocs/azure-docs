@@ -1,5 +1,6 @@
 ---
 title: Use the Large-Scale Feature in the Face API | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Use the large-scale feature in the Face API of Cognitive Services.
 services: cognitive-services
 author: v-royhar

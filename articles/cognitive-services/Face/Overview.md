@@ -1,5 +1,6 @@
 ---
 title: Face API Service overview | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: The glossary explains terms that you might encounter as you work with the Face API Service.
 author: v-royhar
 manager: yutkuo

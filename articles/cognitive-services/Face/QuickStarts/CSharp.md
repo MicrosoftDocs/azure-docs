@@ -1,5 +1,6 @@
 ---
 title: Face API C# QuickStarts | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with C# in Cognitive Services.
 services: cognitive-services
 author: v-royhar

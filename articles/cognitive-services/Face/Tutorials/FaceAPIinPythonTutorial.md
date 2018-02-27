@@ -1,5 +1,6 @@
 ---
 title: Face API Python tutorial | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to use the Face API with the Python SDK to detect human faces in an image in Cognitive Services.
 services: cognitive-services
 author: v-royhar

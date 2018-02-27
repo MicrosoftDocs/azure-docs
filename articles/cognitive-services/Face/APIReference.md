@@ -1,5 +1,6 @@
 ---
 title: API Reference for the Face API Service | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: API reference provides information about the Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms APIs.
 services: cognitive-services
 author: v-royhar

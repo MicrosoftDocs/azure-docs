@@ -1,5 +1,6 @@
 ---
 title: Face API PHP QuickStarts | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with PHP in Cognitive Services.
 services: cognitive-services
 author: v-royhar

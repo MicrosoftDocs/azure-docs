@@ -1,5 +1,6 @@
 ---
 title: Identify faces in images with the Face API | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Use the Face API in Cognitive Services to identify faces in images.
 services: cognitive-services
 author: v-royhar
