@@ -432,7 +432,7 @@ namespace functionapp0915
 
 Don't call `TrackRequest` or `StartOperation<RequestTelemetry>`, because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
 
-Don't set `telemetryClient.Context.Operation.Id`. This is a global setting and will cause incorrect correllation when many functions are running simultaneously. Instead, create new telemetry instances (`DependencyTelemetry`, `EventTelemetry`, etc), modify the `Context` properties of those objects, and pass them as parameters to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, etc). This ensures that the telemetry has the correct correllation details for the current function invocation.
+Don't set `telemetryClient.Context.Operation.Id`. This is a global setting and will cause incorrect correllation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`) This ensures that the telemetry has the correct correllation details for the current function invocation.
 
 ## Custom telemetry in JavaScript functions
 
