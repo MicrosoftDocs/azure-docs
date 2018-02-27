@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 
@@ -1000,7 +1000,7 @@ With the SAP Sybase Replication Server (SRS) SAP ASE provides a warm standby sol
 
 The installation and operation of SRS works as well functionally in a VM hosted in Azure Virtual Machine Services as it does on-premises.
 
-ASE HADR via SAP Replication Server is planned with a future release. It will be tested with and released for Microsoft Azure platforms as soon as it is available.
+SAP ASE HADR does not require an Azure Internal Load Balancer and does not have dependencies on OS level clustering and works on Azure Windows and Linux VMs. For details on SAP ASE HADR read the [SAP ASE HADR users guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html).
 
 ## Specifics to SAP ASE on Linux
 Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
