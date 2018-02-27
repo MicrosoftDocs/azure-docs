@@ -46,6 +46,10 @@ You can monitor ExpressRoute circuits in any part of the world by using a worksp
 * South East Asia 
 * South East Australia
 
+>[!NOTE]
+>Support for monitoring of ExpressRoute circuits connected to VNETs in Azure Government cloud is planned for Q2 2018.   
+>
+
 ## <a name="workflow"></a>Workflow
 
 Monitoring agents are installed on multiple servers, both on-premises and in Azure. The agents communicate with each other, but do not send data, they send TCP handshake packets. The communication between the agents allows Azure to map the network topology and path the traffic could take.

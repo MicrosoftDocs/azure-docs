@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 
 ---
@@ -43,7 +43,7 @@ Before you begin this article, you must have the following items:
 ## Install Microsoft Hive ODBC driver
 Download and install Microsoft Hive ODBC Driver from the [Download Center][hive-odbc-driver-download].
 
-This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012. The driver allows connection to Azure HDInsight (version 1.6 and later) and Azure HDInsight Emulator (v.1.0.0.0 and later). You shall install the version that matches the version of the application where you use the ODBC driver. For this tutorial, the driver is used from Office Excel.
+This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012. The driver allows connection to Azure HDInsight. You shall install the version that matches the version of the application where you use the ODBC driver. For this tutorial, the driver is used from Office Excel.
 
 ## Create Hive ODBC data source
 The following steps show you how to create a Hive ODBC Data Source.

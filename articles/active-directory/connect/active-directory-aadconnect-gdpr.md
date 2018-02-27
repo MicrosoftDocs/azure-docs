@@ -29,7 +29,7 @@ General Data Protection Regulation compliance for Azure AD Connect installations
 1.	Upon request, extract data for a person and remove data from that person from the installations
 2.	Ensure no data is retained beyond 48 hours.
 
-The advice the Azure AD Connect team recommends the second option.  The reason being, is that, it is by far the easiest to implement and maintain.
+The Azure AD Connect team recommends the second option since it is much easier to implement and maintain.
 
 An Azure AD Connect sync server stores the following data that is in scope for GDPR compliance:
 1.	Data about a person in the **Azure AD Connect database**
