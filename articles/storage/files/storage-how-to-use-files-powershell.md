@@ -235,4 +235,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure PowerShell module.
+You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [Mac](storage-how-to-use-files-mac.md) operating systems.
+
