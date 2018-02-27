@@ -36,7 +36,7 @@ The resource provider consists of three components:
 - **The resource provider itself**, which processes provisioning requests and exposes database resources.
 - **Servers that host SQL Server**, which provide capacity for databases called hosting servers.
 
-You must create one (or more) intances of SQL Server and/or provide access to external SQL Server instances.
+You must create one (or more) instances of SQL Server and/or provide access to external SQL Server instances.
 
 > [!NOTE]
 > Hosting servers that are installed on Azure Stack integrated systems must be created from a tenant subscription. They can't be created from the default provider subscription. They must be created from the tenant portal or from a PowerShell session with an appropriate sign-in. All hosting servers are chargeable VMs and must have appropriate licenses. The service administrator can be the owner of the tenant subscription.
@@ -243,14 +243,14 @@ You can specify these parameters in the command line. If you do not, or if any p
 
 
 ## Collect diagnostic logs
-The SQL resource provider is a locked down virtual machine. If it becomes necessary to collect logs from the virtual machine, a PowerShell Just Enough Administration (JEA) endpoint _DBAdapterDiagnostics_ is provided for that purpose. There are two commands available throgh this endpoint:
+The SQL resource provider is a locked down virtual machine. If it becomes necessary to collect logs from the virtual machine, a PowerShell Just Enough Administration (JEA) endpoint _DBAdapterDiagnostics_ is provided for that purpose. There are two commands available through this endpoint:
 
-* Get-AzsDBAdapterLog - Prepares a zip package containing RP diagnostics logs and puts it on the session user drive. The command can be called with no parameters and will collect the last 4 hours of logs.
+* Get-AzsDBAdapterLog - Prepares a zip package containing RP diagnostics logs and puts it on the session user drive. The command can be called with no parameters and will collect the last four hours of logs.
 * Remove-AzsDBAdapterLog - Cleans up existing log packages on the resource provider VM
 
 A user account called _dbadapterdiag_ is created during RP deployment or update for connecting to the diagnostics endpoint for extracting RP logs. The password of this account is the same as the password provided for the local administrator account during deployment/update.
 
-To use these commands, you will need to create a remote PowerShell session to the resource provider virtual machine and invoke the command. You can optionally provide FromDate and ToDate parameters. If you don't specify one or both of these, the FromDate will be 4 hours before the current time, and the ToDate will be the current time.
+To use these commands, you will need to create a remote PowerShell session to the resource provider virtual machine and invoke the command. You can optionally provide FromDate and ToDate parameters. If you don't specify one or both of these, the FromDate will be four hours before the current time, and the ToDate will be the current time.
 
 This sample script demonstrates the use of these commands:
 
@@ -283,12 +283,12 @@ $session | Remove-PSSession
 ```
 
 ## Maintenance operations (integrated systems)
-The SQL resource provider is a locked down virtual machine. Updating the resouce provider virtual machine's security can be done through the PowerShell Just Enough Administration (JEA) endpoint _DBAdapterMaintenance_.
+The SQL resource provider is a locked down virtual machine. Updating the resource provider virtual machine's security can be done through the PowerShell Just Enough Administration (JEA) endpoint _DBAdapterMaintenance_.
 
 A script is provided with the RP's installation package to facilitate these operations.
 
 ### Update secrets
-There are three operations that can performed through this JEA endpoint relating to secrets:
+There are three operations that can be performed through this JEA endpoint relating to secrets:
 * Update the external SSL certificate used by the admin and tenant portal extensions
 * Update the RP virtual machine local administrator password
 * Update the password for the diagnostic user
@@ -391,7 +391,7 @@ Follow these steps to update the Defender definitions:
 2. Create a PowerShell session to the SQL RP adapter virtual machine’s maintenance endpoint
 3. Copy the definitions update file to the DB adapter machine using the maintenance endpoint session
 4. On the maintenance PowerShell session invoke the _Update-DBAdapterWindowsDefenderDefinitions_ command
-5. After install it is recommended to remove the used definitions update file. It can be removed on the maintenance session using the _Remove-ItemOnUserDrive)_ command.
+5. After install, it is recommended to remove the used definitions update file. It can be removed on the maintenance session using the _Remove-ItemOnUserDrive)_ command.
 
 
 Here is a sample script to update the Defender definitions (substitute the address or name of the virtual machine with the actual value):

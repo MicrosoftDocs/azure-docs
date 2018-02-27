@@ -373,7 +373,7 @@ $session | Remove-PSSession
 ```
 
 ## Maintenance operations (integrated systems)
-The MySQL resource provider is a locked down virtual machine. Updating the resouce provider virtual machine's security can be done through the PowerShell Just Enough Administration (JEA) endpoint _DBAdapterMaintenance_.
+The MySQL resource provider is a locked down virtual machine. Updating the resource provider virtual machine's security can be done through the PowerShell Just Enough Administration (JEA) endpoint _DBAdapterMaintenance_.
 
 A script is provided with the RP's installation package to facilitate these operations.
 
