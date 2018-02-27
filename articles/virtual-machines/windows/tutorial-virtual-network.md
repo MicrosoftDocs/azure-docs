@@ -32,7 +32,7 @@ Azure virtual machines use Azure networking for internal and external network co
 
 
 
-This tutorial requires the Azure PowerShell module version 4.3.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires AzureRM.Compute module version 4.3.1 or later. Run `Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## VM networking overview
 
