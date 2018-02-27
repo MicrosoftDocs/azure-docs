@@ -43,9 +43,9 @@ This tutorial uses the [Boston hubway dataset](https://s3.amazonaws.com/hubway-d
 
 1. Download the data files from the following links to your local development environment:
 
-   a. [Boston weather data](https://azuremluxcdnprod001.blob.core.windows.net/docs/azureml/bikeshare/BostonWeather.csv)
+   * [Boston weather data](https://azuremluxcdnprod001.blob.core.windows.net/docs/azureml/bikeshare/BostonWeather.csv)
 
-   b. Hubway trip data from the hubway website:
+   * Hubway trip data from the hubway website:
 
       - [201501-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201501-hubway-tripdata.zip)
       - [201504-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201504-hubway-tripdata.zip)
@@ -109,7 +109,7 @@ You can use Azure Blob storage to host your data files.
 ## Create a new project
 1. Start **Machine Learning Workbench** from your Start menu or launcher.
 
-2. Create a new Machine Learning project. Select the **+** button on the **Projects** page, or select **File** > **New**:
+2. Create a new Machine Learning project. Select the **+** button on the **Projects** page, or select **File** > **New**.
 
    * Use the **Bike Share** template.
 
