@@ -111,8 +111,8 @@
 ### [Requirement 12 - policy](pci-dss-requirement-12-policy.md)
 ## [UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ### [Principles overview](uk-official-three-tier-applications-principles-overview.md)
-## HIPAA/HITRUST
-##### [HIPAA/HITRUST Health Data and AI](azure-health.md)
+## HIPAA&#47;HITRUST
+##### [HIPAA&#47;HITRUST Health Data and AI](azure-health.md)
 
 # [White papers](security-white-papers.md)
 # [Technical overviews](security-overviews.md)
