@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
