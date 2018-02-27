@@ -131,7 +131,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage15.png)
 
-14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
 15. To enable the Azure AD provisioning service for Samanage, change the **Provisioning Status** to **On** in the **Settings** section.
 
