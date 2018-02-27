@@ -43,7 +43,7 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Set up your development environment on [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
+- Set up your development environment for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
 
 ## Create the front-end Java stateless service
 First, create the web front end of the Voting application. The Java stateless service stands up a lightweight HTTP server that hosts a web UI powered by AngularJS. Requests from a user are processed by this stateless service and sent as a remote procedure call to the stateful service to store the votes. 

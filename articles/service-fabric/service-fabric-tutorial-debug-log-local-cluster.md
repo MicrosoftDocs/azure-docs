@@ -37,8 +37,7 @@ In this tutorial series you learn how to:
 
 ## Prerequisites
 Before you begin this tutorial:
-- [Set up your Development Environment on Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).  
-- [Set up your Development Environment on Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
+- Set up your development environment for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
 
 ## Download the Voting sample application
 If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-java-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
@@ -46,6 +45,8 @@ If you did not build the Voting sample application in [part one of this tutorial
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
+
+[Build and deploy](service-fabric/service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) the appliction to the local development cluster.
 
 ## Debug Java application using Eclipse
 

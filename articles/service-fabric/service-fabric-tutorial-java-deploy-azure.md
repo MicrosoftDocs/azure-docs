@@ -189,7 +189,7 @@ To run your Java application in Azure without the extra resources, go to the **S
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 
-### Deploy your application to the cluster
+## Deploy your application to the cluster
 
 1. Before deploying your application, you need to add the following snippet to the *Voting/VotingApplication/ApplicationManifest.xml* file. The **X509FindValue** field is the thumbprint returned from Step 4 of the **Create a Service Fabric cluster in Azure** section. This snippet is nested under the **ApplicationManifest** field (the root field). 
 
