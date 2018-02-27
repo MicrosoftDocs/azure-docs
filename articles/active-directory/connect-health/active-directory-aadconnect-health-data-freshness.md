@@ -1,5 +1,5 @@
 ---
-title: 'Health service data is not up to date | Microsoft Docs'
+title: Azure AD Connect Health: Health service data is not up to date alert | Microsoft Docs
 description: This document describes the cause of "Health service data is not up to date" alert and how to troubleshoot it.
 services: active-directory
 documentationcenter: ''
