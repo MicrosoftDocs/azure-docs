@@ -53,7 +53,7 @@ The system account must have the following privileges:
 
 ## Deploy the resource provider
 
-1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Be sure to select the core option.) The .NET 3.5 runtime is not required.
+1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Be sure to select the core option.)
 
 
 2. Sign in to a host that can access the privileged endpoint VM.
@@ -62,7 +62,7 @@ The system account must have the following privileges:
     - On multi-node systems, the host must be a system that can access the privileged endpoint.
     
     >[!NOTE]
-    > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure SDK host meets this criteria.
+    > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure Stack SDK host meets this criterion.
     
 
 3. Download the MySQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory.
@@ -72,7 +72,7 @@ The system account must have the following privileges:
 
     | Azure Stack build | MySQL RP installer |
     | --- | --- |
-    | 1802: 1.0.180222.1 | [SQL RP version 1.1.X.0](https://aka.ms/azurestackmysqlrp1802) |
+    | 1802: 1.0.180227.1 | [MySQL RP version 1.1.16.0](https://aka.ms/azurestackmysqlrp1802) |
     | 1712: 1.0.180102.3 or 1.0.180106.1 (multi-node) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
     | 1711: 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
@@ -340,7 +340,7 @@ The MySQL resource provider is a locked down virtual machine. If it becomes nece
 
 A user account called _dbadapterdiag_ is created during RP deployment or update for connecting to the diagnostics endpoint for extracting RP logs. The password of this account is the same as the password provided for the local administrator account during deployment/update.
 
-To use these commands, you need to create a remote PowerShell session to the resource provider virtual machine and invoke the command. You can optionally provide FromDate and ToDate parameters. If you don't specify one or both of these, the FromDate will be  hours before the current time, and the ToDate will be the current time.
+To use these commands, you need to create a remote PowerShell session to the resource provider virtual machine and invoke the command. You can optionally provide FromDate and ToDate parameters. If you don't specify one or both of these, the FromDate will be four hours before the current time, and the ToDate will be the current time.
 
 This sample script demonstrates the use of these commands:
 
@@ -355,12 +355,15 @@ $diagCreds = New-Object System.Management.Automation.PSCredential `
 $session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
         -ConfigurationName DBAdapterDiagnostics
 
-# Collect the logs
-$logsPakageName = Invoke-Command -Session $session -ScriptBlock`
-     {Get- AzsDBAdapterLog -FromDate ((Get-Date).AddHours(-1)) -ToDate (Get-Date)}
+# Sample captures logs from the previous one hour
+$fromDate = (Get-Date).AddHours(-1)
+$dateNow = Get-Date
+$sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
+$logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
+
 # Copy the logs
-$sourcePath = "User:\{0}" -f $logsPakageName
-$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logsPakageName
+$sourcePath = "User:\{0}" -f $logs
+$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
 Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
 
 # Cleanup logs
@@ -478,7 +481,7 @@ Follow these steps to update the Defender definitions:
 2. Create a PowerShell session to the MySQL RP adapter virtual machine’s maintenance endpoint
 3. Copy the definitions update file to the DB adapter machine using the maintenance endpoint session
 4. On the maintenance PowerShell session invoke the _Update-DBAdapterWindowsDefenderDefinitions_ command
-5. After install,   it is recommended to remove the used definitions update file. It can be removed on the maintenance session using the _Remove-ItemOnUserDrive)_ command.
+5. After install, it is recommended to remove the used definitions update file. It can be removed on the maintenance session using the _Remove-ItemOnUserDrive)_ command.
 
 
 Here is a sample script to update the Defender definitions (substitute the address or name of the virtual machine with the actual value):
