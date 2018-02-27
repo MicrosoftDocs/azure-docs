@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Tutorial: create and deploy an application with a Java web API front-end service and a stateful back-end service
-This tutorial is part one of a series. When you are finished, you have a Voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires that you have a working Mac OSX or Linux developer machine. The completed application's source code is available for [download on Github](https://github.com/Azure-Samples/service-fabric-java-quickstart).
+This tutorial is part one of a series. When you are finished, you have a Voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires that you have a working Mac OSX or Linux developer machine. If you don't want to manually create the voting application, you can [download the source code for the completed application](https://github.com/Azure-Samples/service-fabric-java-quickstart) and skip ahead to [Walk through the voting sample application](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
 ![Voting App Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -43,22 +43,7 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Set up your Development Environment on Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
-- [Set up your Development Environment on Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
-
-## Walk through the voting sample application
-The voting application consists of two services:
-- Web front-end service (VotingWeb)- A Java web front-end service that serves the web page and exposes APIs to communicate with the backend service.
-- Back-end service (VotingDataService) - A Java web service, which defines methods that are invoked via Remote Procedure Calls (RPC) to persist votes.
-
-![Application Diagram](./media/service-fabric-tutorial-create-java-app/walkthroughjavavoting.png)
-
-When you perform an action in the application (add item, vote, remove item) the following events occur:
-1. A JavaScript sends the appropriate request to the web API in the web front-end service as an HTTP request.
-
-2. The web front-end service uses the built-in Service Remoting functionality of Service Fabric to locate and forward the request to the back-end service. 
-
-3. The back-end service defines methods that update the result in a reliable dictionary. The contents of this reliable dictionary get replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster. 
+- Set up your development environment on [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md). Follow the instructions to install the Eclipse plug-in, Gradle, the Service Fabric SDK, and the Service Fabric CLI (sfctl).
 
 ## Create the front-end Java stateless service
 First, create the web front end of the Voting application. The Java stateless service stands up a lightweight HTTP server that hosts a web UI powered by AngularJS. Requests from a user are processed by this stateless service and sent as a remote procedure call to the stateful service to store the votes. 
@@ -717,7 +702,21 @@ The skeleton for the front-end stateless service and the backend service is now 
 
 At this stage, the functionality for the front end, backend, and RPC interfaces are complete. The next stage is to configure the Gradle scripts appropriately before deploying to a Service Fabric cluster. 
 
-## Configure Gradle Scripts 
+## Walk through the voting sample application
+The voting application consists of two services:
+- Web front-end service (VotingWeb)- A Java web front-end service that serves the web page and exposes APIs to communicate with the backend service.
+- Back-end service (VotingDataService) - A Java web service, which defines methods that are invoked via Remote Procedure Calls (RPC) to persist votes.
+
+![Application Diagram](./media/service-fabric-tutorial-create-java-app/walkthroughjavavoting.png)
+
+When you perform an action in the application (add item, vote, remove item) the following events occur:
+1. A JavaScript sends the appropriate request to the web API in the web front-end service as an HTTP request.
+
+2. The web front-end service uses the built-in Service Remoting functionality of Service Fabric to locate and forward the request to the back-end service. 
+
+3. The back-end service defines methods that update the result in a reliable dictionary. The contents of this reliable dictionary get replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster. 
+
+## Configure Gradle scripts 
 
 In this section, the Gradle scripts for the project are configured. 
 
