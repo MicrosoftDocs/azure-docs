@@ -37,7 +37,11 @@ Create an [Azure resource group](../azure-resource-manager/resource-group-overvi
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-
+## Add the extension
+Add the updated Azure Database for PostgreSQL management extension using the following command:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 ## Create an Azure Database for PostgreSQL server
 
 Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server contains a group of databases managed as a group. 
