@@ -67,18 +67,18 @@ The following table lists the operating systems that are not supported:
 
 |Operating System  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (Windows 7, Windows 10, etc are not supported)         |
-|Nano Server     | Nano server is part of Windows 2016        |
+|Windows client     | Client operating systems (Windows 7, Windows 10, etc) are not supported.        |
+|Nano Server     | Nano server is part of Windows 2016.        |
 
 ### Client requirements
 
 #### Windows
 
-Windows agents must be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update. Also the Windows agent cannot be managed concurrently by System Center Configuration Manager.
+Windows agents must be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update. Also the Windows agent cannot be managed concurrently by System Center Configuration Manager. The [Windows agent](../log-analytics/log-analytics-agent-windows.md) is required. This agent is installed automatically if you are onboarding an Azure VM.
 
 #### Linux
 
-An OMS Agent for Linux configured to report to multiple Log Analytics workspaces is not supported with this solution.
+For Linux, the machine must have access to an update repository which can be private or public. An OMS Agent for Linux configured to report to multiple Log Analytics workspaces is not supported with this solution.
 
 For more information on how to install the OMS Agent for Linux and download the latest version, see [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).  
 
@@ -103,27 +103,30 @@ If your System Center Operations Manager management group is connected to a Log 
 
 For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-### Confirm non-azure machines are onboarded
+### Confirm non-Azure machines are onboarded
 
 To confirm directly connected machines are communicating with Log Analytics, after a few minutes you can run the following log search:
 
 #### Linux
+
 ```
 Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
 #### Windows
+
 ```
 Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table`
 ```
+
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
 1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector. These events indicate the computer has registered with the Log Analytics workspace and is receiving configuration.  
 
-If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agent.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
+If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > If your Linux systems are configured to communicate with a proxy or OMS Gateway and you are onboarding this solution, update the *proxy.conf* permissions to grant the omiuser group read permission on the file by performing the following commands:  
