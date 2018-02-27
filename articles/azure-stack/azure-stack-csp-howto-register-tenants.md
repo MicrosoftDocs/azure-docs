@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
 
@@ -22,9 +22,9 @@ ms.reviewer: alfredo
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the step required to configure Azure Stack so that when a new tenant uses resources their usage will be reported to their Cloud Service Provider (CSP) subscription. 
+This article describes the steps required to configure Azure Stack so that when a new tenant uses resources their usage will be reported to their Cloud Service Provider (CSP) subscription. 
 
-CSP often provides service to multiple customers (tenants) on their Azure Stack deployment. Registering tenants ensures that each tenant’s usage will be reported and billed to that tenant’s CSP subscription. If you do not complete the steps in this article, tenant usage is charged to the subscription used in the initial registration of Azure Stack.
+CSP often offer services to multiple customers (tenants) on their Azure Stack deployment. Registering tenants ensures that each tenant’s usage will be reported and billed to the corresponding CSP subscription. If you do not complete the steps in this article, tenant usage is charged to the subscription used in the initial registration of Azure Stack.
 
 ## Create a new customer in Partner Center
 
@@ -61,8 +61,12 @@ Update your registration with the new customer’s subscription. Azure reports t
 
 You can configure Azure Stack to support users from multiple Azure AD tenants to use services in Azure Stack. To provide services to an end user, you either:
 
- - Manage the end customer account and their Azure AD tenant for them. In this case, yo will add their new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
+ - Manage the end customer account and their Azure AD tenant for them. In this case, you will add their new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
  - Manage the end customer tenant from a guest account with owner privileges for the Azure AD tenant. Create the guest account, and send the information to your end customer. The end customer than add **owner** privileges to the guest account.
+
+## Verify the end customer
+
+Once you have added the new customer to Azure Stack, or the end customer tenant has enabled your guest account with owner privileges, verify that you could create a resource in their tenant.
 
 ## Next steps
 
