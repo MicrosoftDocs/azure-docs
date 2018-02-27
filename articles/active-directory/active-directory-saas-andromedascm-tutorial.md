@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 02/27/2018
 ms.author: jeedes
 
 ---
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Andromeda SCM Domain and URLs single sign-on information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantURL>/SAMLLogon.aspx`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 	 
 	> [!NOTE] 
 	> The preceding value is not real value. You will update the value with the actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
