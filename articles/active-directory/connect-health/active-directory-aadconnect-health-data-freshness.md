@@ -15,12 +15,12 @@ ms.date: 02/26/2018
 ms.author: zhiweiw
 ---
 
-# "Health service data is not up to date" alert
+# Health service data is not up to date alert
 
 ## Overview
-Azure AD Connect Health generates data fresh alert when it does not receive all the data points from the server for two hours. The alert title is **Health service data is not up to date**. 
-The **Warning** status alert fires if Connect Health does not receive partial data elements sent from server for two hours. Warning status alert does not trigger email notifications to the tenant admin. 
-The **Error** status alert fires if Connect Health does not receive any data elements sent from server for two hours. Error status alert triggers email notifications to the tenant admin.
+<li>Azure AD Connect Health generates data fresh alert when it does not receive all the data points from the server for two hours. The alert title is **Health service data is not up to date**. </li>
+<li>The **Warning** status alert fires if Connect Health does not receive partial data elements sent from server for two hours. Warning status alert does not trigger email notifications to the tenant admin. </li>
+<li>The **Error** status alert fires if Connect Health does not receive any data elements sent from server for two hours. Error status alert triggers email notifications to the tenant admin. </li>
 
 >[!IMPORTANT] 
 > This alert follows Connect Health [data retention policy](active-directory-aadconnect-health-gdpr.md#data-retention-policy)
