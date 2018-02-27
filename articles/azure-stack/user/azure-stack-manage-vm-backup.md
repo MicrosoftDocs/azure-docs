@@ -68,18 +68,6 @@ Recovering the application requires restoring one or more VMs to the same cloud 
  - RTO: Downtime measured in seconds 
  - RPO: Minimal data loss
  - Deployment topology: Active/passive 
- 
-### Backup-restore
-
-The most common protection scheme for VM-based applications is to use backup software. Backing up a VM typically includes the operating system, operating system configuration, application binaries, and application data. The backups are created by taking a snapshot of the volumes, disks, or the entire VM. With Azure Stack, you have the flexibility of backing up from within the context of the guest OS or from the Azure Stack storage and compute APIs. Azure Stack does not support taking backups at the hypervisor level. 
- 
-![Backup-restore](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
- 
-Recovering the application requires restoring one or more VMs to the same cloud or to a new cloud. You can target a cloud in your datacenter or the public cloud. Which cloud you target is completely within your control and is based on your data privacy and sovereignty requirements. 
- 
- - RTO: Downtime measured in seconds 
- - RPO: Minimal data loss
- - Deployment topology: Active/passive
 
 #### Planning your backup strategy
 
