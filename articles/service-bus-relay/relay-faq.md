@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
 
 ---
@@ -76,7 +76,6 @@ Relays that are opened by using the **netTCPRelay** WCF binding treat messages n
 | Quota name | Scope |  Notes | Value |
 | --- | --- | --- | --- |
 | Concurrent listeners on a relay |Entity |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |
-| Concurrent relay listeners |Namespace | Subsequent requests for additional connections are rejected and an exception is received by the calling code. |2,000 |
 | Concurrent relay connections per all relay endpoints in a service namespace |Namespace |- |5,000 |
 | Relay endpoints per service namespace |Namespace |- |10,000 |
 | Message size for [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) relays |Namespace |Incoming messages that exceed these quotas are rejected and an exception is received by the calling code. |64 KB |
