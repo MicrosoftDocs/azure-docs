@@ -163,7 +163,7 @@ When you have finished the steps, you can try to identify different faces and se
 
 ![HowToIdentify2](../Images/identificationResult.1.jpg )
 
-## <a name="step5"></a> Step 5: Request for large scale
+## <a name="step5"></a> Step 5: Request for large-scale
 
 As is known, a PersonGroup can hold up to 10,000 persons due to the limitation of previous design.
 For more information about up to million-scale scenarios, see [How to use the large-scale feature](how-to-use-large-scale.md).
