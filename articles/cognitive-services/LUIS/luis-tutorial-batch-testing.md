@@ -110,7 +110,7 @@ Do not use any of the utterances already in the app for the batch test:
 'turn thermostat on 70 .' 
 ```
 
-## Create a batch testing intents
+## Create a batch to test intent prediction accuracy
 1. Create `homeauto-batch-1.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
 
 2. Add utterances with the **Intent** you want predicted in the test. For this tutorial, to make it simple, take utterances in the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` and switch the `on` and `off` text in the utterances. For the `None` intent, add a couple of utterances that are not part of the [domain](luis-glossary.md#domain) (subject) area. 
