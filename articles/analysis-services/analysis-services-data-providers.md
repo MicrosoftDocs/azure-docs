@@ -29,8 +29,8 @@ Client libraries are necessary for client applications and tools to connect to A
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2.0      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2.0      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
 
 ## AMO and ADOMD (NuGet packages)
 
