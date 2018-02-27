@@ -82,10 +82,10 @@ The HomeAutomation prebuilt domain includes the following utterances. The [expor
   'turn thermostat on 70 .' 
 ```
 
-## Create a successful batch for intents only
-1. Create `homeauto-batch-1.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
+## Create a batch testing intents
+1. Create `homeauto-batch-1.json` in a text editor such as [VSCode](https://code.visualstudio.com/). The [file]() is also available in the LUIS-Samples repository. 
 
-2. Add utterances to the file. These utterances should be successful. To ensure success, take utterances in the HomeAutomation.TurnOn and HomeAutomation.TurnOff and switch the `on` and `off` text in the utterances. For the None intent, add a couple of utterances that are not part of the subject area. The utterances should all pass because there is no change in utterance length or word location for the TurnOn and TurnOff intents. 
+2. Add utterances to the file. These utterances should be successful. Take utterances in the HomeAutomation.TurnOn and HomeAutomation.TurnOff and switch the `on` and `off` text in the utterances. For the None intent, add a couple of utterances that are not part of the subject area. 
 
 ```JSON
 [
@@ -134,14 +134,14 @@ The HomeAutomation prebuilt domain includes the following utterances. The [expor
 ## Review batch results
 The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area of the graph or legend.
 
-### HomeAutomation.TurnOff
+### HomeAutomation.TurnOff test results
 In the legend, select the **HomeAutomation.TurnOff** intent. It has a green success icon to the left of the name in the legend. The Utterance count is after the name. 
 
 ![Legend for HomeAutomation.TurnOff]()
 
 The batch utterances have six intents in the legend, instead of only the two utterances for this intent from the batch. There are six intents tested to make sure the other four do not get this intent. When you select the intent in the legend, the 2 successfully predictions for the intent on in the top left of the chart. The 4 predictions that should not go to this intent are in the bottom right.
 
-### HomeAutomation.TurnOn and None intents
+### HomeAutomation.TurnOn and None intents test results
 The other two intents have errors, meaning the batch test predictions didn't match the batch file expectations. Select the None intent in the legend. 
 
 The two intents in the left bottom panel, in red, are the failures. Select **False Negative** in the chart in that second to see the utterances that failed. 
@@ -173,8 +173,8 @@ Instead of creating a new intent, move the four utterances to the HomeAutomation
     "The pizza is done."
     ```
 
-7. If any of the utterances have labels, remove the labels. 
-8. Train the app.
+7. Because none of these utterances have a HomeAutomation.Device ("light", "camera"), HomeAutomation.Operation("on","off") or HomeAutomation.Room ("living room"), remove any labels. 
+8. Train and publish the app.
 
 ## Verify the fix
 In order to verify that the utterances in the batch test are now correctly predicted for the None intent, run the batch test again.
@@ -182,9 +182,88 @@ In order to verify that the utterances in the batch test are now correctly predi
 1. Select **Test** in the top navigation bar. 
 2. Select **Batch testing panel** in the right-side panel. 
 3. Select the three dots (...) to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
-7. Select **See results**.
+4. Select **See results**. The intents should all have green icons to the left of the intent names. The score of `breezeway off please` is very low at 0.24. An optional activity is to add more utterances to the intent to increase this score. 
 
-## Dos and Donts for batch testing
+The Entities section of the legend may have errors. That is the next thing to fix.
+
+## Create a batch testing with entities
+1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). The [file]() is also available in the LUIS-Samples repository. 
+
+2. Add utterances to the file with entities. 
+
+```JSON
+[
+  {
+    "text": "lobby on please",
+    "intent": "HomeAutomation.TurnOn",
+    "entities": [
+      {
+        "entity": "HomeAutomation.Room",
+        "startPos": 0,
+        "endPos": 4
+      },
+      {
+        "entity": "HomeAutomation.Operation",
+        "startPos": 6,
+        "endPos": 7
+      }
+    ]
+  },
+  {
+    "text": "change temperature to seventy one degrees",
+    "intent": "HomeAutomation.TurnOn",
+    "entities": [
+      {
+        "entity": "HomeAutomation.Device",
+        "startPos": 7,
+        "endPos": 17
+      }
+    ]
+  },
+  {
+    "text": "where is my pizza",
+    "intent": "None",
+    "entities": []
+  },
+  {
+    "text": "call Jack at work",
+    "intent": "None",
+    "entities": []
+  },
+  {
+    "text": "breezeway off please",
+    "intent": "HomeAutomation.TurnOff",
+    "entities": [
+      {
+        "entity": "HomeAutomation.Room",
+        "startPos": 0,
+        "endPos": 8
+      },
+      {
+        "entity": "HomeAutomation.Operation",
+        "startPos": 10,
+        "endPos": 12
+      }
+    ]
+  },
+  {
+    "text": "coffee bar off please",
+    "intent": "HomeAutomation.TurnOff",
+    "entities": [
+      {
+        "entity": "HomeAutomation.Room",
+        "startPos": 0,
+        "endPos": 9
+      },
+      {
+        "entity": "HomeAutomation.Operation",
+        "startPos": 11,
+        "endPos": 13
+      }
+    ]
+  }
+]
+```
 
 ## Next steps
 
