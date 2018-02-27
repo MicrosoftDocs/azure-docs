@@ -1,5 +1,5 @@
 ---
-title: Use batch testing to improve LUIS app  | Microsoft Docs 
+title: Use batch testing to improve LUIS predictions  | Microsoft Docs 
 titleSuffix: Azure
 description: Load batch test, review results, and improve LUIS predictions with changes.
 services: cognitive-services
@@ -113,7 +113,7 @@ Do not use any of the utterances already in the app for the batch test:
 ## Create a batch testing intents
 1. Create `homeauto-batch-1.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
 
-2. Add utterances with the **Intent** you want predicted in the test. For this tutorial, to make it simple, take utterances in the HomeAutomation.TurnOn and HomeAutomation.TurnOff and switch the `on` and `off` text in the utterances. For the None intent, add a couple of utterances that are not part of the [domain](luis-glossary.md#domain) (subject) area. 
+2. Add utterances with the **Intent** you want predicted in the test. For this tutorial, to make it simple, take utterances in the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` and switch the `on` and `off` text in the utterances. For the `None` intent, add a couple of utterances that are not part of the [domain](luis-glossary.md#domain) (subject) area. 
 
     In order to understand how the batch test results correlate to the batch JSON, add only six intents.
 
@@ -179,47 +179,57 @@ Do not use any of the utterances already in the app for the batch test:
 
     ![See results](./media/luis-tutorial-batch-testing/test-6.png)
 
-8. Review results
+8. Review results in the graph and legend.
 
     ![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
 ## Review batch results
-The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area of the graph or legend.
+The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area of the graph.
 
-Any errors are indicated by the color red. The graph is in four sections, with two of the sections displayed in red. These are the sections to focus on. 
+Any errors are indicated by the color red. The graph is in four sections, with two of the sections displayed in red. **These are the sections to focus on**. 
 
 The top right section indicates the test incorrectly predicted the existence of an intent or entity. The bottom left section indicates the test incorrectly predicted the absence of an intent or entity.
 
 ### HomeAutomation.TurnOff test results
-In the legend, select the **HomeAutomation.TurnOff** intent. It has a green success icon to the left of the name in the legend. The Utterance count is after the name. 
+In the legend, select the `HomeAutomation.TurnOff` intent. It has a green success icon to the left of the name in the legend. There are no errors for this intent. 
 
-![Legend for HomeAutomation.TurnOff]()
+![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
-The batch utterances have six intents in the legend, instead of only the two utterances for this intent from the batch. There are six intents tested to make sure the other four do not get this intent. When you select the intent in the legend, the 2 successfully predictions for the intent on in the top left of the chart. The 4 predictions that should not go to this intent are in the bottom right.
+### HomeAutomation.TurnOn and None intents have errors
+The other two intents have errors, meaning the batch test predictions didn't match the batch file expectations. Select the `None` intent in the legend. 
 
-### HomeAutomation.TurnOn and None intents test results
-The other two intents have errors, meaning the batch test predictions didn't match the batch file expectations. Select the None intent in the legend. 
+![None intent](./media/luis-tutorial-batch-testing/none-intent-failures.png)
 
-The two intents in the left bottom panel, in red, are the failures. Select **False Negative** in the chart in that second to see the utterances that failed. 
+The two intents in the left bottom panel, in red, are the failures. Select **False Negative** in the chart to see the failed utterances. 
 
-The two failing utterances, based on the batch test file, should have been labeled as None intent but were instead labeled HomeAutomation.TurnOn intent. Because of this failure both intents'
+![False negative failures](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
+
+The two failing utterances should have been labeled as `None` intent but were instead labeled `HomeAutomation.TurnOn` intent. Because of this failure, both intents'
 expectations (HomeAutomation.TurnOn and None) failed.
 
-To fix the app, the utterances currently in the None intent need to be moved into the correct intent and the None intent needs new and appropriate intents. 
+To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the None intent needs new, appropriate intents. 
 
-Three of the utterances in the None intent are meant to lower the automation device such. They use words such as dim, lower, or decrease. The fourth utterance asks to turn on the internet. Since all four utterances are about turning or changing the degree of power to a device, they should be moved to the HomeAutomation.TurnOn intent. 
+Three of the utterances in the `None` intent are meant to lower the automation device settings. They use words such as `dim`, `lower`, or `decrease`. The fourth utterance asks to turn on the internet. Since all four utterances are about turning on or changing the degree of power to a device, they should be moved to the `HomeAutomation.TurnOn` intent. 
 
-If there was an intent for ChangeDeviceSetting, these would be a good intent for the three utterances using dim, lower, and decrease. 
+This is just one solution. You could also create a new intent and move the utterances using dim, lower, and decrease into that new intent. 
 
 ## Fix the app based on batch results
-Instead of creating a new intent, move the four utterances to the HomeAutomation.TurnOn intent. 
+Move the four utterances to the `HomeAutomation.TurnOn` intent. 
 
-1. To fix the app so the batch is successful, exit the batch test panel by selecting **Test** in the top navigation panel.
+1. To fix the app so the batch is successful, exit the batch test panel by selecting **Test** in the top navigation panel. 
 
 2. Select **Intents** in the left navigation panel. 
+
 3. Select the `None` intent.  
+
 4. Select the checkout above the utterance list so all utterances are selected. 
-5. In the **Reassign intent** drop-down, select HomeAutomation.TurnOn.
+
+5. In the **Reassign intent** drop-down, select `HomeAutomation.TurnOn`. 
+
+    ![Move utterances](./media/luis-tutorial-batch-testing/move-utterances.png)
+
+    The four utterances disappear from the `None` intent.
+
 6. Add 4 new intents for the None intent:
 
     ```
@@ -229,16 +239,26 @@ Instead of creating a new intent, move the four utterances to the HomeAutomation
     "The pizza is done."
     ```
 
-7. Because none of these utterances have a HomeAutomation.Device ("light", "camera"), HomeAutomation.Operation("on","off") or HomeAutomation.Room ("living room"), remove any labels. 
-8. Train and publish the app.
+7. Because none of these utterances should have a HomeAutomation.Device ("light", "camera"), HomeAutomation.Operation("on","off") or HomeAutomation.Room ("living room"), remove any labels by selecting the blue label in the utterance and select **Remove label**.
+
+8. Select **Train** in the top right navigation bar.
+
+9. Select **Publish** in the top right navigation bar. 
 
 ## Verify the fix
-In order to verify that the utterances in the batch test are now correctly predicted for the None intent, run the batch test again.
+In order to verify that the utterances in the batch test are correctly predicted for the **None** intent, run the batch test again.
 
 1. Select **Test** in the top navigation bar. 
+
 2. Select **Batch testing panel** in the right-side panel. 
+
 3. Select the three dots (...) to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
-4. Select **See results**. The intents should all have green icons to the left of the intent names. The score of `breezeway off please` is very low at 0.24. An optional activity is to add more utterances to the intent to increase this score. 
+
+    ![Run dataset](./media/luis-tutorial-batch-testing/run-dataset.png)
+
+4. Select **See results**. The intents should all have green icons to the left of the intent names. Select the green dot in the top right panel closest to the middle of the chart. The name of the utterance appears in the table below the chart. The score of `breezeway off please` is very low at 0.24. An optional activity is to add more utterances to the intent to increase this score. 
+
+    ![Run dataset](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
 <!-- WAITING ON FIX
 
