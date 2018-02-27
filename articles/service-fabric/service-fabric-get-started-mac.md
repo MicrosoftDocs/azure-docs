@@ -57,12 +57,12 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >The recommended approach is to directly modify the daemon configuration settings in Docker. Select the **Docker icon**, and then select **Preferences** > **Daemon** > **Advanced**.
     >
-    >We recommend increasing the resources allocated to docker when testing large complex applications, this can be changed by selecting **Docker icon**, and then select **Advanced** then adjusting the number of cores and memory as required.
+    >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
 2. In a new directory create a file called `.Dockerfile` to build your Service Fabric Image:
 
     ```dockerfile
-    FROM servicefabricoss/service-fabric-onebox
+    FROM microsoft/service-fabric-onebox
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
     #Generate the local
@@ -90,7 +90,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     ```
     
     >[!NOTE]
-    >This operation will take some time but is only needed once. Currently, due to legal constrains, we are unable to distribute a pre-build image. 
+    >This operation will take some time but is only needed once.
 
 4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
 
