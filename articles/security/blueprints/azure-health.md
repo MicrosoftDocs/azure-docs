@@ -23,7 +23,6 @@ ms.author: simorjay
 
 ## Overview
 
-
 **The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI offers a turn-key deployment of
 an Azure PaaS solution to demonstrate how to securely ingest, store, 
 analyze, and interact with health data while being able to meet industry
