@@ -8,7 +8,7 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 03/01/2018
 ms.author: anroth
 ---
 
