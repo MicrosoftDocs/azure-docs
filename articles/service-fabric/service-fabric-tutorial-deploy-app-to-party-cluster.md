@@ -47,16 +47,17 @@ If you did not build the Voting sample application in [part one of this tutorial
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
+## Deploy the sample application
 
 ### Select a Service Fabric cluster to which to publish
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
 You have three options for deployment:
-- Create a cluster from Visual Studio. This option allows you to create a secure cluster directly from Visual Studio with your preferred configurations. This type of cluster is ideal for test scenarios.
+- Create a cluster from Visual Studio. This option allows you to create a secure cluster directly from Visual Studio with your preferred configurations. This type of cluster is ideal for test scenarios, where you can create the cluster and then publish directly to it within Visual Studio.
 - Publish to a party cluster. Party clusters are free, limited-time Service Fabric clusters run by the Service Fabric team. Currently they are available for use for one hour.
 - Publish to an existing cluster in your subscription.
 
-
+In this tutorial we will create a cluster a cluster from Visual Studio. For the other options you can copy and paste your connection endpoint or choose it from your subscription.
 > [!NOTE]
 > Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and Party Clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](../service-fabric-reverseproxy.md#setup-and-configuration.md).
 
@@ -64,17 +65,21 @@ You have three options for deployment:
 
 1. Right-click on the application project in the Solution Explorer and choose **Publish**.
 
-    ![Publish Dialog](../media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Publish Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
 2. Sign in by using your Azure account so that you can have access to your subscription(s). This step is optional if you're using a party cluster.
 
-3. Select the dropdown for the **Connection Endpoint** field
+3. Select the dropdown for the **Connection Endpoint** and select the "<Create New Cluster...>" option.
+    a.
 
-    a. If you select the "<Create New Cluster...>" option, it will take you through a dialog where you can create a new cluster in your subscription. You can modify several basic settings from this menu to create a secure test cluster. Creation takes a few minutes.
+    a. configurations
+    b. fsdf
 
-    b. If you select the "<Use Trial Cluster>" option, it will open a page in your default browser where you can get the connection endpoint for a limited-time Party Cluster.
+    ![Create Cluster Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-    c. If you want to use your own cluster, you can paste the connection endpoint in this field, or select it from the dropdown list if you're signed into your Azure account.
+it will take you through a dialog where you can create a new cluster in your subscription. You can modify several basic settings from this menu to create a secure test cluster. Creation takes a few minutes.
+
+
 
 4. Once you have selected a cluster, click **Publish**.
 
@@ -84,7 +89,7 @@ You have three options for deployment:
 
     You should now see the same result as you saw when running the application locally.
 
-    ![API Response from Cluster](../media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+    ![API Response from Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
 ## Next steps
 In this tutorial, you learned how to:
