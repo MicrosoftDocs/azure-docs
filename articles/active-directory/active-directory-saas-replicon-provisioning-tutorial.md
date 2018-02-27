@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Replicon for automatic user provisioning with Azure 
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Replicon.
 services: active-directory
 documentationcenter: ''
-author: zhchia-msft
-writer: zhchia-msft
+author: zhchia
+writer: zhchia
 manager: beatrizd-msft
 
 ms.assetid: na
@@ -135,7 +135,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconUserMappingAtrributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
 13. To enable the Azure AD provisioning service for Replicon, change the **Provisioning Status** to **On** in the **Settings** section.
 
