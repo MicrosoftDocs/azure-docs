@@ -45,7 +45,7 @@ Before you begin this tutorial:
 
 ## Create a Service Fabric cluster in Azure
 
-The following steps create the necessary resources required to deploy your application a Service Fabric cluster. Additionally, resources necessary to monitor the health of your solution using the ELK (Elasticsearch, Logstash, Kibana) stack are set up. Specifically,[Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) is used as a sink for logs from Service Fabric. It is configured to send logs from the Service Fabric cluster to your Logstash instance. 
+The following steps create the necessary resources required to deploy your application to a Service Fabric cluster. Additionally, resources necessary to monitor the health of your solution using the ELK (Elasticsearch, Logstash, Kibana) stack are set up. Specifically, [Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) is used as a sink for logs from Service Fabric. It is configured to send logs from the Service Fabric cluster to your Logstash instance. 
 
 To run your Java application in Azure without the extra resources, go to the **Set-up a party cluster** section. 
 
