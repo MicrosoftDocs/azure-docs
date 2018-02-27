@@ -331,7 +331,7 @@ The NIC driver is outdated.
 Update the NIC driver:
 
 1. Click **Start**, type **Device Manager**, and select it from the list of results. If you're prompted for an administrator password or confirmation, type the password or provide confirmation.
-2. In the **Network adapters ** categories, find the NIC that you want to update.  
+2. In the **Network adapters** categories, find the NIC that you want to update.  
 3. Double-click the device name, select **Update driver**, select **Search automatically for updated driver software**.
 4. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 5. Restart the computer and try the connection again.
