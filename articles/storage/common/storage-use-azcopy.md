@@ -613,7 +613,7 @@ Parameters for AzCopy are described below. You can also type one of the followin
 
 * For detailed command-line help for AzCopy: `AzCopy /?`
 * For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
-* For command-line examples: `AzCopy /?:Samples`
+* For command-line examples: `AzCopy /?:Sample`
 
 ### /Source:"source"
 
