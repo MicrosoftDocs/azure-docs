@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ---
 
@@ -26,7 +26,7 @@ The following table and graphic provide a high-level view of the components used
 
 **VMware to Azure architecture**
 
-![Components](./media/concepts-vmware-to-azure-architecture/arch-enhanced.png)
+![Components](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## Replication process
 
@@ -51,7 +51,7 @@ The following table and graphic provide a high-level view of the components used
 
 **VMware to Azure replication process**
 
-![Replication process](./media/concepts-vmware-to-azure-architecture/v2a-architecture-henry.png)
+![Replication process](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## Failover and failback process
 
@@ -83,9 +83,9 @@ When your primary on-premises site is available again, you can fail back.
 
 **VMware failback from Azure**
 
-![Failback](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
+![Failback](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## Next steps
 
-Follow [this tutorial](tutorial-vmware-to-azure.md) to enable VMware to Azure replication.
+Follow [this tutorial](vmware-azure-tutorial.md) to enable VMware to Azure replication.
