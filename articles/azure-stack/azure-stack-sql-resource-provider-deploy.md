@@ -14,8 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
-msreviewer: jeffgo
-
+ms.reviewer: jeffgo
 ---
 
 # Use SQL databases on Microsoft Azure Stack
@@ -44,7 +43,7 @@ You must create one (or more) instances of SQL Server and/or provide access to e
 
 ## Deploy the resource provider
 
-1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace Management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Be sure to select the core option). The .NET 3.5 runtime is not required.
+1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace Management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Be sure to select the core option.)
 
 2. Sign in to a host that can access the privileged endpoint VM.
 
@@ -63,7 +62,7 @@ You must create one (or more) instances of SQL Server and/or provide access to e
 
     | Azure Stack build | SQL resource provider installer |
     | --- | --- |
-    | 1802: 1.0.180222.1 | [SQL RP version 1.1.X.0](https://aka.ms/azurestacksqlrp1802) |
+    | 1802: 1.0.180227.1 | [SQL RP version 1.1.16.0](https://aka.ms/azurestacksqlrp1802) |
     | 1712: 1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (multi-node) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
     | 1711: 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
     | 1710: 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
@@ -96,7 +95,7 @@ You must create one (or more) instances of SQL Server and/or provide access to e
     - Registers your resource provider with the local Azure Resource Manager (user and admin).
     - Optionally installs a single Windows update during RP installation
 
-8. We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, the script fails.
+8. We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, the script will fail.
 
 
 Here's an example you can run from the PowerShell prompt. (Be sure to change the account information and passwords as needed.)
@@ -173,13 +172,13 @@ You can specify these parameters in the command line. If you do not, or if any p
 
 
 ## Update the SQL resource provider adapter (multi-node only, builds 1710 and later)
-A new SQL resource provider adapter may be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions (see the previous table).
+A new SQL resource provider adapter may be released when Azure Stack builds are updated. While the existing adapter will continue to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions (see the table above).
 
 The update process is similar to the installation process that's described earlier. You create a new VM with the latest resource provider code. In addition, you migrate settings to this new instance, including database and hosting server information. You also migrate the necessary DNS record.
 
-Use the UpdateSQLProvider.ps1 script with the same arguments that are described earlier in this article. You must provide the certificate here as well.
+Use the UpdateSQLProvider.ps1 script with the same arguments that we described earlier. You must provide the certificate here as well.
 
-We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, the script fails.
+We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, the script will fail.
 
 
 > [!NOTE]
@@ -246,12 +245,12 @@ You can specify these parameters in the command line. If you do not, or if any p
 ## Collect diagnostic logs
 The SQL resource provider is a locked down virtual machine. If it becomes necessary to collect logs from the virtual machine, a PowerShell Just Enough Administration (JEA) endpoint _DBAdapterDiagnostics_ is provided for that purpose. There are two commands available through this endpoint:
 
-* Get-AzsDBAdapterLog - Prepares a zip package containing RP diagnostics logs and puts it on the session user drive. The command can be called with no parameters and collects the last four hours of logs.
+* Get-AzsDBAdapterLog - Prepares a zip package containing RP diagnostics logs and puts it on the session user drive. The command can be called with no parameters and will collect the last four hours of logs.
 * Remove-AzsDBAdapterLog - Cleans up existing log packages on the resource provider VM
 
 A user account called _dbadapterdiag_ is created during RP deployment or update for connecting to the diagnostics endpoint for extracting RP logs. The password of this account is the same as the password provided for the local administrator account during deployment/update.
 
-To use these commands, you need to create a remote PowerShell session to the resource provider virtual machine and invoke the command. You can optionally provide FromDate and ToDate parameters. If you don't specify one or both of these, the FromDate will be four hours before the current time, and the ToDate is the current time.
+To use these commands, you will need to create a remote PowerShell session to the resource provider virtual machine and invoke the command. You can optionally provide FromDate and ToDate parameters. If you don't specify one or both of these, the FromDate will be four hours before the current time, and the ToDate will be the current time.
 
 This sample script demonstrates the use of these commands:
 
@@ -266,12 +265,15 @@ $diagCreds = New-Object System.Management.Automation.PSCredential `
 $session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
         -ConfigurationName DBAdapterDiagnostics
 
-# Collect the logs
-$logsPakageName = Invoke-Command -Session $session -ScriptBlock`
-     {Get- AzsDBAdapterLog -FromDate ((Get-Date).AddHours(-1)) -ToDate (Get-Date)}
+# Sample captures logs from the previous one hour
+$fromDate = (Get-Date).AddHours(-1)
+$dateNow = Get-Date
+$sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
+$logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
+
 # Copy the logs
-$sourcePath = "User:\{0}" -f $logsPakageName
-$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logsPakageName
+$sourcePath = "User:\{0}" -f $logs
+$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
 Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
 
 # Cleanup logs
@@ -293,7 +295,7 @@ There are three operations that can be performed through this JEA endpoint relat
 
 You can perform any or all of these operations at the same time.
 
-You need the RP virtual machine's username and current password, set at installation time, and the password for the cloudadmin account. You also need the IP addresses of the  privileged endpoint and the RP virtual machine to access the JEA endpoint.
+You will need the RP virtual machine's username and current password, set at installation time, and the password for the cloudadmin account. You will also need the IP addresses of the  privileged endpoint and the RP virtual machine to access the JEA endpoint.
 
 ```
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
@@ -389,7 +391,7 @@ Follow these steps to update the Defender definitions:
 2. Create a PowerShell session to the SQL RP adapter virtual machine’s maintenance endpoint
 3. Copy the definitions update file to the DB adapter machine using the maintenance endpoint session
 4. On the maintenance PowerShell session invoke the _Update-DBAdapterWindowsDefenderDefinitions_ command
-5. After install it is recommended to remove the used definitions update file. It can be removed on the maintenance session using the _Remove-ItemOnUserDrive)_ command.
+5. After install, it is recommended to remove the used definitions update file. It can be removed on the maintenance session using the _Remove-ItemOnUserDrive)_ command.
 
 
 Here is a sample script to update the Defender definitions (substitute the address or name of the virtual machine with the actual value):
