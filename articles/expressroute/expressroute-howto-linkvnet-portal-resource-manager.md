@@ -1,6 +1,6 @@
 ---
 title: 'Link a virtual network to an ExpressRoute circuit: Azure portal | Microsoft Docs'
-description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits.
+description: Connect a VNet to an Azure ExpressRoute Circuit. How-to steps.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -18,7 +18,7 @@ ms.date: 02/27/2018
 ms.author: cherylmc
 
 ---
-# Connect a virtual network to an ExpressRoute circuit
+# Connect a virtual network to an ExpressRoute circuit using the portal
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -27,7 +27,7 @@ ms.author: cherylmc
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This article helps you create a connection to link a virtual network to Azure ExpressRoute circuits using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription, or they can be part of another subscription.
+This article helps you create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription, or they can be part of another subscription.
 
 ## Before you begin
 
@@ -43,13 +43,13 @@ This article helps you create a connection to link a virtual network to Azure Ex
 * You can link a virtual network outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 * You can [view a video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) before beginning to better understand the steps.
 
-## Connect a virtual network in the same subscription to a circuit
-
-### To create a connection
+## Connect a VNet to a circuit - same subscription
 
 > [!NOTE]
 > BGP configuration information will not show up if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you should be able to create connections.
 >
+
+### To create a connection
 
 1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the following image:
 
@@ -61,7 +61,7 @@ This article helps you create a connection to link a virtual network to Azure Ex
 
   ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
-## Connect a virtual network in a different subscription to a circuit
+## Connect a VNet to a circuit - different subscription
 
 You can share an ExpressRoute circuit across multiple subscriptions. The figure below shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
@@ -69,7 +69,7 @@ You can share an ExpressRoute circuit across multiple subscriptions. The figure 
 
 - Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization.
 - Each of the departments within the organization can use their own subscription for deploying their services, but they can share a single ExpressRoute circuit to connect back to your on-premises network.
-- A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit and authorizations associated to the circuit, including subscriptions linked to other Azure Active Directory tenants and Enterprise Agreement enrollments. 
+- A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit and authorizations associated to the circuit, including subscriptions linked to other Azure Active Directory tenants and Enterprise Agreement enrollments.
 
   > [!NOTE]
   > Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
