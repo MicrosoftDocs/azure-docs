@@ -23,10 +23,6 @@ ms.custom: H1Hack27Feb2017
 
 Transfer your subscription to another user in the Account Center to change the Account Admin and hand over subscription billing ownership. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
 
-> [!IMPORTANT]
-> 
-> When you transfer a subscription, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is) are permanently deleted from the source tenant and will not be migrated to the target tenant.
-
 ## Transfer ownership of an Azure subscription
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
@@ -46,6 +42,11 @@ Transfer your subscription to another user in the Account Center to change the A
 1. Specify the recipient.
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
+
+   > [!IMPORTANT]
+   > 
+   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+
 1. The recipient automatically gets an email with an acceptance link.
 
    ![Subscription transfer email to recipient](./media/billing-subscription-transfer/image3.png)
