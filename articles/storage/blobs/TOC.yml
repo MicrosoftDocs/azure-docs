@@ -151,16 +151,6 @@
       href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor, diagnose, and troubleshoot
       href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Troubleshoot error deleting storage account
-      items:
-        - name: Linux
-          items: 
-            - name: Troubleshoot attached VHDs on Azure Linux virtual machines
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-vhds
-        - name: Windows
-          items: 
-            - name: Troubleshoot attached VHDs on Azure Linux virtual machines
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-vhds
     - name: Metrics and logging
       items:
       - name: Azure Storage metrics in Azure Monitor

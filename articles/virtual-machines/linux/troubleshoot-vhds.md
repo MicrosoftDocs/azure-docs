@@ -3,16 +3,12 @@ title: Troubleshoot attached VHDs on Azure Linux virtual machines | Microsoft Do
 description: How to troubleshoot issues such as unexpected reboots of Linux VMs or problems deleting a storage account containing attached VHDs.
 keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
 services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: iainfou
@@ -33,9 +29,9 @@ In general, each individual input or output operation on a VHD from a Virtual Ma
 
 If you are exceeding the scalability targets for your storage account, place your VHDs in multiple storage accounts to reduce the activity in each individual account.
 
-## <a name="storage-delete-errors-in-rm"></a>Troubleshoot storage delete errors in Resource Manager deployment
+## <a name="storage-delete-errors-in-rm"></a>Troubleshoot storage account deletion errors in a Resource Manager deployment
 
-This section provides troubleshooting guidance when one of the following errors occur while you are trying to delete an Azure storage account, container, or blob in Azure Resource Manager deployment.
+This section provides troubleshooting guidance when one of the following errors occur while you are trying to delete an Azure storage account, container, or blob in an Azure Resource Manager deployment.
 
 >**Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
 
