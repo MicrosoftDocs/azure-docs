@@ -81,8 +81,8 @@ Here are some additional tools that may be helpful for building and debugging yo
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[api_java]: /java/api/com.microsoft.azure.batch
-[api_java_mgmt]: /java/api/com.microsoft.azure.batch/clientlibrary
+[api_java]: /java/api/overview/azure/batch/clientlibrary:
+[api_java_mgmt]: /java/api/overview/azure/batch/managementapi
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
