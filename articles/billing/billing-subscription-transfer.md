@@ -41,11 +41,11 @@ Transfer your subscription to another user in the Account Center to change the A
    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
 1. Specify the recipient.
 
-   ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
-
    > [!IMPORTANT]
    > 
    > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+
+   ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 
 1. The recipient automatically gets an email with an acceptance link.
 
