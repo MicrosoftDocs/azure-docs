@@ -6,7 +6,7 @@
 ## [Enabling operational security](../azure-operational-security.md)
 ## [Governance in Azure](../governance-in-azure.md)
 ## [Isolation in the Azure cloud](../azure-isolation.md)
-## [Secure hybrid network architecture](../https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Secure hybrid network architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [Security technical capabilities](../azure-security-technical-capabilities.md)
 
 # [Data security and encryption](../security-azure-encryption-overview.md)
@@ -76,7 +76,7 @@
 ### [Protect personal data at rest by using encryption](protect-personal-data-at-rest.md)
 ### [Protect personal data in transit by using encryption](protect-personal-data-in-transit-encryption.md)
 ### [Protect personal data by using Azure reporting tools](protection-personal-data-azure-reporting-tools.md)
-## [FEDRAMP](fedramp.md)
+## [FEDRAMP](./blueprints/fedramp.md)
 ### [Security controls overview](fedramp-controls-overview.md)
 ### [Access control](fedramp-access-controls.md)
 ### [Audit and accountability](fedramp-audit-accountability-controls.md)
