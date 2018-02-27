@@ -238,24 +238,25 @@ The following steps show you how to download and install SSMS, and then connect 
 
     ![internet explorer enhanced security configuration](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 
-4. open **Internet Explorer** from the task bar.
-5. Click **OK** to complete the setup of Internet Explorer 11.
+4. Open **Internet Explorer** from the task bar.
+5. Select **Use recommended security and compatibility settings** and then click **OK** to complete the setup of Internet Explorer 11.
 6. Enter https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms in the URL address box and click **Enter**. 
 7. Download the most recent version of SQL Server Management Studio and click **Run** when prompted.
 8. When prompted, click **Install** to begin.
 9. When the installation completes, click **Close**.
 10. Open SSMS.
-11. In the **Connect to Server** dialog box, enter the **host name* for your Managed Instance in the **Server name** box and then click **Connect**.
+11. In the **Connect to Server** dialog box, enter the **host name* for your Managed Instance in the **Server name** box, slect **SQL Server Authentication**, provide your login and password, and then click **Connect**.
 
     ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
-
 
 ## Download Wide World Importers backup file and restore to Managed Instance.
 
 Use the following steps to download the Wide World Importers backup file and restore it to your Managed Instance using SSMS.
 
-1. Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak in the URL address box and then, when prompted, click **Save** to save this file in the Downloads folder.
-2. 
+1. Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak in the URL address box and then, when prompted, click **Save** to save this file in the **Downloads** folder.
+2. After the download completes, in SSMS, right-click **Databases** in **Object Explorer** to open the **Restore Database** dialog box.
+3. Cick the ellipsis to the right of the **Device** text box to open the **Select backup devices** dialog box.
+4. 
 
 ## Next steps
 
