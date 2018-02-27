@@ -1,4 +1,4 @@
-# [Azure Security Documentation](../index.md)
+# [Azure Security Documentation](/azure/security/)
 # [Architecture and design](../azure-security.md)
 ## [Advanced threat detection](../azure-threat-detection.md)
 ## [Azure logging and auditing](../azure-log-audit.md)
