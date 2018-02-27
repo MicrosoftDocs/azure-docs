@@ -213,10 +213,11 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by doing the fol
 
 ## Next steps
 
-* Learn more about [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Learn more about the [Logic Apps feature of Azure App Service](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Learn more about [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Learn more about [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
+* Learn more about [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+* Learn more about the [Logic Apps feature of Azure App Service](https://docs.microsoft.com/azure/logic-apps/).
+* Learn more about [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

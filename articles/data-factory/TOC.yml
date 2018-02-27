@@ -233,6 +233,8 @@
         href: connector-sap-business-warehouse.md
       - name: SAP Cloud for Customer
         href: connector-sap-cloud-for-customer.md
+      - name: SAP ECC
+        href: connector-sap-ecc.md
       - name: SAP HANA
         href: connector-sap-hana.md
       - name: ServiceNow
