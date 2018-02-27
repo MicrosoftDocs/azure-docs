@@ -1,26 +1,26 @@
 ---
-title: Deploy an Azure Service Fabric application to a cluster | Microsoft Docs
-description: In this tutorial, you learn how to deploy an application to a Service Fabric cluster.
+title: Deploy an Azure Service Fabric application to a Cluster from Visual Studio | Microsoft Docs
+description: Learn how to deploy an application to a Cluster from Visual Studio
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
+author: cristyg
+manager: paulyuk
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
-ms.author: mikhegn
+ms.date: 02/21/2018
+ms.author: cristyg
 ms.custom: mvc
 
 ---
 
-# Tutorial: deploy an application to a Service Fabric cluster in Azure
-This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to a cluster running in Azure.
+# Deploy an application to a Cluster in Azure
+This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to an existing or new cluster in Azure directly from Visual Studio.
 
 In part two of the tutorial series, you learn how to:
 > [!div class="checklist"]
@@ -47,77 +47,44 @@ If you did not build the Voting sample application in [part one of this tutorial
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## Set up a Party Cluster
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. For free!
 
-To get access to a Party Cluster, browse to this site: http://aka.ms/tryservicefabric and follow the instructions to get access to a cluster. You need a Facebook or GitHub account to get access to a Party Cluster.
+### Select a Service Fabric cluster to which to publish
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
-You can use your own cluster instead of the Party Cluster, if you want.  The ASP.NET core web front-end uses the reverse proxy to communicate with the stateful service back-end.  Party Clusters and the local development cluster have reverse proxy enabled by default.  If you deploy the Voting sample application to your own cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
+You have three options for deployment:
+- Create a cluster from Visual Studio. This option allows you to create a secure cluster directly from Visual Studio with your preferred configurations. This type of cluster is ideal for test scenarios.
+- Publish to a party cluster. Party clusters are free, limited-time Service Fabric clusters run by the Service Fabric team. Currently they are available for use for one hour.
+- Publish to an existing cluster in your subscription.
+
 
 > [!NOTE]
-> Party clusters are not secured, so your applications and any data you put in them may be visible to others. Don't deploy anything you don't want others to see. Be sure to read over our Terms of Use for all the details.
+> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and Party Clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](../service-fabric-reverseproxy.md#setup-and-configuration.md).
 
-Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
+### Deploy the app to the Service Fabric cluster
 
-![PFX and connection endpoint](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+1. Right-click on the application project in the Solution Explorer and choose **Publish**.
 
-On a Windows computer, install the PFX in *CurrentUser\My* certificate store.
+    ![Publish Dialog](../media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+2. Sign in by using your Azure account so that you can have access to your subscription(s). This step is optional if you're using a party cluster.
 
+3. Select the dropdown for the **Connection Endpoint** field
 
-  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+    a. If you select the "<Create New Cluster...>" option, it will take you through a dialog where you can create a new cluster in your subscription. You can modify several basic settings from this menu to create a secure test cluster. Creation takes a few minutes.
 
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
+    b. If you select the "<Use Trial Cluster>" option, it will open a page in your default browser where you can get the connection endpoint for a limited-time Party Cluster.
 
+    c. If you want to use your own cluster, you can paste the connection endpoint in this field, or select it from the dropdown list if you're signed into your Azure account.
 
-## Deploy the app to the Azure
-Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
-
-1. Right-click **Voting** in the Solution Explorer and choose **Publish**. 
-
-    ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
-
-2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. Click **Publish**. 
+4. Once you have selected a cluster, click **Publish**.
 
     Once the publish has finished, you should be able to send a request to the application via a browser.
 
-3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
+5. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
 
     You should now see the same result as you saw when running the application locally.
 
-    ![API Response from Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
-
-## Remove the application from a cluster using Service Fabric Explorer
-Service Fabric Explorer is a graphical user interface to explore and manage applications in a Service Fabric cluster.
-
-To remove the application from the Party Cluster:
-
-1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
-
-2. In Service Fabric Explorer, navigate to the **fabric:/Voting** node in the treeview on the left-hand side.
-
-3. Click the **Action** button in the right-hand **Essentials** pane, and choose **Delete Application**. Confirm deleting the application instance, which removes the instance of our application running in the cluster.
-
-![Delete Application in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
-
-## Remove the application type from a cluster using Service Fabric Explorer
-Applications are deployed as application types in a Service Fabric cluster, which enables you to have multiple instances and versions of the application running within the cluster. After having removed the running instance of our application, we can also remove the type, to complete the cleanup of the deployment.
-
-For more information about the application model in Service Fabric, see [Model an application in Service Fabric](service-fabric-application-model.md).
-
-1. Navigate to the **VotingType** node in the treeview.
-
-2. Click the **Action** button in the right-hand **Essentials** pane, and choose **Unprovision Type**. Confirm unprovisioning the application type.
-
-![Unprovision Application Type in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
-
-This concludes the tutorial.
+    ![API Response from Cluster](../media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
 ## Next steps
 In this tutorial, you learned how to:
