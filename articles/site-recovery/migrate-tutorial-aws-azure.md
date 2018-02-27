@@ -1,12 +1,12 @@
 ---
 title: Migrate VMs from AWS to Azure with Azure Site Recovery | Microsoft Docs
-description: This article describes how to migrate VMs running in Amazon Web Services (AWS) to Azure, using Azure Site Recovery.
+description: This article describes how to migrate Windows VMs running in Amazon Web Services (AWS) to Azure, using Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -256,7 +256,7 @@ Run an actual failover for the EC2 instances to migrate them to Azure VMs.
 4. Check that the VM appears in **Replicated items**.
 5. Right-click each VM > **Complete Migration**. This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
 
-    ![Complete migration](./media/tutorial-migrate-aws-to-azure/complete-migration.png)
+    ![Complete migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  

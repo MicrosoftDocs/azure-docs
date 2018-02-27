@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 02/27/2017
 ms.author: raynew
 ---
 
@@ -27,7 +27,7 @@ The following table and graphic provide a high-level view of the components used
 
 **Physical to Azure architecture**
 
-![Components](./media/concepts-physical-to-azure-architecture/arch-enhanced.png)
+![Components](./media/physical-azure-architecture/arch-enhanced.png)
 
 ## Replication process
 
@@ -44,7 +44,7 @@ The following table and graphic provide a high-level view of the components used
 
 **Physical to Azure replication process**
 
-![Replication process](./media/concepts-physical-to-azure-architecture/v2a-architecture-henry.png)
+![Replication process](./media/physical-azure-architecture/v2a-architecture-henry.png)
 
 ## Failover and failback process
 
@@ -69,9 +69,9 @@ After replication is set up and you've run a disaster recovery drill (test failo
 
 **VMware failback from Azure**
 
-![Failback](./media/concepts-physical-to-azure-architecture/enhanced-failback.png)
+![Failback](./media/physical-azure-architecture/enhanced-failback.png)
 
 
 ## Next steps
 
-Follow [this tutorial](tutorial-physical-to-azure.md) to enable physical server to Azure replication.
+Follow [this tutorial](physical-azure-disaster-recovery.md) to enable physical server to Azure replication.

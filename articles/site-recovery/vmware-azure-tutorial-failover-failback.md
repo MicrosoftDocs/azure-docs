@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -28,8 +28,8 @@ This is the fifth tutorial in a series. This tutorial assumes that you have alre
 tasks in the previous tutorials.
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
-3. [Set up disaster recovery](tutorial-vmware-to-azure.md)
+2. [Prepare on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md)
+3. [Set up disaster recovery](vmware-azure-tutorial.md)
 4. [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
 
 ## Preparing for failover and failback
