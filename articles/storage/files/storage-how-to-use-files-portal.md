@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: wgries
 ---
 
@@ -130,4 +130,5 @@ When you're done, you can delete the resource group, which deletes the storage a
 
 ## Next steps
 
-You can mount a file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md).
+You can mount a file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [Mac](storage-how-to-use-files-mac.md) operating systems.
+
