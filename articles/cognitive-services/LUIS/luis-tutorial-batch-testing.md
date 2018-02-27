@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/27/2018
 ms.author: v-geberr;
 ---
 
@@ -87,41 +87,43 @@ The HomeAutomation prebuilt domain includes the following utterances. The [expor
 
 2. Add utterances to the file. These utterances should be successful. Take utterances in the HomeAutomation.TurnOn and HomeAutomation.TurnOff and switch the `on` and `off` text in the utterances. For the None intent, add a couple of utterances that are not part of the subject area. 
 
-```JSON
-[
-    {
-      "text": "lobby on please",
-      "intent": "HomeAutomation.TurnOn",
-      "entities": []
-    },
-    {
-      "text": "change temperature to seventy one degrees",
-      "intent": "HomeAutomation.TurnOn",
-      "entities": []
-    },
-    {
-      "text": "where is my pizza",
-      "intent": "None",
-      "entities": []
-    },
-    {
-      "text": "call Jack at work",
-      "intent": "None",
-      "entities": []
-    },
-    {
-      "text": "breezeway off please",
-      "intent": "HomeAutomation.TurnOff",
-      "entities": []
-    },
-    {
-      "text": "coffee bar off please",
-      "intent": "HomeAutomation.TurnOff",
-      "entities": []
-    }
-]
-```
+    This test is slanted toward successful predictions in order to illustrate the process. 
 
+    ```JSON
+    [
+        {
+          "text": "lobby on please",
+          "intent": "HomeAutomation.TurnOn",
+          "entities": []
+        },
+        {
+          "text": "change temperature to seventy one degrees",
+          "intent": "HomeAutomation.TurnOn",
+          "entities": []
+        },
+        {
+          "text": "where is my pizza",
+          "intent": "None",
+          "entities": []
+        },
+        {
+          "text": "call Jack at work",
+          "intent": "None",
+          "entities": []
+        },
+        {
+          "text": "breezeway off please",
+          "intent": "HomeAutomation.TurnOff",
+          "entities": []
+        },
+        {
+          "text": "coffee bar off please",
+          "intent": "HomeAutomation.TurnOff",
+          "entities": []
+        }
+    ]
+    ```
+    
 ## Run the batch
 1. Select **Test** in the top navigation bar. 
 2. Select **Batch testing panel** in the right-side panel. 
@@ -133,6 +135,10 @@ The HomeAutomation prebuilt domain includes the following utterances. The [expor
 
 ## Review batch results
 The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area of the graph or legend.
+
+Any errors are indicated by the color red. The graph is in four sections, with two of the sections displayed in red. These are the sections to focus on. 
+
+The top right section indicates the test incorrectly predicted the existence of an intent or entity. The bottom left section indicates the test incorrectly predicted the absence of an intent or entity.
 
 ### HomeAutomation.TurnOff test results
 In the legend, select the **HomeAutomation.TurnOff** intent. It has a green success icon to the left of the name in the legend. The Utterance count is after the name. 
@@ -183,6 +189,8 @@ In order to verify that the utterances in the batch test are now correctly predi
 2. Select **Batch testing panel** in the right-side panel. 
 3. Select the three dots (...) to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
 4. Select **See results**. The intents should all have green icons to the left of the intent names. The score of `breezeway off please` is very low at 0.24. An optional activity is to add more utterances to the intent to increase this score. 
+
+<!-- WAITING ON FIX
 
 The Entities section of the legend may have errors. That is the next thing to fix.
 
@@ -264,7 +272,7 @@ The Entities section of the legend may have errors. That is the next thing to fi
   }
 ]
 ```
-
+-->
 ## Next steps
 
 > [!div class="nextstepaction"]
