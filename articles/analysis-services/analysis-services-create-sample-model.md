@@ -1,5 +1,5 @@
 ---
-title: Create a sample tabular model for your server | Microsoft Docs
+title: Create a sample tabular model for your Azure Analysis Services server | Microsoft Docs
 description: Learn how to create a sample model in Azure Analysis Services.
 services: analysis-services
 documentationcenter: ''
