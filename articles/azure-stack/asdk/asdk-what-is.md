@@ -44,7 +44,7 @@ The ASDK provides the following benefits to Azure Stack Operators:
 - **Flexibility, low cost, low overhead**. The minimum requirements to host the ASDK can be easily procured to enable multiple deployment options from minimum requirements to large-scale single development kit host computers.
 
 ## ASDK and multi-node Azure Stack differences
-The ASDK differs from multi-node Azure Stack deployments in a few ways.
+The ASDK differs from multi-node Azure Stack deployments in several ways that you should be aware of:
 
 - **Scale**. The ASDK is deployed to a single development kit host computer. With all components deployed on the single machine, there are limited physical resources available for user resources. With ASDK deployments, both the Azure Stack infrastructure VMs and tenant VMs coexist on the same computer. This configuration is not intended for scale or performance evaluation. Additionally, the ASDK can only be associated with a single Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) identity provider. 
 
