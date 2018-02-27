@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus to Event Grid integration examples | Microsoft Docs
-description: Examples of Service Bus messaging and Event Grid integration
+description: This article provides examples of Service Bus messaging and Event Grid integration.
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
@@ -17,179 +17,205 @@ ms.date: 02/15/2018
 ms.author: chwolf
 
 ---
-# Azure Service Bus to Azure Event Grid examples
+# Azure Service Bus to Azure Event Grid integration examples
 
-In this document, you learn how to set up azure functions and a logic app that receive messages based on receiving an event from Event Grid. The example assumes a Service Bus topic with two subscriptions and that the event grid subscription is created in a way to send events only for one Service Bus subscription. Then you send messages to the Service Bus topic and verify that the event is generated for this Service Bus subscription and then the function or logic app receives the messages from that Service Bus subscription and complete it.
+In this article, you learn how to set up an Azure function and a logic app, which both receive messages based on receiving an event from Event Grid. You'll do the following:
+ 
+* Create a simple [test Azure function](#test-function-setup) for debugging and viewing the initial flow of events from the Event Grid. **This step should be done regardless of executing 3. or 4.**
+* Create an [Azure function to receive and process Azure Service Bus messages](#receive-messages-using-azure-function) based on Event Grid events.
+* Utilize the [The Logic Apps feature of Azure App Service](#receive-messages-using-azure-logic-app).
 
-* Please ensure you have all [Prerequisites](#prerequisites) in place first.
-* Create a [simple test Azure Function](#test-function-setup) for debugging and seeing initial flow of events from Event Grid.  **This step should be done regardless of executing 3. or 4.**
-* Create a [Azure Function to receive and process service bus messages](#receive-messages-using-azure-function) based on event grid events.
-* Utilize [Logic Apps](#receive-messages-using-azure-logic-app).
+The example that you create assumes that the Service Bus topic has two subscriptions. The example also assumes that the Event Grid subscription is created to send events for only one Service Bus subscription. 
+
+In the example, you send messages to the Service Bus topic and then verify that the event has been generated for this Service Bus subscription. The function or logic app receives the messages from the Service Bus subscription and then completes it.
 
 ## Prerequisites
+Before you begin, make sure that you have completed the steps in the next two sections.
 
-### Service Bus Namespace
+### Create a Service Bus namespace
 
-Create a Service Bus Premium Namespace. Create a Service Bus Topic with two subscriptions.
+Create a Service Bus Premium namespace, and create a Service Bus topic that has two subscriptions.
 
-### Code to Send Message to the Service Bus topic
+### Send a message to the Service Bus topic
 
-You can use any means to send a message to your Service Bus topic. Alternatively you can use the sample from below. The sample code assumes that you are using Visual Studio 2017.
+You can use any means to send a message to your Service Bus topic. The sample code at the end of this procedure assumes that you are using Visual Studio 2017.
 
-Clone [this GitHub repository](https://github.com/Azure/azure-service-bus/).
+1. Clone [the GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/).
 
-Navigate to the following folder:
+2. In Visual Studio, go to the *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* folder, and then open the *SBEventGridIntegration.sln* file.
 
-\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration and open  the file: SBEventGridIntegration.sln.
+3. Go to the **MessageSender** project, and then select **Program.cs**.
 
-Then navigate to the project MessageSender and open Program.cs.
+   ![8][]
 
-![8][]
+4. Fill in your topic name and connection string, and then execute the following console application code:
 
-Fill in your topic name and also your connection string and execute the console application:
+    ```CSharp
+    const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
+    const string TopicName = "YOUR TOPIC NAME";
+    ```
 
-```CSharp
-const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
-const string TopicName = "YOUR TOPIC NAME";
-```
+## Set up a test function
 
-## Test function setup
+Before you work through the entire scenario, set up at least a small test function, which you can use to debug and observe what events are flowing.
 
-Before working through the entire end to end scenario you want to have at least a small test function, which you can use to debug and see what events are flowing.
+1. In the Azure portal, create a new Azure Functions application. To learn the basics of Azure Functions, see [Azure Functions documentation](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
-In the portal, create a new Azure Function Application. Follow this [link](https://docs.microsoft.com/en-us/azure/azure-functions/) to learn the basics of Azure Functions.
+2. In your newly created function, select the plus sign (+) to add an HTTP trigger function:
 
-In your newly created function click the little plus to add an http trigger function:
+    ![2][]
+    
+    The **Get started quickly with a premade function** window opens.
 
-![2][]
+    ![3][]
 
-![3][]
+3. Select the **Webhook + API** button, select **CSharp**, and then select **Create this function**.
+ 
+4. Into the function, paste the following code:
 
-Then copy the following code into the function:
+    ```CSharp
+    #r "Newtonsoft.Json"
+    using System.Net;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
+        log.Info("C# HTTP trigger function processed a request.");
+        // parse query parameter
+        var content = req.Content;
+    
+        string jsonContent = await content.ReadAsStringAsync(); 
+        log.Info($"Received Event with payload: {jsonContent}");
+    
+    IEnumerable<string> headerValues;
+    if (req.Headers.TryGetValues("Aeg-Event-Type", out headerValues))
+    {
+    var validationHeaderValue = headerValues.FirstOrDefault();
+    if(validationHeaderValue == "SubscriptionValidation")
+    {
+    var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
+         var code = events[0].Data["validationCode"];
+         return req.CreateResponse(HttpStatusCode.OK,
+         new { validationResponse = code });
+    }
+    }
+    
+        return jsonContent == null
+        ? req.CreateResponse(HttpStatusCode.BadRequest, "Pass a name on the query string or in the request body")
+        : req.CreateResponse(HttpStatusCode.OK, "Hello " + jsonContent);
+    }
+    
+    public class GridEvent
+    {
+        public string Id { get; set; }
+        public string EventType { get; set; }
+        public string Subject { get; set; }
+        public DateTime EventTime { get; set; }
+        public Dictionary<string, string> Data { get; set; }
+        public string Topic { get; set; }
+    }
+    ```
 
-```CSharp
-#r "Newtonsoft.Json"
-using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+5. Select **Save and run**.
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-    // parse query parameter
-    var content = req.Content;
+## Connect the function and namespace via Event Grid
 
-    string jsonContent = await content.ReadAsStringAsync(); 
-    log.Info($"Received Event with payload: {jsonContent}");
+In this section, you tie together the function and the Service Bus namespace. For this example, use the Azure portal. To understand how to use PowerShell or Azure CLI to do this procedure, see [Azure Service Bus to Azure Event Grid integration overview](service-bus-to-event-grid-integration-concept.md).
 
-IEnumerable<string> headerValues;
-if (req.Headers.TryGetValues("Aeg-Event-Type", out headerValues))
-{
-var validationHeaderValue = headerValues.FirstOrDefault();
-if(validationHeaderValue == "SubscriptionValidation")
-{
-var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
-     var code = events[0].Data["validationCode"];
-     return req.CreateResponse(HttpStatusCode.OK,
-     new { validationResponse = code });
-}
-}
+To create an Azure Event Grid subscription, do the following:
+1. In the Azure portal, go to your namespace and then, in the left pane, select **Event Grid**.  
+    Your namespace window opens, with two Event Grid subscriptions displayed in the right pane.
 
-    return jsonContent == null
-    ? req.CreateResponse(HttpStatusCode.BadRequest, "Pass a name on the query string or in the request body")
-    : req.CreateResponse(HttpStatusCode.OK, "Hello " + jsonContent);
-}
+    ![20][]
 
-public class GridEvent
-{
-    public string Id { get; set; }
-    public string EventType { get; set; }
-    public string Subject { get; set; }
-    public DateTime EventTime { get; set; }
-    public Dictionary<string, string> Data { get; set; }
-    public string Topic { get; set; }
-}
-```
+2. Select **Event Subscription**.  
+    The **Event Subscription** window opens. The following image displays a form for subscribing to an Azure function or a webhook without applying filters.
 
-Click save and run.
+    ![21][]
 
-## Connect Function and Namespace via Event Grid
+3. Complete the form as shown and, in the **Suffix Filter** box, remember to enter the relevant filter.
 
-The next step is to tie the function and the service bus namespace together. For this example, use the Azure portal. See the [concepts](service-bus-to-event-grid-integration-concept.md page to understand how to use PowerShell or Azure CLI to achieve the same.
+4. Select **Create**.
 
-To create a new Azure Event Grid subscription, navigate to your namespace in the Azure portal and select the Event Grid blade. Click on “+ Event Subscription.”
+5. Send a message to your Service Bus topic, as mentioned in the "Prerequisites" section, and then verify that events are flowing via the Azure Functions Monitoring feature.
 
-Following screenshot, shows a namespace, which already has a few Event Grid subscriptions.
+    ![9][]
 
-![20][]
+### Receive messages by using Azure Functions
 
-Following screenshot, shows how to subscribe to an Azure Function or a Web Hook without any specific filtering. Remember to add the regarding filter for your Service Bus subscription as "Suffix Filter":
+In the preceding section, you observed a simple test and debugging scenario and ensured that events are flowing. 
 
-![21][]
+In this section, you'll learn how to receive and process messages after you receive an event.
 
-Send a message to your Service Bus topic as mentioned in the pre-requisites and verify that events are flowing via the Monitoring feature of the Azure Function.
+You'll add an Azure function, as shown in the following example, because the Service Bus functions within Azure Functions do not yet natively support the new Event Grid integration.
 
-![9][]
+1. In the same Visual Studio Solution that you opened in the prerequisites, select **ReceiveMessagesOnEvent.cs**. 
 
-### Receive messages using Azure Function
+    ![10][]
 
-In the previous section, you looked at a simple test and debugging scenario and ensured that events are flowing. In this part of the documentation you will look at how to receive and process messages upon receiving an event.
+2. Enter your connection string in the following code:
 
-The reason for adding an Azure Function in the following way, is because the Service Bus Functions within Azure Functions itself are not natively supporting the new Event Grid integration yet.
+    ```Csharp
+    const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
+    ```
 
-In the same Visual Studio Solution you opened in the prerequisites, select ReceiveMessagesOnEvent.cs. Enter your connection string in the code:
+3. In the Azure portal, download the publishing profile for the Azure function that you created previously in the "Set up a test function" section.
 
-![10][]
+    ![11][]
 
-```Csharp
-const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
-```
+4. In Visual Studio, right-click **SBEventGridIntegration**, and then select **Publish**. 
 
-Then go to the Azure portal and download the publishing profile for the Azure Function you created before in [2. Test function setup](#2-test-function-setup).
+5. In the **Publish** pane for the publishing profile that you downloaded previously, select **Import profile**, and then select **Publish**.
 
-![11][]
+    ![12][]
 
-Then in Visual Studio right click on SBEventGridIntegration and select Publish. Use the publishing profile you downloaded before, select import profile and click Publish.
+6. After you've published the new Azure function, create a new Azure Event Grid subscription that points to the new Azure function.  
+    In the **Ends with** box, be sure to apply the correct filter, which should be your Service Bus subscription name.
 
-![12][]
+7. Send a message to the Azure Service Bus topic that you created previously, and then monitor the Azure Functions log in the Azure portal to ensure that events are flowing and that messages are being received.
 
-After you published the new Azure function, create a new Azure Event Grid Subscription pointing to the new Azure Function. Make sure that you apply the correct “Ends with” filter, which should be your Service Bus Subscription Name.
+    ![12-1][]
 
-Then send a message to the Azure Service Bus topic you created before and examine in the Azure Function log in the portal that events are flowing and that messages are received.
+### Receive messages by using Logic Apps
 
-![12-1][]
+Connect a logic app with Azure Service Bus and Azure Event Grid by doing the following:
 
-### Receive messages using Azure Logic App
+1. Create a new logic app in the Azure portal, and select **Event Grid** as the start action.
 
-The following instructions show how to connect an Azure Logic App together with Azure Service Bus and Azure Event Grid:
+    ![13][]
 
-First, create a new Logic App in the Azure portal and select Event Grid as start action.
+    The Logic Apps designer window opens.
 
-![13][]
+    ![14][]
 
-The initial view in the Logic Apps designer should look like the following Screenshot, whereas you need to replace “Resource Name” with your own namespace name. Also make sure to expand the advanced options and add the suffix filter for your subscription:
+2. Add your information by doing the following:
 
-![14][]
+    a. In the **Resource Name** box, enter your own namespace name. 
 
-Then add a service bus Receive action to receive from a topic subscription. The final action should look like the following Screenshot.
+    b. Under **Advanced options**, in the **Suffix Filter** box, enter filter for your subscription.
 
-![15][]
+3. Add a Service Bus receive action to receive messages from a topic subscription.  
+    The final action is shown in the following image:
 
-Then add a complete event, which should look like this.
+    ![15][]
 
-![16][]
+4. Add a complete event, as shown in the following image:
 
-Save the logic app and send a message to your Service Bus topic as mentioned in the prerequisites. Then observe the Logic apps execution. If you click on "Overview" and then there on the "Runs history", you can also get more data about the execution.
+    ![16][]
 
-![17][]
+5. Save the logic app, and send a message to your Service Bus topic, as mentioned in the "Prerequisites" section.  
+    Observe the logic app execution. To view more data for the execution, select **Overview**, and then view the data under **Runs history**.
 
-![18][]
+    ![17][]
+
+    ![18][]
 
 ## Next steps
 
 * Learn more about [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Learn more about [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Learn more about the [Logic Apps feature of Azure App Service](https://docs.microsoft.com/en-us/azure/logic-apps/).
 * Learn more about [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
