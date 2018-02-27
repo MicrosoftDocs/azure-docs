@@ -1,6 +1,6 @@
 ---
-title: Monitor Resource Manager-deployed virtual machine backups | Microsoft Docs
-description: Monitor events and alerts from Resource Manager-deployed virtual machine backups. Send email based on alerts.
+title: Monitor backup alerts for Azure virtual machines | Microsoft Docs
+description: Monitor events and alerts from Azure virtual machine backup jobs. Send email based on alerts.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
 
 ---

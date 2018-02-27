@@ -1,6 +1,6 @@
 ﻿---
 title: Create an Azure Service Fabric Windows container application | Microsoft Docs
-description: Create your first Windows container application on Azure Service Fabric.  
+description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Deploy a Service Fabric Windows container application on Azure
+# Quickstart: deploy a Service Fabric Windows container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a pre-built Docker container image in a Service Fabric application. When you're finished, you'll have a running Windows Server 2016 Nano Server and IIS container. This quickstart describes deploying a Windows container, read [this quickstart](service-fabric-quickstart-containers-linux.md) to deploy a Linux container.
