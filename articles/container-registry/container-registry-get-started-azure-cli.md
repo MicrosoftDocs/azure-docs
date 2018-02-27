@@ -135,6 +135,43 @@ Result
 v1
 ```
 
+## Deploy image ACI
+In order to deploy to an instance from the registry we will first need to retrieve the acr password. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command.
+
+```azurecli
+az acr update --name <acrName> --admin-enabled true
+```
+
+Now use this command to retrieve the password:
+```azurecli
+az acr credential show --name <acrName> --query "passwords[0].value"
+```
+
+To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace <acrLoginServer> and <acrPassword> with the values you obtained from previous commands.
+
+```azurecli
+az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+```
+
+You should get an intial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running repeat the [az container show][az-container-show].  It should take less than a minute.
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
+```
+
+## View the application
+Once the deployment to ACI is successful, retrieve the containers public IP address with the [az container show][az-container-show] command:
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.ip
+```
+
+Example output: `"13.88.176.27"`
+
+To see the running application, navigate to the public IP address in your favorite browser.
+
+![Hello world app in the browser][aci-app-browser]
+
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete][az-group-delete] command to remove the resource group, ACR instance, and all container images.
@@ -150,6 +187,10 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]
 
+<!-- IMAGES> -->
+[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+
+
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
@@ -164,5 +205,6 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
+[azure-container-show]: /cli/azure/container#az_container_show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md

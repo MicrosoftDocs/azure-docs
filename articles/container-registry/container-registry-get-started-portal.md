@@ -70,13 +70,13 @@ docker pull microsoft/aci-helloworld
 
 Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag][docker-tag] command. Replace *login server* with the login server name you recorded earlier.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace *login server* with the login server name of your ACR instance.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -101,6 +101,43 @@ In this example, we select the **aci-helloworld** repository, and we can see the
 
 ![Creating a container registry in the Azure portal][qs-portal-09]
 
+## Deploy image ACI
+In order to deploy to an instance from the registry we will first need to retrieve the acr password. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command.
+
+```azurecli
+az acr update --name <acrName> --admin-enabled true
+```
+
+Now use this command to retrieve the password:
+```azurecli
+az acr credential show --name <acrName> --query "passwords[0].value"
+```
+
+To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace <acrLoginServer> and <acrPassword> with the values you obtained from previous commands.
+
+```azurecli
+az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+```
+
+You should get an intial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running repeat the [az container show][az-container-show].  It should take less than a minute.
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
+```
+
+## View the application
+Once the deployment to ACI is successful, retrieve the containers public IP address with the [az container show][az-container-show] command:
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.ip
+```
+
+Example output: `"13.88.176.27"`
+
+To see the running application, navigate to the public IP address in your favorite browser.
+
+![Hello world app in the browser][aci-app-browser]
+
 ## Clean up resources
 
 When no longer needed, delete the **myResourceGroup** resource group. Doing so will delete the resource group, ACR instance, and all container images.
@@ -124,6 +161,8 @@ In this quickstart, you created an Azure Container Registry with the Azure porta
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

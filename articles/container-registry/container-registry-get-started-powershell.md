@@ -7,7 +7,11 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quickstart
+<<<<<<< HEAD
 ms.date: 02/12/2018
+=======
+ms.date: 2/13/2018
+>>>>>>> ffb01d20527a54b55290a94ac45a9d07e6a1528c
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -56,7 +60,7 @@ $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 
 Next, use the [docker login][docker-login] command to log in to the ACR instance.
 
-```bash
+```powershell
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
@@ -66,27 +70,97 @@ The command returns `Login Succeeded` once completed. You might also see a secur
 
 To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull a pre-created image from Docker Hub.
 
-```bash
+```powershell
 docker pull microsoft/aci-helloworld
 ```
 
-The image must be tagged with the ACR login server name. Run the [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) command to return the login server name of the ACR instance.
+<<<<<<< HEAD
+Tag the image using the [docker tag][docker-tag] command. 
+=======
+Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. 
+>>>>>>> ffb01d20527a54b55290a94ac45a9d07e6a1528c
 
 ```powershell
-Get-AzureRmContainerRegistry | Select Loginserver
+$image = $registry.LoginServer + "/aci-helloworld:v1"
+docker tag microsoft/aci-helloworld $image
 ```
 
-Tag the image using the [docker tag][docker-tag] command. Replace *acrLoginServer* with the login server name of your ACR instance.
+<<<<<<< HEAD
+Finally, use [docker push][docker-push] to push the images to the ACR instance. 
 
-```bash
-docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
+```powershell
+docker push  $image
 ```
 
-Finally, use [docker push][docker-push] to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+## Deploy image ACI
+To deploy to an instance from the registry we will need to convert our Registry Credential to a PSCredential.
 
-```bash
-docker push <acrLoginServer>/aci-helloworld:v1
+```powershell
+$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
+$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
+
+To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. 
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -M
+emoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
+```
+
+You should get an intial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running repeat the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup].  It should take less than a minute.
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
+```
+
+## View the application
+Once the deployment to ACI is successful, retrieve the containers public IP address with the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command:
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
+```
+
+=======
+Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the images to the ACR instance. 
+
+```powershell
+docker push  $image
+```
+
+## Deploy image ACI
+To deploy to an instance from the registry we will need to convert our Registry Credential to a PSCredential.
+
+```powershell
+$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
+$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
+```
+
+To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. 
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -M
+emoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
+```
+
+You should get an intial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running repeat the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup].  It should take less than a minute.
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
+```
+
+## View the application
+Once the deployment to ACI is successful, retrieve the containers public IP address with the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command:
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
+```
+
+>>>>>>> ffb01d20527a54b55290a94ac45a9d07e6a1528c
+Example output: `"13.88.176.27"`
+
+To see the running application, navigate to the public IP address in your favorite browser.
+
+![Hello world app in the browser][aci-app-browser]
 
 ## Clean up resources
 
@@ -103,6 +177,7 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
 
+<<<<<<< HEAD
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
@@ -110,3 +185,8 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
+=======
+=======
+>>>>>>> ffb01d20527a54b55290a94ac45a9d07e6a1528c
+<!-- IMAGES> -->
+[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
