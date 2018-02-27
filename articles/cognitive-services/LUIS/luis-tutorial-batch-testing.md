@@ -230,7 +230,7 @@ Move the four utterances to the `HomeAutomation.TurnOn` intent.
 
     The four utterances disappear from the `None` intent.
 
-6. Add 4 new intents for the None intent:
+6. Add four new intents for the None intent:
 
     ```
     "When is the game?"
