@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 02get-started-article
-ms.date: 02/26/2017
+ms.date: 02/27/2017
 ms.author: mabrigg
 ms.reviewer: hector.linares
 ---
@@ -147,4 +147,4 @@ In this article, we covered the guidelines on how to protect user VMs deployed o
  - [Azure Backup Server support for Azure Stack](https://docs.microsoft.com/en-us/azure/backup/ ) 
  - [Azure Site Recovery support for Azure Stack](https://docs.microsoft.com/en-us/azure/site-recovery/)  
  
-To learn more about the products that offer VM protection on Azure Stack, refer to "[Protecting applications and data on Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."
+To learn more about the partner products that offer VM protection on Azure Stack, refer to "[Protecting applications and data on Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."
