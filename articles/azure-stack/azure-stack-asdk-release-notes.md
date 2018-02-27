@@ -25,8 +25,7 @@ ms.reviewer: chjoy
 
 These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](azure-stack-updates.md#determine-the-current-version).
 
-## Build 20180223.1
-Release date: February 27, 2018
+## Build 20180227.1
 
 ### New features and fixes
 See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fixes) section of the Azure Stack 1802 update release notes for Azure Stack integrated systems.
@@ -96,8 +95,10 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 
 - On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
  
+- Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+ 
 
-#### SQL/MySQL 
+#### SQL and MySQL 
 - It can take up to one hour before users can create databases in a new SQL or MySQL SKU.
 
 - The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
