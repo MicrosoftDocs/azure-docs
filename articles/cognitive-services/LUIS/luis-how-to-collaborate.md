@@ -8,8 +8,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: cahann;v-geberr;
+ms.date: 02/27/2018
+ms.author: cahann;v-geberr
 ---
 
 # Collaborate with others on Language Understanding (LUIS) apps  
@@ -20,7 +20,7 @@ You can collaborate with others and work on your LUIS app together.
 An app has a single owner but can have many collaborators. 
 
 ## Collaborator permissions
-A collaborator has all the permissions of the owner including deleting the app. 
+A collaborator has all the permissions of the owner, including deleting the app. 
 
 > [!CAUTION]
 > A collaborator should [export](#export-app) the app, as a backup, before deleting it. 
