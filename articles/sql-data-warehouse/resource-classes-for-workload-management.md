@@ -82,6 +82,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 The resource class of the service administrator is fixed and cannot be changed.  The service administrator is the user created during the provisioning process.
 
+> [!NOTE]
+> Users or groups defined as Active Directory admin are also service administrators.
+>
+>
+
 ### Default resource class
 By default, each user is a member of the small resource class, **smallrc**. 
 
