@@ -765,4 +765,4 @@ The following command-line output from the program shows the various tasks as th
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) and sample files and required libraries for this tutorial, and get started on your integration.
+[Download the Visual Studio solution](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) and sample files and required libraries for this tutorial, and get started on your integration.
