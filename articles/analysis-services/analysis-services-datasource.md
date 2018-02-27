@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/26/2018
+ms.date: 02/27/2018
 ms.author: owend
 
 ---
@@ -61,28 +61,31 @@ Connecting to on-premises data sources require an On-premises gateway. When usin
 
 ### In-memory only
 
-|Datasource  |  Provider
+> [!IMPORTANT]
+> Testing providers for the following data sources is ongoing. 
+
+|Datasource  |  
 |---------|---------|
-|Access Database     |  ACE 14 OLE DB provider
-|Active Directory*     |  **?**
-|Analysis Services     | ASOLEDB 10
-|Analytics Platform System     |  **?**
-|Dynamics CRM*     |  **?**
-|Excel workbook     | ACE 14 OLE DB provider
-|Exchange*     |  **?**
-|Folder*     | **?**
-|JSON document*     |  **?**
-|Lines from binary*     | **?**
-|MySQL Database     | **?**
-|OData Feed*     | **?**
-|ODBC query     | **?**
-|OLE DB     |  **?**
-|Postgre SQL Database*    | **?**
-|SAP HANA*    |  **?**   
-|SAP Business Warehouse*    |  **?**
-|SharePoint*     |   **?**
-|Sybase Database     |  **?**
-|XML table*    |  **?**
+|Access Database     |  
+|Active Directory*     |  
+|Analysis Services     | 
+|Analytics Platform System     |  
+|Dynamics CRM*     |  
+|Excel workbook     | 
+|Exchange*     |  
+|Folder*     | 
+|JSON document*     |  
+|Lines from binary*     | 
+|MySQL Database     | 
+|OData Feed*     | 
+|ODBC query     | 
+|OLE DB     |  
+|Postgre SQL Database*    | 
+|SAP HANA*    |   
+|SAP Business Warehouse*    |  
+|SharePoint*     |   
+|Sybase Database     |  
+|XML table*    |  
 |||
  
 \* Tabular 1400 models only.
