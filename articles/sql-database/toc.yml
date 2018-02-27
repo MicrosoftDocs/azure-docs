@@ -4,6 +4,8 @@
   items:
   - name: About SQL DB
     href: sql-database-technical-overview.md
+  - name: PaaS or IaaS
+    href: sql-database-paas-vs-sql-server-iaas.md  
 - name: Quickstarts
   expanded: true
   items:
@@ -59,7 +61,7 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Service features    
+  - name: Database service   
     items:
     - name: Servers and databases
       href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
       href: sql-database-elastic-pool.md
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
-    - name: Firewall rules
-      href: sql-database-firewall-configure.md      
-    - name: Firewall virtual network rules
-      href: sql-database-vnet-service-endpoint-rule-overview.md
     - name: DTUs and eDTUs
       href: sql-database-what-is-a-dtu.md
     - name: DTU benchmark
       href: sql-database-benchmark-overview.md
-    - name: PaaS or IaaS
-      href: sql-database-paas-vs-sql-server-iaas.md  
-    - name: Auditing
-      href: sql-database-auditing.md
-    - name: Threat detection
-      href: sql-database-threat-detection.md
-    - name: Database backups
-      href: sql-database-automated-backups.md
-    - name: Backup retention
-      href: sql-database-long-term-retention.md
-    - name: Failover groups
-      href: sql-database-geo-replication-overview.md
-    - name: Elastic client library
-      href: sql-database-elastic-database-client-library.md
-    - name: Elastic queries
-      href: sql-database-elastic-query-overview.md
-    - name: Elastic transactions
-      href: sql-database-elastic-transactions-overview.md
-    - name: Elastic jobs
-      href: sql-database-elastic-jobs-overview.md
-    - name: SQL Vulnerability Assessment
-      href: sql-vulnerability-assessment.md
     - name: SQL Server common features
       href: sql-database-features.md
-  - name: Security    
+  - name: High availability
+    href: sql-database-high-availability.md  
+  - name: Security   
     items:
     - name: Overview
       href: sql-database-security-overview.md
+    - name: Firewall rules
+      href: sql-database-firewall-configure.md      
+    - name: Firewall virtual network rules
+      href: sql-database-vnet-service-endpoint-rule-overview.md
     - name: Access control
       href: sql-database-control-access.md
     - name: Azure AD
@@ -117,16 +99,28 @@
       href: sql-database-manage-logins.md
     - name: Multi-factor auth
       href: sql-database-ssms-mfa-authentication.md
+    - name: Auditing
+      href: sql-database-auditing.md
+    - name: Threat detection
+      href: sql-database-threat-detection.md
     - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-    - name: Data masking
+    - name: Dynamic data masking
       href: sql-database-dynamic-data-masking-get-started.md
-  - name: High availability
-    href: sql-database-high-availability.md  
+    - name: Vulnerability assessment
+      href: sql-vulnerability-assessment.md
+    - name: Data discovery & classification
+      href: sql-database-data-discovery-and-classification.md
   - name: Business continuity
     items:
     - name: Overview
       href: sql-database-business-continuity.md
+    - name: Database backups
+      href: sql-database-automated-backups.md
+    - name: Backup retention
+      href: sql-database-long-term-retention.md
+    - name: Failover groups
+      href: sql-database-geo-replication-overview.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
     - name: Configure security
@@ -185,6 +179,14 @@
     items:
     - name: Overview
       href: sql-database-elastic-scale-introduction.md
+    - name: Elastic client library
+      href: sql-database-elastic-database-client-library.md
+    - name: Elastic queries
+      href: sql-database-elastic-query-overview.md
+    - name: Elastic transactions
+      href: sql-database-elastic-transactions-overview.md
+    - name: Elastic jobs
+      href: sql-database-elastic-jobs-overview.md
     - name: Shard maps
       href: sql-database-elastic-scale-shard-map-management.md
     - name: Query routing
@@ -235,6 +237,10 @@
       href: sql-database-use-batching-to-improve-performance.md
     - name: Connectivity guidance
       href: sql-database-connectivity-issues.md
+    - name: DNS alias overview
+      href: dns-alias-overview.md
+    - name: DNS alias PowerShell
+      href: dns-alias-powershell.md
     - name: Ports - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: How-to guides
@@ -299,6 +305,8 @@
       href: sql-database-advisor-portal.md
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
+    - name: Automatic tuning e-mail notifications
+      href: sql-database-automatic-tuning-email-notifications.md
     - name: Intelligent Insights performance troubleshooting
       href: sql-database-intelligent-insights-troubleshoot-performance.md
     - name: Use DMVs to monitor perf
@@ -351,6 +359,8 @@
       items:
       - name: Deploy example app
         href: saas-standaloneapp-get-started-deploy.md
+      - name: Provision tenants
+        href: saas-standaloneapp-provision-and-catalog.md
     - name: Database per tenant
       href: saas-dbpertenant-wingtip-app-overview.md
       items:
@@ -368,9 +378,9 @@
         href: saas-dbpertenant-restore-single-tenant.md
       - name: Manage tenant schema
         href: saas-tenancy-schema-management.md
-      - name: Run ad-hoc queries
-        href: saas-tenancy-adhoc-analytics.md
-      - name: ETL for analysis
+      - name: Cross-tenant reporting
+        href: saas-tenancy-cross-tenant-reporting.md
+      - name: ETL for analytics
         href: saas-tenancy-tenant-analytics.md
     - name: Multi-tenant database
       items:
@@ -384,7 +394,7 @@
         href: saas-multitenantdb-adhoc-reporting.md
       - name: Manage tenant schema
         href: saas-multitenantdb-schema-management.md
-      - name: ETL for analysis
+      - name: ETL for analytics
         href: saas-multitenantdb-tenant-analytics.md
   - name: Develop apps
     items:

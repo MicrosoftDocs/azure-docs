@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: bsiva
 ---
 
-# Prepare target (VMware to Azure)
+# Prepare target (Physical to Azure)
 > [!div class="op_single_selector"]
 > * [VMware to Azure](./site-recovery-prepare-target-vmware-to-azure.md)
 > * [Physical to Azure](./site-recovery-prepare-target-physical-to-azure.md)

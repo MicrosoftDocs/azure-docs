@@ -32,7 +32,7 @@ LUIS understands utterances in the following languages:
 | French (France) |`fr-FR` |-| ✔ |✔ |
 | German |`de-DE` |-| ✔ |✔ |
 | Italian |`it-IT` |-| ✔ |✔|
-| Japanese |`ja-JP` |-| ✔ |✔|
+| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|
 | Korean |`ko-KR` |-|   -   |-|
 | Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |
 | Spanish (Spain) |`es-ES` |-| ✔ |✔|
@@ -47,6 +47,12 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
  - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
  - See the [prebuilt domains reference ](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+
+### *Japanese support notes
+
+ - Because LUIS does not provide syntactic analysis and will not understand the difference between Keigo and informal Japanese, you need to incorporate the different levels of formality as training examples for your applications. 
+     - でございます is not the same as です. 
+     - です is not the same as だ. 
 
 ## Rare or foreign words in an application
 In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](Add-Features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.

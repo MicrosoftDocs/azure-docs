@@ -44,9 +44,9 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 
 ## Supported operating systems
 * **Ubuntu 16.04**: 4.11.0-1013 or greater kernel version
-* **SLES SP3**: 4.4.92-6.18 or greater kernel version
-* **RHEL**: 7.4.2017120423 or greater kernel version
-* **CentOS**: 7.4.20171206 or greater kernel version
+* **SLES 12 SP3**: 4.4.92-6.18 or greater kernel version
+* **RHEL 7.4**: 7.4.2017120423 or greater kernel version
+* **CentOS 7.4**: 7.4.20171206 or greater kernel version
 
 ## Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 4 or more vCPUs. On instances such as D/DSv3 or E/ESv3 that support hyperthreading, Accelerated Networking is supported on VM instances with 8 or more vCPUs.  Supported series are:
@@ -66,9 +66,9 @@ The following limitations exist when using this capability:
 
 ## Create a virtual network
 
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
 
-Create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
+Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -76,7 +76,7 @@ az group create --name myResourceGroup --location centralus
 
 You must select a supported Linux region listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* with one subnet:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* with one subnet:
 
 ```azurecli
 az network vnet create \
@@ -88,7 +88,7 @@ az network vnet create \
 ```
 
 ## Create a network security group
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named *myNetworkSecurityGroup*:
+Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -123,7 +123,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Create a network interface with [az network nic create](/cli/azure/network/nic#create) with accelerated networking enabled. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and associates the *myNetworkSecurityGroup* network security group to the network interface:
+Create a network interface with [az network nic create](/cli/azure/network/nic#az_network_nic_create) with accelerated networking enabled. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and associates the *myNetworkSecurityGroup* network security group to the network interface:
 
 ```azurecli
 az network nic create \
@@ -139,7 +139,7 @@ az network nic create \
 ## Create a VM and attach the NIC
 When you create the VM, specify the NIC you created with `--nics`. You must select a size and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 02/02/2018
 ms.author: jeedes
 
 ---
@@ -194,7 +194,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 	![Configure single sign-on link][4]
 
-7. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on**. to link your application to **ADP Federated SSO**.
+7. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on** to link your application to **ADP Federated SSO**.
 
 	![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 

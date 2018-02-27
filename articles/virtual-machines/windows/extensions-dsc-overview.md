@@ -1,13 +1,13 @@
 ---
-title: Desired State Configuration for Azure Overview | Microsoft Docs
-description: Overview for using the Microsoft Azure extension handler for PowerShell Desired State Configuration. Including prerequisites, architecture, cmdlets..
+title: Desired State Configuration for Azure overview | Microsoft Docs
+description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC). The article includes prerequisites, architecture, and cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zjalexander
+author: mgreenegit
 manager: timlt
 editor: ''
-tags: azure-service-management,azure-resource-manager
-keywords: ''
+tags: azure-resource-manager
+keywords: 'dsc'
 
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
@@ -15,144 +15,140 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 01/09/2017
-ms.author: zachal
+ms.date: 02/02/2018
+ms.author: migreene
 
 ---
 # Introduction to the Azure Desired State Configuration extension handler
+
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-The Azure VM Agent and associated Extensions are part of the Microsoft Azure Infrastructure Services. VM Extensions are software components that extend the VM functionality and simplify various VM management operations. For example, the VMAccess extension can be used to reset an administrator's password, or the Custom Script extension can be used to execute a script on the VM.
+The Azure VM Agent and associated extensions are part of Microsoft Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
 
-This article introduces the PowerShell Desired State Configuration (DSC) Extension for Azure VMs as part of the Azure PowerShell SDK. You can use new cmdlets to upload and apply a PowerShell DSC configuration on an Azure VM enabled with the PowerShell DSC extension. The PowerShell DSC extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This functionality is also available through the Azure portal.
+The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the [Azure Automation DSC service](../../automation/automation-dsc-overview.md). Bootstrapping a VM provides [benefits](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service) that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
+
+You can use the DSC extension independently of the Automation DSC service. However, this involves a singular action that occurs during deployment. No ongoing reporting or configuration management is available, other than locally in the VM.
+
+This article provides information about both scenarios: using the DSC extension for Automation onboarding, and using the DSC extension as a tool for assigning configurations to VMs by using the Azure SDK.
 
 ## Prerequisites
-**Local machine**
-To interact with the Azure VM extension, you need to use either the Azure portal or the Azure PowerShell SDK. 
 
-**Guest Agent**
-The Azure VM that is configured by the DSC configuration needs to be an OS that supports either Windows Management Framework (WMF) 4.0 or 5.0. The full list of supported OS versions can be found at the [DSC Extension Version History](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
+- **Local machine**: To interact with the Azure VM extension, you must use either the Azure portal or the Azure PowerShell SDK.
+- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
 ## Terms and concepts
-This guide presumes familiarity with the following concepts:
 
-* **Configuration** - A DSC configuration document. 
-* **Node** - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
-* **Configuration Data** - A .psd1 file containing environmental data for a configuration
+This guide assumes familiarity with the following concepts:
 
-## Architectural overview
-The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension expects a .zip file containing at least a configuration document, and a set of parameters provided either through the Azure PowerShell SDK or through the Azure portal.
+- **Configuration**: A DSC configuration document.
+- **Node**: A target for a DSC configuration. In this document, *node* always refers to an Azure VM.
+- **Configuration data**: A .psd1 file that has environmental data for a configuration.
 
-When the extension is called for the first time, it runs an installation process. This process installs a version of the Windows Management Framework (WMF) using the following logic:
+## Architecture
 
-1. If the Azure VM OS is Windows Server 2016, no action is taken. Windows Server 2016 already has the latest version of PowerShell installed.
-2. If the `wmfVersion` property is specified, that version of the WMF is installed unless it is incompatible with the VM's OS.
-3. If no `wmfVersion` property is specified, the latest applicable version of the WMF is installed.
+The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension accepts a configuration document and a set of parameters. If no file is provided, a [default configuration script](#default-configuration-script) is embedded with the extension. The default configuration script is used only to set metadata in [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig).
 
-Installation of the WMF requires a reboot. After reboot, the extension downloads the .zip file specified in the `modulesUrl` property. If this location is in Azure blob storage, a SAS token can be specified in the `sasToken` property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in `configurationFunction` is run to generate the MOF file. The extension then runs `Start-DscConfiguration -Force` on the generated MOF file. The extension captures output and writes it back out to the Azure Status Channel. From this point on, the DSC LCM handles monitoring and correction as normal. 
+When the extension is called for the first time, it installs a version of WMF by using the following logic:
 
-## PowerShell cmdlets
-PowerShell cmdlets can be used with Azure Resource Manager or the classic deployment model to package, publish, and monitor DSC extension deployments. The following cmdlets listed are the classic deployment modules, but "Azure" can be replaced with "AzureRm" to use the Azure Resource Manager model. For example,  `Publish-AzureVMDscConfiguration` uses the classic deployment model, where `Publish-AzureRmVMDscConfiguration` uses Azure Resource Manager. 
+* If the Azure VM OS is Windows Server 2016, no action is taken. Windows Server 2016 already has the latest version of PowerShell installed.
+* If the **wmfVersion** property is specified, that version of WMF is installed, unless that version is incompatible with the VM's OS.
+* If no **wmfVersion** property is specified, the latest applicable version of WMF is installed.
 
-`Publish-AzureVMDscConfiguration` takes in a configuration file, scans it for dependent DSC resources, and creates a .zip file containing the configuration and DSC resources needed to enact the configuration. It can also create the package locally using the `-ConfigurationArchivePath` parameter. Otherwise, it publishes the .zip file to Azure blob storage and secures it with a SAS token.
+Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof file. The extension then runs **Start-DscConfiguration -Force** by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
 
-The .zip file created by this cmdlet has the .ps1 configuration script at the root of the archive folder. Resources have the module folder placed in the archive folder. 
+### Default configuration script
 
-`Set-AzureVMDscExtension` injects the settings needed by the PowerShell DSC extension into a VM configuration object. In the classic deployment model, the VM changes must be applied to an Azure VM with `Update-AzureVM`. 
+The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). For script parameters, see [Default configuration script](extensions-dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](extensions-dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
-`Get-AzureVMDscExtension` retrieves the DSC extension status of a particular VM. 
+## DSC extension in Resource Manager templates
 
-`Get-AzureVMDscExtensionStatus` retrieves the status of the DSC configuration enacted by the DSC extension handler. This action can be performed on a single VM, or group of VMs.
+In most scenarios, Resource Manager deployment templates are the expected way to work with the DSC extension. For more information and for examples of how to include the DSC extension in Resource Manager deployment templates, see [Desired State Configuration extension with Azure Resource Manager templates](extensions-dsc-template.md).
 
-`Remove-AzureVMDscExtension` removes the extension handler from a given virtual machine. This cmdlet does **not** remove the configuration, uninstall the WMF, or change the applied settings on the virtual machine. It only removes the extension handler. 
+## DSC extension PowerShell cmdlets
 
-**Key differences in ASM and Azure Resource Manager cmdlets**
+The PowerShell cmdlets that are used to manage the DSC extension are best used in interactive troubleshooting and information-gathering scenarios. You can use the cmdlets to package, publish, and monitor DSC extension deployments. Note that cmdlets for the DSC extension aren't yet updated to work with the [default configuration script](#default-configuration-script).
 
-* Azure Resource Manager cmdlets are synchronous. ASM cmdlets are asynchronous.
-* ResourceGroupName, VMName, ArchiveStorageAccountName, Version, and Location are all required parameters in Azure Resource Manager.
-* ArchiveResourceGroupName is a new optional parameter for Azure Resource Manager. You can specify this parameter when your storage account belongs to a different resource group than the one where the virtual machine is created.
-* ConfigurationArchive is called ArchiveBlobName in Azure Resource Manager
-* ContainerName is called ArchiveContainerName in Azure Resource Manager
-* StorageEndpointSuffix is called ArchiveStorageEndpointSuffix in Azure Resource Manager
-* The AutoUpdate switch has been added to Azure Resource Manager to enable automatic updating of the extension handler to the latest version as and when it is available. Note this parameter has the potential to cause reboots on the VM when a new version of the WMF is released. 
+The **Publish-AzureRMVMDscConfiguration** cmdlet takes in a configuration file, scans it for dependent DSC resources, and then creates a .zip file. The .zip file contains the configuration and DSC resources that are needed to enact the configuration. The cmdlet can also create the package locally by using the *-ConfigurationArchivePath* parameter. Otherwise, the cmdlet publishes the .zip file to blob storage, and then secures it with an SAS token.
 
-## Azure portal functionality
-Browse to a VM. Under Settings -> General click "Extensions." A new pane is created. Click "Add" and select PowerShell DSC.
+The .ps1 configuration script that the cmdlet creates is in the .zip file at the root of the archive folder. The module folder is placed in the archive folder in resources.
 
-The portal needs input.
-**Configuration Modules or Script**: This field is mandatory. Requires a .ps1 file containing a configuration script, or a .zip file with a .ps1 configuration script at the root, and all dependent resources in module folders within the .zip. It can be created with the `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` cmdlet included in the Azure PowerShell SDK. The .zip file is uploaded into your user blob storage secured by a SAS token. 
+The **Set-AzureRMVMDscExtension** cmdlet injects the settings that the PowerShell DSC extension requires into a VM configuration object.
 
-**Configuration Data PSD1 File**: This field is optional. If your configuration requires a configuration data file in .psd1, use this field to select it and upload it to your user blob storage, where it is secured by a SAS token. 
+The **Get-AzureRMVMDscExtension** cmdlet retrieves the DSC extension status of a specific VM.
 
-**Module-Qualified Name of Configuration**: .ps1 files can have multiple configuration functions. Enter the name of the configuration .ps1 script followed by a  '\' and the name of the configuration function. For example, if your .ps1 script has the name "configuration.ps1", and the configuration is "IisInstall", you would enter: `configuration.ps1\IisInstall`
+The **Get-AzureRMVMDscExtensionStatus** cmdlet retrieves the status of the DSC configuration that's enacted by the DSC extension handler. This action can be performed on a single VM or on a group of VMs.
 
-**Configuration Arguments**: If the configuration function takes arguments, enter them in here in the format `argumentName1=value1,argumentName2=value2`. Note this format is a different format than how configuration arguments are accepted through PowerShell cmdlets or Resource Manager templates. 
+The **Remove-AzureRMVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler. 
 
-## Getting started
-The Azure DSC extension takes in DSC configuration documents and enacts them on Azure VMs. A simple example of a configuration follows. Save it locally as "IisInstall.ps1":
+Important information about Resource Manager DSC extension cmdlets:
+
+- Azure Resource Manager cmdlets are synchronous.
+- The *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *Version*, and *Location* parameters are all required.
+- *ArchiveResourceGroupName* is an optional parameter. You can specify this parameter when your storage account belongs to a different resource group than the one where the VM is created.
+- Use the **AutoUpdate** switch to automatically update the extension handler to the latest version when it's available. Note that this parameter has the potential to cause restarts on the VM when a new version of WMF is released.
+
+### Get started with cmdlets
+
+The Azure DSC extension can use DSC configuration documents to directly configure Azure VMs during deployment. This step doesn't register the node to Automation. The node is *not* centrally managed.
+
+The following example shows a simple example of a configuration. Save the configuration locally as IisInstall.ps1.
 
 ```powershell
-configuration IISInstall 
-{ 
+configuration IISInstall
+{
     node "localhost"
-    { 
-        WindowsFeature IIS 
-        { 
-            Ensure = "Present" 
-            Name = "Web-Server"                       
-        } 
-    } 
+    {
+        WindowsFeature IIS
+        {
+            Ensure = "Present"
+            Name = "Web-Server"
+        }
+    }
 }
 ```
 
-The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
-###Classic model
-```powershell
-#Azure PowerShell cmdlets are required
-Import-Module Azure
-
-#Use an existing Azure Virtual Machine, 'DscDemo1'
-$demoVM = Get-AzureVM DscDemo1
-
-#Publish the configuration script into user storage.
-Publish-AzureVMDscConfiguration -ConfigurationPath ".\IisInstall.ps1" -StorageContext $storageContext -Verbose -Force
-
-#Set the VM to run the DSC configuration
-Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "IisInstall" -Verbose
-
-#Update the configuration of an Azure Virtual Machine
-$demoVM | Update-AzureVM -Verbose
-
-#check on status
-Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
-```
-###Azure Resource Manager model
+The following commands place the IisInstall.ps1 script on the specified VM. The commands also execute the configuration, and then report back on status.
 
 ```powershell
 $resourceGroup = "dscVmDemo"
 $location = "westus"
 $vmName = "myVM"
 $storageName = "demostorage"
-#Publish the configuration script into user storage
+#Publish the configuration script to user storage
 Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
-
+Set-AzureRmVmDscExtension -Version 2.72 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
 ```
 
-## Logging
-Logs are placed in:
+## Azure portal functionality
 
-```
-C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+To set up DSC in the portal:
+
+1. Go to a VM. 
+2. Under **Settings** > **General**, select **Extensions**. 
+3. In the new pane that's created, select **Add**, and then select **PowerShell DSC**.
+
+The portal requires the following input:
+
+* **Configuration Modules or Script**: This field is mandatory (the form has not been updated for the [default configuration script](#default-configuration-script)). Configuration modules and scripts require a .ps1 file that has a configuration script or a .zip file with a .ps1 configuration script at the root. If you use a .zip file, all dependent resources must be included in module folders in the .zip. You can create the .zip file by using the **Publish-AzureVMDscConfiguration -ConfigurationArchivePath** cmdlet that's included in the Azure PowerShell SDK. The .zip file is uploaded to your user blob storage and secured by an SAS token.
+
+* **Configuration Data PSD1 File**: This field is optional. If your configuration requires a configuration data file in .psd1, use this field to select the data field and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
+
+* **Module-Qualified Name of Configuration**: You can include multiple configuration functions in a .ps1 file. Enter the name of the configuration .ps1 script followed by  \\ and the name of the configuration function. For example, if your .ps1 script has the name configuration.ps1 and the configuration is **IisInstall**, enter **configuration.ps1\IisInstall**.
+
+* **Configuration Arguments**:
+If the configuration function takes arguments, enter them here in the format **argumentName1=value1,argumentName2=value2**. This format is a different format in which configuration arguments are accepted in PowerShell cmdlets or Resource Manager templates.
+
+## Logs
+Place logs in this location:
+
+```powerShell
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>
 ```
 
 ## Next steps
-For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
-
-Examine the [Azure Resource Manager template for the DSC extension](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-
-To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
-
-For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* For more information about PowerShell DSC, go to the [PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
+* Examine the [Resource Manager template for the DSC extension](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+* For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+* For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
