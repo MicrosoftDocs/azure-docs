@@ -36,9 +36,9 @@ This article explains how to create a VNet through the Resource Manager deployme
 - [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
-You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
+Learn how to download and modify and existing Azure Resource Manager template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
-If you are simply deploying the ARM template directly from GitHub, without any changes, skip to [deploy a template from github](#deploy-the-arm-template-by-using-click-to-deploy).
+If you are simply deploying the Azure Resource Manager template directly from GitHub, without any changes, skip to [deploy a template from github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -49,11 +49,11 @@ You can download the existing template for creating a VNet and two subnets from 
 2. Click **azuredeploy.json**, and then click **RAW**.
 3. Save the file to a a local folder on your computer.
 4. If you are familiar with templates, skip to step 7.
-5. Open the file you just saved and look at the contents under **parameters** in line 5. ARM template parameters provide a placeholder for values that can be filled out during deployment.
+5. Open the file you saved and look at the contents under **parameters** in line 5. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
    
    | Parameter | Description |
    | --- | --- |
-   | **location** |Azure region where the VNet will be created |
+   | **location** |Azure region where the VNet is created |
    | **vnetName** |Name for the new VNet |
    | **addressPrefix** |Address space for the VNet, in CIDR format |
    | **subnet1Name** |Name for the first VNet |
@@ -68,7 +68,7 @@ You can download the existing template for creating a VNet and two subnets from 
 6. Check the content under **resources** and notice the following:
    
    * **type**. Type of resource being created by the template. In this case, **Microsoft.Network/virtualNetworks**, which represent a VNet.
-   * **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
+   * **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name provided as input by the user or a parameter file during deployment.
    * **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
 7. Navigate back to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
@@ -228,7 +228,7 @@ You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub 
    
     ![Submitting deployment tile in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Once the deployment is complete, in the Azure portal click **More services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
+10. Once the deployment is complete, in the Azure portal click **All services**, type *virtual networks* in the filter box that appears, then click Virtual networks to see the Virtual networks blade. In the blade, click *TestVNet*. In the *TestVNet* blade, click **Subnets** to see the created subnets, as shown in the following picture:
     
      ![Create VNet in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

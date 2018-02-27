@@ -4,7 +4,7 @@ description: Install and use the Python client library to access and manage Azur
 services: machine-learning
 documentationcenter: python
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: huvalo;bradsev
 
 ---

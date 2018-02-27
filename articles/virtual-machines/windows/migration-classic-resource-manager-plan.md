@@ -202,7 +202,7 @@ Be purposeful on what services you now want to enable in Azure Resource Manager.
 - [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activity Control](../../azure-resource-manager/resource-group-audit.md)
-- [Resource Policies](../../azure-resource-manager/resource-manager-policy.md)
+- [Azure Policies](../../azure-policy/azure-policy-introduction.md)
 
 ### Pitfalls to avoid
 

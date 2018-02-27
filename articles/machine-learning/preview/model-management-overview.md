@@ -3,9 +3,9 @@ title: Conceptual overview of Azure Machine Learning Model Management | Microsof
 description: This document explains Model Management concepts for Azure Machine Learning.
 services: machine-learning
 author: nk773
-ms.author: neerajkh, padou
+ms.author: padou
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -119,4 +119,4 @@ The complete workflow describing these concepts is captured in the following fig
    Absolutely. You can run 100x of services/endpoints on the same cluster. 
 
 ## Next steps
-For getting started with Model Management, see [Configuring Model Management](model-management-configuration.md).
+For getting started with Model Management, see [Configuring Model Management](deployment-setup-configuration.md).

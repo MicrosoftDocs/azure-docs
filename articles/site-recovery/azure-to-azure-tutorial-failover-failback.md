@@ -2,18 +2,15 @@
 title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery (Preview)
 description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
-
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
-ms.author: rajanaki
+ms.topic: tutorial
+ms.date: 02/07/2018
+ms.author: raynew
 ms.custom: mvc
 ---
+
 # Fail over and fail back Azure VMs between Azure regions (Preview)
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).

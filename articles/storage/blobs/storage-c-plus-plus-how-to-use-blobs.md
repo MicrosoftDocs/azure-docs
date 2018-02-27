@@ -3,7 +3,7 @@ title: How to use blob storage (object storage) from C++ | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: .net
-author: michaelhauss
+author: MichaelHauss
 manager: vamshik
 editor: tysonn
 
@@ -54,6 +54,8 @@ Add the following include statements to the top of the C++ file where you want t
 ```cpp
 #include <was/storage_account.h>
 #include <was/blob.h>
+#include <cpprest/filestream.h>  
+#include <cpprest/containerstream.h> 
 ```
 
 ## Setup an Azure storage connection string

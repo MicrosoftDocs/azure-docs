@@ -1,14 +1,12 @@
 - name: Bing Video Search Documentation
-  href: ../index.md
+  href: index.yml
 - name: Overview        
   items:
     - name: Search the web for videos
       href: search-the-web.md
-    - name: Upgrade from v5 to v7
-      href: bing-video-upgrade-guide-v5-to-v7.md
-    - name: Use and display requirements
-      href: UseAndDisplayRequirements.md
-- name: Quickstarts
+    - name: Video Search endpoints
+      href: video-search-endpoints.md
+- name: API Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -19,14 +17,28 @@
     href: java.md
   - name: NodeJs
     href: nodejs.md
-  - name: Php
+  - name: PHP
     href: php.md
   - name: Python
     href: python.md
   - name: Ruby
     href: ruby.md
+- name: SDK (preview)
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Video Search SDK C# quickstart (preview)
+    href: video-search-sdk-quickstart.md 
+  - name: Video Search SDK Node quickstart (preview)
+    href: video-search-sdk-node-quickstart.md 
+  - name: Video Search SDK Python quickstart (preview)
+    href: video-sdk-python-quickstart.md
+  - name: Video Search SDK Java quickstart (preview)
+    href: video-sdk-java-quickstart.md 
 - name: How to
   items:
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
   - name: Get video insights
     href: video-insights.md
   - name: Get trending videos
@@ -35,6 +47,14 @@
     href: paging-videos.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+  - name: Upgrade from v5 to v7
+    href: bing-video-upgrade-guide-v5-to-v7.md
+- name: Tutorials
+  items:
+  - name: Single-page Video Search app
+    href: tutorial-bing-video-search-single-page-app.md
+  - name: Single-page Video Search app (source code)
+    href: tutorial-bing-video-search-single-page-app-source.md
 - name: Reference
   items:
   - name: REST v7

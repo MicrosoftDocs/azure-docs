@@ -2,7 +2,7 @@
 ## [What is Relay?](relay-what-is-it.md)
 ## [FAQ](relay-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create a namespace](relay-create-namespace-portal.md)
 ## [Create a hybrid on-premises/cloud application](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybrid Connections
@@ -21,6 +21,8 @@
 ### [Available APIs](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Manage
+### [Monitor Azure Relay with Azure Monitoring](relay-metrics-azure-monitor.md)
 
 # Reference
 ## .NET

@@ -20,6 +20,11 @@ ms.author: BernardoAMunoz
 # Resource types and health checks in Azure resource health
 Below is a complete list of all the checks executed through resource health by resource types.
 
+## Microsoft.ApiManagement/service
+|Executed Checks|
+|---|
+|<ul><li>Is the Api Management service up and running?</li></ul>|
+
 ## Microsoft.CacheRedis/Redis
 |Executed Checks|
 |---|
@@ -65,7 +70,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|
 |---|
-|<ul><li>Have there been any database or collection requests not served due to a DocumentDB service unavailability?</li><li>Have there been any document requests not served due to a DocumentDB service unavailability?</li></ul>|
+|<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
 
 ## Microsoft.network/connections
 |Executed Checks|

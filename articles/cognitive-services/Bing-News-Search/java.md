@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Bing News search
 
-The [Bing News Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference) returns news results from the Bing search engine.
+The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) returns news results from the Bing search engine.
 
 1. Download or install the [gson library](https://github.com/google/gson).
 2. Create a new Java project in your favorite IDE or editor.
@@ -52,7 +52,7 @@ import javax.net.ssl.HttpsURLConnection;
  * the command line as follows.
  *
  * javac BingNewsSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar DetectLanguage
+ * java -cp .;gson-2.8.1.jar BingNewsSearch
  */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

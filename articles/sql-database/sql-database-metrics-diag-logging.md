@@ -10,12 +10,12 @@ editor:
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
-ms.author: veljko-msft 
+ms.author: vvasic
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
@@ -45,16 +45,16 @@ When you enable metrics and diagnostics logging, you need to specify the Azure r
 
 You can provision a new Azure resource or select an existing resource. After selecting the storage resource, you need to specify which data to collect. Options available include:
 
-- [1-minute metrics](sql-database-metrics-diag-logging.md#1-minute-metrics): Contains DTU percentage, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage.
+- [All metrics](sql-database-metrics-diag-logging.md#all-metrics): Contains DTU percentage, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contains information about the query runtime statistics, such as CPU usage and query duration.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contains information about the query wait statistics, which tells you what your queries waited on, such as CPU, LOG, and LOCKING.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): Contains information about SQL errors that happened on this database.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): Contains information about how much time a database spent waiting on different waiting types.
-- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about how much time a database spent waiting on different waiting types.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): Contains information about how much time a database spent waiting on different wait types.
+- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about timeouts that happened on a database.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md).
 
-If you specify Event Hubs or a storage account, you can specify a retention policy that deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
+If you select Event Hubs or a storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
 To learn how to enable logging and understand the metrics and log categories that are supported by the various Azure services, we recommend that you read: 
 
@@ -113,7 +113,7 @@ You can combine these parameters to enable multiple output options.
 
 To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
-Please provide the workspace resource ID &lt;$WSID&gt; as a parameter when executing the script (Enable-AzureRMDiagnostics.ps1) to send diagnostic data from multiple resources to the workspace. To get the workspace ID &lt;$WSID&gt; to which you would like to send diagnostic data, please replace &lt;subID&gt; with the subscription ID, replace &lt;RG_NAME&gt; with the resource group name, and replace &lt;WS_NAME&gt; with the workspace name in the script below.
+Provide the workspace resource ID &lt;$WSID&gt; as a parameter when executing the script (Enable-AzureRMDiagnostics.ps1) to send diagnostic data from multiple resources to the workspace. To get the workspace ID &lt;$WSID&gt; to which you would like to send diagnostic data, replace &lt;subID&gt; with the subscription ID, replace &lt;RG_NAME&gt; with the resource group name, and replace &lt;WS_NAME&gt; with the workspace name in the following script.
 
 - To configure multiple Azure resources, use the following commands:
 
@@ -177,7 +177,7 @@ Monitoring a SQL Database fleet is simple with Log Analytics. Three steps are re
 
 ### Create a Log Analytics resource
 
-1. Select **New** in the menu on the left.
+1. Select **Create a resource** in the menu on the left.
 
 2. Select **Monitoring + Management**.
 
@@ -240,7 +240,7 @@ Or, more simply:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-For example, a blob name for 1-minute metrics might be:
+For example, a blob name for all metrics might be:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -258,7 +258,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 
 ## Metrics and logs available
 
-### 1-minute metrics
+### All metrics
 
 |**Resource**|**Metrics**|
 |---|---|
@@ -315,7 +315,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 |query_id_d|ID of the query in Query Store.|
 |plan_id_d|ID of the plan in Query Store.|
 
-Learn more about [Query Store runtime statistics data](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Learn more about [Query Store runtime statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### Query Store wait statistics
 
@@ -326,9 +326,9 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: QueryStoreWaitStatistics|
+|OperationName|Name of the operation. Always: QueryStoreWaitStatisticsEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -353,7 +353,7 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 |query_id_d|ID of the query in Query Store.|
 |plan_id_d|ID of the plan in Query Store.|
 
-Learn more about [Query Store wait statistics data](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Learn more about [Query Store wait statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### Errors dataset
 
@@ -364,9 +364,9 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/e
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: Errors|
+|OperationName|Name of the operation. Always: ErrorEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -393,9 +393,9 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: DatabaseWaitStatistics|
+|OperationName|Name of the operation. Always: DatabaseWaitStatisticsEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -411,7 +411,7 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 |delta_wait_time_ms_d|Total wait time in the period.|
 |delta_waiting_tasks_count_d|Number of waiting tasks.|
 
-Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Learn more about [database wait statistics](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### Time-outs dataset
 
@@ -422,9 +422,9 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: Timeouts|
+|OperationName|Name of the operation. Always: TimeoutEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -445,9 +445,9 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
 |ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
-|Category|Name of the category. Always: QueryStoreRuntimeStatistics|
-|OperationName|Name of the operation. Always: QueryStoreRuntimeStatisticsEvent|
-|Resource|Name of the resource.|
+|Category|Name of the category. Always: Blocks|
+|OperationName|Name of the operation. Always: BlockEvent|
+|Resource|Name of the resource|
 |ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
 |SubscriptionId|Subscription GUID that the database belongs to.|
 |ResourceGroup|Name of the resource group that the database belongs to.|
@@ -458,7 +458,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 |lock_mode_s|Lock mode used by the query.|
 |resource_owner_type_s|Owner of the lock.|
 |blocked_process_filtered_s|Blocked process report XML.|
-|duration_d|Duration of the lock in milliseconds.|
+|duration_d|Duration of the lock in microseconds.|
 
 ### Intelligent Insights dataset
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).

@@ -3,7 +3,7 @@ title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Troubleshooting no data - Application Insights for .NET
@@ -27,6 +27,7 @@ ms.author: bwren
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 
 * Probably a firewall issue. [Set firewall exceptions for Application Insights to send data](app-insights-ip-addresses.md).
+* IIS Server might be missing some prerequisites: .NET Extensibility 4.5, and ASP.NET 4.5.
 
 *I [installed Status Monitor](app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 

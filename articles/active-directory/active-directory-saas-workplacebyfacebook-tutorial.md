@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
 ms.service: active-directory
@@ -111,10 +111,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.facebook.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.facebook.com/company/<instancename>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.facebook.com/company/<instanceID>`
 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. Contact [Workplace by Facebook Client support team](https://workplace.fb.com/faq/) to get these values. 
+	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 

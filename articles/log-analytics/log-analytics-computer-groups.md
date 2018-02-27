@@ -1,5 +1,5 @@
 ---
-title: Computer groups in Log Analytics log searches | Microsoft Docs
+title: Computer groups in Azure Log Analytics log searches | Microsoft Docs
 description: Computer groups in Log Analytics allow you to scope log searches to a particular set of computers.  This article describes the different methods you can use to create computer groups and how to use them in a log search.
 services: log-analytics
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: bwren
 
 ---
@@ -80,7 +80,7 @@ You configure Log Analytics to import Active Directory security groups from Log 
 When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ### Windows Server Update Service
-When you configure Log Analytics to import WSUS group memberships, it analyzes the targeting group membership of any computers with the OMS agent.  If you are using client-side targeting, any computer that is connected to OMS and is part of any WSUS targeting groups has its group membership imported to Log Analytics. If you are using server-side targeting, the OMS agent should be installed on the WSUS server in order for the group membership information to be imported to OMS.  This membership is continuously updated every 4 hours. 
+When you configure Log Analytics to import WSUS group memberships, it analyzes the targeting group membership of any computers with the OMS agent.  If you are using client-side targeting, any computer that is connected to Log Analytics and is part of any WSUS targeting groups has its group membership imported to Log Analytics. If you are using server-side targeting, the OMS agent should be installed on the WSUS server in order for the group membership information to be imported to Log Analytics.  This membership is continuously updated every 4 hours. 
 
 You configure Log Analytics to import WSUS groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **WSUS**, and then **Import WSUS group memberships**.  There is no further configuration required.
 
@@ -106,13 +106,29 @@ Click the **x** in the **Remove** column to delete the computer group.  Click th
 
 
 ## Using a computer group in a log search
-You use a Computer group in a query by treating its alias as a function, typically with the following syntax:
+You use a Computer group created from a log search in a query by treating its alias as a function, typically with the following syntax:
 
   `Table | where Computer in (ComputerGroup)`
 
 For example, you could use the following to return UpdateSummary records for only computers in a computer group called mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Imported computer groups and their included computers are stored in the **ComputerGroup** table.  For example, the following query would return a list of computers in the Domain Computers group from Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+The following query would return UpdateSummary records for only computers in Domain Computers.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > If your workspace is still using the [legacy Log Analytics query language](log-analytics-log-search-upgrade.md)>, then you use the following syntax to refer to a computer group in a log search.  Specifying the **Category** >is optional and only required if you have computer groups with the same name in different categories. 
@@ -126,7 +142,7 @@ For example, you could use the following to return UpdateSummary records for onl
 
 
 ## Computer group records
-A record is created in the OMS repository for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log searches.
+A record is created in the Log Analytics workspace for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log searches.
 
 | Property | Description |
 |:--- |:--- |

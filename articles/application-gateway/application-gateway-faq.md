@@ -286,7 +286,7 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 * Prevention against bots, crawlers, and scanners
 
-* Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+ * Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
 **Q. Does WAF also support DDoS prevention?**
 

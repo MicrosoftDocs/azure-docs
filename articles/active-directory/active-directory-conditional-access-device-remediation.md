@@ -5,7 +5,7 @@ services: active-directory
 keywords: device-based conditional access, device registration, enable device registration, device registration and MDM
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/05/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -155,5 +155,5 @@ If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join
 
 
 ## Next steps
-[Azure Active Directory conditional access](active-directory-conditional-access.md)
+[Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
 

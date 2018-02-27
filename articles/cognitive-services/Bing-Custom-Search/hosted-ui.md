@@ -38,7 +38,7 @@ Use the following instructions to configure a hosted UI to include in your web a
     - Highlight words &mdash; Display results with search terms in bold
     - Search box text placeholder &mdash; Text displayed in the search box prior to input
     - Results per page &mdash; The number of results to display at a time
-6.  **Required**: Specify your subscription key.
+6.  **Required**: Paste your subscription key. See [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
 
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance
@@ -50,18 +50,10 @@ To consume the hosted UI, either:
     ``` html
     <html>
         <body>
-            
-                <script type="text/javascript">
-                        var customConfigId = '<YOUR-CUSTOM-CONFIG-ID>';
-                        var javasriptResourceUrl = 'https://ui.customsearch.ai/api/ux/render?customConfig=' + customConfigId;                
-                        var s = document.createElement('script');                
-                        s.setAttribute('type', 'text/javascript');                
-                        s.id = 'bcs_js_snippet';                
-                        s.src = javasriptResourceUrl;                
-                        var scripts = document.getElementsByTagName("script"),                
-                            currentScript = scripts[scripts.length-1];                
-                        currentScript.parentElement.appendChild(s);                
-                    </script>
+            <script type="text/javascript"
+                id="bcs_js_snippet"            
+                src="https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate">            
+            </script>
         </body>    
     </html>
     ```

@@ -28,8 +28,8 @@ This article shows how the developers can take advantage of the [Video Indexer A
 
 	If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) you must go through two preliminary steps: 
 	
-	1. 	Contact us to register your AAD organization’s domain (contoso.onmicrosoft.com).
-	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. 
+	1. 	Contact us at visupport@microsoft.com to register your AAD organization’s domain (contoso.onmicrosoft.com).
+	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. To do this, the organization's admin must navigate to https://videobreakdown.portal.azure-api.net/signin-callback?provider=Aad, sign in and give consent.
 	
 2. Subscribe.
 
@@ -43,19 +43,20 @@ This article shows how the developers can take advantage of the [Video Indexer A
 
 3.  Start developing.
  
-	You are ready to start integrating with the API. Find the detailed description of each Video Indexer REST API [here](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4).
+	You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4).
 
 ## Recommendations
 
 This section lists some recommendations when using Video Indexer API.
 
 - If you are planning to upload a video, it is recommended to place the file in some public network location (for example, OneDrive). Get the link to the video and provide the URL as the upload file param. 
-- When you call the API that gets video breakdowns for the specified video, you get a detailed JSON output as the response content. For details about the returned JSON, see [this](video-indexer-output-json.md) topic.
+- When you call the API that gets video breakdowns for the specified video, you get a detailed JSON output as the response content. [See details about the returned JSON in this topic](video-indexer-output-json.md).
 
 ## Code sample
 
-The following C# code snippet demonstrates the usage of all the Video Indexer APIs together. 
+The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
+```csharp
     var apiUrl = "https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns";
     var client = new HttpClient();
     client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "...");
@@ -114,10 +115,11 @@ The following C# code snippet demonstrates the usage of all the Video Indexer AP
     Console.WriteLine();
     Console.WriteLine("Player token:");
     Console.WriteLine(json);
+```
 
 ## Next steps
 
-Examine details of the output JSON, see [this](video-indexer-output-json.md) topic.
+[Examine details of the output JSON](video-indexer-output-json.md).
 
 ## See also
 

@@ -4,7 +4,7 @@ description: How to use Tenant Restrictions to manage which users can access app
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 editor: yossib
 
 ms.assetid:

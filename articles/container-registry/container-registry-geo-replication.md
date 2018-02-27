@@ -2,22 +2,13 @@
 title: Geo-replicating an Azure container registry
 description: Get started creating and managing geo-replicated Azure container registries.
 services: container-registry
-documentationcenter: ''
-author: SteveLas
-manager: balans
-editor:
-tags: ''
-keywords: ''
+author: stevelas
+manager: timlt
 
-ms.assetid:
 ms.service: container-registry
-ms.devlang:
 ms.topic: overview-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/24/2017
 ms.author: stevelas
-ms.custom:
 ---
 # Geo-replication in Azure Container Registry
 
@@ -99,10 +90,17 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Geo-replication pricing
 
-Geo-replication is a feature of the [Premium SKU](container-registry-skus.md#premium) of Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
+Geo-replication is a feature of the [Premium SKU](container-registry-skus.md) of Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
 
 In the preceding example, Contoso consolidated two registries down to one, adding replicas to East US, Canada Central, and West Europe. Contoso would pay four times Premium per month, with no additional configuration or management. Each region now pulls their images locally, improving performance, reliability without network egress fees from West US to Canada and East US.
 
 ## Summary
 
 With geo-replication, you can manage your regional data centers as one global cloud. As images are used across many Azure services, you can benefit from a single management plane while maintaining network-close, fast, and reliable local image pulls.
+
+## Next steps
+
+Check out the three-part tutorial series, [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md). Walk through creating a geo-replicated registry, building a container, and then deploying it with a single `docker push` command to multiple regional Web Apps for Containers instances.
+
+> [!div class="nextstepaction"]
+> [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md)

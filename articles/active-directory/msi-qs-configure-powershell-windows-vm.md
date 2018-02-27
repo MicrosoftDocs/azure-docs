@@ -3,8 +3,8 @@ title: How to configure MSI on an Azure VM using PowerShell
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using PowerShell.
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
-ms.author: bryanla
+ms.date: 11/27/2017
+ms.author: daveba
 ---
 
 # Configure a VM Managed Service Identity (MSI) using PowerShell
@@ -26,9 +26,9 @@ In this article, you learn how to enable and remove MSI for an Azure VM, using P
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) if you haven't already.
+Also, install [the latest version of Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) (version 4.3.1 or later) if you haven't already.
 
 ## Enable MSI during creation of an Azure VM
 

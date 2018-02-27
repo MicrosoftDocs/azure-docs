@@ -5,7 +5,7 @@ keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,depl
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -282,8 +282,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
+<!--
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2. Securing the DMZ subnet**
 
@@ -294,8 +296,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
+<!--
 [comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
 [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
@@ -358,7 +362,7 @@ You can use an existing virtual network or create a new VNET while deploying thi
 * [Internet Facing Load Balancer](https://aka.ms/Azure/ILB/Internet)
 * [Storage Accounts](https://aka.ms/Azure/Storage)
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
-* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
+* [AD FS and Web Application Proxy Links](https://aka.ms/ADFSLinks) 
 
 ## Next steps
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

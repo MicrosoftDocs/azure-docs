@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart

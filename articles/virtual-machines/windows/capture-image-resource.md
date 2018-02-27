@@ -62,7 +62,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS Disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
 
-Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it. (Use `Get-Module` to check what version you have.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -108,7 +108,7 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
     ```	
 ## Create an image from a managed disk using PowerShell
 
-If you only want to create an image of the OS disk, you can also crate an image by specifying the managed disk ID as the OS disk.
+If you only want to create an image of the OS disk, you can also create an image by specifying the managed disk ID as the OS disk.
 
 	
 1. Create some variables. 
@@ -124,7 +124,7 @@ If you only want to create an image of the OS disk, you can also crate an image 
 2. Get the VM.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Get the ID of the managed disk.

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
 
 ---
@@ -52,6 +52,18 @@ The report specifies the global-lease timeout as the time-to-live (TTL). The rep
 * **SourceId**: System.Federation
 * **Property**: Starts with **Neighborhood** and includes node information.
 * **Next steps**: Investigate why the neighborhood is lost, for example, check the communication between cluster nodes.
+
+### Rebuild
+
+The **Failover Manager** service (**FM**) manages information about the cluster nodes. When FM loses its data and goes into data loss it can't guarantee that it has the most updated information about the cluster nodes. In this case, the system goes through a **Rebuild**, and **System.FM** gathers data from all nodes in the cluster in order to rebuild its state. Sometimes, due to networking or node issues, rebuild could get stuck or stalled. The same could happen with the **Failover Manager Master** service (**FMM**). The **FMM** is a stateless system service that keeps track of where all of the **FMs** are in the cluster. The **FMMs** primary is always the node with the ID closest to 0. If that node gets dropped, a **Rebuild** is triggered.
+When one of the previous conditions happen, **System.FM** or **System.FMM** flag it through an Error report. Rebuild could be stuck in one of two phases:
+
+* Waiting for broadcast: **FM/FMM** waits for the broadcast message reply from the other nodes. **Next steps:** Investigate whether there is a network connection issue between nodes.   
+* Waiting for nodes: **FM/FMM** already received a broadcast reply from the other nodes and is waiting for a reply from specific nodes. The health report lists the nodes for which the **FM/FMM** is waiting for a response. **Next steps:** Investigate the network connection between the **FM/FMM** and the listed nodes. Investigate each listed node for other possible issues.
+
+* **SourceID**: System.FM or System.FMM
+* **Property**: Rebuild.
+* **Next steps**: Investigate the network connection between the nodes, as well as the state of any specific nodes that are listed on the description of the health report.
 
 ## Node system health reports
 **System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
@@ -98,6 +110,13 @@ The Service Fabric Load Balancer reports a warning when it detects a node capaci
 * **SourceId**: System.PLB
 * **Property**: Starts with **Capacity**.
 * **Next steps**: Check the provided metrics and view the current capacity on the node.
+
+### Node capacity mismatch for resource governance metrics
+System.Hosting reports a warning if defined node capacities in the cluster manifest are larger than the real node capacities for resource governance metrics (memory and cpu cores). Health report will be shown up when first service package that uses [resource governance](service-fabric-resource-governance.md) registers on a specified node.
+
+* **SourceId**: System.Hosting
+* **Property**: ResourceGovernance
+* **Next steps**: This can be a problem as governing service packages will not be enforced as expected and [resource governance](service-fabric-resource-governance.md) will not work properly. Update the cluster manifest with correct node capacities for these metrics or do not specify them at all and let Service Fabric to automatically detect available resources.
 
 ## Application system health reports
 **System.CM**, which represents the Cluster Manager service, is the authority that manages information about an application.
@@ -616,6 +635,21 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
 
+### Replicator system health reports
+**Replication queue full:**
+**System.Replicator** reports a warning when the replication queue is full. On the primary, the replication queue usually becomes full because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
+
+* **SourceId**: System.Replicator
+* **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
+* **Next steps**: If the report is on the primary, check the connection between the nodes in the cluster. If all connections are healthy, there could be at least one slow secondary with a high disk latency to apply operations. If the report is on the secondary, check the disk usage and performance on the node first and then the outgoing connection from the slow node to the primary.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** on the primary replica reports a warning when the connection to a secondary (remote) replicator is not healthy. Remote replicator's address is shown in the report's message, making it more convenient to detect if a wrong config has been passed in or there are network issues between the replicators.
+
+* **SourceId**: System.Replicator
+* **Property**: **RemoteReplicatorConnectionStatus**
+* **Next steps**: Check the error message and make sure the remote replicator address is configured correctly (for example, if remote replicator is opened with "localhost" listen address, it is not reachable from the outside). If address looks correct, check the connection between the primary node and the remote address to find any potential network issues.
+
 ### Replication queue full
 **System.Replicator** reports a warning when the replication queue is full. On the primary, the replication queue usually becomes full because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
 
@@ -812,6 +846,13 @@ System.Hosting reports an error if validation during the upgrade fails or if the
 * **SourceId**: System.Hosting
 * **Property**: Uses the prefix **FabricUpgradeValidation** and contains the upgrade version.
 * **Description**: Points to the error encountered.
+
+### Undefined node capacity for resource governance metrics
+System.Hosting reports a warning if node capacities are not defined in the cluster manifest and config for automatic detection is turned off. Service Fabric will raise health warning whenever service package that uses [resource governance](service-fabric-resource-governance.md) registers on a specified node.
+
+* **SourceId**: System.Hosting
+* **Property**: ResourceGovernance
+* **Next steps**: The preferred way to overcome this problem is to change the cluster manifest to enable automatic detection of available resources. Another way is updating the cluster manifest with correctly specified node capacities for these metrics.
 
 ## Next steps
 [View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)

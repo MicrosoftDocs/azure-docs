@@ -194,6 +194,7 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
+
 ### Set default Azure storage account environment variables
 You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
@@ -265,7 +266,7 @@ az storage blob download \
 
 ### List the blobs in a container
 
-List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#list) command.
+List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
 
 ```azurecli
 az storage blob list \
@@ -390,7 +391,7 @@ Sample Output
 }
 ```
 
-### List share napshots
+### List share snapshots
 
 You may list share snapshots of a particular share using `az storage share list --include-snapshots`
 

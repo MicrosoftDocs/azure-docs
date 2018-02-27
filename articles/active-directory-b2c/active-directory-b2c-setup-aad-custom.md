@@ -4,7 +4,7 @@ description: Learn about Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
@@ -49,6 +49,9 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Enter a name for your application (for example, `Azure AD B2C App`).
 1. Select **Web app / API** for the application type.
 1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+
+    >[!NOTE]
+    >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp

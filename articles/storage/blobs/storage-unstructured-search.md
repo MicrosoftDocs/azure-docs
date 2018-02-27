@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Search unstructured data in cloud storage
 
-In this tutorial, you learn how to search unstructured data using Azure search using data stored in Azure blobs. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
+In this tutorial, you learn how to search unstructured data using [Azure Search](../../search/search-what-is-azure-search.md) using data stored in Azure blobs. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
 In this tutorial you learn how to:
 
@@ -195,7 +195,7 @@ The **FIELD NAME** column contains the parameters. The following table provides 
 
 2. You are brought back to **Import Data**, select **OK** to complete the connection process.
 
-You've now successfully connected your blob to your search service. The search service begins indexing immediately and you can begin searching right away.
+You've now successfully connected your blob to your search service. It takes a few minutes for the portal to show that the index is populated. However, the search service begins indexing immediately so you can begin searching right away.
 
 ## Search your text files
 
@@ -229,7 +229,7 @@ Enter "Myopia" in the **Query string** field and select **Search**. Initiating a
 
 You can also create queries that search by system properties using the `$select` parameter. Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
     
-The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields, use a comma, such as: `$select=metadata_storage_name,metadata_storage_size`
+The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields, use a comma, such as: `$select=metadata_storage_name,metadata_storage_path`
     
 The `$select` parameter can only be used with fields that are marked retrievable when defining your index.
 
@@ -239,7 +239,7 @@ You have now completed this tutorial and have a searchable set of unstructured d
 
 ## Next steps
 
-In this tutorial, you learned about searching unstructured data using Azure search, such as how to:
+In this tutorial, you learned about searching unstructured data using Azure Search, such as how to:
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -249,7 +249,7 @@ In this tutorial, you learned about searching unstructured data using Azure sear
 > * Create a Search Service
 > * Using the Search Service to search your container
 
-Follow this link to learn more about search.
+Follow this link to learn more about indexing documents with Azure Search.
 
 > [!div class="nextstepaction"]
-> [What is Azure Search](../../search/search-what-is-azure-search.md)
+> [Indexing Documents in Azure Blob Storage with Azure Search](../../search/search-howto-indexing-azure-blob-storage.md)

@@ -5,7 +5,7 @@ description: Provides you with a list of error messages of the Azure Active Dire
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 

@@ -31,15 +31,15 @@ The following limits apply only for networking resources managed through Azure R
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Interfaces (NIC) |350 |20000 |
 | Network Security Groups (NSG) |100 |5000 |
-| NSG rules per NSG |200 |500 |
-| IP addresses and ranges specified for source or destination in a security rule |2000 |4000 |
+| NSG rules per NSG |200 |1000 |
+| IP addresses and ranges specified for source or destination in a security group |2000 |4000 |
 | Application security groups |200 |500 |
 | Application security groups per IP configuration, per NIC |10 |20 |
 | IP configurations per application security group |1000 |4000 |
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
-| Public IP addresses - dynamic |(Basic) |60 |contact support |
+| Public IP addresses - dynamic |(Basic) 60 |contact support |
 | Public IP addresses - static |(Basic) 20 |contact support |
 | Public IP addresses - static |(Standard) 20 |contact support |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
@@ -52,10 +52,10 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per resource, Basic | 150 | 250 |
 | Rules per resource, Standard | 1250 | 1500 |
 | Rules per IP configuration | 299 |299 |
-| Frontend IP configurations, Basic | 10 | contact support |
+| Frontend IP configurations, Basic | 10 | 200 |
 | Frontend IP configurations, Standard | 10 | 600 |
 | Backend pool, Basic | 100, single Availability Set | - |
-| Backend pool, Standard | 1000, single VNet | contact support |
+| Backend pool, Standard | 1000, single VNet | - |
 | HA Ports, Standard | 1 per internal frontend | - |
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.

@@ -2,19 +2,13 @@
 title: Perform operations on Azure Blob storage (object storage) with PowerShell | Microsoft Docs
 description: Tutorial - Perform operations on Azure Blob storage (object storage) with PowerShell
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
+author: tamram
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
-ms.author: robinsh
+ms.author: tamram
 ---
 
 # Perform Azure Blob storage operations with Azure PowerShell
@@ -149,7 +143,7 @@ You may want to copy a blob to a separate storage account. One example for doing
 Set up a second storage account, retrieve the context, set up a container in that storage account, and perform the copy. This part of the script is almost identical to the script above except for using the second storage account instead of the first.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `

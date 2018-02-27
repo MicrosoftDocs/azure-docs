@@ -63,7 +63,7 @@ Xamarin comes pre-packaged with Visual Studio for Mac. No installation should be
 
 A Visual Studio solution file *(.sln)* for the Visual Search application can be downloaded from [Visual Search App with Cognitive Services](https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/). You can download the ZIP archive using a Web browser, clone it to your workstation from GitHub, or download it using Visual Studio.
 
-To start working with the sample, open `cognitive-services-xamarin-forms-computer-vision-search\VisualSearchApp.sln` in Visual Studio.  Initializing the required components may take a moment.
+To start working with the sample, open `VisualSearchApp.sln` in Visual Studio.  Initializing the required components may take a moment.
 
 The application requires two third-party libraries: **Json.NET** and the **Xamarin Media Plugin**. You can install these libraries right in Visual Studio with the NuGet Package Manager. Choose  **Tools > NuGet Package Manager > Manage NuGet Packages For Solution**, or right-click the solution in Solution Explorer and choose **Manage NuGet Packages** from the context menu.
 
@@ -95,7 +95,7 @@ At the top of this screen, you can choose whether the text you want to recognize
 > [!TIP]
 > Hold the item from which you're trying to recognize text as level as possible and make sure it is evenly lit with no reflections. We've found that handwritten OCR sometimes works better for script fonts or other "fancy" text.
 
-Next, click **Take Photo** or **Import Photo** to either take a photo using your devices camera, or choose a photo stored on your device.
+Next, click **Take Photo** or **Import Photo** to either take a photo using your device's camera, or choose a photo stored on your device.
 
 After a photo is taken or chosen, the image is passed to the Computer Vision API. The Words Found page (defined in `OcrResultsPage.xaml`) displays any words recognized in the image.
 

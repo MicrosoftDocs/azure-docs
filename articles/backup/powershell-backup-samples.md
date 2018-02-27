@@ -11,7 +11,7 @@ tags:
 ms.assetid:
 ms.service: backup
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
