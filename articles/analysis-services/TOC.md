@@ -48,7 +48,7 @@
 #### [13 - Deploy](tutorials/aas-lesson-13-deploy.md)
 #### [Supplemental lesson - Detail Rows](tutorials/aas-supplemental-lesson-detail-rows.md)
 #### [Supplemental lesson - Dynamic security](tutorials/aas-supplemental-lesson-dynamic-security.md)
-###3 [Supplemental lesson - Ragged hierarchies](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+#### [Supplemental lesson - Ragged hierarchies](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Reference
 ## [Azure PowerShell](analysis-services-powershell.md)
