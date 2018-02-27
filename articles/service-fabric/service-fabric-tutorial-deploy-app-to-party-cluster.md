@@ -22,17 +22,18 @@ ms.custom: mvc
 # Deploy an application to a Cluster in Azure
 This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to a new cluster in Azure directly from Visual Studio.
 
-In part two of the tutorial series, you learn how to:
+In this tutorial series, you learn how to:
 > [!div class="checklist"]
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * Deploy the application to a remote cluster
 > * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
-In this tutorial series you learn how to:
+In this tutorial you learn how to:
 > [!div class="checklist"]
+> * Create a cluster from Visual Studio
 > * Deploy an application to a remote cluster using Visual Studio
-> * Remove an application from a cluster using Service Fabric Explorer
+
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -59,7 +60,7 @@ You have three options for deployment:
 
 This tutorial will follow steps to create a cluster from Visual Studio. For the other options, you can copy and paste your connection endpoint or choose it from your subscription.
 > [!NOTE]
-> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and Party Clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration.md).
+> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and Party Clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### Deploy the app to the Service Fabric cluster
 
@@ -75,12 +76,12 @@ This tutorial will follow steps to create a cluster from Visual Studio. For the 
 
     1. In this dialog, specify the name of your cluster in the "Cluster Name" field, as well as the subscription and location you want to use.
     2. You can modify the number of nodes. By default you have three nodes, the minimum required for testing Service Fabric scenarios.
-    3. Select the "Certificate" tab. In this tab, type a password to use to secure the certificate of your cluster. This certificate helps make your cluster secure. You can also modify the path on which you want to save the certificate.
-    4. Select the "VM Detail" tab. In here, specify the password you would like to use for the Virtual Machine for your nodes. If you wish to, you can modify the image and the size of the virtual machine.
-    5. Optional: go to the "Advanced" tab to modify the ports for your cluster, or to add an Application Insights key.
+    3. Select the "Certificate" tab. In this tab, type a password to use to secure the certificate of your cluster. This certificate helps make your cluster secure. You can also modify the path to where you want to save the certificate. Visual Studio can also import the certificate for you, since this is a required step to publish the application to the cluster.
+    4. Select the "VM Detail" tab. Specify the password you would like to use for the Virtual Machines (VM) that make up the cluster. The user name and password can be used to remotely connect to the VMs. You must also select a VM machine size and can change the VM image if needed.
+    5. Optional: On the "Advanced" tab you can modify the list of ports you want opened on the load balancer that will be created along with the cluster. You can also add an existing Application Insights key to be used to route application log files to.
     6. When you are done modifying settings, select the "Create" button. Creation takes a few minutes to complete; the output window will indicate when the cluster is fully created.
 
-4. Once the cluster you want to use is ready, click **Publish**.
+4. Once the cluster you want to use is ready, right-click on the application project and choose **Publish**.
 
     When the publish has finished, you should be able to send a request to the application via a browser.
 
@@ -94,8 +95,8 @@ This tutorial will follow steps to create a cluster from Visual Studio. For the 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
+> * Create a cluster from Visual Studio
 > * Deploy an application to a remote cluster using Visual Studio
-> * Remove an application from a cluster using Service Fabric Explorer
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
