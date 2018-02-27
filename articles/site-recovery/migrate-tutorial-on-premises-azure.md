@@ -88,8 +88,8 @@ Select and verify target resources.
 
 ## Enable replication
 
-- [Enable replication](vmware-azure-tutoria.md#enable-replication) for VMware VMs.
-- [Enable replication](tutorial-physical-to-azure.md#enable-replication) for physical servers.
+- [Enable replication](vmware-azure-tutorial.md#enable-replication) for VMware VMs.
+- [Enable replication](tutorial-physical-azure.md#enable-replication) for physical servers.
 - [Enable replication](physical-azure-disaster-recovery.md#enable-replication) for Hyper-V VMs.
 
 
