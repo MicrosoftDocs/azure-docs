@@ -61,6 +61,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 
 Set the values that are needed to connect using the **Service principal** authentication method.  
 
+```csharp
         <configuration>
         ...
             <appSettings>
@@ -70,9 +71,12 @@ Set the values that are needed to connect using the **Service principal** authen
 				<add key="AMSClientSecret" value="secret"/>
             </appSettings>
         </configuration>
+```
+
 7. Add the **System.Configuration** reference to your project.
-7. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code:
-		   
+8. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code:
+
+```csharp	   
 		using System;
 		using System.Configuration;
 		using System.IO;
@@ -80,13 +84,15 @@ Set the values that are needed to connect using the **Service principal** authen
 		using System.Threading;
 		using System.Collections.Generic;
 		using System.Linq;
+```
 
 At this point, you are ready to start developing a Media Services application.    
 
 ## Example
 
 Here is a small example that connects to the AMS API and lists all available Media Processors.
-	
+
+```csharp
 	class Program
 	{
 	    // Read values from the App.config file.
@@ -119,6 +125,7 @@ Here is a small example that connects to the AMS API and lists all available Med
 	        }
 	
 	    }
+```
 
 ##Next steps
 

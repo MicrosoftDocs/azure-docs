@@ -61,6 +61,7 @@ The following are general steps for generating content keys that you associate w
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see a .NET example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Create a checksum value calculated using the key identifier and content key. The following .NET example calculates the checksum using the GUID part of the key identifier and the clear content key.
 
+```csharp
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
         {
             const int ChecksumLength = 8;
@@ -86,6 +87,7 @@ The following are general steps for generating content keys that you associate w
 
             return Convert.ToBase64String(retVal);
         }
+```
 
 1. Create the Content key with the **EncryptedContentKey** (converted to base64-encoded string), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, and **Checksum** values you have received in previous steps.
 

@@ -70,7 +70,7 @@ For information about consuming telemetry information, see [this](media-services
 	
 The following example shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

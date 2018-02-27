@@ -64,6 +64,7 @@ The following **ConfigureClearAssetDeliveryPolicy** method specifies to not appl
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
+```csharp
 	static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
 	{
 		IAssetDeliveryPolicy policy =
@@ -73,13 +74,14 @@ For information on what values you can specify when creating an AssetDeliveryPol
 		
 		asset.DeliveryPolicies.Add(policy);
 	}
-
+```
 ## DynamicCommonEncryption asset delivery policy
 
 The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
+```csharp
 	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 	{
 		Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
@@ -103,9 +105,11 @@ For information on what values you can specify when creating an AssetDeliveryPol
 	        Console.WriteLine("Adding Asset Delivery Policy: " +
 	            assetDeliveryPolicy.AssetDeliveryPolicyType);
 	 }
+```
 
 Azure Media Services also enables you to add Widevine encryption. The following example demonstrates both PlayReady and Widevine being added to the asset delivery policy.
 
+```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
         // Get the PlayReady license service URL.
@@ -143,7 +147,7 @@ Azure Media Services also enables you to add Widevine encryption. The following 
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
-
+```
 > [!NOTE]
 > When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH in the asset delivery protocol.
 > 
@@ -154,6 +158,7 @@ The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPo
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
+```csharp
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
@@ -190,7 +195,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
         Console.WriteLine();
         Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
     }
-
+```
 
 ## <a id="types"></a>Types used when defining AssetDeliveryPolicy
 
@@ -198,6 +203,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
 
 The following enum describes values you can set for the asset delivery protocol.
 
+```csharp
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -228,11 +234,11 @@ The following enum describes values you can set for the asset delivery protocol.
         /// </summary>
         All = 0xFFFF
     }
-
+```
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
 The following enum describes values you can set for the asset delivery policy type.  
-
+```csharp
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -261,11 +267,11 @@ The following enum describes values you can set for the asset delivery policy ty
         /// </summary>
         DynamicCommonEncryption
         }
-
+```
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
 The following enum describes values you can use to configure the delivery method of the content key to the client.
-    
+  ```csharp  
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -293,11 +299,11 @@ The following enum describes values you can use to configure the delivery method
         Widevine = 3
 
     }
-
+```
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
 The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.
-
+```csharp
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>
@@ -340,7 +346,7 @@ The following enum describes values you can set to configure keys used to get sp
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
+```
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

@@ -38,6 +38,7 @@ Initializing the player can be completed in just a handful of lines of JavaScrip
 ## Creating the HTML Page
 The first step is to create a standard HTML page containing the **video** element, save this file as basicPlayer.html, as the following example illustrates:
 
+```html
     <!DOCTYPE html>
     <html>
       <head><title>Adaptive Streaming in HTML5</title></head>
@@ -46,18 +47,21 @@ The first step is to create a standard HTML page containing the **video** elemen
         <video id="videoplayer" controls></video>
       </body>
     </html>
+```
 
 ## Adding the DASH.js Player
 To add the dash.js reference implementation to the application, you need to grab the dash.all.js file from the 1.0 release of dash.js project. This should be saved in the JavaScript folder of your application. This file is a convenience file that pulls together all the necessary dash.js code into a single file. If you have a look around the dash.js repository, you find the individual files, test code and much more, but if all you want to do is use dash.js, then the dash.all.js file is what you need.
 
 To add the dash.js player to your applications, add a script tag to the head section of basicPlayer.html:
 
+```html
     <!-- DASH-AVC/265 reference implementation -->
     < script src="js/dash.all.js"></script>
-
+```
 
 Next, create a function to initialize the player when the page loads. Add the following script after the line in which you load dash.all.js:
 
+```html
     <script>
     // setup the video element and attach it to the Dash player
     function setupVideo() {
@@ -69,6 +73,7 @@ Next, create a function to initialize the player when the page loads. Add the fo
                       player.attachSource(url);
     }
     </script>
+```
 
 This function first creates a DashContext. This is used to configure the application for a specific runtime environment. From a technical point of view, it defines the classes that the dependency injection framework should use when constructing the application. In most cases, you use Dash.di.DashContext.
 
@@ -78,16 +83,20 @@ The startup() function of the MediaPlayer class is called to ensure that the pla
 
 Pass the URL of the MPD file to the MediaPlayer so that it knows about the video it is expected to play. The setupVideo() function just created will need to be executed once the page has fully loaded. Do this by using the onload event of the body element. Change your <body> element to:
 
+```html
     <body onload="setupVideo()">
+```
 
 Finally, set the size of the video element using CSS. In an adaptive streaming environment, this is especially important because the size of the video being played may change as playback adapts to changing network conditions. In this simple demo simply force the video element to be 80% of the available browser window by adding the following CSS to the head section of the page:
 
+```html
     <style>
     video {
       width: 80%;
       height: 80%;
     }
     </style>
+```
 
 ## Playing a Video
 To play a video, point your browser at the basicPlayback.html file and click play on the video player displayed.

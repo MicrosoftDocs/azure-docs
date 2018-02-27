@@ -161,6 +161,7 @@ The following program shows how to:
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a video motion detection task based on a configuration file that contains the following json preset: 
    
+```json
         {
           "Version": "1.0",
           "Options": {
@@ -188,6 +189,8 @@ The following program shows how to:
             ]
           }
         }
+```
+
 3. Download the output JSON files. 
 
 #### Create and configure a Visual Studio project
@@ -196,7 +199,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example
 
-```
+```csharp
 
 using System;
 using System.Configuration;

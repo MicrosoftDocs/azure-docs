@@ -126,7 +126,7 @@ In the webhook definition code that follows, the **VerifyWebHookRequestSignature
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
-```
+```csharp
 ///////////////////////////////////////////////////
 #r "Newtonsoft.Json"
 
@@ -347,7 +347,8 @@ Save and run your function.
 Once the webhook is triggered, the example above produces the following output, your values will vary.
 
 	C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
-	Request Body = {
+	Request Body = 
+    {
 	  "MessageVersion": "1.1",
 	  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
 	  "EventType": 4,
@@ -377,19 +378,21 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 	* webhook URL that expects to get the notifications, 
 	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
 
-			<appSettings>
-			  <add key="AMSAADTenantDomain" value="domain" />
-			  <add key="AMSRESTAPIEndpoint" value="endpoint" />
+```csharp
+        <appSettings>
+            <add key="AMSAADTenantDomain" value="domain" />
+            <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-			  <add key="AMSClientId" value="clinet id" />
-			  <add key="AMSClientSecret" value="client secret" />
+            <add key="AMSClientId" value="clinet id" />
+            <add key="AMSClientSecret" value="client secret" />
 
-			  <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-			  <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-			</appSettings>
-
+            <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+            <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+        </appSettings>
+```
 4. Update your Program.cs file with the following code:
 
+```csharp
 		using System;
 		using System.Configuration;
 		using System.Linq;
@@ -502,6 +505,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 			}
 		    }
 		}
+```
 
 ## Next steps
 

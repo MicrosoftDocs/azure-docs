@@ -107,7 +107,7 @@ Set up your development environment and populate the app.config file with connec
 
 ## Code example
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

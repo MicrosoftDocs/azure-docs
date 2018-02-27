@@ -99,6 +99,7 @@ The code does the following:
 > 
 > 
 
+```csharp
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
         {
             var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
@@ -154,7 +155,7 @@ The code does the following:
             Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
         }
     }
-
+```
 
 
 When uploading a large number of assets, consider the following.
@@ -168,28 +169,35 @@ Uploading large asset files can be a bottleneck during asset creation. Ingesting
 
 To create a new IngestManifest call the Create method exposed by the IngestManifests collection on the CloudMediaContext. This method will create a new IngestManifest with the manifest name you provide.
 
+```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
+```
 
 Create the assets that will be associated with the bulk IngestManifest. Configure the desired encryption options on the asset for bulk ingesting.
 
+```csharp
     // Create the assets that will be associated with this bulk ingest manifest
     IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
+```
 
 An IngestManifestAsset associates an Asset with a bulk IngestManifest for bulk ingesting. It also associates the AssetFiles that will make up each Asset. 
 To create an IngestManifestAsset, use the Create method on the server context.
 
 The following example demonstrates adding two new IngestManifestAssets that associate the two assets previously created to the bulk ingest manifest. Each IngestManifestAsset also associates a set of files that will be uploaded for each asset during bulk ingesting.  
 
+```csharp
     string filename1 = _singleInputMp4Path;
     string filename2 = _primaryFilePath;
     string filename3 = _singleInputFilePath;
 
     IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
+```
 
 You can use any high speed client application capable of uploading the asset files to the blob storage container URI provided by the **IIngestManifest.BlobStorageUriForUpload** property of the IngestManifest. One notable high speed upload service is [Aspera On Demand for Azure Application](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). You can also write code to upload the assets files as shown in the following code example.
 
+```csharp
     static void UploadBlobFile(string destBlobURI, string filename)
     {
         Task copytask = new Task(() =>
@@ -212,18 +220,21 @@ You can use any high speed client application capable of uploading the asset fil
 
         copytask.Start();
     }
+```
 
 The code for uploading the asset files for the sample used in this topic is shown in the following code example.
 
+```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
-
+```
 
 You can determine the progress of the bulk ingesting for all assets associated with an **IngestManifest** by polling the Statistics property of the **IngestManifest**. In order to update progress information, you must use a new **CloudMediaContext** each time you poll the Statistics property.
 
 The following example demonstrates polling an IngestManifest by its **Id**.
 
+```csharp
     static void MonitorBulkManifest(string manifestID)
     {
        bool bContinue = true;
@@ -255,12 +266,13 @@ The following example demonstrates polling an IngestManifest by its **Id**.
              bContinue = false;
        }
     }
-
+```
 
 
 ## Upload files using .NET SDK Extensions
 The example below shows how to upload a single file using .NET SDK Extensions. In this case the **CreateFromFile** method is used, but the asynchronous version is also available (**CreateFromFileAsync**). The **CreateFromFile** method lets you specify the file name, encryption option, and a callback in order to report the upload progress of the file.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -275,10 +287,13 @@ The example below shows how to upload a single file using .NET SDK Extensions. I
 
         return inputAsset;
     }
+```
 
 The following example calls UploadFile function and specifies storage encryption as the asset creation option.  
 
+```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
+```
 
 ## Next steps
 

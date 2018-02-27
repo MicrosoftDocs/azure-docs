@@ -66,7 +66,7 @@ The following code example demonstrates how to achieve the following tasks:
 
 For information on how to configure a live encoder, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

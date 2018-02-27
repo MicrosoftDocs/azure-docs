@@ -51,6 +51,7 @@ The following method uploads a media file as an asset and creates a job to index
 
 Note that if no configuration file is specified, the media file will be indexed with all default settings.
 
+```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
     {
         // Create an asset and upload the input media file to storage.
@@ -137,6 +138,8 @@ Note that if no configuration file is specified, the media file will be indexed 
 
         return processor;
     }  
+```
+
 <!-- __ -->
 ### <a id="output_files"></a>Output files
 By default, an indexing job generates the following output files. The files will be stored in the first output asset.
@@ -157,6 +160,7 @@ The following method uploads multiple media files as an asset, and creates a job
 
 A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
+```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
     {
         // Create an asset and upload to storage.
@@ -229,6 +233,7 @@ A manifest file with the .lst extension is created and uploading into the asset.
 
         return asset;
     }
+```
 
 ### Partially Succeeded Job
 If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).

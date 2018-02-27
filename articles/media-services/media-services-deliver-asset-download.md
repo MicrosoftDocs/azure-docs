@@ -25,6 +25,7 @@ This example shows how to download media assets from Media Services to your loca
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -73,7 +74,7 @@ This example shows how to download media assets from Media Services to your loca
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
-
+```
 
 
 ## Media Services learning paths

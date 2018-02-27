@@ -266,6 +266,7 @@ While all of the above examples have discussed how you can submit an encoding ta
 ### <a id="json"></a>JSON preset
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
 
+```json
 	{
 	  "Version": 1.0,
 	  "Codecs": [
@@ -325,10 +326,12 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	    }
 	  ]
 	}
+```
 
 ### <a id="xml"></a>XML preset
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
-	
+
+```csharp
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
@@ -378,6 +381,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	    </Output>
 	  </Outputs>
 	</Preset>	
+```
 
 ## <a id="code_sample"></a>Encode video and generate thumbnail with .NET
 
@@ -397,7 +401,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 See the [Media Services development with .NET](media-services-dotnet-how-to-use.md) article for directions on how to set up your dev environment.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

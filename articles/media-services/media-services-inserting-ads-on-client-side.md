@@ -46,6 +46,7 @@ Each player framework works differently and each will be covered in its own topi
 ### Using a Video Ad Service Template (VAST) File
 A VAST file specifies what ad or ads to display. The following XML is an example of a VAST file for a linear ad:
 
+```xml
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="115571748">
         <InLine>
@@ -87,11 +88,13 @@ A VAST file specifies what ad or ads to display. The following XML is an example
         </InLine>
       </Ad>
     </VAST>
+```
 
 The linear ad is described by the <**Linear**> element. It specifies the duration of the ad, tracking events, click through, click tracking, and a number of **MediaFile** elements. Tracking events are specified within the <**TrackingEvents**> element and allow an ad server to track various events that occur while viewing the ad. In this case the start, midpoint, complete, and expand events are tracked. The start event occurs when the ad is displayed. The midpoint event occurs when at least 50% of the ad’s timeline has been viewed. The complete event occurs when the ad has run to the end. The Expand event occurs when the user expands the video player to full screen. Clickthroughs are specified with a <**ClickThrough**> element within a <**VideoClicks**> element and specifies a URI to a resource to display when the user clicks on the ad. ClickTracking is specified in a <**ClickTracking**> element, also within the <**VideoClicks**> element and specifies a tracking resource for the player to request when the user clicks on the ad.The <**MediaFile**> elements specify information about a specific encoding of an ad. When there is more than one <**MediaFile**> element, the video player can choose the best encoding for the platform. 
 
 Linear ads can be displayed in a specified order. To do this, add additional <Ad> elements to the VAST file and specify the order using the sequence attribute. The following example illustrates this:
 
+```xml
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="1" sequence="0">
         <InLine>
@@ -134,9 +137,11 @@ Linear ads can be displayed in a specified order. To do this, add additional <Ad
         </InLine>
       </Ad>
     </VAST>
+```
 
 Nonlinear ads are specified in a <Creative> element as well. The following example shows a <Creative> element that describes a nonlinear ad.
 
+```xml
     <Creative id="video" sequence="1" AdID="">
       <NonLinearAds>
         <NonLinear width="216" height="121" minSuggestedDuration="00:00:15">
@@ -149,7 +154,7 @@ Nonlinear ads are specified in a <Creative> element as well. The following examp
          </TrackingEvents>
        </NonLinearAds>
     </Creative>
-
+```
 
 The <**NonLinearAds**> element can contain one or more <**NonLinear**> elements, each of which can describe a nonlinear ad. The <**NonLinear**> element specifies the resource for the nonlinear ad. The resource can be a <**StaticResouce**>, an <**IFrameResource**>, or an <**HTMLResouce**>. <**StaticResource**> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:
 
@@ -166,6 +171,7 @@ Companion ads are defined within a <CompanionAds> element. The <CompanionAds> el
 ### Using a Digital Video Multiple Ad Playlist (VMAP) File
 A VMAP file allows you to specify when ad breaks occur, how long each break is, how many ads can be displayed within a break, and what types of ads may be displayed during a break. The following in an example VMAP file that defines a single ad break:
 
+```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
@@ -212,6 +218,7 @@ A VMAP file allows you to specify when ad breaks occur, how long each break is, 
         </vmap:TrackingEvents>
       </vmap:AdBreak>
     </vmap:VMAP>
+```
 
 A VMAP file begins with a <VMAP> element that contains one or more <AdBreak> elements, each defining an ad break. Each ad break specifies a break type, break ID, and time offset. The breakType attribute specifies the type of ad that can be played during the break: linear, nonlinear, or display. Display ads map to VAST companion ads. More than one ad type can be specified in a comma (no spaces) separated list. The breakID is an optional identifier for the ad. The timeOffset specifies when the ad should be displayed. It can be specified in one of the following ways:
 
@@ -242,6 +249,7 @@ The <**AdBreak**> element can also contain one <**TrackingEvents**> element. The
 
 The following example shows a VMAP file that specifies tracking events
 
+```xml
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
@@ -262,12 +270,14 @@ The following example shows a VMAP file that specifies tracking events
         </vmap:TrackingEvents>
       </vmap:AdBreak>
     </vmap:VMAP>
+```
 
 For more information on the <**TrackingEvents**> element and its children, see http://iab.org/VMAP.pdf
 
 ### Using a Media Abstract Sequencing Template (MAST) File
 A MAST file allows you to specify triggers that define when an ad is displayed. The following is an example MAST file that contains triggers for a pre roll ad, a mid-roll ad, and a post-roll ad.
 
+```xml
     <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <triggers>
         <trigger id="preroll" description="preroll every item"  >
@@ -308,7 +318,7 @@ A MAST file allows you to specify triggers that define when an ad is displayed. 
         </trigger>
       </triggers>
     </MAST>
-
+```
 
 
 A MAST file begins with a **MAST** element that contains one **triggers** element. The <triggers> element contains one or more **trigger** elements that define when an ad should be played. 
@@ -322,6 +332,7 @@ The **trigger** element contains a **startConditions** element which specify whe
 
 **endConditions** also contain <condition> elements. When a condition evaluates to true the trigger is reset.The <trigger> element also contains a <sources> element that contains one or more <source> elements. The <source> elements define the URI to the ad response and the type of ad response. In this example a URI is given to a VAST response. 
 
+```xml
     <trigger id="postroll" description="postroll"  >
       <startConditions>
         <condition/>
@@ -332,20 +343,21 @@ The **trigger** element contains a **startConditions** element which specify whe
         </source>
       </sources>
     </trigger>
-
+```
 
 ### Using Video Player-Ad Interface Definition (VPAID)
 VPAID is an API for enabling executable ad units to communicate with a video player. This allows highly interactive ad experiences. The user can interact with the ad and the ad can respond to actions taken by the viewer. For example an ad may display buttons that allow the user to view more information or a longer version of the ad. The video player must support the VPAID API and the executable ad must implement the API. When a player requests an ad from an ad server the server may respond with a VAST response that contains a VPAID ad.
 
 An executable ad is created in code that must be executed in a runtime environment such as Adobe Flash™ or JavaScript that can be executed in a web browser. When an ad server returns a VAST response containing a VPAID ad, the value of the apiFramework attribute in the <MediaFile> element must be “VPAID”. This attribute specifies that the contained ad is a VPAID executable ad. The type attribute must be set to the MIME type of the executable, such as “application/x-shockwave-flash” or “application/x-javascript”. The following XML snippet shows the <MediaFile> element from a VAST response containing a VPAID executable ad. 
 
+```xml
     <MediaFiles>
        <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
                   width=”640” height=”480” apiFramework=”VPAID”>
            <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
-
+```
 
 An executable ad can be initialized using the <AdParameters> element within the <Linear> or <NonLinear> elements in a VAST response. For more information on the <AdParameters> element, see [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). For more information about the VPAID API, see [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
@@ -369,6 +381,7 @@ Each of these samples uses the MediaPlayer class defined by the player framework
 ### AdPodPage Sample
 This sample uses the AdSchedulerPlugin to define when to display an ad. In this example a mid-roll advertisement is scheduled to be played after 5 seconds. The ad pod (a group of ads to display in order) is specified in a VAST file returned from an ad server. The URI to the VAST file is specified in the <RemoteAdSource> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 
         <mmppf:MediaPlayer.Plugins>
@@ -386,12 +399,14 @@ This sample uses the AdSchedulerPlugin to define when to display an ad. In this 
             <ads:AdHandlerPlugin/>
         </mmppf:MediaPlayer.Plugins>
     </mmppf:MediaPlayer>
+```
 
 For more information about the AdSchedulerPlugin, see [Advertising in the Player Framework on Windows 8 and Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### AdSchedulingPage
 This sample also uses the AdSchedulerPlugin. It schedules three ads, a pre-roll ad, a mid-roll ad, and a post-roll ad. The URI to the VAST for each ad is specified in a <RemoteAdSource> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -420,35 +435,41 @@ This sample also uses the AdSchedulerPlugin. It schedules three ads, a pre-roll 
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
-
+```
 
 ### FreeWheelPage
 This sample uses the FreeWheelPlugin which specifies a Source attribute that specifies a URI that points to a SmartXML file that specifies ad content as well as ad scheduling information.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:FreeWheelPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/freewheel.xml"/>
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### MastPage
 This sample uses the MastSchedulerPlugin that allows you to use a MAST file. The Source attribute specifies the location of the MAST file.
-
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:MastSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/mast.xml" />
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### ProgrammaticAdPage
 This sample programmatically interacts with the MediaPlayer. The ProgrammaticAdPage.xaml file instantiates the MediaPlayer:
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
+```
 
 The ProgrammaticAdPage.xaml.cs file creates an AdHandlerPlugin, adds a TimelineMarker to specify when an ad should be displayed, and then adds a handler for the MarkerReached event which loads a RemoteAdSource specifying a URI to a VAST file, and then plays the ad.
 
+```csharp
     public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
         {
             AdHandlerPlugin adHandler;
@@ -476,10 +497,12 @@ The ProgrammaticAdPage.xaml.cs file creates an AdHandlerPlugin, adds a TimelineM
                     catch { /* ignore */ }
                 }
             }
+```
 
 ### ScheduleClipPage
 This sample uses the AdSchedulerPlugin to schedule a mid-roll ad by specifying a .wmv file that contains the ad.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.cloudapp.net/html5/media/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -500,10 +523,12 @@ This sample uses the AdSchedulerPlugin to schedule a mid-roll ad by specifying a
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### VastLinearCompanionPage
 This sample illustrates how to use the AdSchedulerPlugin to schedule a mid-roll linear ad with an companion ad. The <RemoteAdSource> element specifies the location of the VAST file.
 
+```xml
     <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -520,10 +545,12 @@ This sample illustrates how to use the AdSchedulerPlugin to schedule a mid-roll 
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### VastLinearNonLinearPage
 This sample uses the AdSchedulerPlugin to schedule a linear and a non-linear ad. The VAST file location is specified with the <RemoteAdSource> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:AdSchedulerPlugin>
@@ -540,16 +567,19 @@ This sample uses the AdSchedulerPlugin to schedule a linear and a non-linear ad.
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ### VMAPPage
 This samples uses the VmapSchedulerPlugin to schedule ads using a VMAP file. The URI to the VMAP file is specified in the Source attribute of the <VmapSchedulerPlugin> element.
 
+```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
                     <ads:VmapSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/vmap.xml"/>
                     <ads:AdHandlerPlugin/>
                 </mmppf:MediaPlayer.Plugins>
             </mmppf:MediaPlayer>
+```
 
 ## Implementing an iOS Video Player with Ad Support
 The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). The github page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
@@ -557,6 +587,7 @@ The Microsoft Media Platform: Player Framework for iOS contains a collection of 
 ### Scheduling Ads with VMAP
 The following example shows how to schedule ads using a VMAP file.
 
+```java
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 
@@ -572,6 +603,7 @@ The following example shows how to schedule ads using a VMAP file.
                     [self logFrameworkError];
                 }          
             }
+```
 
 ### Scheduling Ads with VAST
 The following sample shows how to schedule a late binding VAST ad.

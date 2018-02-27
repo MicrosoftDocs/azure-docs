@@ -142,6 +142,7 @@ In the previous step, you constructed the URL that points to a manifest file. Yo
 ### Manifest files
 The client needs to extract the URL (that also contains content key ID [kid]) value from the manifest file. The client then tries to get the encryption key from the key delivery service. The client also needs to extract the IV value and use it to decrypt the stream. The following snippet shows the <Protection> element of the Smooth Streaming manifest:
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -153,6 +154,7 @@ The client needs to extract the URL (that also contains content key ID [kid]) va
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 In the case of HLS, the root manifest is broken into segment files. 
 
@@ -188,6 +190,7 @@ If you open one of the segment files in a text editor (for example, http://test0
 
 The following code shows how to send a request to the Media Services key delivery service by using a key delivery Uri (that was extracted from the manifest) and a token. (This article doesn't explain how to get SWTs from an STS.)
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -227,6 +230,7 @@ The following code shows how to send a request to the Media Services key deliver
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## Protect your content with AES-128 by using .NET
 
@@ -236,8 +240,10 @@ The following code shows how to send a request to the Media Services key deliver
 
 2. Add the following elements to appSettings, as defined in your app.config file:
 
+```xml
 		<add key="Issuer" value="http://testacs.com"/>
 		<add key="Audience" value="urn:test"/>
+```
 
 ### <a id="example"></a>Example
 

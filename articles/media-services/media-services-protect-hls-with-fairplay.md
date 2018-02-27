@@ -157,7 +157,7 @@ Overwrite the code in your Program.cs file with the code shown in this section.
 
 Make sure to update variables to point to folders where your input files are located.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

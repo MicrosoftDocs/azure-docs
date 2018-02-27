@@ -65,7 +65,7 @@ The code example in this section does the following:
 
 ### Code
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;

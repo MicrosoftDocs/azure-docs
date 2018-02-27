@@ -54,6 +54,7 @@ To create the OnDemand streaming locator and get URLs, you need to do the follow
 ### Use Media Services .NET SDK
 Build Streaming URLs 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -90,6 +91,7 @@ Build Streaming URLs
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 The outputs:
 
@@ -108,6 +110,7 @@ The outputs:
 
 Build progressive download URLs 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -135,7 +138,7 @@ Build progressive download URLs
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 The outputs:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -147,7 +150,7 @@ The outputs:
 
 ### Use Media Services .NET SDK Extensions
 The following code calls .NET SDK extensions methods that create a locator and generate the Smooth Streaming, HLS, and MPEG-DASH URLs for adaptive streaming.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -163,7 +166,7 @@ The following code calls .NET SDK extensions methods that create a locator and g
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

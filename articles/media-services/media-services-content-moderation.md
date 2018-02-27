@@ -87,6 +87,7 @@ The following .NET code sample uses the Media Services .NET SDK to run a Content
 See the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md) for the full source code and the Visual Studio project.
 
 
+```csharp
 	/// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -210,7 +211,7 @@ The following example of a Content Moderator JSON output was truncated.
     }
     ]
     }
-
+```
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

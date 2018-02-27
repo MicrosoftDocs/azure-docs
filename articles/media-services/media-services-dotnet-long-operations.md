@@ -44,7 +44,7 @@ The example also shows how the client might use this class.
 
 ### ChannelOperations class definition
 
-```
+```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
