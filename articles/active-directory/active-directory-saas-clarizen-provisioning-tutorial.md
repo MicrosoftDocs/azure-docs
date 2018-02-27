@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Clarizen for automatic user provisioning with Azure 
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Clarizen.
 services: active-directory
 documentationcenter: ''
-author: zhchia-msft
-writer: zhchia-msft
+author: zhchia
+writer: zhchia
 manager: beatrizd-msft
 
 ms.assetid: na
@@ -137,7 +137,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/GroupMappingAttributes.png)
 
-14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
 15. To enable the Azure AD provisioning service for Clarizen, change the **Provisioning Status** to **On** in the **Settings** section.
 
