@@ -64,7 +64,7 @@ Output:
 The following example creates a cluster named *myAKSCluster* with one node.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --agent-count 1 --generate-ssh-keys
 ```
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
