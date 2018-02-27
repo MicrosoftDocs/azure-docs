@@ -256,7 +256,7 @@ To track the password change, you use an Azure table. When you run the pre-migra
 ### 4.1: Update your application setting
 1. To test the RESTful API demo, open the `AADB2C.UserMigration.sln` Visual Studio solution in Visual Studio.
 
-2. In the `AADB2C.UserMigration.API` project, open the *App.config* file. Replace the app setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
+2. In the `AADB2C.UserMigration.API` project, open the *Web.config* file. Replace the app setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
 
     ```XML
     <appSettings>
