@@ -76,7 +76,7 @@
 ### [Protect personal data at rest by using encryption](../protect-personal-data-at-rest.md)
 ### [Protect personal data in transit by using encryption](../protect-personal-data-in-transit-encryption.md)
 ### [Protect personal data by using Azure reporting tools](../protection-personal-data-azure-reporting-tools.md)
-## [FEDRAMP](./blueprints/fedramp.md)
+## [FEDRAMP](fedramp.md)
 ### [Security controls overview](fedramp-controls-overview.md)
 ### [Access control](fedramp-access-controls.md)
 ### [Audit and accountability](fedramp-audit-accountability-controls.md)
