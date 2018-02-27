@@ -139,7 +139,7 @@ You can add a previously registered model to the manifest by using argument `--m
 You can create an image with the option of having created its manifest before. 
 
 ```
-az ml image create -n [image name] -manifest-id [the manifest ID]
+az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
 Or you can create the manifest and image with a single command. 
