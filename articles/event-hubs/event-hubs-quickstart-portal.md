@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Send and receive Event Hubs messages using the Azure portal | Microsoft Docs
-description: Quickly learn to create an Event Hubs namespace with an event hub using Azure portal
+title: Azure Quickstart - Process event streams using the Azure portal | Microsoft Docs
+description: Quickly learn to process event streams using Azure portal
 services: event-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -11,14 +11,15 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2018
+ms.date: 02/26/2018
 ms.author: sethm
 
 ---
 
-# Send and receive events using the Azure portal
+# Process event streams using the Azure portal
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to send and receive events to and from an event hub, after using the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace and an event hub within that namespace.
 
