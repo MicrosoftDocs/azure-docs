@@ -17547,6 +17547,11 @@
         "source_path": "articles/log-analytics/log-analytics-log-search-api-python.md",
         "redirect_url": "https://dev.loganalytics.io/",
         "redirect_document_id": false
-     }
+     },
+    {
+            "source_path": "articles/azure-functions/durable-functions-counter.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor.md",
+            "redirect_document_id": true
+    }
    ]
 }
