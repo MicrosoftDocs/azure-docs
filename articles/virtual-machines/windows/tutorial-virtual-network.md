@@ -30,27 +30,9 @@ Azure virtual machines use Azure networking for internal and external network co
 > * Secure network traffic
 > * Create back-end VM
 
-## Update PowerShell
-
-This tutorial requires the AzureRM.Compute module version 4.3.1, which may not be in Cloud Shell yet. In the code block below, click the **Try it** button and then copy and paste the code into Cloud Shell to check the version: 
-
-```azurepowershell-interactive
-Get-Module -ListAvailable AzureRM.Compute
-```
-
-If you need to upgrade, type the following:
-
-```azurepowershell-interactive
-Install-Module AzureRM.Compute -RequiredVersion 4.3.1
-```
-
-Restart your Cloud Shell to load the updated module before continuing. After the Cloud Shell restarts, check to make sure 4.3.1 is installed.
-
-```azurepowershell-interactive
-Get-Module -ListAvailable AzureRM.Compute
-```
 
 
+This tutorial requires the Azure PowerShell module version 4.3.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## VM networking overview
 
@@ -70,7 +52,6 @@ While completing this tutorial, you can see these resources created:
 - *myBackendNic* - The network interface used by *myBackendVM* to communicate with *myFrontendVM*.
 - *myBackendVM* - The VM that uses port 1433 to communicate with *myFrontendVM*.
 
-This tutorial requires the Azure PowerShell module version 5.3.1 or later. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create a virtual network and subnet
 

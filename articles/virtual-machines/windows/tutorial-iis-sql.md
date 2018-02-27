@@ -30,27 +30,7 @@ In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-
-
-## Update PowerShell
-
-This tutorial requires the AzureRM.Compute module version 4.3.1, which may not be in Cloud Shell yet. In the code block below, click the **Try it** button and then copy and paste the code it into Cloud Shell to check the version:
-
-```azurepowershell-interactive
-Get-Module -ListAvailable AzureRM.Compute
-```
-
-If you need to upgrade, type the following:
-
-```azurepowershell-interactive
-Install-Module AzureRM.Compute -RequiredVersion 4.3.1
-```
-
-Restart your Cloud Shell to load the updated module before continuing. After the Cloud Shell restarts, check to make sure 4.3.1 is installed.
-
-```azurepowershell-interactive
-Get-Module -ListAvailable AzureRM.Compute
-```
+This tutorial requires the Azure PowerShell module version 4.3.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create a IIS VM 
 
@@ -86,6 +66,7 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features"}' `
     -Location EastUS
 ```
+
 ## Create another subnet
 
 Create a second subnet for the SQL VM. Get the vNet using [Get-AzureRmVirtualNetwork]{/powershell/module/azurerm.network/get-azurermvirtualnetwork}.
