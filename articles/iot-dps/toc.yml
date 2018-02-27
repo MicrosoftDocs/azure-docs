@@ -91,6 +91,8 @@
     href: how-to-revoke-device-access-portal.md
   - name: Unprovision devices
     href: how-to-unprovision-devices.md
+  - name: Perform proof-of-possession on X.509 CA certificates
+    href: how-to-verify-certificates.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
   - name: Control access to Provisioning Service
