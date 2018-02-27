@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Samanage for automatic user provisioning with Azure 
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Samanage.
 services: active-directory
 documentationcenter: ''
-author: zhchia-msft
-writer: zhchia-msft
+author: zhchia
+writer: zhchia
 manager: beatrizd-msft
 
 ms.assetid: na
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: v-ant-msft
+ms.author: v-ant
 ---
 
 # Tutorial: Configure Samanage for automatic user provisioning
