@@ -24,13 +24,13 @@
     - name: Prepare Azure
       href: tutorial-prepare-azure.md
     - name: Prepare on-premises VMware
-      href: tutorial-prepare-on-premises-vmware.md
+      href: vmware-azure-tutorial-prepare-on-premises.md
     - name: Set up disaster recovery
-      href: tutorial-vmware-to-azure.md
+      href: vmware-azure-tutorial.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
     - name: Run failover and failback
-      href: tutorial-vmware-to-azure-failover-failback.md
+      href: vmware-azure-tutorial-failover-failback.md
   - name: Hyper-V VMs
     items:
     - name: Prepare Azure
@@ -50,9 +50,9 @@
     - name: Prepare Azure for on-premises replication
       href: tutorial-prepare-azure.md
     - name: Migrate on-premises machines to Azure
-      href: tutorial-migrate-on-premises-to-azure.md
+      href: migrate-tutorial-on-premises-azure.md
     - name: Migrate AWS instances to Azure
-      href: tutorial-migrate-aws-to-azure.md
+      href: migrate-tutorial-aws-azure.md
     - name: Migrate Azure VMs to another region
       href: azure-to-azure-tutorial-migrate.md
 - name: Concepts
@@ -62,11 +62,11 @@
     - name: Azure to Azure architecture
       href: azure-to-azure-architecture.md
     - name: VMware to Azure architecture
-      href: concepts-vmware-to-azure-architecture.md
+      href: vmware-azure-architecture.md
     - name: Hyper-V to Azure architecture
       href: hyper-v-azure-architecture.md
     - name: Physical to Azure architecture
-      href: concepts-physical-to-azure-architecture.md
+      href: physical-azure-architecture.md
     - name: Hyper-V to secondary site architecture
       href: hyper-v-vmm-architecture.md
   - name: Support requirements matrix
@@ -87,6 +87,8 @@
       href: site-recovery-migrate-to-azure.md
   - name: Role-based access permissions
     href: site-recovery-role-based-linked-access-control.md
+  - name: Azure Traffic Manager with Azure Site Recovery
+    href: concepts-traffic-manager-with-site-recovery.md
   - name: FAQ
     href: site-recovery-faq.md
 - name: How-to Guides
@@ -112,11 +114,11 @@
     - name: Disaster recovery of Azure VMs after migration to Azure
       href: azure-to-azure-replicate-after-migration.md
     - name: Disaster recovery of physical servers to Azure
-      href: tutorial-physical-to-azure.md
+      href: physical-azure-disaster-recovery.md
     - name: Disaster recovery of Hyper-V VMs to a secondary site
       href: hyper-v-vmm-disaster-recovery.md
     - name: Disaster recovery of VMware VMs and physical servers to a secondary site
-      href: tutorial-vmware-to-vmware.md
+      href: vmware-physical-secondary-disaster-recovery.md
     - name: Run a disaster recovery drill to Azure
       href: site-recovery-test-failover-to-azure.md
     - name: Run a disaster recovery drill for Hyper-V VMs to a secondary site
@@ -234,7 +236,7 @@
     - name: Set up Hyper-V replication to Azure (no VMM) using PowerShell
       href: hyper-v-azure-powershell-resource-manager.md
     - name: Set up Hyper-V replication to Azure (with VMM) using PowerShell
-      href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+      href: hyper-v-vmm-powershell-resource-manager.md
     - name: Set up Hyper-V replication to a secondary VMM site using PowerShell
       href: hyper-v-vmm-powershell-resource-manager.md
   - name: Workloads
@@ -288,7 +290,7 @@
     - name: Failover to Azure issues
       href: site-recovery-failover-to-azure-troubleshoot.md
     - name: Reprotect and failback issues
-      href: troubleshoot-failback-reprotect.md
+      href: vmware-azure-troubleshoot-failback-reprotect.md
     - name: Monitor Azure Site Recovery
       href: site-recovery-monitor-and-troubleshoot.md
 - name: Reference

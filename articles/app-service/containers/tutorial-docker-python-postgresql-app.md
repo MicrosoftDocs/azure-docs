@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database in Azure
-> * Connect a Python app to MySQL
+> * Connect a Python app to PostgreSQL
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Manage the app in the Azure portal
