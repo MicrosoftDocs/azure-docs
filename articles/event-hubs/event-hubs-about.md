@@ -28,36 +28,36 @@ Your organization needs data-driven strategies to increase competitive advantage
 
 Event Hubs is used in scenarios such as the following:
 
-- Anomaly detection (fraud/outliers).
-- Application logging.
-- Real-time analytics pipelines, such as clickstreams.
-- Live dashboarding.
-- Archiving data.
-- Transaction processing.
-- User telemetry processing.
-- Device telemetry streaming. 
+- Anomaly detection (fraud/outliers)
+- Application logging
+- Real-time analytics pipelines, such as clickstreams
+- Live dashboarding
+- Archiving data
+- Transaction processing
+- User telemetry processing
+- Device telemetry streaming 
 
 The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. 
 
 Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios.
 
-### Fully managed PaaS 
+## Fully managed PaaS 
 
 Event Hubs is a completely managed service with no configuration or management overhead, so you focus on your business solutions. 
 
-### Scalable 
+## Scalable 
 
 You can start low with megabytes, and grow to gigabytes or terabytes of data. Use shared resources or completely dedicated resources. Event Hubs covers all streaming platform needs.
 
-### Real time and batch
+## Real time and batch
 
 [Event Hubs Capture](event-hubs-capture-overview.md) enables a single stream to support real-time and batch-based pipelines, and reduces the complexity of your solution. 
 
-### Develop cross-platform
+## Develop cross-platform
 
 With native clients available in various [languages (.NET, Java)](https://github.com/Azure/azure-event-hubs), you can easily send and receive data from Event Hubs. 
 
-### Event Hubs Capture
+## Event Hubs Capture
 
 [Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account of your choice, with the added flexibility of specifying a time or size interval. Setting up Capture is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs throughput units. Event Hubs Capture enables you to focus on data processing rather than on data capture. 
 
