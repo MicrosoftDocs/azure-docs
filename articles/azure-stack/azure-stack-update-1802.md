@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: brenduns
+ms.reviewer: justini
 
 ---
 
@@ -28,7 +29,7 @@ This article describes the improvements and fixes in the 1802 update package, kn
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
 
 ## Build reference    
-The Azure Stack 1802 update build number is **180223.1**.  
+The Azure Stack 1802 update build number is **20180227.1**.  
 
 
 ## Before you begin    
@@ -41,7 +42,19 @@ The Azure Stack 1802 update build number is **180223.1**.
 
 
 ### Prerequisites
-Install the Azure Stack [1712 Update](azure-stack-update-1712.md) before applying this update.
+- Install the Azure Stack [1712 Update](azure-stack-update-1712.md) before you apply the Azure Stack 1802 update.    
+
+- Install **AzS Hotfix – 1.0.180312.1** before you apply the Azure Stack 1802 update. This hotfix updates Windows Defender.
+
+  To install the hotfix, follow the normal procedures for [installing updates for Azure Stack](azure-stack-apply-updates.md). The name of the update appears as **AzS Hotfix – 1.0.180312.1**, and includes the following files: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  After uploading these files to a storage account and container, run the install from the Update tile in the admin portal. 
+  
+  Unlike updates to Azure Stack, installing this update does not change the version of Azure Stack.  To confirm this update is installed, view the list of **Installed updates**.
+ 
 
 
 ### Post-update steps
@@ -91,7 +104,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 
 ### Known issues (post-installation)
-The following are post-installation known issues for build  **1802xx.x**
+The following are post-installation known issues for build  **20180227.1**
 
 #### Portal
 - The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
@@ -119,7 +132,7 @@ The following are post-installation known issues for build  **1802xx.x**
 #### Health and monitoring
 There are no known issues after updating to 1802.
 
-### Marketplace
+#### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
 
 #### Compute
@@ -157,6 +170,10 @@ There are no known issues after updating to 1802.
 
 - On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
 
+- Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+
+
+
 
 
 #### SQL and MySQL
@@ -192,7 +209,7 @@ There are no known issues after updating to 1802.
 
 
 ## Download the update
-You can download the Azure Stack 1802 update package from [here]().
+You can download the Azure Stack 1802 update package from [here](https://aka.ms/azurestackupdatedownload).
 
 
 ## More information
