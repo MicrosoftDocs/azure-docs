@@ -141,7 +141,8 @@ In this topology, one Azure AD Connect sync server is connected to each Azure AD
 
 A DNS domain can be registered in only a single Azure AD tenant. The UPNs of the users in the on-premises Active Directory instance must also use separate namespaces. For example, in the preceding picture, three separate UPN suffixes are registered in the on-premises Active Directory instance: contoso.com, fabrikam.com, and wingtiptoys.com. The users in each on-premises Active Directory domain use a different namespace.
 
-There is no GALSync between the Azure AD tenant instances. The address book in Exchange Online and Skype for Business shows only users in the same tenant.
+> [!NOTE]
+> Global Address List Synchronization (GALSync) is not done automatically in this topology and requires an additional custom FIM 2010 or MIM 2016 implementation to ensure each tenant has a complete Global Address List in Exchange Online and Skype for Business Online.
 
 This topology has the following restrictions on otherwise supported scenarios:
 
