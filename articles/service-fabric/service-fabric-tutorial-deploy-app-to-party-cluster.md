@@ -70,20 +70,19 @@ In this tutorial we will create a cluster a cluster from Visual Studio. For the 
 2. Sign in by using your Azure account so that you can have access to your subscription(s). This step is optional if you're using a party cluster.
 
 3. Select the dropdown for the **Connection Endpoint** and select the "<Create New Cluster...>" option.
-    a.
-
-    a. configurations
-    b. fsdf
 
     ![Create Cluster Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-it will take you through a dialog where you can create a new cluster in your subscription. You can modify several basic settings from this menu to create a secure test cluster. Creation takes a few minutes.
+    1. In this dialog, specify the name of your cluster in the "Cluster Name" field, as well as the subscription and location you want to use.
+    2. You can modify the number of nodes. By default you have 3 nodes, which is the minimum required for testing Service Fabric scenarios.
+    3. Select the "Certificate" tab. In this tab, type a password to use to secure the certificate of your cluster. This helps make your cluster secure. You can also modify the path on which you want to save the certificate.
+    4. Select the "VM Detail" tab. In here, specify the password you would like to use for the Virtual Machine for your nodes. If you wish to, you can modify the image and the size of the virtual machine.
+    5. Optional: go to the "Advanced" tab to modify the ports for your cluster, or to add an Application Insights key.
+    6. When you are done modifying settings, select the "Create" button. Creation takes a few minutes to complete; the output window will indicate when the cluster is fully created.
 
+4. Once the cluster you want to use is ready, click **Publish**.
 
-
-4. Once you have selected a cluster, click **Publish**.
-
-    Once the publish has finished, you should be able to send a request to the application via a browser.
+    When the publish has finished, you should be able to send a request to the application via a browser.
 
 5. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
 
