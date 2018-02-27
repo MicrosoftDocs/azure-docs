@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 > [!div class="checklist"]
-> * For this article, you also need a [LUIS.][LUIS] account in order to author your LUIS application.
+> * For this article, you also need a [LUIS][LUIS] account in order to author your LUIS application.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -63,62 +63,59 @@ This article uses the prebuilt domain HomeAutomation. The prebuilt domain has in
 
     ![Publish the app](./media/luis-tutorial-batch-testing/publish.png)
 
-## How batch testing improves prediction
-Batch testing can test up to 1000 utterances at a time with the current model. The batch should not have duplicates. [Export](create-new-app.md#export-app) the app in order to see the list of current utterances. The original utterances from the prebuilt HomeAutomation app are available [here]() to review. 
+## Batch test criteria
+Batch testing can test up to 1000 utterances at a time. The batch should not have duplicates. [Export](create-new-app.md#export-app) the app in order to see the list of current utterances.  
 
-The HomeAutomation app predicts utterances such as "Turn on all the lights" and "Turn off the heat in the living room". 
+The test strategy for LUIS uses three separate sets of data: model utterances, batch test utterances, and endpoint utterances. For this tutorial, make sure you are not using the utterances from either model utterances (added to an intent), or endpoint utterances. 
 
-## Test data strategy
-The test data strategy for LUIS has three separate sets of data: model utterances, batch test utterances, and endpoint utterances. For this tutorial, make sure you are not using the utterances from either model utterances (added to an intent), or endpoint utterances. 
-
-The HomeAutomation prebuilt domain includes the following utterances. The [exported app](luis-glossary.md#batch-test-json-file) is in the LUIS-Samples repository. Do not use any of these utterances in the batch test:
+Do not use any of the utterances already in the app for the batch test:
 
 ```
-  'breezeway on please',
-  'change temperature to seventy two degrees',
-  'coffee bar on please',
-  'decrease temperature for me please',
-  'dim kitchen lights to 25 .',
-  'fish pond off please',
-  'fish pond on please',
-  'illuminate please',
-  'living room lamp on please',
-  'living room lamps off please',
-  'lock the doors for me please',
-  'lower your volume',
-  'make camera 1 off please',
-  'make some coffee',
-  'play dvd',
-  'set lights bright',
-  'set lights concentrate',
-  'set lights out bedroom',
-  'shut down my work computer',
-  'silence the phone',
-  'snap switch fan fifty percent',
-  'start master bedroom light .',
-  'theater on please',
-  'turn dimmer off',
-  'turn off ac please',
-  'turn off foyer lights',
-  'turn off living room light',
-  'turn off staircase',
-  'turn off venice lamp',
-  'turn on bathroom heater',
-  'turn on external speaker',
-  'turn on my bedroom lights .',
-  'turn on the furnace room lights',
-  'turn on the internet in my bedroom please',
-  'turn on thermostat please',
-  'turn the fan to high',
-  'turn thermostat on 70 .' 
+'breezeway on please',
+'change temperature to seventy two degrees',
+'coffee bar on please',
+'decrease temperature for me please',
+'dim kitchen lights to 25 .',
+'fish pond off please',
+'fish pond on please',
+'illuminate please',
+'living room lamp on please',
+'living room lamps off please',
+'lock the doors for me please',
+'lower your volume',
+'make camera 1 off please',
+'make some coffee',
+'play dvd',
+'set lights bright',
+'set lights concentrate',
+'set lights out bedroom',
+'shut down my work computer',
+'silence the phone',
+'snap switch fan fifty percent',
+'start master bedroom light .',
+'theater on please',
+'turn dimmer off',
+'turn off ac please',
+'turn off foyer lights',
+'turn off living room light',
+'turn off staircase',
+'turn off venice lamp',
+'turn on bathroom heater',
+'turn on external speaker',
+'turn on my bedroom lights .',
+'turn on the furnace room lights',
+'turn on the internet in my bedroom please',
+'turn on thermostat please',
+'turn the fan to high',
+'turn thermostat on 70 .' 
 ```
 
 ## Create a batch testing intents
-1. Create `homeauto-batch-1.json` in a text editor such as [VSCode](https://code.visualstudio.com/). The [file]() is also available in the LUIS-Samples repository. 
+1. Create `homeauto-batch-1.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
 
-2. Add utterances to the file. These utterances should be successful. Take utterances in the HomeAutomation.TurnOn and HomeAutomation.TurnOff and switch the `on` and `off` text in the utterances. For the None intent, add a couple of utterances that are not part of the subject area. 
+2. Add utterances with the **Intent** you want predicted in the test. For this tutorial, to make it simple, take utterances in the HomeAutomation.TurnOn and HomeAutomation.TurnOff and switch the `on` and `off` text in the utterances. For the None intent, add a couple of utterances that are not part of the [domain](luis-glossary#domain) (subject) area. 
 
-    This test is slanted toward successful predictions in order to illustrate the process. 
+    In order to understand how the batch test results correlate to the batch JSON, add only six intents.
 
     ```JSON
     [
@@ -154,15 +151,37 @@ The HomeAutomation prebuilt domain includes the following utterances. The [expor
         }
     ]
     ```
-    
+
 ## Run the batch
 1. Select **Test** in the top navigation bar. 
+
+    ![Select Test in navigation bar](./media/luis-tutorial-batch-testing/test-1.png)
+
 2. Select **Batch testing panel** in the right-side panel. 
+
+    ![Select Batch test panel](./media/luis-tutorial-batch-testing/test-2.png)
+
 3. Select **Import dataset**
+
+    ![Select Import dataset](./media/luis-tutorial-batch-testing/test-3.png)
+
 4. Choose the file system location of the `homeauto-batch-1.json` file.
-5. Name the dataset `set `.
-6. Select the **Run** button. Wait until the batch test is done.
+
+5. Name the dataset `set 1`.
+
+    ![Select file](./media/luis-tutorial-batch-testing/test-4.png)
+
+6. Select the **Run** button. Wait until the test is done.
+
+    ![Select Run](./media/luis-tutorial-batch-testing/test-5.png)
+
 7. Select **See results**.
+
+    ![See results](./media/luis-tutorial-batch-testing/test-6.png)
+
+8. Review results
+
+    ![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
 ## Review batch results
 The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area of the graph or legend.
@@ -308,3 +327,5 @@ The Entities section of the legend may have errors. That is the next thing to fi
 
 > [!div class="nextstepaction"]
 > [Learn more about example utterances](Add-example-utterances.md)
+
+[LUIS]: luis-reference-regions.md
