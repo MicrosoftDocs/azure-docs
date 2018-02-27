@@ -41,6 +41,9 @@ for disaster recovery scenarios.
 
 ## Set up the source environment
 
+> [!TIP]
+> The recomended method for deploying a Configuration server for protecting VMware virtual machine is to use the OVF based deployment model as suggested in this article. In case there are restrictions in your organization which prevents you from deploying an OVF template, then you can use the [UnifiedSetup.exe to install a Configuration server](physical-manage-configuration-server.md) .
+
 To set up the source environment, you need a single, highly available, on-premises machine to host on-premises Site Recovery components. Components include the configuration server, process server, and master target server:
 
 - The configuration server coordinates communications between on-premises and Azure and manages data replication.
