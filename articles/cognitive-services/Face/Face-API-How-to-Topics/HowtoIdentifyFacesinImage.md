@@ -41,14 +41,14 @@ To carry out the demonstration of this sample, you need to prepare a bunch of pi
 Every call to the Face API requires a subscription key. This key can be either passed through a query string parameter, or specified in the request header. To pass the subscription key through query string, please refer to the request URL for the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as an example:
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Your subscription key>
+&subscription-key=<Subscription key>
 ```
 
-As an alternative, the subscription key can also be specified in the HTTP request header: **ocp-apim-subscription-key: &lt;Your subscription key&gt;**
+As an alternative, the subscription key can also be specified in the HTTP request header: **ocp-apim-subscription-key: &lt;Subscription Key&gt;**
 When using a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
  
 ```CSharp 
-faceServiceClient = new FaceServiceClient("Your subscription key");
+faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
 The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).

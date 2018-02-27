@@ -121,7 +121,7 @@ Follow these instructions to configure the client library:
             // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
             // a free trial subscription key, you should not need to change this region.
             private readonly IFaceServiceClient faceServiceClient =
-                new FaceServiceClient("_key_", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
+                new FaceServiceClient("<Subscription Key>", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
 
             Face[] faces;                   // The list of detected faces.
             String[] faceDescriptions;      // The list of descriptions for the detected faces.
@@ -177,10 +177,10 @@ Follow these instructions to configure the client library:
 
     ```csharp
     private readonly IFaceServiceClient faceServiceClient =
-            new FaceServiceClient("_key_", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
+            new FaceServiceClient("<Subscription Key>", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
     ```
 
-    Replace `_key_` in the first parameter with your Face API subscription key from step 1.
+    Replace `<Subscription Key>` in the first parameter with your Face API subscription key from step 1.
 
     Also, check the second parameter to be sure you use the location where you obtained your subscription keys. If you obtained your subscription keys from the westus region, for example, replace "**westcentralus**" in the URI with "**westus**".
 
@@ -471,7 +471,7 @@ namespace FaceTutorial
         // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
         // a free trial subscription key, you should not need to change this region.
         private readonly IFaceServiceClient faceServiceClient =
-            new FaceServiceClient("7ab0aa443a5d4b83a017a438418f21de", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
+            new FaceServiceClient("<Subscription Key>", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
 
         Face[] faces;                   // The list of detected faces.
         String[] faceDescriptions;      // The list of descriptions for the detected faces.

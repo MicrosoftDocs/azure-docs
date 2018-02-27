@@ -158,7 +158,7 @@ Follow the instructions below to configure the client library:
    And then insert the following code in the MainActivity class:
 
 	    private FaceServiceClient faceServiceClient =  
-	                new FaceServiceRestClient("your API endpoint", "your subscription key");  
+	                new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
 
    Replace the first parameter above with the API endpoint that was assigned to your key in step 1. For example:
    

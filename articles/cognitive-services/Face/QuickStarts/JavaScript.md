@@ -55,7 +55,7 @@ To run the sample, perform the following steps:
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+        var subscriptionKey = "<Subscription Key>";
 
         // Replace or verify the region.
         //
@@ -261,7 +261,7 @@ method to identify people based on a detected face and people database (defined 
                 xhrObj.setRequestHeader("Content-Type","application/json");
 
                 // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","13hc77781f7e4b19b5fcdd72a8df7156");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","<Subscription Key>");
             },
             type: "POST",
             // Request body

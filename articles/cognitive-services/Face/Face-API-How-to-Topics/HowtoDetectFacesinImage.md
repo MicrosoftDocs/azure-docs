@@ -41,13 +41,13 @@ Every call to the Face API requires a subscription key. This key needs to be eit
 
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Your subscription key>
+&subscription-key=<Subscription Key>
 ```
 
-As an alternative, the subscription key can also be specified in the HTTP request header: **ocp-apim-subscription-key: &lt;Your subscription key&gt;**
+As an alternative, the subscription key can also be specified in the HTTP request header: **ocp-apim-subscription-key: &lt;Subscription Key&gt;**
 When using a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
 ```CSharp
-faceServiceClient = new FaceServiceClient("Your subscription key");
+faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
 ## <a name="step2"></a> Step 2: Upload an image to the service and execute face detection

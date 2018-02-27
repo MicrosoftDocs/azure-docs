@@ -49,7 +49,7 @@ request = Net::HTTP::Post.new(uri.request_uri)
 # Request headers
 request['Content-Type'] = 'application/json'
 # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-request['Ocp-Apim-Subscription-Key'] = '13hc77781f7e4b19b5fcdd72a8df7156'
+request['Ocp-Apim-Subscription-Key'] = '<Subscription Key>'
 # Request body
 request.body = "{\"url\":\"http://example.com/1.jpg\"}"
 
@@ -225,7 +225,7 @@ request = Net::HTTP::Post.new(uri.request_uri)
 # Request headers
 request['Content-Type'] = 'application/json'
 # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-request['Ocp-Apim-Subscription-Key'] = '13hc77781f7e4b19b5fcdd72a8df7156'
+request['Ocp-Apim-Subscription-Key'] = '<Subscription Key>'
 # Request body
 request.body = "{body}"
 

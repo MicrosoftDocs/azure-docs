@@ -37,7 +37,7 @@ method to detect faces in an image and return face attributes including:
 
 curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes={string}"
 -H "Content-Type: application/json"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+-H "Ocp-Apim-Subscription-Key: <Subscription Key>"
 
 --data-ascii "{body}"
 ```
@@ -199,7 +199,7 @@ method to identify people based on a detected face and people database (defined 
 
 curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify"
 -H "Content-Type: application/json"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+-H "Ocp-Apim-Subscription-Key: <Subscription Key>"
 
 --data-ascii "{body}"
 ```

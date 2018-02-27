@@ -56,7 +56,7 @@ namespace CSHttpClientSample
 		// **********************************************
 
 		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+		const string subscriptionKey = "<Subscription Key>";
 
 		// Replace or verify the region.
 		//
@@ -342,7 +342,7 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "6726adbabb494773a28a7a5a21d5974a");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<Subscription Key>");
 
             // Request URI string.
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.

@@ -47,7 +47,7 @@ $headers = array(
     'Content-Type' => 'application/json',
 
     // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
+    'Ocp-Apim-Subscription-Key' => '<Subscription Key>',
 );
 
 $request->setHeader($headers);
@@ -245,7 +245,7 @@ $headers = array(
     'Content-Type' => 'application/json',
 
     // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
+    'Ocp-Apim-Subscription-Key' => '<Subscription Key>',
 );
 
 $request->setHeader($headers);

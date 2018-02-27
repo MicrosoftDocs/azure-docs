@@ -65,7 +65,7 @@ public class Main
     // **********************************************
 
     // Replace the subscriptionKey string value with your valid subscription key.
-    public static final String subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+    public static final String subscriptionKey = "<Subscription Key>";
 
     // Replace or verify the region.
     //
@@ -276,7 +276,7 @@ public class Main
 
             // Request headers. Replace the example key with your valid subscription key.
             request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
+            request.setHeader("Ocp-Apim-Subscription-Key", "<Subscription Key>");
 
             // Request body. The name field is the display name you want for the group (must be under 128 characters).
             // The size limit for what you want to include in the userData field is 16KB.

@@ -35,7 +35,7 @@ pip install cognitive_face
 ```python
 import cognitive_face as CF
 
-KEY = 'subscription key'  # Replace with a valid subscription key (keeping the quotes in place).
+KEY = '<Subscription Key>'  # Replace with a valid subscription key (keeping the quotes in place).
 CF.Key.set(KEY)
 # If you need to, you can change your base API url with:
 #CF.BaseUrl.set('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/')

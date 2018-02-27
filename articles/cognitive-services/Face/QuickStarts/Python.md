@@ -24,11 +24,11 @@ For more information, see the [REST API Reference](https://westus.dev.cognitive.
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Face API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=face-api) is sufficient for this quickstart. You need the subscription key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Running the walkthrough
-To continue with this walkthrough, replace `subscription_key` with a valid subscription key.
+To continue with this walkthrough, replace `<Subscription Key>` with a valid subscription key.
 
 
 ```python
-subscription_key = "354f9ac5f2f04a008504575c15f458a7"
+subscription_key = "<Subscription Key>"
 assert subscription_key
 ```
 
@@ -53,7 +53,7 @@ The next few lines of code call into the Face API to detect the faces in the ima
 import requests
 from IPython.display import HTML
 
-headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
+headers = { 'Ocp-Apim-Subscription-Key': '<Subscription Key>' }
     
 params = {
     'returnFaceId': 'true',

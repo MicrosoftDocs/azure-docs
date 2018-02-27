@@ -50,7 +50,7 @@ If you are not familiar with the following concepts in this guide, the definitio
 When using the Face API client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceServiceClient class. For example:
 
 ```CSharp
-string SubscriptionKey = "Your subscription key";
+string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
 string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/";
 FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);

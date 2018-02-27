@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 When using a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
 
 ```CSharp
-FaceServiceClient faceServiceClient = new FaceServiceClient("Your subscription key");
+FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
 The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
