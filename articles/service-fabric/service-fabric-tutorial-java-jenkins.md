@@ -38,10 +38,10 @@ In this tutorial series you learn how to:
 
 
 ## Prerequisites
-- Have Git installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
-- Have working knowledge of Jenkins
-- Have a [Github](https://github.com/) account and know how to use Github
-- Have [Docker](https://www.docker.com/community-edition) installed on your machine
+- Install Git on your local computer from [the Git downloads page](https://git-scm.com/downloads). For more information about Git, read the [Git documentation](https://git-scm.com/docs).
+- Have a working knowledge of [Jenkins](https://jenkins.io/).
+- Create a [GitHub](https://github.com/) account and know how to use GitHub.
+- Install [Docker](https://www.docker.com/community-edition) on your computer.
 
 ## Pull and deploy Service Fabric Jenkins container image
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following instructions show how to set it up outside a cluster using a provided Docker image. However, a preconfigured Jenkins build environment can also be used. The following container image comes installed with the Service Fabric plugin and is ready for use with Service Fabric immediately. 
