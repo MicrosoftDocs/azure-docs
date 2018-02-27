@@ -237,7 +237,7 @@ CloudTask containerTask = new CloudTask (
 
 ## Next steps
 
-* Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit for easy deployment of container workloads on Azure Batch. Use [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes) to quickly configure common container workloads on Batch.
+* Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit for easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * For more information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 
