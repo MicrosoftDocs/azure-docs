@@ -25,7 +25,7 @@ In this article, you learn how to set up an Azure function and a logic app, whic
 * Create an [Azure function to receive and process Azure Service Bus messages](#receive-messages-using-azure-function) based on Event Grid events.
 * Utilize the [The Logic Apps feature of Azure App Service](#receive-messages-using-azure-logic-app).
 
-The example that you create assumes that the Service Bus topic has two subscriptions. The example also assumes that the Event Grid subscription is created to send events for only one Service Bus subscription. 
+The example that you create assumes that the Service Bus topic has two subscriptions. The example also assumes that the Event Grid subscription was created to send events for only one Service Bus subscription. 
 
 In the example, you send messages to the Service Bus topic and then verify that the event has been generated for this Service Bus subscription. The function or logic app receives the messages from the Service Bus subscription and then completes it.
 
@@ -38,7 +38,7 @@ Create a Service Bus Premium namespace, and create a Service Bus topic that has 
 
 ### Send a message to the Service Bus topic
 
-You can use any means to send a message to your Service Bus topic. The sample code at the end of this procedure assumes that you are using Visual Studio 2017.
+You can use any method to send a message to your Service Bus topic. The sample code at the end of this procedure assumes that you are using Visual Studio 2017.
 
 1. Clone [the GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/).
 
@@ -160,7 +160,7 @@ You'll add an Azure function, as shown in the following example, because the Ser
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 
-3. In the Azure portal, download the publishing profile for the Azure function that you created previously in the "Set up a test function" section.
+3. In the Azure portal, download the publishing profile for the Azure function that you created in the "Set up a test function" section.
 
     ![11][]
 
