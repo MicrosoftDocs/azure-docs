@@ -205,6 +205,8 @@
         href: connector-mongodb.md
       - name: MySQL
         href: connector-mysql.md
+      - name: Netezza
+        href: connector-netezza.md
       - name: OData
         href: connector-odata.md
       - name: ODBC
@@ -249,6 +251,8 @@
         href: connector-sybase.md
       - name: Teradata
         href: connector-teradata.md
+      - name: Vertica
+        href: connector-vertica.md
       - name: Web Table
         href: connector-web-table.md
       - name: Xero

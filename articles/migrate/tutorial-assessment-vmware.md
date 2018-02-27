@@ -41,7 +41,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 ## Create a project
 
 1. In the Azure portal, click **Create a resource**.
-2. Search for **Azure Migrate**, and select the service **Azure Migrate (preview)** in the search results. Then click **Create**.
+2. Search for **Azure Migrate**, and select the service **Azure Migrate** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
 5. Specify the location in which to create the project, then click **Create**. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can still plan your migration for any target Azure location. The location specified for the project is only used to store the metadata gathered from on-premises VMs. 
@@ -70,6 +70,14 @@ Check that the .OVA file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings.
     
+	For OVA version 1.0.9.2
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+	
     For OVA version 1.0.8.59
 
     **Algorithm** | **Hash value**

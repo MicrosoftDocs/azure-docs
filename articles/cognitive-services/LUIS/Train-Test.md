@@ -82,7 +82,7 @@ You inspect details of the test result in the **Inspect** panel.
     ![Select correct intent](./media/luis-how-to-train-test/intent-select.png)
 
 ## Compare with published version
-You can test the active version of your app with the published endpoint version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
+You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
 ![Compare with published](./media/luis-how-to-train-test/inspect-panel-compare.png)
 
