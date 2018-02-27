@@ -54,7 +54,7 @@ This article helps you create a connection to link a virtual network to Azure Ex
 1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the following image:
 
   ![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
-2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** > **Add** to open the **Add connection** blade, and then configure the values.
+2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** > **Add** to open the **Add connection** page, and then configure the values.
 
   ![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
 3. After your connection has been successfully configured, your connection object will show the information for the connection.
@@ -88,7 +88,7 @@ The circuit owner has the power to modify and revoke authorizations at any time.
 
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
-1. In the ExpressRoute blade, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
+1. In the ExpressRoute page, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
 
   ![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. Once the configuration is saved, copy the **Resource ID** and the **Authorization Key**.
@@ -97,7 +97,7 @@ The circuit owner creates an authorization. This results in the creation of an a
 
 **To delete a connection authorization**
 
-You can delete a connection by selecting the **Delete** icon on the blade for your connection.
+You can delete a connection by selecting the **Delete** icon on the page for your connection.
 
 ### Circuit user operations
 
@@ -112,14 +112,14 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
   ![Search for connection](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. Make sure the **Connection type** is set to "ExpressRoute".
-4. Fill in the details, then click **OK** in the Basics blade.
+4. Fill in the details, then click **OK** in the Basics page.
 
-  ![Basics blade](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
-5. In the **Settings** blade, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
+  ![Basics page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+5. In the **Settings** page, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
 6. Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**.
 
-  ![Settings blade](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
-7. Review the information in the **Summary** blade and click **OK**.
+  ![Settings page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+7. Review the information in the **Summary** page and click **OK**.
 
 **To release a connection authorization**
 
@@ -127,7 +127,7 @@ You can release an authorization by deleting the connection that links the Expre
 
 ## Delete a connection to unlink a VNet
 
-You can delete a connection and unlink your VNet to an ExpressRoute circuit by selecting the **Delete** icon on the blade for your connection.
+You can delete a connection and unlink your VNet to an ExpressRoute circuit by selecting the **Delete** icon on the page for your connection.
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
