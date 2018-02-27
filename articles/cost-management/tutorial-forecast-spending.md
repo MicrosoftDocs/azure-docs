@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Forecast spending with Azure Cost Management | Microsoft Docs
+title: Tutorial - Forecast spending with Azure Cost Management | Microsoft Docs
 description: In this tutorial you learn how to forecast spending using historical usage and spending data.
 services: cost-management
 keywords:

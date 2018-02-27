@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Assign access in Azure Cost Management | Microsoft Docs
+title: Tutorial - Assign access in Azure Cost Management | Microsoft Docs
 description: In this tutorial you learn how to assign access to cost management data with user accounts that define access levels to entities.
 services: cost-management
 keywords:

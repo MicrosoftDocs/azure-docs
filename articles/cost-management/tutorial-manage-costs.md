@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Manage costs with Azure Cost Management | Microsoft Docs
+title: Tutorial - Manage costs with Azure Cost Management | Microsoft Docs
 description: In this tutorial you learn to manage costs by using cost allocation and showback and chargeback reports.
 services: cost-management
 keywords:

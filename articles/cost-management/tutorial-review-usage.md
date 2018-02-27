@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Review usage and costs in Azure Cost Management | Microsoft Docs
+title: Tutorial - Review usage and costs in Azure Cost Management | Microsoft Docs
 description: In this tutorial, you review usage and costs to track trends, detect inefficiencies, and create alerts.
 services: cost-management
 keywords:
