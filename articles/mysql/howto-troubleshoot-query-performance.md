@@ -1,14 +1,14 @@
 ---
-title: How To Troubleshoot Query Performance in Azure Database for MySQL | Microsoft Docs
+title: How To Troubleshoot Query Performance in Azure Database for MySQL
 description: This article describes how to use EXPLAIN to troubleshoot query performance in Azure Database for MySQL.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 02/28/2018
 ---
 
 # How to use EXPLAIN to profile query performance in Azure Database for MySQL

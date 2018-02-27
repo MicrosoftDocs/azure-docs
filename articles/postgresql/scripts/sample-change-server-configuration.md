@@ -1,16 +1,16 @@
 ---
-title: "Azure CLI script: Change server configurations"
+title: Azure CLI script - Change server configurations
 description: This sample CLI script lists all available server configuration options and updates the value of one of the options.
-services: postgres
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+services: postgresql
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/12/2018
+ms.date: 02/28/2018
 ---
 
 # List and update configurations of an Azure Database for PostgreSQL server using Azure CLI

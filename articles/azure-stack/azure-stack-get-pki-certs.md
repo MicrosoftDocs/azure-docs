@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/22/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
 ---
@@ -72,4 +72,4 @@ The following workflow describes how you can customize and use the sample INF fi
 5. **Export and copy .PFX to deployment folders**. Export the certificate (including the Private Key) as a .PFX file, and copy the .PFX file to the deployment folders described in [Azure Stack deployment PKI requirements](azure-stack-pki-certs.md).
 
 ## Next steps
-[Identity integration](azure-stack-integrate-identity.md)
+[Prepare Azure Stack PKI certificates](prepare-pki-certs.md)

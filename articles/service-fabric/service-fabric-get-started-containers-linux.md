@@ -289,10 +289,12 @@ Here are the complete service and application manifests used in this article.
   <!-- Code package is your service executable. -->
   <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
-      <!-- Follow this link for more information about deploying Windows containers 
+      <!-- Follow this link for more information about deploying containers 
       to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
+        <!--Commands> dotnet, myproc.dll, 5 </Commands-->
         <Commands></Commands>
       </ContainerHost>
     </EntryPoint>

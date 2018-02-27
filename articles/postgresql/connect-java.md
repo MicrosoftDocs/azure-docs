@@ -1,16 +1,16 @@
 ---
-title: 'Connect to Azure Database for PostgreSQL using Java | Microsoft Docs'
+title: Connect to Azure Database for PostgreSQL using Java
 description: This quickstart provides a Java code sample you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/03/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for PostgreSQL: Use Java to connect and query data

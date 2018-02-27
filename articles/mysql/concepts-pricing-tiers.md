@@ -1,14 +1,14 @@
 ---
-title: "Pricing Tiers in Azure Database for MySQL | Microsoft Docs"
-description: "Pricing Tiers in Azure Database for MySQL"
+title: Pricing Tiers in Azure Database for MySQL
+description: This article describes the pricing tiers in Azure Database for MySQL.
 services: mysql
-author: seanli1988
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 2/16/2018
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -29,8 +29,8 @@ The following table can be used as a starting point for choosing a pricing tier:
 | Pricing tier | Target workloads |
 |:-------------|:-----------------|
 | Basic | Workloads requiring light compute and I/O performance. Examples include servers used for development or testing, or small-scale infrequently used applications. |
-| General Purpose | Most business workloads requiring balanced compute and memory with scalable I/O throughput.  Examples include server for hosting Web and Mobile apps, and other enterprise applications.|
-| Memory Optimized | High performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency. Examples include server for processing real-time data, and high performance transactional or analytical apps.|
+| General Purpose | Most business workloads requiring balanced compute and memory with scalable I/O throughput. Examples include server for hosting Web and Mobile apps, and other enterprise applications.|
+| Memory Optimized | High-performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency. Examples include server for processing real-time data, and high performance transactional or analytical apps.|
 
 After you create a server, the number of vCores can be changed up or down within seconds. You can also independently adjust the amount of storage up and the backup retention period up or down with no application downtime. See the scaling section below for more details.
 
@@ -69,7 +69,7 @@ Scaling storage and changing the backup retention period are true on-line operat
 
 ## Pricing
 
-Please review the service [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for the most up-to-date pricing information. To see what your desired configuration will cost, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer) shows the monthly cost in the **Pricing tier** tab based on the options you have selected. If you do not have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for MySQL** to customize the options.
+Please review the service [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for the most up-to-date pricing information. To see what your desired configuration costs, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer) shows the monthly cost in the **Pricing tier** tab based on the options you have selected. If you do not have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for MySQL** to customize the options.
 
 ## Next Steps
 

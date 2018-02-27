@@ -8,7 +8,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 02/27/2018
 ms.author: sajagtap
 ---
 
@@ -46,7 +46,12 @@ See all .NET samples at the [Content Moderator .NET samples on GitHub](https://g
 - [Image reviews](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageReviews)
 - [Image jobs](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageJob)
 
+For walkthroughs of these samples, check out the [on-demand webinar](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html).
+
 ## Tutorials
 - [eCommerce catalog moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration). See [tutorial](ecommerce-retail-catalog-moderation.md).
 - [Facebook content moderation](https://github.com/MicrosoftContentModerator/samples-fbPageModeration). See [tutorial](facebook-post-moderation.md).
 - [Video and transcript moderation and review solution](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) See [tutorial](video-transcript-moderation-review-tutorial-dotnet.md)
+
+## On-demand webinars
+- [Machine-assisted content moderation at scale with Content Moderator](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html)

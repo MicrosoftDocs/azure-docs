@@ -5,7 +5,7 @@
  author: tfitzmac
  ms.service: azure-resource-manager
  ms.topic: include
- ms.date: 02/16/2018
+ ms.date: 02/21/2018
  ms.author: tomfitz
  ms.custom: include file
 ---
@@ -14,17 +14,8 @@
 
 Policy is complementary to role-based access control (RBAC). RBAC focuses on user access, and is a default deny and explicit allow system. Policy focuses on resource properties during and after deployment. It's a default allow and explicit deny system.
 
-There are two concepts to understand with policies - policy definitions and policy assignments. A policy definition describes the management conditions you want to enforce. A policy assignment puts a policy definition into action for a particular scope.
+There are two concepts to understand with policies - *policy definitions* and *policy assignments*. A policy definition describes the management conditions you want to enforce. A policy assignment puts a policy definition into action for a particular scope.
 
 ![Assign policies](./media/resource-manager-governance-policy/policy-concepts.png)
 
 Azure provides several built-in policy definitions you can use without any modification. You pass parameter values to specify the values that are permitted in your scope. If built-in policy definition don't fulfill your requirements, you can [create custom policy definitions](../articles/azure-policy/create-manage-policy.md).
-
-### Who can create and assign policies
-
-To use policies, you must be authenticated through RBAC. Specifically, your account needs the:
-
-* `Microsoft.Authorization/policydefinitions/write` permission to define a policy.
-* `Microsoft.Authorization/policyassignments/write` permission to assign a policy.
-
-These permissions aren't included in the **Contributor** role.

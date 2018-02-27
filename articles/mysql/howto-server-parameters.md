@@ -1,14 +1,14 @@
 ---
-title: How To Configure Server Parameters in Azure Database for MySQL | Microsoft Docs
+title: How To Configure Server Parameters in Azure Database for MySQL
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/28/2018
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal

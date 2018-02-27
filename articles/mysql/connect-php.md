@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL from PHP | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL from PHP'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL.
 services: mysql
 author: mswutao 
@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use PHP to connect and query data

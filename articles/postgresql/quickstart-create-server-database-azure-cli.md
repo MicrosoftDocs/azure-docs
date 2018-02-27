@@ -1,18 +1,18 @@
 ---
-title: 'Create an Azure Database for PostgreSQL using the Azure CLI | Microsoft Docs'
-description: 'Quickstart guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface).'
+title: Quickstart - Create an Azure Database for PostgreSQL using the Azure CLI
+description: Quickstart guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface).
 services: postgresql
-author: sanagama
-ms.author: sanagama
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/13/2018
+ms.date: 02/28/2018
 ms.custom: mvc
 ---
-# Create an Azure Database for PostgreSQL using the Azure CLI
+# Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to create an Azure Database for PostgreSQL server in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) using the Azure CLI.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.

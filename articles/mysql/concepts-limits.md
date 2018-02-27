@@ -1,20 +1,20 @@
 ---
-title: Limitations in Azure Database for MySQL  | Microsoft Docs
-description: Describes preview limitations in Azure Database for MySQL.
+title: Limitations in Azure Database for MySQL
+description: This article describes limitations in Azure Database for MySQL, such as number of connection and storage engine options.
 services: mysql
-author: jasonh
-ms.author: kamathsun
+author: kamathsun
+ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 02/28/2018
 ---
 # Limitations in Azure Database for MySQL
 The Azure Database for MySQL service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
 ## Service tier maximums
-Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-pricing-tiers.md).  
+Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md).  
 
 There is a maximum number of connections, Compute Units, and storage in each service tier during preview, as follows: 
 
@@ -59,7 +59,7 @@ When too many connections are reached, you may receive the following error:
 
 ### Unsupported
 - DBA role: 
-Many sever parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain our service integrity and SLA at a product level we do not expose the DBA role to customers. The default user account, which is constructed when a new database instance is created, allows customers to perform most of DDL and DML statements in the managed database instance. 
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain the service integrity and SLA at a product level, this service does not expose the DBA role. The default user account, which is constructed when a new database instance is created, allows that user to perform most of DDL and DML statements in the managed database instance. 
 - SUPER privilege: 
 Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is also restricted.
 

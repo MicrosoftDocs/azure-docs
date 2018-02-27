@@ -1,16 +1,16 @@
 ---
-title: Azure CLI Script - Create an Azure Database for PostgreSQL | Microsoft Docs
+title: Azure CLI Script - Create an Azure Database for PostgreSQL
 description: Azure CLI Script Sample - Creates an Azure Database for PostgreSQL server and configures a server-level firewall rule.
 services: postgresql
-author: salonisonpal
-ms.author: salonis
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
-ms.date: 11/27/2017
+ms.date: 02/28/2018
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI

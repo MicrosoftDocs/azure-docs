@@ -1,15 +1,14 @@
 ---
-title: Overview of business continuity with Azure Database for MySQL  | Microsoft Docs
+title: Overview of business continuity with Azure Database for MySQL
 description: Overview of business continuity with Azure Database for MySQL.
 services: mysql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: MySQL
-ms.custom: mvc
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 02/28/2018
 ---
 
 # Overview of business continuity with Azure Database for MySQL

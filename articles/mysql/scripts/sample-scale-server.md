@@ -1,16 +1,16 @@
 ---
-title: Azure CLI samples to scale an Azure Database for MySQL server | Microsoft Docs
+title: Azure CLI script - Scale an Azure Database for MySQL server
 description: This sample CLI script scales Azure Database for MySQL server to a different performance level after querying the metrics.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/02/2017
+ms.date: 02/28/2018
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI

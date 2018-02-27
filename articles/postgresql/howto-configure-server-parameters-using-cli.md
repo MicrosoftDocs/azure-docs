@@ -1,15 +1,15 @@
 ---
-title: Configure the service parameters in Azure Database for PostgreSQL | Microsoft Docs
+title: Configure the service parameters in Azure Database for PostgreSQL
 description: This article describes how to configure the service parameters in Azure Database for PostgreSQL using the Azure CLI command line.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/28/2018
 ---
 # Customize server configuration parameters using Azure CLI
 You can list, show, and update configuration parameters for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). A subset of engine configurations is exposed at server-level and can be modified. 
