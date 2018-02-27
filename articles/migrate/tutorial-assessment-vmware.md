@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/02/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -16,6 +16,7 @@ The [Azure Migrate](migrate-overview.md) services assesses on-premises workloads
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create an account that Azure Migrate uses to discover on-premises VMs
 > * Create an Azure Migrate project.
 > * Set up an on-premises collector virtual machine (VM), to discover on-premises VMware VMs for assessment.
 > * Group VMs and create an assessment.
@@ -35,7 +36,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format. 
 - **Statistics settings**: The statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters. 
 
+## Create an account for VM discovery
+
+Azure Migrate needs access to VMware servers to automatically discover VMs for assessment. Create a VMware account with the following properties. You specify this account during Azure Migrate setup.
+
+- User type: At least a read-only user
+- Permissions: Data Center object –> Propagate to Child Object, role=Read-only
+- Details: User assigned at datacenter level, and has access to all the objects in the datacenter.
+- To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs and networks).
+
 ## Log in to the Azure portal
+
 Log in to the [Azure portal](https://portal.azure.com).
 
 ## Create a project
