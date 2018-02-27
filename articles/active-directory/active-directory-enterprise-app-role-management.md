@@ -165,7 +165,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	- Select **PATCH**.
 	
-	- Update the value of role by replacing the **decription** and **displayname** with the updated value.
+	- Update the value of role by replacing the **description** and **displayname** with the updated value.
 	
 	- Click **Run Query**. 
 
