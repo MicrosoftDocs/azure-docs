@@ -3,7 +3,7 @@ title: Using Mongo ReadPreference with Azure Cosmos DB's MongoDB API  | Microsof
 description: Learn how to use MongoDB ReadPreference against Azure CosmosDB with MongoDB API
 services: cosmos-db
 documentationcenter: ''
-author: viviswan
+author: vidhoonv
 manager: jhubbard
 editor: ''
 
