@@ -47,8 +47,6 @@ Before you begin this tutorial:
 
 The following steps create the necessary resources required to deploy your application to a Service Fabric cluster. Additionally, resources necessary to monitor the health of your solution using the ELK (Elasticsearch, Logstash, Kibana) stack are set up. Specifically, [Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) is used as a sink for logs from Service Fabric. It is configured to send logs from the Service Fabric cluster to your Logstash instance. 
 
-To run your Java application in Azure without the extra resources, go to the **Set-up a party cluster** section. 
-
 1. Open a terminal and download the following package that contains necessary helper scripts and the templates to create the resources in Azure
 
     ```bash
@@ -224,48 +222,6 @@ To run your Java application in Azure without the extra resources, go to the **S
 6. To access your application, type in https://testlinuxcluster.westus.cloudapp.azure.com:8080 
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
-
-7. To uninstall your application from the cluster, run the *uninstall.sh* script in the **Scripts** folder 
-
-    ```bash
-    ./uninstall.sh
-    ```
-
-## Set up and deploy to a Party Cluster
-
-The following section is optional. It provides instructions to get a free, quick trial of a secure Service Fabric cluster in Azure. 
-
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure.
-
-To get access to a Party Cluster, browse to this site: http://aka.ms/tryservicefabric and follow the instructions in the **ReadMe** heading to get access to the cluster. You need a Facebook or GitHub account to get access to a Party Cluster.
-
-1. Sign in to the party cluster site with your Github or Facebook and choose Linux Cluster
-
-2. Download the PFX file on your machine and make note of the endpoint of the cluster. The following URL resembles an endpoint:
-
-    ```
-    https://zlnx2us7j1vb.westus.cloudapp.azure.com:19080
-    ```
-
-3. The following command converts your PFX to a PEM file.
-
-    ```bash 
-    openssl pkcs12 -in party-cluster-1910992993-client-cert.pfx -out party-cluster-client-cert.pem -nodes -passin pass:
-    ```
-
-4. Navigate to the **<path_to_your_eclipse_workspace>/Voting/Scripts** directory. To connect to your party cluster, run the following command:
-
-    ```bash
-    sfctl cluster select --endpoint https://zlnx2us7j1vb.westus.cloudapp.azure.com:19080 --pem <path_to_pem_from_step_3> --no-verify
-    ```
-
-5. To deploy your application, run the *install.sh* script. 
-
-    ```bash
-    ./install.sh
-    ```
-
-6. Open you preferred browser and type in the cluster address along with the port the application is listening on (for example - https://zlnx2us7j1vb.westus.cloudapp.azure.com:8080). You should see the same result as when the application was running locally. 
 
 7. To uninstall your application from the cluster, run the *uninstall.sh* script in the **Scripts** folder 
 
