@@ -144,9 +144,9 @@ To view it, navigate to **Cost** > **Cost Analysis** > and then select **Amortiz
 
 ## Optimize AWS RI costs
 
-Reserved instances are an open commitment. They are useful when you have sustained usage for VMs because reserved instances are less expensive than on-demand instances. However, they need to be sufficiently used. The commitment is to use resources, typically VMs, for a defined period—one or three years. When you make the commitment to buy, you prepay for the resources with a reservation. Although you might not always fully use what you've committed to in the reservation.
+Reserved instances are an open commitment. They are useful when you have sustained usage for VMs because reserved instances are less expensive than on-demand instances. However, they need to be sufficiently used. The commitment is to use resources, typically VMs, for a defined period—one or three years. When you make the commitment to buy, you prepay for the resources with a reservation. However, you might not always fully use what you've committed to in the reservation.
 
-For example, you might assess your environment and determine that you had 20 standard D2 instances running constantly over the last year. You could purchase a reservation for them and potentially save significant money. In a different example you might have committed to using ten MA4 instances for the year. But you might have only used five to date. Both examples illustrate inefficient RI use. There are two ways to optimize costs for reserved instances with Cloudyn optimization reports:
+For example, you might assess your environment and determine that you had 20 standard D2 instances running constantly over the last year. You could purchase a reservation for them and potentially save significant money. In a different example, you might have committed to using ten MA4 instances for the year. But you might have only used five to date. Both examples illustrate inefficient RI use. There are two ways to optimize costs for reserved instances with Cloudyn optimization reports:
 
 - Review buying recommendations for what you could buy based on your historical usage
 - Modify unused reservations
@@ -165,15 +165,17 @@ The following image shows buying recommendations from the report.
 
 In this example, the Cloudyn\_A account has 32 reserve instance buying recommendations. If you follow all the buying recommendations, you could potentially save $137,770 annually. Keep in mind that the purchase recommendations provided by Cloudyn assume that usage for your running workloads will remain consistent.
 
-Click the plus symbol ( **+** ) under **Justifications** to view details explaining why each purchase is recommended. Here's an example for the first recommendation in the list.
+To view details explaining why each purchase is recommended, click the plus symbol ( **+** ) under **Justifications** . Here's an example for the first recommendation in the list.
 
 ![Purchase justifications](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 The preceding example shows that running the workload on-demand would cost $90,456 annually. However, if you purchase the reservation in advance, the same workload would cost $56,592 and save you $33,864 annually.
 
-Click the plus symbol next to **EC2 RI Purchase Impact** to view your break-even point over a year to see approximately when your purchase investment is realized. About eight months after making the purchase the on-demand accumulated cost starts to exceed the RI accumulated cost in the following example. You start saving money at that point.
+Click the plus symbol next to **EC2 RI Purchase Impact** to view your break-even point over a year to see approximately when your purchase investment is realized. About eight months after making the purchase the on-demand accumulated cost starts to exceed the RI accumulated cost in the following example:
 
 ![Purchase impact](./media/tutorial-optimize-reserved-instances/aws03.png)
+
+You start saving money at that point.
 
 You can review **Instances over Time** to verify the accuracy of the suggested buying recommendation. In this example, you can see that six instances were used on average for the workload over the last 30-day period.
 
@@ -181,7 +183,7 @@ You can review **Instances over Time** to verify the accuracy of the suggested b
 
 ## Modify unused reservations
 
-Unused reservations are common in many cloud resource consumer's computing environments. Ensuring that unused reservations are fully used can save you money when you modify the reservations to meet your current needs. For example, you might have a subscription containing standard D3 instances running on Linux. If you will not fully utilize the reservation then you can change the instance type. Or, you might move the unused resources to a different reservation or to a different account.
+Unused reservations are common in many cloud resource consumer's computing environments. Ensuring that unused reservations are fully used can save you money when you modify the reservations to meet your current needs. For example, you might have a subscription containing standard D3 instances running on Linux. If you will not fully utilize the reservation, then you can change the instance type. Or, you might move the unused resources to a different reservation or to a different account.
 
 AWS sells reserved instances for specific availability zones and regions. If you've purchased reserved instances for a specific availability zone, then you cannot move the reservations between zones. However, you can easily move regional reserved instances between zones using the **EC2 Currently Unused Reservations** report. Or alternatively, you may modify them to have a regional scope, and then they'll apply matching instances across all availability zones.
 
@@ -211,7 +213,7 @@ All your unused instances for the reservation are fully utilized and 51 instance
 
 ## Next steps
 
-In this tutorial, you successfully accomplished the following:
+In this tutorial, you successfully accomplished the following tasks:
 
 > [!div class="checklist"]
 > * Understood Azure RI costs
