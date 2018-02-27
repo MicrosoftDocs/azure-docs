@@ -133,4 +133,4 @@ The following are a quick reminder of the features previously explained and demo
 ## <a name="related"></a> Related Topics
 - [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
-- [How to Use the Large Scale](how-to-use-large-scale.md)
+- [How to use the large-scale feature](how-to-use-large-scale.md)

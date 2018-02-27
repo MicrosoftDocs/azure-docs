@@ -18,7 +18,7 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 ### Release changes in March 2018
 
-* **New Feature** Million-Scale Container: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) and [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) with more details in [How to Use the Large Scale](Face-API-How-to-Topics/how-to-use-large-scale.md).
+* **New Feature** Million-Scale Container: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) and [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) with more details in [How to use the large-scale feature](Face-API-How-to-Topics/how-to-use-large-scale.md).
 
 ### Release changes in May 2017
 

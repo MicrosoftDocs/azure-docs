@@ -1,5 +1,5 @@
 ---
-title: Face API Python quick start | Microsoft Docs
+title: Face API Python QuickStarts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Face API with Python in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -63,13 +63,13 @@ params = {
 
 response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
 faces = response.json()
-HTML("<font size=5>Detected <font color='blue'>%d</font> faces in the image</font>"%len(faces))
+HTML("<font size='5'>Detected <font color='blue'>%d</font> faces in the image</font>"%len(faces))
 ```
 
 
 
 
-<font size=5>Detected <font color='blue'>2</font> faces in the image</font>
+<font size='5'>Detected <font color='blue'>2</font> faces in the image</font>
 
 
 

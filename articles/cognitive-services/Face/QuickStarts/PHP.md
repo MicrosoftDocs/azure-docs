@@ -1,5 +1,5 @@
 ---
-title: Face API PHP quick start | Microsoft Docs
+title: Face API PHP QuickStarts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Face API with PHP in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -12,7 +12,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API PHP Quick Starts
+# Face API PHP QuickStartss
 This article provides information and code samples to help you quickly get started using the Face API with PHP to accomplish the following tasks:
 * [Detect Faces in Images](#Detect)
 * [Identify Faces in Images](#Identify)

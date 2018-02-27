@@ -1,5 +1,5 @@
 ---
-title: Face API cURL quick start | Microsoft Docs
+title: Face API cURL QuickStarts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Face API with cURL in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -12,7 +12,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API cURL Quick Starts
+# Face API cURL QuickStartss
 This article provides information and code samples to help you quickly get started using the Face API with cURL to accomplish the following tasks:
 * [Detect Faces in Images](#Detect)
 * [Identify Faces in Images](#Identify)

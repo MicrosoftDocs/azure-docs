@@ -1,6 +1,6 @@
 ---
-title: Use the Large-Scale in the Face API | Microsoft Docs
-description: Use the large-scale features in the Face API of Cognitive Services.
+title: Use the Large-Scale Feature in the Face API | Microsoft Docs
+description: Use the large-scale feature in the Face API of Cognitive Services.
 services: cognitive-services
 author: v-royhar
 manager: yutkuo
@@ -12,10 +12,10 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# How to use the large scale
+# How to use the large-scale feature
 
 This guide is an advanced article focuses on the migration process.
-Other tutorials, for example, [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md),
+Other tutorials, for example, [How to identify faces in images](HowtoIdentifyFacesinImage.md),
 is more suitable for getting familiar with basic operations.
 
 Recently introduced LargePersonGroup and LargeFaceList bring more capacity to enable large-scale scenarios.
@@ -57,7 +57,7 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 ```
 
 The subscription key with corresponding endpoint can be obtained from the Marketplace page of your Azure portal.
-See [Subscriptions](https://azure.microsoft.com/en-us/services/cognitive-services/directory/vision/).
+See [Subscriptions](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
 ## <a name="migrate"></a> Step 2: Code Migration in action
 
@@ -271,7 +271,7 @@ but also can be applied to static scenarios to further reduce the Train frequenc
 
 Suppose there is a `TrainLargePersonGroup` function similar to the `TrainLargeFaceList`.
 A typical implementation of the standalone Training on LargePersonGroup by invoking the
-[`Timer`](https://msdn.microsoft.com/en-us/library/system.timers.timer(v=vs.110).aspx)
+[`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx)
 class in `System.Timers` would be:
 
 ```CSharp

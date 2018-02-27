@@ -1,5 +1,5 @@
 ---
-title: Face API C# quick start | Microsoft Docs
+title: Face API C# QuickStarts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Face API with C# in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -12,7 +12,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API C# Quick Starts
+# Face API C# QuickStarts
 This article provides information and code samples to help you quickly get started using the Face API with C# to accomplish the following tasks: 
 * [Detect Faces in Images](#Detect) 
 * [Create a PersonGroup](#Create)

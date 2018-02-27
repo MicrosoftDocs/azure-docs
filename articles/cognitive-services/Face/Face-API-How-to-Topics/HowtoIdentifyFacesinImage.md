@@ -12,7 +12,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# How to Identify Faces in Image
+# How to identify faces in images
 
 This guide demonstrates how to identify unknown faces using PersonGroups, which are created from known people in advance. The samples are written in C# using the Face API client library.
 
@@ -51,7 +51,7 @@ When using a client library, the subscription key is passed in through the const
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
-The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
+The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="step2"></a> Step 2: Create the PersonGroup
 
@@ -166,7 +166,7 @@ When you have finished the steps, you can try to identify different faces and se
 ## <a name="step5"></a> Step 5: Request for large scale
 
 As is known, a PersonGroup can hold up to 10,000 persons due to the limitation of previous design.
-For more information about up to million-scale scenarios, see [How to Use the Large Scale](how-to-use-large-scale.md).
+For more information about up to million-scale scenarios, see [How to use the large-scale feature](how-to-use-large-scale.md).
 
 ## <a name="summary"></a> Summary
 
@@ -182,4 +182,4 @@ In this guide, you have learned the process of creating a PersonGroup and identi
 
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
 - [How to Add Faces](how-to-add-faces.md)
-- [How to Use the Large Scale](how-to-use-large-scale.md)
+- [How to use the large-scale feature](how-to-use-large-scale.md)

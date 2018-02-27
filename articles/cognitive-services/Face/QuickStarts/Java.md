@@ -1,5 +1,5 @@
 ---
-title: Face API Java quick start | Microsoft Docs
+title: Face API Java QuickStarts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Face API with Java in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -12,7 +12,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API Java Quick Starts
+# Face API Java QuickStartss
 This article provides information and code samples to help you quickly get started using the Face API with Java to accomplish the following tasks:
 * [Detect Faces in Images](#Detect)
 * [Create a PersonGroup](#Create)

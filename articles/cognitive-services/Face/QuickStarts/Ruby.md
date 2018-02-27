@@ -1,5 +1,5 @@
 ---
-title: Face API Ruby quick start | Microsoft Docs
+title: Face API Ruby QuickStarts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Face API with Ruby in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -12,7 +12,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API Ruby Quick Starts
+# Face API Ruby QuickStartss
 This article provides information and code samples to help you quickly get started using the Face API with Ruby to accomplish the following tasks:
 * [Detect Faces in Images](#Detect)
 * [Identify Faces in Images](#Identify)
