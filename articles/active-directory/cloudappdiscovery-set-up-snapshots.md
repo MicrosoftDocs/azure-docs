@@ -5,7 +5,7 @@ services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory

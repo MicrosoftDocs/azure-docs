@@ -4,7 +4,7 @@ description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -37,7 +37,7 @@ To prepare your access to the reporting API, you must:
 2. Grant permissions 
 3. Gather configuration settings 
 
-For questions, issues or feedback, please [file a support ticket](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+For questions, issues or feedback, please [file a support ticket](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## Register an Azure Active Directory application
 

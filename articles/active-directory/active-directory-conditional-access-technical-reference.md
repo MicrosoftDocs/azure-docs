@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory conditional access technical reference | Microsoft Docs
-description: Learn how to use conditional access control in Azure Active Directory. Specify the conditions for authenticating users and controlling access to your application. When the specified conditions are met, users are authenticated and granted access to your application.
+title: Azure Active Directory conditional access settings reference | Microsoft Docs
+description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
 ---
-# Azure Active Directory conditional access technical reference
+# Azure Active Directory conditional access settings reference
 
-You can use [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md) to fine-tune how authorized users can access your resources.   
+You can use [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md) to control how authorized users can access your resources.   
 
-This article provides you with support information for the following configuration options for a conditional access policy: 
+This article provides you with support information for the following configuration options in a conditional access policy: 
 
 - Cloud applications assignments
 
@@ -32,10 +32,11 @@ This article provides you with support information for the following configurati
 - Approved client application requirement
 
 
+If this is not the information you are looking for, please leave a comment at the end of this article.
 
 ## Cloud apps assignments
 
-With conditional access policies, you control how your users access your [cloud apps](active-directory-conditional-access-azure-portal.md#who). When you configure a conditional access policy, you need to select at least one cloud app. 
+With conditional access policies, you control how your users access your [cloud apps](active-directory-conditional-access-conditions.md#cloud-apps). When you configure a conditional access policy, you need to select at least one cloud app. 
 
 ![Select the cloud apps for your policy](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -54,7 +55,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
+- Microsoft Office 365 SharePoint Online (includes OneDrive for Business and Project Online)
 
 - Microsoft Power BI 
 
@@ -101,7 +102,7 @@ In a conditional access policy, you can configure the device platform condition 
 
 ## Client apps condition 
 
-In your conditional access policy, you can configure the [client apps](active-directory-conditional-access-azure-portal.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
+In your conditional access policy, you can configure the [client apps](active-directory-conditional-access-conditions.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
 
 - Browser
 - Mobile apps and desktop apps
@@ -114,7 +115,7 @@ In your conditional access policy, you can select **Browsers** as client app.
 
 ![Control access for supported browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
-This setting has an impact on access attempts made from the following browsers: 
+This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
 
 | OS                     | Browsers                            | Support     |
@@ -135,6 +136,9 @@ This setting has an impact on access attempts made from the following browsers:
 > [!NOTE]
 > For Chrome support, you must use Windows 10 Creators Update (version 1703) or later.<br>
 > You can install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode. 
+
 
 ### Supported mobile applications and desktop clients
 
@@ -162,10 +166,9 @@ This setting has an impact on access attempts made from the following mobile app
 |Outlook 2016 (Office for macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook mobile app|Office 365 Exchange Online|Android, iOS|
-|PowerBI app. The Power BI app for Android does not currently support device-based conditional access.|PowerBI service|Windows 10, Windows 8.1, Windows 7, and iOS|
+|PowerBI app|PowerBI service|Windows 10, Windows 8.1, Windows 7, and iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
-
 
 
 ## Approved client app requirement 
@@ -179,6 +182,7 @@ This setting applies to the following client apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -186,6 +190,7 @@ This setting applies to the following client apps:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word

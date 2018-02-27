@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 11/01/2017
 ---
 
@@ -25,7 +25,7 @@ You create an Azure Database for MySQL server with a defined set of [compute and
 
 Follow these steps to create an Azure Database for MySQL server:
 
-1. Select the **New** button (+) in the upper-left corner of the  portal.
+1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
 
 2. Select **Databases** > **Azure Database for MySQL**. You can also type **MySQL** in the search box to find the service.
 

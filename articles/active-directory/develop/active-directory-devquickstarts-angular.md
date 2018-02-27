@@ -4,7 +4,7 @@ description: How to build an AngularJS single-page application that integrates w
 services: active-directory
 documentationcenter: ''
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Help secure AngularJS single-page apps by using Azure AD
+# Azure AD AngularJS getting started
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -45,7 +45,7 @@ To enable your app to authenticate users and get tokens, you first need to regis
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. If you are signed in to multiple directories, you may need to ensure you are viewing the correct directory. To do so, on the top bar, click your account. Under the **Directory** list, choose the Azure AD tenant where you want to register your application.
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+3. Click **All services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts and create a new web application and/or web API:
   * **Name** describes your application to users.

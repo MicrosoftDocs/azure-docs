@@ -3,7 +3,7 @@ title: Testing a runbook in Azure Automation | Microsoft Docs
 description: Before you publish a runbook in Azure Automation, you can test it to ensure that works as expected.  This article describes how to test a runbook and view its output.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 
@@ -39,5 +39,5 @@ You can work with any [runbook type](automation-runbook-types.md) in the Azure p
 * To learn how to create or import a runbook, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
 * To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
-* To learn more about configuring runboks to return status messages and errors, including recommended practices, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+* To learn more about configuring runbooks to return status messages and errors, including recommended practices, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
 

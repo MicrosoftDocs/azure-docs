@@ -22,11 +22,11 @@ ms.reviewer: luleon
 # Assign a user or group to an enterprise app in Azure Active Directory
 To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
 > [!NOTE]
-> For Microsoft Applications (such asOffice 365 apps), use PowerShell to assign users to an enterprise app.
+> For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
 
 ## How do I assign user access to an enterprise app in the Azure portal?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter Azure Active Directory in the text box, and then select **Enter**.
+2. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
 3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
 
     ![Opening Enterprise apps](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
@@ -68,7 +68,7 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ``` 	
 
-For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
 ### Example
 

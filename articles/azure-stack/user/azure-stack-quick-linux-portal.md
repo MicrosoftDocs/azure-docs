@@ -3,13 +3,14 @@ title: Azure Stack Quick Start - Create VM Portal
 description: Azure Stack Quick Start - Create a Linux VM using the portal
 services: azure-stack
 cloud: azure-stack
-author: vhorne
-manager: byronr
+author: brenduns
+manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
-ms.author: victorh
+ms.date: 12/11/2017
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
 ---
 
@@ -27,7 +28,7 @@ Azure Stack virtual machines can be created through the Azure Stack portal. This
 
 * **Access to an SSH client**
 
-   If you are using the Azure Stack Development Kit (ASDK), you may not have access to an SSH client in your environment. If this is the case, you can choose among several packages that include an SSH client. For example, you can install PuTTY that includes an SSH client and SSH key generator (puttygen.exe). For more information about possible options, see the following related Azure article: [How to Use SSH keys with Windows on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   If you are using the Azure Stack Development Kit (ASDK), you may not have access to an SSH client in your environment. If this is the case, you can choose among several packages that include an SSH client. For example, you can install PuTTY that includes an SSH client and SSH key generator (puttygen.exe). For more information about possible options, see the following related Azure article: [How to Use SSH keys with Windows on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    This Quickstart uses PuTTY to generate the SSH keys and to connect to the Linux virtual machine. To download and install PuTTY, go to [http://www.putty.org/](http://www.putty.org).
 
@@ -56,7 +57,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
 ## Create the virtual machine
 
-1. Click the **New** button found on the upper left-hand corner of the Azure Stack portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure Stack portal.
 
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Click **Create**.

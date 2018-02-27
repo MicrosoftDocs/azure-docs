@@ -4,7 +4,7 @@ description: This is the Azure AD Connect Health page that describes what it is 
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
@@ -105,7 +105,7 @@ To get started with Azure AD Connect Health, use the following steps:
 The Azure AD Connect Health portal shows views of alerts, performance monitoring, and usage analytics. The  https://aka.ms/aadconnecthealth URL takes you to the main blade of Azure AD Connect Health. You can think of a blade as a window. On The main blade, you see **Quick Start**, services within Azure AD Connect Health, and additional configuration options. See the following screenshot and brief explanations that follow the screenshot. After you deploy the agents, the health service automatically identifies the services that Azure AD Connect Health is monitoring.
 
 > [!NOTE]
-> For licensing information, see the [Azure AD Connect FAQ](active-directory-aadconnect-health-faq.md) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
+> For licensing information, see the [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
     
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal4.png)
 

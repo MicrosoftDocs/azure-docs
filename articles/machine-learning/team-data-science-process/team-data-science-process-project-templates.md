@@ -29,7 +29,7 @@ The lifecycle outlines the major stages that projects typically execute, often i
 - Deployment
 - Customer Acceptance
 
-For descriptions of each of these stages, see [The Team Data Science Process lifecycle](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle).
+For descriptions of each of these stages, see [The Team Data Science Process lifecycle](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
 
  
 ## Microsoft Project template

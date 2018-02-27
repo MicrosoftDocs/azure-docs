@@ -4,7 +4,7 @@ description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
@@ -31,6 +31,12 @@ With the builds from February 2016, this is supported.
 Yes. After installing the agent, you can complete the registration process using the following PowerShell cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**Q: Does AADConnect support syncing from two domains to on Azure AD?**</br>
+Yes, this is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md)
+ 
+**Q: Do we support having multiple connectors for same Active Directory domain in Azure AD connect?**</br> 
+No, this is not supported 
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**  
@@ -74,8 +80,6 @@ No, this is currently not supported.
 **Q: Is it supported to manually set ImmutableId attribute on existing Azure AD Group/Contact objects to hard match it to on-premises AD Group/Contact objects?**  
 No, this is currently not supported.
 
-
-
 ## Custom configuration
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  
 With the exception of the cmdlets documented on this site, other PowerShell cmdlets found in Azure AD Connect are not supported for customer use.
@@ -91,8 +95,6 @@ We currently do not support modifying the HTML attributes of the sign-in page. W
 
 **Q: Is there a way to prevent concurrent sessions?**</br>
 No.
-
-
 
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**

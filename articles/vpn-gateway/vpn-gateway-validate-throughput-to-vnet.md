@@ -50,7 +50,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 4.	Determine your Internet Service Provider (ISP) bandwidth.
 5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
 
-If your calculated throughput does not meet your application's baseline throughput requirements, you need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing expected Internet bandwidth, you may also want to contact your ISP.
+If your calculated throughput does not meet your application's baseline throughput requirements, you need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing expected Internet bandwidth, you may also want to contact your ISP.
 
 ## Validate network throughput by using performance tools
 

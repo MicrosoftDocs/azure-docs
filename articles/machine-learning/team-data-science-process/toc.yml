@@ -1,4 +1,5 @@
-- name: Team Data Science Process Documentation
+- name: Team Data Science Process Documentation 
+  href: index.yml
 - name: Overview
   href: overview.md
 - name: Lifecycle
@@ -47,6 +48,8 @@
   - name: Azure Machine Learning
     href: walkthroughs-aml-with-tdsp.md
     items:
+    - name: Sentiment classification
+      href: predict-twitter-sentiment.md
     - name: US income classification
       href: ../preview/scenario-tdsp-classifying-us-incomes.md
       maintainContext: true
@@ -221,7 +224,7 @@
 - name: Related
   items:
   - name: Microsoft Cognitive Toolkit - CNTK
-    href: https://docs.microsoft.com/en-us/cognitive-toolkit/
+    href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true
   - name: Cortana Intelligence Partner Solutions
     items:
@@ -238,7 +241,7 @@
       - name: Anomaly detection
         href: apps-anomaly-detection-api.md
       - name: Cognitive Services
-        href: https://docs.microsoft.com/en-us/azure/cognitive-services/
+        href: https://docs.microsoft.com/azure/cognitive-services/
       - name: Predictive maintenance
         items:
         - name: Overview

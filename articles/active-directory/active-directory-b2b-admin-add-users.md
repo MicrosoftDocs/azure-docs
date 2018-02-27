@@ -5,7 +5,7 @@ description: An admin can add guest users to your Azure AD from a partner organi
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

@@ -3,7 +3,7 @@ title: Track changes with Azure Log Analytics | Microsoft Docs
 description: The Change Tracking solution in Log Analytics helps you identify software and Windows Service changes that occur in your environment.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: georgewallace
 manager: carmonm
 editor: ''
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: gwallace
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -28,7 +28,7 @@ You install the solution to update the type of agent that you have installed. Ch
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-* You must have a [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md), or [Linux](log-analytics-linux-agents.md) agent on each computer where you want to monitor changes.
+* You must have a [Windows](log-analytics-windows-agent.md), [Operations Manager](log-analytics-om-agents.md), or [Linux](log-analytics-linux-agents.md) agent on each computer where you want to monitor changes.
 * Add the Change Tracking solution to your OMS workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Or, you can add the solution using the information in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). No further configuration is required.
 
 ### Configure Linux files to track

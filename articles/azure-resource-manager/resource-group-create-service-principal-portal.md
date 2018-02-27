@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/16/2018
 ms.author: tomfitz
 
 ---
@@ -115,7 +115,7 @@ When programmatically logging in, you need the ID for your application and an au
 
    ![select application](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
+1. Copy the **Application ID** and store it in your application code. Some [sample applications](#log-in-as-the-application) refer to this value as the client ID.
 
    ![client ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
@@ -188,7 +188,7 @@ Your application is now set up in Azure Active Directory. You have an ID and key
 * [REST](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Node.js](/javascript/azure/node-sdk-azure-authenticate-principal?view=azure-node-latest)
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 

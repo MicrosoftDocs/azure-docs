@@ -6,7 +6,7 @@ manager: douge
 ms.service: multiple
 ms.workload: web
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
@@ -64,7 +64,7 @@ After you have started the tunnel, navigate to http://localhost:8080/ on your lo
 Get the initial password by running the following command in the command line while connected through SSH to the Jenkins VM.
 
 ```bash
-`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 Unlock the Jenkins dashboard for the first time using this initial password.

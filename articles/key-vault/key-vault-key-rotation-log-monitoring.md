@@ -253,12 +253,12 @@ The next step is to [create an Azure Service Bus queue](../service-bus-messaging
 
 1. Create a Service Bus namespace (if you already have one that you want to use for this, skip to Step 2).
 2. Browse to the service bus in the Azure portal and select the namespace you want to create the queue in.
-3. Select **New** and choose **Service Bus > Queue** and enter the required details.
+3. Select **Create a resource**, **Enterprise Integration**, **Service Bus**, and then enter the required details.
 4. Select the Service Bus connection information by choosing the namespace and clicking **Connection Information**. You will need this information for the next section.
 
 Next, [create an Azure function](../azure-functions/functions-create-first-azure-function.md) to poll key vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
 
-To create an Azure function, choose **New > Function App** in the Azure portal. During creation, you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found at [How to scale Azure Functions](../azure-functions/functions-scale.md).
+To create an Azure function, choose **Create a resource**, search the marketplace for _Function App_, and click **Create**. During creation, you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found at [How to scale Azure Functions](../azure-functions/functions-scale.md).
 
 When the Azure function is created, navigate to it and choose a timer function and C\#. Then click **Create this function**.
 
@@ -414,7 +414,7 @@ At this point, the function is ready. Make sure to switch back to the **Develop*
 ### Azure logic app
 Next you must create an Azure logic app that picks up the events that the function is pushing to the Service Bus queue, parses the content, and sends an email based on a condition being matched.
 
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) by going to **New > Logic App**.
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) by going to **New > Logic App**.
 
 Once the logic app is created, navigate to it and choose **edit**. Within the logic app editor, choose **Service Bus Queue** and enter your Service Bus credentials to connect it to the queue.
 

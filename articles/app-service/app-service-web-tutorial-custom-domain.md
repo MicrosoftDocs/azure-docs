@@ -55,6 +55,8 @@ To complete this tutorial:
 
 To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the App Service app is in the supported pricing tier.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 ### Sign in to Azure
 
 Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
@@ -286,7 +288,7 @@ At the bottom of the page, the root virtual directory `/` points to `site\wwwroo
 
 ![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Once the operation completes, you app should return the right page at the root path (for example, http://contoso.com).
+Once the operation completes, your app should return the right page at the root path (for example, http://contoso.com).
 
 ## Automate with scripts
 

@@ -124,7 +124,7 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 
 *C#*
 
-```C#
+```csharp
 
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -241,7 +241,7 @@ Instead of setting the sampling parameter in the .config file, you can programma
 
 *C#*
 
-```C#
+```csharp
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;

@@ -3,8 +3,8 @@ title: Publish a custom marketplace item in Azure Stack (cloud operator) | Micro
 description: As an Azure Stack operator, learn how to publish a custom marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: jeffgo
 
 ---
 # The Azure Stack Marketplace overview

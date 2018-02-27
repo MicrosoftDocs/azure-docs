@@ -4,7 +4,7 @@ description: Restoring the b2c-extensions-app
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 'parakhj'
 
 ms.assetid: f0392e32-0771-473c-a799-81438ca2bcff
@@ -29,7 +29,7 @@ When an Azure AD B2C directory is created, an app called `b2c-extensions-app. Do
 
 To verify that the b2c-extensions-app is present:
 
-1. Inside your Azure AD B2C tenant, click on **More services** in the left-hand navigation menu.
+1. Inside your Azure AD B2C tenant, click on **All services** in the left-hand navigation menu.
 1. Search for and open **App registrations**.
 1. Look for an app that begins with **b2c-extensions-app**
 

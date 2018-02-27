@@ -1,5 +1,5 @@
 ---
-title: Call a Language Understanding Intelligent Services (LUIS) app using PHP | Microsoft Docs 
+title: Call a Language Understanding (LUIS) app using PHP | Microsoft Docs 
 description: Learn to call a LUIS app using PHP. 
 services: cognitive-services
 author: v-geberr
@@ -8,13 +8,12 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 12/13/2017
 ms.author: v-geberr
 ---
 
 # Call a LUIS app using PHP
-
-This quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use PHP code to pass utterances to a LUIS endpoint and get results.
+Pass utterances to a LUIS endpoint and get intent and entities back.
 
 ## Before you begin
 You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
@@ -22,7 +21,7 @@ To get an API key follow these steps:
   1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
   2. Log in to the Azure portal at https://portal.azure.com. 
   3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
-  4. Go back to https://www.luis.ai and log in using your Azure account. 
+  4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
 
 ## Understand what LUIS returns
 
@@ -50,5 +49,4 @@ You can use PHP to access the same results you saw in the browser window in the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
-
+> [Add utterances](luis-quickstart-php-add-utterance.md)
