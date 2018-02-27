@@ -17002,6 +17002,11 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-unlicensed-usage-report.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
             "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+            "redirect_document_id": false
     }
    ]
 }
