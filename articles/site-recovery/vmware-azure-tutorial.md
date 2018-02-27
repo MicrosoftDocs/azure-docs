@@ -67,7 +67,7 @@ To set up the configuration server as a highly available VMware VM, download a p
 1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the Deploy OVF Template wizard. 
 
-     ![OVF template](./media/vmware-to-azure-tutorial/vcenter-wizard.png)
+     ![OVF template](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. On **Select source**, enter the location of the downloaded OVF.
 4. On **Review details**, select **Next**.

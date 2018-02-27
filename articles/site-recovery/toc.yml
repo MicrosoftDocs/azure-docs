@@ -212,7 +212,7 @@
       - name: Configure replication settings for VMware to Azure
         href: site-recovery-setup-replication-settings-vmware.md
       - name: Exclude disks from replication for VMware to Azure
-        href: site-re-vcovery-exclude-disk.md
+        href: site-recovery-exclude-disk.md
       - name: Exclude disks from replication for Hyper-V to Azure
         href: hyper-v-exclude-disk.md
     - name: Enable replication
