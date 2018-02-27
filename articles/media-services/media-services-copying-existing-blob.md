@@ -48,7 +48,7 @@ You can follow the steps in this article or you can download a sample that conta
 1. Set up your development environment as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add the appSettings section to the .config file and update the values based on your Media Services accounts, the destination storage account, and the source asset ID.  
 
-```csharp
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -164,7 +164,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Set up your development environment as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add the appSettings section to the .config file and update the values based on your source storage and destination AMS accounts.
 
-```csharp
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />

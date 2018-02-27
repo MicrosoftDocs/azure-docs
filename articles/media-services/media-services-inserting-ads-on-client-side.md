@@ -587,7 +587,7 @@ The Microsoft Media Platform: Player Framework for iOS contains a collection of 
 ### Scheduling Ads with VMAP
 The following example shows how to schedule ads using a VMAP file.
 
-```java
+```
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 

@@ -68,7 +68,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example 
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;

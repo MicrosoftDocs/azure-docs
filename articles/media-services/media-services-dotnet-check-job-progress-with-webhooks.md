@@ -77,7 +77,7 @@ Your Azure Function is associated with code files and other files that are descr
 
 The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. 
 
-```
+```json
 {
   "bindings": [
     {
@@ -100,7 +100,7 @@ The function.json file defines the function bindings and other configuration set
 
 The project.json file contains dependencies. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -378,7 +378,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 	* webhook URL that expects to get the notifications, 
 	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
 
-```csharp
+```xml
         <appSettings>
             <add key="AMSAADTenantDomain" value="domain" />
             <add key="AMSRESTAPIEndpoint" value="endpoint" />
@@ -390,6 +390,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
             <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
         </appSettings>
 ```
+
 4. Update your Program.cs file with the following code:
 
 ```csharp
