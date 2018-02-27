@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 02/27/2018
 ms.author: cherylmc
 
 ---
@@ -27,7 +27,7 @@ ms.author: cherylmc
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription, or they can be part of another subscription.
+This article helps you link a virtual network to Azure ExpressRoute circuits using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription, or they can be part of another subscription.
 
 ## Before you begin
 * Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
@@ -62,8 +62,8 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
      ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
-### To delete a connection
-You can delete a connection by selecting the **Delete** icon on the blade for your connection.
+## To delete a connection
+You can delete a connection and unlink your VNet to an ExpressRoute circuit by selecting the **Delete** icon on the blade for your connection.
 
 ## Connect a virtual network in a different subscription to a circuit
 You can share an ExpressRoute circuit across multiple subscriptions. The figure below shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.

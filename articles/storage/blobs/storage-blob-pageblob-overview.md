@@ -114,7 +114,7 @@ foreach (PageRange range in pageRanges)
 #### Leasing a Page Blob
 The Lease Blob operation establishes and manages a lock on a blob for write and delete operations. This operation is useful in scenarios where a page blob is being accessed from multiple clients to ensure only one client can write to the blob at a time. Azure Disks, for example,  leverages this leasing mechanism to ensure the disk is only managed by a single VM. The lock duration can be 15 to 60 seconds, or can be infinite. See the documentation [here](/rest/api/storageservices/lease-blob) for more details.
 
-> Use the following link to get [code samples](/resources/samples/?service=storage&term=blob&sort=0) for many other application scenarios. 
+> Use the following link to get [code samples](/resources/samples/?service=storage&term=blob&sort=0 ) for many other application scenarios. 
 
 In addition to rich REST APIs, Page blobs also provide shared access, durability, and enhanced security. We will cover those benefits in more detail in the next paragraphs. 
 
