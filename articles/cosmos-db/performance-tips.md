@@ -94,7 +94,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) pages to determine the most recent SDK and review improvements.
 2. **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-    Efach DocumentClient instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
+    Each DocumentClient instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
 
    <a id="max-connection"></a>
 3. **Increase System.Net MaxConnections per host when using Gateway mode**
