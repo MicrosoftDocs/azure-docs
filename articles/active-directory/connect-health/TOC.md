@@ -16,7 +16,7 @@
 ## [Health service data is not up to date](active-directory-aadconnect-health-data-freshness.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 ## [GDPR compliance and Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
