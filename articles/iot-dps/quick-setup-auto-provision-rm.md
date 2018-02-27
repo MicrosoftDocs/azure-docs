@@ -23,7 +23,7 @@ You can use [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azur
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
 
 ## Sign in to Azure and create a resource group
@@ -61,9 +61,9 @@ Sign in to your Azure account and select your subscription.
     >
     >
 
-## Create a resource manager template
+## Create a Resource Manager template
 
-Use a JSON template to create a provisioning service and a linked IoT hub in your resource group. You can also use an Azure Resource Manager template to make changes to an existing provisioning service or Iot hub.
+Use a JSON template to create a provisioning service and a linked IoT hub in your resource group. You can also use an Azure Resource Manager template to make changes to an existing provisioning service or IoT hub.
 
 1. Use a text editor to create an Azure Resource Manager template called **template.json** with the following skeleton content. 
 
@@ -77,7 +77,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
    }
    ```
 
-2. Replace the **parameters** section with the following content. The parameters section specifies parameters that can be passed in from another file. This section specifies the name of the Iot hub and provisioning service to create. It also specifies the location for both the Iot hub and provisioning service. The values are restricted to Azure regions that support Iot hubs and provisioning services. For a list of supported locations for device provisioning service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and search on "Device Provisioning Service".
+2. Replace the **parameters** section with the following content. The parameters section specifies parameters that can be passed in from another file. This section specifies the name of the IoT hub and provisioning service to create. It also specifies the location for both the IoT hub and provisioning service. The values are restricted to Azure regions that support IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and search on "Device Provisioning Service".
 
    ```json
     "parameters": {
@@ -133,9 +133,9 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
    ``` 
 
-5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service are passed in parameters. Specify the IoT hubs to link to the provisioning service in the **iotHubs** collection. At a minimum you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/provisioningservices).
+5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service are passed in parameters. Specify the IoT hubs to link to the provisioning service in the **iotHubs** collection. At a minimum, you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/provisioningservices).
 
-   The **dependsOn** property is used to ensure that resource manager creates the IoT hub before it creates the provisioning service. The template requires the connection string of the IoT hub to specify its linkage to the provisioning service, so the hub and its keys must be created first. The template uses functions like **concat** and **listKeys** to create the connection string. To learn more, see [Azure Resource Manager template functions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions).
+   The **dependsOn** property is used to ensure that Resource Manager creates the IoT hub before it creates the provisioning service. The template requires the connection string of the IoT hub to specify its linkage to the provisioning service, so the hub and its keys must be created first. The template uses functions like **concat** and **listKeys** to create the connection string. To learn more, see [Azure Resource Manager template functions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -161,7 +161,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
    ```
 
-6. Save the template file. The finished template should look like this:
+6. Save the template file. The finished template should look like the following:
 
    ```json
    {
@@ -230,11 +230,11 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
    }
    ```
 
-## Create a resource manager parameter file
+## Create a Resource Manager parameter file
 
-The template that you defined in the last step uses parameters to specify the name of the IoT Hub, the name of the provisioning service, and the location (Azure region) to create them. You pass these parameters in a separate file. This enables you to re-use the same template for multiple deployments. To create the parameter file, follow these steps:
+The template that you defined in the last step uses parameters to specify the name of the IoT Hub, the name of the provisioning service, and the location (Azure region) to create them. You pass these parameters in a separate file. Doing so enables you to reuse the same template for multiple deployments. To create the parameter file, follow these steps:
 
-1. Use a text editor to create an Azure Resource Manager parameter file called **parameters.json** with the following skeleton content. 
+1. Use a text editor to create an Azure Resource Manager parameter file called **parameters.json** with the following skeleton content: 
 
    ```json
    {
@@ -245,7 +245,7 @@ The template that you defined in the last step uses parameters to specify the na
    }
    ```
 
-2. Add the **iotHubName** value to the parameter section. If you change the name make sure it follows proper naming conventions for an IoT hub. It should be 3-50 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
+2. Add the **iotHubName** value to the parameter section. If you change the name, make sure it follows proper naming conventions for an IoT hub. It should be 3-50 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
 
    ```json
     "parameters": {
@@ -256,7 +256,7 @@ The template that you defined in the last step uses parameters to specify the na
    
    ```
 
-2. Add the **provisioningServiceName** value to the parameter section. If you change the name make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service. It should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
+3. Add the **provisioningServiceName** value to the parameter section. If you change the name, make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service. It should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
    ```json
     "parameters": {
@@ -270,7 +270,7 @@ The template that you defined in the last step uses parameters to specify the na
 
    ```
 
-2. Add the **hubLocation** value to the parameter section. This value specifies the location for both the Iot hub and provisioning service. The value must correspond to one of the locations specified in the **allowedValues** values collection in the parameter definition in the template file. This collection restricts the values to Azure locations that support both IoT hubs and provisioning services. For a list of current regions where these services are supported, see
+4. Add the **hubLocation** value to the parameter section. This value specifies the location for both the IoT hub and provisioning service. The value must correspond to one of the locations specified in the **allowedValues** collection in the parameter definition in the template file. This collection restricts the values to Azure locations that support both IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and search on "Device Provisioning Service".
 
    ```json
     "parameters": {
@@ -287,7 +287,12 @@ The template that you defined in the last step uses parameters to specify the na
 
    ```
 
-2. Save the file. 
+5. Save the file. 
+
+
+> [!IMPORTANT]
+> Both the IoT hub and the provisioning service will be publicly discoverable as DNS endpoints, so make sure to avoid any sensitive information when naming them.
+>
 
 ## Deploy the template
 
