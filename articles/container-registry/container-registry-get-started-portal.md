@@ -102,39 +102,28 @@ In this example, we select the **aci-helloworld** repository, and we can see the
 ![Creating a container registry in the Azure portal][qs-portal-09]
 
 ## Deploy image to ACI
-In order to deploy to an instance from the registry we will first need to retrieve the acr password. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command.
+In order to deploy to an instance from the registry we need to navigate to the repository (aci-helloworld), and then click on the elipses next to v1.
 
-```azurecli
-az acr update --name <acrName> --admin-enabled true
-```
+![Launching an Azure Container Instance from the portal][qs-portal-10]
 
-Now use this command to retrieve the password:
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
+A context menu will appear, select Launch Instance
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace <acrLoginServer> and <acrPassword> with the values you obtained from previous commands.
+![Launch ACI context menu][qs-portal-11]
 
-```azurecli
-az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
-```
+Fill in container name, ensure the correct subscription is selected, select the existing Resource Group: "myResourceGroup" and then click OK to launch the Azure Container Instance.
 
-You should get an intial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running repeat the [az container show][az-container-show].  It should take less than a minute.
+![Launch ACI deployment options][qs-portal-12]
 
-```azurecli
-az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
-```
+When deployment starts a tile is placed on your portal dashboard indicating deployment progress. Once deployment completes, the tile is updated to show your new **mycontainer-myc1** container group.
+
+![ACI deployment status][qs-portal-13]
+
+Select the mycontainer-myc1 container group to display the container group properties. Take note of the **IP address** of the container group, as well as the **STATE** of the container.
+
+![ACI container details][qs-portal-14]
 
 ## View the application
-Once the deployment to ACI is successful, retrieve the containers public IP address with the [az container show][az-container-show] command:
-
-```azurecli
-az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.ip
-```
-
-Example output: `"13.88.176.27"`
-
-To see the running application, navigate to the public IP address in your favorite browser.
+Once the container moves to the **Running** state, navigate to the IP address you noted in the previous step to display the application hosted in your new container.
 
 ![Hello world app in the browser][aci-app-browser]
 
@@ -161,6 +150,11 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
 [aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
 
 
