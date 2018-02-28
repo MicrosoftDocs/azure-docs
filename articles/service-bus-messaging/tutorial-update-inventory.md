@@ -39,10 +39,12 @@ To complete this tutorial, make sure you have installed:
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Log in to the Azure Portal
-If required: Log in to the Azure portal at http://portal.azure.com
+
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Launch Azure Cloud Shell
-If required
+
+TBD, if necessary.
 
 ## Create a namespace
 
