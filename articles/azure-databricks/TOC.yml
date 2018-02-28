@@ -13,7 +13,7 @@
   items:
   - name: Connect with Excel, R, and Python 
     href: connect-databricks-excel-python-r.md
-  - name: Use Databricks CLI from Azure cloud shell
+  - name: Use Databricks CLI from Azure Cloud Shell
     href: databricks-cli-from-azure-cloud-shell.md
 - name: Resources
   items:

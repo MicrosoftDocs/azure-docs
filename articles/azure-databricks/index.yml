@@ -22,7 +22,7 @@ abstract:
       src: media/index/video.png
       width: 250  
     title: Introduction to Azure Databricks (3:38)
-    href: https://azure.microsoft.com/en-us/resources/videos/connect-2017-introduction-to-azure-databricks/
+    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
     width: 250 
 sections:
 - title: 5-Minute Quickstarts

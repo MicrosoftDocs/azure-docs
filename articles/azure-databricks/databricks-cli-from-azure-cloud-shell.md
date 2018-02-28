@@ -1,6 +1,6 @@
 ---
 title: 'Use Databricks CLI from Azure Cloud Shell | Microsoft Docs'
-description: Learn how to use the Databricks CLI from Azure cloud shell.
+description: Learn how to use the Databricks CLI from Azure Cloud Shell.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -20,7 +20,7 @@ ms.author: nitinme
 
 # Use Databricks CLI from Azure Cloud Shell
 
-Learn how to use the Databricks CLI from Azure cloud shell to perform operations on Databricks.
+Learn how to use the Databricks CLI from Azure Cloud Shell to perform operations on Databricks.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Learn how to use the Databricks CLI from Azure cloud shell to perform operations
 
 * Set up a personal access token in Databricks. For instructions, see [Token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
-## Use the Azure cloud shell
+## Use the Azure Cloud Shell
 
 1. Log in to the [Azure  portal](https://portal.azure.com).
  
@@ -36,7 +36,7 @@ Learn how to use the Databricks CLI from Azure cloud shell to perform operations
 
    ![Launch Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Launch ODBC from Excel")
 
-3. Make sure you select **Bash** for the cloud shell enviornment. You can select from the drop-down option, as shown in the following screenshot.
+3. Make sure you select **Bash** for the Cloud Shell enviornment. You can select from the drop-down option, as shown in the following screenshot.
 
    ![Launch Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Launch ODBC from Excel") 
 
@@ -64,7 +64,7 @@ Learn how to use the Databricks CLI from Azure cloud shell to perform operations
 
     * Finally, you are prompted to enter the password. Enter the token that you created earlier.
 
-Once you complete these steps, you can start using Databricks CLI from Azure cloud shell.
+Once you complete these steps, you can start using Databricks CLI from Azure Cloud Shell.
 
 ## Use Databricks CLI
 
