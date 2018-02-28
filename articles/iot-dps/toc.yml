@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Set up auto-provisioning - Azure CLI
+    href: quick-setup-auto-provision-cli.md
   - name: Set up auto-provisioning - Portal
     href: quick-setup-auto-provision.md
   - name: Set up auto-provisioning - Template
