@@ -61,6 +61,8 @@
     href: luis-tutorial-interchangeable-phrase-list.md
   - name: Improve accuracy with batch testing
     href: luis-tutorial-batch-testing.md
+  - name: Correct spelling with Bing Spell Check API v7
+    href: luis-tutorial-bing-spellcheck.md
   - name: Gain Application Insights with a bot using Node.js
     href: luis-tutorial-function-appinsights.md
 - name: Samples
