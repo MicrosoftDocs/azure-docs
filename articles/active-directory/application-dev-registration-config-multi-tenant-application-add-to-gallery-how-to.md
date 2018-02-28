@@ -21,7 +21,11 @@ ms.author: jeedes
 
 ## What is the Azure AD application gallery?
 
+<<<<<<< HEAD
 Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/) is in the Azure Marketplace app store, where all application connectors are published for single sign-on and user provisioning. Customers who use Azure AD as an identity provider find the different SaaS application connectors published here. IT administrators add connectors from the app gallery, and then configure and use the connectors for single sign-on and provisioning. Azure AD supports all major federation protocols, including SAML 2.0, OpenID Connect, OAuth, and WS-Fed for single sign-on. 
+=======
+Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure AD Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/) is in the Azure Marketplace app store, where all application connectors are published for single sign-on and user provisioning. Customers who use Azure AD as an identity provider find the different SaaS application connectors published here. IT administrators add connectors from the app gallery, and then configure and use the connectors for single sign-on and provisioning. Azure AD supports all major federation protocols for single sign-on, including SAML 2.0, OpenID Connect, OAuth, and WS-Fed. 
+>>>>>>> c2f12f484e4d280a2b27bccab0c2813fc169e270
 
 ## If your application supports SAML or OpenIDConnect
 If you have a multitenant application that you want listed in the Azure AD application gallery, you must first make sure that your application supports one of the following single sign-on technologies:
