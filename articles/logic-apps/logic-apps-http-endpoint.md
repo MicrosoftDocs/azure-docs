@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
+ms.author: klam; LADocs
 ---
 
 # Call, trigger, or nest workflows with HTTP endpoints in logic apps
@@ -30,7 +30,7 @@ so that your logic apps can receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 
-* [API Connection Webhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [API Connection Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
@@ -194,6 +194,7 @@ but replace `{customerID}` with `123456`, and press Enter.
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### Tokens generated from JSON schemas for your logic app
 
 When you provide a JSON schema in your **Request** trigger, 
@@ -243,6 +244,10 @@ to your trigger. You can then select from eligible logic apps.
 After you create your HTTP endpoint, 
 you can trigger your logic app through a `POST` method to the full URL. 
 Logic apps have built-in support for direct-access endpoints.
+
+> [!NOTE] 
+> To manually run a logic app at any time, 
+> on the Logic App Designer or Logic App Code View toolbar, choose **Run**.
 
 ## Reference content from an incoming request
 

@@ -39,16 +39,22 @@
       href: logic-apps-serverless-get-started-vs.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
+    - name: Control workflow execution
+      items:
+      - name: Conditional statements
+        href: logic-apps-control-flow-conditional-statement.md
+      - name: Switch statements
+        href: logic-apps-control-flow-switch-statement.md
+      - name: Branches
+        href: logic-apps-control-flow-branches.md
+      - name: Loops
+        href: logic-apps-control-flow-loops.md
+      - name: Scopes
+        href: logic-apps-control-flow-run-steps-group-scopes.md
     - name: Add custom code with Azure Functions
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
       href: logic-apps-scenario-function-sb-trigger.md
-    - name: Add conditions and run workflows
-      href: logic-apps-use-logic-app-features.md
-    - name: Add switch statements
-      href: logic-apps-switch-case.md
-    - name: Loops, scopes, and data debatching
-      href: logic-apps-loops-and-scopes.md
     - name: Batch process messages
       href: logic-apps-batch-process-send-receive-messages.md
     - name: Build on logic app definitions

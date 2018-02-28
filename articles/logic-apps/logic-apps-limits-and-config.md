@@ -2,7 +2,7 @@
 title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -25,13 +25,13 @@ This article describes the current limits and configuration details for Azure Lo
 
 ### HTTP request limits
 
-These limits apply to a single HTTP request or a connector call.
+Here are the limits for a single HTTP request or a connector call:
 
 #### Timeout
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Request timeout | 120 seconds | An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed |
+| Request timeout | 120 seconds | An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-control-flow-loops.md) can compensate as needed | 
 |||| 
 
 #### Message size
@@ -53,31 +53,24 @@ These limits apply to a single HTTP request or a connector call.
 
 ### Run duration and retention
 
-These limits apply to a single logic app run.
+Here are the limits for a single logic app run:
 
-| Name | Default | Limit |
-| ---- | ------- | ----- |
-| Run duration   | 90 days | 7 to 90 days |
-| Storage retention | 90 days from the run's start time |  7 to 90 days from the run's start time |
-||||
+| Name | Limit | 
+| ---- | ----- | 
+| Run duration | 90 days | 
+| Storage retention | 90 days from the run's start time | 
+| Min recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | 
+| Max recurrence interval | 500 days | 
+||| 
 
 To exceed the limits for run duration or 
 storage retention in your normal processing flow, 
-[contact the product team](mailto://logicappsemail@microsoft.com) 
-to get assistance with your requirements.
-
-
-### Recurrence interval
-
-| Name | Limit |
-| ---- | ------- |
-| Min recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds |
-| Max recurrence interval | 500 days |
-|||
+[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
+for help with your requirements.
 
 ### Looping and debatching limits
 
-These limits apply to a single logic app run.
+Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
@@ -89,7 +82,7 @@ These limits apply to a single logic app run.
 
 ### Throughput limits
 
-These limits apply to a single logic app resource.
+Here are the limits for a single logic app instance:
 
 | Name | Limit | Notes | 
 | ----- | ----- | ----- | 
@@ -102,12 +95,12 @@ These limits apply to a single logic app resource.
 
 To exceed these limits in normal processing, 
 or run load testing that might exceed these limits, 
-[contact the product team](mailto://logicappsemail@microsoft.com) 
-to get assistance with your requirements.
+[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
+for help with your requirements.
 
 ### Logic app definition limits
 
-These limits apply to a single logic app definition.
+Here are the limits for a single logic app definition:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
@@ -139,7 +132,7 @@ These limits apply to custom connectors that you can create from web APIs.
 
 ### Integration account limits
 
-These limits apply to artifacts that you can add to an integration account.
+Here are the limits for the artifacts that you can add to an integration account.
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
@@ -158,7 +151,7 @@ These limits apply to the number of artifacts that you can add to an integration
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Agreements | 10 | | 
-| Other artifact types | 25 |Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+| Other artifact types | 25 | Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
 |||| 
 
 #### Standard pricing tier
@@ -170,7 +163,7 @@ These limits apply to the number of artifacts that you can add to an integration
 
 ### B2B protocols (AS2, X12, EDIFACT) message size
 
-These limits apply to B2B protocols.
+Here are the limits that apply to B2B protocols:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 

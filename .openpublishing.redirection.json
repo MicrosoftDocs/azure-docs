@@ -1574,6 +1574,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-use-logic-app-features.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-switch-case.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-switch-statement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-loops-and-scopes.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-loops",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates",
             "redirect_document_id": false

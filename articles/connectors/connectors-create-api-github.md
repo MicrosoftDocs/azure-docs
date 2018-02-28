@@ -1,8 +1,8 @@
 ---
-title: GitHub connector in Azure Logic Apps | Microsoft Docs
-description: Create Logic apps with Azure App service. GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.
+title: Connect to GitHub with Azure Logic Apps | Microsoft Docs
+description: Automate workflows for GitHub with Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: MandiOhlinger
 manager: anneta
 editor: ''
@@ -16,21 +16,26 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-
 ---
-# Get started with the GitHub connector
-GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+# Connect to GitHub
+
+GitHub is a web-based Git repository hosting service that offers all of the distributed 
+revision control and source code management (SCM) functionality in Git plus other features.
+
+To get started with the GitHub connector, 
+[create a logic app first](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to GitHub
-To create Logic apps with GitHub, you must first create a **connection** then provide the details for the following properties: 
+
+To use the GitHub connector in a logic app, 
+you must first create a *connection* and then provide details for these properties: 
 
 | Property | Required | Description |
 | --- | --- | --- |
-| Token |Yes |Provide GitHub Credentials |
+| Token |Yes |Provide GitHub credentials. |
 
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+After you create the connection, you can use can execute the actions and listen for the triggers described in this article.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
