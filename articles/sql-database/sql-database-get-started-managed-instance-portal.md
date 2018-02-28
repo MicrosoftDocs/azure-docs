@@ -16,7 +16,7 @@ manager: Craig.Guyer
 ---
 # Create an Azure SQL Database Managed Instance in the Azure portal
 
-This quick start tutorial walks through creating an Azure SQL Database Managed Instance using the Azure portal in a dedicated subnet of a virtual network (VNET), connecting to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNET, and then restoring a backup of the Wide World Importers database into the Managed Instance.
+This tutorial demonstrates how to create an Azure SQL Database Managed Instance using the Azure portal in a dedicated subnet of a virtual network (VNET). It then shows you how to connect to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNET and then restore a backup of a database stored in Azure blob storage into the Managed Instance.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -237,7 +237,6 @@ The following steps show you how to download and install SSMS, and then connect 
 3. In the **Internet Explorer Enhanced Security Configuration** dialog box, click **Off** in the Administrators section of the dialog box and then click **OK**.
 
     ![internet explorer enhanced security configuration](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
-
 4. Open **Internet Explorer** from the task bar.
 5. Select **Use recommended security and compatibility settings** and then click **OK** to complete the setup of Internet Explorer 11.
 6. Enter https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms in the URL address box and click **Enter**. 
@@ -249,11 +248,78 @@ The following steps show you how to download and install SSMS, and then connect 
 
     ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 
-## Download Wide World Importers backup file and restore to Managed Instance.
+## Download the Adventure Works 2016 backup file
 
-Use the following steps to download the Wide World Importers backup file and restore it to your Managed Instance using SSMS.
+Use the following steps to download the Adventure Works 2016 backup file.
 
-1. Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak in the URL address box and then, when prompted, click **Save** to save this file in the **Downloads** folder.
+Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2016.bak in the URL address box and then, when prompted, click **Save** to save this file in the **Downloads** folder.
+
+## Create Azure storage account and upload the Adventure Works 2016 backup file
+
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+2. Locate **Storage** and then click **Storage Account** to open the storage account form.
+
+   ![storage account](./media/sql-database-managed-instance-tutorial/storage-account.png)
+
+3. Fill out the storage account form with the requested information, using the information in the following table.
+
+   | Setting| Suggested value | Description |
+   | ------ | --------------- | ----------- |
+   |**Name**|Any valid name|For valid storage account names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Deployment model**|Resource model||
+   |**Account kind**|Blob storage||
+   |**Performance**|Standard or premium|Magnetic drives or SSDs|
+   |**Replication**|Locally-redundant storage||
+   |**Access tier (default)|Cool or hot||
+   |**Secure transfer required**|Disabled||
+   |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
+   |**Resource group**|The resource group that you created earlier|| 
+   |**Location**|The location that you previously selected||
+   |**Virtual networks**|Disabled||
+
+4. Click **Create**.
+
+   ![storage account details](./media/sql-database-managed-instance-tutorial/storage-account-details.png)
+
+5. After the storage container deployment succeeds, open your new storage account.
+6. Under **Settings**, click **Containers**.
+
+   ![containers](./media/sql-database-managed-instance-tutorial/containers.png)
+
+7. Click **+ Container** to create a container to hold your backup file.
+8. Fill out the container form with the requested information, using the information in the following table.
+
+   | Setting| Suggested value | Description |
+   | ------ | --------------- | ----------- |
+   |**Name**|Any valid name|For valid container names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Public access level**|Private (no anonymous access)||
+
+   ![container detail](./media/sql-database-managed-instance-tutorial/container-detail.png)
+
+7. Click **OK**.
+8. After the container has been created, click the container to open the container.
+
+   ![container](./media/sql-database-managed-instance-tutorial/container.png)
+
+9. Click **Upload** to open the **Upload blob** form.
+
+   ![upload](./media/sql-database-managed-instance-tutorial/upload.png)
+
+10. Browse to your download folder and select the **AdventureWorks2016.bak** file.
+
+    ![upload](./media/sql-database-managed-instance-tutorial/upload-bak.png)
+
+11. Click **Upload**.
+12. Do not continue until the upload is complete.
+
+    ![upload complete](./media/sql-database-managed-instance-tutorial/upload-complete.png)
+
+
+## Restore Adventure Works 2016 from a backup file
+
+Use the following steps to download the Adventure Works 2016 backup file and restore it to your Managed Instance using SSMS.
+
+1. Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2016.bak in the URL address box and then, when prompted, click **Save** to save this file in the **Downloads** folder.
 2. After the download completes, in SSMS, right-click **Databases** in **Object Explorer** to open the **Restore Database** dialog box.
 3. Cick the ellipsis to the right of the **Device** text box to open the **Select backup devices** dialog box.
 4. 
