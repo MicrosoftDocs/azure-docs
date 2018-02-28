@@ -105,9 +105,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
 
-	*   In the **Domain** field, populate subdomain based on Step6.
+	*   In the **Domain** field, populate subdomain based on Step 6.
 	
-6. Retrieve th **serverLocation** for your Clarizen account based on steps mentioned under **Authentication** of [Rest API Guide](https://success.clarizen.com/hc/en-us/articles/205711828-REST-API-Guide-Version-2). Upon obtaining the serverLocation get the subdomain of the URL, to fill in the **Domain** field.
+6. Retrieve the **serverLocation** for your Clarizen account based on steps mentioned under **Authentication** of [Clarizen's Rest API Guide](https://success.clarizen.com/hc/en-us/articles/205711828-REST-API-Guide-Version-2). Upon obtaining the serverLocation, use the subdomain of the URL as highlighted below, to populate the **Domain** field.
 
 	![Clarizen Provisioning](./media/active-directory-saas-clarizen-provisioning-tutorial/ClarizenDomain.png)
 
