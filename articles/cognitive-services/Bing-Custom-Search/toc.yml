@@ -1,4 +1,4 @@
-S- name: Bing Custom Search Documentation
+- name: Bing Custom Search Documentation
   href: index.md
 - name: Overview
   items:
