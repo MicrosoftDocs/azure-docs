@@ -18,6 +18,7 @@
 # How to
 ## [Use Azure AD Domain Services in Azure CSP subscriptions](active-directory-ds-csp.md)
 ## [Enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Check your domain's health](active-directory-ds-check-health.md)
 ## Join a managed domain
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server VM from template](active-directory-ds-join-windows-vm-template.md)
@@ -28,7 +29,6 @@
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
-### [Check your domain's health](active-directory-ds-check-health.md)
 ### Configure secure LDAP for a managed domain
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
