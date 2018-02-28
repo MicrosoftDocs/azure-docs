@@ -32,7 +32,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs][container-registry-skus].
+In this quickstart a *Basic* registry is created. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -67,7 +67,7 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Throughout the rest of this quickstart, we use `<acrName>` as a placeholder for the container registry name.
+Throughout the rest of this quickstart `<acrName>` denotes a placeholder for the container registry name.
 
 ## Log in to ACR
 
@@ -136,7 +136,7 @@ v1
 ```
 
 ## Deploy image ACI
-In order to deploy to an instance from the registry we will first need to retrieve the acr password. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command.
+In order to deploy to an instance from the registry the acr password must be retrieved. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command.
 
 ```azurecli
 az acr update --name <acrName> --admin-enabled true
