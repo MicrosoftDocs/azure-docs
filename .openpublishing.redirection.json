@@ -4850,7 +4850,12 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
-            "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
+            "redirect_url": "/azure/automation/automation-update-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-solution-update-management.md",
+            "redirect_url": "/azure/automation/automation-update-management",
             "redirect_document_id": false
         },
         {
