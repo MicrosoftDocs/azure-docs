@@ -1,10 +1,10 @@
 ---
 title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: PowerShell: Azure | Microsoft Docs'
-description: This article helps you create and install VPN client configuration files for Point-to-Site connections that use certificate authentication.
+description: Create and install Windows and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
 
 ---
-# Create and install VPN client configuration files for native Azure certificate authentication P2S configurations
+# Create and install VPN client configuration files for native Azure certificate authentication Point-to-Site configurations
 
 VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows or Mac IKEv2 VPN client to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication.
 
@@ -64,6 +64,11 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the Point-to-Site section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
 
+>[!NOTE]
+>You must have Administrator rights on the Windows client computer from which you want to connect.
+>
+>
+
 Use the following steps to configure the native Windows VPN client for certificate authentication:
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package. 
@@ -88,7 +93,7 @@ Click **Add** to import.
     >[!NOTE]
     >Double-clicking on the certificate may not display the **Add** dialog, but the certificate is installed in the correct store. You can check for the certificate in the login keychain under the certificates category.
   
-2. Verify that you have installed a client certificate that was issued by the root certificate which you uploaded to Azure when you configured you P2S settings. This is different from the VPNServerRoot that you installed in the previous step. The client certificate is used for authentication and is required. For more information about generating certificates, see [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
+2. Verify that you have installed a client certificate that was issued by the root certificate that you uploaded to Azure when you configured you P2S settings. This is different from the VPNServerRoot that you installed in the previous step. The client certificate is used for authentication and is required. For more information about generating certificates, see [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. Open the **Network** dialog under **Network Preferences** and click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure VNet.
 
   The **Interface** value is 'VPN' and **VPN Type** value is 'IKEv2'. Specify a name for the profile in the **Service Name** field, then click **Create** to create the VPN client connection profile.
@@ -114,3 +119,5 @@ Click **Add** to import.
 ## Next Steps
 
 Return to the article to [complete your P2S configuration](vpn-gateway-howto-point-to-site-rm-ps.md).
+
+For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

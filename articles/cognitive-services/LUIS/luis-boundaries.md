@@ -13,7 +13,7 @@ ms.date: 02/08/2018
 ms.author: v-geberr;
 ---
 # LUIS boundaries
-LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS endpoint APIs. 
+LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
 
 
 ## Model boundaries
@@ -32,16 +32,16 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000|
-| [Version name][luis-how-to-manage-versions] | 10 characters |
+| [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanum and period (.) |
 
 ## Key limits
-The programmatic key has different limits for authoring and endpoint. The subscription key is only valid for endpoint queries.
+The authoring key has different limits for authoring and endpoint. The LUIS service subscription key is only valid for endpoint queries.
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
-|Programmatic/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
+|Authoring/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
-|[Subscription][pricing] - S0 - Basic tier|invalid|1 million/month, 50/second|Querying your LUIS endpoint|
+|[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 
 ## Keyboard controls
 

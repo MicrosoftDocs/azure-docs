@@ -1,6 +1,6 @@
 ---
-title: Controls in Azure Active Directory conditional access | Microsoft Docs
-description: Learn how controls in Azure Active Directory conditional access work.
+title: Access controls in Azure Active Directory conditional access | Microsoft Docs
+description: Learn how access controls in Azure Active Directory conditional access work.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
 
 ---
 
-# Controls in Azure Active Directory conditional access 
+# Access controls in Azure Active Directory conditional access 
 
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
 

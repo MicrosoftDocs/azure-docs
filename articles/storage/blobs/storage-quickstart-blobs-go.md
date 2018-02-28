@@ -1,19 +1,19 @@
 ---
-title:  Azure Quickstart - Transfer objects to/from Azure Blob storage using Go | Microsoft Docs 
-description: Quickly learn to transfer objects to/from Azure Blob storage using Go lang
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Go | Microsoft Docs
+description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
 author: seguler
-manager: jahogg 
+manager: jeconnoc 
 
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/29/2018
+ms.date: 02/22/2018
 ms.author: seguler
 ---
 
-#  Transfer objects to/from Azure Blob storage using Go
+# Quickstart: Upload, download, and list blobs using Go
+
 In this quickstart, you learn how to use the Go programming language to upload, download, and list block blobs in a container in Azure Blob storage. 
 
 ## Prerequisites

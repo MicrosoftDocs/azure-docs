@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
 ---
 
@@ -31,7 +31,7 @@ To use dependency visualization, you need to download and install agents on each
 
 ## Do I need to pay for it?
 
-Yes. The Log Analytics workspace is created by default, but it isn't used unless you use dependency visualization in Azure Migrate. If you do use dependency visualization (or use the workspace outside Azure Migrate), you are charged for workspace usage.  [Learn more](https://azure.microsoft.com/pricing/details/insight-analytics/) about Service Map solution pricing. 
+Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## How do I manage the workspace?
 

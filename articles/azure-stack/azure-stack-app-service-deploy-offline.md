@@ -3,9 +3,9 @@ title: 'Deploy App Service in an offline environment: Azure Stack | Microsoft Do
 description: Detailed guidance on how to deploy App Service in a disconnected Azure Stack environment secured by AD FS.
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
-editor:
+author: brenduns
+manager: femila
+editor: ''
 
 ms.assetid:
 ms.service: azure-stack
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS

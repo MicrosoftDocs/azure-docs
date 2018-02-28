@@ -605,7 +605,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>AI + Cognitive Services</h3>
+                                    <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
@@ -734,7 +734,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-entities-search/">
                                                 <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
                                                 <p>Bing Entity Search</p>
                                             </a>
@@ -861,7 +861,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Data + Analytics</h3>
+                                    <h3>Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1172,7 +1172,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Monitoring + Management</h3>
+                                    <h3>Management Tools</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -1839,7 +1839,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <p>Protect your data with cloud-based backup as a service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2320,7 +2320,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Data + Analytics</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2553,8 +2553,8 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI + Cognitive Services</a>
-                        <ul id="cognitive" class="cardsA">
+                        <a href="#ai">AI + Machine Learning</a>
+                        <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>Artificial Intelligence</h2>
                             </li>
@@ -2759,7 +2759,7 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>
@@ -3498,7 +3498,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Monitoring + Management</a>
+                        <a href="#mgmt">Management Tools</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/azure-policy/">
@@ -3900,7 +3900,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
+                                                    <a href="/python/azure">Get the Azure libraries for Python</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/python/azure">Get started</a>
@@ -3924,7 +3924,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/javascript/azure/node-sdk-azure-get-started">Get the Azure libraries for Node.js</a>
+                                                    <a href="/nodejs/azure/">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/javascript/azure/">Get started</a>

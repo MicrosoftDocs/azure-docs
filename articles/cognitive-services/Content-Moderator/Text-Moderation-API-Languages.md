@@ -15,9 +15,9 @@ ms.author: sajagtap
 # Supported languages by feature
 
 > [!NOTE]
-> Use `eng` or leave it blank, for the **language** parameter for the **ScreenText** operation [See API console quickstart](try-text-api.md) to see the machine-assisted '**Classification** section (preview feature) in the API response. **This feature supports English only**.
+> For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
 >
-> To see profanity term detection in action, try the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it blank for automated language detection.
+> For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
 
 
 | Auto-detected | Profanity   | OCR    |

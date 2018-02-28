@@ -1,22 +1,18 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using .NET | Microsoft Docs
-description: Quickly learn to transfer objects to/from Azure Blob storage using .NET
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using .NET | Microsoft Docs
+description: In this quickstart, you create a storage account and a container. Then you use the storage client library for .NET to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 02/22/2018
 ms.author: tamram
 ---
 
-# Transfer objects to/from Azure Blob storage using .NET
+# Quickstart: Upload, download, and list blobs using .NET
 
 In this quickstart, you learn how to use the .NET client library for Azure Storage to upload, download, and list block blobs in a container.
 

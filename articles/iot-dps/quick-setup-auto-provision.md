@@ -28,7 +28,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an IoT hub
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Internet of Things**, select **IoT Hub**, and click the **Create** button. 
 
@@ -41,9 +41,9 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a new instance for the IoT Hub Device Provisioning Service
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
-2. *Search the Marketplace* for the **Device provisioning service**. Select **IoT Device Provisioning Service** and click the **Create** button. 
+2. *Search the Marketplace* for the **Device provisioning service**. Select **IoT Hub Device Provisioning Service** and click the **Create** button. 
 
 3. **Name** your Device Provisioning Service instance. Select the subscription that would be used for this instance, and name a new or existing resource group. Select the location. When complete, click **Create**.
 

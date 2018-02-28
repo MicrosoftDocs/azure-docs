@@ -52,7 +52,7 @@ LUIS has two ways to build a model: the [Authoring APIs][authoring-apis] and the
 Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint APIs][endpoint-apis].
 
 > [!NOTE]
-> * The Authoring APIs and the [LUIS](luis-reference-regions.md) website use the programmatic key found in your LUIS account page.
+> * The Authoring APIs and the [LUIS](luis-reference-regions.md) website use the authoring key found in your LUIS account page.
 > * The Endpoint APIs use the LUIS subscription key found in the [Azure portal][azure-portal].
 
 ## Author your LUIS model 

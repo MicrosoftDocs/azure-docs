@@ -26,7 +26,7 @@ This article explains how to view all groups in Azure Active Directory (Azure AD
 
 ## How do I see all the groups?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening users and groups](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. On the **Users and groups** blade, select **All groups**.

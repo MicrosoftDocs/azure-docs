@@ -49,7 +49,7 @@ You learn how to visualize real-time sensor data that your Azure IoT hub receive
 
 ### Create a Stream Analytics job
 
-1. In the Azure portal, click New > Internet of Things > Stream Analytics job.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 1. Enter the following information for the job.
 
    **Job name**: The name of the job. The name must be globally unique.

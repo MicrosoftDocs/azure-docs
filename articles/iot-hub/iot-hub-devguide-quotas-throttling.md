@@ -29,6 +29,8 @@ The SKU also determines the throttling limits that IoT Hub enforces on all opera
 ## Operation throttles
 Operation throttles are rate limitations that are applied in minute ranges, and are intended to prevent abuse. IoT Hub tries to avoid returning errors whenever possible, but starts returning exceptions if the throttle is violated for too long.
 
+At any given time, you can increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
+
 The following table shows the enforced throttles. Values refer to an individual hub.
 
 | Throttle | Free and S1 hubs | S2 hubs | S3 hubs | 
@@ -47,15 +49,11 @@ The following table shows the enforced throttles. Values refer to an individual 
 
 <sup>1</sup>Throttling meter size is 8 KB
 
-> [!IMPORTANT]
-> The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
+The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
 
 For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. Therefore, to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry.
 
 For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you][lnk-throttle-blog].
-
-> [!NOTE]
-> At any given time, you can increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
 > [!IMPORTANT]
 > Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
