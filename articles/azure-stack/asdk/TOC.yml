@@ -21,10 +21,10 @@
     href: asdk-marketplace-item.md
   - name: 2. Offer IaaS services
     href: asdk-offer-services.md
-  - name: 3. Modify or update offers and plans
-    href: asdk-change-offers.md 
-  - name: 4. Subscribe to an offer
+  - name: 3. Subscribe to an offer
     href: asdk-subscribe-services.md
+  - name: 4. Update offers and plans
+    href: asdk-update-offers.md 
   - name: 5. Create a virtual machine from a template
     href: asdk-create-vm-template.md 
 - name: Concepts
