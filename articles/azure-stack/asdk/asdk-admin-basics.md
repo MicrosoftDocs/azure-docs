@@ -38,12 +38,13 @@ By default, Azure Stack includes the following "foundational services" when you 
 With these foundational services, you can offer Infrastructure-as-a-Service (IaaS) to your users with minimal configuration.
 
 ### Additional services
-Currently, the following additional Platform-as-a-Service (PaaS) services are supported<sup>*</sup>:
+Currently, the following additional Platform-as-a-Service (PaaS) services are supported:
 - App Service
 - Azure Functions
 - SQL and MySQL databases
 
-> <sup>*</sup> These services require additional configuration before you can make them available to your users and are not available by default when you install the ASDK.
+> [!NOTE]
+> These services require additional configuration before you can make them available to your users and are not available by default when you install the ASDK.
 
 ## Service roadmap
 Azure Stack will continue to add support for additional Azure services. To learn about what's coming next with Azure Stack, see the [Azure Stack roadmap](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
