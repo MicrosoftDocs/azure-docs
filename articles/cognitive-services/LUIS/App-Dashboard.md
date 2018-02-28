@@ -2,14 +2,14 @@
 title: Application dashboard for LUIS apps | Microsoft Docs
 description: Learn about the application dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr
 ---
 
 # Application Dashboard
