@@ -1,3 +1,5 @@
+# [Redis Cache Documentation](index.md)
+
 # Overview
 ##[Why use Redis cache](https://azure.microsoft.com/services/cache/)
 ##[Explore premium tier features](cache-premium-tier-intro.md)
