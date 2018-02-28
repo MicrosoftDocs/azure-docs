@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: jeedes
 
 ---
@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
 	> [!NOTE] 
-	> If the user has **email address** assigned using the Office365 then only it will be populated it, otherwise the **email address** claim will not appear in the SAML Token.
+	> If the user has **email address** assigned using the Office365 then only it will be populated, otherwise the **email address** claim will not appear in the SAML Token.
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, select **user.mail**  as **User Identifier** and for each row shown in the table below, perform the following steps:
     
