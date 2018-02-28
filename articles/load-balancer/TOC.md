@@ -1,3 +1,5 @@
+# [Load Balancer Documentation](index.md)
+
 # Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
 ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)
