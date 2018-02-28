@@ -55,18 +55,25 @@ These limits apply to a single HTTP request or a connector call.
 
 These limits apply to a single logic app run.
 
-| Name | Limit | 
-| ---- | ----- | 
-| Run duration | 90 days | 
-| Storage retention | 90 days from the run's start time | 
-| Min recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | 
-| Max recurrence interval | 500 days | 
-||| 
+| Name | Default | Limit |
+| ---- | ------- | ----- |
+| Run duration   | 90 days | 7 to 90 days |
+| Storage retention | 90 days from the run's start time |  7 to 90 days from the run's start time |
+||||
 
 To exceed the limits for run duration or 
 storage retention in your normal processing flow, 
 [contact the product team](mailto://logicappsemail@microsoft.com) 
 to get assistance with your requirements.
+
+
+### Recurrence interval
+
+| Name | Limit |
+| ---- | ------- |
+| Min recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds |
+| Max recurrence interval | 500 days |
+|||
 
 ### Looping and debatching limits
 
