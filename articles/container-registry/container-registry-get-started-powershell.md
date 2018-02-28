@@ -7,11 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quickstart
-<<<<<<< HEAD
 ms.date: 02/12/2018
-=======
-ms.date: 2/13/2018
->>>>>>> ffb01d20527a54b55290a94ac45a9d07e6a1528c
 ms.author: nepeters
 ms.custom: mvc
 ---
