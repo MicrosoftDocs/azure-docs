@@ -68,10 +68,12 @@ HTML("<font size='5'>Detected <font color='blue'>%d</font> faces in the image</f
 ```
 
 
+The expected result is
 
 
+```html
 <font size='5'>Detected <font color='blue'>2</font> faces in the image</font>
-
+```
 
 
 Finally, the face information can be overlaid of the original image using the `matplotlib` library in Python.

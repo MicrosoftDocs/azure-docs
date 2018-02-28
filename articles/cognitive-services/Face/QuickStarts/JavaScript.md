@@ -13,7 +13,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API JavaScript QuickStartss
+# Face API JavaScript Quickstarts
 
 This article provides information and code samples to help you quickly get started using the Face API with JavaScript to accomplish the following tasks:
 * [Detect Faces in Images](#Detect)

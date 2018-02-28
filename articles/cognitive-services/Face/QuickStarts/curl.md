@@ -13,7 +13,7 @@ ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API cURL QuickStartss
+# Face API cURL Quickstarts
 This article provides information and code samples to help you quickly get started using the Face API with cURL to accomplish the following tasks:
 * [Detect Faces in Images](#Detect)
 * [Identify Faces in Images](#Identify)
