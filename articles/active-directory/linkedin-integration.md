@@ -34,8 +34,8 @@ LinkedIn integration for enterprises is enabled by default in Azure AD. Enabling
 ### Enable or disable LinkedIn integration for your organization in the Azure portal
 
 1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD tenant.
-2. Select **Users and groups**.
-3. On the **Users and groups** blade, select **User settings**.
+2. Select **Users**.
+3. On the **Users** blade, select **User settings**.
 4. Under **LinkedIn Integration**, select **Yes** or **No** to enable or disable LinkedIn integration.
    ![Enabling LinkedIn integration](./media/linkedin-integration/LinkedIn-integration.PNG)
 
