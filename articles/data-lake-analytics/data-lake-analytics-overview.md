@@ -34,9 +34,11 @@ Azure Data Lake Analytics is an on-demand analytics job service to simplify big 
 * **Integrates seamlessly with your IT investments**
   
     Data Lake Analytics can use your existing IT investments for identity, management, security, and data warehousing. This approach simplifies data governance and makes it easy to extend your current data applications. Data Lake Analytics is integrated with Active Directory for user management and permissions and comes with built-in monitoring and auditing.
+
 * **Affordable and cost effective**
   
-    Data Lake Analytics is a cost-effective solution for running big data workloads. You pay on a per-job basis when data is processed. No hardware, licenses, or service-specific support agreements are required. The system automatically scales up or down as the job starts and completes, so you never pay for more than what you need.
+    Data Lake Analytics is a cost-effective solution for running big data workloads. You pay on a per-job basis when data is processed. No hardware, licenses, or service-specific support agreements are required. The system automatically scales up or down as the job starts and completes, so you never pay for more than what you need. [Learn more about controlling costs and saving money](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+    
 * **Works with all your Azure Data**
   
     Data Lake Analytics is optimized to work with Azure Data Lake - providing the highest level of performance, throughput, and parallelization for your big data workloads.  Data Lake Analytics can also work with Azure Blob storage and Azure SQL Database.
@@ -45,4 +47,4 @@ Azure Data Lake Analytics is an on-demand analytics job service to simplify big 
  
   * Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
   * Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
-  * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) 
+  * [How to control costs and save money with Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)
