@@ -22,7 +22,7 @@ In the scenario where you wish to have an Azure user with a VM monitoring role a
 
 ## Create a Custom RBAC Role
 
-This example allows a set of **Actions** (allow) and **NotActions** (not allow) that restrict extensions.
+This example allows a set of **Actions** (allow) and **NotActions** (not allow) that restrict extensions. You will need your subscription ID which you can get using [az account list](/cli/azure/account#az_account_list).
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
@@ -30,7 +30,7 @@ In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 vim ~/clouddrive/role.json
 ```
 
-Copy and paste the following JSON into the file.
+Copy this JSON and replace *<subscription ID>* with your own subscription information and paste it into the file.
 
 ```json
 {
@@ -52,7 +52,7 @@ Copy and paste the following JSON into the file.
         "Microsoft.Compute/virtualMachines/extensions/write"
     ],
     "AssignableScopes":[
-        "/subscriptions/e049fcf1-c84b-4de4-ba9a-a168a4cbab7a"
+        "/subscriptions/<subscription ID>"
     ]
 
 }
