@@ -5,7 +5,6 @@
 ## [Process event streams - Portal](event-hubs-quickstart-portal.md)
 ## [Process event streams - Azure CLI](event-hubs-quickstart-cli.md)
 ## [Process event streams - Azure PowerShell](event-hubs-quickstart-powershell.md)
-## [Create an event hub](event-hubs-create.md)
 
 # Tutorials
 ## [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
@@ -30,6 +29,7 @@
 ## [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 
 # How-to guides
+## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
