@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/01/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -153,6 +153,10 @@ There are no known issues after updating to 1802.
   You can then try to redownload the VM image that previously failed.
 
 -  If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+
+- Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+
+
 
 
 #### Networking
