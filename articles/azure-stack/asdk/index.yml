@@ -39,13 +39,13 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Deploy applications across both Azure and Azure Stack.'
+    text: 'Deploy virtual machines and applications across both Azure and Azure Stack.'
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-stack/asdk/asdk-marketplace-item">Add an Azure Stack marketplace item</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-offer-services">Offer IaaS services</a>
-    - html: <a href="/azure/azure-stack/asdk/asdk-change-offers">Modify or update offers and plans</a>
+    - html: <a href="/azure/azure-stack/asdk/asdk-change-offers">Update offers and plans</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-subscribe-services">Subscribe to an offer</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-create-vm-template">Create a virtual machine from a template</a>
 - title: Reference

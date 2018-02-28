@@ -14,9 +14,9 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/16/2018
+ms.date: 03/09/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
 # Add an Azure Stack marketplace item 
@@ -37,6 +37,7 @@ To complete this tutorial:
 
 - Install the [Azure Stack-compatible Azure PowerShell modules](asdk-post-deploy.md#install-azure-stack-powershell)
 - Download the [Azure Stack tools](asdk-post-deploy.md#download-the-azure-stack-tools)
+- [Register the ASDK](asdk-register.md) with your Azure subscription.
 - Download the [Windows Server 2106 virtual machine ISO image](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016) from the Windows Server Evaluations page
 - Deploy Azure Stack and then sign in to the [ASDK administration portal](https://adminportal.local.azurestack.external)
 
