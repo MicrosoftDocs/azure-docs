@@ -39,7 +39,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
-|Authoring/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
+|Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 
