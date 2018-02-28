@@ -18,14 +18,14 @@ ms.author: tamram
 
 ---
 # Azure Storage Service Encryption for Data at Rest
-Azure Storage Service Encryption for Data at Rest helps you protect your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data before persisting to storage and decrypts the data before retrieval.
+Azure Storage Service Encryption for Data at Rest helps you protect your data to meet organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data before persisting to storage and decrypts the data before retrieval.
 
 The following sections provide detailed guidance on how to use the Storage Service Encryption features. They also describe supported scenarios and customer experiences.
 
 ## Overview
 Azure Storage provides a comprehensive set of security capabilities that together help developers build secure applications. Data can be secured in transit between an application and Azure through [client-side encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0. 
 
-Storage Service Encryption provides encryption at rest. It handles encryption, decryption, and key management in a totally transparent fashion. All data is encrypted through 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
+Storage Service Encryption provides encryption at rest. It handles encryption, decryption, and key management in a transparent fashion. All data is encrypted through 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
 Storage Service Encryption works by encrypting the data when it is written to Azure Storage. It works for the following:
 
@@ -58,8 +58,8 @@ Storage Service Encryption is enabled at a storage account level. It's enabled f
 
 Storage Service Encryption has the following limitations:
 
-* Existing data: Storage Service Encryption encrypts only newly created data after the encryption is enabled. For example, if you create a new Resource Manager storage account but don't turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on Storage Service Encryption, those blobs will not be encrypted unless they are rewritten or copied.
-* Marketplace support: You can enable the encryption of virtual machines (VMs) created from the Azure Marketplace by using the [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI. The VHD base image will remain unencrypted. However, any writes done after the VM has spun up will be encrypted.
+* Existing data: Storage Service Encryption encrypts only newly created data after the encryption is enabled. For example, if you create a new Resource Manager storage account but don't turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on Storage Service Encryption, those blobs aren't encrypted unless they are rewritten or copied.
+* Marketplace support: You can enable the encryption of virtual machines (VMs) created from the Azure Marketplace by using the [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI. The VHD base image remains unencrypted. However, any writes done after the VM has spun up are encrypted.
 
 ## Getting started
 ### Step 1: Create a storage account
@@ -73,7 +73,7 @@ You can verify encryption by using the [Azure portal](https://portal.azure.com).
 > 
 
 ### Step 3: Copy data to the storage account
-After you enable Storage Service Encryption for a storage account, any data written to that storage account will be encrypted. Any data already located in that storage account will not be encrypted until it's rewritten. 
+After you enable Storage Service Encryption for a storage account, any data written to that storage account is encrypted. Any data already located in that storage account is not encrypted until it's rewritten. 
 
 To ensure that previous data is encrypted, you can copy data from one container to another. You can use any of the following tools to accomplish this. The behavior is the same for Azure Files, Table storage, and Queue storage.
 
@@ -98,7 +98,7 @@ You can use an Azure Storage client tool, like Azure Storage Explorer, to:
 - View contents of blobs.
 - Browse through directories. 
 
-You can use one of the Azure Storage client tools to upload blobs to your storage account with encryption enabled. With some these tools, you can also copy data from existing Blob storage to a different container in the storage account or a new storage account that has Storage Service Encryption enabled.
+You can use one of the Azure Storage client tools to upload blobs to your storage account with encryption enabled. You can also copy data from existing Blob storage to a different container in the storage account or a new storage account that has Storage Service Encryption enabled.
 
 To learn more, see [Azure Storage client tools](../storage-explorers.md).
 
@@ -128,7 +128,7 @@ A: With encryption enabled by default, Azure Storage automatically encrypts your
 
 You can also create a new Resource Manager storage account and copy all your data by using [AzCopy](storage-use-azcopy.md) from your classic storage account to your newly created Resource Manager storage account. 
 
-You can also choose to migrate your classic storage account to a Resource Manager storage account. This operation is instantaneous. It changes the type of your account but does not affect your existing data. Any new data that's written will be encrypted only after you enable encryption. For more information, see [Platform supported migration of IaaS resources from classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Note that this ability is supported only for Blob storage and Azure Files.
+You can also choose to migrate your classic storage account to a Resource Manager storage account. This operation is instantaneous. It changes the type of your account but does not affect your existing data. Any newly written data is encrypted only after you enable encryption. For more information, see [Platform supported migration of IaaS resources from classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Note that this ability is supported only for Blob storage and Azure Files.
 
 **Q: I have a Resource Manager storage account. Can I enable Storage Service Encryption on it?**
 
@@ -144,7 +144,7 @@ A: Yes, Storage Service Encryption is supported on both standard storage and pre
 
 **Q: If I create a storage account with Storage Service Encryption enabled, and then create a VM by using that storage account, does that mean my VM is encrypted?**
 
-A: Yes. Any created disks that use the new storage account will be encrypted, as long as they're created after Storage Service Encryption is enabled. If you created the VM by using the Azure Marketplace, the VHD base image remains unencrypted. However, any writes done after the VM has spun up will be encrypted.
+A: Yes. Any created disks that use the new storage account are encrypted, as long as they're created after Storage Service Encryption is enabled. If you created the VM by using the Azure Marketplace, the VHD base image remains unencrypted. However, any writes done after the VM has spun up are encrypted.
 
 **Q: Can I create storage accounts with Storage Service Encryption enabled by using Azure PowerShell and Azure CLI?**
 
@@ -172,11 +172,11 @@ A: Yes, Storage Service Encryption (using Microsoft-managed keys) is enabled by 
 
 **Q: How is this different from Azure Disk Encryption?**
 
-A: This feature is used to encrypt data in Azure Blob storage. Azure Disk Encryption is used to encrypt OS and data disks in IaaS VMs. For more details, see the [Storage security guide](../storage-security-guide.md).
+A: This feature is used to encrypt data in Azure Blob storage. Azure Disk Encryption is used to encrypt OS and data disks in IaaS VMs. For more information, see the [Storage security guide](../storage-security-guide.md).
 
 **Q: What if Storage Service Encryption is enabled, and then I enable Azure Disk Encryption on the disks?**
 
-A: This will work seamlessly. Your data will be encrypted by both methods.
+A: This will work seamlessly. Both methods will encrypt your data.
 
 **Q: My storage account is set up to be replicated geo-redundantly. If Storage Service Encryption is enabled, will my redundant copy also be encrypted?**
 
@@ -195,4 +195,4 @@ A: Storage Service Encryption is available in all regions for all services.
 A: Contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) for any problems or feedback related to Storage Service Encryption.
 
 ## Next steps
-Azure Storage provides a comprehensive set of security capabilities that together help developers build secure applications. For more details, see the [Storage security guide](../storage-security-guide.md).
+Azure Storage provides a comprehensive set of security capabilities that together help developers build secure applications. For more information, see the [Storage security guide](../storage-security-guide.md).
