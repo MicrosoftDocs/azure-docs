@@ -116,4 +116,4 @@ In this tutorial you learned how view software inventory such as how to:
 Continue to the overview for the Change tracking and Inventory solution to learn more about it.
 
 > [!div class="nextstepaction"]
-> [Change management and Inventory solution](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Change management and Inventory solution](automation-change-tracking.md)
