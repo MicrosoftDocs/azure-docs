@@ -33,6 +33,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+Before you can complete the steps in this tutorial, you must first create a CDN profile and at least one CDN endpoint. For more information, see [cdn-create-new-endpoint.md](Quickstart: Create an Azure CDN profile and endpoint).
+
 If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
 
 ## Access DNS records by using your domain provider
