@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: danlep
 
 ---
@@ -27,7 +27,7 @@ Make sure that you installed and configured the latest [Azure PowerShell module]
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## Table of commonly used Windows images
-| PublisherName | Offer | Sku |
+| Publisher | Offer | Sku |
 |:--- |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
@@ -161,7 +161,7 @@ Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku
 
 Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `--image` parameter when you create a VM with the [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the image. You can also use the URN with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet. 
 
-If you deploy a VM with a Resource Manager template, you set the image parameters individually. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
+If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
@@ -229,7 +229,7 @@ DataDiskImages   : []
 
 ### Accept the terms
 
-To view the license terms, use the [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.compute/get-azurermmarketplaceterms) cmdlet and pass in the purchase plan parameters. The output provides a link to the terms for the Marketplace image and shows whether you previously accepted the terms. For example:
+To view the license terms, use the [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) cmdlet and pass in the purchase plan parameters. The output provides a link to the terms for the Marketplace image and shows whether you previously accepted the terms. For example:
 
 ```powershell
 Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -249,7 +249,7 @@ Accepted          : False
 Signdate          : 2/23/2018 7:43:00 PM
 ```
 
-Use the [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.compute/set-azurermmarketplaceterms) cmdlet to accept or reject the terms. You only need to accept terms once per subscription for the image. For example:
+Use the [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) cmdlet to accept or reject the terms. You only need to accept terms once per subscription for the image. For example:
 
 ```powershell
 
@@ -274,7 +274,7 @@ Signdate          : 2/23/2018 7:49:31 PM
 ```
 
 ### Deploy using purchase plan parameters
-After accepting the terms for the image, you can deploy a VM in the subscription. As shown in the following snippet, use the [Set-AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdlet to set the Marketplace plan information for the VM object. To create network settings for the VM and complete the deployment, see the [PowerShell script examples](powershell-samples.md)
+After accepting the terms for the image, you can deploy a VM in the subscription. As shown in the following snippet, use the [Set-AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdlet to set the Marketplace plan information for the VM object. For a complete script to create network settings for the VM and complete the deployment, see the [PowerShell script examples](powershell-samples.md).
 
 ```powershell
 ...
