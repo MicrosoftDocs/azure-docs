@@ -18,7 +18,7 @@ ms.author: cephalin
 ms.custom: mvc, devcenter
 
 ---
-# Run a RESTful API with CORS in Azure App Service
+# Host a RESTful API with CORS in Azure App Service
 
 [Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [Cross-Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to run an API in App Service with CORS support without writing CORS code. You configure the app using command-line tools and deploy the app using Git. 
 

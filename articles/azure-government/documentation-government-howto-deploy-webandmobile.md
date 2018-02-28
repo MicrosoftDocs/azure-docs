@@ -62,7 +62,9 @@ Open up Visual Studio and click File -> New -> Project. We will create an ASP.NE
 
 Right click on your web app and click "Publish".
 There are two different options, to use an existing Web App or create a new one. We will use the existing Web App we have created above in the section above, so choose the "select existing" box. 
-To deploy an app and also have Visual Studio provision a new Azure Web App during the publish process, click "create new" and follow [these steps](../app-service/app-service-web-tutorial-rest-api.md#createapiapp).
+To deploy an app and also have Visual Studio provision a new Azure Web App during the publish process, click "create new".
+
+<!--  and follow [these steps](../app-service/app-service-web-tutorial-rest-api.md#createapiapp) -->
 
 ![extra5](./media/documentation-government-howto-deploy-webandmobile-extra5.png)
 

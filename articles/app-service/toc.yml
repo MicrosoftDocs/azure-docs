@@ -43,7 +43,7 @@
       href: app-service-web-tutorial-java-mysql.md
     - name: Python with PostgreSQL
       href: app-service-web-tutorial-python-postgresql.md
-  - name: 1 - Create RESTful API
+  - name: 1 - Host RESTful API
     href: app-service-web-tutorial-rest-api.md
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
