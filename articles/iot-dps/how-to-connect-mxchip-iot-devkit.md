@@ -25,6 +25,8 @@ This article describes how to configure DevKit in order to make it automatically
 * Enroll individual device
 * Verify the device is registered
 
+The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino compatible board with rich peripherals and sensors. You can develop for it using [Visual Studio Code extension for Arduino](https://aka.ms/arduino). And it comes with a growing [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) to guide you prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services.
+
 ## Before you begin
 
 To complete the steps in this tutorial, you need the following:
