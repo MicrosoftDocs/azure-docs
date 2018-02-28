@@ -11,6 +11,7 @@
   - name: How the API counts characters
     href: character-counts.md
 - name: Quickstarts
+  expanded: true
   items: 
   - name: C#
     href: quickstarts/csharp.md

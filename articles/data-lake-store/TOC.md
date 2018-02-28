@@ -1,3 +1,5 @@
+# [Data Lake Store Documentation](index.md)
+
 # Overview
 ## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 ## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
