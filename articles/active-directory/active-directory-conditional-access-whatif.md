@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -76,14 +76,14 @@ The default for this setting is **All cloud apps**. The default setting performs
 
 ### IP address
 
-The IP address is a single IPv4 address to mimic the [location condition](active-directory-conditional-access-azure-portal.md#locations). The address represents Internet facing address of the device used by your user to sign in. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com).    
+The IP address is a single IPv4 address to mimic the [location condition](active-directory-conditional-access-locations.md). The address represents Internet facing address of the device used by your user to sign in. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com).    
 
 ### Device platforms
 
-This setting mimics the [device platforms condition](active-directory-conditional-access-azure-portal.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
+This setting mimics the [device platforms condition](active-directory-conditional-access-conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
 ### Client apps
 
-This setting mimics the [client apps condition](active-directory-conditional-access-azure-portal.md#client-apps).
+This setting mimics the [client apps condition](active-directory-conditional-access-conditions.md#client-apps).
 By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)**. You can narrow this setting down by selecting:
 
 - **Browser** to evaluate all policies having at least **Browser** selected. 
@@ -93,7 +93,7 @@ By default, this setting causes an evaluation of all policies having **Browser**
 
 ### Sign-in risk
 
-This setting mimics the [sign-in risk condition](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+This setting mimics the [sign-in risk condition](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## Evaluation 

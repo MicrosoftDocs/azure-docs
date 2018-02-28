@@ -41,6 +41,11 @@ If you use the default settings in Azure AD Connect, the following mappings are 
 | telephoneNumber | Office phone | Alternate phone |
 | mobile | Mobile phone | Phone |
 
+These fields may appear empty until a user confirms their authentication data.
+
+A Global Administrator can manually set the Authentication contact info for the user as displayed in the following screenshot.
+
+![Contact][Contact]
 
 ## Security questions and answers
 
@@ -104,7 +109,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### Use PowerShell version 2
 
-To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). After you have it installed, you can use the steps that follow to configure each field.
+To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). After you have it installed, you can use the steps that follow to configure each field.
 
 To quickly install from recent versions of PowerShell that support Install-Module, run the following commands. (The first line checks to see if the module is already installed.)
 
@@ -151,3 +156,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Global administrators can modify a user's authentication contact info"

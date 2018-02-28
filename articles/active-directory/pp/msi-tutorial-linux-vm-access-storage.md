@@ -3,7 +3,7 @@ title: Use a user assigned MSI on a Linux VM to access Azure Storage
 description: A tutorial that walks you through the process of using a User Assigned Managed Service Identity (MSI) on a Linux VM to access Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

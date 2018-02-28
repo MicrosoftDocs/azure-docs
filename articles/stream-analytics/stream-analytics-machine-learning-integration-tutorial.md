@@ -54,7 +54,7 @@ At a high level, to complete the tasks demonstrated in this article, you do the 
 ## Create a storage container and upload the CSV input file
 For this step, you can use any CSV file, such as the one available from GitHub.
 
-1. In the Azure portal, click **New** &gt; **Storage** &gt; **Storage account**.
+1. In the Azure portal, click **Create a resource** &gt; **Storage** &gt; **Storage account**.
 
    ![create new storage account](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -125,7 +125,7 @@ You can now create a Stream Analytics job that reads the sample tweets from the 
 
 1. Go to the [Azure portal](https://portal.azure.com).  
 
-2. Click **New** > **Internet of Things** > **Stream Analytics job**. 
+2. Click **Create a resource** > **Internet of Things** > **Stream Analytics job**. 
 
    ![Azure portal path for getting to a new Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    

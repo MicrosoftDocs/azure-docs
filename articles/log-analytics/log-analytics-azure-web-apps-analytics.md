@@ -3,7 +3,7 @@ title: View Azure Web Apps analytic data | Microsoft Docs
 description: You can use the Azure Web Apps Analytics solution to gain insights about your Azure Web Apps by collecting different metrics across all your Azure Web App resources.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 
@@ -87,7 +87,7 @@ When you add the Azure Web Apps Analytics solution to your workspace, the **Azur
 
 Click the **Azure Web Apps Analytics** tile to open the **Azure Web Apps Analytics** dashboard. The dashboard includes the blades in the following table. Each blade lists up to ten items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Column | Description |
 | --- | --- |

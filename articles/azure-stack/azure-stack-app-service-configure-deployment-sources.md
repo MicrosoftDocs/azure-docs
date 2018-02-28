@@ -3,8 +3,8 @@ title: Configure Deployment Sources for App Services on Azure Stack | Microsoft 
 description: How a Service Administrator can configure deployment sources (Git, GitHub, BitBucket, DropBox and OneDrive) for App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 
@@ -48,7 +49,7 @@ You must have a GitHub account to complete this task. You might want to use an a
 2. Enter an **Application name** for example - App Service on Azure Stack.
 3. Enter the **Homepage URL**. The Homepage URL must be the Azure Stack Portal address. For example, https://portal.local.azurestack.external.
 4. Enter an **Application Description**.
-5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local.
+5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for local.azurestack.external
     ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]

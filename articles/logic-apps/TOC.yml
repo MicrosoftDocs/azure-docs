@@ -62,25 +62,7 @@
     - name: Secure your logic apps
       href: logic-apps-securing-a-logic-app.md
     - name: Develop custom connectors
-      items: 
-      - name: Custom connectors overview
-        href: custom-connector-overview.md
-      - name: Create connectors from Web APIs
-        href: custom-connector-build-web-api-app-tutorial.md
-      - name: Secure connectors with Azure AD
-        href: custom-connector-azure-active-directory-authentication.md
-      - name: Describe APIs with Postman
-        href: custom-connector-api-postman-collection.md
-      - name: Extend OpenAPI for custom connectors
-        href: custom-connector-openapi-extensions.md
-      - name: Create and register OpenAPI connector
-        href: logic-apps-custom-connector-register.md
-      - name: Create and register SOAP connector
-        href: logic-apps-soap-connector-create-register.md
-      - name: Certify your connector
-        href: custom-connector-submit-certification.md
-      - name: FAQ for custom connectors
-        href: custom-connector-faq.md
+      href: custom-connector-overview.md
     - name: Develop custom APIs
       items: 
       - name: Create custom APIs for logic apps
@@ -160,10 +142,14 @@
         href: logic-apps-enterprise-integration-as2.md
       - name: Azure Blob Storage
         href: ../connectors/connectors-create-api-azureblobstorage.md
+      - name: Azure Event Hubs
+        href: ../connectors/connectors-create-api-azure-event-hubs.md      
       - name: Azure Functions
         href: logic-apps-azure-functions.md
       - name: Azure Logic Apps
         href: logic-apps-http-endpoint.md
+      - name: Azure Service Bus
+        href: ../connectors/connectors-create-api-servicebus.md        
       - name: Azure SQL Database
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Custom APIs and web apps
@@ -174,8 +160,6 @@
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
-      - name: Event Hubs
-        href: ../connectors/connectors-create-api-azure-event-hubs.md
       - name: File System
         href: logic-apps-using-file-connector.md
       - name: Flat file
@@ -206,8 +190,6 @@
         href: logic-apps-using-sap-connector.md
       - name: Schedule
         href: ../connectors/connectors-native-recurrence.md
-      - name: Azure Service Bus
-        href: ../connectors/connectors-create-api-servicebus.md
       - name: SharePoint Online
         href: ../connectors/connectors-create-api-sharepointonline.md
       - name: SharePoint Server

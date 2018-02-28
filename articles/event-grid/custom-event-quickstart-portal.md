@@ -11,10 +11,10 @@ ms.service: event-grid
 ---
 # Create and route custom events with the Azure portal and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open-source, third-party tool called [RequestBin](https://requestb.in/).
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using third-party tools from either [RequestBin](https://requestb.in/) or [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** is an open-source tool that is not intended for high throughput usage. The use of the tool here is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
+>**RequestBin** and **Hookbin** are not intended for high throughput usage. The use of these tools is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
 
 When you are finished, you see that the event data has been sent to an endpoint.
 
@@ -38,7 +38,7 @@ Event Grid topics are Azure resources, and must be placed in an Azure resource g
 
 A topic provides a user-defined endpoint that you post your events to. 
 
-1. To create a topic in your resource group, select **More services** and search for *event grid*. Select **Event Grid Topics** from the available options.
+1. To create a topic in your resource group, select **All services** and search for *event grid*. Select **Event Grid Topics** from the available options.
 
    ![Create event grid topic](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -56,13 +56,13 @@ A topic provides a user-defined endpoint that you post your events to.
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin is an open-source, third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**.  Copy the bin URL, because you need it when subscribing to the topic.
+Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin and Hookbin are third-party tools that enable you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**, or go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**.  Copy the bin URL, because you need it when subscribing to the topic.
 
 ## Subscribe to a topic
 
 You subscribe to a topic to tell Event Grid which events you want to track. 
 
-1. To create an Event Grid subscription, again select **More Services** and search for *event grid*. Select **Event Grid Subscriptions** from the available options.
+1. To create an Event Grid subscription, again select **All Services** and search for *event grid*. Select **Event Grid Subscriptions** from the available options.
 
    ![Create event grid subscription](./media/custom-event-quickstart-portal/create-subscription.png)
 
@@ -70,7 +70,7 @@ You subscribe to a topic to tell Event Grid which events you want to track.
 
    ![Add event grid subscription](./media/custom-event-quickstart-portal/add-subscription.png)
 
-1. Provide a unique name for your event subscription. For the topic type, select **Event Grid Topics**. For the instance, select the custom topic you created. Provide the URL from RequestBin as the endpoint for event notification. When finished providing values, select **Create**.
+1. Provide a unique name for your event subscription. For the topic type, select **Event Grid Topics**. For the instance, select the custom topic you created. Provide the URL from RequestBin or Hookbin as the endpoint for event notification. When finished providing values, select **Create**.
 
    ![Provide event grid subscription value](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
@@ -95,13 +95,13 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 
 If you `echo "$body"` you can see the full event. The `data` element of the JSON is the payload of your event. Any well-formed JSON can go in this field. You can also use the subject field for advanced routing and filtering.
 
-CURL is a utility that performs HTTP requests. In this article, we use CURL to send the event to our topic. 
+CURL is a utility that performs HTTP requests. In this article, use CURL to send an event to the topic. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the RequestBin URL that you created earlier. Or, click refresh in your open RequestBin browser. You see the event you just sent.
+You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the endpoint URL that you created earlier. Or, click refresh in your open browser. You see the event you just sent.
 
 ```json
 [{

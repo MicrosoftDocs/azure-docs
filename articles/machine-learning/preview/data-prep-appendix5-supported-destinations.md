@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article 
-ms.date: 09/07/2017
+ms.date: 02/01/2018
 ---
 
 # Supported data exports for this preview 

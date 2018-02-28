@@ -134,17 +134,6 @@ az vmss create \
 
 ### Install NGINX
 
-You can use any editor you wish to create the file in the Cloud Shell. Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file. In your current shell, create a file named customConfig.json and paste the following configuration:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Run this command in the shell window:
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -152,7 +141,8 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## Test the application gateway

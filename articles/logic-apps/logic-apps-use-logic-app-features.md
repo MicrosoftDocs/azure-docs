@@ -1,7 +1,7 @@
 ---
 title: Add conditions and start workflows - Azure Logic Apps | Microsoft Docs
 description: Control how workflows run in Azure Logic Apps by adding conditional logic, triggers, actions, and parameters.
-author: stepsic-microsoft-com
+author: ecfan
 manager: anneta
 editor: ''
 services: logic-apps
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; stepsic
+ms.author: estfan; LADocs
 
 ---
 # Use Logic Apps features

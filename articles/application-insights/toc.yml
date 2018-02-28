@@ -192,6 +192,8 @@
         href: app-insights-usage-segmentation.md
       - name: Funnels
         href: usage-funnels.md
+      - name: Impact
+        href: app-insights-usage-impact.md     
       - name: Retention
         href: app-insights-usage-retention.md
       - name: User Flows

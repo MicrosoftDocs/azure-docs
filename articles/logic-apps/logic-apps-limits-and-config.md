@@ -19,7 +19,7 @@ ms.author: LADocs; jehollan
 
 # Logic Apps limits and configuration
 
-This topic describes the current limits and configuration details for Azure Logic Apps.
+This article describes the current limits and configuration details for Azure Logic Apps.
 
 ## Limits
 
@@ -55,18 +55,25 @@ These limits apply to a single HTTP request or a connector call.
 
 These limits apply to a single logic app run.
 
-| Name | Limit | 
-| ---- | ----- | 
-| Run duration | 90 days | 
-| Storage retention | 90 days from the run's start time | 
-| Min recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | 
-| Max recurrence interval | 500 days | 
-||| 
+| Name | Default | Limit |
+| ---- | ------- | ----- |
+| Run duration   | 90 days | 7 to 90 days |
+| Storage retention | 90 days from the run's start time |  7 to 90 days from the run's start time |
+||||
 
 To exceed the limits for run duration or 
 storage retention in your normal processing flow, 
-[contact us](mailto://logicappsemail@microsoft.com) 
-so that we can help with your requirements.
+[contact the product team](mailto://logicappsemail@microsoft.com) 
+to get assistance with your requirements.
+
+
+### Recurrence interval
+
+| Name | Limit |
+| ---- | ------- |
+| Min recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds |
+| Max recurrence interval | 500 days |
+|||
 
 ### Looping and debatching limits
 
@@ -82,11 +89,11 @@ These limits apply to a single logic app run.
 
 ### Throughput limits
 
-These limits apply to a single logic app instance.
+These limits apply to a single logic app resource.
 
 | Name | Limit | Notes | 
 | ----- | ----- | ----- | 
-| Actions executions per 5 minutes | 100,000 |<p>The limit can be increased up to 300,000 by running a logic app in `High Througput` mode and this can be done by setting the `operationOptions` property under`runtimeConfiguration` of the workflow resource to `OptimizedForHighThroughput`. <p>Please note that high throughput mode is in preview. Also a workload can be distributed across multiple apps as needed. | 
+| Actions executions per 5 minutes | 100,000 |<p>The limit can be increased to 300,000 by running a logic app in `High Througput` mode. High throughput mode can be configured by setting the `operationOptions` property under`runtimeConfiguration` of the workflow resource to `OptimizedForHighThroughput`. <p>Note that high throughput mode is in preview. Also a workload can be distributed across multiple apps as needed. | 
 | Actions concurrent outgoing calls | ~2,500 | Decrease number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Concurrent incoming calls |~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across multiple apps as needed. | 
@@ -95,8 +102,8 @@ These limits apply to a single logic app instance.
 
 To exceed these limits in normal processing, 
 or run load testing that might exceed these limits, 
-[contact us](mailto://logicappsemail@microsoft.com) 
-so that we can help with your requirements.
+[contact the product team](mailto://logicappsemail@microsoft.com) 
+to get assistance with your requirements.
 
 ### Logic app definition limits
 

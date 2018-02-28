@@ -128,21 +128,21 @@ The Blob Service allows you to provide public access to a container and its blob
 
 ## Encryption
 
-There are a couple of basic kinds of encryption available for the Storage services.
+There are two basic kinds of encryption available for the Storage services. For more information about security and encryption, see the [Azure Storage security guide](storage-security-guide.md).
 
 ### Encryption at rest
 
-You can enable Storage Service Encryption (SSE) on either the Files service (preview) or the Blob service for an Azure storage account. If enabled, all data written to the specific service is encrypted before it is written. When you read the data, it is decrypted before it is returned.
+Azure Storage Service Encryption (SSE) at rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
+
+You can enable Storage Service Encryption (SSE) for Blob storage or for Azure Files (preview). If enabled, all data written to the specific service is encrypted before it is written. When you read the data, it is decrypted before it is returned.
+
+For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
 ### Client-side encryption
 
 The storage client libraries have methods you can call to programmatically encrypt data before sending it across the wire from the client to Azure. It is stored encrypted, which means it also is encrypted at rest. When reading the data back, you decrypt the information after receiving it.
 
-### Encryption in transit with Azure File shares
-
-See [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
-
-For more information about securing your storage account and encryption, see the [Azure Storage security guide](storage-security-guide.md).
+For more information about client-side encryption, see [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md).
 
 ## Replication
 

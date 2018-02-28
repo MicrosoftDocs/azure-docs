@@ -3,7 +3,7 @@ title: Use Managed Service Identity for a Linux VM to access Azure Data Lake Sto
 description: A tutorial that shows you how to use Managed Service Identity (MSI) for a Linux VM to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 

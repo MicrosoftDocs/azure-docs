@@ -26,7 +26,7 @@ App Service on Linux provides SSH support into the app container with each of th
 
 ![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-You can also use SSH with your custom Docker images by including the SSH server as part of the image and configuring it as described in this topic.
+You can also use SSH with your custom Docker images by including the SSH server as part of the image and configuring it as described in this article.
 
 ## Making a client connection
 
@@ -46,7 +46,7 @@ If you are not already authenticated, you are required to authenticate with your
 
 In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image.
 
-These steps are are shown in the Azure App Service repository as [an example](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+These steps are shown in the Azure App Service repository as [an example](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`.
 
@@ -64,7 +64,7 @@ These steps are are shown in the Azure App Service repository as [an example](ht
     	&& echo "root:Docker!" | chpasswd
     ```
 
-1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on the sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > The *sshd_config* file must include the following or the connection fails: 
@@ -81,28 +81,30 @@ These steps are are shown in the Azure App Service repository as [an example](ht
     EXPOSE 2222 80
     ```
 
-1. Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) using a shell script in */bin* directory.
+1. Make sure to start the SSH service using a shell script (see example at [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd) to run the script.
+The Dockerfile uses the [`ENTRYPOINT` instruction](https://docs.docker.com/engine/reference/builder/#entrypoint) to run the script.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## Next steps
 
-See the following links for more information regarding Web App for Containers. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+You can post questions and concerns on the [Azure forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Web App for Containers](quickstart-custom-docker-image.md)
+For more information on Web App for Containers, see:
+
+* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)

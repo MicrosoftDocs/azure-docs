@@ -406,7 +406,7 @@ The result of the video moderation job (See [video moderation quickstart](video-
         		"timestamp": 18386372,
         		"shotIndex": 62
       		}
-    		]
+		]
 		]
 		}
 	]
@@ -424,30 +424,34 @@ The moderation process returns a list of key frames from the video, along with a
 
 	public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
 	{
+	
     	string reviewId = string.Empty;
     	List<ProcessedFrameDetails> frameEntityList = framegenerator.CreateVideoFrames(uploadAssetResult);
-    	string path = uploadAssetResult.GenerateVTT == true? this._amsConfig.FfmpegFramesOutputPath + Path.GetFileNameWithoutExtension(uploadAssetResult.VideoName) + "_aud_SpReco.vtt":"";
+    	string path = uploadAssetResult.GenerateVTT == true ? this._amsConfig.FfmpegFramesOutputPath + Path.GetFileNameWithoutExtension	(uploadAssetResult.VideoName) + "_aud_SpReco.vtt" : "";
     	TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult();
-    	if (File.Exists(path))
+    	
+	if (File.Exists(path))
     	{
         	screenTextResult = await GenerateTextScreenProfanity(reviewId, path, frameEntityList);
-        	uploadAssetResult.RacyTextScore = screenTextResult.RacyScore;
-        	uploadAssetResult.OffensiveTextScore = screenTextResult.OffensiveScore;
-        	uploadAssetResult.AdultTextScore = screenTextResult.AdultScore;
-        	uploadAssetResult.RacyTextTag = screenTextResult.RacyTag;
-        	uploadAssetResult.OffensiveTextTag = screenTextResult.OffensiveTag;
-        	uploadAssetResult.AdultTextTag = screenTextResult.AdultTag;
+        	uploadAssetResult.Category1TextScore = screenTextResult.Category1Score;
+        	uploadAssetResult.Category2TextScore = screenTextResult.Category2Score;
+        	uploadAssetResult.Category3TextScore = screenTextResult.Category3Score;
+        	uploadAssetResult.Category1TextTag = screenTextResult.Category1Tag;
+        	uploadAssetResult.Category2TextTag = screenTextResult.Category2Tag;
+        	uploadAssetResult.Category3TextTag = screenTextResult.Category3Tag;
     	}
-    	var reviewVideoRequestJson = CreateReviewRequestObject(uploadAssetResult, frameEntityList);
+    	
+		var reviewVideoRequestJson = CreateReviewRequestObject(uploadAssetResult, frameEntityList);
     	if (string.IsNullOrWhiteSpace(reviewVideoRequestJson))
     	{
         	throw new Exception("Video review process failed in CreateVideoReviewInContentModerator");
     	}
-    	reviewId = JsonConvert.DeserializeObject<List<string>>(ExecuteCreateReviewApi(reviewVideoRequestJson).Result).FirstOrDefault();
+    	
+		reviewId = JsonConvert.DeserializeObject<List<string>>(ExecuteCreateReviewApi(reviewVideoRequestJson).Result).FirstOrDefault();
     	frameEntityList = framegenerator.GenerateFrameImages(frameEntityList, uploadAssetResult, reviewId);
     	await CreateAndPublishReviewInContentModerator(uploadAssetResult, frameEntityList, reviewId, path, screenTextResult);
-
     	return reviewId;
+	
 	}
 
 `CreateVideoReviewInContentModerator()` calls several other methods to perform the following tasks:
@@ -761,4 +765,4 @@ The following command-line output from the program shows the various tasks as th
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) and sample files and required libraries for this tutorial, and get started on your integration.
+[Download the Visual Studio solution](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) and sample files and required libraries for this tutorial, and get started on your integration.

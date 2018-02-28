@@ -3,7 +3,7 @@ title: How to assign an MSI access to an Azure resource, using Azure CLI
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Assign a Managed Service Identity (MSI) access to a resource using Azure CLI

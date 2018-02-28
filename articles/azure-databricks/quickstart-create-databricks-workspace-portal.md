@@ -30,7 +30,7 @@ Log in to the [Azure  portal](https://portal.azure.com).
 
 In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. 
+1. In the Azure portal, click **Create a resource**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. 
 
     ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -144,7 +144,7 @@ Perform the following steps to create a notebook in Databricks, configure the no
 
 ## Clean up resources
 
-While creating the Spark cluster, if you selected the checkbox **Terminate after ___ minutes of activity**, the cluster will automatically terminate if it has been inactive for the specified time.
+While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically terminate if it has been inactive for the specified time.
 
 If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
 

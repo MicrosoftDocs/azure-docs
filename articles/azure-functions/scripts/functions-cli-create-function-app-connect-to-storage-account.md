@@ -17,9 +17,11 @@ ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ---
-# Integrate Function App into Azure Storage Account
+# Create a function app that connects to an Azure Storage account
 
-This sample script creates a Function App and Storage Account.
+This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [[storage trigger or binding](..\functions-bindings-storage-blob.md). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
