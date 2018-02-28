@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
@@ -98,7 +98,9 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
+  In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
+
+3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md) to create group settings for this tenant.
 
 ### View the current settings
 
@@ -138,9 +140,9 @@ That's it. You've set your naming policy and added your blocked words.
 
 ## Export or import the list of custom blocked words
 
-For more information, see the article [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+For more information, see the article [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
-Here is an example PowerShell script to export multiple blocked words:
+Here is an example of a PowerShell script to export multiple blocked words:
 
 ````
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 

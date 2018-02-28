@@ -1,3 +1,5 @@
+# [Azure AD Domain Services Documentation](index.md)
+
 # Overview
 ## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
 ## Is it right for you?

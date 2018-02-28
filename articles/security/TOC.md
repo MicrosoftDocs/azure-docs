@@ -1,4 +1,3 @@
-
 # [Azure Security Documentation](index.md)
 # [Architecture and design](azure-security.md)
 ## [Advanced threat detection](azure-threat-detection.md)
@@ -110,7 +109,6 @@
 ### [Requirement 10 - monitoring](./blueprints/pci-dss-requirement-10-monitoring.md)
 ### [Requirement 11 - testing](./blueprints/pci-dss-requirement-11-testing.md)
 ### [Requirement 12 - policy](./blueprints/pci-dss-requirement-12-policy.md)
-
 ## [UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ### [Principles overview](./blueprints/uk-official-three-tier-applications-principles-overview.md)
 
@@ -139,5 +137,4 @@
 #### [Input validation](azure-security-threat-modeling-tool-input-validation.md)
 #### [Sensitive data](azure-security-threat-modeling-tool-sensitive-data.md)
 #### [Session management](azure-security-threat-modeling-tool-session-management.md)
-
 
