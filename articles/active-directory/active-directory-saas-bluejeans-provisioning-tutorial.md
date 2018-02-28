@@ -34,7 +34,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in BlueJeans with Admin permissions
 
 > [!NOTE]
-> TThe Azure AD provisioning integration relies on the [BlueJeans API](https://BlueJeans.github.io/developer), which is available to BlueJeans teams on the Standard plan or better.
+> The Azure AD provisioning integration relies on the [BlueJeans API](https://BlueJeans.github.io/developer), which is available to BlueJeans teams on the Standard plan or better.
 
 ## Adding BlueJeans from the gallery
 Before configuring BlueJeans for automatic user provisioning with Azure AD, you need to add BlueJeans from the Azure AD application gallery to your list of managed SaaS applications.
@@ -100,7 +100,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![BlueJeans Provisioning](./media/active-directory-saas-bluejeans-provisioning-tutorial/Bluejeans1.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username**, and **Admin Password** of your BlueJeans's account. Examples of these values are:
+5. Under the **Admin Credentials** section, input the **Admin Username**, and **Admin Password** of your BlueJeans account. Examples of these values are:
 
 	*   In the **Admin Username** field, populate the username of the admin account on your BlueJeans Tenant. Example: admin@contoso.com.
 
