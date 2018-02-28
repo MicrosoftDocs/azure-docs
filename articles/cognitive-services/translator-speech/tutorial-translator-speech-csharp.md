@@ -198,109 +198,29 @@ Just for fun, a To Language is randomly selected if the user has not run the app
 
 ## Authenticating requests
 
-There are two ways to associate your translation requests with your subscription to the Microsoft Translator Speech service. First, you can use your API subscription key to request a session token from the Azure token service, and send this token with each request in the `Authorization` header. This token is good for 10 minutes. It can be used with any number of calls to the API during that period. 
-
-Second, you can send your actual subscription key with each request in the header `Ocp-Apim-Subscription-Key`. Behind the scenes, the Translator Speech service obtains a token for you and associates it with your requests, automatically renewing it as required.
-
-To illustrate the process using the token service, the sample application uses the class `AzureAuthToken` in `AzureAuthToken.cs`. The token, once obtained, is used for five minutes, then automatically renewed on the next request. The class is used in `MainWindow.xaml.cs` when connecting to the Translator Speech service to perform in translation.
-
-```csharp
-public class AzureAuthToken
-{
-    /// URL of the token service
-    private static readonly Uri ServiceUrl = new Uri("https://api.cognitive.microsoft.com/sts/v1.0/issueToken");
-    /// Name of header used to pass the subscription key to the token service
-    private const string OcpApimSubscriptionKeyHeader = "Ocp-Apim-Subscription-Key";
-    /// After obtaining a valid token, this class will cache it for this duration.
-    /// Use a duration of 5 minutes, which is less than the actual token lifetime of 10 minutes.
-    private static readonly TimeSpan TokenCacheDuration = new TimeSpan(0, 5, 0);
-
-    /// Cache the value of the last valid token obtained from the token service.
-    private string storedTokenValue = string.Empty;
-    /// When the last valid token was obtained.
-    private DateTime storedTokenTime = DateTime.MinValue;
-
-    /// Gets the subscription key.
-    public string SubscriptionKey { get; private set; }
-
-    /// Gets the HTTP status code for the most recent request to the token service.
-    public HttpStatusCode RequestStatusCode { get; private set; }
-
-    /// <summary>
-    /// Creates a client to obtain an access token.
-    /// </summary>
-    /// <param name="key">Subscription key to use to get an authentication token.</param>
-    public AzureAuthToken(string key)
-    {
-        if (string.IsNullOrEmpty(key))
-        {
-            throw new ArgumentNullException("key", "A subscription key is required");
-        }
-
-        this.SubscriptionKey = key;
-        this.RequestStatusCode = HttpStatusCode.InternalServerError;
-    }
-
-    /// <summary>
-    /// Gets a token for the specified subscription.
-    /// </summary>
-    /// <returns>The encoded JWT token prefixed with the string "Bearer ".</returns>
-    /// <remarks>
-    /// This method uses a cache to limit the number of request to the token service.
-    /// A fresh token can be re-used during its lifetime of 10 minutes. After a successful
-    /// request to the token service, this method caches the access token. Subsequent 
-    /// invocations of the method return the cached token for the next 5 minutes. After
-    /// 5 minutes, a new token is fetched from the token service and the cache is updated.
-    /// </remarks>
-    public async Task<string> GetAccessTokenAsync()
-    {
-        // Re-use the cached token if there is one.
-        if ((DateTime.Now - storedTokenTime) < TokenCacheDuration)
-        {
-            return storedTokenValue;
-        }
-
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            request.Method = HttpMethod.Post;
-            request.RequestUri = ServiceUrl;
-            request.Content = new StringContent(string.Empty);
-            request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, this.SubscriptionKey);
-            var response = await client.SendAsync(request);
-            this.RequestStatusCode = response.StatusCode;
-            response.EnsureSuccessStatusCode();
-            var token = await response.Content.ReadAsStringAsync();
-            storedTokenTime = DateTime.Now;
-            storedTokenValue = "Bearer " + token;
-            return storedTokenValue;
-        }
-    }
-}
-```
-
-The method `GetAccessTokenAsync()` does the bulk of the work. If the stored token has not expired, that token is returned. Otherwise, the token is requested from the Azure Authorization Service.
+To authenticate to the Microsoft Translator Speech service you need to send your Azure subscription key in the header as the value for 'Ocp-Apim-Subscription-Key' in the connection request.
 
 ## Translation overview
 
-The Translate API (WebSockets endpoint `wss://dev.microsofttranslator.com/speech/translate`) accepts audio to be translated in monophonic, 16 kHz, 16-bit signed WAVE format. The service returns one or more JSON responses containing both the recognized and translated text. If text-to-speech has been requested, an audio file is sent.
+The Translate API (WebSockets endpoint 'wss://dev.microsofttranslator.com/speech/translate') accepts audio to be translated in monophonic, 16 kHz, 16-bit signed WAVE format. The service returns one or more JSON responses containing both the recognized and translated text. If text-to-speech has been requested, an audio file is sent.
 
-The user chooses the audio source using the Microphone/File Input menu. The audio may come from an audio device (such as a microphone) or from a `.WAV` file.
+The user chooses the audio source using the Microphone/File Input menu. The audio may come from an audio device (such as a microphone) or from a '.WAV' file.
 
-The method `StartListening_Click` is invoked when the user clicks the Start button. This event handler, in turn, calls `Connect()` to begin the process of sending audio to the service API endpoint. The `Connect()` method performs the following tasks:
+The method 'StartListening_Click' is invoked when the user clicks the Start button. This event handler, in turn, calls Connect() to begin the process of sending audio to the service API endpoint. The 'Connect()' method performs the following tasks:
+
 
 > [!div class="checklist"]
 > * Getting user settings from the main window and validate them
 > * Initializing the audio input and output streams
-> * Calling `ConnectAsync()` to handle the rest of the work
+> * Calling 'ConnectAsync()' to handle the rest of the work
 
 `ConnectAsync()`, in turn, handles the following chores:
 
 > [!div class="checklist"]
-> * Authenticating with `ADMAuthenticate()`, which uses the `AzureAuthToken` class
-> * Creating a `SpeechClient` instance (found in `SpeechClient.cs`) to communicate with the service
-> * Initializing  `TextMessageDecoder` and `BinaryMessageDecoder` instances (see `SpeechResponseDecoder.cs`) to handle responses
-> * Sending the audio via the `SpeechClient` instance to the Translator Speech service
+> * Authenticating with Azure Subscription key in header 'Ocp-Apim-Subscription-Key'
+> * Creating a 'SpeechClient' instance (found in 'SpeechClient.cs') to communicate with the service
+> * Initializing 'TextMessageDecoder' and 'BinaryMessageDecoder' instances (see 'SpeechResponseDecoder.cs') to handle responses
+> * Sending the audio via the 'SpeechClient' instance to the Translator Speech service
 > * Receiving and processing the results of the translation
 
 The responsibilities of `SpeechClient` are fewer:
