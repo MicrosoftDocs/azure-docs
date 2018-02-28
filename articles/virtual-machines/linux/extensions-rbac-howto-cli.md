@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/27/2018
 ms.author: danis
 
 ---
@@ -21,8 +21,16 @@ ms.author: danis
 In the scenario where you wish to have an Azure user with a VM monitoring role and restrict extension installation you can use a custom RBAC role.
 
 ## Create a Custom RBAC Role
-Firstly you need to create the role metadata, the JSON example below allows a set of Actions and the 'NotActions' of restricting extension installation.
 
+This example allows a set of **Actions** (allow) and **NotActions** (not allow) that restrict extensions.
+
+In a [bash Cloud Shell](https://shell.azure.com/bash), type:
+
+```bash 
+vim ~/clouddrive/role.json
+```
+
+Copy and paste the following JSON into the file.
 
 ```json
 {
@@ -49,19 +57,34 @@ Firstly you need to create the role metadata, the JSON example below allows a se
 
 }
 ```
-### Create The Role
-```bash
-az role definition create --role-definition @/Users/dansol/Data/extensions/howto/role.json
+
+When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
+
+## Create The Role
+
+Use [az role definition create](/cli/azure/role/definition#az_role_definition_create) to create the role using the role.json definition.
+
+```azurecli-interactive
+az role definition create --role-definition ~/clouddrive/role.json
 ```
-## Check Role Definition Exists
-```bash
+
+Make sure that it was created.
+
+```azurecli-interactive
 az role definition list --output table | grep Maintainer
 ```
+
 ## Assign the Role
+
+Use [az role assignment create](/cli/azure/role/assignment#az_role_definition_create) to assign the role. You can assign the role to a user, group or service principal by passing in an object id, user sign-in name, or service principal name. In this example, we assign the role to the user with the sign-on name **azureuser**. 
+
 ```bash
-az role assignment create --assignee <user, group, or service principal> --role "Virtual Machine Maintainer"
+az role assignment create --assignee azureuser --role "Virtual Machine Maintainer"
 ```
-## Test
+
+
+## Test the role
+
 Try to install an extension. If using the portal, the extension 'Add' button is grayed out.
 
 Using CLI:
