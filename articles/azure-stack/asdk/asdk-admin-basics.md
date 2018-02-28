@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Development Kit Basics| Microsoft Docs
-description: Describes how to perform basic administration of the ASDK.
+description: Describes how to perform basic administration of the Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -23,7 +23,7 @@ There are several things you need to know if you're new to Azure Stack Developme
 
 First, you should review the [What is Azure Stack Development Kit?](asdk-what-is.md) article to make sure you understand the purpose of the ASDK and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack to develop and test your apps in a non-production environment. 
 
-Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds of the ASDK. However, you cannot upgrade the ASDK like you can Azure Stack integrated systems deployments. So, if you want to move to the latest build, you must completely [redeploy the ASDK](asdk-redeploy). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features as soon as they become available. 
+Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds of the ASDK. However, you cannot upgrade the ASDK like you can Azure Stack integrated systems deployments. So, if you want to move to the latest build, you must completely [redeploy the ASDK](asdk-redeploy.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features as soon as they become available. 
 
 ## Learn about available services
 You need to know which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve over time.
@@ -50,7 +50,7 @@ Azure Stack will continue to add support for additional Azure services. To learn
 
 
 ## What tools do I use to manage?
-You can use the [Azure Stack Administrator Portal](https://adminportal.local.azurestack.external) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, you need to install [PowerShell for Azure Stack](asdk-post-deploy#install-azure-stack-powershell) and [download the Azure Stack tools from GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
+You can use the [Azure Stack Administrator Portal](https://adminportal.local.azurestack.external) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, you need to install [PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) and [download the Azure Stack tools from GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 Azure Stack uses Azure Resource Manager as its underlying deployment, management, and organization mechanism. If you're going to manage Azure Stack and help support users, you should learn about Azure Resource Manager. You can learn more by reading the [Getting Started with Azure Resource Manager whitepaper](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
@@ -74,5 +74,5 @@ For the development kit, your only support option is to ask support-related ques
 > Because the development kit is an evaluation environment, there is no official support offered through Microsoft CSS.
 
 ## Next steps
-[Deploy the ASDK](asdk-deploy.md)
+[Deploy the ASDK](asdk-deploy-qs.md)
 
