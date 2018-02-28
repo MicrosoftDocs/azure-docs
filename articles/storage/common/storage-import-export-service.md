@@ -3,17 +3,11 @@ title: Using Azure Import/Export to transfer data to and from Azure Storage | Mi
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
 
 ---
@@ -28,25 +22,32 @@ In this article, we provide step-by-step instructions on using Azure Import/Expo
 Follow the below steps if the data on the disk is to be imported into Azure Storage.
 ### Step 1: Prepare the drive/s using WAImportExport tool and generate journal file/s.
 
-1.  Identify the data to be imported into Azure Storage. This could be directories and standalone files on a local server or a network share.
+1.  Identify the data to be imported into Azure Storage. You can import directories and standalone files on a local server or a network share.
 2.  Depending on total size of the data, procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
 3.	Attach the hard drives directly using SATA or with external USB adaptors to a windows machine.
-4.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
-5.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-6.  Completely copy data to these encrypted single NTFS volumes on disks using copy & paste or  drag & drop or Robocopy or any such tool.
+1.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
+2.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+3.  Completely copy data to these encrypted single NTFS volumes on disks using copy & paste or  drag & drop or Robocopy or any such tool.
 7.	Download WAImportExport V1 from https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.	Unzip to the default folder waimportexportv1. For example, C:\WaImportExportV1  
 9.	Run as Administrator and open a PowerShell or Command line and change directory to the unzipped folder. For example, cd C:\WaImportExportV1
-10.	Copy the following command line to a notepad and edit it to create a command line.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10.	Copy the following command line to a text editor and edit it to create a command line:
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j:  The name of a file called journal file with .jrn extension. A journal file is generated per drive and so it is recommended to use the disk serial number as the journal file name.
-    /sk: Azure Storage Account key. 
-    /t:  Drive letter of the disk to be shipped. For example, D
-    /bk: is the bit locker key of the drive
-    /srcdir: Drive letter of the disk to be shipped followed by :\. For example, D:\
-    /dstdir: The name of Azure Storage Container to which the data is to be imported.
-    /skipwrite 
+    These command line options are described in the following table:
+
+    |Option  |Description  |
+    |---------|---------|
+    |/j:     |The name of the journal file, with the .jrn extension. A journal file is generated per drive. Using the disk serial number as the journal file name is recommended.         |
+    |/sk:     |The Azure Storage account key.         |
+    |/t:     |The drive letter of the disk to be shipped. For example, drive `D`.         |
+    |/bk:     |The BitLocker key for the drive.         |
+    |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
+    |/dstdir:     |The name of the destination container in Azure Storage         |
+    |/skipwrite     | Skips write process. Use for in-place data drive preparation.        |
     
 11. Repeat step 10 for each of disk that needs to be shipped.
 12. A journal file with name provided with /j: parameter is created for every run of the command line.
