@@ -281,8 +281,13 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
 
    ![storage account details](./media/sql-database-managed-instance-tutorial/storage-account-details.png)
 
-5. After the storage container deployment succeeds, open your new storage account.
-6. Under **Settings**, click **Containers**.
+5. After the storage account deployment succeeds, open your new storage account.
+6. Under **Settings**, click **Shared Access Signature** to open the Shared access signature (SAS) form.
+
+   ![sas form](./media/sql-database-managed-instance-tutorial/sas-form.png)
+
+7. On the SAS form...
+8. Under **Settings**, click **Containers**.
 
    ![containers](./media/sql-database-managed-instance-tutorial/containers.png)
 
@@ -296,33 +301,39 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
 
    ![container detail](./media/sql-database-managed-instance-tutorial/container-detail.png)
 
-7. Click **OK**.
-8. After the container has been created, click the container to open the container.
+9. Click **OK**.
+10. After the container has been created, open the container.
 
-   ![container](./media/sql-database-managed-instance-tutorial/container.png)
+    ![container](./media/sql-database-managed-instance-tutorial/container.png)
 
-9. Click **Upload** to open the **Upload blob** form.
+11. Click **Container properties** and then copy the URL to the container.
 
-   ![upload](./media/sql-database-managed-instance-tutorial/upload.png)
+    ![container URL](./media/sql-database-managed-instance-tutorial/container-url.png)
 
-10. Browse to your download folder and select the **AdventureWorks2016.bak** file.
+12. Click **Upload** to open the **Upload blob** form.
+
+    ![upload](./media/sql-database-managed-instance-tutorial/upload.png)
+
+12. Browse to your download folder and select the **AdventureWorks2016.bak** file.
 
     ![upload](./media/sql-database-managed-instance-tutorial/upload-bak.png)
 
-11. Click **Upload**.
-12. Do not continue until the upload is complete.
+13. Click **Upload**.
+14. Do not continue until the upload is complete.
 
     ![upload complete](./media/sql-database-managed-instance-tutorial/upload-complete.png)
 
 
 ## Restore Adventure Works 2016 from a backup file
 
-Use the following steps to download the Adventure Works 2016 backup file and restore it to your Managed Instance using SSMS.
+With SSMS, use the following steps to restore the Adventure Works 2016 database to your Managed Instance from the backup file.
 
-1. Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2016.bak in the URL address box and then, when prompted, click **Save** to save this file in the **Downloads** folder.
-2. After the download completes, in SSMS, right-click **Databases** in **Object Explorer** to open the **Restore Database** dialog box.
-3. Cick the ellipsis to the right of the **Device** text box to open the **Select backup devices** dialog box.
-4. 
+1. In SSMS, open a new query window.
+2. Use the following script to create a SAS credential.
+   `
+   
+   `
+1. 
 
 ## Next steps
 
