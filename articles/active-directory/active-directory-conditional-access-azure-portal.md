@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -107,7 +107,7 @@ For more information, see [Set up SharePoint Online and Exchange Online for Azur
 
 ### License requirements for using conditional access
 
-Using conditional access requires a Azure AD Premium / Enterprise Mobility + Security license. To find the right license for your requirements, see [Enterprise Mobility + Security Pricing Options](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
+Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## Next steps

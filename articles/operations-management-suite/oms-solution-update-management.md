@@ -3,7 +3,7 @@ title: Update Management solution in Azure | Microsoft Docs
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: operations-management-suite
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
-ms.author: magoedte;eslesar
+ms.author: gwallace
 
 ---
 # Update Management solution in Azure

@@ -1,7 +1,7 @@
 ---
 title: Web Search SDK Java quickstart | Microsoft Docs
 description: Setup for Web Search SDK console application.
-titleSuffix: Azure Cognitive Services Web Search SDK Java quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -45,8 +45,6 @@ import java.util.List;
 ```
 Implement the `WebSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
 ```
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-
 public static WebSearchAPIImpl getClient(final String subscriptionKey) {
     return new WebSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
             new ServiceClientCredentials() {
@@ -70,7 +68,7 @@ public static WebSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for results.  The following method searches using a single query, "Xbox", and prints `name` and `URL` for first web, image, news, and videos results.
+Search for results.  The following method searches using a single query, "Xbox", and prints `name`, and `URL` for first web, image, news, and videos results.
 ```
 public static void WebSearchResultTypesLookup(String subscriptionKey)
 {
@@ -306,6 +304,23 @@ public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscript
     }
 }
 
+```
+Add the previous methods to a class with main function to run the code:
+```
+package javaWebSDK;
+import com.microsoft.azure.cognitiveservices.websearch.*;
+public class webSDK{
+	
+	public static void main(String [ ] args) {
+		
+		WebSearchResultTypesLookup("YOUR-SUBSCRIPTION-KEY");
+		WebResultsWithCountAndOffset("YOUR-SUBSCRIPTION-KEY");
+		WebSearchWithResponseFilter("YOUR-SUBSCRIPTION-KEY");
+		WebSearchWithAnswerCountPromoteAndSafeSearch("YOUR-SUBSCRIPTION-KEY");
+		
+	}
+    // Add methods previoiusly documented.
+}
 ```
 ## Next steps
 
