@@ -56,7 +56,7 @@ Before you get started, make sure that you've [set up your development environme
     PowerShell scripts for deploying or upgrading your application.
 
     * **Application definition**  
-Includes the ApplicationManifest.xml file under *ApplicationPackageRoot*, which describes your application's composition. Associated application parameter files are under *ApplicationParameters*, which can be used to specify environment-specific parameters. Visual Studio selects an application parameter file that's specified in the associated publish profile during deployment to a specific environment.
+Includes the ApplicationManifest.xml file under *ApplicationPackageRoot*, which describes your application's composition. Associated application parameter files are under *ApplicationParameters*, which can be used to specify environment-specific parameters. Visual Studio selects an application parameter file that's specified in the associated publish profile.
     
 For an overview of the contents of the service project, see [Getting started with Reliable Services](service-fabric-reliable-services-quick-start.md).
 
