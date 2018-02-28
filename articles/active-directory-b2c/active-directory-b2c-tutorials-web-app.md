@@ -6,7 +6,7 @@ author: PatAltimore
 
 ms.author: patricka
 ms.reviewer: saraford
-ms.date: 2/27/2018
+ms.date: 2/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
@@ -36,25 +36,23 @@ Applications need to be [registered](../active-directory/develop/active-director
 
 Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+[!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
 
-1. Select **Azure AD B2C** from the services list in the Azure portal.
+In the B2C settings, click **Applications** and then click **Add**.
 
-2. In the B2C settings, click **Applications** and then click **Add**.
+To register the sample web app in your tenant, use the following settings:
 
-    To register the sample web app in your tenant, use the following settings:
+![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
-    ![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
+| Setting      | Suggested value  | Description                                        |
+| ------------ | ------- | -------------------------------------------------- |
+| **Name** | My Sample Web App | Enter a **Name** that describes your app to consumers. | 
+| **Include web app / web API** | Yes | Select **Yes** for a web app. |
+| **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
+| **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample runs locally (localhost) and listens on port 44316. |
+| **Include native client** | No | Since this is a web app and not a native client, select No. |
 
-    | Setting      | Suggested value  | Description                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | My Sample Web App | Enter a **Name** that describes your app to consumers. | 
-    | **Include web app / web API** | Yes | Select **Yes** for a web app. |
-    | **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
-    | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample runs locally (localhost) and listens on port 44316. |
-    | **Native client** | No | Since this is a web app and not a native client, select No. |
-
-3. Click **Create** to register your app.
+Click **Create** to register your app.
 
 Registered apps are displayed in the applications list for the Azure AD B2C tenant. Select your web app from the list. The web app's property pane is displayed.
 
@@ -64,11 +62,11 @@ Make note of the **Application Client ID**. The ID uniquely identifies the app a
 
 ### Create a client password
 
-Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client ID and client secret are used when the web app authenticates with Azure Active Directory. 
+Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client ID and password are used when the web app authenticates with Azure Active Directory. 
 
 1. Select the Keys page for the registered web app and click **Generate key**.
 
-2. Click **Save** to display the key.
+2. Click **Save** to display the app key.
 
     ![app general keys page](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -110,7 +108,7 @@ To allow users to reset their user profile information on their own, create a **
     | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiPe** in the sample code. | 
     | **Identity provider** | Local Account SignIn | The identity provider used to uniquely identify the user. |
     | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
-    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
+    | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
 
 2. Click **Create** to create your policy. 
 
@@ -159,9 +157,9 @@ You need to change the app to use the app registration in your tenant. You also 
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="App key you generated for your registered web app" />
     ```
-3. Update the policy settings with the name generated when you created your policies.
+3. Update the existing keys with the values of the policy names you created in a previous step. Remember to include the *b2c_1_* prefix.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

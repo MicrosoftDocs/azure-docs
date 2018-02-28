@@ -1,6 +1,6 @@
 ---
-title: Cloud identity management web and mobile apps Azure AD B2C
-description: Developing consumer-facing applications with Azure Active Directory B2C
+title: Azure Active Directory B2C overview
+description: Get started developing consumer-facing applications with Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
 author: saeedakhter-msft
