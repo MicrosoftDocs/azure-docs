@@ -1,11 +1,11 @@
 ---
-title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions
+title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions in Azure Automation
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
 keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.topic: article
 ms.service: automation
 
@@ -41,7 +41,7 @@ Select **Update management** under **UPDATE MANAGEMENT**. The Log analytics work
 
 ## Scope Configuration
 
-Each solution uses a Scope Configuration within the workspace to target the computers that will get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**.  Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
+Each solution uses a Scope Configuration within the workspace to target the computers that get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**. Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
 
 The two Scope Configurations created by default **MicrosoftDefaultScopeConfig-ChangeTracking** and **MicrosoftDefaultScopeConfig-Updates**.
 

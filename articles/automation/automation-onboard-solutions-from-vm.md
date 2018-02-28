@@ -5,7 +5,7 @@ services: automation
 keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/15/2018
+ms.date: 02/28/2018
 ms.topic: article
 ms.service: automation
 
@@ -29,7 +29,7 @@ Choose the Log analytics workspace and automation account and click **Enable** t
 
 ![Onboard Update solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Navigate to the other solutions and click **Enable**, the Log analytics and Automation account drop-down boxes are disabled as they use the same workspace and automation account as the previously enabled solution.
+Navigate to the other solutions and click **Enable**, the Log analytics, and Automation account drop-down boxes are disabled as they use the same workspace and automation account as the previously enabled solution.
 
 ![Onboard Update solution](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
@@ -38,7 +38,7 @@ Navigate to the other solutions and click **Enable**, the Log analytics and Auto
 
 ## Scope Configuration
 
-Each solution uses a Scope Configuration within the workspace to target the computers that will get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**.  Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
+Each solution uses a Scope Configuration within the workspace to target the computers that get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**  Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
 
 The two scope configurations created by default are **MicrosoftDefaultScopeConfig-ChangeTracking** and **MicrosoftDefaultScopeConfig-Updates**.
 

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/28/2018
 ms.author: gwallace
 
 ---
@@ -67,7 +67,7 @@ The following table lists the operating systems that are not supported:
 
 |Operating System  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (Windows 7, Windows 10, etc) are not supported.        |
+|Windows client     | Client operating systems (Windows 7, Windows 10, etc.) are not supported.        |
 |Nano Server     | Nano server is part of Windows 2016.        |
 
 ### Client requirements
@@ -78,7 +78,7 @@ Windows agents must be configured to communicate with a Windows Server Update Se
 
 #### Linux
 
-For Linux, the machine must have access to an update repository which can be private or public. An OMS Agent for Linux configured to report to multiple Log Analytics workspaces is not supported with this solution.
+For Linux, the machine must have access to an update repository, which can be private or public. An OMS Agent for Linux configured to report to multiple Log Analytics workspaces is not supported with this solution.
 
 For more information on how to install the OMS Agent for Linux and download the latest version, see [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).  
 
@@ -221,7 +221,7 @@ To learn how to integrate the OMS Update Management solution with System Center 
 
 ## Patching Linux machines
 
-Linux machines has some special configurations
+The following sections explain potential issues with Linux patching.
 
 ### Package exclusion
 
@@ -236,9 +236,9 @@ redhat-release-server.x86_64
 
 ### Security patches not being applied
 
-When deploying updates to a Linux machine, you can select update classifications. This filters the updates that will be applied to those that meet the specified criteria. This filter is applied locally on the machine when the update is deployed. Because Update Management performs update enrichment in the cloud, some updates may be flagged in Update Management as having security impact although the local machine does not have that information. As a result, if you apply critical updates to a Linux machine, there may be updates which are not marked as having security impact on that machine, and are not get applied. However, Update Management may still report that machine as being non-compliant because it has additional information about the relevant update.
+When deploying updates to a Linux machine, you can select update classifications. This filters the updates that are applied to those that meet the specified criteria. This filter is applied locally on the machine when the update is deployed. Because Update Management performs update enrichment in the cloud, some updates may be flagged in Update Management as having security impact although the local machine does not have that information. As a result, if you apply critical updates to a Linux machine, there may be updates, which are not marked as having security impact on that machine, and do not get applied. However, Update Management may still report that machine as being non-compliant because it has additional information about the relevant update.
 
-Deploying updates by update classicification may not work on OpenSuSE Linux due to the different patching model used.
+Deploying updates by update classification may not work on openSUSE Linux due to the different patching model used.
 
 ## Troubleshooting
 

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: gwallace
 ms.custom: H1Hack27Feb2017
 
@@ -129,7 +129,7 @@ The following table shows the data collection frequency for the types of changes
 
 ### Registry key change tracking
 
-The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys you must enable each one.
+The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys, you must enable each one.
 
 > [!div class="mx-tdBreakAll"]
 > |  |
@@ -173,7 +173,7 @@ The purpose of monitoring changes to registry keys is to pinpoint extensibility 
 
 After the solution is enabled, you can view the summary of changes for your monitored computers by selecting **Change Tracking** under **CONFIGURATION MANAGEMENT** in your Automation account.
 
-You can view changes to your computers and then drill-into details for each event. Drop downs are available at the top of the chart to limit the chart and detailed information based on change ttpe and time ranges.  You can also click and drag on the chart to select a custom time range.
+You can view changes to your computers and then drill-into details for each event. Drop downs are available at the top of the chart to limit the chart and detailed information based on change type and time ranges. You can also click and drag on the chart to select a custom time range.
 
 ![image of Change Tracking dashboard](./media/automation-change-tracking/change-tracking-dash01.png)
 
