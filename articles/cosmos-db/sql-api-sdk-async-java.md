@@ -69,7 +69,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.0.0](#1.0.0) |April 07, 2015 |--- |
+| [1.0.0](#1.0.0) |February 27, 2018|--- |
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
