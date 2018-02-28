@@ -88,9 +88,9 @@ $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceG
 Write-Host "storage account key 1 = " $storageAccountKey
 ```
 
-## Download the samples
+## Stream into Event Hubs
 
-The next step is to run the sample code that sends events to an event hub, and receives those events using the Event Processor Host. 
+The next step is to run the sample code that streams events to an event hub, and receives those events using the Event Processor Host. 
 
 First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) and [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) samples from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
 
