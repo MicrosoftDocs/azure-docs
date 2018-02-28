@@ -28,9 +28,6 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Create a Ruby application
-For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/ruby-rails-web-app.md).
-
 ## Add access to Storage or Azure Cosmos DB
 To use Azure Storage or Azure Cosmos DB, you must download and use the Ruby Azure package that includes a set of convenience libraries that communicate with the Table REST services.
 
