@@ -299,9 +299,11 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 1. Create a new Standard resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.
 
-2. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+2. Create new or update existing NSG on NIC or subnet to whitelist load balanced traffic, probe, as well as any other traffic you wish to permit.
 
-3. Attach all VM instances to the new Standard SKU resources.
+3. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+
+4. Attach all VM instances to the new Standard SKU resources.
 
 ### Migrate from Standard to Basic SKU
 

@@ -4850,7 +4850,12 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
-            "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
+            "redirect_url": "/azure/automation/automation-update-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-solution-update-management.md",
+            "redirect_url": "/azure/automation/automation-update-management",
             "redirect_document_id": false
         },
         {
@@ -5831,6 +5836,11 @@
         {
             "source_path": "articles/mysql/reference-azure-cli.md",
             "redirect_url": "/cli/azure/mysql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
+            "redirect_url": "/azure/mysql/reference-data-in-store-procedures",
             "redirect_document_id": false
         },
         {
@@ -16949,6 +16959,26 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/mysql/concepts-service-tiers.md",
+        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/mysql/concepts-compute-unit-and-storage.md",
+        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/postgresql/concepts-service-tiers.md",
+        "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/postgresql/concepts-compute-unit-and-storage.md",
+        "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
             "source_path": "articles/active-directory/active-directory-saas-adpetime-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
@@ -17001,6 +17031,11 @@
 	{
             "source_path": "articles/active-directory/active-directory-conditional-access-unlicensed-usage-report.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
     }
    ]

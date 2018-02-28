@@ -317,6 +317,10 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
+### Viewing log files locally
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
+
 ## <a name="publish"></a>Publish to Azure
 
 To publish a Functions project to a function app in Azure, use the `publish` command:
