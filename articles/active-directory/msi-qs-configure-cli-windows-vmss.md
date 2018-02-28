@@ -22,7 +22,7 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and remove MSI for an Azure Virtual Machine Scale Set (virtual machine scale set), using Azure CLI.
+In this article, you will learn how to enable and remove MSI for an Azure virtual machine scale set using Azure CLI.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ To run the CLI script examples, you have three options:
 
 To create an MSI-enabled virtual machine scale set:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the virtual machine scale set:
 
    ```azurecli-interactive
    az login
@@ -60,9 +60,9 @@ To create an MSI-enabled virtual machine scale set:
 
 ## Enable MSI on an existing Azure virtual machine scale set
 
-If you need to enable MSI on an existing Virtual Machine Scale Set:
+If you need to enable MSI on an existing Azure virtual machine scale set:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
    ```azurecli-interactive
    az login
@@ -76,9 +76,9 @@ If you need to enable MSI on an existing Virtual Machine Scale Set:
 
 ## Remove MSI from an Azure virtual machine scale set
 
-If you have a Virtual Machine Scale Set that no longer needs an MSI:
+If you have a virtual machine scale set that no longer needs an MSI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the VM.
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
    ```azurecli-interactive
    az login

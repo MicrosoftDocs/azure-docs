@@ -1,5 +1,5 @@
 ---
-title: How to configure MSI on an Azure VMMS using the Azure portal
+title: How to configure MSI on an Azure virtual machine scale set using the Azure portal
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on Azure VMSS, using the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to enable and remove MSI for an Azure Virtual Machine Scale Set (virtual machine scale set), using the Azure portal.
+In this article, you learn how to enable and remove MSI for an Azure virtual machine scale set, using the Azure portal.
 
 ## Prerequisites
 
@@ -42,19 +42,19 @@ If you have a virtual machine scale set that was originally provisioned without 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Navigate to the desired Virtual Machine Scale Set.
+2. Navigate to the desired virtual machine scale set.
 
 3. Click the **Configuration** page, enable MSI on the virtual machine scale set by selecting **Yes** under "Managed service identity", then click **Save**. This operation can take 60 seconds or more to complete:
 
    ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)  
 
-## Remove MSI from an Azure VMMS
+## Remove MSI from an Azure virtual machine scale set
 
-If you have a Virtual Machine Scale Set that no longer needs an MSI:
+If you have a virtual machine scale set that no longer needs an MSI:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the virtual machine scale set. Also make sure your account belongs to a role that gives you write permissions on the virtual machine scale set.
 
-2. Navigate to the desired Virtual Machine Scale Set.
+2. Navigate to the desired virtual machine scale set.
 
 3. Click the **Configuration** page, remove MSI from the virtual machine scale set by selecting **No** under **Managed service identity**, then click **Save**. This operation can take 60 seconds or more to complete:
 
