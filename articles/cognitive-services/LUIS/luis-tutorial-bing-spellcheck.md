@@ -18,7 +18,7 @@ ms.author: v-geberr
 You can integrate your LUIS app with [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct misspelled words in utterances before LUIS predicts the score and entities of the utterance. 
 
 ## Create first key for Bing Spell Check V7
-Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api) is free. 
+Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) is free. 
 
 ![Create free key](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
