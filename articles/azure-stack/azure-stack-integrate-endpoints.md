@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords:
@@ -67,4 +67,5 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 
 
 ## Next steps
+
 [Azure Stack PKI requirements](azure-stack-pki-certs.md)
