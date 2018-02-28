@@ -50,10 +50,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 Your application will need to have
 been [prepared in advance][prepare-app]; to deploy your container image from the container registry with a
 resource request of 1 CPU core and 1 GB of memory, run the following
-command [`az container create`][az-container-create]. Replace
+ [az container create][az-container-create] command. Replace
 `<acrLoginServer>` and `<acrPassword>` with the values you obtained
 from the previous two commands. Replace `<acrName>` with the name of
-your container registry; you can also replace `aci-tutorial-app` by
+your container registry; you can also replace `aci-tutorial-app` with
 the name you want to give the new application.
 
 ```azurecli
