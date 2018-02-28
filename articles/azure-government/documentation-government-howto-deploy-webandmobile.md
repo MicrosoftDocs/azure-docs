@@ -29,7 +29,7 @@ This article describes how to deploy an Azure App Services app (API App, Web App
 Log in to the [Azure Government Portal](https://portal.azure.us). 
 Click the "New" button on the top left-hand corner and choose to create "Web App":
 
-![createapp](./media/documentation-government-howto-deploy-webandmobile-openapp-new1.png)
+![createapp1](./media/documentation-government-howto-deploy-webandmobile-openapp-new1.png)
 
 When creating the Web App, you must also have an App Service Plan. When creating a new App Service Plan, you should be able to see the different Azure Government regions in the "App Service Environment" box. You may not see all of the DoD regions shown below if your subscription has not been approved for DoD regions.
 
@@ -52,7 +52,7 @@ Once **Visual Studio is configured to connect to Azure Government account** (alr
 
 > [!NOTE]
 > In order to check if Visual Studio is connected to Azure Government, go to the "Tools" tab and click on the Azure Environment Selector extension to see what environment you are connected to.
->![azuregovenvironment](./media/documentation-government-howto-deploy-webandmobile-openapp3.png)
+>![azuregovenvironment1](./media/documentation-government-howto-deploy-webandmobile-openapp3.png)
 > 
 
 ### Publish using Azure Active Directory User Authentication from Visual Studio
