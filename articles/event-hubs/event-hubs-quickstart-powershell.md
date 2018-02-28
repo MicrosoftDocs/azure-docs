@@ -135,6 +135,10 @@ Then, run the **SampleEphReceiver** app, and observe the messages being received
 
 ![][4]
 
+You can view the incoming and outgoing message count in the portal metrics window for the Event Hubs namespace. The following example shows these results after running the programs twice (sending and receiving two sets of 100 messages):
+
+![][5]
+
 ## Clean up deployment
 
 Run the following command to remove the resource group, namespace, storage account, and all related resources
@@ -157,3 +161,4 @@ In this article, you created the Event Hubs namespace and other resources requir
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [3]: ./media/event-hubs-quickstart-namespace-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-namespace-powershell/receiver1.png
+[5]: ./media/event-hubs-quickstart-namespace-powershell/metrics.png
