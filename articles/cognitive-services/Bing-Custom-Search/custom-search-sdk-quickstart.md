@@ -1,5 +1,6 @@
 ---
 title: Custom Search SDK C# quickstart | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Setup Custom Search SDK C# console application.
 services: cognitive-services
 author: mikedodaro
