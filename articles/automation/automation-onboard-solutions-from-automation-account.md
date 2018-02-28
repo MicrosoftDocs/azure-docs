@@ -41,13 +41,13 @@ Select **Update management** under **UPDATE MANAGEMENT**. The Log analytics work
 
 ## Scope Configuration
 
-The solutions are targeted to a Scope Configuration. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. Under **RELATED RESOURCES** in your Automation account, select **Workspace**.
+Each solution uses a Scope Configuration within the workspace to target the computers that will get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**.  Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
 
 The two Scope Configurations created by default **MicrosoftDefaultScopeConfig-ChangeTracking** and **MicrosoftDefaultScopeConfig-Updates**.
 
 ## Saved searches
 
-When a computer is added to the Update management or the Change tracking and Inventory solutions, they are added to one of two saved searches in your workspace. These saved searches are queries that contain the computers that are targeted for these solutions.
+When a computer is added to the Update Management or the Change Tracking and Inventory solutions, they are added to one of two saved searches in your workspace. These saved searches are queries that contain the computers that are targeted for these solutions.
 
 Navigate to your Automation account and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
 

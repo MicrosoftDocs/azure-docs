@@ -38,17 +38,17 @@ Navigate to the other solutions and click **Enable**, the Log analytics and Auto
 
 ## Scope Configuration
 
-The solutions are targeted to a Scope Configuration. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. In your Workspace, navigate to **Scope Configurations** under **WORKSPACE DATA SOURECES**.
+Each solution uses a Scope Configuration within the workspace to target the computers that will get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**.  Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
 
-The two scope configurations created by default **MicrosoftDefaultScopeConfig-ChangeTracking** and **MicrosoftDefaultScopeConfig-Updates**.
+The two scope configurations created by default are **MicrosoftDefaultScopeConfig-ChangeTracking** and **MicrosoftDefaultScopeConfig-Updates**.
 
 Click the ellipses (...) on any of the configurations and select **Edit**. On the **Edit scope configuration** page, select **Select Computer Groups** to open the **Computer Groups** page. This page shows the saved searches that are used to create the Scope Configuration.
 
 ## Saved searches
 
-When a computer is added to the Update management or the Change tracking and Inventory solutions, they are added to one of two saved searches in your workspace. These saved searches are queries that contain the computers that are targeted for these solutions.
+When a computer is added to the Update Management or the Change Tracking and Inventory solutions, they are added to one of two saved searches in your workspace. These saved searches are queries that contain the computers that are targeted for these solutions.
 
-Navigate to your Automation account and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
+Navigate to your workspace and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
 
 |Name     |Category  |Alias  |
 |---------|---------|---------|
