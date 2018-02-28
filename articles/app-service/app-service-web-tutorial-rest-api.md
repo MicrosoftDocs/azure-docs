@@ -1,6 +1,6 @@
 ---
 title: RESTful API with CORS in Azure App Service | Microsoft Docs
-description: Learn how Azure App Service helps you run your RESTful APIs with CORS support.
+description: Learn how Azure App Service helps you host your RESTful APIs with CORS support.
 services: app-service\api
 documentationcenter: dotnet
 author: cephalin
@@ -25,8 +25,9 @@ ms.custom: mvc, devcenter
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Deploy a RESTful API to Azure
-> * Enable CORS to browser clients
+> * Create App Service resources using Azure CLI
+> * Deploy a RESTful API to Azure using Git
+> * Enable App Service CORS support
 
 You can follow the steps in this tutorial on macOS, Linux, Windows.
 
@@ -62,6 +63,7 @@ This repository contains an app that's created based on the following tutorial: 
 Run the following commands to install the required packages, run database migrations, and start the application.
 
 ```bash
+cd dotnet-core-api
 dotnet restore
 dotnet run
 ```
@@ -174,7 +176,7 @@ You can set more than one client URL in `properties.cors.allowedOrigins` (`"['UR
 
 ### Test CORS again
 
-Refresh the browser app at `http://localhost:5000`. The error message in the **Console** window is now gone, and you can see the data from the deployed API. 
+Refresh the browser app at `http://localhost:5000`. The error message in the **Console** window is now gone, and you can see the data from the deployed API and interact with it. Your remote API now supports CORS to your browser app running locally. 
 
 ![CORS success in browser client](./media/app-service-web-tutorial-rest-api/cors-success.png)
 
@@ -182,7 +184,7 @@ Congratulations, you're running an API in Azure App Service with CORS support.
 
 ## App Service CORS vs. your CORS
 
-You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you may want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify one set of accepted origins for all API routes and methods, you would want to use your own CORS code (see how ASP.NET Core does it at [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors)).
+You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you may want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify one set of accepted origins for all API routes and methods, you would want to use your own CORS code. See how ASP.NET Core does it at [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors).
 
 > [!NOTE]
 > Don't try to use App Service CORS and your own CORS code together. When used together, App Service CORS takes precedence and your own CORS code has no effect.
@@ -197,8 +199,9 @@ You can use your own CORS utilities instead of App Service CORS for more flexibi
 What you learned:
 
 > [!div class="checklist"]
-> * Deploy a RESTful API to Azure
-> * Enable CORS to browser clients
+> * Create App Service resources using Azure CLI
+> * Deploy a RESTful API to Azure using Git
+> * Enable App Service CORS support
 
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
