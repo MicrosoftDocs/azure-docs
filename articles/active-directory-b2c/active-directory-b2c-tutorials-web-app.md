@@ -6,7 +6,7 @@ author: PatAltimore
 
 ms.author: patricka
 ms.reviewer: saraford
-ms.date: 1/23/2018
+ms.date: 2/27/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c

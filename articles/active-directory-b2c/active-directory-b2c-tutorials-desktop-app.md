@@ -1,17 +1,18 @@
 ---
-title: Integrate Azure Active Directory B2C into a WPF Desktop Application
-description: Part 1 of a tutorial on integrating Azure Active Directory B2C into a WPF Desktop Application enabling your users to sign up to use your desktop app and access an API resource
+title: Use Azure Active Directory B2C for User Authentication in a WPF app
+description: Tutorial on how to use Azure Active Directory B2C to provide user login for a WPF app.
 services: active-directory-b2c
-author: saraford
+author: PatAltimore
 
 ms.author: patricka
-ms.date: 12/07/2017
+ms.reviewer: saraford
+ms.date: 2/27/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Part 1: Sign into a WPF application using Azure AD B2C
+# Tutorial: Authenticate users with Azure Active Directory B2C in a Windows Presentation Foundation app
 
 Azure AD B2C enables your applications to authenticate to:
 
