@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
 
 ---
@@ -51,7 +51,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backing up virtual machines with data disk sizes greater than 1,023 GB is not supported.
 
   > [!NOTE]
-  > We have a private preview to support backups for VMs with 1-TB (or greater) unmanaged disks. For details, refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > We have a private preview to support backups for VMs with > 1TB disks. For details, refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
@@ -60,7 +60,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backup data doesn't include network mounted drives attached to a VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region backup and restore are not supported.
-* Backup and restore of storage ACLed VMs is not supported as of now. Backup of VMs is not supported if you have enabled storage on VNET feature which allows storage accounts to be accessed only from certain VNETs/Subnets and/or IPs.
+* Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is currently not supported. While configuring backup, make sure that the “Firewalls and virtual networks” settings for the storage account allow access from “All networks.”
 * You can back up virtual machines in all public regions of Azure. (See the [checklist](https://azure.microsoft.com/regions/#services) of supported regions.) If the region that you're looking for is unsupported today, it will not appear in the drop-down list during vault creation.
 * Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. To learn more, see [Restoring a multi-DC domain controller](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created through the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -178,7 +178,7 @@ After you successfully enable the backup, your backup policy will run on schedul
 If you have problems registering the virtual machine, see the following information on installing the VM agent and on network connectivity. You probably don't need the following information if you are protecting virtual machines created in Azure. But if you migrated your virtual machines to Azure, be sure that you properly installed the VM agent and that your virtual machine can communicate with the virtual network.
 
 ## Install the VM agent on the virtual machine
-For the Backup extension to work, the Azure [VM agent](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) must be installed on the Azure virtual machine. If your VM was created from the Azure Marketplace, the VM agent is already present on the virtual machine. 
+For the Backup extension to work, the Azure [VM agent](../virtual-machines/windows/agent-user-guide.md) must be installed on the Azure virtual machine. If your VM was created from the Azure Marketplace, the VM agent is already present on the virtual machine. 
 
 The following information is provided for situations where you are *not* using a VM created from the Azure Marketplace. For example, you migrated a VM from an on-premises datacenter. In such a case, the VM agent needs to be installed in order to protect the virtual machine.
 
@@ -216,7 +216,7 @@ You can allow connections to storage of the specific region by using [service ta
 ![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Storage tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
+> Storage service tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
 
 ### Use an HTTP proxy for VM backups
 When you're backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage by using an HTTPS API. Route the backup extension traffic through the HTTP proxy, because it's the only component configured for access to the public internet.

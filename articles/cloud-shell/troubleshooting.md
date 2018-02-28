@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
 ---
 
@@ -22,6 +22,10 @@ ms.author: damaerte
 Known resolutions for issues in Azure Cloud Shell include:
 
 ## General resolutions
+
+### Early timeouts in FireFox
+- **Details**: Cloud Shell utilizes an open websocket to pass input/output to your browser. FireFox has preset policies that can close the websocket prematurely causing early timeouts in Cloud Shell.
+- **Resolution**: Open FireFox and navigate to "about:config" in the URL box. Search for "network.websocket.timeout.ping.request" and change the value from 0 to 10.
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
 - **Details**: When creating a storage account through Cloud Shell, it is unsuccessful due to an Azure policy placed by your admin. Error message will include: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

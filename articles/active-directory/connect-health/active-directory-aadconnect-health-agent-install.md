@@ -99,32 +99,38 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
 4. To enable auditing, open a Command Prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in. To open the AD FS Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **AD FS 2.0 Management**.
-6. In the **Actions** pane, click **Edit Federation Service Properties**.
-7. In the **Federation Service Properties** dialog box, click the **Events** tab.
-8. Select the **Success audits** and **Failure audits** check boxes.
-9. Click **OK**.
+5. Close **Local Security Policy**.
+<br>   -- **The following steps are only required for primary AD FS servers.** -- </br>
+6. Open the **AD FS Management** snap-in. To open the AD FS Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **AD FS 2.0 Management**.
+7. In the **Actions** pane, click **Edit Federation Service Properties**.
+8. In the **Federation Service Properties** dialog box, click the **Events** tab.
+9. Select the **Success audits** and **Failure audits** check boxes.
+10. Click **OK**.
 
 #### To enable auditing for AD FS on Windows Server 2012 R2
 1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
 4. To enable auditing, open a command prompt with elevated privileges and run the following command: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
-6. In the Actions pane, click **Edit Federation Service Properties**.
-7. In the Federation Service Properties dialog box, click the **Events** tab.
-8. Select the **Success audits and Failure audits** check boxes and then click **OK**.
+5. Close **Local Security Policy**.
+<br>   -- **The following steps are only required for primary AD FS servers.** -- </br>
+6. Open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
+7. In the **Actions** pane, click **Edit Federation Service Properties**.
+8. In the **Federation Service Properties** dialog box, click the **Events** tab.
+9. Select the **Success audits and Failure audits** check boxes and then click **OK**.
 
 #### To enable auditing for AD FS on Windows Server 2016
 1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add the AD FS service account to the list, and then click **OK**.
 4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
-6. In the Actions pane, click **Edit Federation Service Properties**.
-7. In the Federation Service Properties dialog box, click the **Events** tab.
-8. Select the **Success audits and Failure audits** check boxes and then click **OK**. This should be enabled by default.
-9. Open a PowerShell window and run the following command: ```Set-AdfsProperties -AuditLevel Verbose```.
+5. Close **Local Security Policy**.
+<br>   -- **The following steps are only required for primary AD FS servers.** -- </br>
+6. Open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
+7. In the **Actions** pane, click **Edit Federation Service Properties**.
+8. In the **Federation Service Properties** dialog box, click the **Events** tab.
+9. Select the **Success audits and Failure audits** check boxes and then click **OK**. This should be enabled by default.
+10. Open a PowerShell window and run the following command: ```Set-AdfsProperties -AuditLevel Verbose```.
 
 Note that "basic" audit level is enabled by default. Read more about the [AD FS Audit enhancement in Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
@@ -207,7 +213,7 @@ If you completed the configuration, these services should already be running. Ot
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### Agent Registration using PowerShell
+## Agent Registration using PowerShell
 After installing the appropriate agent setup.exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command:
 
 ```

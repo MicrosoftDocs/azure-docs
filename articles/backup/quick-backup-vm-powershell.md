@@ -1,20 +1,20 @@
 ---
 title: Azure Quickstart - Back up a VM with PowerShell | Microsoft Docs
 description: Learn how to back up your virtual machines with Azure PowerShell
-services: virtual-machines-windows, azure-backup
+services: backup
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: markgalioto
+manager: carmonm
 editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -41,7 +41,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
 
-## Create a recovery services vault
+## Create a recovery services vaults
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
 Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Specify the same resource group and location as the VM you wish to protect. If you used the [sample script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) to create your VM, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *WestEurope* location.

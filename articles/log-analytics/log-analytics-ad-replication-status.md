@@ -1,9 +1,9 @@
 ---
 title: Monitor Active Directory replication status with Azure Log Analytics | Microsoft Docs
-description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard.
+description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: banders
+ms.date: 01/24/2018
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -23,13 +23,13 @@ ms.custom: H1Hack27Feb2017
 
 Active Directory is a key component of an enterprise IT environment. To ensure high availability and high performance, each domain controller has its own copy of the Active Directory database. Domain controllers replicate with each other in order to propagate changes across the enterprise. Failures in this replication process can cause a variety of problems across the enterprise.
 
-The AD Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard.
+The AD Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to OMS. To understand how to connect Windows computers to OMS, see [Connect Windows computers to Log Analytics](log-analytics-windows-agent.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to OMS, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
-* Add the Active Directory Replication Status solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
+* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-windows-agent.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
+* Add the Active Directory Replication Status solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
 ## AD Replication Status data collection details
 The following table shows data collection methods and other details about how data is collected for AD Replication Status.
@@ -38,12 +38,12 @@ The following table shows data collection methods and other details about how da
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |every five days |
 
-## Optionally, enable a non-domain controller to send AD data to OMS
-If you don't want to connect any of your domain controllers directly to OMS, you can use any other OMS-connected computer in your domain to collect data for the AD Replication Status solution pack and have it send the data.
+## Optionally, enable a non-domain controller to send AD data to Log Analytics
+If you don't want to connect any of your domain controllers directly to Log Analytics, you can use any other computer in your domain connected to Log Analytics to collect data for the AD Replication Status solution pack and have it send the data.
 
-### To enable a non-domain controller to send AD data to OMS
+### To enable a non-domain controller to send AD data to Log Analytics
 1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
-2. [Connect the Windows computer to OMS](log-analytics-windows-agent.md) or [connect it using your existing Operations Manager environment to OMS](log-analytics-om-agents.md), if it is not already connected.
+2. [Connect the Windows computer to Log Analytics](log-analytics-windows-agent.md) or [connect it using your existing Operations Manager environment to Log Analytics](log-analytics-om-agents.md), if it is not already connected.
 3. On that computer, set the following registry key:
 
    * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -56,7 +56,7 @@ If you don't want to connect any of your domain controllers directly to OMS, you
    >
 
 ## Understanding replication errors
-Once you have AD replication status data sent to OMS, you see a tile similar to the following image on the OMS dashboard indicating how many replication errors you currently have.  
+Once you have AD replication status data sent to Log Analytics, you see a tile similar to the following image in Log Analytics indicating how many replication errors you currently have.  
 ![AD Replication Status tile](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
 
 **Critical Replication Errors** are errors that are at or above 75% of the [tombstone lifetime](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) for your Active Directory forest.
@@ -120,11 +120,11 @@ A: The information is updated every five days.
 **Q: Is there a way to configure how often this data is updated?**
 A: Not at this time.
 
-**Q: Do I need to add all of my domain controllers to my OMS workspace in order to see replication status?**
-A: No, only a single domain controller must be added. If you have multiple domain controllers in your OMS workspace, data from all of them is sent to OMS.
+**Q: Do I need to add all of my domain controllers to my Log Analytics workspace in order to see replication status?**
+A: No, only a single domain controller must be added. If you have multiple domain controllers in your Log Analytics workspace, data from all of them is sent to Log Analytics.
 
-**Q: I don't want to add any domain controllers to my OMS workspace. Can I still use the AD Replication Status solution?**
-A: Yes. You can set the value of a registry key to enable it. See [To enable a non-domain controller to send AD data to OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**Q: I don't want to add any domain controllers to my Log Analytics workspace. Can I still use the AD Replication Status solution?**
+A: Yes. You can set the value of a registry key to enable it. See [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **Q: What is the name of the process that does the data collection?**
 A: AdvisorAssessment.exe
@@ -142,11 +142,11 @@ A: Not at this time.
 A: Normal user permissions to Active Directory are sufficient.
 
 ## Troubleshoot data collection problems
-In order to collect data, the AD Replication Status solution pack requires at least one domain controller to be connected to your OMS workspace. Until you connect a domain controller, a message appears indicating that **data is still being collected**.
+In order to collect data, the AD Replication Status solution pack requires at least one domain controller to be connected to your Log Analytics workspace. Until you connect a domain controller, a message appears indicating that **data is still being collected**.
 
 If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Log Analytics](log-analytics-windows-agent.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Log Analytics](log-analytics-om-agents.md).
 
-If you don't want to connect any of your domain controllers directly to OMS or to SCOM, see [To enable a non-domain controller to send AD data to OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+If you don't want to connect any of your domain controllers directly to Log Analytics or to System Center Operations Manager, see [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Active Directory Replication status data.

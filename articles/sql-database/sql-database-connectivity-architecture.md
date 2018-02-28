@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-ms.date: 06/05/2017
+ms.date: 01/24/2018
 ms.author: carlrab
 ---
 # Azure SQL Database Connectivity Architecture 
@@ -66,7 +66,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | Central US | 23.99.160.139 | 13.67.215.62 |
 | East Asia | 191.234.2.139 | 52.175.33.150 |
 | East US 1 | 191.238.6.43 | 40.121.158.30 |
-| East US 2 | 191.239.224.107 | 40.79.84.180 |
+| East US 2 | 191.239.224.107 | 40.79.84.180 * |
 | India Central | 104.211.96.159  | |
 | India South | 104.211.224.146	 | |
 | India West | 104.211.160.80 | |
@@ -87,6 +87,8 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | West US 1 | 23.99.34.75 | 104.42.238.205 |
 | West US 2 | 13.66.226.202	 | |
 ||||
+
+\* **NOTE:** *East US 2* has also a tertiary IP address of `52.167.104.0`.
 
 ## Change Azure SQL Database connection policy
 

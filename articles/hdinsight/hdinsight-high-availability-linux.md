@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
 
 ---

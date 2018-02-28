@@ -1,5 +1,5 @@
 ---
-title: 'Licensing: Azure AD SSPR | Microsoft Docs'
+title: License self-service password reset - Azure Active Directory
 description: Azure AD self-service password reset licensing requirements
 services: active-directory
 keywords: 
@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro;seohack1
 
 ---
 # Licensing requirements for Azure AD self-service password reset
@@ -24,7 +24,7 @@ ms.custom: it-pro
 In order for Azure Active Directory (Azure AD) password reset to function, you *must have at least one license assigned in your organization*. We don't enforce per-user licensing on the password reset experience. To maintain compliance with your Microsoft licensing agreement, you need to assign licenses to any users that use premium features.
 
 * **Cloud-only users**: Office 365 any paid SKU, or Azure AD Basic
-* **Cloud** or **on-premises users**: Azure AD Premium P1 or P2, Enterprise Mobility + Security (EMS), or Secure Productive Enterprise (SPE)
+* **Cloud** or **on-premises users**: Azure AD Premium P1 or P2, Enterprise Mobility + Security (EMS), or Microsoft 365
 
 ## Licenses required for password writeback
 
@@ -39,6 +39,7 @@ To use password writeback, you must have one of the following licenses assigned 
 
 > [!WARNING]
 > Standalone Office 365 licensing plans *don't support password writeback* and require that you have one of the preceding plans for this functionality to work.
+>
 
 Additional licensing information, including costs, can be found on the following pages:
 
@@ -66,4 +67,3 @@ Some Microsoft services are not available in all locations. Before a license can
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
-

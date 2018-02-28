@@ -1,11 +1,11 @@
 ---
-title: Assign access in Azure Cost Management | Microsoft Docs
-description: Assign access to cost management data with user accounts that define access levels to entities.
+title: Tutorial - Assign access in Azure Cost Management | Microsoft Docs
+description: In this tutorial you learn how to assign access to cost management data with user accounts that define access levels to entities.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
@@ -13,7 +13,7 @@ manager: carmonm
 ---
 
 
-# Assign access to cost management data
+# Tutorial: Assign access to cost management data
 
 Access to cost management data is provided by user or entity management. Cloudyn user accounts determine access to *entities* and administrative functions. There two types of access: admin and user. Unless modified per user, admin access allows a user unrestricted use of all functions in the Cloudyn portal, including: user management, recipient lists management and root entity access to all entity data. User access is intended for end users to view reports and create reports using the access they have to entity data.
 
@@ -26,7 +26,12 @@ When you registered your Azure agreement or account, an account with admin permi
 > * Create a user with user access
 > * Create entities
 
+If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+- You must have an Azure account.
+- You must have either a trial registration or paid subscription for Azure Cost Management.
 
 ## Create a user with admin access
 
@@ -80,7 +85,7 @@ In this tutorial, you learned how to:
 > * Create a user with user access
 > * Create entities
 
-Advance to the next tutorial to learn how to forecast spending using historical data.
+If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to the following article.
 
 > [!div class="nextstepaction"]
-> [Forecast future spending](tutorial-forecast-spending.md)
+> [Activate Azure subscriptions and accounts](activate-subs-accounts.md)

@@ -66,5 +66,5 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 
 ## Developers guide
 
-- [Using MongoChef](mongodb-mongochef.md)
+- [Using Studio 3T (MongoChef)](mongodb-mongochef.md)
 - [Using Robomongo](mongodb-robomongo.md)

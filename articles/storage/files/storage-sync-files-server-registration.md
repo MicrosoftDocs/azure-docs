@@ -39,6 +39,27 @@ To register a server with a Storage Sync Service, you must first prepare your se
 
     > [!Note]  
     > We recommend using the newest version of the AzureRM PowerShell module to register/unregister a server. If the AzureRM package has been previously installed on this server (and the PowerShell version on this server is 5.* or greater), you can use the `Update-Module` cmdlet to update this package. 
+* If you utilize a network proxy server in your environment, configure proxy settings on your server for the sync agent to utilize.
+    1. Determine your proxy IP address and port number
+    2. Edit these two files:
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. Add the lines in figure 1 (beneath this section) under /System.ServiceModel in the above two files changing 127.0.0.1:8888 to the correct IP address (replace 127.0.0.1) and correct port number (replace 8888):
+    4. Set the WinHTTP proxy settings via command line:
+        * Show the proxy:   netsh winhttp show proxy
+        * Set the proxy:    netsh winhttp set proxy 127.0.0.1:8888
+        * Reset the proxy:  netsh winhttp reset proxy
+        * if this is setup after the agent is installed, then restart our sync agent:
+            net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### Register a server with Storage Sync Service
 Before a server can be used as a *server endpoint* in an Azure File Sync *sync group*, it must be registered with a *Storage Sync Service*. A server can only be registered with one Storage Sync Service at a time.

@@ -6,7 +6,7 @@ keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
 ---
 

@@ -1,3 +1,5 @@
+# [SQL Data Warehouse Documentation](index.md)
+
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
@@ -6,6 +8,14 @@
 # Quickstarts
 
 ## [Create and connect - portal](create-data-warehouse-portal.md)
+## Pause and resume compute
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+## Scale compute
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
+
 
 # Tutorials
 ## [1 - Load data from blob](load-data-from-azure-blob-storage-using-polybase.md)
@@ -15,6 +25,7 @@
 ### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
 ### [Performance tiers](performance-tiers.md)
 ### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Scale-out, pause, resume](sql-data-warehouse-manage-compute-overview.md)
 ### [Data warehouse backups](sql-data-warehouse-backups.md)
 ### [Auditing](sql-data-warehouse-auditing-overview.md)
 ### [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
@@ -42,7 +53,7 @@
 
 
 ## Monitor & tune
-### [Guidelines](resource-classes-for-workload-management.md)
+### [Workload management](resource-classes-for-workload-management.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
@@ -109,14 +120,11 @@
 ### [Analyze your workload](analyze-your-workload.md)
 
 ## Scale out
-### [Manage compute - portal](sql-data-warehouse-manage-compute-portal.md)
-### [Manage compute - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [Manage compute - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automate compute levels](manage-compute-with-azure-functions.md)
 
 
 # Reference
-
 
 ## T-SQL
 ### [Full reference](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -124,6 +132,7 @@
 ### [SQL DW statements](sql-data-warehouse-reference-tsql-statements.md)
 ## [System views](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST APIs](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)

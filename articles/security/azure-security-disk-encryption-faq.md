@@ -3,9 +3,9 @@ title: Azure Disk Encryption FAQ| Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
 # Azure Disk Encryption FAQ
@@ -46,10 +46,11 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | OS and data disk |
 | Ubuntu | 14.04.5-DAILY-LTS | OS and data disk |
-| RHEL | 7.3 | OS and data disk |
-| RHEL | 7.2 | OS and data disk |
-| RHEL | 6.8 | OS and data disk |
-| RHEL | 6.7 | Data disk |
+| RHEL | 7.4 | Data disk* |
+| RHEL | 7.3 | Data disk* |
+| RHEL | 7.2 | Data disk* |
+| RHEL | 6.8 | Data disk* |
+| RHEL | 6.7 | Data disk* |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
 | CentOS | 6.8 | OS and data disk |
@@ -64,6 +65,8 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 | SLES | HPC 12 | Data disk |
 | SLES | Priority:11-SP4 | Data disk |
 | SLES | 11 SP4 | Data disk |
+
+*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but is not currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the ADE whitepaper for Linux OS disk encryption [here](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **Q:** How can I start using Azure Disk Encryption?
 
@@ -126,7 +129,7 @@ If this workflow is not possible, relying on [Storage Service Encryption](https:
 
 **Q:** Where can I go to ask questions or provide feedback?
 
-**A:** You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**A:** You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service and its capabilities, see the following articles:

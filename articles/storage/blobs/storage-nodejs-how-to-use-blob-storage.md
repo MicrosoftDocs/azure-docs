@@ -30,7 +30,7 @@ This article shows you how to perform common scenarios using Blob storage. The s
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Node.js application
-For instructions on how to create a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) -- using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix](https://www.microsoft.com/web/webmatrix/).
+For instructions on how to create a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) -- using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## Configure your application to access storage
 To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that communicate with the storage REST services.

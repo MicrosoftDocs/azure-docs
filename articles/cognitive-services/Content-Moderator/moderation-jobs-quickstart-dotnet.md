@@ -18,8 +18,8 @@ This article provides information and code samples to help you get started using
 the Content Moderator SDK for .NET to:
  
 - Start a moderation job to scan and create reviews for human moderators
-- Get the status of pending jobs
-- Track and get the final status and results from the job
+- Get the status of the pending review
+- Track and get the final status of the review
 - Submit the result to the callback Url
 
 This article assumes that you are already familiar with Visual Studio and C#.
@@ -78,7 +78,7 @@ Add the following constants and static fields to the **Program** class in Progra
 > [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
 > Once you log in, select **Credentials** from the **Settings** (gear) menu.
 >
-> Your team name is the value of the **Id** field in the **API** section.
+> Your team name is the value of the **ID** field in the **API** section.
 
 
 	/// <summary>
@@ -122,7 +122,7 @@ Add the following constants and static fields to the **Program** class in Progra
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
 
-## Add code to auto-moderate, create a review, and get the pending job details
+## Add code to auto-moderate, create a review, and get the job details
 
 > [!Note]
 > In practice, you set the callback URL **CallbackEndpoint** to the URL
@@ -137,9 +137,9 @@ Start by adding the following code to the **Main** method.
         	writer.WriteLine("Create review job for an image.");
         	var content = new Content(ImageUrl);
 		
-		// The WorkflowName contains the nameof the workflow defined in the online review tool.
-            	// See the quickstart article to learn more.
-            	var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
+			// The WorkflowName contains the nameof the workflow defined in the online review tool.
+           	// See the quickstart article to learn more.
+           	var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
             		TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
 
         	// Record the job ID.
@@ -160,34 +160,30 @@ Start by adding the following code to the **Main** method.
         	writer.WriteLine(JsonConvert.SerializeObject(
             		jobDetails.Result.Body, Formatting.Indented));
 
-		// Continue writing code from the following section...
+			Console.WriteLine();
+           	Console.WriteLine("Perform manual reviews on the Content Moderator site.");
+           	Console.WriteLine("Then, press any key to continue.");
+           	Console.ReadKey();
 
-## Add the code to wait for human review and get the final job status
+           	Console.WriteLine();
+           	Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
+            Thread.Sleep(latencyDelay * 1000);
 
-		Console.WriteLine();
-            	Console.WriteLine("Perform manual reviews on the Content Moderator site.");
-            	Console.WriteLine("Then, press any key to continue.");
-            	Console.ReadKey();
+            writer.WriteLine("Get review details.");
+            jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
+            TeamName, jobId);
 
-            	Console.WriteLine();
-            	Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
-           	 Thread.Sleep(latencyDelay * 1000);
-
-            	writer.WriteLine("Get job status after review.");
-            	jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
-            	TeamName, jobId);
-
-            	// Log just the response body from the returned task.
-            	writer.WriteLine(JsonConvert.SerializeObject(
-            	jobDetails.Result.Body, Formatting.Indented));
-	}
+            // Log just the response body from the returned task.
+            writer.WriteLine(JsonConvert.SerializeObject(
+            jobDetails.Result.Body, Formatting.Indented));
+		}
         writer.Flush();
         writer.Close();
 	}
 
 > [!NOTE]
 > Your Content Moderator service key has a requests per second (RPS)
-> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code. 
+> rate limit. If you exceed the limit, the SDK throws an exception with a 429 error code. 
 >
 > A free tier key has a one RPS rate limit.
 
@@ -204,10 +200,6 @@ Use the **Next** button to submit.
 
 ![Image review for human moderators](images/ocr-sample-image.PNG)
 
-Then, press any key to continue. The program waits and gets the final job status before exiting.
-
-	Waiting 45 seconds for results to propagate.
-
 ## See the sample output in the log file
 
 > [!NOTE]
@@ -219,7 +211,7 @@ Then, press any key to continue. The program waits and gets the final job status
 		"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
 	}
 
-	Get job status before review.
+	Get review details.
 	{
 		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
 		"TeamName": "some team name",
@@ -230,53 +222,6 @@ Then, press any key to continue. The program waits and gets the final job status
 		"ReviewId": "",
 		"ResultMetaData": [],
 		"JobExecutionReport": [
-    	{
-      		"Ts": "2018-01-07T00:38:26.7714671",
-      		"Msg": "Successfully got hasText response from Moderator"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:26.4181346",
-      		"Msg": "Getting hasText from Moderator"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:25.5122828",
-      		"Msg": "Starting Execution - Try 1"
-    	}
-		]
-	}
-
-	Get job status after review.
-	{
-		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "some team name",
-		"Status": "Complete",
-		"WorkflowId": "OCR",
-		"Type": "Image",
-		"CallBackEndpoint": "",
-		"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-		"ResultMetaData": [
-    	{
-			"Key": "hasText",
-			"Value": "True"
-    	},
-		{
-			"Key": "ocrText",
-			"Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-		}
-		],
-		"JobExecutionReport": [
-		{
-      		"Ts": "2018-01-07T00:38:29.3238715",
-      		"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:29.2928416",
-      		"Msg": "Job marked completed and job content has been removed"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:29.0856472",
-      		"Msg": "Execution Complete"
-    	},
     	{
       		"Ts": "2018-01-07T00:38:26.7714671",
       		"Msg": "Successfully got hasText response from Moderator"
@@ -315,3 +260,8 @@ You see a response like the following example:
 			"imagename": "contentID"
 		}
 	}
+
+
+## Next steps
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.

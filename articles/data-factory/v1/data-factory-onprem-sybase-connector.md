@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/02/2018
 ms.author: jingwang
 
 robots: noindex
@@ -39,7 +39,9 @@ Gateway is required even if the Sybase database is hosted in an Azure IaaS VM. Y
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the same system as the Data Management Gateway. Sybase version 16 and above is supported.
+For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the same system as the Data Management Gateway. 
+
+SAP Sybase SQL Anywhere (ASA) version 16 and above is supported; IQ and ASE are not supported.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 

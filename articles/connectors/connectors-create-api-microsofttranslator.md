@@ -25,7 +25,7 @@ Connect to Microsoft Translator to translate text, detect a language, and more. 
 * Build your business flow based on the data you get from Microsoft Translator. 
 * Use actions to translate text, detect a language, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can translate the text in the file to another language using Microsoft Translator.
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Microsoft Translator
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]

@@ -3,9 +3,8 @@ title: Claims-aware apps - Azure AD App Proxy | Microsoft Docs
 description: How to publish on-premises ASP.NET applications that accept ADFS claims for secure remote access by your users. 
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: MarkusVi
 manager: mtillman
-editor: harshja
 
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
@@ -14,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: daveba
+ms.author: markvi
+ms.reviewer: harshja
 
 ---
+
 # Working with claims-aware apps in Application Proxy
 [Claims-aware apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) perform a redirection to the Security Token Service (STS). The STS requests credentials from the user in exchange for a token and then redirects the user to the application. There are a few ways to enable Application Proxy to work with these redirects. Use this article to configure your deployment for claims-aware apps. 
 

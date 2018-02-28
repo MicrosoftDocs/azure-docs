@@ -3,18 +3,19 @@ title: Azure Marketplace items available for Azure Stack | Microsoft Docs
 description: These Azure Marketplace items can be used in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
-ms.author: JeffGoldner
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
 
 ---
 # Azure Marketplace items available for Azure Stack
@@ -23,30 +24,30 @@ ms.author: JeffGoldner
 
 
 ## Virtual Machine Extensions
-It is advisable to download these whenever there are updates for the VM Extensions you require. Extensions shipped in the product will not be updated in the normal patch and update process; please check for updates frequently. Other extensions are only available through Marketplace Management.
+Whenever there are updates to virtual machine (VM) extensions you use, you should download them. Extensions shipped in the product do not update in the normal patch and update process; so check for updates frequently. Other extensions are only available through Marketplace Management.
 
 |  | Item name | Description | Publisher | OS Type |
 | --- | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS Extension ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download this extension to deploy any SQL Server on Windows Marketplace item - this is required.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Custom Script Extension ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Download this update to the in-box version of the Custom Script Extension for Windows.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC Extension ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Download this update to the in-box version of the PowerShell DSC Extension.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS Extension ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download this extension to deploy any SQL Server on Windows Marketplace item - this is required.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Custom Script Extension ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Download this update to the in-box version of the Custom Script Extension for Windows.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC Extension ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Download this update to the in-box version of the PowerShell DSC Extension.</b> | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft Antimalware Extension ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker Extension for Linux Virtual Machines. | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ VM Access for Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Download this update to the in-box version of the VMAccess for Linux Extension. This is important if you plan to use Debian Linux VMs.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis Backup Extension for Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | The Acronis Backup Extension for Microsoft Azure is part of the Acronis Backup family of data protection products. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis Backup Extension for Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | The Acronis Backup Extension for Microsoft Azure is part of the Acronis Backup family of data protection products. | Acronis International GmbH. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro Deep Security extension for Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro Deep Security extension for Windows. | Trend Micro | Windows |
 
 ## Microsoft Virtual Machine Images and Solution Templates
 
-Microsoft Azure Stack supports the following Azure Marketplace virtual machines and solution templates. Please download any dependencies separately, as noted. Applications such as SQL Server and Machine Learning Server require proper licensing, except where marked as Free or Trial.
+Microsoft Azure Stack supports the following Azure Marketplace virtual machines and solution templates. Download any dependencies separately, as noted. Applications such as SQL Server and Machine Learning Server require proper licensing, except where marked as Free or Trial.
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Enterprise-class solutions that are simple to deploy, cost-effective, application-focused, and user-centric. These images are updated regularly with the latest patches. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Enterprise-class solutions that are simple to deploy, cost-effective, application-focused, and user-centric. These images are updated regularly with the latest patches. <b>Important information: Images downloaded before January 18, 2018 must be deleted and replaced with the latest versions.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Remote Desktop Services (RDS) Deployment](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Create a basic Remote Desktop Services (RDS) deployment. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 Trial on Windows Server 2012 Datacenter and Visual Studio 2017 community edition. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 Trial on Windows Server 2016 Datacenter. | Microsoft || ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 on Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 Service Pack 2.  **Required download:** SQL IaaS Extension. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 Trial on Windows Server 2016 Datacenter. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 on Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 Service Pack 2.  **Required download:** SQL IaaS Extension. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Standard on Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2016SP1-WS2016) | Database platform for intelligent, mission-critical applications. **Required download:** SQL IaaS Extension. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Developer on Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016) | Free developer version of SQL Server 2016 SP1 for transactional, data warehousing, business intelligence, and analytics workloads.  **Required download:** SQL IaaS Extension. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express on Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016) | Free express version of SQL Server 2016 SP1. **Required download:** SQL IaaS Extension. | Microsoft |
@@ -67,9 +68,9 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Free express version of SQL Server 2016 SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Database platform for intelligent, mission-critical applications. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Database platform for intelligent, mission-critical applications. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning Server 9.2.1 on Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning Server 9.2.1 on CentOS Linux 7.2. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft Machine Learning Server 9.3.0 on Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
 
 ## Linux Distributions
@@ -80,8 +81,8 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
-| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.4-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 
 ## Third Party BYOL, Free and Trial images and Solution Templates
@@ -158,7 +159,6 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![](media/azure-stack-marketplace-azure-items/osclass.png) | [Osclass](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.osclass) | Create and manage free classified ads without technical know-how. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/owncloud.png) | [ownCloud](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.owncloud) | Popular open source file sync and share solution. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/oxideshop.png) | [OXID eShop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.oxid-eshop) | Trusted open source e-commerce system. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/parseserver.png) | [Parse Server](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.parseserver) | Open source application development platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/phpbb.png) | [phpBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.phpbb) | Customizable bulletin board solution. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/phplist.png) | [phpList](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.phplist) | One-way email announcement delivery system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/pimcore.png) | [Pimcore](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.pimcore) | Powerful engagement management platform (CEM/CXM). | Bitnami |
@@ -199,10 +199,13 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | Application Server that includes Apache, WildFly, MySQL, and Java. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | The most popular and ready-to-go CMS. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Compact marketing, sales, and customer service application. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS and Web Portal Program that creates dynamic websites.
+| ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS and Web Portal Program that creates dynamic websites. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Open Source CRM system: Mobile, Social, and Gamified. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Security Management](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC delivers advanced, multi-layered threat prevention to protect customer assets in Azure from malware and sophisticated threats. <b>Download both Check Point vSEC marketplace items.</b> | Check Point |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Build, deploy, and manage with Chef Automate, the Continuous Automation Platform. <b>Download both Chef marketplace items</b> | Chef Software, Inc |
-| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Powered by HDP 2.5 100% open source platform for Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks || ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch, and Traffic Manager. | KEMP Technologies Inc. |
-| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatible storage service that spans public and on-premises capacity resources. | NooBaa || ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise lets you automate the entire lifecycle of your Azure Stack infrastructure. <b>Download both Puppet Marketplace items.</b> | Puppet || ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Best-in-class open source infrastructure management. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Powered by HDP 2.5 100% open source platform for Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
+| ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch, and Traffic Manager. | KEMP Technologies Inc. |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatible storage service that spans public and on-premises capacity resources. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise lets you automate the entire lifecycle of your Azure Stack infrastructure. <b>Download both Puppet Marketplace items.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Best-in-class open source infrastructure management. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Tool ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software Tool v7.1 - Migrate + HA. | ZeroDown Software |

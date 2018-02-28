@@ -81,7 +81,7 @@ The following table summarizes the differences between Functions and WebJobs:
 | Scaling |Configurationless scaling |Scale with App Service plan |
 | Pricing |Pay-per-use or part of App Service plan |Part of App Service plan |
 | Run-type |Triggered, scheduled (by timer trigger) |Triggered, continuous, scheduled |
-| Trigger events |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage queues and blobs](functions-bindings-storage-blob.md), [Azure Service Bus queues and topics](functions-bindings-service-bus.md) |[Azure Storage queues and blobs](functions-bindings-storage-blob.md), [Azure Service Bus queues and topics](functions-bindings-service-bus.md) |
+| Trigger events |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-cosmosdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage queues and blobs](functions-bindings-storage-blob.md), [Azure Service Bus queues and topics](functions-bindings-service-bus.md) |[Azure Storage queues and blobs](functions-bindings-storage-blob.md), [Azure Service Bus queues and topics](functions-bindings-service-bus.md) |
 | In-browser development |Supported |Not Supported |
 | C# |Supported |Supported |
 | F# |Supported |Not Supported |
@@ -117,7 +117,7 @@ The integration between Flow, Logic Apps, and Functions continues to improve ove
 Get started with each of the services by creating your first flow, logic app, function app, or WebJob. Click any of the following links:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create your first Azure Function](functions-create-first-azure-function.md)
 * [Deploy WebJobs using Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 

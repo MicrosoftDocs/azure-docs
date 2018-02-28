@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -31,7 +31,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Database for PostgreSQL connector.
 
@@ -42,7 +42,7 @@ The following properties are supported for Azure Database for PostgreSQL linked 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql** | Yes |
-| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
