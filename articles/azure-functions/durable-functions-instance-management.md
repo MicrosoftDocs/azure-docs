@@ -27,7 +27,7 @@ The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/ap
 The parameters to [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) are as follows:
 
 * **Name**: The name of the orchestrator function to schedule.
-* **Input**: Any JSON-serializable data which should be passed as the input to the orchestrator function.
+* **Input**: Any JSON-serializable data that should be passed as the input to the orchestrator function.
 * **InstanceId**: (Optional) The unique ID of the instance. If not specified, a random instance ID will be generated.
 
 Here is a simple C# example:
@@ -44,7 +44,7 @@ public static async Task Run(
 }
 ```
 
-For non-.NET languages, the function output binding can be used to start new instances as well. In this case, any JSON-serializable object which has the above three parameters as fields can be used. For example, consider the following Node.js function:
+For non-.NET languages, the function output binding can be used to start new instances as well. In this case, any JSON-serializable object that has the above three parameters as fields can be used. For example, consider the following Node.js function:
 
 ```js
 module.exports = function (context, input) {
@@ -64,7 +64,7 @@ module.exports = function (context, input) {
 
 ## Querying instances
 
-The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` as a parameter and returns an object with the following properties:
+The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` (required), `showHistory` (optional), and `showHistoryOutput` (optional) as parameters. If `showHistory` is set to `true`, the response will contain the execution history. And if `showHistoryOutput` is set to `true` as well, the execution history will contain activity outputs. The method returns an object with the following properties:
 
 * **Name**: The name of the orchestrator function.
 * **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
@@ -78,6 +78,7 @@ The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
     * **ContinuedAsNew**: The instance has restarted itself with a new history. This is a transient state.
     * **Failed**: The instance failed with an error.
     * **Terminated**: The instance was abruptly terminated.
+* **History**: If `showHistory` is set to `true`, the execution history of the orchestration will be provided.
     
 This method returns `null` if the instance either doesn't exist or has not yet started running.
 
