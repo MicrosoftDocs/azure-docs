@@ -77,6 +77,10 @@
     items:
     - name: Use Kubernetes dashboard
       href: kubernetes-dashboard.md
+  - name: Troubleshoot
+    items:
+    - name: SSH node access
+      href: aks-ssh.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -1,14 +1,14 @@
 ---
-title: 'Azure Database for PostgreSQL Server firewall rules | Microsoft Docs'
-description: 'Describes firewall rules for your Azure Database for PostgreSQL server.'
+title: Azure Database for PostgreSQL Server firewall rules
+description: This article describes firewall rules for your Azure Database for PostgreSQL server.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 2/12/2018
+ms.date: 02/28/2018
 ---
 # Azure Database for PostgreSQL Server firewall rules
 Azure Database for PostgreSQL Server firewall prevents all access to your database server until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.

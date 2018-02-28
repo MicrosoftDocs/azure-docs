@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
 
 ---
@@ -25,7 +25,7 @@ This article assumes familiarity with Docker container concepts and how to creat
 
 ## Prerequisites
 
-* SDK versions: The Batch SDKs support container images in the following versions:
+* SDK versions: The Batch SDKs support container images as of the following versions:
     * Batch REST API version 2017-09-01.6.0
     * Batch .NET SDK version 8.0.0
     * Batch Python SDK version 4.0
@@ -85,7 +85,7 @@ In your application code, provide a reference to the VM image to use in creating
 
     To obtain this image ID from the Azure portal, open **All resources**, select the custom image, and from the **Overview** section of the image blade, copy the path in **Resource ID**.
 
-* If you are using an [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) image, provide a group of parameters describing the image: the offer type, publisher, SKU, and version of the image, as listed in [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images):
+* If you are using an [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) image, provide a group of parameters describing the image: the publisher, the offer type, SKU, and version of the image, as listed in [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -237,7 +237,7 @@ CloudTask containerTask = new CloudTask (
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit for easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * For more information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 
