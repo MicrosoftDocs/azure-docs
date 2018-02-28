@@ -84,7 +84,7 @@ With this topology:
 
   To interact with your AD, the Graph API requires user credentials from your AD that have read-only permission your AD. 
   - The built-in AD FS is based on Server 2016. 
-  - Your AD FS and AD must be based on Server 2012 or later. 
+  - Your AD FS and AD must be based on Server 2012 or later.  
   
   Between your AD and the built-in AD FS, interactions aren't restricted to OpenID Connect, and can use any mutually supported protocol.  
   - User accounts are created and managed in your on-premises AD.
