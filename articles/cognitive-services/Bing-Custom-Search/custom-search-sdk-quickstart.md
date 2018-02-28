@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: v-gedod
+ms.author: rosh
 ---
 # Custom Search SDK C# quickstart
 
