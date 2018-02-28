@@ -11,10 +11,10 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: quickstart
-ms.date: 02/23/2018
+ms.topic: article
+ms.date: 03/01/2018
 ms.author: nitinme
-ms.custom: mvc
+
 
 ---
 
