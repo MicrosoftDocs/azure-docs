@@ -1,6 +1,6 @@
 ---
-title: Custom search SDK C# quickstart | Microsoft Docs
-description: Setup for Web search SDK C# console application.
+title: Custom Search SDK C# quickstart | Microsoft Docs
+description: Setup Custom Search SDK C# console application.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-gedod
 ---
-#Custom Search SDK C# quickstart
+# Custom Search SDK C# quickstart
 
 The Bing Custom Search SDK contains the functionality of the REST API for entity search and parsing the results.
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Custom Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package.
 
@@ -23,7 +23,7 @@ Installing the [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Az
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-##Entity Search client
+## Entity Search client
 
 To create an instance of the CustomSearchAPI client, add using directives:
 ```
@@ -42,7 +42,7 @@ Use the client to search with a query text:
 var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
 
 ```
-##Parse the results
+## Parse the results
 
 The `SearchAsync` method returns a `WebData` object that contains `WebPages` if any are found for the query. This code finds the first result and gets its `Name` and `URL`.
 ```
@@ -73,7 +73,7 @@ else
 }
 
 ```
-##Complete console application
+## Complete console application
 
 The following code searches on query "Xbox" and prints out `Name` and `URL` for first web result.
 ```
@@ -133,6 +133,6 @@ namespace CustomSrchSDK
 
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
