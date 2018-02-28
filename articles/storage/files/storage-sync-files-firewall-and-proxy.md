@@ -43,10 +43,10 @@ The Azure File Sync agent has no requirements regarding special channels like [E
 
 File sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning. *some features are not yet available
 
-## Proxy support
+## Proxy
 Azure File Sync currently supports machine-wide proxy settings. This proxy setting is transparent to the Azure File Sync agent as the entire traffic of the server is routed through this proxy.
 
-Soon the Azure File Sync agent installer will allow for configuration of app-specific proxy settings. This will allow an admin to configure a proxy specifically for Azure File Sync traffic.
+Soon the Azure File Sync agent installer will allow for configuration of app-specific proxy settings. This will allow configuration of a proxy specifically for Azure File Sync traffic.
 
 ## Firewall
 As mentioned before, port 443 needs to be open outbound. Based on policies in your datacenter, branch or region, further restricting traffic over this port to specific domains may be desired or required. Certain challenges come attached with that.
@@ -57,7 +57,7 @@ The following table describes the required domains for communication:
 |---------|----------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | Any user call (like PowerShell) goes to/through this URL, incl. the initial server registration call. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
-| **Azure Active Directory** | https://graph.windows.net/ | A service principal in the Azure Active Directory of the used subscription for delegating a minimal set of rights to the Azure File Sync service. This must be done once, when Azure File Sync is set up for the fuirst time. This action must be performed by an authenticated user with subscription owner privileges. |
+| **Azure Active Directory** | https://graph.windows.net/ | A service principal in the Azure Active Directory of the used subscription for delegating a minimal set of rights to the Azure File Sync service. This cretion of a service principal is done automatically and only once, when Azure File Sync is set up for the first time. As a result, this action must be performed by an authenticated user with subscription owner privileges. |
 | **Azure Storage** | *.core.windows.net | When the server downloads a file (sync or recall in the cloud tiering case), then the server performs that more efficiently when talking directly to the Azure File Share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | *.one.microsoft.com | After initial server registration, the server will be given a regional URL of the Azure File Sync service instance in that region. The server will use it to communicate directly and efficiently with the instance handling its sync. |
 
@@ -68,7 +68,7 @@ The following table describes the required domains for communication:
 > When allowing traffic to *.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under a subdomain.
 
 ## Summary and risk limitation
-The list earlier in this document contains the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains as well as responses from them. We strive to keep this list updated.
+The list earlier in this document contains the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains as well as responses from them. Microsoft strives to keep this list updated.
 
 Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs can change. Therefore it is a prudent measure to check the table in this document as part of a change management process from one Azure File Sync agent version to another on a test-deployment of the latest agent. This way you can ensure that your firewall is configured to allow traffic to domains the most recent agent requires.
 
