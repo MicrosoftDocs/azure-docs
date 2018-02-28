@@ -1,3 +1,5 @@
+# [Analysis Services Documentation](index.md)
+
 # Overview
 ## [About Analysis Services](analysis-services-overview.md)
 ## [Supported data sources](analysis-services-datasource.md)
@@ -31,7 +33,7 @@
 ### [Connect with Power BI](analysis-services-connect-pbi.md)
 ### [Create an .odc file](analysis-services-odc.md)
 ## Tutorials
-### [1 - Create sample model](analysis-services-create-sample-model.md)
+### [1 - Add a sample model](analysis-services-create-sample-model.md)
 ### [Data modeling - Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Create a tabular model project](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Get data](tutorials/aas-lesson-2-get-data.md)
