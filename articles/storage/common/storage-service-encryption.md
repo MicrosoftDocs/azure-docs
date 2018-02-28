@@ -188,5 +188,5 @@ A: SSE is available in all regions for all services.
 
 A: Contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) for any issues related to Storage Service Encryption.
 
-## Next Steps
+## Next steps
 Azure Storage provides a comprehensive set of security capabilities, which together enable developers to build secure applications. For more details, see the [Storage security guide](../storage-security-guide.md).
