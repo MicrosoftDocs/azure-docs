@@ -29,9 +29,18 @@ With minimal configuration, Azure AD B2C enables your application to authenticat
 
 ## Get started
 
-First, get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
+Try Azure Active Directory B2C functionality in a quickstart:
 
-Then choose your application development scenario:
+* [Test drive an Azure AD B2C enabled web app](active-directory-b2c-quickstarts-web-app.md)
+* [Test drive an Azure AD B2C enabled single-page app](active-directory-b2c-quickstarts-spa.md)
+* [Test drive an Azure AD B2C enabled desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+
+Try a step-by-step a solution in a tutorial:
+
+* [Authenticate users with Azure Active Directory B2C in an ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
+* [Use Azure Active Directory B2C to protect an ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
+
+Browse a code sample:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -71,7 +80,7 @@ We encourage you to get notifications of when security incidents occur by visiti
 
 ## Next steps
 
-Get started with Azure Active Directory B2C with one of our quickstarts:
+Try Azure Active Directory B2C functionality with one of our quickstarts:
 
 * [Test drive an Azure AD B2C enabled web app](active-directory-b2c-quickstarts-web-app.md)
 * [Test drive an Azure AD B2C enabled single-page app](active-directory-b2c-quickstarts-spa.md)
