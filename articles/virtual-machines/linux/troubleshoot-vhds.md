@@ -10,7 +10,7 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/28/2018
 ms.author: iainfou
 ---
 
@@ -18,10 +18,10 @@ ms.author: iainfou
 
 Azure Virtual Machines rely on Virtual Hard Disks (VHDs) for the OS disk and any attached data disks. VHDs are stored as page blobs in one or more Azure Storage accounts. This article describes how to troubleshoot common issues that may arise with VHDs. 
 
-  * [Troubleshoot unexpected reboots of Virtual Machines that have a large number of attached VHDs]
-  * [Troubleshoot storage delete errors in Resource Manager deployment]
+  * [Unexpected reboots of VMs with attached VHDs]
+  * [Storage deletion errors in Resource Manager deployment]
 
-## <a name="you-are-experiencing-unexpected-reboots"></a>Troubleshoot unexpected reboots of Azure Virtual Machines that have a large number of attached VHDs
+## <a name="you-are-experiencing-unexpected-reboots"></a>Unexpected reboots of VMs with attached VHDs
 
 If an Azure Virtual Machine (VM) has a large number of attached VHDs that are in the same storage account, you may exceed the scalability targets for an individual storage account causing the VM to fail. Check the minute metrics for the storage account (**TotalRequests**/**TotalIngress**/**TotalEgress**) for spikes that exceed the scalability targets for a storage account. See the section "[Metrics show an increase in PercentThrottlingError]" for assistance in determining if throttling has occurred on your storage account.
 
@@ -29,7 +29,7 @@ In general, each individual input or output operation on a VHD from a Virtual Ma
 
 If you are exceeding the scalability targets for your storage account, place your VHDs in multiple storage accounts to reduce the activity in each individual account.
 
-## <a name="storage-delete-errors-in-rm"></a>Troubleshoot storage account deletion errors in a Resource Manager deployment
+## <a name="storage-delete-errors-in-rm"></a>Storage deletion errors in Resource Manager deployment
 
 This section provides troubleshooting guidance when one of the following errors occur while you are trying to delete an Azure storage account, container, or blob in an Azure Resource Manager deployment.
 
@@ -113,5 +113,5 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 
 
 
-[Troubleshoot unexpected reboots of Virtual Machines that have a large number of attached VHDs]: #you-are-experiencing-unexpected-reboots
-[Troubleshoot storage delete errors in Resource Manager deployment]: #storage-delete-errors-in-rm
+[Unexpected reboots of VMs with attached VHDs]: #you-are-experiencing-unexpected-reboots
+[Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm
