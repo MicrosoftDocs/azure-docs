@@ -17,7 +17,7 @@ The Bing Video Search SDK provides the REST API functionality for video queries 
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
-Install the Bing Video Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the definition:
+Install the Bing Video Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
   <dependencies>
     <dependency>
@@ -71,7 +71,7 @@ public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
             });
 }
 ```
-Search for videos about "Nasa CubeSat." Verify the number of results. Print the ID, name, and URL for the first video result.
+Search for videos about "NASA CubeSat." Verify the number of results. Print the ID, name, and URL for the first video result.
 ```
 public static void VideoSearch(String subscriptionKey)
 {

@@ -17,7 +17,7 @@ The Bing Image Search SDK provides the REST API functionality for image queries 
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
-Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the definition:
+Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
  <dependencies>
     <dependency>
@@ -72,7 +72,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for images about the "canadian rockies." Verify the number of results. Print the values for the **firstImageResult**, **pivotSuggestions**, and **queryExpansions** parameters.
+Search for images about the "Canadian Rockies." Verify the number of results. Print the values for the **firstImageResult**, **pivotSuggestions**, and **queryExpansions** parameters.
 ```
 public static void imageSearch(String subscriptionKey)
 {

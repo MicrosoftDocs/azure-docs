@@ -17,7 +17,7 @@ The Bing News Search SDK provides the REST API functionality for news queries an
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
-Install the Bing News Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the definition:
+Install the Bing News Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
   <dependencies>
   	<dependency>

@@ -17,7 +17,7 @@ The Bing Entity Search SDK provides the REST API functionality for entity querie
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
-Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the definition:
+Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
   <dependencies>
   	<dependency>
@@ -68,7 +68,7 @@ public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for the single entity "tom cruise" and print a short description.
+Search for the single entity "Tom Cruise" and print a short description.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
 {
@@ -108,7 +108,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 }
 
 ```
-Search for "harry potter" and handle disambiguation results for the ambiguous query.
+Search for "Harry Potter" and handle disambiguation results for the ambiguous query.
 ```
 public static void handlingDisambiguation(String subscriptionKey)
 {
