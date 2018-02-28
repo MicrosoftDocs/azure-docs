@@ -9,6 +9,7 @@
 ## [Use Azure CLI](service-bus-quickstart-cli.md)
 
 # Tutorials
+## [Update inventory system](tutorial-update-inventory.md)
 
 # Samples
 ## [Service Bus samples](service-bus-samples.md)
