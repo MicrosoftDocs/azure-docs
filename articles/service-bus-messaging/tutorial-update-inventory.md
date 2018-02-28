@@ -80,7 +80,11 @@ TBD
 
 ## Clean up resources
 
-TBD
+Run the following command to remove the resource group, namespace, and all related resources:
+
+```powershell
+Remove-AzureRmResourceGroup -Name <resource_group_name>
+```
 
 ## Next steps
 
