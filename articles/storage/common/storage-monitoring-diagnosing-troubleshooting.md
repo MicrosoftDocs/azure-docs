@@ -66,8 +66,8 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
   * [Your issue arises from using the storage emulator for development or test]
   * [You are encountering problems installing the Azure SDK for .NET]
   * [You have a different issue with a storage service]
-  * [Troubleshooting VHDs on Windows virtual machines](../../virtual-machines/windows/troubleshooting-vhds.md)   
-  * [Troubleshooting VHDs on Linux virtual machines](../../virtual-machines/linux/troubleshooting-vhds.md)
+  * [Troubleshooting VHDs on Windows virtual machines](../../virtual-machines/windows/troubleshoot-vhds.md)   
+  * [Troubleshooting VHDs on Linux virtual machines](../../virtual-machines/linux/troubleshoot-vhds.md)
   * [Troubleshooting Azure Files issues with Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Troubleshooting Azure Files issues with Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Appendices]
