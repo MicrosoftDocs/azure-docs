@@ -3,6 +3,7 @@ title: Azure Stack datacenter integration - Publish endpoints
 description: Learn how to publish Azure Stack endpoints in your datacenter
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
 ms.date: 02/16/2018
