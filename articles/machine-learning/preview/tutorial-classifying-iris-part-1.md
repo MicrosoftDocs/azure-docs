@@ -66,10 +66,13 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
 
 ## Create a data preparation package
 
-In this part of the tutorial, you explore the data we use and start the data preparation process. You create a data preparation package and perform a few transformations. A data preparation package (*.dprep file) is the primary container for your data preparation work in Azure Machine Learning Workbench. When you wrangle your data in Azure Machine Learning Workbench, the definitions and code you generate during that data prep process are stored in this local data preparation package file.
+In this part of the tutorial, you explore the data and start the data preparation process. When you prepare your data in Azure Machine Learning Workbench, a JSON representation of the transformations you perform in the Workbench is stored in a local data preparation package (*.dprep file). This data preparation package is the primary container for your data preparation work in Workbench.
 
+This data preparation package can be handed off for execution to a runtime, such as local-C#/CoreCLR, Scala/Spark, or Scala/HDI. where code is generated for the appropriate runtime for execution. 
 
-1. Open the **iris.csv** file from the **File View**. The file is a table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
+1. Select the folder icon to open the file view and then select **iris.csv** to open that file.  
+
+   The file is a table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
@@ -113,19 +116,19 @@ In this part of the tutorial, you explore the data we use and start the data pre
 
    A new data preparation package named **iris-1.dprep** is created and opened in the data preparation editor.
 
-9. Now let's do some basic data preparation. Rename the column names. Select each column header to make the header text editable. 
+9. Now let's do some basic data preparation. Select each column header to make the header text editable and rename each column as follows: 
 
-   Enter **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width**, and **Species** for the five columns respectively.
+   In order, enter **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width**, and **Species** for the five columns respectively.
 
    ![Rename the columns](media/tutorial-classifying-iris/rename_column.png)
 
 10. To count distinct values, select the **Species** column, and then right-click to select it. Select **Value Counts** from the drop-down menu. 
 
+   This action opens the **Inspectors** pane below the data. A histogram with four bars appears. The target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
+
    ![Select Value Counts](media/tutorial-classifying-iris/value_count.png)
 
-   This action opens the **Inspectors** pane, and displays a histogram with four bars. The target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
-
-11. To filter out nulls, select the bar from the graph that represents the null value. There is one row with a **(null)** value. To remove this row, select the minus sign (**-**).
+11. To filter out the null values, select the "Null" label and select the minus sign (**-**). Then, the Null row  turns gray to indicate that it was filtered out. 
 
    ![Value count histogram](media/tutorial-classifying-iris/filter_out.png)
 
@@ -139,11 +142,13 @@ In this part of the tutorial, you explore the data we use and start the data pre
 
 <!-- The output/results of a Package can be explored in Python or via a Jupyter Notebook. A Package can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight. A Package contains one or more Dataflows that are the steps and transforms applied to the data. A Package may use another Package as a Data Source (referred to as a Reference Data Flow). -->
 
-1. Right-click the **iris-1.dprep** file to bring up the context menu, and then select **Generate Data Access Code File**. 
+1. Find the **iris-1.dprep** file under the Data Preparations tab.
+
+1. Right-click the **iris-1.dprep** file, and select **Generate Data Access Code File** from the context menu. 
 
    ![Generate code](media/tutorial-classifying-iris/generate_code.png)
 
-2. A new file named **iris-1.py** opens with the following lines of code:
+   A new file named **iris-1.py** opens with the following lines of code to invokes the logic you created as a data preparation package:
 
    ```python
    # Use the Azure Machine Learning data preparation package
@@ -162,9 +167,9 @@ In this part of the tutorial, you explore the data we use and start the data pre
    df.head(10)
    ```
 
-   This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` represents the various kinds of dataframes. A [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) is used when executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) is used when executed in a Spark context. 
-
-   For more information on how to prepare data in Azure Machine Learning Workbench, see the [Get started with data preparation](data-prep-getting-started.md) guide.
+   Depending on the context in which this code is run, `df` represents the various kinds of dataframes. A [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) is used when executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) is used when executed in a Spark context. 
+   
+   For learn how to prepare data in Azure Machine Learning Workbench, see the [Get started with data preparation](data-prep-getting-started.md) guide.
 
 ## Clean up resources
 
@@ -180,4 +185,4 @@ In this tutorial, you used Azure Machine Learning Workbench to:
 
 You are ready to move on to the next part in the tutorial series, where you learn how to build an Azure Machine Learning model:
 > [!div class="nextstepaction"]
-> [Tutorial 2 - Classifying Iris: Build models](tutorial-classifying-iris-part-2.md)
+> [Tutorial 2 - Build models](tutorial-classifying-iris-part-2.md)

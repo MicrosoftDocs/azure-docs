@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up auto provisioning
+  - name: Set up auto-provisioning - Portal
     href: quick-setup-auto-provision.md
+  - name: Set up auto-provisioning - Template
+    href: quick-setup-auto-provision-rm.md
   - name: Create simulated device
     items:
     - name: TPM 
@@ -91,6 +93,8 @@
     href: how-to-revoke-device-access-portal.md
   - name: Unprovision devices
     href: how-to-unprovision-devices.md
+  - name: Perform proof-of-possession on X.509 CA certificates
+    href: how-to-verify-certificates.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
   - name: Control access to Provisioning Service

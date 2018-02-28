@@ -3,7 +3,7 @@ title: Join Azure-SSIS integration runtime to a virtual network | Microsoft Docs
 description: Learn how to join Azure-SSIS integration runtime to an Azure virtual network. 
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: douglasl
 
 ---
 

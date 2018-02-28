@@ -36,7 +36,7 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ## 1.1.749.0
 Status: Released to select customers
-
+This release is currently distributed to a small and random section of AADConnect tenants that have enabled auto-upgrade. We will expand this group of tenants in the coming weeks until 100% of our auto-upgrade customers have received this release. After that we will post the build for general download on the above download link - currently planned for mid of March 2018.
 >[!NOTE]
 >When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, please make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
 
@@ -58,7 +58,7 @@ Status: Released to select customers
 
 #### New features and improvements
 
-* Adding Privacy Settings for the General Date Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
 
 
 	- Data sharing and privacy notification on the clean install EULA page.

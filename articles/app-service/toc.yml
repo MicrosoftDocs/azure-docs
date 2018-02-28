@@ -57,6 +57,8 @@
     href: app-service-cli-samples.md
   - name: Azure PowerShell
     href: app-service-powershell-samples.md
+  - name: Resource Manager templates
+    href: app-service-rm-template-samples.md
 - name: Concepts
   items:
   - name: How App Service works
@@ -111,6 +113,8 @@
       href: app-service-deployment-credentials.md
     - name: Create staging environments
       href: web-sites-staged-publishing.md
+    - name: Resource Manager template guidance
+      href: web-sites-rm-template-guidance.md
   - name: Map custom domain
     items:
     - name: Buy domain

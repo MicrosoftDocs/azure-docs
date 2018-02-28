@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
 ---
 # Use Apache Kafka with Storm on HDInsight
@@ -168,7 +168,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
     ```
 
     > [!IMPORTANT]
-    > The Bash example assumes that `$CLUSTERNAME` contains the name of the HDInsight cluster. It also assumes that [jq](https://stedolan.github.io/jq/) is installed. When prompted, enter the password for the cluster login account.
+    > The Bash example assumes that `$CLUSTERNAME` contains the name of the HDInsight cluster. It also assumes that [jq](https://stedolan.github.io/jq/) version 1.5 or greater is installed. When prompted, enter the password for the cluster login account.
 
     The value returned is similar to the following text:
 
@@ -214,7 +214,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 4. Save the `dev.properties` file and then use the following command to upload it to the Storm cluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Replace **USERNAME** with the SSH user name for the cluster. Replace **BASENAME** with the base name you used when creating the cluster.
@@ -283,6 +283,9 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
     Use Ctrl+c to stop the script.
 
 ## Start the reader
+
+> [!NOTE]
+> When viewing the reader in the Storm UI, you may see a __Topology spouts lag error__ section. For this example, you can ignore this error.
 
 1. From the SSH session to the Storm cluster, use the following command to start the reader topology:
 
