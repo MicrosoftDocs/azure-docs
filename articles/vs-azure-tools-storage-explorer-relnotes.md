@@ -142,7 +142,6 @@ This article contains the release notes for Azure Storage Explorer 0.9.6 (Previe
 	sudo apt-get install libgconf-2-4
 	```
 
-<a name="094093"></a>
 ## Version 0.9.4 and 0.9.3
 01/21/2018
 
