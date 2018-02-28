@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; estfan
+ms.author: estfan; LADocs
 
 ---
 # Use Logic Apps features
