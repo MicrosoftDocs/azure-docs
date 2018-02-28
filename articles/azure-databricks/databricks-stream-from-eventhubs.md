@@ -1,6 +1,6 @@
 ---
-title: Design your first Azure SQL database | Microsoft Docs
-description: Learn to design your first Azure SQL database in the Azure portal and with SQL Server Management Studio.
+title: Stream events into Azure Databricks using Event Hubs | Microsoft Docs
+description: Learn to use Azure Databricks with Event Hubs to ingest streaming data from Twitter and then read the data out in real time. 
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -305,4 +305,4 @@ In this tutorial, you learned how to use Azure Databricks to stream data into Az
 Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Azure Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
+>[Sentiment analyis on streaming data using Azure Databricks ](quickstart-create-databricks-workspace-portal.md)
