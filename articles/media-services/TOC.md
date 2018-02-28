@@ -1,3 +1,5 @@
+# [Media Services Documentation](index.md)
+
 # [Overview](media-services-overview.md)
 ## [Scenarios and availability](scenarios-and-availability.md)
 ## [Concepts](media-services-concepts.md)
@@ -36,11 +38,9 @@
 #### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 ## [Configure Postman](media-rest-apis-with-postman.md)
-### On-demand streaming
-#### [Environment](postman-environment.md)
-#### [Collection](postman-collection.md)
-### Live streaming
-#### [Collection](postman-live-streaming-collection.md)
+### [On-demand streaming collection](postman-collection.md)
+### [Live streaming collection](postman-live-streaming-collection.md)
+### [Environment](postman-environment.md)
 ## Upload content
 ### Upload files into an account
 #### [Azure portal](media-services-portal-upload-files.md)

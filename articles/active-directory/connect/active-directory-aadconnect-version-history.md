@@ -58,7 +58,7 @@ Status: Released to select customers
 
 #### New features and improvements
 
-* Adding Privacy Settings for the General Date Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
 
 
 	- Data sharing and privacy notification on the clean install EULA page.
