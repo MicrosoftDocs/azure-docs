@@ -1,4 +1,4 @@
-- name: Bing Custom Search Documentation
+S- name: Bing Custom Search Documentation
   href: index.md
 - name: Overview
   items:
@@ -25,7 +25,7 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Custom search SDK C# quickstart (preview)
+  - name: Custom Search SDK C# quickstart (preview)
     href: custom-search-sdk-quickstart.md
 - name: Tutorials
   items:
