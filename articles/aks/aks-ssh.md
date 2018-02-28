@@ -14,13 +14,15 @@ ms.custom: mvc
 
 # SSH into Azure Container Service (AKS) cluster nodes
 
-Azure Container Service (AKS) nodes are not exposed to the internet. In order to create an SSH connection with an AKS node you need to either give each node a public IP address, or create a service internal to the cluster over which an SSH connection can be made.
+Occasionally, you may need to access an Azure Container Service (AKS) node for maintenance reboot, log collection, or other troubleshooting operation. Azure Container Service (AKS) nodes are not exposed to the internet. In order to create an SSH connection with an AKS node you need to either give each node a public IP address, or create a service internal to the cluster over which an SSH connection can be made.
 
 This document details creating internal service for SSH connections.
 
 ## Create SSH service
 
-Create a file named `aks-ssh.yaml` and copy in the following manifest.
+ To SSH into a specific node, a pod is created with `hostNetwork` access. A service is also created for pod access. This is a privileged configuration and should be removed after use.
+
+Create a file named `aks-ssh.yaml` and copy in this manifest. Update the node name with the name of the target AKS node.
 
 ```yaml
 apiVersion: v1
@@ -63,7 +65,7 @@ spec:
       nodeName: aks-nodepool1-42032720-0
 ```
 
-Run the manifest using the following command.
+Run the manifest to create the pod and exposed service.
 
 ```azurecli-interactive
 kubectl apply -f aks-ssh.yaml
@@ -71,7 +73,7 @@ kubectl apply -f aks-ssh.yaml
 
 ## Create the SSH connection
 
-Get the external IP address of the exposed service. It may take a minute for IP address assignment. 
+Get the external IP address of the exposed service. It may take a minute for IP address configuration to complete. 
 
 ```azurecli-interactive
 $ kubectl get service
@@ -81,10 +83,10 @@ kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1
 aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
 ```
 
-Create SSH connection.
+Create the ssh connection. The default user name for an AKS cluster is `azureuser`, if you've changed this at cluster deployment time, substitute the proper admin user name. If your key is not at `~/ssh/id_rsa`, provide the corect location using the `ssh -i` argument.
 
 ```azurecli-interactive
-$ ssh -A azureuser@13.92.154.191
+$ ssh azureuser@13.92.154.191
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -104,5 +106,13 @@ Last login: Tue Feb 27 20:10:38 2018 from 167.220.99.8
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-azureuser@aks-nodepool1-42032720-2:~$
+azureuser@aks-nodepool1-42032720-0:~$
+```
+
+## Remove SSH access
+
+When done, delete the SSH access pod and service.
+
+```azurecli-interactive
+kubectl delete -f kubectl delete -f 
 ```
