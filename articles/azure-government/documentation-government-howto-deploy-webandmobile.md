@@ -31,7 +31,7 @@ Click the "New" button on the top left-hand corner and choose to create "Web App
 
 ![createapp](./media/documentation-government-howto-deploy-webandmobile-openapp-new1.png)
 
-When creating the Web App you must also have an App Service Plan. When creating a new App Service Plan, you should be able to see the different Azure Government regions in the "App Service Environment" box. You may not see all of the DoD regions shown below if your subscription has not been approved for DoD regions.
+When creating the Web App, you must also have an App Service Plan. When creating a new App Service Plan, you should be able to see the different Azure Government regions in the "App Service Environment" box. You may not see all of the DoD regions shown below if your subscription has not been approved for DoD regions.
 
 ![extra](./media/documentation-government-howto-deploy-webandmobile-extra.png)
 
@@ -40,14 +40,14 @@ Click on your web app and you should see that the url ends in "azurewebsites.us"
 
 ![createapp3](./media/documentation-government-howto-deploy-webandmobile-openapp-new3.png)
 
-When you click on your app url a blue page will appear:
+When you click on your app url, a blue page will appear:
 
 ![createapp4](./media/documentation-government-howto-deploy-webandmobile-openapp-new4.png)
 
 ## Deploy a Web App to Azure Government
 Once **Visual Studio is configured to connect to Azure Government account** (already done in prerequisites section), there are two ways of deploying to Azure Government using [Visual Studio](documentation-government-get-started-connect-with-vs.md): 
 
-   1. Direct publish with Azure Active Directory user authetication
+   1. Direct publish with Azure Active Directory user authentication
    2. Publish with "Publish Profile" option(which can be found in the portal)
 
 > [!NOTE]
@@ -89,7 +89,7 @@ Now you will be able to upload the publish profile that you downloaded from the 
 
 ![createapp7](./media/documentation-government-howto-deploy-webandmobile-openapp-new7.png)
 
-If you navigate to the url you should be able to see this screen.
+If you navigate to the url, you should be able to see this screen.
 
 ![extra3](./media/documentation-government-howto-deploy-webandmobile-extra3.png)
 The app has now been deployed to Azure Government. 
