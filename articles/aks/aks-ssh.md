@@ -20,7 +20,7 @@ This document details creating internal service for SSH connections.
 
 ## Create SSH service
 
- To SSH into a specific node, a pod is created with `hostNetwork` access. A service is also created for pod access. This is a  configuration is privileged and should be removed after use.
+ To SSH into a specific node, a pod is created with `hostNetwork` access. A service is also created for pod access. This configuration is privileged and should be removed after use.
 
 Create a file named `aks-ssh.yaml` and copy in this manifest. Update the node name with the name of the target AKS node.
 
@@ -85,9 +85,7 @@ aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   1
 
 Create the ssh connection. 
 
-The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster deployment time, substitute the proper admin user name. 
-
-If your key is not at `~/ssh/id_rsa`, provide the correct location using the `ssh -i` argument.
+The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster deployment time, substitute the proper admin user name. If your key is not at `~/ssh/id_rsa`, provide the correct location using the `ssh -i` argument.
 
 ```azurecli-interactive
 $ ssh azureuser@13.92.154.191
