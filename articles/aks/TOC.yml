@@ -71,7 +71,7 @@
       href: integrate-azure.md
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
-    - name: Using Serverless Frameworks with AKS
+    - name: Using OpenFaaS with AKS
       href: aks-openfaas.md
   - name: Kubernetes basics
     items:

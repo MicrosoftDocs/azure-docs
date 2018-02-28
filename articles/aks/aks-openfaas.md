@@ -11,85 +11,94 @@ In order to complete the steps within this article, you need the following.
 
 ## Install OpenFaaS
 
+```console
+$  git clone https://github.com/openfaas/faas-netes
 ```
-➜  git clone https://github.com/openfaas/faas-netes
+
+```console
 Cloning into 'faas-netes'...
 remote: Counting objects: 2065, done.
 remote: Compressing objects: 100% (14/14), done.
 remote: Total 2065 (delta 9), reused 9 (delta 4), pack-reused 2047
 Receiving objects: 100% (2065/2065), 2.16 MiB | 2.04 MiB/s, done.
 Resolving deltas: 100% (910/910), done.
-➜  cd faas-netes 
+```
+
+```console
+$  cd faas-netes 
 ```
 
 ## Create OpenFaaS namespaces
+OpenFaaS and its Functions you will be hosting should have their own namespaces. 
 
+Create those within your cluster.
+
+```console
+$  kubectl create ns openfaas
 ```
-➜  faas-netes git:(master) kubectl apply -f namespaces.yml 
-namespace "openfaas" created
-namespace "openfaas-fn" created
-```
-
-## Install OpenFaaS
-
-```
-➜  faas-netes git:(master) kubectl apply -f yaml
-service "alertmanager" created
-deployment "alertmanager" created
-configmap "alertmanager-config" created
-service "faas-netesd" created
-deployment "faas-netesd" created
-deployment "gateway" created
-service "gateway" created
-service "nats" created
-deployment "nats" created
-service "prometheus" created
-deployment "prometheus" created
-configmap "prometheus-config" created
-deployment "queue-worker" created
-serviceaccount "faas-controller" created
-role "faas-controller" created
-rolebinding "faas-controller-fn" created
-```
-
-## Remove NodePort configuration for gateway
-
-By default, the OpenFaaS gateway uses a NodePort service definition.  Delete the gateway service so that it can be exposed using the Azure LoadBalancer.
-
-```
-➜  faas-netes git:(master) kubectl delete service gateway --namespace openfaas
+```console   
+$  kubectl create ns openfaas-fn
 ```
 
 
-## Deploy the gateway as a LoadBalancer service 
+## Deploy OpenFaaS
+
+Using Helm, the deployment of OpenFaaS is very simple.  
+
+```console
+$  helm install --namespace openfaas -n openfaas --set functionNamespace=openfaas-fn,serviceType=LoadBalancer,rbac=false chart/openfaas/ 
+```
 
 ```
-➜  faas-netes git:(master) kubectl apply -f cloud/lb.yml
-service "gateway" created
-```
+NAME:   openfaas
+LAST DEPLOYED: Wed Feb 28 08:26:11 2018
+NAMESPACE: openfaas
+STATUS: DEPLOYED
 
-### Get Gateway Endpoint IP address
+RESOURCES:
+==> v1/ConfigMap
+NAME                 DATA  AGE
+prometheus-config    2     20s
+alertmanager-config  1     20s
+
+{snip}
+
+NOTES:
+To verify that openfaas has started, run:
+
+  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```
+### Get Gateway and Prometheus Endpoint IP addresses
 Once the service has been deployed, you see the Gateway public IP address within the Kubernetes published services.
 
+```console
+$  kubectl get svc -n openfaas
 ```
-➜  kubectl get svc -n openfaas
-NAME           TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-alertmanager   ClusterIP      10.0.121.41    <none>          9093/TCP         27m
-faas-netesd    ClusterIP      10.0.207.218   <none>          8080/TCP         27m
-gateway        LoadBalancer   10.0.199.149   52.226.73.206   8080:31112/TCP   8m
-nats           ClusterIP      10.0.243.133   <none>          4222/TCP         27m
-prometheus     NodePort       10.0.129.47    <none>          9090:31119/TCP   27m
+```console
+NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)          AGE
+alertmanager            ClusterIP      10.0.162.129   <none>           9093/TCP         3m
+alertmanager-external   ClusterIP      10.0.67.255    <none>           9093/TCP         3m
+faas-netesd             ClusterIP      10.0.164.82    <none>           8080/TCP         3m
+faas-netesd-external    ClusterIP      10.0.10.120    <none>           8080/TCP         3m
+gateway                 ClusterIP      10.0.16.93     <none>           8080/TCP         3m
+gateway-external        LoadBalancer   10.0.1.89      52.191.114.246   8080:31143/TCP   3m
+nats                    ClusterIP      10.0.99.173    <none>           4222/TCP         3m
+nats-external           ClusterIP      10.0.45.42     <none>           4222/TCP         3m
+prometheus              ClusterIP      10.0.153.0     <none>           9090/TCP         3m
+prometheus-external     LoadBalancer   10.0.54.203    52.226.128.86    9090:31208/TCP   3m
 ```
 
 ## Test OpenFaas
-Goto the endpoint IP address with your browser, port 8080.  And create your first OpenFaas function - you can use the Figlet service from the OpenFaaS marketplace.
+Goto the endpoint IP address with your browser, port 8080.  And create your first OpenFaas function - you can use the Figlet service from the OpenFaaS marketplace as a smoketest.
 
-![alt text](media/container-service-serverless/invoke.gif "Test OpenFaas")
+![alt text](media/container-service-serverless/invoke.png "Test OpenFaas")
 
 And let's use curl for this endpoint
 
+```console
+$  curl -X POST http://52.191.114.246:8080/function/figlet -d "Hello Azure"
 ```
-➜  ServerlessOnAKS git:(master) ✗ curl -X POST http://52.226.73.206:8080/function/figlet -d "Hello Azure"
+```console
  _   _      _ _            _                        
 | | | | ___| | | ___      / \    _____   _ _ __ ___ 
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
@@ -100,26 +109,37 @@ And let's use curl for this endpoint
 
 
 
-## Deploying a function to OpenFaas 
+## Deploying your own function to OpenFaaS
+OpenFaaS has its own CLI that allows you to create a function in languages of your choice, or deploy a Docker container.
+
+As an example, you can use a CosmosDB instance, and provide that data through a lightweight function for public consumption.
 
 ### Install the FaaS CLI
 
-Install the [FaaS CLI](https://github.com/openfaas/faas-cli) so that you can deploy your functions quickly.
+Install the [FaaS CLI](https://github.com/openfaas/faas-cli) so that you can deploy your functions quickly, or deploy via brew for the Mac.
+
+```console
+brew install faas-cli
+```
 
 ### Deploy Cosmos DB
 Create a new resource group for backing services.
 
+```console
+$  az group create -n serverless-backing -l eastus
 ```
-➜  az group create -n serverless-backing -l eastus
+```console
 Location    Name
 ----------  ----------------
 eastus      serverless-backing
 ```
 
-And deploy a CosmosDB instance of type "Mongo."
+And deploy a CosmosDB instance of type "Mongo" to store 
 
+```console
+$  az cosmosdb create -n openfaas-cosmos -g serverless-backing --kind MongoDB
 ```
-➜  ~ az cosmosdb create -n openfaas-cosmos -g serverless-backing --kind MongoDB
+```console
 DatabaseAccountOfferType    DocumentEndpoint                                  Kind     Location    Name             ProvisioningState    ResourceGroup
 --------------------------  ------------------------------------------------  -------  ----------  ---------------  -------------------  ------------------
 Standard                    https://openfaas-cosmos.documents.azure.com:443/  MongoDB  East US     openfaas-cosmos  Succeeded            serverless-backing
@@ -127,9 +147,11 @@ Standard                    https://openfaas-cosmos.documents.azure.com:443/  Mo
 
 ### Get CosmosDB Connection String
 
+```console
+$  az cosmosdb list-connection-strings -g serverless-backing -n openfaas-cosmos -o json
 ```
-➜  az cosmosdb list-connection-strings -g serverless-backing -n openfaas-cosmos -o json                                                 
 
+```json
 {
   "connectionStrings": [
     {
@@ -147,7 +169,7 @@ Use the *mongoimport* tool to load the CosmosDB instance with data that the Func
 The data to load should be saved into a file called plans.json
 
 
-```
+```json
 {
 	"name" : "two_person",
 	"friendlyName" : "Two Person Plan",
@@ -161,42 +183,49 @@ The data to load should be saved into a file called plans.json
 
 Notice that the connection string has been altered to reference the **plans** database.
 
-```
-➜  mongoimport --uri="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/plans?ssl=true"  -c plans < plans.json 
+```console
+$  mongoimport --uri="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/plans?ssl=true"  -c plans < plans.json 
 2018-02-19T14:42:14.313+0000    connected to: localhost
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
 
-##  Deploying a function in OpenFaaS
+##  Deploying your function in OpenFaaS
 
 To deploy the pre-built Golang container, you need values for the following variables:
 
-* OpenFaaS Gateway IP: The URL for your deployed OpenFaaS Gateway with AKS, it is the same as your OpenFaaS UI URL without the ui suffix, in the case of this example: ```http://52.226.73.206:8080```
+* OpenFaaS Gateway IP: The URL for your deployed OpenFaaS Gateway with AKS, it is the same as your OpenFaaS UI URL without the ui suffix, in the case of this example: ```http://52.191.114.246:8080```
 
 * image: You can use the pre-built container which has been pushed to Docker Hub
- ```shanepeckham/openfaascosmos```
+ ```console
+ shanepeckham/openfaascosmos
+ ```
 
 * Name: This is the name of your function, it can be anything
 
-* env: The environment variable to pass the CosmosDB connection string at runtime.  You should not store the connection details within code, ideally you would use a Kubernetes secret or inject this via Azure Key Vault. This will have the format ```--env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"```
+* env: The environment variable to pass the CosmosDB connection string at runtime.  You should not store the connection details within code, ideally you would use a Kubernetes secret or inject this via Azure Key Vault. This will have the format 
+```console
+--env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"
+```
 
 You can now use the faas-cli to deploy the pre-built container to the OpenFaaS Gateway. To do so you need to run the following command:
 
-```
-➜  faas-cli deploy -g http://52.226.73.206:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"
+```console
+$  faas-cli deploy -g http://52.226.73.206:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"
 ```
 Select enter to deploy your function and you should see your newly created OpenFaaS endpoint for your function:
 
-```
+```console
 Deployed. 202 Accepted.
-URL: http://52.226.73.206:8080/function/cosmos-query
+URL: http://52.191.114.246:8080/function/cosmos-query
 ```
 
 Now you can test your function using curl:
 
+```console
+$  curl -s http://52.191.114.246:8080/function/cosmos-query  | jq
 ```
-➜  curl -s http://52.226.73.206:8080/function/cosmos-query  | jq
+```json
 [
   {
     "ID": "",
@@ -210,7 +239,9 @@ Now you can test your function using curl:
 ]
 ```
 
-You can also test our function within the OpenFaaS UI, see below:
+You can also test the function within the OpenFaaS UI:
 
 ![alt text](media/container-service-serverless/OpenFaaSUI.png)
 
+# Next Steps
+The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on the options to do this. 
