@@ -1,4 +1,4 @@
-- name: Azure Databricks documentation
+- name: Azure Databricks Documentation
   href: index.yml
 - name: Overview
   items:
