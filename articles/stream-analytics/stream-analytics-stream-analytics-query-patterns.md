@@ -541,7 +541,7 @@ For example, in IoT scenario for home ovens, we want to raise an alert when fan 
 **Output**:
 
 | eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- | 
 | "2018-01-01T16:05:00" | "Oven1" |30 | "Short circuit heating elements" |15 |
 | "2018-01-01T16:06:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
 | "2018-01-01T16:07:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
