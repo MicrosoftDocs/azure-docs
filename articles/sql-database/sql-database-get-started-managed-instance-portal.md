@@ -286,8 +286,13 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
 
    ![sas form](./media/sql-database-managed-instance-tutorial/sas-form.png)
 
-7. On the SAS form...
-8. Under **Settings**, click **Containers**.
+7. On the SAS form, modify the default values as desired. Notice that the expiry date/time is, by default, only 8 hours.
+8. In the **Allows IP addresses** box, enter the external IP address for your virtual machine - or use the totally open range of **0.0.0.0** to **255.255.255.255** and click **Generate SAS**.
+
+   ![sas form completed](./media/sql-database-managed-instance-tutorial/sas-generate.png)
+
+9. Copy and save the **SAS token** and the **Blob server SAS URL**.
+9. Under **Settings**, click **Containers**.
 
    ![containers](./media/sql-database-managed-instance-tutorial/containers.png)
 
@@ -329,11 +334,20 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
 With SSMS, use the following steps to restore the Adventure Works 2016 database to your Managed Instance from the backup file.
 
 1. In SSMS, open a new query window.
-2. Use the following script to create a SAS credential.
+2. Use the following script to create a SAS credential - providing the URL for the storage account container and the SAS key as indicated.
+
+   `CREATE CREDENTIAL [https://<storage_account_name>.blob.core.windows.net/<container>] WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = '<shared_access_signature_key_with_removed_first_?_symbol>' 
    `
-   
+
+    ![credential](./media/sql-database-managed-instance-tutorial/credential.png)
+
+3. Use the following script to create check the SAS credential and backup validity - providing the URL for the backup file.
+
+   `RESTORE FILELISTONLY FROM URL = 'https://<storage_account_name>.blob.core.windows.net/<container>/<backup_file_name>' 
    `
-1. 
+
+    ![file list](./media/sql-database-managed-instance-tutorial/file-list.png)
+
 
 ## Next steps
 
