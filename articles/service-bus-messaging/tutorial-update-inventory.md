@@ -17,11 +17,9 @@ ms.custom: mvc
 
 Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.
 
-This tutorial describes how to use Service Bus topics, subscriptions, and publish/subscribe channels to enable a retail scenario that updates an inventory assortment and sends a set of messages from the back office to the stores. The workflow is pictured in the following figure:
+This tutorial shows how to use Service Bus topics, subscriptions with publish/subscribe channels. The article describes a retail scenario that updates an inventory assortment and sends a set of messages from the back office to the stores. The workflow is pictured as follows:
 
 ![inventory scenario](./media/tutorial-update-inventory/sbtutorial1.png)
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -30,6 +28,8 @@ In this tutorial, you learn how to:
 > * Create two messages with different content
 > * Send the messages and verify they arrived in the expected subscriptions
 > * Receive message from one subscription
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -95,5 +95,5 @@ In this tutorial, you learned how to:
 Advance to the next article to learn about message time to live and the deadletter queue.
 
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+> [Service Bus Messaging overview](service-bus-messaging-overview.md)
 
