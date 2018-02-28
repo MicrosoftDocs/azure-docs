@@ -23,8 +23,9 @@ The Durable Task extension exposes a set of HTTP APIs that can be used to perfor
 * Fetch the status of an orchestration instance.
 * Send an event to a waiting orchestration instance.
 * Terminate a running orchestration instance.
+* Get synchronously the output of an orchestration instance if completed within the allowed timeout period.
 
-Each of these HTTP APIs are webhook operations that are handled directly by the Durable Task extension. They are not specific to any function in the function app.
+Each of these HTTP APIs is webhook operations that are handled directly by the Durable Task extension. They are not specific to any function in the function app.
 
 > [!NOTE]
 > These operations can also be invoked directly using the instance management APIs on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. For more information, see [Instance Management](durable-functions-instance-management.md).
@@ -60,7 +61,7 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 }
 ```
 > [!NOTE]
-> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The above example is for the Azure Functions 2.0 host.
+> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The approach is for the Azure Functions 2.0 host.
 
 ## Async operation tracking
 
@@ -74,7 +75,7 @@ The HTTP response mentioned previously is designed to help implementing long-run
 This protocol allows coordinating long-running processes with external clients or services that support polling an HTTP endpoint and following the `Location` header. The fundamental pieces are already built into the Durable Functions HTTP APIs.
 
 > [!NOTE]
-> By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) support the standard asynchronous operation pattern. This makes it possible to embed a long-running durable function as part of a Logic Apps workflow. More details on Logic Apps support for asynchronous HTTP patterns can be found in the [Azure Logic Apps workflow actions and triggers documentation](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) support the standard asynchronous operation pattern. This capability makes it possible to embed a long-running durable function as part of a Logic Apps workflow. More details on Logic Apps support for asynchronous HTTP patterns can be found in the [Azure Logic Apps workflow actions and triggers documentation](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## HTTP API reference
 
@@ -120,7 +121,7 @@ Several possible status code values can be returned.
 * **HTTP 400 (Bad Request)**: The specified instance failed or was terminated.
 * **HTTP 404 (Not Found)**: The specified instance doesn't exist or has not started running.
 
-The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON object with the following fields.
+The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON object with the following fields:
 
 | Field           | Data type | Description |
 |-----------------|-----------|-------------|
@@ -187,6 +188,158 @@ Here is an example response payload including the orchestration execution histor
 
 The **HTTP 202** response also includes a **Location** response header that references the same URL as the `statusQueryGetUri` field mentioned previously.
 
+
+## HTTP API synchronous response
+
+The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class exposes a [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API that can be used to get synchronously the actual output from an orchestration instance. Here is an example HTTP-trigger function that demonstrates how to use this API with **2-seconds timeout** and **0.5-second retry interval**.
+
+First, the function can be called with the following line:
+
+```bash
+    http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
+```
+
+Then the code that processes the HTTP request is:
+
+<!-- The comments on the next line will be removed once the new feature is merged in master. -->
+<!--[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]-->
+```csharp
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Host;
+
+namespace VSSample
+{
+    public static class HttpSyncStart
+    {
+        private const string Timeout = "timeout";
+        private const string RetryInterval = "retryInterval";
+
+        [FunctionName("HttpSyncStart")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(
+            AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
+            HttpRequestMessage req,
+            [OrchestrationClient] DurableOrchestrationClientBase starter,
+            string functionName,
+            TraceWriter log)
+        {
+            // Function input comes from the request content.
+            dynamic eventData = await req.Content.ReadAsAsync<object>();
+            string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+            log.Info($"Started orchestration with ID = '{instanceId}'.");
+
+            TimeSpan? timeout = GetTimeSpan(req, Timeout);
+            TimeSpan? retryInterval = GetTimeSpan(req, RetryInterval);
+            
+            return await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
+                req,
+                instanceId,
+                timeout,
+                retryInterval);
+        }
+
+        private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
+        {
+            var queryParameterStringValue = request.GetQueryNameValuePairs()?
+                .FirstOrDefault(x => x.Key == queryParameterName)
+                .Value;
+            if (string.IsNullOrEmpty(queryParameterStringValue)) { return null; }
+            return TimeSpan.FromSeconds(double.Parse(queryParameterStringValue));
+        }
+    }
+}
+
+```
+
+And depending on the time required to get the response from the orchestration instance there are two cases:
+
+1. The **orchestration instances complete within the defined timeout** (in this case 2 seconds), then the response is the actual orchestration instance output delivered synchronously:
+
+```http
+    HTTP/1.1 200 OK
+    Content-Type: application/json; charset=utf-8
+    Date: Thu, 14 Dec 2017 06:14:29 GMT
+    Server: Microsoft-HTTPAPI/2.0
+    Transfer-Encoding: chunked
+
+    [
+        "Hello Tokyo!",
+        "Hello Seattle!",
+        "Hello London!"
+    ]
+```
+
+2. The **orchestration instances cannot complete within the defined timeout** (in this case 2 seconds), then the response is the default one described in **HTTP API URL discovery**:
+
+```http
+    HTTP/1.1 202 Accepted
+    Content-Type: application/json; charset=utf-8
+    Date: Thu, 14 Dec 2017 06:13:51 GMT
+    Location: http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==
+    Retry-After: 10
+    Server: Microsoft-HTTPAPI/2.0
+    Transfer-Encoding: chunked
+
+    {
+        "id": "d3b72dddefce4e758d92f4d411567177",
+        "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==",
+        "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==",
+        "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA=="
+    }
+```
+
+> [!NOTE]
+> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The preceding example is for the Azure Functions 2.0 host.
+
+## Synchronous response details
+
+This HTTP response approach supports synchronous interaction. The client/server flow works as follows:
+
+1. The client issues an HTTP request to start a long running process, such as an orchestrator function.
+2. The orchestration instance is started.
+3. The client is waiting for a response.
+4. If the orchestration instance completes within the defined timeout, the target HTTP trigger returns an HTTP 200 response with the orchestration instance output delivered synchronously.
+5. If the orchestration instance cannot complete within the defined timeout, the response is the default one described in **HTTP API URL discovery**.
+
+This protocol allows coordinating long-running processes with external clients or services that support synchronous client/server communication. The fundamental pieces are already built into the Durable Functions HTTP APIs.
+
+> [!NOTE]
+> By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) support the standard asynchronous operation pattern. This capability makes it possible to embed a long-running durable function as part of a Logic Apps workflow. More details on Logic Apps support for asynchronous HTTP patterns can be found in the [Azure Logic Apps workflow actions and triggers documentation](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+
+## Request 
+
+If the HTTP trigger function has the following route `Route = "orchestrators/{functionName}/wait"` and it supports query string parameters for **timeout** and **retryInterval**, the request is:
+
+```http
+POST /orchestrators/E1_HelloSequence/wait?timeout={timeout}&retryInterval={retryInterval}
+```
+
+## Response 
+
+Several possible status code values can be returned:
+
+* **HTTP 200 (OK)**: The orchestration instance completed within the timeout and its output is provided in the response body.
+* **HTTP 202 (Accepted)**: The orchestration instance did not complete within the timeout and the response is the default one described in **HTTP API URL discovery**.
+* **HTTP 400 (Bad Request)**: The **retryInterval** parameter has greater value than the **timeout** parameter.
+
+## HTTP API reference
+
+The `WaitForCompletionOrCreateCheckStatusResponseAsync` method takes the following parameters: 
+
+| Parameter      | Parameter Type     | Description |
+|----------------|--------------------|-------------|
+| request        | HttpRequestMessage | The HTTP request that triggered the current function. |
+| instanceId     | string             | The unique ID of the instance to check. |
+| timeout        | TimeSpan           | Total allowed timeout for output from the durable function. The default value is 10 seconds.|
+| retryInterval  | TimeSpan           | The timeout between checks for output from the durable function. The default value is 1 second. |
+
+
 ### Raise event
 
 Sends an event notification message to a running orchestration instance.
@@ -205,7 +358,7 @@ The Functions 2.0 format has all the same parameters but has a slightly differen
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Request parameters for this API include the default set mentioned previously as well as the following unique parameters.
+Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
 
 | Field       | Parameter type  | Data tType | Description |
 |-------------|-----------------|-----------|-------------|
