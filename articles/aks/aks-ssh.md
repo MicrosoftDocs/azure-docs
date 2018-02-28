@@ -18,7 +18,7 @@ Occasionally, you may need to access an Azure Container Service (AKS) node for m
 
 This document details creating internal service for SSH connections.
 
-## Create SSH service
+## Configure SSH access
 
  To SSH into a specific node, a pod is created with `hostNetwork` access. A service is also created for pod access. This configuration is privileged and should be removed after use.
 
@@ -68,10 +68,8 @@ spec:
 Run the manifest to create the pod and exposed service.
 
 ```azurecli-interactive
-kubectl apply -f aks-ssh.yaml
+$ kubectl apply -f aks-ssh.yaml
 ```
-
-## Create the SSH connection
 
 Get the external IP address of the exposed service. It may take a minute for IP address configuration to complete. 
 
