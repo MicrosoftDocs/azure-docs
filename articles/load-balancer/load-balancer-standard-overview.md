@@ -299,9 +299,11 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 1. Create a new Standard resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.
 
-2. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+2. Create new or update existing NSG on NIC or subnet to whitelist load balanced traffic, probe, as well as any other traffic you wish to permit.
 
-3. Attach all VM instances to the new Standard SKU resources.
+3. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+
+4. Attach all VM instances to the new Standard SKU resources.
 
 ### Migrate from Standard to Basic SKU
 
@@ -368,7 +370,7 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
 
 <a name="additionalpreviewregions"></a>
 >[!IMPORTANT]
-> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
+> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, South Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
 
 
 ### Sign up by using Azure CLI 2.0

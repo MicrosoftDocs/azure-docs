@@ -120,6 +120,10 @@ For more information on using PowerShell, please see [public documentation](../m
 Log Analytics is generally available in Azure Government.
 
 ### Variations
+
+* Solutions that are available in Azure Government include:
+  * [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - NPM is a cloud based network monitoring solution for public and hybrid cloud environments. Organizations use NPM to monitor network availability across on-premises and cloud environments.  Endpoint Monitor - a sub-capability of NPM, monitors network connectivity to applications.
+  
 The following Log Analytics features and solutions are not currently available in Azure Government.
 
 * Solutions that are in preview in Microsoft Azure, including:

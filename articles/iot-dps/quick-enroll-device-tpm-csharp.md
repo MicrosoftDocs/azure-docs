@@ -16,10 +16,9 @@ ms.custom: mvc
 ---
  
 # Enroll TPM device to IoT Hub Device Provisioning Service using C# service SDK
-> [!div class="op_single_selector"]
-> * [Java](quick-enroll-device-tpm-java.md)
-> * [C#](quick-enroll-device-tpm-csharp.md)
-> * [Node.js](quick-enroll-device-tpm-node.md)
+
+[!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
+
 
 These steps show how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service using the [C# Service SDK](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. You can optionally enroll a simulated TPM device to the provisioning service using this individual enrollment entry. Although these steps work on both Windows and Linux machines, this article uses a Windows development machine.
 

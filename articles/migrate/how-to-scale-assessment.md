@@ -26,15 +26,17 @@ Plan your discoveries and assessments based on the following limits:
 | **Entity** | **Machine limit** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| Discovery  | 1,000              |
-| Assessment | 400               |
+| Discovery  | 1,500              |
+| Assessment | 1,500               |
 
+<!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
 - If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
 - If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## Plan multiple discoveries
 
@@ -79,6 +81,22 @@ Check that the OVA file is secure before you deploy it:
 
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Make sure that the generated hash matches the following settings.
+
+    For OVA version 1.0.9.2
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+
+    For OVA version 1.0.8.59
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 71139e24a532ca67669260b3062c3dad
+    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
+    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
  
     For OVA version 1.0.8.49
 

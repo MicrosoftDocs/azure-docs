@@ -97,7 +97,7 @@ To install your packages in a compute target, you have to modify the conda_depen
 ### Windows 
 To find the location on Windows, find the app-specific installation of Python and its scripts directory. The default location is:  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Then run either of the following commands: 
 
@@ -110,7 +110,7 @@ or
 ### Mac 
 To find the location on a Mac, find the app-specific installation of Python and its scripts directory. The default location is: 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Then run either of the following commands: 
 

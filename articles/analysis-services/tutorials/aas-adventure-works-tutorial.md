@@ -21,7 +21,7 @@ ms.author: owend
 
 This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using Visual Studio with [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create and deploy a basic tabular model by usign Visual Studio. Once you have the prerequisites in-place, it should take between two to three hours to complete.  
+If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create and deploy a basic tabular model by using Visual Studio. Once you have the prerequisites in-place, it should take between two to three hours to complete.  
   
 ## What you learn   
   
@@ -39,7 +39,7 @@ If you're new to Analysis Services and tabular modeling, completing this tutoria
   
 -   How to secure model objects and data by creating roles with user members.  
   
--   How to deploy a tabular model to an **Azure Analysis Services** server or an on-premises SQL Server 2017 Analysis Services server.  
+-   How to deploy a tabular model to an **Azure Analysis Services** server or **SQL Server 2017 Analysis Services** server by using SSDT.  
   
 ## Prerequisites  
 To complete this tutorial, you need:  

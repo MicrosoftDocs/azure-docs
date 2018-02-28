@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: sstein
 
 ---
-# Introduction to a SQL Database multi-tenant SaaS app example
+# Introduction to a multi-tenant SaaS app that uses the database per tenant pattern with SQL Database
 
-The *Wingtip SaaS* application is a sample multi-tenant app, that demonstrates the unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including several SaaS design and management patterns. To quickly get up and running, the Wingtip SaaS app deploys in less than five minutes!
+The *Wingtip SaaS* application is a sample multi-tenant app. The app uses the database-per-tenant, SaaS application pattern, to service multiple tenants. The app showcases features of Azure SQL Database that enable SaaS scenarios, using several SaaS design and management patterns. To quickly get up and running, the Wingtip SaaS app deploys in less than five minutes!
 
-Application source code and management scripts are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
+Application source code and management scripts are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Before you start, check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets management scripts.
 
 ## Application architecture
 
@@ -45,13 +45,13 @@ After deploying the app, explore the following tutorials that build upon the ini
 |[Monitor and manage performance](saas-dbpertenant-performance-monitoring.md)| Learn how to use monitoring features of SQL Database, and how to set alerts when performance thresholds are exceeded. |
 |[Monitor with Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) | Learn about using [Log Analytics](../log-analytics/log-analytics-overview.md) to monitor large amounts of resources, across multiple pools. |
 |[Restore a single tenant](saas-dbpertenant-restore-single-tenant.md)| Learn how to restore a tenant database to a prior point in time. Steps to restore to a parallel database, leaving the existing tenant database online, are also included. |
-|[Manage tenant schema](saas-tenancy-schema-management.md)| Learn how to update schema, and update reference data, across all Wingtip SaaS tenants. |
-|[Run ad-hoc analytics](saas-tenancy-adhoc-analytics.md) | Create an ad-hoc analytics database and run real-time distributed queries across all tenants.  |
-|[Run tenant analytics](saas-tenancy-tenant-analytics.md) | Extract tenant data into an analytics database or data warehouse for running offline analytic queries. |
+|[Manage tenant database schema](saas-tenancy-schema-management.md)| Learn how to update schema, and update reference data, across all tenant databases. |
+|[Run cross-tenant distributed queries](saas-tenancy-cross-tenant-reporting.md) | Create an ad-hoc analytics database and run real-time distributed queries across all tenants.  |
+|[Run analytics on extracted tenant data](saas-tenancy-tenant-analytics.md) | Extract tenant data into an analytics database or data warehouse for offline analytics queries. |
 
 
 ## Next steps
 
-- [Guidance and tips for Azure SQL Database multi-tenant SaaS app example](saas-tenancy-wingtip-app-guidance-tips.md)
+- [General guidance and tips when deploying and using the Wingtip Tickets SaaS app example](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Deploy the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)

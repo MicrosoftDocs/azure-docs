@@ -1,117 +1,104 @@
 ---
-title: Test drive an Azure AD B2C desktop application | Microsoft Docs
-description: Test drive sign in, sign up, edit profile, and reset password user journeys using a test Azure AD B2C environment
+title: Test drive an Azure AD B2C enabled desktop app
+description: Quickstart to try a sample ASP.NET desktop app that uses Azure Active Directory B2C to provide user login.
 services: active-directory-b2c
-documentationcenter: .net
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
 
-ms.assetid: 86293627-26fb-4e96-a76b-f263f9a945bd
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 2/13/2018
+ms.author: patricka
 
 ---
-# Test drive a desktop application configured with Azure AD B2C
+# Quickstart: Test drive an Azure AD B2C enabled desktop app
 
-Azure Active Directory B2C provides cloud identity management to keep your application, business, and customers protected.  This quickstart uses a sample Windows Presentation Foundation (WPF) desktop app to demonstrate:
+Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
 
-* Using the **Sign Up or Sign In** policy to create or sign in with a social identity provider or a local account using an email address. 
-* **Calling an API** to retrieve your display name from an Azure AD B2C secured resource.
-
-## Prerequisites
-
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-    - **.NET desktop development**
-
-* A social account from either Facebook, Google, Microsoft, or Twitter. If you don't have a social account, a valid email address is required.
+In this quickstart, you use an Azure AD B2C enabled sample Windows Presentation Foundation (WPF) desktop app to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## Prerequisites
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload. 
+* A social account from either Facebook, Google, Microsoft, or Twitter.
+
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) from GitHub.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) or clone the sample web app from GitHub.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
+```
 
 ## Run the app in Visual Studio
 
-In the sample application project folder, open the `active-directory-b2c-wpf.sln` solution in Visual Studio. 
+In the sample application project folder, open the `active-directory-b2c-wpf.sln` solution in Visual Studio.
 
-Select **Debug > Start Debugging** to build and run the application. 
+Press **F5** to debug the application.
 
 ## Create an account
 
-Click **Sign in** to start the **Sign Up or Sign In** workflow. When creating an account, you can use an existing social identity provider account or an email account.
+Click **Sign in** to start the **Sign Up or Sign In** workflow based on an Azure AD B2C policy.
 
 ![Sample application](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
+The sample supports several sign-up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter. 
+
 ### Sign up using a social identity provider
 
-To sign up using a social identity provider, click the button of the identity provider you want to use. If you prefer to use an email address, jump to the [Sign up using an email address](#sign-up-using-an-email-address) section.
+Azure AD B2C presents a custom login page for a fictitious brand called Wingtip Toys for the sample web app. 
 
-![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+1. To sign up using a social identity provider, click the button of the identity provider you want to use. 
 
-You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+    ![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
+    You authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-Your new account profile details are pre-populated with information from your social account. Modify the details if you wish and click **Continue**.
+2. Finish the sign-in process for the identity provider. For example, if you chose Twitter, enter your Twitter credentials and click **Sign in**.
 
-![New account sign-up profile details](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
+    ![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
 
-You have successfully created a new Azure AD B2C user account that uses an identity provider. After sign-in, the access token is shown in the *Token info* text box. The access token is used when accessing the API resource.
+    Your new account profile details are pre-populated with information from your social account. 
 
-![Authorization token](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+3. Modify the details if you wish and click **Continue**. The values you enter are used for your Azure AD B2C user account profile.
 
-Next step: [Jump to Edit your profile](#edit-your-profile) section.
+    ![New account sign-up profile details](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
 
-### Sign up using an email address
-
-If you choose to not use a social account to provide authentication, you can create an Azure AD B2C user account using a valid email address. An Azure AD B2C local user account uses Azure Active Directory as the identity provider. To use your email address, click the **Don't have an account? Sign up now** link.
-
-![Sign In or Sign Up using email](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-email-wpf.png)
-
-Enter a valid email address and click **Send verification code**. A valid email address is required to receive the verification code from Azure AD B2C.
-
-Enter the verification code you receive in email and click **Verify code**.
-
-Add your profile information and click **Create**.
-
-![Sign up with new account using email](media/active-directory-b2c-quickstarts-desktop-app/sign-up-new-account-profile-email-wpf.png)
-
-You have successfully created a new Azure AD B2C local user account. After sign-in, the access token is shown in the *Token info* text box. The access token is used when accessing the API resource.
-
-![Authorization token](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+    You have successfully created a new Azure AD B2C user account that uses an identity provider. After sign-in, the access token is shown in the *Token info* text box. The access token is used when accessing the API resource.
 
 ## Edit your profile
 
-Azure Active Directory B2C provides functionality to allow users to update their profiles. Click **Edit profile** to edit the profile you created.
+Azure Active Directory B2C provides functionality to allow users to update their profiles.  The sample web app uses an Azure AD B2C edit profile policy for the workflow. 
 
-![Edit profile](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
+1. Click **Edit profile** to edit the profile you created.
 
-Choose the identity provider associated with the account you created. For example, if you used Twitter as the identity provider when you created your account, choose Twitter to modify the associated profile details.
+    ![Edit profile](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-![Choose provider associated with profile to edit](media/active-directory-b2c-quickstarts-desktop-app/edit-account-choose-provider-wpf.png)
+2. Choose the identity provider associated with the account you created. For example, if you used Twitter as the identity provider when you created your account, choose Twitter to modify the associated profile details.
 
-Change your **Display name** or **City**. 
+3. Change your **Display name** or **City** and click **Continue**.
 
-![Update profile](media/active-directory-b2c-quickstarts-desktop-app/update-profile-wpf.png)
+    A new access token is displayed in the *Token info* text box. If you want to verify the changes to your profile, copy and paste the access token into the token decoder https://jwt.ms.
 
-A new access token is displayed in the *Token info* text box. If you want to verify the changes to your profile, copy and paste the access token into the token decoder https://jwt.ms.
+## Access a protected web API resource
 
-![Authorization token](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
-
-## Access a resource
-
-Click **Call API** to make a request to the Azure AD B2C secured resource https://fabrikamb2chello.azurewebsites.net/hello. 
+Click **Call API** to make a request to the Azure AD B2C protected resource https://fabrikamb2chello.azurewebsites.net/hello. 
 
 ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-The application includes the access token displayed in the *Token info* text box in the request. The API sends back the display name contained in the access token.
+The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+
+You have successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
+
+## Clean up resources
+
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## Next steps
 

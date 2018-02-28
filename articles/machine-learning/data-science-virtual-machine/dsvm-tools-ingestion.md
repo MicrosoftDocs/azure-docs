@@ -83,6 +83,17 @@ Here are some data movement tools we have provided on the DSVM.
 | Links to Samples      | [Bulk Copy Utility](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Related Tools on the DSVM      | SQL Server, sqlcmd      |
 
+## blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | A tool to mount an Azure blob container in the Linux file system.      |
+| Supported DSVM Versions      | Linux      |
+| Typical Uses      | Reading and writing to blobs in a container      |
+|  How to use / run it?    |   Run _blobfuse_ at a terminal.    |
+| Links to Samples      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Related Tools on the DSVM      | Azure Command Line      |
+
 
 ## Microsoft Data Management Gateway
 

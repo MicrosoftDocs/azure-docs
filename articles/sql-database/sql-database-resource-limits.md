@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 02/12/2018
+ms.date: 02/27/2018
 ms.author: carlrab
 
 ---
@@ -111,7 +111,16 @@ You can increase or decrease the resources available to an elastic pool based on
 
 ## What is the maximum number of servers and databases?
 
-The maximum number of servers per subscription per region is 21. The maximum number of databases per server is 5000. These are soft limits established experimentally based on payload size analysis, logical master telemetry collection analysis, and a few other aspects. You can request to exceed these limits, provided you stay within your DTU quota. As the number of databases and servers becomes large, the problem that you will hit is resource stats collection in logical master and contention on management operations. These problems are not fatal; they will increase latency.
+| Maximum | Value |
+| :--- | :--- |
+| Databases per server | 5000 |
+| Number of servers per subscription per region | 21 |
+|||
+
+> [!IMPORTANT]
+> As the number of databases approaches the limit per server, the following can occur:
+> <br> •	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> <br> •	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 ## What happens when database and elastic pool resource limits are reached?
 
