@@ -3,7 +3,7 @@ title: Set up IP addressing to connect after failover to Azure with Azure Site R
 description: Describes how to set up IP addressing to connect to Azure VMs after failover from on-premises with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
-author: prateek9us
+author: mayanknayar
 manager: carmonm
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/14/2017
-ms.author: pratshar
+ms.date: 02/27/2018
+ms.author: manayar
 
 ---
 # Set up IP addressing to connect after failover to Azure
@@ -33,7 +33,7 @@ In this article you'll learn about:
 When planning your replication and failover strategy, one of the key questions is how to connect to the Azure VM after failover. There are a couple of choices when designing your network strategy for replica Azure VMs:
 
 - **Use different IP address**: You can select to use a different IP address range for the replicated Azure VM network. In this scenario the VM gets a new IP address after failover, and a DNS update is required.
-- **Retain same IP address**: You might want to use the same IP address range as that in your primary on-premises site, for the Azure network after failover. Keeping the same IP addresses simplifies the recovery by reducing network related issues after failover. However, when you're replicating to Azure, you will need to update routes with the new location of the IP addresses after failover. 
+- **Retain same IP address**: You might want to use the same IP address range as that in your primary on-premises site, for the Azure network after failover. Keeping the same IP addresses simplifies the recovery by reducing network related issues after failover. However, when you're replicating to Azure, you will need to update routes with the new location of the IP addresses after failover.
 
 ## Retaining IP addresses
 
@@ -83,11 +83,7 @@ In addition to the vnet-to-vnet connection, after failover, Woodgrove can set up
 
 ## Assigning new IP addresses
 
-This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers. 
+This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers.
 
 ## Next steps
 [Run a failover](site-recovery-failover.md)
-
-
-
-

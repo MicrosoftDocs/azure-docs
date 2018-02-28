@@ -1,17 +1,17 @@
 ---
-title: 'Design your first Azure Database for PostgreSQL using Azure portal | Microsoft Docs'
+title: Tutorial - Design your first Azure Database for PostgreSQL using Azure portal
 description: This tutorial shows how to Design your first Azure Database for PostgreSQL using the Azure portal.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 11/03/2017
+ms.date: 02/28/2018
 ---
-# Design your first Azure Database for PostgreSQL using the Azure portal
+# Tutorial: Design your first Azure Database for PostgreSQL using the Azure portal
 
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. Using the Azure portal, you can easily manage your server and design a database.
 
@@ -36,12 +36,12 @@ Log in to the [Azure portal](https://portal.azure.com).
 An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 Follow these steps to create an Azure Database for PostgreSQL server:
-1.	Click the **+ New**  button found on the upper left-hand corner of the Azure portal.
+1.	Click **Create a resource**  in the upper left-hand corner of the Azure portal.
 2.	Select **Databases** from the **New** page, and select **Azure Database for PostgreSQL** from the **Databases** page.
  ![Azure Database for PostgreSQL - Create the database](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.	Fill out the new server details form with the following information, as shown on the preceding image:
-    - Server name: **mypgserver-20170401** (name of a server maps to DNS name and is thus required to be globally unique) 
+    - Server name: **mydemoserver** (name of a server maps to DNS name and is thus required to be globally unique) 
     - Subscription: If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for.
     - Resource group: **myresourcegroup**
     - Server admin login and password of your choice
@@ -51,8 +51,8 @@ Follow these steps to create an Azure Database for PostgreSQL server:
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
 
-4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quickstart, select **Basic** Tier, **50 Compute Units** and **50 GB** of included storage.
- ![Azure Database for PostgreSQL - pick the service tier](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
+4.	Click **Pricing tier** to specify the pricing tier for your new server. For this quickstart, select **General Purpose**, **Gen 4** compute generation, 2 **vCores**, 5 GB of **storage** and 7 days **backup retention period**. Select the **Geographically Redundant** backup redundancy option to have your server's automatic backups stored in geo-redundant storage.
+ ![Azure Database for PostgreSQL - pick the pricing tier](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 5.	Click **Ok**.
 6.	Click **Create** to provision the server. Provisioning takes a few minutes.
 
@@ -68,7 +68,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 The Azure Database for PostgreSQL service uses a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
 
-1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
+1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mydemoserver** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
  
  ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
@@ -88,13 +88,13 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 When you created the Azure Database for PostgreSQL server, the default **postgres** database was also created. To connect to your database server, you need to provide host information and access credentials.
 
-1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
+1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created.
 
   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-3. Click the server name **mypgserver-20170401**.
+2. Click the server name **mydemoserver**.
 
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
+3. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
 
  ![Azure Database for PostgreSQL - Server Admin Login](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
@@ -115,10 +115,10 @@ Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.htm
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
 
    ```bash
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
 ## Create a new database
@@ -174,7 +174,7 @@ SELECT * FROM inventory;
 ```
 
 ## Restore data to a previous point in time
-Imagine you have accidentally deleted this table. This situation is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the **mypgserver-20170401** server to a point before the inventory table was added.
+Imagine you have accidentally deleted this table. This situation is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time for which your server has backups (determined by the backup retention period you configured) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the **mydemoserver** server to a point before the inventory table was added.
 
 1.	On the Azure Database for PostgreSQL **Overview** page for your server, click **Restore** on the toolbar. The **Restore** page opens.
   ![Azure portal - Restore form options](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
@@ -185,7 +185,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
   - **Target server**: Provide a new server name you want to restore to
   - **Location**: You cannot select the region, by default it is same as the source server
   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
-3.	Click **OK** [restore the server to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
+3.	Click **OK** to [restore the server to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [pricing tier](./concepts-pricing-tiers.md).
 
 ## Next steps
 In this tutorial, you learned how to use the Azure portal and other utilities to:

@@ -1,10 +1,11 @@
-- name: Azure IoT Edge documentation
+- name: Azure IoT Edge Documentation
   href: index.yml
 - name: Overview
   items:
   - name: About Azure IoT Edge
     href: how-iot-edge-works.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Deploy to the edge - Linux/Mac
     href: quickstart-linux.md
@@ -88,7 +89,7 @@
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/iot-hub/
   - name: Pricing calculator

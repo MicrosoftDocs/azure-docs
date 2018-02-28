@@ -1,14 +1,14 @@
 ---
-title: Create and manage MySQL firewall rules in Azure Database for MySQL | Microsoft Docs
+title: Create and manage MySQL firewall rules in Azure Database for MySQL
 description: Create and manage Azure Database for MySQL firewall rules using the Azure portal
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/20/2018
+ms.date: 02/28/2018
 ---
 # Create and manage Azure Database for MySQL firewall rules by using the Azure portal
 Server-level firewall rules enable administrators to access an Azure Database for MySQL Server from a specified IP address or a range of IP addresses. 
@@ -38,7 +38,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
    ![Azure portal - click Save](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
 ## Connecting from Azure
-To allow applications from Azure to connect to your Azure Database for MySQL server, Azure connections must be enabled. For example, to host an Azure Web Apps application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway. The resources do not need to be in the same Virtual Network (VNET) or Resource Group for the firewall rule to enable those connections. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. There are a couple of methods to enable these types of connections. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. Alternatively, you can set the **Allow access to Azure services** option to **ON** in the portal from the **Connection security** pane and hit **Save**. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL server.
+To allow applications from Azure to connect to your Azure Database for MySQL server, Azure connections must be enabled. For example, to host an Azure Web Apps application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway. The resources do not need to be in the same Virtual Network (VNet) or Resource Group for the firewall rule to enable those connections. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. There are a couple of methods to enable these types of connections. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. Alternatively, you can set the **Allow access to Azure services** option to **ON** in the portal from the **Connection security** pane and hit **Save**. If the connection attempt is not allowed, the request does not reach the Azure Database for MySQL server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.

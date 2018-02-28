@@ -102,7 +102,7 @@ namespace SampleInviteApp
         /// <summary>
         /// Client secret of the application.
         /// </summary>
-        private static readonly string TestAppClientSecret = @"
+        private static readonly string TestAppClientSecret = @"";
  
         /// <summary>
         /// This is the email address of the user you want to invite.

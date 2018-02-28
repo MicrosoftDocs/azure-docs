@@ -46,7 +46,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 ## Create a web app
 
-1. In the [Azure portal](https://ms.portal.azure.com/), click **New** > **Web + Mobile** > **Web App**.
+1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Web + Mobile** > **Web App**.
 2. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
 
    We recommend that you select the same location as that of your resource group. Doing so assists with processing speed and reduces the cost of data transfer.

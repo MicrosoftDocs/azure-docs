@@ -1,15 +1,15 @@
 ---
-title: Access server logs in Azure Database for MySQL using Azure CLI | Microsoft Docs
+title: Access server logs in Azure Database for MySQL using Azure CLI
 description: This article describes how to access the server logs in Azure Database for MySQL using the Azure CLI command line utility.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/28/2018
 ---
 # Configure and access server logs using Azure CLI
 You can download the Azure Database for MySQL server logs using the Azure CLI, Azure's command-line utility.
@@ -28,25 +28,25 @@ See [How to Configure Server Parameters](howto-configure-server-parameters-using
 
 For example, the following CLI command turns ON the slow query log, sets the long query time to 10 seconds, and turns OFF the logging of the slow admin statement. Finally, it lists the configuration options for your review.
 ```azurecli-interactive
-az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server myserver4demo --value ON
-az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server myserver4demo --value 10
-az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server myserver4demo --value OFF
-az mysql server configuration list --resource-group myresourcegroup --server myserver4demo
+az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
+az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
+az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server mydemoserver --value OFF
+az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## List logs for Azure Database for MySQL server
 To list the available log files for your server, run the [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) command.
 
-You can list the log files for server **myserver4demo.mysql.database.azure.com** under Resource Group **myresourcegroup**, and direct it to a text file called **log\_files\_list.txt.**
+You can list the log files for server **mydemoserver.mysql.database.azure.com** under Resource Group **myresourcegroup**, and direct it to a text file called **log\_files\_list.txt.**
 ```azurecli-interactive
-az mysql server-logs list --resource-group myresourcegroup --server myserver4demo > log_files_list.txt
+az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## Download logs from the server
 The [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) command allows you to download individual log files for your server. 
 
-This example downloads the specific log file for the server **myserver4demo.mysql.database.azure.com** under Resource Group **myresourcegroup** to your local environment.
+This example downloads the specific log file for the server **mydemoserver.mysql.database.azure.com** under Resource Group **myresourcegroup** to your local environment.
 ```azurecli-interactive
-az mysql server-logs download --name 20170414-myserver4demo-mysql.log --resource-group myresourcegroup --server myserver4demo
+az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## Next Steps

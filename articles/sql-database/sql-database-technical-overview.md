@@ -9,11 +9,11 @@ manager: jhubbard
 editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
+ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 12/13/2017
+ms.date: 02/12/2018
 ms.workload: "Active"
 ms.author: carlrab
 ms.reviewer: carlrab
@@ -42,7 +42,7 @@ With SQL Database, each database is isolated from each other and portable, each 
 
 ### Adjust performance and scale without downtime
 
-SQL Database offers four service tiers to support lightweight to heavyweight database workloads: Basic, Standard, Premium, and Premium RS. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+SQL Database offers three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
    ![scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

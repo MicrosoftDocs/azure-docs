@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
 ---
