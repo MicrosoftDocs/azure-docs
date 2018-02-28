@@ -105,7 +105,7 @@ From the machine that has internet connectivity, use the following steps to down
 
 ### Import the image and publish it to Azure Stack marketplace
 
-1. After you download the image and gallery package, save them and the contents in AzureStack-Tools-master folder to a removable disk drive and copy it to the Azure Stack environment (you can copy it locally to any location such as: "C:\MarketplaceImages").   
+1. After you download the image and gallery package, save them and the contents in AzureStack-Tools-master folder to a removable disk drive and copy it to the Azure Stack environment (you can copy it locally to any location such as: "C:\MarketplaceImages").     
 
 2. Before importing the image, you must connect to the Azure Stack operator’s environment by using the steps described in [configure Azure Stack operator’s PowerShell environment](azure-stack-powershell-configure-admin.md).  
 
