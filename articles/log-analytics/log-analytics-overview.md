@@ -18,52 +18,56 @@ ms.author: bwren
 
 ---
 # What is Log Analytics?
-Log Analytics plays a central role in Azure monitoring by collecting management data from a variety of sources and  giving you insights into the operation of your applications and resources.  You can either interact directly with Log Analytics through log searches and views, or you may use other Azure services such as Application Insights or Azure Security Center that store their data in Log Analytics.  
+Log Analytics plays a central role in Azure management by collecting data from a variety of sources and  providing a query language and analytics engine that gives you insights into the operation of your applications and resources.  This allows you to perform analysis across different kinds of data from multiple services.  You can either interact directly with Log Analytics data through log searches and views, or you may use other Azure services such as Application Insights or Azure Security Center that store their data in Log Analytics.  
 
 
 ![Log Analytics components](media/log-analytics-overview/overview.png)
 
 ## Is Log Analytics for you?
-If you're using management tools such as Application Insights or Azure Security Center, then you'll have data in Log Analytics.  Your decision will be whether to deploy agents to virtual machines to collect thri data into Log Analytics.
 
 The different monitoring services in Azure are described in [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md).  If you have no current monitoring in place for your Azure environment, you should start with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), which collects and analyzes monitoring data for your Azure resources.  Log Analytics can [collect data from Azure Monitor](log-analytics-azure-storage.md) to correlate it with other data and provide additional analysis.
 
-If you want to monitor your on-premises environment or you have existing monitoring using services such as Azure Monitor or System Center Operations Manager, then Log Analytics can add significant value.  It can collect data directly from your agents and also from these other tools into a single repository.  Analysis tools in Log Analytics such as log searches, views, and solutions work against all collected data providing you with centralized analysis of your entire environment.
+If you want to monitor your on-premises environment or you have existing monitoring using services such as Azure Monitor or System Center Operations Manager, then Log Analytics can add significant value.  It collects data directly from your agents and also from these other tools into a single repository.  Analysis tools in Log Analytics such as log searches, views, and solutions work against all collected data providing you with centralized analysis of your entire environment.
 
 
 
 ## Collecting data into Log Analytics
 Log Analytics collects data from a variety of sources.  Once collected, all data can be analyzed together regardless of its original source.  This allows you to analyze data across your entire environment.
 
+![Log Analytics components](media/log-analytics-overview/overview.png)
+
 Methods for collecting data into Log Analytics include the following:
 
-- Azure services such as Application Insights and Azure Security Center store their data directly in Log Analytics.
+- Azure services such as [Application Insights]() and [Azure Security Center]() store their data directly in Log Analytics.  You don't need to do any configuration for this.
 - You configure Azure Monitor to copy metrics and logs that it collects from Azure resources into Log Analytics.
-- Agents on Windows and Linux virtual machines send data to Log Analytics according to [Date Sources]() that you configure.  
-- You can connect a [System Center Operations Manager management group]() to Log Analytics to collect data from its agents.
+- Agents on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) virtual machines send data to Log Analytics according to [Date Sources]() that you configure.  
+- You can connect a [System Center Operations Manager management group](log-analytics-om-agents.md) to Log Analytics to collect data from its agents.
 - If you have custom requirements, then you can use the [HTTP Data Collector API](log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.
 
 
 
-The deployment requirements of Log Analytics are minimal since the central components are hosted in the Azure cloud.  This includes the repository in addition to the services that allow you to correlate and analyze collected data.  The portal can be accessed from any browser so there is no requirement for client software.
+## Query language
 
-You must install agents on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) computers, but there is no additional agent required for computers that are already members of a [connected System Center Operations Manager management group](log-analytics-om-agents.md).  Operations Manager agents will continue to communicate with management servers, which will forward their data to Log Analytics.  Some solutions though will require agents to communicate directly with Log Analytics.  The documentation for each solution will specify its communication requirements.
+Log Analytics includes a rich query language to quickly retrieve and consolidate its data, and you can use [log search in the Azure portal](log-analytics-log-search-portals.md) to create and test queries.  You can either directly work with the data or save queries for use with visualizations, alerts, or export to analysis tools such as Power BI or Excel.
 
-
-
-## Analyzing data from Log Analytics
-Log Analytics includes a rich query language to quickly retrieve and consolidate its data, and you can use [log search in the Azure portal](log-analytics-log-search-portals.md) to create and test queries.  You can either directly work with the data or save queries for use with visualizations, alerts, or export.
-
-![Log search](media/log-analytics-overview/log-search.png)****
+![Log search](media/log-analytics-overview/analytics-query.png)****
 
 
 ## Visualizations
 
-You can visualize data stored in Log Analytics using either [Log Analytics views]() or [Azure dashboards]().  These are based on log searches so they dynamically visualize specific sets of data.  
+You can visualize data stored in Log Analytics using either [Log Analytics views](log-analytics-view-designer.md) or [Azure dashboards](../azure-portal/azure-portal-dashboards.md).  These are based on log searches so they dynamically visualize specific sets of data.  
+
+![Log Analytics View](media/log-analytics-overview/view.png)
+
 
 ## Alerts
 
 You can create alerts from Log Analytics data to proactively notify you of critical conditions using [Azure Alerts]().  A query is automatically run at regular intervals and an alert created if the results match specific criteria.  This allows you combine alerting from Log Analytics with other sources such as [Azure Monitor]() and [Application Insights](), sharing [Action groups]() for response to alert conditions.
+
+![Alert](media/log-analytics-overview/alert.png)
+
+
+## Export
 
 In order to analyze data outside of Log Analytics, you can export the data into tools such as [Power BI](log-analytics-powerbi.md) or Excel.  You can also leverage the [Log Search API](log-analytics-log-search-api.md) to build custom solutions that leverage Log Analytics data or to integrate with other systems.
 
@@ -80,24 +84,6 @@ Solutions are available for a variety of functions, and additional solutions are
 
 
 
-## Using Log Analytics
-You can access Log Analytics through the Azure portal, which runs in any browser and provide you with access to configuration settings and multiple tools to analyze and act on collected data.  From the portal you can leverage [log searches](log-analytics-log-searches.md) where you construct queries to analyze collected data, [dashboards](log-analytics-dashboards.md), which you can customize with graphical views of your most valuable searches, and [solutions](log-analytics-add-solutions.md), which provide additional functionality and analysis tools.
-
-The image below shows the Overview screen that displays summary information for the [solutions](#add-functionality-with-management-solutions) that are installed in the workspace.  You can click on any tile to drill further into the data for that solution.
-
-![OMS portal](media/log-analytics-overview/portal.png)
-
-
-
-
-## Log Analytics components
-At the center of Log Analytics is a repository of collected data, which is hosted in the Azure cloud.  Data is collected  from connected sources by configuring data sources and adding solutions to your subscription.  Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository.  This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
-
-
-
-Connected sources are the computers and other resources that generate data collected by Log Analytics.  This can include agents installed on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) computers that connect directly or agents in a [connected System Center Operations Manager management group](log-analytics-om-agents.md).  For Azure resources, Log Analytics collects data from [Azure Monitor and Azure Diagnostics](log-analytics-azure-storage.md).
-
-[Data sources](log-analytics-data-sources.md) are the different kinds of data collected from each connected source.  This includes [events](log-analytics-data-sources-windows-events.md) and [performance data](log-analytics-data-sources-performance-counters.md) from [Windows](log-analytics-data-sources-windows-events.md) and Linux agents in addition to sources such as [IIS logs](log-analytics-data-sources-iis-logs.md), and [custom text logs](log-analytics-data-sources-custom-logs.md).  You configure each data source that you want to collect, and the configuration is automatically delivered to each connected source.
 
 
 
