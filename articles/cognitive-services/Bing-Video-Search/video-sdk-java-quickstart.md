@@ -1,6 +1,6 @@
 ---
-title: Video Search SDK Java quickstart | Microsoft Docs
-description: Setup for Video Search SDK console application.
+title: Bing Video Search SDK Java Quickstart | Microsoft Docs
+description: Learn how to set up the Bing Video Search SDK console application.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 02/18/2018
 ms.author: v-gedod
 ---
-# Video Search SDK Java quickstart
+# Bing Video Search SDK Java Quickstart
 
-The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
+The Bing Video Search SDK provides the REST API functionality for video queries and parsing results. 
 
 ## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Install Bing Video Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
+Install the Bing Video Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the definition:
 ```
   <dependencies>
     <dependency>
@@ -28,7 +28,7 @@ Install Bing Video Search SDK dependencies using Maven, Gradle, or another depen
   </dependencies> 
 ```
 ## Video Search client
-Add imports to the class implementation:
+Add imports to the class implementation.
 ```
 import com.microsoft.azure.cognitiveservices.videosearch.*;
 import com.microsoft.azure.cognitiveservices.videosearch.Freshness;
@@ -47,7 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 ```
-Implement the `VideoSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
+Implement the **VideoSearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
 ```
 public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
     return new VideoSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -71,7 +71,7 @@ public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
             });
 }
 ```
-Search videos for "Nasa CubeSat"  Verify number of results and print `ID`, `name` and `URL` of first video result.
+Search for videos about "Nasa CubeSat." Verify the number of results. Print the ID, name, and URL for the first video result.
 ```
 public static void VideoSearch(String subscriptionKey)
 {
@@ -113,7 +113,7 @@ public static void VideoSearch(String subscriptionKey)
 
 
 ```
-Search videos for "Interstellar Trailer" free, short, and 1080p resolution.  Verify number of results and print `ID`, `name`, and `URL` of first video result.
+Search for videos about "Interstellar Trailer." Filter the search with the *free*, *short*, and *1080p resolution* parameters. Verify the number of results. Print the ID, name, and URL for the first video result.
 ```
 public static void VideoSearchWithFilters(String subscriptionKey)
 {
@@ -153,7 +153,7 @@ public static void VideoSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Search for trending videos. Verify `bannerTiles` and `categories`.
+Search for trending videos. Verify the **bannerTiles** and **categories** parameters.
 ```
 public static void VideoTrending(String subscriptionKey)
 {
@@ -170,7 +170,7 @@ public static void VideoTrending(String subscriptionKey)
         }
         else
         {
-            // Banner Tiles
+            // Verify the banner tiles
             if (trendingResults.bannerTiles().size() > 0)
             {
                 TrendingVideosTile firstBannerTile = trendingResults.bannerTiles().get(0);
@@ -186,7 +186,7 @@ public static void VideoTrending(String subscriptionKey)
                 System.out.println("Couldn't find banner tiles!");
             }
 
-            // Categories
+            // Verify the categories
             if (trendingResults.categories().size() > 0)
             {
                 TrendingVideosCategory firstCategory = trendingResults.categories().get(0);
@@ -238,7 +238,7 @@ public static void VideoTrending(String subscriptionKey)
 }
 
 ```
-Search images for "Interstellar Trailer", and then search for image `details` of the first video.
+Search for videos about "Interstellar Trailer," and then search for details about the first video result.
 ```
 public static void VideoDetail(String subscriptionKey)
 {
@@ -308,7 +308,7 @@ public static void VideoDetail(String subscriptionKey)
     }
 }
 ```
-Add the previous methods to a class with main function to run the code:
+Add the methods described in this article to a class with a main function for executing the code.
 ```
 package videoSDK;
 import com.microsoft.azure.cognitiveservices.videosearch.*;
@@ -325,7 +325,7 @@ public class VideoSDK {
 
 	}
 
-	// Add methods previously documented.
+    // Include the methods described in this article.
 }
 ```
 ## Next steps
