@@ -42,8 +42,8 @@ Managed Instance is being released initially as a limited public preview that re
 
    ![managed instance preview terms](./media/sql-database-managed-instance-tutorial/preview-approval-pending.png)
 
-> [!NOTE]
-> While awaiting preview approval, you can continue and complete the next few sections of this tutorial.
+   > [!NOTE]
+   > While awaiting preview approval, you can continue and complete the next few sections of this tutorial.
 
 ## Configure a virtual network (VNET)
 
@@ -58,13 +58,13 @@ The following steps show you how to create a new [Azure Resource Manager (ARM)](
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   |**Name**|Any valid name|For valid virtual network names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Address space**|Any valid address range, such as 10.2.0.0/24|The virtual network's address name in CIDR notation.|
+   |**Name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Address space**|Any valid address range, such as 10.14.0.0/24|The virtual network's address name in CIDR notation.|
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
-   |**Resource Group**|Any valid resource group (new or existing)|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Resource Group**|Any valid resource group (new or existing)|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|Any valid location| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
-   |**Subnet name**|Any valid subnet name|or valid virtual network names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Subnet address range**|Any valid subnet address|The subnet's address range in CIDR notation. It must be contained by the address space of the virtual network|
+   |**Subnet name**|Any valid subnet name, such as mi_subnet|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Subnet address range**|Any valid subnet address (smaller than the address space itself), such as 10.14.0.0/28|The subnet's address range in CIDR notation. It must be contained by the address space of the virtual network|
    |**Service endpoints**|Disabled|Enable one or more service endpoints for this subnet|
    ||||
 
@@ -85,9 +85,9 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   |**Name**|Any valid name|For valid route table names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
-   |**Resource Group**|Select the resource group you created in the previous procedure|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Resource Group**|Select the resource group you created in the previous procedure|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|Select the location you specified in the previous procedure| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Disable BCP route propogation**|Disabled||
    ||||
@@ -101,11 +101,13 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
 
 6. Click **Routes** and then click **Add**.
 
+   ![route table add](./media/sql-database-managed-instance-tutorial/route-table-add.png)
+
 7.  Add **0.0.0.0/0 Next Hop Internet route** as the **only** route, using the information in the following table.
 
     | Setting| Suggested value | Description |
     | ------ | --------------- | ----------- |
-    |**Route name**|Any valid name|For valid route names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+    |**Route name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
     |**Address prefix**|0.0.0.0/0|The destination IP address in CIDR notation that this route applies to.|
     |**Next hop type**|Internet|The next hop handles the matching packets for this route|
     |||
@@ -114,7 +116,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
 
 8. Click **OK**.
 9. To set this route table on the subnet where Managed Instance is to be deployed, open the virtual network that you created earlier.
-10. Click **Subnets** and then click the subnet that you created earlier.
+10. Click **Subnets** and then click the Managed Instance subnet that you created earlier (**default**).
 
     ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
 
@@ -144,8 +146,8 @@ The following steps show you how to create your Managed Instance after your prev
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   |**Managed instance name**|Any valid name|For valid instance names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Mnaged instance admin login**|Any valid user name|For valid user names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Managed instance name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Mnaged instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
    |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Resource Group**|The resource group that you created earlier||
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
@@ -154,23 +156,50 @@ The following steps show you how to create your Managed Instance after your prev
    ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
 5. Click **Pricing tier** to review the pricing tier options.
-6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When complete, click **Apply** to save your selection.  
+6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
    ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Click **Create** to deploy the Managed Instance.
-8. Click the **Notifications** icon to view the status of deployment.
+7. When complete, click **Apply** to save your selection.  
+8. Click **Create** to deploy the Managed Instance.
+9. Click the **Notifications** icon to view the status of deployment.
  
    ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
 9. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
  
-   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance.png)
+   ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 10. Record the host name that you specified, as you will need it later in this tutorial to connect to your Managed Instance using SQL Server Management Studio.
 
 While deployment occurs, continue to the next procedure.
  
-## Create a virtual machine in the same VNET
+## Create a new subnet in the VNET for a virtual machine
+
+The following steps show you how to create a second subnet in the VNET for a virtual machine in which you will install SQL Server Management Studio and connect to your Managed Instance.
+
+1. Open your virtual network resource.
+ 
+   ![VNET](./media/sql-database-managed-instance-tutorial/vnet.png)
+
+2. Click **Subnets** and then click **+Subnet**.
+ 
+   ![add subnet](./media/sql-database-managed-instance-tutorial/add-subnet.png)
+
+3. Fill out the subnet form with the requested information, using the information in the following table.
+
+   | Setting| Suggested value | Description |
+   | ------ | --------------- | ----------- |
+   |**Name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Address range (CIDR block)**|Any valid address range within the VNET (use the default)||
+   |**Network security group**|None||
+   |**Route table**|None||
+   |**Service end points**|None||
+
+   ![vm subnet details](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
+
+4. Click **OK**.
+
+## Create a virtual machine in the new subnet in the VNET
 
 The following steps show you how to create a virtual machine in the same VNET in which the Managed Instance is being created. 
 
@@ -183,9 +212,9 @@ The following steps show you how to create a virtual machine in the same VNET in
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   |**Name**|Any valid name|For valid virtual machine names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **VM disk type**|SSD|SSDs provide the best balance between price and performance.|   
-   |**User name**|Any valid user name|For valid user names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**User name**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
    |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource Group**|The resource group that you created earlier||
@@ -204,6 +233,7 @@ The following steps show you how to create a virtual machine in the same VNET in
 6. Under **Settings**, review but keep the default settings. 
 
     ![VM settings](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
+
 7. Click **OK**.
 8. On the summary page, review the offer details and then click **Create** to start the virtual machine deployment.
  
@@ -265,7 +295,7 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   |**Name**|Any valid name|For valid storage account names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Deployment model**|Resource model||
    |**Account kind**|Blob storage||
    |**Performance**|Standard or premium|Magnetic drives or SSDs|
@@ -301,7 +331,7 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   |**Name**|Any valid name|For valid container names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Public access level**|Private (no anonymous access)||
 
    ![container detail](./media/sql-database-managed-instance-tutorial/container-detail.png)
