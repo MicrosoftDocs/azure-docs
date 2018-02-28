@@ -282,6 +282,8 @@
       items:
       - name: Gremlin support
         href: gremlin-support.md
+      - name: Graph partitioning
+        href: graph-partitioning.md
     - name: Table API
       items:
       - name: Table development
