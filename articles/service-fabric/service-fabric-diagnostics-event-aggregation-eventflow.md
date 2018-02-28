@@ -35,7 +35,7 @@ You will see a list of various packages show up, labeled with "Inputs" and "Outp
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(enables initialization of the EventFlow pipeline from Service Fabric service configuration and reports any problems with sending diagnostic data as Service Fabric health reports)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package.
 
 After all the packages are installed, the next step is to configure and enable EventFlow in the service.
 
