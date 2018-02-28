@@ -47,10 +47,9 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
     |/bk:     |The BitLocker key for the drive.         |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage         |
-    |/skipwrite     | Skips write process. Use for in-place data drive preparation.        |
-    
-11. Repeat step 10 for each of disk that needs to be shipped.
-12. A journal file with name provided with /j: parameter is created for every run of the command line.
+
+1. Repeat step 10 for each of disk that needs to be shipped.
+2. A journal file with name provided with /j: parameter is created for every run of the command line.
 
 ### Step 2: Create an Import Job on Azure Portal.
 
