@@ -31,7 +31,7 @@ Azure Container Instances is available in the following regions with the specifi
 
 Container instances created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower CPU and memory settings, or try your deployment at a later time.
 
-Let the team know of additional regions required or increased CPU/Memory limits at [aka.ms/aci/feedback](aka.ms/aci/feedback).
+Let the team know of additional regions required or increased CPU/Memory limits at [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 For more information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 

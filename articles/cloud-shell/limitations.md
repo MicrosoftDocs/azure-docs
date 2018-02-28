@@ -65,7 +65,7 @@ PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initial
 
 ### No $Home directory persistence
 
-Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-resolutions).
+Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-troubleshooting).
 
 ### Default file location when created from Azure drive:
 
