@@ -5,7 +5,7 @@ services: automation
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
