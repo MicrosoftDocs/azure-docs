@@ -25,7 +25,7 @@ Azure Virtual Machines rely on Virtual Hard Disks (VHDs) for the OS disk and any
 
 If an Azure Virtual Machine (VM) has a large number of attached VHDs that are in the same storage account, you may exceed the scalability targets for an individual storage account causing the VM to fail. You should check the minute metrics for the storage account (**TotalRequests**/**TotalIngress**/**TotalEgress**) for spikes that exceed the scalability targets for a storage account. See the section "[Metrics show an increase in PercentThrottlingError]" for assistance in determining if throttling has occurred on your storage account.
 
-In general, each individual input or output operation on a VHD from a Virtual Machine translates to **Get Page** or **Put Page** operations on the underlying page blob. Therefore, you can use the estimated IOPS for your environment to tune how many VHDs you can have in a single storage account based on the specific behavior of your application. We do not recommend having more than 40 disks in a single storage account. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details of the current scalability targets for storage accounts, in particular the total request rate and total bandwidth for the type of storage account you are using.
+In general, each individual input or output operation on a VHD from a Virtual Machine translates to **Get Page** or **Put Page** operations on the underlying page blob. Therefore, you can use the estimated IOPS for your environment to tune how many VHDs you can have in a single storage account based on the specific behavior of your application. We do not recommend having more than 40 disks in a single storage account. See [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) for details of the current scalability targets for storage accounts, in particular the total request rate and total bandwidth for the type of storage account you are using.
 
 If you are exceeding the scalability targets for your storage account, place your VHDs in multiple storage accounts to reduce the activity in each individual account.
 
@@ -55,12 +55,12 @@ Retry deleting storage account, container, or blob after the above steps are com
 2. On the Hub menu, select **All resources**. Go to the storage account, under **Blob Service** select **Containers** and navigate to the blob to be deleted.
 3. If the blob **Lease State** is **Leased**, right click, and select **Edit Metadata** to open Blob metadata pane. 
 
-    ![Screenshot of the portal, with the Storage account blobs and right click > "Edit Metadata" hilighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-edit-metadata-sm.png)
+    ![Screenshot of the portal, with the Storage account blobs and right click > "Edit Metadata" hilighted](./media/troubleshoot-vhds/utd-edit-metadata-sm.png)
 
 4. In Blob metadata pane, check and record the value for **MicrosoftAzureCompute_VMName**. This value is the name of the VM that the VHD is attached to. (See **important** if this field does not exist)
 5. In Blob metadata pane, check and record the value of **MicrosoftAzureCompute_DiskType**. This identifies if the attached disk is OS or data disk (See **important** if this field does not exist). 
 
-     ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-blob-metadata-sm.png)
+     ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
 6. If the blob disk type is **OSDisk** follow [Step 2: Delete VM to detach OS disk](#step-2-delete-vm-to-detach-os-disk). Otherwise, if the blob disk type is **DataDisk** follow the steps in [Step 3: Detach data disk from the VM](#step-3-detach-data-disk-from-the-vm). 
 
@@ -72,7 +72,7 @@ Retry deleting storage account, container, or blob after the above steps are com
 2. On the Hub menu, select **All resources**. Go to the storage account, under **Blob Service** select **Containers** and find the container to be deleted.
 3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **Page blob** and Lease State = **Leased** from this list. Follow [Scenario 1](#step-1-identify-blobs-attached-to-a-vm) to identify the VM associated with each of these blobs.
 
-    ![Screenshot of the portal, with the Storage account blobs and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-disks-sm.png)
+    ![Screenshot of the portal, with the Storage account blobs and the "Lease State" with "Leased" highlighted](./media/troubleshoot-vhds/utd-disks-sm.png)
 
 4. Follow [Step 2](#step-2-delete-vm-to-detach-os-disk) and [Step 3](#step-3-detach-data-disk-from-the-vm) to delete VM(s) with **OSDisk** and detach **DataDisk**. 
 
@@ -80,7 +80,7 @@ Retry deleting storage account, container, or blob after the above steps are com
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **All resources**. Go to the storage account, under **Blob Service** select **Containers**.
 
-    ![Screenshot of the portal, with the storage account containers and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-containers-sm.png)
+    ![Screenshot of the portal, with the storage account containers and the "Lease State" with "Leased" highlighted](./media/troubleshoot-vhds/utd-containers-sm.png)
 
 3. In **Containers** blade, identify all containers where **Lease State** is **Leased** and follow [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) for each **Leased** container.
 4. Follow [Step 2](#step-2-delete-vm-to-detach-os-disk) and [Step 3](#step-3-detach-data-disk-from-the-vm) to delete VM(s) with **OSDisk** and detach **DataDisk**. 
@@ -107,7 +107,7 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 7. Select **Edit** on the top of **Disks** blade.
 8. Click **detach icon** of the data disk to be deleted.
 
-     ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-vm-disks-edit.png)
+     ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Select **Save**. The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, browse to the blob location and in the **Blob properties** pane, the **Lease Status** value should be **Unlocked** or **Available**.
 

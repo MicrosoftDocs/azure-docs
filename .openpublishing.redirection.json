@@ -12550,6 +12550,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-government/documentation-government-services-intelligenceandanalytics.md",
             "redirect_url": "/azure/azure-government/documentation-government-services-dataandanalytics",
             "redirect_document_id": false
