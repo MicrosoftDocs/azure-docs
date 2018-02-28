@@ -283,7 +283,7 @@ The template that you defined in the last step uses parameters to specify the na
         "hubLocation": {
             "value": "westus"
         }
-    },
+    }
 
    ```
 
