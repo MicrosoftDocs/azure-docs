@@ -196,9 +196,9 @@
     href: frequently-asked-questions.md
   - name: Issues and troubleshooting
     href: known-issues-and-troubleshooting-guide.md
-  - name: Support and Training
+  - name: Support and training
     href: support-for-aml-services.md
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: aml-services-pricing.md
