@@ -80,10 +80,10 @@ docker tag microsoft/aci-helloworld $image
 Finally, use [docker push][docker-push] to push the images to the ACR instance.
 
 ```powershell
-docker push  $image
+docker push $image
 ```
 
-## Deploy image ACI
+## Deploy image to ACI
 To deploy to an instance from the registry we will need to convert our Registry Credential to a PSCredential.
 
 ```powershell
@@ -91,7 +91,7 @@ $secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
 $pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. 
+To deploy your container image from the container registry with 1 CPU core and 1 GB of memory, run the following command:
 
 ```powershell
 New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -M
@@ -104,6 +104,8 @@ You should get an intial response back from Azure Resource Manager with details 
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
 ```
 
+Example output: `Succeeded`
+
 ## View the application
 Once the deployment to ACI is successful, retrieve the containers public IP address with the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command:
 
@@ -113,7 +115,7 @@ Once the deployment to ACI is successful, retrieve the containers public IP addr
 
 Example output: `"13.88.176.27"`
 
-To see the running application, navigate to the public IP address in your favorite browser.
+To see the running application, navigate to the public IP address in your favorite browser.  It should look something like this:
 
 ![Hello world app in the browser][aci-app-browser]
 
@@ -127,7 +129,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI. If you would like to use Azure Container Registry with Azure Container Instances, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)

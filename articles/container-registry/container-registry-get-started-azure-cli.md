@@ -135,19 +135,19 @@ Result
 v1
 ```
 
-## Deploy image ACI
-In order to deploy to an instance from the registry the acr password must be retrieved. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command.
+## Deploy image to ACI
+In order to deploy to an instance from the created registry the acr password must be retrieved. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command:
 
 ```azurecli
 az acr update --name <acrName> --admin-enabled true
 ```
 
-Now use this command to retrieve the password:
+Once admin is enabled retrieve the password with this command:
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace <acrLoginServer> and <acrPassword> with the values you obtained from previous commands.
+To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace <acrLoginServer> and <acrPassword> with the values you obtained from previous commands.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
@@ -182,7 +182,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI. If you would like to use Azure Container Registry with Azure Container Instances, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]

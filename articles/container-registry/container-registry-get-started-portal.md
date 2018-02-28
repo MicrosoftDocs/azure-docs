@@ -101,7 +101,7 @@ In this example, we select the **aci-helloworld** repository, and we can see the
 
 ![Creating a container registry in the Azure portal][qs-portal-09]
 
-## Deploy image ACI
+## Deploy image to ACI
 In order to deploy to an instance from the registry we will first need to retrieve the acr password. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command.
 
 ```azurecli
@@ -146,7 +146,7 @@ When no longer needed, delete the **myResourceGroup** resource group. Doing so w
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure portal. If you would like to use Azure Container Registry with Azure Container Instances, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials][container-instances-tutorial-prepare-app]
