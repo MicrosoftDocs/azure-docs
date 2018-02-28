@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the SMTP connector
 Connect to SMTP to send email.
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to SMTP
 Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service. For example, to connect to SMTP, you first need an SMTP *connection*. To create a connection, enter the credentials you normally use to access the service you connect to. So, in the SMTP example, enter the credentials to your connection name, SMTP server address, and user login information to create the connection to SMTP.  
@@ -32,7 +32,7 @@ Before your logic app can access any service, you first need to create a *connec
 > 
 
 ## Use an SMTP trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 In this example, because SMTP does not have a trigger of its own, we'll use the **Salesforce - When an object is created** trigger. This trigger activates when a new object is created in Salesforce. For our example, we'll set it up such that every time a new lead is created in Salesforce, a *send email* action occurs via the SMTP connector with a notification of the new lead being created.
 
@@ -46,7 +46,7 @@ In this example, because SMTP does not have a trigger of its own, we'll use the 
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## Use an SMTP action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Now that the trigger has been added, follow these steps to add an SMTP action that will occur when a new lead is created in Salesforce.
 

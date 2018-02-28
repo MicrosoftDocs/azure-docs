@@ -30,7 +30,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is a Logic App in your subscription. For more information, [Create your first Logic App](../logic-apps/logic-apps-create-a-logic-app.md)
++ Make sure there is a Logic App in your subscription. For more information, [Create your first Logic App](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

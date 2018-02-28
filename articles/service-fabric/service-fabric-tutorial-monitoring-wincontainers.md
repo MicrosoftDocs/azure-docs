@@ -1,6 +1,6 @@
 ---
 title: Monitoring and Diagnostics for Windows Containers in Azure Service Fabric | Microsoft Docs
-description: Set up monitoring and diagnostics for Windows Container orchestrated on Azure Service Fabric.
+description: In this tutorial, you set up monitoring and diagnostics for Windows Container orchestrated on Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 
-# Monitor Windows containers on Service Fabric using OMS
+# Tutorial: monitor Windows containers on Service Fabric using OMS
 
 This is part three of a tutorial, and walks you through setting up OMS to monitor your Windows containers orchestrated on Service Fabric.
 

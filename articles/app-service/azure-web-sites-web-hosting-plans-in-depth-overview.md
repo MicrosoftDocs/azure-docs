@@ -51,7 +51,7 @@ Each tier also provides a specific subset of App Service features. These feature
 > - Medium (two CPU cores, 7 GiB of memory) 
 > - Large (four CPU cores, 14 GiB of memory)  
 >
-> For **PremiumV2** pricing information, see [App Service Pricing](/pricing/details/app-service/).
+> For **PremiumV2** pricing information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 >
 > To get started with the new **PremiumV2** pricing tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
 

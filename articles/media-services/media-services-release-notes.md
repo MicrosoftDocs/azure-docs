@@ -345,8 +345,8 @@ The Media Services SDK for .NET is now version 3.0.0.7
 * Live streaming preview. For more information, see [Work with Media Services live streaming](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Key delivery service. For more information, see [Use AES-128 dynamic encryption and the key delivery service](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * AES dynamic encryption. For more information, see [Use AES-128 dynamic encryption and the key delivery service](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* PlayReady license delivery service. For more information, see [Use PlayReady dynamic encryption and the license delivery service](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* PlayReady dynamic encryption. For more information, see [Use PlayReady dynamic encryption and the license delivery service](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* PlayReady license delivery service. 
+* PlayReady dynamic encryption. 
 * Media Services PlayReady license template. For more information, see the [Media Services PlayReady license template overview].
 * Stream storage-encrypted assets. For more information, see [Stream storage-encrypted content](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 

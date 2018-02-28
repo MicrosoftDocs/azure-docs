@@ -1,3 +1,4 @@
+<!-- Not used for Ls-series -->
 
 ## Size table definitions
 

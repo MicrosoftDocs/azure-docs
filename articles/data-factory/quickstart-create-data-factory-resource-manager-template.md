@@ -3,17 +3,17 @@ title: Create an Azure data factory using Resource Manager template | Microsoft 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: douglaslMS
 manager: jhubbard
-editor: monicar
+editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/28/2017
-ms.author: spelluru
+ms.date: 01/22/2018
+ms.author: douglasl
 
 ---
 # Tutorial: Create an Azure data factory using Azure Resource Manager template
@@ -56,11 +56,12 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 			"type": "string",
 			"allowedValues": [
 				"East US",
-				"East US 2"
+				"East US 2",
+				"West Europe"
 			],
 			"defaultValue": "East US",
 			"metadata": {
-				"description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+				"description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
 			}
 		},
 		"storageAccountName": {
@@ -424,7 +425,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     ```
 
 ## Monitor the pipeline
-1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as **data fa**, and select **Data factories**.
+1. After logging in to the [Azure portal](https://portal.azure.com/), Click **All services**, search with the keyword such as **data fa**, and select **Data factories**.
 
     ![Browse data factories menu](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. In the **Data Factories** page, click the data factory you created. If needed, filter the list with the name of your data factory.  

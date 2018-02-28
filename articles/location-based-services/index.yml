@@ -45,6 +45,6 @@ sections:
     className: cardsW
     items:
     - title: Languages
-      html: <p><a href="https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/">Map Control API - Javascript</a></p>
+      html: <p><a href="https://docs.microsoft.com/javascript/api/location-based-services-javascript/">Map Control API - Javascript</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services/">Functional API - REST</a></p><p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services-management/">Management API - REST</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/location-based-services/">Functional API - REST</a></p><p><a href="https://docs.microsoft.com/rest/api/location-based-services-management/">Management API - REST</a></p>

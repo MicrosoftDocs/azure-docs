@@ -29,7 +29,7 @@ The application lists the containers in blob storage for a storage account. To t
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A general-purpose storage account. If you don't have any storage accounts, you can create one using the [Azure portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), or [Azure CLI](storage-quickstart-create-storage-account-cli.md).
+* A general-purpose storage account. If you don't yet have a storage account, see [Create a storage account](storage-quickstart-create-account.md).
 
 * The example in this article shows how to list the containers in a storage account. To see output, add some containers to blob storage in the storage account before you start.
 

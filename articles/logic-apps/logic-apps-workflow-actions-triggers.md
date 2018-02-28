@@ -20,7 +20,7 @@ ms.author: LADocs; mandia
 # Triggers and actions for logic app workflows
 
 All logic apps start with a trigger followed by actions. 
-This topic describes the kinds of triggers and actions 
+This article describes the kinds of triggers and actions 
 that you can use for creating system integrations and 
 automating business workflows or processes by building logic apps. 
   
@@ -299,7 +299,9 @@ Here are the outputs for an API Connection trigger:
 | headers | Object | The headers of the HTTP response | 
 | body | Object | The body of the HTTP response | 
 |||| 
-  
+
+Learn more about [how pricing works for API Connection triggers](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## HTTPWebhook trigger  
 
 The HTTPWebhook trigger provides an endpoint, similar to the Request trigger, 
@@ -412,7 +414,7 @@ you can start a workflow only when your website returns a status code 500, for e
   
 > [!NOTE]  
 > When any expression references a trigger's status code in any way, 
-> the default behavior, which is trigger only on 200 "OK", is replaced. 
+> the default behavior, which is triggered only on 200 "OK", is replaced. 
 > For example, if you want to trigger on both status code 200 and status code 201, 
 > you have to include: `@or(equals(triggers().code, 200),equals(triggers().code,201))` as your condition.
   
@@ -520,7 +522,7 @@ Collection actions can contain many other actions within themselves.
 | **Function** | Represents an Azure function. | 
 | **Wait** | Waits a fixed amount of time or until a specific time. | 
 | **Workflow** | Represents a nested workflow. | 
-| **Compose** | Constructs an arbitary object from the action's inputs. | 
+| **Compose** | Constructs an arbitrary object from the action's inputs. | 
 | **Query** | Filters an array based on a condition. | 
 | **Select** | Projects each element of an array into a new value. For example, you can convert an array of numbers into an array of objects. | 
 | **Table** | Converts an array of items into a CSV or HTML table. | 
@@ -590,7 +592,7 @@ a 30-second delay between each attempt:
 The retry interval is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). 
 This interval has a default and minimum value of 20 seconds, while the maximum value is one hour. 
 The default and maximum retry count is four hours. 
-If the you don't specify the retry policy definition, 
+If you don't specify the retry policy definition, 
 a `fixed` strategy is used with default retry count and interval values. 
 To disable the retry policy, set its type to `None`.
 

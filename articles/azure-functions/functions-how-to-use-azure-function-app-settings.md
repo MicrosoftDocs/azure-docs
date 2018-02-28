@@ -67,7 +67,7 @@ For more information about how to work with App Service settings, see [Configure
 
 | | |
 |-|-|
-| ![Function app application settings.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | The App Service **Application settings** blade is where you configure and manage framework versions, remote debugging, app settings, and connection strings. When you integrate your function app with other Azure and third-party services, you can modify those settings here. |
+| ![Function app application settings.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | The App Service **Application settings** blade is where you configure and manage framework versions, remote debugging, app settings, and connection strings. When you integrate your function app with other Azure and third-party services, you can modify those settings here. To delete a setting, scroll to the right and select the **X** icon at the right end of the line (not shown in the following image).
 
 ![Configure application settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -116,7 +116,7 @@ For more information about how to work with App Service settings, see [Configure
 
 | | |
 |-|-|
-| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Get Started with API Apps and Swagger in Azure](../app-service/app-service-web-tutorial-rest-api.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). |
+| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Host a RESTful API with CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). |
 
 ![Configure Function App's API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

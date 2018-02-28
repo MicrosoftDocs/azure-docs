@@ -25,7 +25,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the left pane, click **Advisor**.  If you do not see Advisor in the left pane, click **More services**.  In the service menu pane, under **Monitoring and Management**, click **Advisor**.
+2. In the left pane, click **Advisor**.  If you do not see Advisor in the left pane, click **All services**.  In the service menu pane, under **Monitoring and Management**, click **Advisor**.
  The Advisor dashboard is displayed.
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -63,17 +63,17 @@ You can filter recommendations to drill down to what is most important to you.  
 
     ![Advisor search-filter criteria](./media/advisor-get-started/advisor-filters.png)
 
-## Snooze or dismiss Advisor recommendations
+## Postpone or dismiss Advisor recommendations
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Navigate to the recommendation you want to snooze or dismiss.
+2. Navigate to the recommendation you want to postpone or dismiss.
 
 3. Click the recommendation.
 
-4. Click **Snooze**. 
+4. Click **Postpone**. 
 
-5. Specify a snooze time period, or select **Never** to dismiss the recommendation.
+5. Specify a postpone time period, or select **Never** to dismiss the recommendation.
 
 ## Exclude subscriptions or resource groups from Advisor
 

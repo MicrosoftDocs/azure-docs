@@ -128,6 +128,10 @@ part of the allowed values
 
 Double check the allowed values in the template, and provide one during deployment.
 
-### Solution 4 - circular dependency detected
+### Solution 4 - Too many target resource groups
+
+If you specify more than five target resource groups in a single deployment, you receive this error. Consider either consolidating the number of resource groups in your deployment, or deploying some of the templates as separate deployments. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
+
+### Solution 5 - circular dependency detected
 
 You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies.

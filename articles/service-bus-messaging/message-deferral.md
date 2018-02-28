@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
 
 ---
@@ -33,9 +33,9 @@ The API is [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.br
 
 Deferred messages remain in the main queue along with all other active messages (unlike dead-letter messages that live in a sub-queue), but they can no longer be received using the regular Receive/ReceiveAsync functions. Deferred messages can be discovered via [message browsing](message-browsing.md) if an application loses track of them.
 
-To retrieve a deferred message, its "owner" is responsible for remembering the [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) as it defers it. Any receiver that knows the **SequenceNumber** of a deferred message can later receive the message explicitly with Receive(sequenceNumber).
+To retrieve a deferred message, its owner is responsible for remembering the [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) as it defers it. Any receiver that knows the sequence number of a deferred message can later receive the message explicitly with `Receive(sequenceNumber)`.
 
-If a message cannot be processed because a particular resource for handling that message is temporarily unavailable but message processing should not be summarily suspended, an elegant way to put that message on the side for a few minutes is to remember the **SequenceNumber** in a [scheduled message](message-sequencing.md) to be posted in a few minutes, and re-retrieve the deferred message when the scheduled message arrives. Note that if a message handler depends on a database for all operations and that database is temporarily unavailable, it should not use deferral, but rather suspend receiving messages altogether until the database is available again.
+If a message cannot be processed because a particular resource for handling that message is temporarily unavailable but message processing should not be summarily suspended, a way to put that message on the side for a few minutes is to remember the **SequenceNumber** in a [scheduled message](message-sequencing.md) to be posted in a few minutes, and re-retrieve the deferred message when the scheduled message arrives. Note that if a message handler depends on a database for all operations and that database is temporarily unavailable, it should not use deferral, but rather suspend receiving messages altogether until the database is available again.
 
 Deferring messages does not impact the message expiration, meaning that deferred messages still expire at the initially scheduled time and are then moved into the dead-letter queue, if so configured.
 

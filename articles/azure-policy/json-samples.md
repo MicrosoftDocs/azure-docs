@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: samples
 ms.tgt_pltfrm:
 ms.workload:
-ms.date: 11/13/2017
+ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
 
@@ -52,7 +52,7 @@ The following table includes links to json templates for Azure Policy. These sam
 | [Allowed Load Balancer SKUs](scripts/allowed-lb-skus.md) | Requires that load balancers use an approved SKU. You specify an array of allowed SKUs. |
 | [No network peering to ER network](scripts/no-peering-er-net.md) | Prohibits a network peering from being associated to a network in a specified resource group. Use to prevent connection with central managed network infrastructure. You specify the name of the resource group to prevent association. |
 | [No User Defined Route Table](scripts/no-user-def-route-table.md)  |Prohibits virtual networks from being deployed with a user-defined route table. |
-| [Allowed Virtual Network Gateway SKUs](scripts/no-user-def-route-table.md) | Requires that virtual network gateways use an approved SKU and gateway type. You specify an array of approved SKUs and an array of approved gateway types. |
+| [Allowed Virtual Network Gateway SKUs](scripts/allowed-vn-gate-sku.md) | Requires that virtual network gateways use an approved SKU and gateway type. You specify an array of approved SKUs and an array of approved gateway types. |
 | [Use approved subnet for VM network interfaces](scripts/use-approved-subnet-vm-nics.md) | Requires that network interfaces use an approved subnet. You specify the ID of the approved subnet. |
 | [Use approved vNet for VM network interfaces](scripts/use-approved-vnet-vm-nics.md) | Requires that network interfaces use an approved virtual network. You specify the ID of the approved virtual network. |
 |**Tags**||

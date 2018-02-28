@@ -109,7 +109,7 @@ The next stage of the deployment is to create the VM to use as the "golden image
    > [!NOTE]
    > To create the VM to use for subsequent deployments, see [Azure DevTest Labs tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. For **Lab Name**, select the name of the instance that you created earlier.
 
@@ -139,7 +139,7 @@ The next stage of the deployment is to create the VM to use as the "golden image
 
    a. For **Azure Connection Type**, select **Azure Resource Manager**.
 
-   b. For **Azure RM Subscription**, select a connection from the list under **Available Azure Service Connections**, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. For **Azure RM Subscription**, select a connection from the list under **Available Azure Service Connections**, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    c. For **Script Type**, select **Script File**.
  
@@ -166,7 +166,7 @@ The next stage is to create an image of the newly deployed VM in your Azure DevT
    > [!NOTE]
    > To create the image, see [Azure DevTest Labs tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. For **Azure RM Subscription**, in the **Available Azure Service Connections** list, select a connection from the list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. For **Azure RM Subscription**, in the **Available Azure Service Connections** list, select a connection from the list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. For **Lab Name**, select the name of the instance you created earlier.
 
@@ -187,7 +187,7 @@ The final stage is to delete the VM that you deployed in your Azure DevTest Labs
       > [!NOTE]
       > To delete the VM, see [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
  
    b. For **Lab VM ID**, if you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default value is **$(labVMId)**.
 

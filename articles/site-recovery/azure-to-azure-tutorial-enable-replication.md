@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -38,7 +38,7 @@ To complete this tutorial:
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported

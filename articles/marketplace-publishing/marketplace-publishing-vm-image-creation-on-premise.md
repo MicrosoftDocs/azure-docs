@@ -90,7 +90,7 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
 
 **Create a storage account from the Microsoft Azure portal**
 
-1. Click **New**.
+1. Click **Create a resource**.
 2. Select **Storage**.
 3. Fill in the storage account name, and then select a location.
    

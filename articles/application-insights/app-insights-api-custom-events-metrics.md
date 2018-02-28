@@ -155,7 +155,7 @@ To send a single metric value:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -175,7 +175,7 @@ Here is an example of aggregating code:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -411,32 +411,34 @@ You can also call it yourself if you want to simulate requests in a context wher
 However, the recommended way to send request telemetry is where the request acts as an <a href="#operation-context">operation context</a>.
 
 ## Operation context
-You can associate telemetry items together by attaching to them a common operation ID. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can easily find any events associated with the request using its operation Id.
 
-The easiest way to set the ID is to set an operation context by using this pattern:
+See [Telemetry correlation in Application Insights](application-insights-correlation.md) for more details on correlation.
+
+When tracking telemetry manually, the easiest way to ensure telemetry correlation by using this pattern:
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Along with setting an operation context, `StartOperation` creates a telemetry item of the type that you specify. It sends the telemetry item when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, its duration is set to the timed interval between start and stop.
 
-Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with `StartOperation`.
+Telemetry items reported within a scope of operation become 'children' of such operation. Operation contexts could be nested. 
 
 In Search, the operation context is used to create the **Related Items** list:
 
@@ -571,7 +573,7 @@ If [sampling](app-insights-sampling.md) is in operation, the itemCount property 
 ## TrackDependency
 Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -897,7 +899,7 @@ You can write code to process your telemetry before it's sent from the SDK. The 
 
 [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
 
-[Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+[Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
 
 [Sampling](app-insights-api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests, and page views.
 
@@ -908,7 +910,7 @@ To *dynamically stop and start* the collection and transmission of telemetry:
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 

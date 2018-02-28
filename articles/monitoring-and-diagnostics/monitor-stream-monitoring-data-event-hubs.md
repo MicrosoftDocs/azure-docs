@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 2/13/2018
 ms.author: johnkem
 
 ---
@@ -89,8 +89,10 @@ Application monitoring data requires that your code is instrumented with an SDK,
 
 Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools. Most tools require the event hub connection string and certain permissions to your Azure subscription to read data from the event hub. Here is a non-exhaustive list of tools with Azure Monitor integration:
 
-* **IBM QRadar** - The QRadar connector for event hubs is currently in beta. It will soon be available to install manually from IBM Fix Central or automatically through QRadar's auto update process.
-* **Splunk** - [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **IBM QRadar** - The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](http://www.ibm.com/support). You can [learn more about the integration with Azure here](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **Splunk** - Depending on your Splunk setup, there are two approaches:
+    1. [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** - Instructions for setting up SumoLogic to consume data from an event hub are [available here](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## Next Steps

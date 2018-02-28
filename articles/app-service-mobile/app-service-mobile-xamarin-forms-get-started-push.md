@@ -192,7 +192,6 @@ With the back end configured with FCM, you can add components and codes to the c
             }
         }
 
-
     The `OnMessageReceived` method, which is invoked when an application receives a notification from FCM, extracts the message content, and calls the `SendNotification` method. This method converts the message content into a local notification that's launched while the application is running, with the notification appearing in the notification area.
 
 Now, you are ready test push notifications in the app running on an Android device or the emulator.

@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -25,7 +25,7 @@ To support seamless interoperability across protocols, IoT Hub defines a common 
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 * An opaque binary body.
 
-Property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` when you:  
+Property names and values can only contain ASCII alphanumeric characters, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` when you:  
 
 * Send device-to-cloud messages using the HTTPS protocol.
 * Send cloud-to-device messages.

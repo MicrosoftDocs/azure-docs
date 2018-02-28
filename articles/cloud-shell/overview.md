@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 02/15/2018
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
-It gives you the flexibility of choosing the shell experience that best suits the way you work.
+It provides the flexibility of choosing the shell experience that best suits the way you work.
 Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
 Try from shell.azure.com using this button.
@@ -79,7 +79,7 @@ An advanced option is provided to associate existing resources to Cloud Shell.
 At the storage setup prompt, click "Show advanced settings" to show additional options.
 
 > [!Note]
-> Dropdowns are filtered for your pre-assigned Cloud Shell region and LRS/GRS storage accounts.
+> Dropdowns are filtered for your pre-assigned Cloud Shell region and LRS/GRS/ZRS storage accounts.
 
 [Learn about Cloud Shell storage, updating Azure file shares, and uploading/downloading files.](persisting-shell-storage.md)
 

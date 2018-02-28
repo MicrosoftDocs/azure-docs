@@ -1,5 +1,5 @@
 ---
-title: Create a Linux virtual machine scale set in the Azure portal | Microsoft Docs
+title: Create a Virtual Machine Scale Set in the Azure portal | Microsoft Docs
 description: Learn how to quickly create a virtual machine scale in the Azure portal
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
@@ -34,7 +34,7 @@ Log in to the Azure portal at http://portal.azure.com.
 ## Create virtual machine scale set
 You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Search for *scale set*, choose **Virtual machine scale set**, then select **Create**.
 3. Enter a name for the scale set, such as *myScaleSet*.
 4. Select your desired OS type, such as *Windows Server 2016 Datacenter*.

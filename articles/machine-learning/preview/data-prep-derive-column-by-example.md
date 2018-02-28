@@ -65,6 +65,10 @@ In the advanced mode, you can add any row as an example row by double-clicking o
 
 User can switch between the **Basic Mode** and the **Advanced Mode** by clicking the links in the Transform Editor.
 
+### Transform editor: Send Feedback
+
+Clicking on the **Send feedback** link opens the **Feedback** dialog with the comments box prepopulated with the examples user has provided. User should review the content of the comments box and provide more details to help us understand the issue. If the user does not want to share data with Microsoft, user should delete the prepopulated example data before clicking the **Send Feedback** button. 
+
 ### Editing existing transformation
 
 A user can edit an existing **Derive Column By Example** transform by selecting **Edit** option of the Transformation Step. Clicking on **Edit** opens the Transform Editor in **Advanced Mode**, and all the examples that were provided during creation of the transform are shown.

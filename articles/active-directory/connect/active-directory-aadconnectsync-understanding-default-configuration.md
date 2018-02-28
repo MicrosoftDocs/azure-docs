@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Understanding the default configuration | Microso
 description: This article describes the default configuration in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 

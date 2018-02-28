@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 02/01/2018
 ---
 # Use data transforms for data preparation in Azure Machine Learning
 

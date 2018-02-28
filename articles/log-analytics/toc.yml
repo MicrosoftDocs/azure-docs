@@ -11,7 +11,7 @@
     href: log-analytics-quick-collect-azurevm.md
   - name: Collect - Linux computer
     href: log-analytics-quick-collect-linux-computer.md
-  - name: Collect - Windows Computer
+  - name: Collect - Windows computer
     href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:
@@ -39,6 +39,8 @@
     href: log-analytics-faq.md
   - name: Data consumption
     href: log-analytics-usage.md
+  - name: Data security
+    href: log-analytics-data-security.md
   - name: Manage access
     href: log-analytics-manage-access.md
   - name: Monitor hybrid environments
@@ -105,7 +107,7 @@
       href: https://docs.loganalytics.io
     - name: Transition from legacy language
       href: log-analytics-log-search-transition.md
-    - name: Cross-workspace searches
+    - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
       href: log-analytics-log-search-takeaction.md
@@ -113,6 +115,8 @@
       href: log-analytics-computer-groups.md
     - name: Flow connector
       href: log-analytics-flow-tutorial.md
+    - name: Log Search API
+      href: https://dev.loganalytics.io/
   - name: Legacy log search
     items:
     - name: Log searches overview
@@ -122,6 +126,11 @@
       items:
       - name: Regular expressions
         href: log-analytics-log-searches-regex.md
+    - name: Log Search API
+      href: log-analytics-log-search-api.md
+      items:
+      - name: Python
+        href: log-analytics-log-search-api-python.md
   - name: Analyze data
     items:
     - name: Dashboards
@@ -222,7 +231,15 @@
     - name: Networking Analytics
       href: log-analytics-azure-networking-analytics.md
     - name: Network Performance Monitor
-      href: log-analytics-network-performance-monitor.md
+      items:
+      - name: Solution overview
+        href: log-analytics-network-performance-monitor.md
+      - name: Performance Monitor
+        href: log-analytics-network-performance-monitor-performance-monitor.md
+      - name: Service Endpoint
+        href: log-analytics-network-performance-monitor-service-endpoint.md
+      - name: ExpressRoute
+        href: log-analytics-network-performance-monitor-expressroute.md
     - name: Office 365
       href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: SCOM Health Check
@@ -258,11 +275,6 @@
       href: log-analytics-powershell-workspace-configuration.md
     - name: Resource Manager templates
       href: log-analytics-template-workspace-configuration.md
-    - name: Log Search API
-      href: log-analytics-log-search-api.md
-      items:
-      - name: Python
-        href: log-analytics-log-search-api-python.md
     - name: Alert API
       href: log-analytics-api-alerts.md
 - name: Reference

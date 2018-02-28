@@ -102,8 +102,8 @@ The **Get-AzurePublishSettingsFile** will create a new management certificate in
 You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
 
 For more information, see the following articles:
-- [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
-- [Common Cloud Service startup tasks](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+- [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Common Cloud Service startup tasks](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## Monitoring and logging
 

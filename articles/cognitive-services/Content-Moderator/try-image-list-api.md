@@ -12,13 +12,15 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Moderate images by using custom lists in the API console
+# Moderate with custom image lists in the API console
 
-You can use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure Content Moderator to create custom lists of images. Use the custom lists of images with the Image Moderation API. The image moderation operation evaluates your image. If you create custom lists, the operation also compares it to the images in your custom lists. You can use custom lists to block or allow the image.
+You use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure Content Moderator to create custom lists of images. Use the custom lists of images with the Image Moderation API. The image moderation operation evaluates your image. If you create custom lists, the operation also compares it to the images in your custom lists. You can use custom lists to block or allow the image.
 
-You can also use the List Management API to create and manage custom lists of images. This article focuses on lists of images.
+> [!NOTE]
+> There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
+>
 
-You can use the List Management API to do these tasks:
+You use the List Management API to do the following tasks:
 
 - Create a list.
 - Add images to a list.
@@ -31,7 +33,27 @@ You can use the List Management API to do these tasks:
 ## Use the API console
 Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
+## Refresh search index
+
+After you make changes to an image list, you must refresh its index for changes to be included in future scans. This step is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
+
+1.	In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image Lists**, and then select **Refresh Search Index**.
+
+  The **Image Lists - Refresh Search Index** page opens.
+
+2. For **Open API testing console**, select the region that most closely describes your location. 
+ 
+    ![Image Lists - Refresh Search Index page region selection](images/test-drive-region.png)
+
+    The **Image Lists - Refresh Search Index** API console opens.
+
+3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
+
+  ![Image Lists - Refresh Search Index console Response content box](images/try-image-list-refresh-1.png)
+
+
 ## Create an image list
+
 1.	Go to the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
 
   The **Image Lists - Create** page opens. 
@@ -48,7 +70,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
   ![Image Lists - Create console Request body name and description](images/try-terms-list-create-1.png)
 
-6.	Use key-value pair placeholders to assign more descriptive metadata to your list. For example, enter something like this:
+6.	Use key-value pair placeholders to assign more descriptive metadata to your list.
 
         {
            "Name": "MyExclusionList",
@@ -60,9 +82,9 @@ Before you can test-drive the API in the online console, you need your subscript
            }
         }
 
-  Note that here we add list metadata as key-value pairs, and not the actual images.
+  Add list metadata as key-value pairs, and not the actual images.
  
-7.	Select **Send**. Your list is created. Take note of the **Id** value that is associated with the new list. You will need this for other image list management functions.
+7.	Select **Send**. Your list is created. Note the **ID** value that is associated with the new list. You need this ID for other image list management functions.
 
   ![Image Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
  
@@ -108,7 +130,9 @@ This example deletes a single image:
  
   The **Image - Delete** API console opens.
  
-3.	In the **listId** box, enter the ID of the list that you want to delete an image from.  This is the number (in our example, the list ID is **58953**, the value for **ContentSource**) that was returned in the **Image - Get All Image Ids** console for MyList. Then, enter the **ImageId** of the image you want to delete (in our example, the image ID is **59021**, the value for **ContentIds**).
+3.	In the **listId** box, enter the ID of the list to delete an image from.  This is the number returned in the **Image - Get All Image Ids** console for MyList. Then, enter the **ImageId** of the image to delete. 
+
+In our example, the list ID is **58953**, the value for **ContentSource**. The image ID is **59021**, the value for **ContentIds**.
 
 4.	Enter your subscription key, and then select **Send**.
 
@@ -134,24 +158,7 @@ You can edit a list’s name and description, and add metadata items.
 
   ![Image Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
  
-## Refresh Search Index
-
-After you make changes to an image list, you must refresh its index for changes to be included in future scans. This is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
-
-1.	In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image Lists**, and then select **Refresh Search Index**.
-
-  The **Image Lists - Refresh Search Index** page opens.
-
-2. For **Open API testing console**, select the region that most closely describes your location. 
- 
-    ![Image Lists - Refresh Search Index page region selection](images/test-drive-region.png)
-
-    The **Image Lists - Refresh Search Index** API console opens.
-
-3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
-
-  ![Image Lists - Refresh Search Index console Response content box](images/try-image-list-refresh-1.png)
 
 ## Next steps
 
-* Learn how to use the [List Management API for term lists](try-terms-list-api.md).
+Use the REST API in your code or start with the [Image lists .NET quickstart](image-lists-quickstart-dotnet.md) to integrate with your application.

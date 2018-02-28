@@ -29,7 +29,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016. After 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Create VM detailed")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-quick.ps1 "Create VM")]
 
 ## Clean up deployment 
 

@@ -196,4 +196,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also 
 
 [Bing Entity Search overview](../search-the-web.md )
-[API Reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+[API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

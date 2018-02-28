@@ -4,7 +4,7 @@ description: Learn how to use Spark MLlib to create a machine learning app that 
 keywords: spark machine learning, spark machine learning example
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
-ms.author: nitinme
+ms.author: jgao
 
 ---
 # Use Spark MLlib to build a machine learning application and analyze a dataset
@@ -76,9 +76,9 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
         from pyspark.sql.types import *
 
 ## Construct an input dataframe
-We can use `sqlContext` to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*.
+You can use `sqlContext` to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*.
 
-1. Because the raw data is in a CSV format, we need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually.
+1. Because the raw data is in a CSV format, you need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually.
 
         def csvParse(s):
             import csv
@@ -90,7 +90,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. We now have the CSV file as an RDD.  To understand the schema of the data, we retrieve one row from the RDD.
+1. You now have the CSV file as an RDD.  To understand the schema of the data, you retrieve one row from the RDD.
 
         inspections.take(1)
 
@@ -117,7 +117,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. The preceding output gives us an idea of the schema of the input file. It includes the name of every establishment, the type of establishment, the address, the data of the inspections, and the location, among other things. Let's select a few columns that are useful for our predictive analysis and group the results as a dataframe, which we then use to create a temporary table.
+1. The preceding output gives us an idea of the schema of the input file. It includes the name of every establishment, the type of establishment, the address, the data of the inspections, and the location, among other things. Let's select a few columns that are useful for our predictive analysis and group the results as a dataframe, which you then use to create a temporary table.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -127,7 +127,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. We now have a *dataframe*, `df` on which we can perform our analysis. We also have a temporary table call **CountResults**. We've included four columns of interest in the dataframe: **id**, **name**, **results**, and **violations**.
+1. You now have a *dataframe*, `df` on which you can perform our analysis. You also have a temporary table call **CountResults**. We've included four columns of interest in the dataframe: **id**, **name**, **results**, and **violations**.
 
     Let's get a small sample of the data:
 
@@ -169,7 +169,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. A quick visualization can help us reason about the distribution of these outcomes. We already have the data in a temporary table **CountResults**. You can run the following SQL query against the table to get a better understanding of how the results are distributed.
+1. A quick visualization can help us reason about the distribution of these outcomes. You already have the data in a temporary table **CountResults**. You can run the following SQL query against the table to get a better understanding of how the results are distributed.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -204,8 +204,8 @@ We can use `sqlContext` to perform transformations on structured data. The first
    * Pss w/ conditions
    * Out of Business
 
-     Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when we train the model, we consider the two results equivalent. Data with the other results ("Business Not Located" or "Out of Business") are not useful so we remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
-1. Let us go ahead and convert our existing dataframe(`df`) into a new dataframe where each inspection is represented as a label-violations pair. In our case, a label of `0.0` represents a failure, a label of `1.0` represents a success, and a label of `-1.0` represents some results besides those two. We filter those other results out when computing the new data frame.
+     Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when you train the model, you consider the two results equivalent. Data with the other results ("Business Not Located" or "Out of Business") are not useful so you remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
+1. Let us go ahead and convert our existing dataframe(`df`) into a new dataframe where each inspection is represented as a label-violations pair. In our case, a label of `0.0` represents a failure, a label of `1.0` represents a success, and a label of `-1.0` represents some results besides those two. You filter those other results out when computing the new data frame.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -230,11 +230,11 @@ We can use `sqlContext` to perform transformations on structured data. The first
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## Create a logistic regression model from the input dataframe
-Our final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm should be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, we need to convert the "violations" column, which is semi-structured and contains many comments in free-text, to an array of real numbers that a machine could easily understand.
+Our final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm should be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, you need to convert the "violations" column, which is semi-structured and contains many comments in free-text, to an array of real numbers that a machine could easily understand.
 
 One standard machine learning approach for processing natural language is to assign each distinct word an "index", and then pass a vector to the machine learning algorithm such that each index's value contains the relative frequency of that word in the text string.
 
-MLlib provides an easy way to perform this operation. First, "tokenize" each violations string to get the individual words in each string. Then, use a `HashingTF` to convert each set of tokens into a feature vector that can then be passed to the logistic regression algorithm to construct a model. We conduct all of these steps in sequence using a "pipeline".
+MLlib provides an easy way to perform this operation. First, "tokenize" each violations string to get the individual words in each string. Then, use a `HashingTF` to convert each set of tokens into a feature vector that can then be passed to the logistic regression algorithm to construct a model. You conduct all of these steps in sequence using a "pipeline".
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -244,7 +244,7 @@ MLlib provides an easy way to perform this operation. First, "tokenize" each vio
     model = pipeline.fit(labeledData)
 
 ## Evaluate the model on a separate test dataset
-We can use the model we created earlier to *predict* what the results of new inspections will be, based on the violations that were observed. We trained this model on the dataset **Food_Inspections1.csv**. Let us use a second dataset, **Food_Inspections2.csv**, to *evaluate* the strength of this model on new data. This second data set (**Food_Inspections2.csv**) should already be in the default storage container associated with the cluster.
+You can use the model you created earlier to *predict* what the results of new inspections will be, based on the violations that were observed. You trained this model on the dataset **Food_Inspections1.csv**. Let us use a second dataset, **Food_Inspections2.csv**, to *evaluate* the strength of this model on new data. This second data set (**Food_Inspections2.csv**) should already be in the default storage container associated with the cluster.
 
 1. The following snippet creates a new dataframe, **predictionsDf** that contains the prediction generated by the model. The snippet also creates a temporary table called **Predictions** based on the dataframe.
 
@@ -276,7 +276,7 @@ We can use the model we created earlier to *predict* what the results of new ins
         predictionsDf.take(1)
 
    There is a prediction for the first entry in the test data set.
-1. The `model.transform()` method applies the same transformation to any new data with the same schema, and arrive at a prediction of how to classify the data. We can do some simple statistics to get a sense of how accurate our predictions were:
+1. The `model.transform()` method applies the same transformation to any new data with the same schema, and arrive at a prediction of how to classify the data. You can do some simple statistics to get a sense of how accurate our predictions were:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -298,9 +298,9 @@ We can use the model we created earlier to *predict* what the results of new ins
     Using logistic regression with Spark gives us an accurate model of the relationship between violations descriptions in English and whether a given business would pass or fail a food inspection.
 
 ## Create a visual representation of the prediction
-We can now construct a final visualization to help us reason about the results of this test.
+You can now construct a final visualization to help us reason about the results of this test.
 
-1. We start by extracting the different predictions and results from the **Predictions** temporary table created earlier. The following queries separate the output as *true_positive*, *false_positive*, *true_negative*, and *false_negative*. In the queries below, we turn off visualization by using `-q` and also save the output (by using `-o`) as dataframes that can be then used with the `%%local` magic.
+1. You start by extracting the different predictions and results from the **Predictions** temporary table created earlier. The following queries separate the output as *true_positive*, *false_positive*, *true_negative*, and *false_negative*. In the queries below, you turn off visualization by using `-q` and also save the output (by using `-o`) as dataframes that can be then used with the `%%local` magic.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -340,7 +340,6 @@ After you have finished running the application, you should shut down the notebo
 ### Scenarios
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications

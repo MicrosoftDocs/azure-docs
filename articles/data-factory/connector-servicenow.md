@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/22/2018
 ms.author: jingwang
 
 ---
@@ -34,7 +34,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to ServiceNow connector.
 
@@ -45,12 +45,12 @@ The following properties are supported for ServiceNow linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **ServiceNow** | Yes |
-| endpoint | The endpoint of the ServiceNow server. (that is, http://ServiceNowData.com)  | Yes |
+| endpoint | The endpoint of the ServiceNow server (`http://ServiceNowData.com`).  | Yes |
 | authenticationType | The authentication type to use. <br/>Allowed values are: **Basic**, **OAuth2** | Yes |
 | username | The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.  | No |
-| password | The password corresponding to the user name for Basic and OAuth2 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user name for Basic and OAuth2 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | clientId | The client ID for OAuth2 authentication.  | No |
-| clientSecret | The client secret for OAuth2 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| clientSecret | The client secret for OAuth2 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
@@ -100,14 +100,24 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by ServiceNow source.
 
-### ServiceNowSource as source
+### ServiceNow as source
 
 To copy data from ServiceNow, set the source type in the copy activity to **ServiceNowSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM alm.asset"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Actual.alm_asset"`. | Yes |
+
+Note the following when specifying the schema and column for ServiceNow in query:
+
+- **Schema:** specify the schema as `Actual` or `Display` in the ServiceNow query, which you can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow restful APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Column:** the column name for actual value under `Actual` scehma is `[columne name]_value`, while for display value under `Display` schema is `[columne name]_display_value`. Note the column name need map to the schema being used in the query.
+
+**Sample query:**
+`SELECT col_value FROM Actual.alm_asset`
+OR 
+`SELECT col_display_value FROM Display.alm_asset`
 
 **Example:**
 
@@ -131,7 +141,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

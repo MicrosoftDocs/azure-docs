@@ -17,6 +17,7 @@
 ### [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade from a previous version](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Install using an existing ADSync database](active-directory-aadconnect-existing-database.md)
+### [Install using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md)
 
 # How to
 ## Plan and design
@@ -51,10 +52,12 @@
 
 
 ## Manage Azure AD Connect Sync
+### [GDPR compliance and Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installation wizard](active-directory-aadconnectsync-installation-wizard.md)
+### [How UserPrincipalName is populated](active-directory-aadconnect-userprincipalname.md)
 ### [Change the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
@@ -80,6 +83,7 @@
 ### [Connectivity](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Object sync using the troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [LargeObject error caused by userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

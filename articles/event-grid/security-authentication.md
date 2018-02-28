@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -20,7 +20,7 @@ Azure Event Grid has three types of authentication:
 
 ## WebHook Event delivery
 
-Webhooks are one of many ways to receive events in real time from Azure Event Grid. Every time there is a new event ready to be delivered, the Event Grid Webhook seeds an HTTP request to the configured HTTP endpoint with the event in the body.
+Webhooks are one of many ways to receive events in real time from Azure Event Grid. Every time there is a new event ready to be delivered, the Event Grid Webhook sends an HTTP request to the configured HTTP endpoint with the event in the body.
 
 When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code in order to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid does not deliver events to WebHook endpoints that have not passed the validation.
 
@@ -42,7 +42,9 @@ An example SubscriptionValidationEvent is shown in the following example:
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-  "eventTime": "2017-08-06T22:09:30.740323Z"
+  "eventTime": "2018-01-25T22:12:19.4556811Z",
+  "metadataVersion": "1",
+  "dataVersion": "1"
 }]
 ```
 
@@ -53,6 +55,11 @@ In order to prove endpoint ownership, echo back the validation code in the valid
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### Event delivery security
+
+You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) which the webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
+
+When editing the Event Subscription, the query parameters will not be displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter is used in Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Finally, it is important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 

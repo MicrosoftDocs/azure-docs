@@ -5,7 +5,8 @@
 An industry-wide, hardware-based security vulnerability was [disclosed on January 3](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Keeping customers secure is always our top priority and we are taking active steps to ensure that no Azure customer is exposed to these vulnerabilities.
 
 With the public disclosure of the security vulnerability, we [accelerated the planned maintenance timing](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) and began automatically rebooting the VMs that still needed the update.
- 
+
+
 ## How can I see which of my VMs are already updated? 
 
 You can see the status of your VMs, and if the reboot completed, in the [VM list in the Azure portal](https://aka.ms/T08tdc). Your VMs are listed as either “Already updated” if the update has been applied, or “Scheduled” if the update is still required. If you want to see just your VMs “Scheduled” refer to your [Azure Service Health](https://portal.azure.com/).
@@ -28,7 +29,7 @@ This Azure infrastructure update addresses the disclosed vulnerability at the hy
 
 ## Will there be a performance impact as a result of resolving this update?
 
-The majority of Azure customers have not seen a noticeable performance impact with this update. We’ve worked to optimize the CPU and disk I/O path and are not seeing noticeable performance impact after the fix has been applied. A small set of customers may experience some networking performance impact. This can be addressed by using Azure Accelerated Networking, for [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) or [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli), which is a free capability available to all Azure customers.
+The majority of Azure customers have not seen a noticeable performance impact with this update. We’ve worked to optimize the CPU and disk I/O path and are not seeing noticeable performance impact after the fix has been applied. A small set of customers may experience some networking performance impact. This can be addressed by using Azure Accelerated Networking, for [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) or [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), which is a free capability available to all Azure customers.
 
 ## I follow your recommendations for High Availability, will my environment remain highly available during the reboot?
 
@@ -41,6 +42,11 @@ Normally, Azure planned maintenance events are rolled out to paired regions one 
 ## ​What about PaaS services on Azure?  
 
 The Azure platform services including web & mobile, data services, IoT, serverless, etc. have addressed the vulnerability. There is no action needed for customers using these services.
+
+## Intel released additional guidance on January 22, 2018 related to the security vulnerabilities.  Will this guidance cause any additional maintenance activities by Azure?  
+
+Azure mitigations previously announced on Jan 3, 2018 are unaffected by the [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
+ 
 
 ## Next steps
 

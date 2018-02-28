@@ -46,7 +46,7 @@ public static async Task Run(
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
-    await context.CreateTimer<string>(nextCleanup);
+    await context.CreateTimer(nextCleanup, CancellationToken.None);
 
     context.ContinueAsNew(null);
 }

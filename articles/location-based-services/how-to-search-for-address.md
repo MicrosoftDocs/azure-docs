@@ -14,9 +14,9 @@ ms.service: location-based-services
 The Search service is a RESTful set of APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The Search Service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the Search service APIs can be used as parameters in other Azure Location Based Services such as the Route and Traffic Flow APIs.
 
 ## Prerequisites
-Install the [Postman app](https://www.getpostman.com/apps).
+* Install the [Postman app](https://www.getpostman.com/apps).
 
-An Azure Location Based Services account and subscription key. For information on creating an account and retrieving a subscription key, see [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md). 
+* Have an Azure Location Based Services account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md). 
 
 ## Using Fuzzy Search
 
@@ -49,7 +49,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | pizza |
 
 4. Click **Send** and review the response body. 
@@ -99,7 +99,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Click **Send** and review the response body. 
@@ -139,7 +139,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | 47.59093,-122.33263 |
     
 3. Click **Send** and review the response body. 
@@ -205,7 +205,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | 47.59093,-122.33263 |
     
 4. Click **Send** and review the response body. 

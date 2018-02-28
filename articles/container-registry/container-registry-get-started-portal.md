@@ -24,7 +24,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a container registry
 
-Select **New** > **Containers** > **Azure Container Registry**.
+Select **Create a resource** > **Containers** > **Azure Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
@@ -109,7 +109,7 @@ When no longer needed, delete the **myResourceGroup** resource group. Doing so w
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI. If you would like to use Azure Container Registry with Azure Container Instances, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with the Azure portal. If you would like to use Azure Container Registry with Azure Container Instances, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials][container-instances-tutorial-prepare-app]
