@@ -31,9 +31,9 @@ If you have a multitenant application that you want listed in the Azure AD appli
 - **SAML**: If your application supports SAML 2.0, the app can be listed in the gallery. Follow the instructions in [Listing your application in the Azure Active Directory application gallery](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## If your application does not support SAML or OpenIDConnect
-Applications that do not support SAML or OpenIDConnect can still be integrated into the app gallery by using password single sign-on technology.
+Applications that do not support SAML or OpenIDConnect can still be integrated into the app gallery through password single sign-on technology.
 
-**Password single sign-on**: Password single sign-on, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts. 
+Password single sign-on, also called password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts. 
 
 If you want to list your application with this technology:
 1. Create a web application that has an HTML sign-in page to configure [password single sign-on](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). 
