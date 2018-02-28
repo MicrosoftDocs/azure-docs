@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # SSH into Azure Container Service (AKS) cluster nodes
 
-Azure Container Service (AKS) are not exposed to the internet. In order to create an SSH connection with each node you need to either give each node a public IP address, or create a service internal to the cluster over which an SSH connection can be made.
+Azure Container Service (AKS) nodes are not exposed to the internet. In order to create an SSH connection with an AKS node you need to either give each node a public IP address, or create a service internal to the cluster over which an SSH connection can be made.
 
 This document details creating internal service for SSH connections.
 
@@ -60,6 +60,7 @@ spec:
         command: ["/bin/sh", "-c", "--"]
         args: ["while true; do sleep 30; done;"]
       hostNetwork: true
+      nodeName: aks-nodepool1-42032720-0
 ```
 
 Run the manifest using the following command.
@@ -70,7 +71,7 @@ kubectl apply -f aks-ssh.yaml
 
 ## Create the SSH connection
 
-Get the IP address of the aks-ssh service. If the external IP address is pending, give it a minute and try again.
+Get the external IP address of the exposed service. It may take a minute for IP address assignment. 
 
 ```azurecli-interactive
 $ kubectl get service
@@ -78,16 +79,6 @@ $ kubectl get service
 NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
 kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
 aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
-```
-
-When creating an SSH session with the aks-ssh service, you are connected to the node on which the pod is created. If you would like to connected to separate nodes, used SSH key forwarding.
-
-Set up SSH forwarding.
-
-```azurecli-interactive
-$ ssh-add
-
-Identity added: /Users/user/.ssh/id_rsa (/Users/user/.ssh/id_rsa)
 ```
 
 Create SSH connection.
@@ -114,10 +105,4 @@ To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
 azureuser@aks-nodepool1-42032720-2:~$
-```
-
-Now that you have created an SSH connection with one node, you can SSH into any other nodes.
-
-```azurecli-interactive
-ssh azureuser@aks-nodepool1-42032720-0
 ```
