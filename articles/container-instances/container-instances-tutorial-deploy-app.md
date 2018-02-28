@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ In this tutorial, you:
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.23 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
+This tutorial requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
 
 To complete this tutorial, you need a Docker development environment installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 

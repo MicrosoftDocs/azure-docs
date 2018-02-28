@@ -5,13 +5,14 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/04/2018
+ms.date: 02/18/2018
 ms.author: anoopkv
 ---
 
-# Manage the configuration server
+# Manage the configuration server for VMware VMs
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
+
 
 ## Modify VMware settings
 
@@ -54,7 +55,8 @@ To add an adapter after you register the configuration server in the vault, add 
 
 ## Reregister a configuration server in the same vault
 
-You can reregister the configuration server in the same vault if you need to. If you have a process server machine in addition to the default process server running on the configuration server machine, reregister both machines.
+You can reregister the configuration server in the same vault if you need to. If you have an additional process server machine, in addition to the default process server running on the configuration server machine, reregister both machines.
+
 
   1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
   2. In **Servers**, select **Download registration key** to download the vault credentials file.
@@ -149,4 +151,4 @@ For configuration server deployments before May 2016, certificate expiry was set
 
 ## Next steps
 
-Review the tutorials for how to set up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) and [physical servers](tutorial-physical-to-azure.md) to Azure.
+Review the tutorials for setting up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) to Azure.

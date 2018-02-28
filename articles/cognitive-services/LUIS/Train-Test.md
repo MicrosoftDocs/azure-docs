@@ -8,7 +8,7 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 02/22/2018
 ms.author: v-demak;v-geberr;
 ---
 
@@ -82,7 +82,7 @@ You inspect details of the test result in the **Inspect** panel.
     ![Select correct intent](./media/luis-how-to-train-test/intent-select.png)
 
 ## Compare with published version
-You can test the active version of your app with the published endpoint version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
+You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
 ![Compare with published](./media/luis-how-to-train-test/inspect-panel-compare.png)
 
@@ -116,7 +116,14 @@ Batch testing is a comprehensive test on your current trained model to measure i
 ## JSON file with no duplicates
 You submit a batch file of utterances, known as a *dataset*. The dataset is JSON format and contains a maximum of 1,000 labeled **non-duplicate** utterances. Duplicates are considered exact string matches, not matches that are tokenized first. 
 
-You import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
+|**Rules**|
+|--|
+|No duplicate utterances|
+|No hierarchical entity children|
+|1000 utterances or less|
+
+
+Import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
 
 You can test 10 dataset files in a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
@@ -222,3 +229,4 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 [f-measure]:luis-glossary.md#f-measure
 [recall]: luis-glossary.md#recall
 [precision]: luis-glossary.md#precision
+

@@ -1,5 +1,7 @@
+# [CDN Documentation](index.md)
+
 # Overview
-## [About Azure CDN](cdn-overview.md)
+## [What is Azure CDN](cdn-overview.md)
 
 # Quickstarts
 ## [Create a profile and endpoint](cdn-create-new-endpoint.md)

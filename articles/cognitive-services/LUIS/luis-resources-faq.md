@@ -157,6 +157,9 @@ Example apps illustrating specific data extraction are:
 |--|--|
 |[MyCommunicator quickstart](luis-quickstart-primary-and-secondary-data.md)|[Message] entity<br>`Text boss [I'll be late to meeting]`
 
+## Is LUIS available on-premise or in private cloud?
+No. 
+
 ## Next steps
 
 To learn more about LUIS, see the following resources:
