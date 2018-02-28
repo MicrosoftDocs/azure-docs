@@ -349,10 +349,12 @@
       href: extensions-diagnostics-template.md
     - name: Network Watcher Agent
       href: extensions-nwa.md
-    - name: Use RBAC to restrict installation
-      href: extensions-rbac-howto.md
-    - name: Use Azure Policy to restrict installation
-      href: extensions-rmpolicy-howto.md      
+    - name: Restrict extension installation
+      items:   
+      - name: Using RBAC 
+        href: extensions-rbac-howto-ps.md
+      - name: Using Azure Policy 
+        href: extensions-rmpolicy-howto-ps.md 
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
