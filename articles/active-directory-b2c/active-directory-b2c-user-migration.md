@@ -201,6 +201,8 @@ To validate the migration, use one of the following two methods:
     > [!TIP]
     > You can also retrieve a user by display name by using the following command: `UserMigration.exe 4 "<Display name>"`.
 
+    b. Open the UserProfile.json file in a JSON editor to see user's information.
+
     ![The UserProfile.json file](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
 
 ### Step 2.5: (Optional) Environment cleanup
@@ -234,7 +236,7 @@ To get the link to your password reset policy, do the following:
 ## Step 4: (Optional) Change your policy to check and set the user migration status
 
 > [!NOTE]
-> To check and change the user migration status, you must use a custom policy. For more information, see [Get started with custom policies][B2C-GetStartedCustom].
+> To check and change the user migration status, you must use a custom policy. The set-up instructions from [Get started with custom policies][B2C-GetStartedCustom] must be completed.
 >
 
 When users try to sign in without resetting the password first, your policy should return a friendly error message. For example:
@@ -254,76 +256,59 @@ To track the password change, you use an Azure table. When you run the pre-migra
 >We use an Azure table to simplify the sample. You can store the migration status in any database or as a custom property in the Azure AD B2C account.
 
 ### 4.1: Update your application setting
-1. To test the RESTful API demo, open the `AADB2C.UserMigration.sln` Visual Studio solution in Visual Studio.
+1. To test the RESTful API demo, open `AADB2C.UserMigration.sln` in Visual Studio.
 
-2. In the `AADB2C.UserMigration.API` project, open the *Web.config* file. Replace the app setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
+2. In the `AADB2C.UserMigration.API` project, open the *appsettings.json* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
 
-    ```XML
-    <appSettings>
-        <add key="BlobStorageConnectionString" value="{The Azure Blob storage connection string"} />
-    </appSettings>
+    ```json
+    {
+        "BlobStorageConnectionString": "{The Azure Blob storage connection string}",
+        ...
+    }
     ```
 
 ### Step 4.2: Deploy your web application to Azure App Service
-Publish your API service to Azure App Service. For more information, see [Deploy your app to Azure App Service][AppService-Deploy].
+In Solution Explorer, right-click on the `AADB2C.UserMigration.API`, select "Publish...". Follow the instructions to publish to Azure App Service. For more information, see [Deploy your app to Azure App Service][AppService-Deploy].
 
 ### Step 4.3: Add a technical profile and technical profile validation to your policy
-1. In your working directory, open the *TrustFrameworkExtensions.xml* extension policy file.
-
-2. Search for the `<ClaimsProviders>` node and then, in the node, add the following XML snippet. Be sure to change the value of `ServiceUrl` to point to your endpoint URL.
+1. In Solution Explorer, expand "Solution Items", and open the *TrustFrameworkExtensions.xml* policy file.
+2. Change `TenantId`, `PublicPolicyUri` and `<TenantId>` fields from `yourtenant.onmicrosoft.com` to the name of your tenant.
+3. Under the `<TechnicalProfile Id="login-NonInteractive">` element, replace all instances of `ProxyIdentityExperienceFrameworkAppId` and `IdentityExperienceFrameworkAppId` with the Application IDs configured in [Getting started with custom policies][B2C-GetStartedCustom].
+4. Under the `<ClaimsProviders>` node, find the following XML snippet. Change the value of `ServiceUrl` to point to your Azure App Service URL.
 
     ```XML
     <ClaimsProvider>
-        <DisplayName>REST APIs</DisplayName>
-        <TechnicalProfiles>
+      <DisplayName>REST APIs</DisplayName>
+      <TechnicalProfiles>
 
         <TechnicalProfile Id="LocalAccountSignIn">
-            <DisplayName>Local account just in time migration</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
+          <DisplayName>Local account just in time migration</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
             <Item Key="ServiceUrl">http://{your-app}.azurewebsites.net/api/PrePasswordReset/LoalAccountSignIn</Item>
             <Item Key="AuthenticationType">None</Item>
             <Item Key="SendClaimsIn">Body</Item>
-            </Metadata>
-            <InputClaims>
+          </Metadata>
+          <InputClaims>
             <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="email" />
-            </InputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+          </InputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
 
         <TechnicalProfile Id="LocalAccountPasswordReset">
-            <DisplayName>Local account just in time migration</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
+          <DisplayName>Local account just in time migration</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
             <Item Key="ServiceUrl">http://{your-app}.azurewebsites.net/api/PrePasswordReset/PasswordUpdated</Item>
             <Item Key="AuthenticationType">None</Item>
             <Item Key="SendClaimsIn">Body</Item>
-            </Metadata>
-            <InputClaims>
+          </Metadata>
+          <InputClaims>
             <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
-            </InputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+          </InputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
-        </TechnicalProfiles>
-    </ClaimsProvider>
-
-    <ClaimsProvider>
-        <DisplayName>Local Account</DisplayName>
-        <TechnicalProfiles>
-
-        <!-- This technical profile uses a validation technical profile to authenticate the user. -->
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-            <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="LocalAccountSignIn" />
-            </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-
-        <TechnicalProfile Id="LocalAccountWritePasswordUsingObjectId">
-            <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="LocalAccountPasswordReset" />
-            </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-        </TechnicalProfiles>
+      </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
@@ -379,14 +364,14 @@ For more information, see [Streaming logs and the console][AppService-Log].
 ## (Optional) Download the complete policy files
 After you complete the [Get started with custom policies][B2C-GetStartedCustom] walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files][UserMigrationSample].
 
-[AD-PasswordPolicies]: ../active-directory/active-directory-passwords-policy.md
-[AD-Powershell]: ../active-directory/install-adv2.md
-[AppService-Deploy]: ../app-service/app-service-deploy-local-git.md
-[AppService-Log]: app-service-web/web-sites-streaming-logs-and-console.md
-[B2C-AppRegister]: active-directory-b2c-app-registration.md
-[B2C-GetStarted]: active-directory-b2c-get-started.md
-[B2C-GetStartedCustom]: active-directory-b2c-get-started-custom.md
-[B2C-GraphQuickStart]: active-directory-b2c-devquickstarts-graph-dotnet.md
-[B2C-NavContext]: active-directory-b2c-navigate-to-b2c-context.md
+[AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
+[AD-Powershell]: https://docs.microsoft.com/azure/active-directory/install-adv2
+[AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
+[AppService-Log]: https://docs.microsoft.com/azure/active-directory-b2c/app-service-web/web-sites-streaming-logs-and-console
+[B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
+[B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started
+[B2C-GetStartedCustom]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom
+[B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
+[B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
 [UserMigrationSample]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration
