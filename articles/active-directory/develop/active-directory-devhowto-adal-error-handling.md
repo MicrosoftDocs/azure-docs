@@ -476,7 +476,7 @@ We've built a [complete sample](https://github.com/Azure-Samples/active-director
 ## Error and logging reference
 
 ### Logging Personal Identifiable Information (PII) & Organizational Identifiable Information (OII)
-By default, ADAL telemetry does not capture or log any PII or OII. The library allows app developers to turn this on through a setter in the Logger class. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
+By default, ADAL logging does not capture or log any PII or OII. The library allows app developers to turn this on through a setter in the Logger class. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
 
 ### .NET
 
