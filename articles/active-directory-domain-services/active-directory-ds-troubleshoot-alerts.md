@@ -79,7 +79,7 @@ To restore your service, follow these steps:
 
 Before you begin, read the **private IP v4 address space** section in [this article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-Inside the virtual network, machines may make requests to Azure resources that are in the same IP address range as those configured for the subnet. However, since the virtual network is configured for this range, those requests will be routed within the virtual network and will not reach the intended web resources. This can lead to unpredictable errors with Azure AD Domain Services.
+Inside the virtual network, machines may make requests to Azure resources that are in the same IP address range as those configured for the subnet. However, since the virtual network is configured for this range, those requests will be routed within the virtual network and will not reach the intended web resources. This configuration can lead to unpredictable errors with Azure AD Domain Services.
 
 **If you own the IP address range in the internet that is configured in your virtual network, this alert can be ignored. However, Azure AD Domain Services cannot commit to the [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] with this configuration since it can lead to unpredictable errors.**
 
@@ -101,11 +101,11 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 **Alert message:**
 
-*The managed domain was last synchronized with Azure AD on {0}. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD..*
+*The managed domain was last synchronized with Azure AD on {0}. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD.*
 
 **Remediation:**
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block our ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
+[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
 
 
 ## AADDS501: A backup has not been taken in a while
@@ -116,7 +116,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 **Remediation:**
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block our ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
+[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
 
 
 ## AADDS503: Suspension due to disabled subscription
@@ -137,7 +137,7 @@ To restore your service, [renew your Azure subscription](https://docs.microsoft.
 
 **Remediation:**
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. If you can resolve any of these alerts, do so. After, contact support to re-enable your subscription..
+[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. If you can resolve any of these alerts, do so. After, contact support to re-enable your subscription.
 
 ## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
