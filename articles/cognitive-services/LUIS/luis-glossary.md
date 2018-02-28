@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 02/27/2018
 ms.author: v-geberr
 ---
 
@@ -25,6 +25,38 @@ Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), e
 ## <a name="authoring-key"></a>Authoring Key
 
 Used to author the app. Not used for production-level endpoint queries. Refer to [Key limits](luis-boundaries.md#key-limits) for more information.  Previously named "Programmatic" key. 
+
+## <a name="batch-test-json-file"></a>Batch text JSON file
+
+The batch file is a JSON array. Each element in the array has 3 properties: `text`, `intent`, and `entities`. The `entities` property is an array. The array can be empty. If the `entities` array is not empty, it needs to accurately identify the entities.
+
+```JSON
+[
+    {
+        "text": "drive me home",
+        "intent": "None",
+        "entities": []
+    },
+    {
+        "text": "book a flight to orlando on the 25th",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entity": "orlando",
+                "type": "Location",
+                "startIndex": 18,
+                "endIndex": 25
+            }
+        ]
+    }
+]
+
+```
+
+
+## <a name="collaborator"></a>Collaborator
+
+A collaborator is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances, and app.
 
 ## <a name="currently-editing"></a>Currently editing
 
@@ -81,6 +113,9 @@ Labeling is the process of associating a word or phrase in an intent's [utteranc
 
 A LUIS app is a trained data model for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
 
+## <a name="owner"></a>Owner
+
+Each app has one owner who is the person that created the app. The owner can add [collaborators](#collaborator) that have the same permissions as the owner.
 
 ## <a name="phrase-list"></a>Phrase list
 
@@ -123,6 +158,15 @@ The subscription key is the key associated with the LUIS service [you created in
 ## <a name="test"></a>Test
 
 [Testing](train-test.md#test-your-app) a LUIS app means passing an utterance to LUIS and viewing the JSON results.
+
+## <a name="timezoneoffset"></a>Timezone offset
+
+The endpoint includes timezoneOffset. This is the number in minutes you want to add or remove from the datetimeV2 prebuilt entity. For example, if the utterance is "what time is it now?", the datetimeV2 returned will be the current time for the client request. If your client request is coming from a bot or other application that is not the same as your bot's user, you should pass in the offset between the bot and the user. 
+
+|timezoneOffset value| in minutes |
+|:--|--|
+|-120|subtract 2 hours|
+|30|add 30 minutes|
 
 ## <a name="train"></a>Train
 
