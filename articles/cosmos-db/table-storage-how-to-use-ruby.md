@@ -19,9 +19,10 @@ ms.author: mimig
 ---
 # How to use Azure Table Storage and Azure Cosmos Table API with Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios using the Azure Table service. The samples are written using the Ruby API. The scenarios covered include **creating and deleting a table, inserting and querying entities in a table**.
+This guide shows you how to perform common scenarios using the Azure Table service and Azure Cosmos DB Table API. The samples are written in Ruby and use the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include **creating and deleting a table, and inserting and querying entities in a table**.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -44,7 +45,7 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 require "azure/storage/table"
 ```
 
-## Set up an Azure Storage connection
+## Add an Azure Storage connection
 The Azure Storage module reads the environment variables **AZURE_STORAGE_ACCOUNT** and **AZURE_STORAGE_ACCESS_KEY** for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information before using **Azure::Storage::Table::TableService** with the following code:
 
 ```ruby
@@ -60,7 +61,7 @@ To obtain these values from a classic or Resource Manager storage account in the
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
 5. Click the copy icon to copy the key to the clipboard.
 
-## Set up an Azure Cosmos DB connection
+## Add an Azure Cosmos DB connection
 To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a **Client** object using your copied connection string. You can pass the **Client** object when you create a **TableService** object:
 
 ```ruby
@@ -137,12 +138,12 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 > [!NOTE]
-> If the result set is too large for a single query to return, a continuation token will be returned which you can use to retrieve subsequent pages.
+> If the result set is too large for a single query to return, a continuation token is returned that you can use to retrieve subsequent pages.
 >
 >
 
 ## Query a subset of entity properties
-A query to a table can retrieve just a few properties from an entity. This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.
+A query to a table can retrieve just a few properties from an entity. This technique, called "projection," reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'",
@@ -151,7 +152,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## Delete an entity
-To delete an entity, use the **delete_entity()** method. You need to pass in the name of the table which contains the entity, the PartitionKey and RowKey of the entity.
+To delete an entity, use the **delete_entity()** method. Pass in the name of the table that contains the entity, the PartitionKey, and the RowKey of the entity.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")
