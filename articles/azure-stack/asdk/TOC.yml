@@ -33,10 +33,6 @@
     href: asdk-deploy-considerations.md
   - name: Development kit architecture
     href: asdk-architecture.md
-  - name: ASDK administration basics
-    href: asdk-admin-basics.md
-  - name: Advanced evaluation tasks
-    href: asdk-advanced-eval.md
 - name: How to
   items:
   - name: Deploy the ASDK
@@ -44,7 +40,7 @@
     - name: Download and extract the development kit
       href: asdk-download.md
     - name: Prepare the ASDK host computer
-      href: asdk-prepare-host 
+      href: asdk-prepare-host.md
     - name: Install the ASDK
       href: asdk-install.md
     - name: Post-deployment configuration
