@@ -1,5 +1,5 @@
 ---
-title: Update offers and plans | Microsoft Docs
+title: Update Azure Stack offers and plans | Microsoft Docs
 description: This article describes how to view and modify existing offers and plans. 
 services: azure-stack
 documentationcenter: ''
