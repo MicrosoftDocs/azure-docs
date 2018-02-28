@@ -54,7 +54,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 ## Release Notes
 
 ### <a name="1.0.0"/>1.0.0
-* GA SDK with end-to-end support for non-blocking IO using the [Netty library](http://netty.io/) in gateway mode. DirectHttps is not supported in this version.
+* GA SDK with end-to-end support for non-blocking IO using the [Netty library](http://netty.io/) in gateway mode. 
 
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
