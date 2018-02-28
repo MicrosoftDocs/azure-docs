@@ -14,9 +14,7 @@ ms.custom: mvc
 
 # SSH into Azure Container Service (AKS) cluster nodes
 
-Occasionally, you may need to access an Azure Container Service (AKS) node for maintenance reboot, log collection, or other troubleshooting operation. Azure Container Service (AKS) nodes are not exposed to the internet. In order to create an SSH connection with an AKS node you need to either give each node a public IP address, or create a service internal to the cluster over which an SSH connection can be made.
-
-This document details creating internal service for SSH connections.
+Occasionally, you may need to access an Azure Container Service (AKS) node for maintenance, log collection, or other troubleshooting operations. Azure Container Service (AKS) nodes are not exposed to the internet. Use the steps detailed in this document o create an SSH connection with an AKS node.
 
 ## Configure SSH access
 
@@ -65,7 +63,7 @@ spec:
       nodeName: aks-nodepool1-42032720-0
 ```
 
-Run the manifest to create the pod and exposed service.
+Run the manifest to create the pod and service.
 
 ```azurecli-interactive
 $ kubectl apply -f aks-ssh.yaml
@@ -83,7 +81,9 @@ aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   1
 
 Create the ssh connection. 
 
-The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster deployment time, substitute the proper admin user name. If your key is not at `~/ssh/id_rsa`, provide the correct location using the `ssh -i` argument.
+The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster creation time, substitute the proper admin user name. 
+
+If your key is not at `~/ssh/id_rsa`, provide the correct location using the `ssh -i` argument.
 
 ```azurecli-interactive
 $ ssh azureuser@13.92.154.191

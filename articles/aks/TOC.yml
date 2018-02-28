@@ -79,7 +79,7 @@
       href: kubernetes-dashboard.md
   - name: Troubleshoot
     items:
-    - name: SSH to AKS nodes
+    - name: SSH node access
       href: aks-ssh.md
 - name: Reference
   items:
