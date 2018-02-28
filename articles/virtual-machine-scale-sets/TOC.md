@@ -1,3 +1,5 @@
+# [Virtual Machines Scale Sets Documentation](index.md)
+
 # Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
