@@ -21,7 +21,7 @@ ms.author: sama
 
 # Azure Active Directory B2C: Using language customization
 
-Language customization allows your policy to accomodate different languages to suit your customer needs.  Microsoft provides the translations for 36 languages (see [Additional information](#additional-information)), but you can also provide your own translations for any language.  Even if your experience is only provided for a single language, you can customize any text on the pages.  
+Language customization allows your policy to accommodate different languages to suit your customer needs.  Microsoft provides the translations for 36 languages (see [Additional information](#additional-information)), but you can also provide your own translations for any language.  Even if your experience is only provided for a single language, you can customize any text on the pages.  
 
 ## How does language customization work?
 Language customization allows you to select which languages your user journey is available in.  Once the feature is enabled, you can provide the query string parameter, ui_locales, from your application.  When you call into Azure AD B2C, we translate your page to the locale that you have indicated.  This type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser. Alternatively, you may not need that level of control over what languages your customer see.  If you don't provide a ui_locales parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language.  If a customer's browser is set to show a language you don't want to support, then the language you selected as a default in supported cultures is shown instead.
@@ -35,8 +35,8 @@ Language customization allows you to select which languages your user journey is
 >
 
 ## Support ui_locales requested languages 
-Policies that were created before the general availability release of language customization will need to enable this feature first.  Policies created after will have language customizaion enabled by default.  By enabling 'Language customization' on a policy, you can now control the language of the user journey by adding the ui_locales parameter.
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
+Policies that were created before the general availability release of language customization will need to enable this feature first.  Policies created after will have language customization enabled by default.  By enabling 'Language customization' on a policy, you can now control the language of the user journey by adding the ui_locales parameter.
+1. [Follow these steps to navigate to the B2C features page on the Azure portal.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. Navigate to a policy that you want to enable for translations.
 3. Click **Language customization**.  
 4. Click on **Enable language customization** on top.
@@ -45,7 +45,7 @@ Policies that were created before the general availability release of language c
 ## Select which languages in your user journey are enabled 
 Enable a set of languages for your user journey to be translated in when the ui_locales parameter is not provided.
 1. Ensure your policy has 'Language customization' enabled from previous instructions.
-2. From your **Edit policy** blade, select **Language customization**.
+2. From your **Edit policy** page, select **Language customization**.
 3. Select a language you would like to support.
 4. In the properties pane, toggle **Enabled** to Yes.  
 5. Click **Save** at the top of the properties pane.
@@ -57,7 +57,7 @@ Enable a set of languages for your user journey to be translated in when the ui_
 ## Customize your strings
 'Language customization' allows you to customize any string in your user journey.
 1. Ensure your policy has 'Language customization' enabled from the previous instructions.
-2. From your **Edit policy** blade, select **Language customization**.
+2. From your **Edit policy** page, select **Language customization**.
 3. Select the language you want to customize.
 4. Select the page you want to edit.
 5. Click **Download defaults** (or **Download overrides** if you have previously edited this language). 
@@ -92,6 +92,7 @@ If you are looking to change the string for a custom user attribute, or want to 
 ```
 
 Replace `<ExtensionAttribute>` with the name of your custom user attribute.  
+
 Replace `<ExtensionAttributeValue>` with the new string to be displayed.
 
 ### Using LocalizedCollections
@@ -125,7 +126,7 @@ If you want to provide a set list of values for responses, you need to create a 
 
 ### Upload your changes
 1. Once you have completed the changes to your JSON file, navigate back to your B2C tenant.
-2. From your **Edit policy** blade, select **Language customization**.
+2. From your **Edit policy** page, select **Language customization**.
 3. Select the language you want to provide translations.
 4. Select the page you want to provide translations.
 5. Click on the folder icon and select the JSON file to upload.
@@ -149,8 +150,8 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 You can also add languages that Microsoft currently does not provide translations for.  You will need to provide the translations for all the strings in the policy.
 
-1. From your **Edit policy** blade, select **Language customization**.
-2. Select **Add custom language** from the top of the blade.
+1. From your **Edit policy** page, select **Language customization**.
+2. Select **Add custom language** from the top of the page.
 3. In the context pane that opens, identify which language you are providing translations for by entering a valid locale code.
 4. For each page you can download a set of overrides for English and work on the translations.
 5. Once you are done with the JSON files, you can upload them for each page.
