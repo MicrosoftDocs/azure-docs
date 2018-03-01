@@ -23,7 +23,7 @@ There are several things you need to know if you're new to Azure Stack Developme
 
 First, you should review the [What is Azure Stack Development Kit?](asdk-what-is.md) article to make sure you understand the purpose of the ASDK and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack to develop and test your apps in a non-production environment. 
 
-Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds of the ASDK. However, you cannot upgrade the ASDK like you can Azure Stack integrated systems deployments. So, if you want to move to the latest build, you must completely [redeploy the ASDK](asdk-redeploy.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features as soon as they become available. 
+Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds of the ASDK. However, you cannot upgrade the ASDK like you can Azure Stack integrated systems deployments. So, if you want to move to the latest build, you must completely [redeploy the ASDK](asdk-redeploy-qs.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features as soon as they become available. 
 
 ## Learn about available services
 You need to know which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve over time.
