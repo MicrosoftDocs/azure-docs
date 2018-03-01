@@ -21,11 +21,15 @@ ms.author: sethm
 
 # Process event streams using PowerShell and .NET
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to send and receive events to and from an event hub, after using PowerShell to create an Event Hubs namespace and an event hub within that namespace.
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to use PowerShell to deploy resources, and use sample clients to ingest and process events into Event Hubs. 
 
 If you do not have an Azure subscription, start by creating a [free account][].
 
 This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
@@ -84,9 +88,9 @@ $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceG
 Write-Host "storage account key 1 = " $storageAccountKey
 ```
 
-## Download the samples
+## Stream into Event Hubs
 
-The next step is to run the sample code that sends events to an event hub, and receives those events using the Event Processor Host. 
+The next step is to run the sample code that streams events to an event hub, and receives those events using the Event Processor Host. 
 
 First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) and [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) samples from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
 
@@ -131,6 +135,10 @@ Then, run the **SampleEphReceiver** app, and observe the messages being received
 
 ![][4]
 
+You can view the incoming and outgoing message count in the portal metrics window for the Event Hubs namespace. The following example shows these results after running the programs twice (sending and receiving two sets of 100 messages):
+
+![][5]
+
 ## Clean up deployment
 
 Run the following command to remove the resource group, namespace, storage account, and all related resources
@@ -143,6 +151,7 @@ Remove-AzureRmResourceGroup -Name eventhubsResourceGroup
 
 In this article, you created the Event Hubs namespace and other resources required to send and receive events from an event hub. To learn more, continue with the following articles:
 
+* [Event Hubs PowerShell script sample](https://github.com/Azure/azure-event-hubs/samples/DotNet/Quickstart_PSsample1.ps1)
 * [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
 * [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 
@@ -150,5 +159,6 @@ In this article, you created the Event Hubs namespace and other resources requir
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[3]: ./media/event-hubs-quickstart-namespace-powershell/sender1.png
-[4]: ./media/event-hubs-quickstart-namespace-powershell/receiver1.png
+[3]: ./media/event-hubs-quickstart-powershell/sender1.png
+[4]: ./media/event-hubs-quickstart-powershell/receiver1.png
+[5]: ./media/event-hubs-quickstart-powershell/metrics.png
