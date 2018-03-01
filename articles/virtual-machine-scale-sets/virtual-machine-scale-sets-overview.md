@@ -51,10 +51,10 @@ Scale sets are built from virtual machines. With scale sets, the management and 
 
 | Scenario                           | Manual group of VMs                                                                    | Virtual machine scale set |
 |------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
-| Add additional VM instances        | Manual process to create, configure, and ensure compliance                             | Automatic from central configuration |
-| Traffic balancing and distribution | Azure load balancer or Application Gateway                                             | Azure load balancer or Application Gateway |
+| Add additional VM instances        | Manual process to create, configure, and ensure compliance                             | Automatically create from central configuration |
+| Traffic balancing and distribution | Manual process to create and configure Azure load balancer or Application Gateway      | Can automatically create and integrate with Azure load balancer or Application Gateway |
 | High availability and redundancy   | Manually create Availability Set or distribute and track VMs across Availability Zones | Automatic distribution of VM instances across Availability Zones or Availability Sets |
-| Autoscaling of VMs                 | Manual use of monitoring and Azure Automation                                          | Yes - based on host metrics, in-guest metrics, Application Insights, or schedule |
+| Scaling of VMs                     | Manual monitoring and Azure Automation                                                 | Autoscale based on host metrics, in-guest metrics, Application Insights, or schedule |
 
 There is no additional cost to scale sets. You only pay for the underlying compute resources such as the VM instances, load balancer, or Managed Disk storage. The management and automation features, such as autoscale and redundancy, incur no additional charges over the use of VMs.
 
