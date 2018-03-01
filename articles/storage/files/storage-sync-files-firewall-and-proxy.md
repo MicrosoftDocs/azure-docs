@@ -33,7 +33,7 @@ For instance:
 - Authentication services
 
 > [!Note]  
-> The Azure File Sync agent on Windows Server initiates all requests to cloud services. (outbound)
+> The Azure File Sync agent on Windows Server initiates all requests to cloud services. (outbound)  
 > No Azure service initiates communication to the Azure File Sync agent.
 
 
@@ -70,25 +70,25 @@ The following table describes the required domains for communication:
 > [!Important]
 > When allowing traffic to *.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under subdomains.
 
-> If *.one.microsoft.com is too broad you can limit the server's communication by allowing only explicit regional instances of the Azure Files Service. Which instance to choose depends on the region of the Storage Sync Service you have deployed and registered the server with. That is the region you need to allow for the server. Soon there will be more URLs to enable new business continuity features. 
+If *.one.microsoft.com is too broad, you can limit the server's communication by allowing only explicit regional instances of the Azure Files Sync service. Which instance(s) to choose depends on the region of the Storage Sync Service you have deployed and registered the server with. That is the region you need to allow for the server. Soon there will be more URLs to enable new business continuity features. 
 
-> | Region | Azure File Sync regional endpoint URL |
-> |--------|---------------------------------------|
-> | Australia East | https://kailani-aue.one.microsoft.com |
-> | Canada Central | https://kailani-cac.one.microsoft.com |
-> | East US | https://kailani1.one.microsoft.com |
-> | Southeast Asia | https://kailani10.one.microsoft.com |
-> | UK South | https://kailani-uks.one.microsoft.com |
-> | West Europe | https://kailani6.one.microsoft.com |
-> | West US | https://kailani.one.microsoft.com |
+| Region | Azure File Sync regional endpoint URL |
+|--------|---------------------------------------|
+| Australia East | https://kailani-aue.one.microsoft.com |
+| Canada Central | https://kailani-cac.one.microsoft.com |
+| East US | https://kailani1.one.microsoft.com |
+| Southeast Asia | https://kailani10.one.microsoft.com |
+| UK South | https://kailani-uks.one.microsoft.com |
+| West Europe | https://kailani6.one.microsoft.com |
+| West US | https://kailani.one.microsoft.com |
 
-> > [!Important]
-> > If you define these detailed firewall rules, check this document often and update your firewall rules to avoid service interruptions due to outdated or incomplete URL listings in your firewall settings.
+> [!Important]
+> If you define these detailed firewall rules, check this document often and update your firewall rules to avoid service interruptions due to outdated or incomplete URL listings in your firewall settings.
 
 ## Summary and risk limitation
-The list earlier in this document contains the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains as well as responses from them. Microsoft strives to keep this list updated.
+The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains as well as responses from them. Microsoft strives to keep this list updated.
 
-Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs can change. Therefore it is a prudent measure to check the table in this document as part of a change management process from one Azure File Sync agent version to another on a test-deployment of the latest agent. This way you can ensure that your firewall is configured to allow traffic to domains the most recent agent requires.
+Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and changed over time. Therefore it is a prudent measure to check the table in this document as part of a change management process from one Azure File Sync agent version to another on a test-deployment of the latest agent. This way you can ensure that your firewall is configured to allow traffic to domains the most recent agent requires.
 
 ## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
