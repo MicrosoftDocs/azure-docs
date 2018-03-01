@@ -373,7 +373,7 @@ To use the script, provide the extension with your Azure Active Directory admini
 
 1. Run Windows PowerShell as an administrator.
 
-2. At the PowerShell command prompt, enter **cd c:\Program Files\Microsoft\AzureMfa\Config**, and then select Enter.
+2. At the PowerShell command prompt, enter **cd "c:\Program Files\Microsoft\AzureMfa\Config"**, and then select Enter.
 
 3. At the next command prompt, enter **.\AzureMfsNpsExtnConfigSetup.ps1**, and then select Enter. The script checks to see whether the Azure AD PowerShell module is installed. If it is not installed, the script installs the module for you.
  

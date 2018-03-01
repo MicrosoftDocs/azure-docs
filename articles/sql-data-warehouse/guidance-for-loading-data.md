@@ -117,15 +117,19 @@ It is good security practice to change the access key to your blob storage on a 
 
 To rotate Azure Storage account keys:
 
-1. Create a second database scoped credential based on the secondary storage access key.
-2. Create a second external data source based off this new credential.
-3. Drop and create the external table(s) so they point to the new external data sources. 
+For each storage account whose key has changed, issue [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-After migrating your external tables to the new data source, perform the following clean-up tasks:
+Example:
 
-1. Drop the first external data source.
-2. Drop the first database scoped credential based on the primary storage access key.
-3. Log in to Azure and regenerate the primary access key so it is ready for your next rotation.
+Original key is created
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Rotate key from key 1 to key 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+No other changes to underlying external data sources are needed.
 
 
 ## Next steps

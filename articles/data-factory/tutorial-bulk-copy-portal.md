@@ -283,7 +283,7 @@ This pipeline performs two steps:
 2. In the Properties window, change the name of the pipeline to **GetTableListAndTriggerCopyData**. 
 
     ![Pipeline name](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. In the **Activities** toolbox, expand **SQL Database**, and drag-and-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
+3. In the **Activities** toolbox, expand **General**, and drag-and-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
 
     1. Enter **LookupTableList** for **Name**. 
     2. Enter **Retrieve the table list from Azure SQL database** for **Description**.
@@ -319,7 +319,7 @@ This pipeline performs two steps:
 8. To validate the pipeline, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report**, click **>>**.
 
     ![Second pipeline - validation report](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. To publish entities (datasets, pipelines, etc.) to the Data Factory service, click **Publish**. Wait until the publishing succeeds. 
+9. To publish entities (datasets, pipelines, etc.) to the Data Factory service, click **Publish All**. Wait until the publishing succeeds. 
 
     ![Publish button](./media/tutorial-bulk-copy-portal/publish.png)
 

@@ -243,7 +243,6 @@ In the output, you see that the contents of the downloaded file and its properti
 }
 ```
 
-<<<<<<< HEAD
 ### File share snapshot operations in Azure PowerShell
 You can use Azure Powershell to perform same operations such as listing share snapshots, browsing share snapshot content, restoring or downloading files from share snapshot, or deleting share snapshots.
 
@@ -278,11 +277,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## Delete Azure Files share snapshot
-=======
 ## Delete a share snapshot
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 You can delete share snapshots by using the Azure portal, PowerShell, CLI, the REST API, or any Storage SDK. The following sections describe how to delete share snapshots by using the Azure portal, CLI, and PowerShell.
 

@@ -54,8 +54,8 @@ When creating a named application instances in Service Fabric, you have the opti
 ## Next steps
 The following articles show you how to use some of the concepts described here:
 
-- [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [How to specify the port number of a service using parameters in Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [How to specify the port number of a service using parameters in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [How to parameterize configuration files](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Environment variable reference](service-fabric-environment-variables-reference.md)

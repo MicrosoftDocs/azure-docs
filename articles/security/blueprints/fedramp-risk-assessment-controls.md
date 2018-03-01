@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - Risk Assessment
-description: Web Applications for FedRAMP - Risk Assessment
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Risk Assessment
+description: FedRAMP Web Applications Automation - Risk Assessment
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -160,7 +160,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Baseline Assessment assesses a set of registry keys, audit policy settings, and security policy settings along with Microsoft's recommended values for these settings. Update Assessment assesses the status of available updates on all deployed virtual machines. |
+| **Customer** | This blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Baseline Assessment assesses a set of registry keys, audit policy settings, and security policy settings along with Microsoft's recommended values for these settings. Update Assessment assesses the status of available updates on all deployed virtual machines. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -174,7 +174,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Identified issues are assigned a severity rating. Common Configuration Enumeration (CCE) IDs are provided for Baseline Assessment rules.  |
+| **Customer** | This blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Identified issues are assigned a severity rating. Common Configuration Enumeration (CCE) IDs are provided for Baseline Assessment rules.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -230,7 +230,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
+| **Customer** | This blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -244,7 +244,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
+| **Customer** | This blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -258,7 +258,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Update Assessment performs assessment against both Windows and Linux virtual machines. Baseline assessment performs assessment against Windows virtual machines using a Microsoft developed baseline based on industry best practices. |
+| **Customer** | This blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Update Assessment performs assessment against both Windows and Linux virtual machines. Baseline assessment performs assessment against Windows virtual machines using a Microsoft developed baseline based on industry best practices. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -286,7 +286,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Microsoft Monitoring Agent service, which is configured on virtual machines deployed by this Azure Blueprint, is configured as an automatic service with necessary privileges for assessment activities. |
+| **Customer** | The Microsoft Monitoring Agent service, which is configured on virtual machines deployed by this blueprint, is configured as an automatic service with necessary privileges for assessment activities. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -328,5 +328,5 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Customer** | This blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
 | **Provider (Microsoft Azure)** | Not Applicable |

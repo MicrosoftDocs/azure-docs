@@ -28,13 +28,7 @@ To protect your virtual machine scale sets from datacenter-level failures, you c
 ## Single-zone and zone-redundant scale sets
 When you deploy a virtual machine scale set, you can choose to use a single Availability Zone in a region, or multiple zones.
 
-When you create a scale set in a single zone, you control which zone all those VM instances run in, and the scale set is managed and autoscales only within that zone. The following diagram shows an example of how you can create multiple single-zone scale sets with a zone-redundant load balancer that distributes traffic:
-
-![Single-zone scale set deployment with zone-redundant load balancer](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interruption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones. The following diagram shows an example of a single scale set that is deployed across multiple zones:
-
-![Zonal-redundant scale set deployment and load balancer](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+When you create a scale set in a single zone, you control which zone all those VM instances run in, and the scale set is managed and autoscales only within that zone. A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interruption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones.
 
 To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-overview.md#regions-that-support-availability-zones). You also need to [register for the Availability Zones preview](http://aka.ms/azenroll). You can create a scale set that uses Availability Zones with one of the following methods:
 
