@@ -51,6 +51,8 @@ The following table outlines key differences and envisioned usage scenarios betw
 |**Security and compliance** | **Management**|
 | • Isolated environment (VNET integration, single-tenant service, dedicated compute and storage <br>• Encryption of the data in transit <br>• Azure AD authentication, single sign-on support <br>• Adheres to compliance standards same as Azure SQL database <br>• SQL auditing <br>• Threat detection | • Azure Resource Manager API for automating service provisioning and scaling <br>• Azure portal functionality for manual service provisioning and scaling <br>• Data Migration Service) 
 
+![single sign-on](./media/sql-database-managed-instance/sso.png) 
+
 ## Managed Instance service tier
 
 Managed Instance is initially available in a single service tier - General Purpose - that is designed for applications with typical availability and common IO latency requirements.
