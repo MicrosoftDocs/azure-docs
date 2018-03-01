@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2017
+ms.date: 02/27/2017
 ms.author: kumud
 ---
 # Creating a public load balancer using the Azure CLI
@@ -50,41 +50,25 @@ To access your web app on the Internet, you need a public IP address for the loa
    az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
 ```
 
-## Create a load balancer and configure settings
+## Create the load balancer and configure its settings
 
-Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend pool named **myFrontEndPool**, a back-end pool named **myBackEndPool** and is associated with the public IP address **myPublicIP** that you created in the preceding step.
+Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend pool named **myFrontEndPool**, a back-end pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step.
 
 ### Create the load balancer
 
 Create load balancer, the frontend IP pool that receives the incoming network traffic on the load balancer, and the backend IP pool where the front-end pool sends the load balanced network traffic.
 
-1. Create the load balancer.
-
     ```azurecli-interactive
-      az network lb create --resource-group myResourceGroupLB --name myLoadBalancer
-    ```
-
-2. Create the frontend pool
-
-    ```azurecli-interactive
-       az network lb frontend-ip create \
-       --name myFrontEndPool
+     az network lb create \
        --resource-group myResourceGroupLB \
-       --lb-name myLoadBalancer \       
+       --name myLoadBalancer \
        --public-ip-address myPublicIP \ 
+       --frontend-ip-name myFrontEndPool \
+       --backend-pool-name myBackEndPool
        
     ```
-3. Create the backend pool.
 
-    ```azurecli-interactive
-       az network lb address-pool create \
-       --name myBackEndPool
-       --resource-group myResourceGroupLB \
-       --lb-name myLoadBalancer \       
-          
-    ```
-
-### Create the health probe on port 80
+### Create the health probe
 
 A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) to monitor the health of the virtual machines. 
 
@@ -109,84 +93,127 @@ In this step, you create a load balancer rule myLoadBalancerRuleWeb with [az net
    --probe-name myHealthProbe   
   
 ```
+## Create backend servers
 
-### Create NAT rules
+In this example, you create two virtual machines to be used as backend servers for the load balancer. You also install NGINX on the virtual machines to verify that the load balancer was successfully created.
 
-Inbound NAT rules are used to create endpoints in a load balancer that go to a specific virtual machine instance. Creates two NAT rules with [az network lb inbound-nat-rule](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule?view=azure-cli-latest#create) for remote desktop. 
+###  Create a network security group
+Create network security group to define inbound connections to your virtual network.
 
 ```azurecli-interactive
-    az network lb inbound-nat-rule create \ 
-    --resource-group myResourceGroup --lb-name myLoadBalancer \ 
-    -name NATrule1 --protocol tcp \ 
-    --frontend-port 5432 --backend-port 3389 \ 
-    --frontend-ip-name myFrontEndPool 
-    
-    az network lb inbound-nat-rule create \ 
-    --resource-group myResourceGroup --lb-name myLoadBalancer \ 
-    --name NATrule2 --protocol tcp \ 
-    --frontend-port 5433 --backend-port 3389 \ 
-    --frontend-ip-name myFrontEndPool 
- 
+    az network nsg create --resource-group myResourceGroupLB --name myNetworkSecurityGroup
 ```
 
-## Create network resources
- 
-In this section, you create NICs, an availability set, and two VMs.
-
-### Create NICs
+Create a network security group rule to allow for ssh connections through port 22 to the backend VMs.
 
 ```azurecli-interactive
-    az network nic create \ 
-    --resource-group myResourceGroup --name myNic1 \ 
-    --vnet-name myVnet --subnet mySubnet \ 
-    --lb-name myLoadBalancer \ 
-    --lb-address-pools myBackEndPool --lb-inbound-nat-rules NATRule1 
-
-    az network nic create \ 
-    --resource-group myResourceGroup --name myNic2 \ 
-    --vnet-name myVnet --subnet mySubnet \ 
-    --lb-name myLoadBalancer \ 
-    --lb-address-pools myBackEndPool \
-    --lb-inbound-nat-rules NATRule2
+az network nsg rule create --resource-group myResourceGroupLB --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
+  --protocol tcp --direction inbound --source-address-prefix '*' --source-port-range '*'  \
+  --destination-address-prefix '*' --destination-port-range 22 --access allow --priority 100
 
 ```
-## Create an availability set 
-
-To improve the high availability of your app, place your VMs in an availability set. VMs in a load balancer need to be in the same availability set. Create an availability set named myAvailabilityset with [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#create). 
+Create a network security group rule to allow inbound connections through port 80.
 
 ```azurecli-interactive
-   az vm availability-set create \
-   --resource-group myResourceGroup \
-   --name myAvailabilitySet \
-   --platform-fault-domain-count 3 \
-   --platform-update-domain-count 3
+az network nsg rule create --resource-group myResourceGroupLB --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
+--protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' --source-port-range '*' \
+--destination-address-prefix '*' --destination-port-range 80 --access allow --priority 200
 
 ```
 
+### Create two virtual machines
 
-### Create virtual machines 
+You can use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the shell. Make sure that you copy the whole cloud-init file correctly, especially the first line:
 
-Create two VMs with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#create) and add them to the Availability set named **myAvailabilitySet**.
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
 
-1. Update for your admin password.  
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
 
-   ```azurecli-interactive
-       $AdminPassword=ChangeYourAdminPassword1 
-   ```
+ ```azurecli-interactive
+    az vm availability-set create --resource-group myResourceGroupLB --name myAvailabilitySet
 
-2. Create a virtual machine named **myVM1**, and then associate it with the NIC named **myNic1**. 
+```
 
-  ```azurecli-interactive
-       az vm create \
-       --resource-group myResourceGroup \
-       --name myVM1 \
-       --availability-set myAvailabilitySet \
-       --nics myNic1 \
-       --image win2016datacenter \
-       --admin-password $AdminPassword \
-       --admin-username azureuser \ 
-       --no-wait
-  ```
+Create the network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create). 
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupLBCLI \
+    --name myNic$i \
+    --vnet-name myVNet \
+    --subnet mySubnet
+    --lb-address-pools myBackEndPool
+   done
+```
+  
+Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+az vm create \
+    --resource-group myResourceGroupLBCLI \
+    --name myVM$i \
+    --availabilityset myAvailabilitySet
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+done
+```
+
+## Test the load balancer
+
+To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupLBCLI \
+  --name myPublicIP \
+  --query [ipAddress] \
+  --output tsv
+``` 
 
 ## Delete a load balancer
 
