@@ -53,6 +53,7 @@ A data source name (DSN) contains the information about a specific data source. 
 
     ![Configure DSN](./media/connect-databricks-excel-python-r/odbc-dsn-setup.png "Configure DSN")
 
+    The following table provides information on the values to provide in the dialog box.
     
     |Field  | Value  |
     |---------|---------|
@@ -112,16 +113,16 @@ The following code snippet performs these tasks:
 
     # reference the 'RODBC' package
     require(RODBC)
-
+    
     # establish a connection using the DSN you created earlier
     conn <- odbcConnect("<ENTER DSN NAME HERE>")
-
+    
     # run a SQL query using the connection you created
     res <- sqlQuery(conn, "SELECT * FROM radio_sample_data")
-
+    
     # print out the column names in the query output
     names(res) 
-       
+        
     # print out the number of rows in the query output
     nrow (res)
 
@@ -144,22 +145,22 @@ Open IDLE and do the following steps:
 
 The following code snippet performs these tasks:
 
-    ```python
-    # import the `pyodbc` package:
-    import pyodbc
+```python
+# import the `pyodbc` package:
+import pyodbc
 
-    # establish a connection using the DSN you created earlier
-    conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit = True)
+# establish a connection using the DSN you created earlier
+conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit = True)
 
-    # run a SQL query using the connection you created
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM radio_sample_data")
+# run a SQL query using the connection you created
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM radio_sample_data")
 
-    # print the rows retrieved by the query.
-    for row in cursor.fetchall():
-       print(row)
+# print the rows retrieved by the query.
+for row in cursor.fetchall():
+    print(row)
 
-    ```
+```
 
 ## Next steps
 
