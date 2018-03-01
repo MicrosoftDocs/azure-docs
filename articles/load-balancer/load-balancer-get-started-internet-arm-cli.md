@@ -59,38 +59,38 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
 Create load balancer, the frontend IP pool that receives the incoming network traffic on the load balancer, and the backend IP pool where the front-end pool sends the load balanced network traffic.
 
 ```azurecli-interactive
-   az network lb create \
-     --resource-group myResourceGroupLB \
-     --name myLoadBalancer \
-     --public-ip-address myPublicIP \ 
-     --frontend-ip-name myFrontEndPool \
-     --backend-pool-name myBackEndPool
+  az network lb create \
+  --resource-group myResourceGroupLB \
+  --name myLoadBalancer \
+  --public-ip-address myPublicIP \ 
+  --frontend-ip-name myFrontEndPool \
+  --backend-pool-name myBackEndPool
        
-    ```
+  ```
 
 ### Create the health probe
 
 A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) to monitor the health of the virtual machines. 
 
 ```azurecli-interactive
-   az network lb probe create \
-   --resource-group myResourceGroupLB \
-   --lb-name myLoadBalancer \ 
-   --name myHealthProbe \
-   --protocol tcp --port 80     
+  az network lb probe create \
+  --resource-group myResourceGroupLB \
+  --lb-name myLoadBalancer \ 
+  --name myHealthProbe \
+  --protocol tcp --port 80     
 ```
 ### Create the load balancer rule
 
 In this step, you create a load balancer rule myLoadBalancerRuleWeb with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the front-end pool myFrontEndPool and sending load-balanced network traffic to the back-end address pool myBackEndPool, also using port 80. 
 
 ```azurecli-interactive
-   az network lb rule create \
-   --resource-group myResourceGroupLB \
-   --lb-name myLoadBalancer --name myHTTPRule \
-   --protocol tcp --frontend-port 80 --backend-port 80 \
-   --frontend-ip-name myFrontEndPool \ 
-   --backend-pool-name myBackEndPool \
-   --probe-name myHealthProbe   
+  az network lb rule create \
+  --resource-group myResourceGroupLB \
+  --lb-name myLoadBalancer --name myHTTPRule \
+  --protocol tcp --frontend-port 80 --backend-port 80 \
+  --frontend-ip-name myFrontEndPool \ 
+  --backend-pool-name myBackEndPool \
+  --probe-name myHealthProbe   
   
 ```
 ## Create backend servers
@@ -101,13 +101,13 @@ In this example, you create two virtual machines to be used as backend servers f
 Create network security group to define inbound connections to your virtual network.
 
 ```azurecli-interactive
-    az network nsg create --resource-group myResourceGroupLB --name myNetworkSecurityGroup
+  az network nsg create --resource-group myResourceGroupLB --name myNetworkSecurityGroup
 ```
 
 Create a network security group rule to allow for ssh connections through port 22 to the backend VMs.
 
 ```azurecli-interactive
-az network nsg rule create --resource-group myResourceGroupLB --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
+  az network nsg rule create --resource-group myResourceGroupLB --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
   --protocol tcp --direction inbound --source-address-prefix '*' --source-port-range '*'  \
   --destination-address-prefix '*' --destination-port-range 22 --access allow --priority 100
 
@@ -115,9 +115,9 @@ az network nsg rule create --resource-group myResourceGroupLB --nsg-name myNetwo
 Create a network security group rule to allow inbound connections through port 80.
 
 ```azurecli-interactive
-az network nsg rule create --resource-group myResourceGroupLB --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
---protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' --source-port-range '*' \
---destination-address-prefix '*' --destination-port-range 80 --access allow --priority 200
+  az network nsg rule create --resource-group myResourceGroupLB --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
+  --protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' --source-port-range '*' \
+  --destination-address-prefix '*' --destination-port-range 80 --access allow --priority 200
 
 ```
 
