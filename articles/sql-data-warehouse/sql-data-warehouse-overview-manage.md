@@ -97,10 +97,10 @@ Using good database design principles will make it easier to manage your databas
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Scale performance]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
