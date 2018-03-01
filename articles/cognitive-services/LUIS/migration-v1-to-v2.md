@@ -151,10 +151,10 @@ LUIS suggests utterances from existing [endpoint utterances](label-suggested-utt
 Your exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0. 
 
 ### Prebuilt entities 
-The prebuilt entities have changes. Make sure you are using the V2 prebuilt entities. This includes using datetimeV2, instead of datetime. 
+The [prebuilt entities](Pre-builtEntities.md) have changes. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](pre-builtentities.md?#use-a-prebuilt-datetimev2-entity), instead of datetime. 
 
 ### Actions
-The actions property is no longer valid. 
+The actions property is no longer valid. It should be an empty 
 
 ### Labeled utterances
 V1 allowed labeled utterances to include spaces at the beginning or end of the word or phrase. These need to be removed. 
