@@ -56,6 +56,7 @@ The prerequisites to run this example are as follows:
     - `pip install -U numpy`
     - `pip install bqplot`
     - `jupyter nbextension enable --py --sys-prefix bqplot`
+    - `jupyter nbextension enable --py widgetsnbextension`
 
 ### Troubleshooting / Known bugs
 - A GPU is needed for part 2, and otherwise the error "Batch normalization training on CPU is not yet implemented" is thrown when trying to refine the DNN.
