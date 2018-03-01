@@ -261,7 +261,7 @@ Here are the HTTP trigger outputs:
 | body | Object | The body of the HTTP response | 
 |||| 
 
-<a name="apiconnection-trigger"></a>
+<a name="api-connection-trigger"></a>
 
 ## APIConnection trigger  
 
