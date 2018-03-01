@@ -376,13 +376,23 @@ With SSMS, use the following steps to restore the Adventure Works 2016 database 
 
     ![credential](./media/sql-database-managed-instance-tutorial/credential.png)
 
-3. Use the following script to create check the SAS credential and backup validity - providing the URL for the backup file.
+3. Use the following script to create check the SAS credential and backup validity - providing the URL for the container and the backup file:
 
-   `RESTORE FILELISTONLY FROM URL = 'https://<storage_account_name>.blob.core.windows.net/<container>/<backup_file_name>' 
-   `
+   `RESTORE FILELISTONLY FROM URL = 'https://<storage_account_name>.blob.core.windows.net/<container>/<backup_file_name>'`
 
     ![file list](./media/sql-database-managed-instance-tutorial/file-list.png)
+
+4. Use the following script to restore the Adventure Works 2016 database from a backup file - providing the URL for the container and the backup file:
+
+   `RESTORE DATABASE [Adventure Works 2016] FROM URL = 'https://<storage_account_name>.blob.core.windows.net/<container>/<backup_file_name>'`
+
+5. To track the status of your restore, run the following query in a new query session:
+
+   `SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete, dateadd(second,estimated_completion_time/1000, getdate()) as stimated_completion_time 
+FROM sys.dm_exec_requests r CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
 
 
 ## Next steps
 
+For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
+.
