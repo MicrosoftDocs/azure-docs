@@ -77,4 +77,7 @@ Azure creates route tables that enable resources connected to any subnet in any 
 
 ## <a name="next-steps"></a>Next steps
 
-You now have an overview of Azure Virtual Network. The next step is to dive in, [create a virtual network](quick-create-portal.md), and deploy some Azure resources into it.
+You now have an overview of Azure Virtual Network. Learn how to utilize some of Azure Virtual Network's capabilities by creating a virtual network and deploying some Azure Virtual Machines into it.
+
+> [!div class="nextstepaction"]
+> [Create a virtual network](quick-create-portal.md)
