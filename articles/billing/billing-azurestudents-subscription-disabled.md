@@ -25,12 +25,12 @@ Your Azure for Students subscription might get disabled because you have used al
 
 ## You have used all of your credit
 
-Azure for Students account gives you $100 in credit and a limited quantity of free services for 12 months. Any usage beyond the free services and quantities is deducted from your credit. Once your credit runs out, Azure disables your services and subscription. To continue using Azure services,you must upgrade your subscription to a pay-as-you-go subscription by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and providing your credit card information. After you upgrade, your subscription still has access to free services for 12 months from your sign up date. You only get charged for usage beyond the free services and quantities.
+Azure for Students account gives you $100 in credit and a limited quantity of free services for 12 months. Any usage beyond the free services and quantities is deducted from your credit. Once your credit runs out, Azure disables your services and subscription. To continue using Azure services, you must upgrade your subscription to a pay-as-you-go subscription by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and providing your credit card information. After you upgrade, your subscription still has access to free services for 12 months from your sign-up date. You only get charged for usage beyond the free services and quantities.
 
 You can check your remaining credit on the [Microsoft Azure Sponsorships portal](https://www.microsoftazuresponsorships.com/balance)
 
 1. Sign in using your Azure for Students account credentials.
-2. The balance page gives you information about used and remaining credit. You can find your credit expiration date below the credit chart.  
+2. The balance page gives information about used and remaining credit. You can find your credit expiration date below the credit chart.  
    
     ![Screenshot that shows credit information for Azure for Students subscription](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
@@ -41,7 +41,7 @@ You can check your remaining credit on the [Microsoft Azure Sponsorships portal]
 The table contains the following columns:
 
 * **Service Name:** Service that is consuming your Azure credit.
-* **Service Resource:** Unit of measure for the service being consumed.
+* **Service Resource:** Unit of measurement for the service being consumed.
 * **Spend:** Amount of credit in USD($) spent on the service.
 
 
@@ -52,7 +52,7 @@ Your Azure for Students credit expires at the end of 12 months. Once your credit
 
 ## You have accidentally canceled your subscription
 
-If you have accidentally canceled your Azure for Students subscription, you can reactivate it by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Once you reactivate, you still have access to the remaining credit and free services for 12 months from your sign up date.
+If you have accidentally canceled your Azure for Students subscription, you can reactivate it by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Once you reactivate, you still have access to the remaining credit and free services for 12 months from your sign-up date.
 
 ## Need help? Contact support
 
