@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows, virtual-machines-linux
+ author: dlepow
+ ms.service: multiple
+ ms.topic: include
+ ms.date: 02/28/2018
+ ms.author: danlep
+ ms.custom: include file
+---
+
 ## Deploy an image with Marketplace terms
 
 Certain VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically.  
