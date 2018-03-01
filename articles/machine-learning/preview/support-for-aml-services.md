@@ -13,11 +13,13 @@ ms.date: 03/01/2018
 ---
 # Get support and training for Azure Machine Learning services
 
+This article provides information on how to learn more about Azure Machine Learning services as well as get support for your issues and questions. 
+
 ## Learn more about Azure Machine Learning
 
 The [Azure Machine Learning Documentation Center](./overview-what-is-azure-ml.md) hosts video tutorials and how-to guides. These step-by-step guides introduce the services and explain the data science life cycle. We add new material to the Machine Learning Center on an ongoing basis. 
 
-Additionally, there are **videos** you can watch to learn more](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+Additionally, there are [videos you can watch to learn more](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
 You can **submit requests** for additional learning materials using the feedback link at the bottom of the article.
 
