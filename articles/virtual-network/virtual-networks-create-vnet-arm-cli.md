@@ -147,18 +147,18 @@ ping -c 4 myvmmgmt
 You receive output similar to the following example output:
     
 ```
-PING myvmmgt (10.0.1.4) 56(84) bytes of data.
-64 bytes from 10.0.1.4: icmp_seq=1 ttl=57 time=0.748 ms
-64 bytes from 10.0.1.4: icmp_seq=2 ttl=57 time=0.923 ms
-64 bytes from 10.0.1.4: icmp_seq=3 ttl=57 time=0.910 ms
-64 bytes from 10.0.1.4: icmp_seq=4 ttl=57 time=0.942 ms
+PING myvmmgmt.hxehizax3z1udjnrx1r4gr30pg.bx.internal.cloudapp.net (10.0.1.4) 56(84) bytes of data.
+64 bytes from 10.0.1.4: icmp_seq=1 ttl=64 time=1.45 ms
+64 bytes from 10.0.1.4: icmp_seq=2 ttl=64 time=0.628 ms
+64 bytes from 10.0.1.4: icmp_seq=3 ttl=64 time=0.529 ms
+64 bytes from 10.0.1.4: icmp_seq=4 ttl=64 time=0.674 ms
 
---- 10.0.1.4 ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 3002ms
-rtt min/avg/max/mdev = 21.520/24.816/33.880/5.237 ms
+--- myvmmgmt.hxehizax3z1udjnrx1r4gr30pg.bx.internal.cloudapp.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3029ms
+rtt min/avg/max/mdev = 0.529/0.821/1.453/0.368 ms
 ```
       
-You can see that the address of the *myVmMgmt* virtual machine is 10.0.1.4. This was the first available IP address in the address range of the *Private* subnet that you deployed the *myVmMgmt* virtual machine to in a previous step.  You see that the fully qualified domain name of the virtual machine is *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Though the *dar5p44cif3ulfq00wxznl3i3f* portion of the domain name is different for your virtual machine, the remaining portions of the domain name are the same. By default, all Azure virtual machines use the default Azure DNS service. All virtual machines within a virtual network can resolve the names of all other virtual machines in the same virtual network using Azure's default DNS service. Instead of using Azure's default DNS service, you can use your own DNS server or the private domain capability of the Azure DNS service. For details, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) or [Using Azure DNS for private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+You can see that the address of the *myVmMgmt* virtual machine is 10.0.1.4. This was the first available IP address in the address range of the *Private* subnet that you deployed the *myVmMgmt* virtual machine to in a previous step.  You see that the fully qualified domain name of the virtual machine is *myvmmgmt.hxehizax3z1udjnrx1r4gr30pg.bx.internal.cloudapp.net*. Though the *hxehizax3z1udjnrx1r4gr30pg* portion of the domain name is different for your virtual machine, the remaining portions of the domain name are the same. By default, all Azure virtual machines use the default Azure DNS service. All virtual machines within a virtual network can resolve the names of all other virtual machines in the same virtual network using Azure's default DNS service. Instead of using Azure's default DNS service, you can use your own DNS server or the private domain capability of the Azure DNS service. For details, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) or [Using Azure DNS for private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Use the following commands to install the nginx web server on the *myVmWeb* virtual machine:
 
@@ -170,13 +170,13 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-Logout of the *myVmWeb* SSH session, which leaves you at the prompt for the *myVmMgmt* virtual machine. Enter the following command to retrieve the nginx welcome screen from the *myVmWeb* virtual machine.
+Once nginx is installed, close the *myVmWeb* SSH session, which leaves you at the prompt for the *myVmMgmt* virtual machine. Enter the following command to retrieve the nginx welcome screen from the *myVmWeb* virtual machine.
 
 ```bash
 curl myVmWeb
 ```
 
-The welcome screen is returned.
+The nginx welcome screen is returned.
 
 Close the SSH session with the *myVmMgmt* virtual machine.
 
@@ -189,7 +189,7 @@ az network public-ip show \
   --query ipAddress
 ```
 
-From your own computer, enter the following command, replacing `<publicIpAddress>` with the address returned from the previous command.
+From your own computer, enter the following command, replacing `<publicIpAddress>` with the address returned from the previous command:
 
 ```bash
 curl <publicIpAddress>
@@ -197,7 +197,7 @@ curl <publicIpAddress>
 
 The attempt to curl the nginx welcome screen from your own computer fails. The attempt fails because when the virtual machines were deployed, Azure created a network security group for each virtual machine, by default. 
 
-A network security group contains security rules that allow or deny inbound and outbound network traffic by port and IP address. The default network security group Azure created allows communication over all ports between resources in the same virtual network. For Linux virtual machines, the default network security group denies all inbound traffic to the resources from the Internet over all ports, accept TCP port 22 (SSH). As a result, by default, you can also create an SSH session directly to the *myVmWeb* virtual machine from the Internet, even though you might not want port 22 open to a web server. Since the `curl` command communicates over port 80, communication fails from the Internet because there is no rule in the default network security group allowing traffic over port 80.
+A network security group contains security rules that allow or deny inbound and outbound network traffic by port and IP address. The default network security group Azure created allows communication over all ports between resources in the same virtual network. For Linux virtual machines, the default network security group denies all inbound traffic from the Internet over all ports, accept TCP port 22 (SSH). As a result, by default, you can also create an SSH session directly to the *myVmWeb* virtual machine from the Internet, even though you might not want port 22 open to a web server. Since the `curl` command communicates over port 80, communication fails from the Internet because there is no rule in the default network security group allowing traffic over port 80.
 
 ## Clean up resources
 
