@@ -69,9 +69,9 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 >
 
 
-## Get the connection string for your IoT hub
+## Get the connection string for the IoT hub
 
-You need your IoT Hub's connection string to link it to the device provisioning service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) command to get the connection string and use its output to set a variable that you will use when you link the two resources. 
+You need your IoT Hub's connection string to link it with the device provisioning service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) command to get the connection string and use its output to set a variable that you will use when you link the two resources. 
 
 The following example sets the *hubConnectionString* variable to the value of the connection string for the primary key of the hub's *iothubowner* policy. You can specify a different policy with the `--policy-name` parameter. The command uses the Azure CLI [query](/cli/azure/query-azure-cli) and [output](/cli/azure/format-output-azure-cli#tsv-output-format) options to extract the connection string from the command output.
 
@@ -85,17 +85,17 @@ You can use the `echo` command to see the connection string.
 echo $hubConnectionString
 ```
 
-## Link the IoT hub to the provisioning service
+## Link the IoT hub and the provisioning service
 
-Link the IoT hub to your provisioning service with the [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az_iot_dps_linked_hub_create) command. 
+Link the IoT hub and your provisioning service with the [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az_iot_dps_linked_hub_create) command. 
 
-The following example links an IoT hub named *my-sample-hub* in the *westus* location to a device provisioning service named *my-sample-dps*. It uses the connection string for *my-sample-hub* stored in the *hubConnectionString* variable in the previous step.
+The following example links an IoT hub named *my-sample-hub* in the *westus* location and a device provisioning service named *my-sample-dps*. It uses the connection string for *my-sample-hub* stored in the *hubConnectionString* variable in the previous step.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus
 ```
 
-## Verify your provisioning service
+## Verify the provisioning service
 
 Get the details of your provisioning service with the [az iot dps show](/cli/azure/iot/dps#az_iot_dps_show) command.
 
@@ -133,16 +133,3 @@ In this Quickstart, you’ve deployed an IoT hub and a Device Provisioning Servi
 > [!div class="nextstepaction"]
 > [Quickstart to create simulated device](./quick-create-simulated-device.md)
 
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
-[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
-[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
-[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
-[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
-[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-portal]: iot-hub-create-through-portal.md 
