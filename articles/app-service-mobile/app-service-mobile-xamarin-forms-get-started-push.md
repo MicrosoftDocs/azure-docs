@@ -200,7 +200,7 @@ Now, you are ready test push notifications in the app running on an Android devi
 ### Test push notifications in your Android app
 The first two steps are required only when you're testing on an emulator.
 
-1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device manager.
+1. Make sure that you are deploying to or debugging on a device or emulator that is configured with Google Play Services. This can be verified by checking that the **Play** apps are installed on the device or emulator.
 2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**. Then follow the prompts to add an existing Google account to the device, or to create a new one.
 3. In Visual Studio or Xamarin Studio, right-click the **Droid** project and click **Set as startup project**.
 4. Click **Run** to build the project and start the app on your Android device or emulator.
