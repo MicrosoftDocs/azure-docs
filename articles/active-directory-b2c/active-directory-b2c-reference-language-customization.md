@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 02/26/2017
+ms.date: 02/26/2018
 ms.author: sama
 
 ---
+
+# Azure Active Directory B2C: Using language customization
+
 >[!NOTE]
 >This feature is in public preview.
 >
-
-# Azure Active Directory B2C: Using language customization
 
 Language customization allows your policy to accommodate different languages to suit your customer needs.  Microsoft provides the translations for 36 languages (see [Additional information](#additional-information)), but you can also provide your own translations for any language.  Even if your experience is only provided for a single language, you can customize any text on the pages.  
 
@@ -132,7 +133,7 @@ If you want to provide a set list of values for responses, you need to create a 
 5. Click on the folder icon and select the JSON file to upload.
 6. This changed is saved to your policy automatically.
 
-## Using Page UI Customization with Language Customization
+## Using Page UI Customization with language customization
 
 There are two ways to localize your HTML content.  By turning on ['Language customization'](active-directory-b2c-reference-language-customization.md).  Enabling this feature allows Azure AD B2C to forward the Open ID Connect parameter, `ui-locales`, to your endpoint.  Your content server can use this parameter to provide customized HTML pages that are language-specific.
 
