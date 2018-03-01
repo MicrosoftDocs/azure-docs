@@ -72,9 +72,9 @@ The following steps show you how to create a new [Azure Resource Manager (ARM)](
 
 4. Click **Create**.
 
-## Create new route table and set route table on Managed Instance subnet
+## Create new route table and a route
 
-The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route and apply it to the Managed Instance subnet.
+The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Route table**, and then click **Create** on the Route table page. 
@@ -115,8 +115,13 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route a
     ![route](./media/sql-database-managed-instance-tutorial/route.png)
 
 8. Click **OK**.
-9. To set this route table on the subnet where Managed Instance is to be deployed, open the virtual network that you created earlier.
-10. Click **Subnets** and then click the Managed Instance subnet that you created earlier (**default**).
+
+ ## To apply the route table to the Managed Instance subnet
+
+The following steps show you how to set the new route table on the Managed Instance subnet.
+
+1. To set the route table on the Managed Instance subnet, open the virtual network that you created earlier.
+2. Click **Subnets** and then click the Managed Instance subnet (**mi_subnet** in the following screenshot).
 
     ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
 
@@ -169,7 +174,7 @@ The following steps show you how to create your Managed Instance after your prev
  
    ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
-10. Record the host name that you specified, as you will need it later in this tutorial to connect to your Managed Instance using SQL Server Management Studio.
+10. Record the instance name, as you will need it later in this tutorial to connect to your Managed Instance using SQL Server Management Studio.
 
 While deployment occurs, continue to the next procedure.
  
@@ -230,7 +235,7 @@ The following steps show you how to create a virtual machine in the same VNET in
     ![VM sizes](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
 5. Click **Select**.
-6. Under **Settings**, review but keep the default settings. 
+6. On the **Settings** form, click **Subnet** and then select **vm_subnet**. 
 
     ![VM settings](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
