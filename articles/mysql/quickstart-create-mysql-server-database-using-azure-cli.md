@@ -47,13 +47,18 @@ Check you have the correct extension version installed.
 az extension list
 ```
 
-The command returns the following: 
+The return JSON should include the following: 
 ```json
 {
     "extensionType": "whl",
     "name": "rdbms",
     "version": "0.0.3"
 }
+```
+
+If version 0.0.3 is not returned, run the following to update the extension: 
+```azurecli-interactive
+az extension update --name rdbms
 ```
 
 ## Create an Azure Database for MySQL server
