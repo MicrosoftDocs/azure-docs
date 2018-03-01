@@ -59,7 +59,7 @@ Also note your region identifier for your API endpoint. For example, **westus** 
 
 ### Resource ID
 
-The second part starts out as empty with no resource ID. **To use your Azure subscription key with the review API, navigate to the resource ID screen as shown previously, and copy it into the field shown. Hit the **'+'** to save your resource ID.
+The second part starts out as empty with no resource ID. **To use your Azure subscription key with the review API, navigate to the resource ID screen as shown previously, and copy it into the field shown**. Hit the **'+'** to save your resource ID.
 
 > [!NOTE]
 > Your Content Moderator subscription's region should match the review team's region for it to recognize your team and access the team data. For example, in the images on this page, The **West US** region **(4)** contains the Content Moderator Azure subscription and your review team.
@@ -69,7 +69,9 @@ The second part starts out as empty with no resource ID. **To use your Azure sub
 
 ### Workflows
 
-The third part shows the information used for running workflows. It starts out showing the auto-generated trial key by default. **Update it with your Azure key when you get an Azure subscription**. The other two fields allow using term and image lists in the Screen Text and Evaluate Image operations respectively.
+The third part shows the information used for running workflows. It starts out showing the auto-generated trial key by default. 
+
+**Update it with your Azure key when you get an Azure subscription**. The other two fields allow using term and image lists in the Screen Text and Evaluate Image operations respectively.
 
 ![Content Moderator workflow credentials in the review tool](images/credentials-workflow.PNG)
 
