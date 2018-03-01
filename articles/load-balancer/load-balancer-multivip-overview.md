@@ -119,8 +119,8 @@ The following table shows the complete mapping in the load balancer:
 
 | Rule | Frontend IP address | protocol | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
-| ![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |same as frontend (65.52.0.1) |same as Frontend (80) |
-| ![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |same as frontend (65.52.0.2) |same as Frontend (80) |
+| ![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |same as frontend (65.52.0.1) |same as frontend (80) |
+| ![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |same as frontend (65.52.0.2) |same as frontend (80) |
 
 The destination of the inbound flow is the frontend IP address on the loopback interface in the VM. Each rule must produce a flow with a unique combination of destination IP address and destination port. By varying the destination IP address of the flow, port reuse is possible on the same VM. Your service is exposed to the load balancer by binding it to the frontend’s IP address and port of the respective loopback interface.
 
