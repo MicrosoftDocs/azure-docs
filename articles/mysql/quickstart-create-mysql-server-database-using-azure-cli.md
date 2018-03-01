@@ -41,6 +41,19 @@ Add the updated Azure Database for MySQL management extension using the followin
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+Check you have the correct extension version installed. 
+```azurecli-interactive
+az extension list
+```
+You should see the below returned. 
+
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
 
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)** command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
@@ -197,7 +210,7 @@ If you don't need these resources for another quickstart/tutorial, you can delet
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run [az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete) command.
+If you would just like to delete the one newly created server, you can run **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** command.
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
