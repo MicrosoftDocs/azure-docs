@@ -47,7 +47,7 @@ Managed Instance is being released initially as a gated public preview that requ
 
 ## Configure a virtual network (VNet)
 
-The following steps show you how to create a new [Azure Resource Manager (ARM)](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNet) for use by your Managed Instance.
+The following steps show you how to create a new [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNet) for use by your Managed Instance.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Virtual Network**, verify the **Resource Manager** is selected as the deployment mode, and then click **Create**.
