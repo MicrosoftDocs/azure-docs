@@ -68,7 +68,7 @@ The following topics are covered:
 This section demonstrates how to create a single bitrate .MP4 file with AAC-HE encoded audio from an .MXF input file.
 
 ### <a id="MXF_to_MP4_start_new"></a>Starting a new workflow
-Open Workflow Designer and select "File"-"New Workspace"-"Transcode Blueprint"
+Open Workflow Designer and select File > New Workspace > Transcode Blueprint
 
 The new workflow shows three elements:
 
@@ -87,7 +87,7 @@ In order to accept the input media file, one starts with adding a Media File Inp
 
 *Connected Media File Input*
 
-Initially, identify an appropriate sample file to use when designing a custom workflow. To do so, click the designer pane background and look for the Primary Source File property on the right-hand property pane. Click the folder icon and select the desired file for testing the workflow. The Media File Input component inspects the file and populate its output pins to reflect the details of the sample file it inspected.
+Initially, identify an appropriate sample file to use when designing a custom workflow. To do so, click the designer pane background and look for the Primary Source File property on the right-hand property pane. Click the folder icon and select the desired file for testing the workflow. The Media File Input component inspects the file and populates its output pins to reflect the details of the sample file it inspected.
 
 ![Populated Media File Input](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
 
@@ -633,7 +633,7 @@ Starting from a workflow that generates [a multibitrate MP4 output from an MXF i
 ### <a id="frame_based_trim_clip_list"></a>Using the Clip List XML
 In all previous workflow tutorials, we used the Media File Input component as our video input source. For this specific scenario though, we'll be using the Clip List Source component instead. This should not be the preferred way of working; only use the Clip List Source when there's a real reason to do so (like in the following case, where we're making use of the clip list trimming capabilities).
 
-To switch from our Media File Input to the Clip List Source, drag the Clip List Source component onto the design surface and connect the Clip List XML pin to the Clip List XML node of the workflow designer. This should populate the Clip List Source with output pins, according to our input video. Now connect the Uncompressed Video and Uncompressed Audio pins from the Clip List Source to the respective AVC Encoders and Audio Stream Interleaver. Now remove the Media File Input.
+To switch from our Media File Input to the Clip List Source, drag the Clip List Source component onto the design surface and connect the Clip List XML pin to the Clip List XML node of the workflow designer. This populates the Clip List Source with output pins, according to our input video. Now connect the Uncompressed Video and Uncompressed Audio pins from the Clip List Source to the respective AVC Encoders and Audio Stream Interleaver. Now remove the Media File Input.
 
 ![Replaced the Media File Input with the Clip List Source](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
 
