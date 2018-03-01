@@ -45,7 +45,7 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 
 ### Pools in Cloud Service configuration
 
-Batch pools in the Cloud Service configuration support all [VM sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs) *except* for the following:
+Batch pools in the Cloud Service configuration support all [VM sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) *except* for the following:
 
 | Family  | Unsupported sizes  |
 |---------|---------|

@@ -50,8 +50,8 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, ND series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-vms) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers | N/A | 
-| [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [NC, NCv2, NCv3, ND series*](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers | N/A | 
+| [NV series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 *RDMA connectivity on RDMA-capable N-series VMs may require [additional configuration](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) that varies by distribution.
 
