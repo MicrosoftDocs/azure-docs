@@ -33,11 +33,8 @@ With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale 
 * Enable hybrid cloud scenarios
 VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
 
-### How do I know if I need a VNet?
-The [Virtual network overview](virtual-networks-overview.md) article provides a decision table that will help you decide the best network design option for you.
-
 ### How do I get started?
-Visit the [Virtual network documentation](https://docs.microsoft.com/azure/virtual-network/) to get started. This content provides overview and deployment information for all the VNet features.
+Visit the [Virtual network documentation](https://docs.microsoft.com/azure/virtual-network/) to get started. This content provides overview and deployment information for all of the VNet features.
 
 ### Can I use VNets without cross-premises connectivity?
 Yes. You can use a VNet without using hybrid connectivity. This is useful if you want to run Microsoft Windows Server Active Directory domain controllers and SharePoint farms in Azure.
@@ -51,22 +48,22 @@ Yes. You can deploy a [WAN optimization network virtual appliance](https://azure
 ### What tools do I use to create a VNet?
 You can use the following tools to create or configure a VNet:
 
-* Azure portal (for classic and Resource Manager VNets).
+* Azure portal
+* PowerShell
+* Azure CLI
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
-* PowerShell (for classic and Resource Manager VNets).
-* Azure CLI (for classic and Resource Manager VNets).
 
 ### What address ranges can I use in my VNets?
 Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16.
 
 ### Can I have public IP addresses in my VNets?
-Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](virtual-networks-public-ip-within-vnet.md) article. Your public IP addresses will not be directly accessible from the Internet.
+Yes. For more information about public IP address ranges, see [Create a virtual network](virtual-network-manage-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
 
 ### Is there a limit to the number of subnets in my VNet?
-Yes. Read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. Subnet address spaces cannot overlap one another.
+Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
-Yes. Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services.
+Yes. Azure reserves some IP addresses within each subnet. The first and last IP addresses of each subnet are reserved for protocol conformance, along with the x.x.x.1-x.x.x.3 addressesof each subnet, which are used for Azure services.
 
 ### How small and how large can VNets and subnets be?
 The smallest supported subnet is /29, and the largest is /8 (using CIDR subnet definitions).
@@ -75,7 +72,7 @@ The smallest supported subnet is /29, and the largest is /8 (using CIDR subnet d
 No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
 
 ### Can I specify custom routing policies on my VNets and subnets?
-Yes. You can use User Defined Routing (UDR). For more information about UDR, visit [User Defined Routes and IP Forwarding](virtual-networks-udr-overview.md).
+Yes. You can create a route table and associate it to a subnet. For more information about routing in Azure, see [Routing overview](virtual-networks-udr-overview.md#custom-routes).
 
 ### Do VNets support multicast or broadcast?
 No. Multicast and broadcast are not supported.
@@ -90,7 +87,7 @@ No.
 No.
 
 ### Can I add subnets after the VNet is created?
-Yes. Subnets can be added to VNets at any time as long as the subnet address is not part of another subnet in the VNet.
+Yes. Subnets can be added to VNets at any time as long as the subnet address range is not part of another subnet and there is available space left in the virtual network's address range.
 
 ### Can I modify the size of my subnet after I create it?
 Yes. You can add, remove, expand, or shrink a subnet if there are no VMs or services deployed within it.
@@ -99,18 +96,18 @@ Yes. You can add, remove, expand, or shrink a subnet if there are no VMs or serv
 Yes. You can add, remove, and modify the CIDR blocks used by a VNet.
 
 ### If I am running my services in a VNet, can I connect to the internet?
-Yes. All services deployed within a VNet can connect to the internet. Every cloud service deployed in Azure has a publicly addressable VIP assigned to it. You will have to define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
+Yes. All services deployed within a VNet can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Outbound connections](..load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you want to connect inbound to a resource deployed through Resource Manager, the resource must have a public IP address assigned to it. To learn more about public IP addresses, see [Public IP addresses](virtual-network-public-ip-address.md). Every Azure Cloud Service deployed in Azure has a publicly addressable VIP assigned to it. You have to define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
 
 ### Do VNets support IPv6?
-No. You cannot use IPv6 with VNets at this time.
+No. You cannot use IPv6 with VNets at this time. You can however, assign IPv6 addresses to Azure load balancers to load balance virtual machines. For details, see [Overview of IPv6 for Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### Can a VNet span regions?
-No. A VNet is limited to a single region.
+No. A VNet is limited to a single region. A virtual network does, however, span availability zones. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). You can connect virtual networks in different regions with virtual network peering. For details, see [Virtual network peering overview](virtual-network-peering-overview.md)
 
 ### Can I connect a VNet to another VNet in Azure?
-Yes. You can connect one VNet to another VNet using:
-- An Azure VPN Gateway. Read the [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article for details. 
-- VNet peering. Read the [VNet peering overview](virtual-network-peering-overview.md) article for details.
+Yes. You can connect one VNet to another VNet using either:
+- **Virtual network peering**: For details, see [VNet peering overview](virtual-network-peering-overview.md)
+- **An Azure VPN Gateway**: For details, see [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## Name Resolution (DNS)
 
@@ -121,21 +118,18 @@ Use the decision table on the [Name Resolution for VMs and Role Instances](virtu
 Yes. You can specify DNS server IP addresses in the VNet settings. This will be applied as the default DNS server(s) for all VMs in the VNet.
 
 ### How many DNS servers can I specify?
-Reference the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details.
+Reference [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### Can I modify my DNS servers after I have created the network?
 Yes. You can change the DNS server list for your VNet at any time. If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.
 
 ### What is Azure-provided DNS and does it work with VNets?
-Azure-provided DNS is a multi-tenant DNS service offered by Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet. Read the [Name Resolution for VMs and Role Instances](virtual-networks-name-resolution-for-vms-and-role-instances.md) article to learn more about DNS.
+Azure-provided DNS is a multi-tenant DNS service offered by Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet. To learn more about DNS, see [Name Resolution for VMs and Cloud Services role instances](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-> [!NOTE]
-> There is a limitation at this time to the first 100 cloud services in a VNet for cross-tenant name resolution using Azure-provided DNS. If you are using your own DNS server, this limitation does not apply.
-> 
-> 
+There is a limitation to the first 100 cloud services in a VNet for cross-tenant name resolution using Azure-provided DNS. If you are using your own DNS server, this limitation does not apply.
 
-### Can I override my DNS settings on a per-VM / service basis?
-Yes. You can set DNS servers on a per-cloud service basis to override the default network settings. However, it's recommend that you use network-wide DNS as much as possible.
+### Can I override my DNS settings on a per-VM or cloud service basis?
+Yes. You can set DNS servers per VM or cloud service to override the default network settings. However, it's recommend that you use network-wide DNS as much as possible.
 
 ### Can I bring my own DNS suffix?
 No. You cannot specify a custom DNS suffix for your VNets.
@@ -171,7 +165,7 @@ Yes. You can find more information in the [How to move a VM or role instance to 
 ### Can I configure a static MAC address for my VM?
 No. A MAC address cannot be statically configured.
 
-### Will the MAC address remain the same for my VM once it has been created?
+### Will the MAC address remain the same for my VM once it's created?
 Yes, the MAC address remains the same for a VM deployed through both the Resource Manager and classic deployment models until it's deleted. Previously, the MAC address was released if the VM was stopped (deallocated), but now the MAC address is retained even when the VM is in the deallocated state.
 
 ### Can I connect to the internet from a VM in a VNet?
@@ -182,9 +176,9 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ### Can I use Azure App Service Web Apps with a VNet?
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following articles:
 
-* [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md)
-* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
@@ -193,7 +187,7 @@ Yes. You can (optionally) deploy Cloud Services role instances within VNets. To 
 Yes. You must connect a VMSS to a VNet.
 
 ### Can I move my services in and out of VNets?
-No. You cannot move services in and out of VNets. You will have to delete and re-deploy the service to move it to another VNet.
+No. You cannot move services in and out of VNets. You will have to delete and re-deploy the resource to move it to another VNet.
 
 ## Security
 
@@ -201,21 +195,21 @@ No. You cannot move services in and out of VNets. You will have to delete and re
 VNets are isolated from one another, and other services hosted in the Azure infrastructure. A VNet is a trust boundary.
 
 ### Can I restrict inbound or outbound traffic flow to VNet-connected resources?
-Yes. You can apply [Network Security Groups](virtual-networks-nsg.md) to individual subnets within a VNet, NICs attached to a VNet, or both.
+Yes. You can apply [Network Security Groups](security-overview.md) to individual subnets within a VNet, NICs attached to a VNet, or both.
 
 ### Can I implement a firewall between VNet-connected resources?
-Yes. You can deploy a [firewall network virtual appliance](https://azure.microsoft.com/en-us/marketplace/?term=firewall) from several vendors through the Azure Marketplace.
+Yes. You can deploy a [firewall network virtual appliance](https://azure.microsoft.com/marketplace/?term=firewall) from several vendors through the Azure Marketplace.
 
 ### Is there information available about securing VNets?
-Yes. See the [Azure Network Security Overview](../security/security-network-overview.md) article for details.
+Yes. For details, see [Azure Network Security Overview](../security/security-network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
-Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) and [classic (Service Management)](http://go.microsoft.com/fwlink/?LinkId=296833)) deployment models.
+Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/virtual-network) and [classic (Service Management)](http://go.microsoft.com/fwlink/?LinkId=296833) deployment models.
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) and [classic](/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
-- The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.  
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/azurerm.network) and [classic](/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
+- The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) deployment models.  
