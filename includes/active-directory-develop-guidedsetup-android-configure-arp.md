@@ -28,6 +28,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 </activity>
 ```
 
-### What is Next
-
-[Test and Validate](active-directory-develop-guidedsetup-android-test.md)
