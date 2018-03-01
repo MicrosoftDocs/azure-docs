@@ -82,7 +82,7 @@ Configure Azure Stack to support users from multiple Azure AD tenants to use ser
 
 ## Create a local resource in the end customer tenant in Azure Stack
 
-Once you have added the new customer to Azure Stack, or the end customer tenant has enabled your guest account with owner privileges, verify that you could create a resource in their tenant. For example, they can [Create a Windows virtual machine with the Azure Stack portal](azure-stack-quick-windows-portal.md).
+Once you have added the new customer to Azure Stack, or the end customer tenant has enabled your guest account with owner privileges, verify that you could create a resource in their tenant. For example, they can [Create a Windows virtual machine with the Azure Stack portal](user\azure-stack-quick-windows-portal.md).
 
 ## Next steps
 
