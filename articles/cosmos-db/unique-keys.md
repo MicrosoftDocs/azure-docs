@@ -130,6 +130,20 @@ The following command sample shows how to create a unique index on the firstName
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## Azure Portal sample
+
+In the sections above you'll find code samples that will show how you can define unique key constraints when a collection is created using the SQL API or MongoDB API. But it's also possible to define unique keys when you create a collection via the web UI in the Azure Portal. 
+
+- Navigate to the **Data Explorer** in your Cosmosd DB account
+- Click **New Collection**
+- In the section **Unique keys** you can add the desired unique key constraints by clicking **Add unique key**
+
+![Define Unique Keys in the Data Explorer](./media/unique-keys/unique-keys-azure-portal.png)
+
+- If you'd like to create a unique key constraint on the lastName path, you add `/lastName`.
+- If you'd like to create a unique key constraint for the lastName firstName combination, you add `/lastName,/firstName`
+
+When done click **OK** to create the collection.
 
 ## Next steps
 
