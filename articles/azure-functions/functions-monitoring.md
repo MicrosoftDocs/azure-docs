@@ -521,6 +521,10 @@ PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 
 For more information, see [How to stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
+### Viewing log files locally
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
+
 ## Next steps
 
 For more information, see the following resources:
