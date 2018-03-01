@@ -103,15 +103,16 @@ Here are the steps to set up the NuGet:
     This will add the *Service Context* to your telemetry, allowing you to better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* should look like this:
     
     ```csharp
-    return new WebHostBuilder().UseWebListener()
+    return new WebHostBuilder()
+        .UseKestrel()
         .ConfigureServices(
             services => services
+                .AddSingleton<HttpClient>(new HttpClient())
+                .AddSingleton<FabricClient>(new FabricClient())
                 .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<HttpClient>())
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
-        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -125,8 +126,8 @@ Here are the steps to set up the NuGet:
         .ConfigureServices(
             services => services
                 .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-                .AddSingleton<IReliableStateManager>(this.StateManager))
+                .AddSingleton<IReliableStateManager>(this.StateManager)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
         .UseApplicationInsights()
@@ -235,6 +236,6 @@ In this tutorial, you learned how to:
 > * Add custom events using the Application Insights API
 
 Now that you have completed setting up monitoring and diagnostics for your ASP.NET application, try the following:
-- [Explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
+- [Further explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
 - [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 - To learn more about Application Insights, see [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights/)
