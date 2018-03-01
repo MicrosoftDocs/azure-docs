@@ -96,7 +96,7 @@ Yes. You can add, remove, expand, or shrink a subnet if there are no VMs or serv
 Yes. You can add, remove, and modify the CIDR blocks used by a VNet.
 
 ### If I am running my services in a VNet, can I connect to the internet?
-Yes. All services deployed within a VNet can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Outbound connections](..load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you want to connect inbound to a resource deployed through Resource Manager, the resource must have a public IP address assigned to it. To learn more about public IP addresses, see [Public IP addresses](virtual-network-public-ip-address.md). Every Azure Cloud Service deployed in Azure has a publicly addressable VIP assigned to it. You have to define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
+Yes. All services deployed within a VNet can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you want to connect inbound to a resource deployed through Resource Manager, the resource must have a public IP address assigned to it. To learn more about public IP addresses, see [Public IP addresses](virtual-network-public-ip-address.md). Every Azure Cloud Service deployed in Azure has a publicly addressable VIP assigned to it. You have to define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
 
 ### Do VNets support IPv6?
 No. You cannot use IPv6 with VNets at this time. You can however, assign IPv6 addresses to Azure load balancers to load balance virtual machines. For details, see [Overview of IPv6 for Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -185,6 +185,14 @@ Yes. You can (optionally) deploy Cloud Services role instances within VNets. To 
 
 ### Can I connect a Virtual Machine Scale Set (VMSS) to a VNet?
 Yes. You must connect a VMSS to a VNet.
+
+### Is there a complete list of Azure services that can I deploy resources from into a VNet?
+
+Yes, For details, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
+
+### Which Azure PaaS resources can I restrict access to from a VNet?
+
+Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database), can restrict network access to only resources in a VNet through the use of virtual network service endpoints. For details, see [Virtual network service endpoints overview.](virtual-network-service-endpoints-overview.md).
 
 ### Can I move my services in and out of VNets?
 No. You cannot move services in and out of VNets. You will have to delete and re-deploy the resource to move it to another VNet.
