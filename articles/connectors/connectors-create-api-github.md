@@ -35,7 +35,7 @@ you must first create a *connection* and then provide details for these properti
 | --- | --- | --- |
 | Token |Yes |Provide GitHub credentials. |
 
-After you create the connection, you can use can execute the actions and listen for the triggers described in this article.
+After you create the connection, you can execute the actions and listen for the triggers described in this article.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 

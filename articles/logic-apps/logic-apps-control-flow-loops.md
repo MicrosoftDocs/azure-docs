@@ -228,7 +228,7 @@ and hour of the day. To set the hour, choose **Show advanced options**.
 3. Under the trigger, choose **New step** > **Add an action**. 
 Search for "variables", and then select this action: **Variables - Initialize variable**
 
-   ![Add "Variables - Initialize varible" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![Add "Variables - Initialize variable" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
 4. Set up your variable with these values:
 

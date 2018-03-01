@@ -35,7 +35,7 @@ so that your logic apps can receive incoming requests:
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Although our examples use the **Request** trigger, 
+   > Although these examples use the **Request** trigger, 
    > you can use any of the listed HTTP triggers, 
    > and all principles identically apply to the other trigger types.
 
@@ -300,7 +300,7 @@ of your workflow.
 ### Construct the response
 
 You can include more than one header and any type of content in the response body. 
-In our example response, the header specifies 
+In the example response, the header specifies 
 that the response has content type `application/json`. 
 and the body contains `title` and `name`, based on 
 the JSON schema updated previously for the **Request** trigger.

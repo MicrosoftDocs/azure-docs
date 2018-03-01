@@ -54,7 +54,7 @@ For example, both `branchAction1` and `branchAction2` are set to
 run only when the `parentAction` completes with `Succeded` status.
 
 > [!NOTE]
-> Before you start, your logic app must have already 
+> Before you start, your logic app must already 
 > have a step where you can add parallel branches.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
@@ -129,7 +129,7 @@ This step runs after all the parallel branches finish running.
 
 ![Join parallel branches](media/logic-apps-control-flow-branches/join.png)
 
-1. If you haven't already, in the [Azure portal](https://portal.azure.com), 
+1. In the [Azure portal](https://portal.azure.com), 
 find and open your logic app in Logic App Designer. 
 
 2. Under the parallel branches that you want to join, 

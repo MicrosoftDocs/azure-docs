@@ -43,7 +43,7 @@ when the new item includes a specific string.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* To follow the example in this topic, 
+* To follow the example in this article, 
 [create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 with an Outlook.com or Office 365 Outlook account.
 
@@ -104,7 +104,7 @@ based on whether the condition is met. For example:
 Now this logic app only sends mail when the new 
 items in the RSS feed meet your condition.
 
-## JSON definiton
+## JSON definition
 
 Now that you created a logic app using a conditional statement, 
 let's look at the high-level code definition behind the conditional statement.
