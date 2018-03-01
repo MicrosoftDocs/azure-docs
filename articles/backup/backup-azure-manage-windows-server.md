@@ -1,6 +1,6 @@
 ---
-title: Manage Azure recovery services vaults and servers | Microsoft Docs
-description: Use this tutorial to learn how to manage Azure recovery services vaults and servers.
+title: Manage Azure Recovery Services vaults and servers | Microsoft Docs
+description: Use this article to manage Azure Recovery Services vaults and servers.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
 
 ---
@@ -69,9 +69,9 @@ From the top of the Dashboard:
 ## Alerts for backups using Azure backup agent:
 | Alert Level | Alerts sent |
 | --- | --- |
-| Critical |Backup failure, recovery failure |
-| Warning |Backup completed with warnings (when < 100 files are not backed up due to corruption issues, and > 1,000,000 files are successfully backed up) |
-| Informational |None |
+| Critical | for Backup failure, recovery failure and deferred delete i.e., when someone stops protection with delete data |
+| Warning | for Backup completed with warnings (when < 100 files are not backed up due to corruption issues, and > 1,000,000 files are successfully backed up) |
+| Informational | currently, no informational alerts are available for Azure backup agent |
 
 ## Manage Backup alerts
 Click the **Backup Alerts** tile to open the **Backup Alerts** menu and manage alerts.

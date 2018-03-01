@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ In this tutorial, you:
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.23 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
+This tutorial requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
 
 To complete this tutorial, you need a Docker development environment installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
@@ -47,13 +47,22 @@ Container registry password:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands.
+Your application will need to have
+been [prepared in advance][prepare-app]; to deploy your container image from the container registry with a
+resource request of 1 CPU core and 1 GB of memory, run the following
+ [az container create][az-container-create] command. Replace
+`<acrLoginServer>` and `<acrPassword>` with the values you obtained
+from the previous two commands. Replace `<acrName>` with the name of
+your container registry; you can also replace `aci-tutorial-app` with
+the name you want to give the new application.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use [az container show][az-container-show]:
+Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding example if you receive a **DNS name label** error message when you execute the command.
+
+To view the state of the deployment, use [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
@@ -63,15 +72,15 @@ Repeat the [az container show][az-container-show] command until the state change
 
 ## View the application and container logs
 
-Once the deployment succeeds, display the container's public IP address with the [az container show][az-container-show] command:
+Once the deployment succeeds, display the container's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Example output: `"13.88.176.27"`
+Example output: `"aci-demo.eastus.azurecontainer.io"`
 
-To see the running application, navigate to the public IP address in your favorite browser.
+To see the running application, navigate to the displayed DNS name in your favorite browser:
 
 ![Hello world app in the browser][aci-app-browser]
 
@@ -118,6 +127,7 @@ In this tutorial, you completed the process of deploying your containers to Azur
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
+[az-container-create]: /cli/azure/container#az_container_create
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

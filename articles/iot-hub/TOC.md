@@ -1,3 +1,5 @@
+# [IoT Hub Documentation](index.md)
+
 # Overview
 ## [Azure and IoT](iot-hub-what-is-azure-iot.md)
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
@@ -87,6 +89,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Get started with device twins
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +113,19 @@
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java back end/Java device](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python back end/Python device](iot-hub-python-python-twin-how-to-configure.md)
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java back end/Java device](iot-hub-java-java-firmware-update.md)
+#### [Python back end/Python device](iot-hub-python-python-firmware-update.md)
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java back end/Java device](iot-hub-java-java-schedule-jobs.md)
+#### [Python back end/Python device](iot-hub-python-python-schedule-jobs.md)
 
 ## Manage
 ### Create an IoT hub 

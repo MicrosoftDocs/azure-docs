@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Configure Azure Backup reports
-This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and  to access these reports using Power BI. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
+This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and to access these reports using Power BI. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
 
 ## Supported scenarios
 1. Azure Backup reports are supported for Azure virtual machine backup and file/folder backup to cloud using Azure Recovery Services Agent.

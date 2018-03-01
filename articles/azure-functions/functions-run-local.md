@@ -103,6 +103,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 
 To create the project without a local Git repository, use the `--no-source-control [-n]` option.
 
+## Register extensions
+
+In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md#register-binding-extensions).
+
 ## Local settings file
 
 The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. It has the following structure:
@@ -229,6 +237,9 @@ To launch the host and set up JavaScript debugging, run:
 func host start --debug vscode
 ```
 
+> [!IMPORTANT]
+> For debugging, only Node.js 8.x is supported. Node.js 9.x is not supported. 
+
 Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Functions**. You can attach breakpoints, inspect variables, and step through code.
 
 ![JavaScript debugging with Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
@@ -305,6 +316,10 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### Viewing log files locally
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publish to Azure
 

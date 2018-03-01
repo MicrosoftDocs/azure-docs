@@ -3,8 +3,8 @@ title: Offering services in Azure Stack | Microsoft Docs
 description: As a cloud operator, you can offer services to your users.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer:
 
 ---
 # Overview of offering services in Azure Stack
@@ -40,5 +41,5 @@ When you’re planning your offers, keep the following points in mind:
 **Delegated providers**: You can grant others the ability to create offers in your environment. For example, if you’re a service provider, you can [delegate](azure-stack-delegated-provider.md) this ability to your resellers. Or, if you’re an organization, you can delegate to other divisions/subsidiaries.
 
 ## Next steps
-[Learn more about offers, plans, quotas, and subscriptions](azure-stack-plan-offer-quota-overview.md)
+[Create an offer in Azure Stack](azure-stack-create-offer.md)
 
