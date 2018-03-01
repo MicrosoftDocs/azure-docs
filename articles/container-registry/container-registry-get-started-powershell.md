@@ -121,7 +121,7 @@ To see the running application, navigate to the public IP address in your favori
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, ACR instance, and all container images.
+When no longer needed, you can use the [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] command to remove the resource group, ACR instance, and all container images.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -141,6 +141,10 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- Links - internal -->
+[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
 
 <!-- IMAGES> -->
 [aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png

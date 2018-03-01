@@ -118,7 +118,7 @@ When deployment starts a tile is placed on your portal dashboard indicating depl
 
 ![ACI deployment status][qs-portal-13]
 
-Select the mycontainer-myc1 container group to display the container group properties. Take note of the **IP address** of the container group, as well as the **STATE** of the container.
+Select the mycontainer-myc1 container group to display the container group properties. Take note of the **IP address** of the container group, as well as the **STATUS** of the container.
 
 ![ACI container details][qs-portal-14]
 
