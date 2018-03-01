@@ -2,7 +2,7 @@
 title: Set environment variables in Azure Container Instances
 description: Learn how to set environment variables in Azure Container Instances
 services: container-instances
-author: dastanfo
+author: david-stanford
 manager: timlt
 
 ms.service: container-instances
@@ -27,6 +27,8 @@ You can log in to Azure and run Azure CLI commands in one of two ways:
 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
+---
+
 ## Example container using environment variables
 For example, you can modify the behavior of the script in the example container by specifying the following environment variables when you create the container instance:
 
@@ -35,12 +37,6 @@ For example, you can modify the behavior of the script in the example container 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module]().
 
 # [Azure CLI](#tab/azure-cli)
-
-You can log in to Azure and run Azure CLI commands in one of two ways:
-
-- You can run CLI commands from within the Azure portal, in Azure Cloud Shell 
-- You can install the CLI and run CLI commands locally 
-
 
 *NumWords*: The number of words sent to STDOUT.
 
@@ -70,6 +66,8 @@ Output:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+---
 
 ## Next steps
 
