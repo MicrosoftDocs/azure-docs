@@ -70,7 +70,7 @@ The following table describes the required domains for communication:
 > [!Important]
 > When allowing traffic to *.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under subdomains.
 
-> If *.one.microsoft.com is too broad you can limit the server's communication by allowing only explicit regional instances of the Azure Files Service. Which instance to choose depends on the region of the Storage Sync Service you have deployed and registered the server with. That is the region you need to allow for the server. Soon there will be more URLs to enable to accommodate new business continuity features. 
+> If *.one.microsoft.com is too broad you can limit the server's communication by allowing only explicit regional instances of the Azure Files Service. Which instance to choose depends on the region of the Storage Sync Service you have deployed and registered the server with. That is the region you need to allow for the server. Soon there will be more URLs to enable new business continuity features. 
 
 > | Region | Azure File Sync regional endpoint URL |
 > |--------|---------------------------------------|
