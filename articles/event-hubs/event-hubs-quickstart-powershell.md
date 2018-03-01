@@ -159,6 +159,6 @@ In this article, you created the Event Hubs namespace and other resources requir
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[3]: ./media/event-hubs-quickstart-namespace-powershell/sender1.png
-[4]: ./media/event-hubs-quickstart-namespace-powershell/receiver1.png
-[5]: ./media/event-hubs-quickstart-namespace-powershell/metrics.png
+[3]: ./media/event-hubs-quickstart-powershell/sender1.png
+[4]: ./media/event-hubs-quickstart-powershell/receiver1.png
+[5]: ./media/event-hubs-quickstart-powershell/metrics.png
