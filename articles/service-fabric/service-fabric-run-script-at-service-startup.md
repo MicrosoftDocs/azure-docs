@@ -137,7 +137,8 @@ Often, it's preferable to run the startup script using a local system account ra
 </ApplicationManifest>
 ```
 
-For Linux clusters, to run a service or the setup entry point as **root**, you can specify the  **AccountType** as **LocalSystem**.
+> [!NOTE]
+> For Linux clusters, to run a service or the setup entry point as **root**, you can specify the  **AccountType** as **LocalSystem**.
 
 ## Run a script from the setup entry point
 Now add a start up script to the project to run under administrator privileges. 
