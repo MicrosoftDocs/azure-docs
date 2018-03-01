@@ -171,12 +171,11 @@ az network public-ip show \
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, application gateway, and all related resources.
 
 ```azurecli-interactive 
-az group delete --name myResourceGroupLB
+az group delete --name myResourceGroupAG
 ```
-
  
 ## Next steps
 
