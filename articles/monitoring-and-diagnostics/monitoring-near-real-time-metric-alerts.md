@@ -1,7 +1,7 @@
 ---
 title: Near real-time metric alerts in Azure Monitor | Microsoft Docs
 description: Learn how to use near real-time metric alerts to monitor Azure resource metrics with a frequency as small as 1 minute.
-author: snehithm, msvijayn
+author: snehithm
 manager: kmadnani1
 editor: ''
 services: monitoring-and-diagnostics
