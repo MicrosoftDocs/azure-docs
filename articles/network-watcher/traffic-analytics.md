@@ -50,7 +50,7 @@ Traffic Analytics examines the raw NSG flow logs and captures reduced logs by ag
 
 ## Supported regions
 
-Traffic Analytics is available in preview. Features in preview release do not have the same level of availability and reliability as features in general release.  While in preview release, you can use Traffic Analytics for NSGs in any of the following regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, West Europe, North Europe, West UK, South UK, Australia East, and Australia Southeast. The Log Analytics workspace must exist in the West Central US, East US, West Europe, or South UK region.
+Traffic Analytics is available in preview. Features in preview release do not have the same level of availability and reliability as features in general release.  While in preview release, you can use Traffic Analytics for NSGs in any of the following regions: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, West Europe, North Europe, West UK, South UK, Australia East, and Australia Southeast. The Log Analytics workspace must exist in the West Central US, East US, West Europe, Australia Southeast, or South UK region.
 
 ## Prerequisites
 
