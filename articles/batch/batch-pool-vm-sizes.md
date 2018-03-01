@@ -20,13 +20,13 @@ ms.author: danlep
 ---
 # Choose a VM size for compute nodes in an Azure Batch pool
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads. For details about the available Azure VM families and sizes, see:
+When you select a node size for an Azure Batch pool, you can choose from among almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads. For details about the available Azure VM families and sizes, see:
 
 * [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md) (Linux) 
 
 * [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md) (Windows)
 
-* [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), if you create a pool in the Cloud Services configuration.
+* [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), if you create a pool in the Cloud Services configuration
 
 There are a few exceptions and limitations to choosing a VM size:
 * Some VM families or VM sizes are not supported in Batch. 
