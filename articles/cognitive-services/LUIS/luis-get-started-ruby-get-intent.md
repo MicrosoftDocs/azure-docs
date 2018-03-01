@@ -3,7 +3,7 @@ title: Call a Language Understanding (LUIS) app using Ruby | Microsoft Docs
 description: Learn to call a LUIS app using Ruby. 
 services: cognitive-services
 author: v-geberr
-manager: kamran.iqbal
+manager: kaiqb
 
 ms.service: cognitive-services
 ms.technology: luis
