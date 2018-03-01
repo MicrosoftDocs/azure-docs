@@ -22,9 +22,11 @@ You can execute a Python or PySpark script in a Workbench project locally or at 
 
 You can run your scripts on: 
 
-* Python (3.5.2) environment on your local computer installed by Workbench.
+* Python (3.5.2) environment on your local computer installed by Workbench
 * Conda Python environment inside of a Docker container on local computer
-* Conda Python environment inside of a Docker container on a remote Linux machine. For example, an [Ubuntu-based DSVM on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
+* On a Python environment that you own and manage on a remote Linux Machine
+* Conda Python environment inside of a Docker container on a remote Linux machine. For example, an [Ubuntu-based DSVM on Azure]
+(https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight for Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) on Azure
 
 >[!IMPORTANT]
@@ -42,6 +44,7 @@ _az ml computetarget attach_ command in CLI enables you to create a compute targ
 Supported compute targets are:
 * Local Python (3.5.2) environment on your computer installed by Workbench.
 * Local Docker on your computer
+* User-managed, local Python environment on Linux-Ubuntu VMs. For example, an [Ubuntu-based DSVM on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Remote Docker on Linux-Ubuntu VMs. For example, an [Ubuntu-based DSVM on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight for Spark cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/) on Azure
 
@@ -70,8 +73,8 @@ Run configuration in Workbench also enables you to specify environment variables
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 These environment variables can be accessed in your code. For example, this phyton code snippet prints the environment variable named "EXAMPLE_ENV_VAR1"
@@ -208,9 +211,50 @@ The Docker construction process for remote VMs is exactly the same as the proces
 >[!TIP]
 >If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. az ml experiment prepare -c remotedocker
 
-
 _**Overview of remote vm execution for a Python script:**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## Running a script on a remote VM targeting user-managed environments
+Experimentation service also supports running a script on user's own Python environment inside a remote Ubuntu virtual machine. This allows you to manage your own environment for execution and still leverage Azure Machine Learning capabilities. 
+
+You should follow the following steps to run your script on your own environment.
+* Prepare your Python environment on a remote Ubuntu VM or a DSVM installing your dependencies.
+* Install Azure Machine Learning requirements using the following command.
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>In some cases, you may need to run this command in sudo mode depending on your privileges. 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* Use the following command to create both the compute target definition and run configuration for user-managed runs on remote VM executions.
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>This will set "userManagedEnvironment" parameter in your .compute configuration file to true.
+
+* Set location of your Python runtime executable in your .compute file. This should be a reference to the full path of your python executable. 
+```
+pythonLocation: python3
+```
+
+Once you configure the compute target, you can use the following command to run your script.
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> When you are running on a DSVM, you should use the following commands
+
+If you would like to run directly on DSVM's global python environment, you should run the following command.
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## Running a script on an HDInsight cluster
