@@ -210,7 +210,7 @@ For example:
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
 ## <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
-API for MongoDB supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
+The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
 
 For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
 ```
@@ -237,9 +237,9 @@ With this in mind, one method for estimating the amount of reserved throughput r
 > 
 
 ## Use MongoDB API portal metrics
-The simplest way to get a good estimation of request unit charges for your API for MongoDB database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimation of how many request units each operation is consuming and how many request units they consume relative to one another.
+The simplest way to get a good estimation of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimation of how many request units each operation is consuming and how many request units they consume relative to one another.
 
-![API for MongoDB portal metrics][6]
+![MongoDB API portal metrics][6]
 
 ## A request unit estimation example
 Consider the following ~1-KB document:
@@ -345,7 +345,7 @@ If you are using the .NET Client SDK and LINQ queries, then most of the time you
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a DocumentClientException with status code 429 to the application. In cases such as this, you may consider handling retry behavior and logic in your application's error handling routines or increasing the reserved throughput for the container.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
-Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](set-throughput.md).
+Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, the MongoDB API automatically retries up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](set-throughput.md).
 
 ## Next steps
 To learn more about reserved throughput with Azure Cosmos DB databases, explore these resources:
