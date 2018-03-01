@@ -51,8 +51,8 @@
     href: sql-database-security-tutorial.md
   - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: 5 - Create Managed Instance
-    href: sql-database-get-started-managed-instance-portal.md
+  - name: 5 - Create Managed Instance and restore database
+    href: sql-database-managed-instance-tutorial-portal.md
 - name: Samples
   items:
   - name: Code samples
