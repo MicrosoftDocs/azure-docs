@@ -125,7 +125,7 @@ Select the mycontainer-myc1 container group to display the container group prope
 ## View the application
 Once the container moves to the **Running** state, navigate to the IP address you noted in the previous step to display the application hosted in your new container.
 
-![Hello world app in the browser][aci-app-browser]
+![Hello world app in the browser][qs-portal-15]
 
 ## Clean up resources
 
@@ -155,8 +155,7 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
 [qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
 [qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
-[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
-
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
