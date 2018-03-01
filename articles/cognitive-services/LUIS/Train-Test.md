@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/22/2018
-ms.author: v-demak;v-geberr;
+ms.author: v-geberr;
 ---
 
 # Train and test your LUIS app

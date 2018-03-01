@@ -2,7 +2,7 @@
 title: Azure Stack datacenter integration - Identity
 description: Learn how to integrate Azure Stack AD FS with your datacenter AD FS
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article

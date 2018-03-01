@@ -3,7 +3,7 @@ title: 'Tutorial: Create a pipeline with Copy Activity using .NET API | Microsof
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: monicar
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 
 robots: noindex
 ---
