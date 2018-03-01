@@ -22,12 +22,12 @@ ms.author: orkostak
 
 # Indexing in Azure Cosmos DB MongoDB API
 
-Azure Cosmos DB Mongo API leverages automatic index management capabilities of Azure Cosmos DB. As a result, users have access to the default indexing policies of Azure Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into the collection. 
+Azure Cosmos DB MongoDB API leverages automatic index management capabilities of Azure Cosmos DB. As a result, users have access to the default indexing policies of Azure Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into the collection. 
 For users that have no requirements for uniqueness on custom document fields, we recommend keeping the default indexing setup.
 
 ## Dropping default indexes
 
-The following command can be used to drop the default indexes for a collection coll:
+The following command can be used to drop the default indexes for a collection ```coll```:
 
 ```JavaScript
 > db.coll.dropIndexes()
@@ -58,7 +58,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 } )
 
 For sharded collections, as per MongoDB behavior, creating a unique index requires providing the shard (partition) key. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the partition key.
 
-The following commands create a sharded collection coll (shard key is university) with a unique index on fields student_id and university:
+The following commands create a sharded collection ```coll``` (shard key is ```university```) with a unique index on fields student_id and university:
 
 ```JavaScript
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
@@ -83,14 +83,14 @@ In the above example, if ```"university":1``` clause was omitted, an error with 
 
 ## TTL Indexes
 
-To enable document expiration in a particular collection, a "TTL index" (time-to-live lindex) needs to be created. This is an index on the _ts field with an "expireAfterSeconds" value.
+To enable document expiration in a particular collection, a "TTL index" (time-to-live index) needs to be created. A TTL index is an index on the _ts field with an "expireAfterSeconds" value.
  
 Example:
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
-The command in the above example will create an index that will automatically remove any documents in that collection that have not been modified in the last 10 seconds. 
+The preceding command will cause the deletion of any documents in ```db.coll``` collection that have not been modified in the last 10 seconds. 
  
 > [!NOTE]
 > **_ts** is a Cosmos DB-specific field and is not accessible from MongoDB clients. It is a reserved (system) property that contains the timestamp of the document's last modification.
@@ -98,7 +98,7 @@ The command in the above example will create an index that will automatically re
 
 ## Migrating collections with indexes
 
-Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, we suggest that users manually create the corresponding collections and unique indexes, while instructing the migration tool not to create the indexes (for mongorestore this is achieved by using the --noIndexRestore flag in the command line).
+Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the --noIndexRestore flag in the command line).
 
 ## Next steps
 
