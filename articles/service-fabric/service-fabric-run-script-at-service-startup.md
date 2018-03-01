@@ -107,7 +107,7 @@ First, create a **Principals** section with a user name, such as SetupAdminUser.
 Next, under the **ServiceManifestImport** section, configure a policy to apply this principal to **SetupEntryPoint**. This policy tells Service Fabric that when the **MySetup.bat** file is run it should run as SetupAdminUser ( with administrator privileges). Since you have *not* applied a policy to the main entry point, the code in **MyServiceHost.exe** runs under the system **NetworkService** account. This is the default account that all service entry points are run as.
 
 ### Configure the policy by using local system accounts
-Often, it's preferable to run the startup script using a local system account rather than an administrator account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because computers have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem:
+Often, it's preferable to run the startup script using a local system account rather than an administrator account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because computers have User Access Control (UAC) enabled by default. In such cases, the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group. The following example shows setting the SetupEntryPoint to run as LocalSystem:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -204,6 +204,34 @@ In the PowerShell file, add the following to set a system environment variable:
 </SetupEntryPoint>
 ```
 
+## Debug a startup script locally using console redirection
+Occasionally, it's useful for debugging purposes to see the console output from running a setup script. You can set a console redirection policy on the setup entry point in the service manifest, which writes the output to a file. The file output is written to the application folder called **log** on the cluster node where the application is deployed and run. 
+
+> [!WARNING]
+> Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+> 
+> 
+
+The following service manifest example shows setting the console redirection with a FileRetentionCount value:
+
+```xml
+<SetupEntryPoint>
+    <ExeHost>
+    <Program>MySetup.bat</Program>
+    <WorkingFolder>CodePackage</WorkingFolder>
+    <ConsoleRedirection FileRetentionCount="10"/>
+    </ExeHost>
+</SetupEntryPoint>
+```
+
+If you now change the MySetup.ps1 file to write an **Echo** command, this will write to the output file for debugging purposes:
+
+```
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
+```
+
+> [!WARNING]
+> After you debug your script, immediately remove this console redirection policy.
 
 
 
