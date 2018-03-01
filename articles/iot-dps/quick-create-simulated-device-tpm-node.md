@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: msebolt
 ms.author: v-masebo
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -28,55 +28,102 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Make sure you have [Node.js v4.0 or above](https://nodejs.org) installed on your machine.
 
-    > [!NOTE]
-    > The steps below use **Azure IoT SDK for C** to simulate the TPM device. If your device is already set up, you may skip ahead to **Register the device**.
-    >
-
-1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
-
-1. Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation.
-
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
 
-## Simulate the TPM device
+## Simulate a TPM device
 
-1. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+1. Open a command prompt or Git Bash. Clone the `azure-utpm-c` GitHub repo:
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-utpm-c.git
     ```
 
-1. Create a folder in your local copy of this GitHub repo for CMake build process. 
+1. Navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you need to keep this simulator running until the end of this Quickstart guide: 
 
     ```cmd/sh
-    cd azure-iot-sdk-c
-    mkdir cmake
-    cd cmake
+    .\azure-utpm-c\tools\tpm_simulator\Simulator.exe
     ```
 
-1. The code sample uses a Windows TPM simulator. Run the following command to enable the SAS token authentication. It also generates a Visual Studio solution for the simulated device.
+1. Create a new empty folder called **registerdevice**. In the **registerdevice** folder, create a package.json file using the following command at your command prompt. Make sure to answer all questions asked by `npm` or accept the defaults if they suit you:
+   
+    ```cmd/sh
+    npm init
+    ```
+
+1. Install the following precursor packages:
 
     ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+    npm install node-gyp -g
+    npm install ffi -g
     ```
 
-    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    > [!NOTE]
+    > There are some known issues to installing the above packages. To resolve these, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then re-run the above installation commands.
+    >
 
-1. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you need to keep this simulator running until the end of this Quickstart guide. 
+1. Install the following packages containing the components used during registration:
 
-   If you are in the *cmake* folder, then run the following commands:
+    - a security client that works with TPM: `azure-iot-security-tpm`
+    - a transport for the device to connect to the Device Provisioning Service: either `azure-iot-provisioning-device-http` or `azure-iot-provisioning-device-amqp`
+    - a client to use the transport and security client: `azure-iot-provisioning-device`
+
+    Once the device is registered, you can use the usual IoT Hub Device Client packages to connect the device using the credentials provided during registration. You will need:
+
+    - the device client: `azure-iot-device`
+    - a transport: any of `azure-iot-device-amqp`, `azure-iot-device-mqtt`, or `azure-iot-device-http`
+    - the security client that you already installed: `azure-iot-security-tpm`
+
+    > [!NOTE]
+    > The samples below use the `azure-iot-provisioning-device-http` and `azure-iot-device-mqtt` transports.
+    > 
+
+    You can install all of these at once by running the following command at your command prompt in the **registereddevice** folder:
+
+        ```cmd/sh
+        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+        ```
+
+1. Using a text editor, create a new **ExtractDevice.js** file in the **registerdevice** folder.
+
+1. Add the following `require` statements at the start of the **ExtractDevice.js** file:
+   
+    ```
+    'use strict';
+
+    var tpmSecurity = require('azure-iot-security-tpm');
+    var tssJs = require("tss.js");
+
+    var myTpm = new tpmSecurity.TpmSecurityClient(undefined, new tssJs.Tpm(true));
+    ```
+
+1. Add the following function to implement the method:
+   
+    ```
+    myTpm.getEndorsementKey(function(err, endorsementKey) {
+      if (err) {
+        console.log('The error returned from get key is: ' + err);
+      } else {
+        console.log('the endorsement key is: ' + endorsementKey.toString('base64'));
+        myTpm.getRegistrationId((getRegistrationIdError, registrationId) => {
+          if (getRegistrationIdError) {
+            console.log('The error returned from get registration id is: ' + getRegistrationIdError);
+          } else {
+            console.log('The Registration Id is: ' + registrationId);
+            process.exit();
+          }
+        });
+      }
+    });
+    ```
+
+1. Save and close the **ExtractDevice.js** file. Run the sample:
 
     ```cmd/sh
-    cd..
-    .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    node ExtractDevice.js
     ```
 
-1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
-
-1. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
-
-1. Run the solution. The output window displays the **_Registration ID_** and the **_Endorsement Key_** needed for device enrollment. Note down these values. 
+1. The output window displays the **_Endorsement Key_** and the **_Registration Id_** needed for device enrollment. Note down these values. 
 
 
 ## Create a device entry
@@ -101,21 +148,9 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 ## Register the device
 
-1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_Global Device Endpoint_** and **_ID Scope_** values.
 
     ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
-
-1. Create a new empty folder called **registerdevice**. In the **registerdevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
-   
-    ```cmd/sh
-    npm init
-    ```
-
-1. At your command prompt in the **registerdevice** folder, run the following command to install the **azure-iot-device-mqtt**, **azure-iot-security-tpm**, and **azure-iot-provisioning-device-http** packages:
-   
-    ```cmd/sh
-    npm install azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http --save
-    ```
 
 1. Using a text editor, create a new **RegisterDevice.js** file in the **registerdevice** folder.
 
@@ -130,20 +165,20 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     var Message = require('azure-iot-device').Message;
     var tpmSecurity = require('azure-iot-security-tpm');
     var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
-    var provisioningHost = 'global.azure-devices-provisioning.net';
     ```
 
     > [!NOTE]
     > The **Azure IoT SDK for Node.js** supports additional protocols like _AMQP_, _AMQP WS_, and _MQTT WS_.  For more examples, see [Device Provisioning Service SDK for Node.js samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
     > 
 
-1. Add an **idScope** variable and use it to create a **ProvisioningDeviceClient** instance. Replace **{idScope}** with the **_ID Scope_** value from **Step 1**:
+1. Add **globalDeviceEndpoint** and **idScope** variables and use them to create a **ProvisioningDeviceClient** instance. Replace **{globalDeviceEndpoint}** and **{idScope}** with the **_Global Device Endpoint_** and **_ID Scope_** values from **Step 1**:
    
     ```
+    var provisioningHost = '{globalDeviceEndpoint}';
     var idScope = '{idScope}';
 
-    var tss_js_1 = require("tss.js");
-    var securityClient = new tpmSecurity.TpmSecurityClient('', new tss_js_1.Tpm(true));
+    var tssJs = require("tss.js");
+    var securityClient = new tpmSecurity.TpmSecurityClient('', new tssJs.Tpm(true));
     // if using non-simulated device, replace the above line with following:
     //var securityClient = new tpmSecurity.TpmSecurityClient();
 
@@ -186,7 +221,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     });
     ```
 
-1. Save and close the **RegisterDevice.js** file. Run the sample.
+1. Save and close the **RegisterDevice.js** file. Run the sample:
 
     ```cmd/sh
     node RegisterDevice.js
@@ -215,4 +250,3 @@ In this Quickstart, you’ve created a TPM simulated device on your machine and 
 
 > [!div class="nextstepaction"]
 > [Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-node.md)
-
