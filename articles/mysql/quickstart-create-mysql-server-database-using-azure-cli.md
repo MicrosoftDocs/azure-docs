@@ -41,12 +41,13 @@ Add the updated Azure Database for MySQL management extension using the followin
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
 Check you have the correct extension version installed. 
 ```azurecli-interactive
 az extension list
 ```
-You should see the below returned. 
 
+The command returns the following: 
 ```json
 {
     "extensionType": "whl",
