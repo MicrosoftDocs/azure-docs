@@ -11,7 +11,7 @@ Zoom level 1 uses 4 tiles to render the world: a 2 x 2 square
 ![World tile bottom left](./media/zoom-levels-and-tile-grid/world1c.jpg) ![World tile bottom right](./media/zoom-levels-and-tile-grid/world1d.jpg) 
 
 
-Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2zoom x 2zoom. Zoom level 20 is a grid 220 x 220, or 1,048,576 x 1,048,576 tiles (109,951,162,778 in total).
+Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sub>zoom</sub>. Zoom level 20 is a grid 2<sup>20</sup> x 2<sup>20</sup>, or 1,048,576 x 1,048,576 tiles (109,951,162,778 in total).
 
 The full table of values for zoom levels is here:
 
@@ -41,11 +41,11 @@ The full table of values for zoom levels is here:
 
 Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
 
-When determining which zoom level to use, remember that each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it may only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its, it may take four tiles:
+When determining which zoom level to use, remember that each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its, it may take four tiles:
 
 ![Zoom demo scale](./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 
-Once the zoom level is determined, the x and y values can be calculated. The top left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2zoom -1, y=2zoom-1.
+Once the zoom level is determined, the x and y values can be calculated. The top left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2<sup>zoom -1</sup>, y=2<sup>zoom-1</sup>.
 
 Here is the zoom grid for zoom level 1:
 
