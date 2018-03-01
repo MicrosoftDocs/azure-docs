@@ -1,5 +1,5 @@
 ---
-title: How to configure MSI on an Azure virtual machine scale set using a template
+title: Configure MSI on an Azure virtual machine scale set using a template
 description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VMSS, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
@@ -89,7 +89,7 @@ If you have a virtual machine scale set that no longer needs an MSI:
 
 2. Remove the two elements that were added in the previous section: the virtual machine scale set's `"identity"` and `"extensionsProfile"` properties.
 
-## Related content
+## Next steps
 
 - For a broader perspective about MSI, read the [Managed Service Identity overview](msi-overview.md).
 

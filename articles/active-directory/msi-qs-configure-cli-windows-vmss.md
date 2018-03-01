@@ -1,5 +1,5 @@
 ---
-title: How to configure MSI on an Azure VMSS using Azure CLI
+title: Configure MSI on an Azure virtual machine scale set using Azure CLI
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure Virtual Machine Scale Set, using Azure CLI.
 services: active-directory
 documentationcenter: 
@@ -90,7 +90,7 @@ If you have a virtual machine scale set that no longer needs an MSI:
    az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
-## Related content
+## Next steps
 
 - [Managed Service Identity overview](msi-overview.md)
 - For the full Azure virtual machine scale set creation Quickstart, see: 

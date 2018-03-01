@@ -1,5 +1,5 @@
 ---
-title: How to configure MSI on an Azure virtual machine scale set using the Azure portal
+title: Configure MSI on an Azure virtual machine scale set using the Azure portal
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on Azure VMSS, using the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -60,12 +60,9 @@ If you have a virtual machine scale set that no longer needs an MSI:
 
    ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
-## Related content
-
-- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
-
 ## Next steps
 
+- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 - Using the Azure portal, give an Azure virtual machine scale set MSI [access to another Azure resource](msi-howto-assign-access-portal.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.

@@ -54,7 +54,7 @@
         href: msi-qs-configure-sdk-windows-vm.md
     - name: Configure MSI for Azure VMSS
       items:
-      - name: Using Azure Portal
+      - name: Using the Azure Portal
         href: msi-qs-configure-portal-windows-vmss.md
       - name: Using Azure CLI
         href: msi-qs-configure-cli-windows-vmss.md
