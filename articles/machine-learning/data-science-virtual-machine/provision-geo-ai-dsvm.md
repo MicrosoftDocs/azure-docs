@@ -1,17 +1,39 @@
-​
+---
+title: Provision a Geo AI Virtual Machine on Azure  - Azure | Microsoft Docs
+description: How to provision a Geo AI Virtual Machine on Azure.
+keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
+services: machine-learning
+documentationcenter: ''
+author: gopitk
+manager: cgronlun
+editor: bradsev
+
+ms.assetid: 
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/01/2018
+ms.author: gokuma
+
+---​
 
 # Provision a Geo AI Virtual Machine on Azure 
 
-​
+The Geo AI Data Science Virtual Machine (Geo-DSVM) is an extension of the popular [Azure Data Science Virtual Machine](http://aka.ms/dsvm) that is specially configured to combine AI and geospatial analytics. The geospatial analytics in the VM are powered by [ArcGIS Pro](https://www.arcgis.com/features/index.html). The Data Science VM enables the rapid training of machine learning models, and even of deep learning models, on data that is enriched with geographic information. It is supported on Windows 2016 DSVM only. ​
 
-The Geo AI Data Science Virtual Machine (Geo-DSVM) is a specially configured extension of the popular [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) to make it easier to combine AI and Geospatial analytics powered by [ArcGIS Pro](https://www.arcgis.com/features/index.html) on Azure VM instances for rapidly training machine learning models including deep learning on data enriched with Geographic information. It is supported with Windows 2016 DSVM only. ​
+The Geo-DSVM contains several tools for AI including:
 
-The Geo-DSVM contains several tools for AI including GPU editions of popular deep learning frameworks like Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; tools to acquire and pre-process image, textual data, tools for development activities such as Microsoft R Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, SQL databases and many other data science and ML tools. On top of these it has the Esri's ArcGIS Pro desktop software along with Python and R interfaces for the same to work with geospatial data from your AI applications. 
+- GPU editions of popular deep learning frameworks like Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; 
+- tools to acquire and pre-process image, textual data, 
+- tools for development activities such as Microsoft R Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, SQL databases
+- ESRI's ArcGIS Pro desktop software along with Python and R interfaces that can work with the geospatial data from your AI applications. 
 ​
 
 ## Create your Geo AI Data Science VM
 
-Here are the steps to create an instance of the Deep Learning Virtual Machine: 
+Here is the procedure to create an instance of the Geo AI Data Science VM: 
 
 
 1. Navigate to the virtual machine listing on [Azure portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
@@ -28,7 +50,7 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
 
       
 
-      1. **Name**: Name of your data science server you are creating.
+      1. **Name**: Name of the data science server you are creating.
 
       2. **User Name**: Admin account login id.
 
@@ -44,7 +66,7 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
 
 > [!NOTE]
 
-> If you are deep learning on GPU, you must choose one of the locations in Azure that has the NC-Series GPU VM instances. Currently the locations that have GPU VMs are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/en-us/regions/services/) and look for **NC-Series** under **Compute**. 
+> If you need to do deep learning on GPU, you must choose one of the locations in Azure that has the NC-Series GPU VM instances. Currently the locations that have GPU VMs are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/en-us/regions/services/) and look for **NC-Series** under **Compute**. 
 
 ​
 
@@ -70,7 +92,7 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
 ​
 #### Using ArcGIS Pro installed in the VM
 
-The Geo-DSVM has already ArcGIS Pro desktop pre-installed and the environment pre-configured to work with all the tools in the DSVM. When you start ArcGIS it will prompt for a login to your ArcGIS account. If you  already have an ArcGIS account and have licenses for the software, you can use your existing credentials.  
+The Geo-DSVM already has ArcGIS Pro desktop pre-installed and the environment pre-configured to work with all the tools in the DSVM. When you start ArcGIS it prompts you for a login to your ArcGIS account. If you already have an ArcGIS account and have licenses for the software, you can use your existing credentials.  
 
 ![Arc-GIS-Logon](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
 
@@ -78,7 +100,13 @@ Otherwise, you can sign up for new ArcGIS account and license or get a [free tri
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Once you signup for a new paid or free trial ArcGIS account, you can authorize ArcGIS Pro for your account using the instructions in the [Getting Started with ArcGIS Pro documentation](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Once you have signup for a either a paid or a free trial ArcGIS account, you can authorize ArcGIS Pro for your account by following the instructions in the [Getting Started with ArcGIS Pro documentation](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
-After you sign in to ArcGIS Pro desktop with your ArcGIS account, you are ready to start using the tools that are installed and configured on the VM for your Geospatial data science and machine learning projects.
+After you sign in to ArcGIS Pro desktop with your ArcGIS account, you are ready to begin using the data science tools that are installed and configured on the VM for your Geospatial analytics and machine learning projects.
 
+## Next Steps
+
+Get started using the Geo AI Data Science VM with guidance from the following topics:
+
+* [Use the Geo AI Data Science VM](use-geo-ai-dsvm.md)
+* [Samples](dsvm-samples-and-walkthroughs.md)
