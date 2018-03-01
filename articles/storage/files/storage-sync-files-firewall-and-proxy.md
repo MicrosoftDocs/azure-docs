@@ -24,7 +24,7 @@ This article will provide insight into specific requirements and options availab
 
 ## Overview
 Azure File Sync orchestrates multiple cloud services involved in delivering an integrated sync experience.
-As a result enabling your network to support Azure File Sync through firewalls and proxies requires enabling communication to several cloud services.
+As a result, enabling your network to support Azure File Sync through firewalls and proxies requires enabling communication to several cloud services.
 
 For instance:
 - Azure Storage
@@ -41,7 +41,7 @@ For instance:
 Azure File Sync communicates exclusively over port 443 (SSL).
 As a result, all traffic is encrypted in transport. 
 
-* As a result sync meta data as well as file data movements are always encrypted. 
+* As a result, sync meta data as well as file data movements are always encrypted. 
 * Storage account encryption decides encryption-at-rest behavior and is an independent setting on an Azure Storage account.
 
 ## Networks and special connections to Azure
@@ -64,11 +64,11 @@ The following table describes the required domains for communication:
 | **Azure Resource Manager** | https://management.azure.com | Any user call (like PowerShell) goes to/through this URL, incl. the initial server registration call. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
 | **Azure Active Directory** | https://graph.windows.net/ | A service principal in the Azure Active Directory of the used subscription for delegating a minimal set of rights to the Azure File Sync service. This creation of a service principal is done automatically and only once, when Azure File Sync is set up for the first time. As a result, this action must be performed by an authenticated user with subscription owner privileges. |
-| **Azure Storage** | *.core.windows.net | When the server downloads a file (sync or recall in the cloud tiering case), then the server performs that more efficiently when talking directly to the Azure File Share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
+| **Azure Storage** | *.core.windows.net | When the server downloads a file (sync or recall in the cloud tiering case), then the server performs that data movement more efficiently when talking directly to the Azure File Share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | *.one.microsoft.com | After initial server registration, the server will be given a regional URL of the Azure File Sync service instance in that region. The server will use it to communicate directly and efficiently with the instance handling its sync. |
 
 > [!Note]
-> The subdomain under *.one.microsoft.com can change for the server. That is the reason it is not further defined here. If this instance experiences a service interruption, another region takes over (business continuity case). So for instance WestEurope has Kailani6.one.microsoft.com but that can change – as a result it is not recommended to limit traffic beyond the described level in the domain.
+> The subdomain under *.one.microsoft.com can change for the server, hence it is not further defined here. If this instance experiences a service interruption, another region takes over (business continuity case). So for instance WestEurope has Kailani6.one.microsoft.com but that can change – as a result it is not recommended to limit traffic beyond the described level in the domain.
 
 > [!Important]
 > When allowing traffic to *.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under a subdomain.
