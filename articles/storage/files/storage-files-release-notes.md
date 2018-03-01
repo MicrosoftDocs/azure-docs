@@ -45,6 +45,7 @@ Unique changes to this monthly update include:
 - Improvement in error handling for session failures.
 - Improvement in error handling for file transfer issues.
 - Change default interval to run cloud tiering when enabled on server endpoint to one hour. 
+- Temporary blocking moving Azure File Sync (Storage Sync Service) resources to a new Azure subscription
 
 ## Agent version 2.0.11.0
 The following release notes are for agent version 2.0.11.0 which was released on February 9th, 2018. 
