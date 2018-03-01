@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: v-demak;v-geberr;
+ms.author: v-geberr;
 ---
 # Language Understanding FAQ
 
