@@ -37,8 +37,8 @@ In this tutorial, you learn how to:
 **Add-on plans** are created by modifying an existing offer.
 
 1. Sign in to the [Azure Stack portal](https://adminportal.local.azurestack.external) as a cloud administrator.
-2. Follow the same steps used previously to [create a base plan](asdk-offer-services.md) to create a new plan offering services not previously offered. In this example, Key Vault (Microsoft.KeyVault) services will be included in the plan.
-3. In the administrator portal, click Offers and then select the offer to be updated with an add-on plan.
+2. Follow the same steps used previously to [create a base plan](asdk-offer-services.md) to create a new plan offering services that were not previously offered. In this example, Key Vault (Microsoft.KeyVault) services will be included in the plan.
+3. In the administrator portal, click **Offers** and then select the offer to be updated with an add-on plan.
 
    ![](media/asdk-update-offers/1.PNG)
 
