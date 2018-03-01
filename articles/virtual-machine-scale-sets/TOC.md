@@ -1,3 +1,5 @@
+# [Virtual Machines Scale Sets Documentation](index.md)
+
 # Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
@@ -12,6 +14,7 @@
 # How To
 ## Plan and design
 ### [Design considerations](virtual-machine-scale-sets-design-overview.md)
+### [Understand instance IDs](virtual-machine-scale-sets-instance-ids.md)
 
 ## Create a template
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)

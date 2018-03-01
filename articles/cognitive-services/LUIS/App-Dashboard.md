@@ -2,20 +2,20 @@
 title: Application dashboard for LUIS apps | Microsoft Docs
 description: Learn about the application dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr
 ---
 
 # Application Dashboard
 The app dashboard enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
 
-The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as endpoint usage over time. <!--The following image shows the **Dashboard** page.-->
+The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as [endpoint](luis-glossary.md#endpoint) usage over time. <!--The following image shows the **Dashboard** page.-->
 
 <!-- TBD: Get a working screen shot
 ![The Dashboard](./media/luis-app-dashboard/dashboard.png)
