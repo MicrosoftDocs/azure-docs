@@ -27,7 +27,7 @@ Before you begin, you need to [create a storage account](../storage/common/stora
 To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. Otherwise, this can be set to any value between 1 and 2147483647. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## Archive the Activity Log using the portal
-1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.
+1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **All Services** link first.
    
     ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. At the top of the blade, click **Export**.

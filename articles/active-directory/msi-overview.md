@@ -84,12 +84,12 @@ The following services support Azure AD authentication, and have been tested wit
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 | [Azure portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net/ | Available | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 | |
-| Azure SQL | https://database.windows.net/ | Available | October 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net/ | Available | December 2017 | |
-| Azure Service Bus | https://servicebus.azure.net/ | Available | December 2017 | |
+| Azure Resource Manager | https://management.azure.com | Available | September 2017 | [Azure portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net | Available | September 2017 | |
+| Azure Data Lake | https://datalake.azure.net | Available | September 2017 | |
+| Azure SQL | https://database.windows.net | Available | October 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net | Available | December 2017 | |
+| Azure Service Bus | https://servicebus.azure.net | Available | December 2017 | |
 
 ## How much does Managed Service Identity cost?
 

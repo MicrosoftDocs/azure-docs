@@ -2,14 +2,14 @@
 title: About Language Understanding (LUIS) in Azure | Microsoft Docs 
 description: Learn how to use Language Understanding (LUIS) to bring the power of machine learning to your applications.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: cahann
+ms.author: v-geberr
 ---
 
 # About Language Understanding (LUIS)
@@ -52,7 +52,7 @@ LUIS has two ways to build a model: the [Authoring APIs][authoring-apis] and the
 Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint APIs][endpoint-apis].
 
 > [!NOTE]
-> * The Authoring APIs and the [LUIS](luis-reference-regions.md) website use the programmatic key found in your LUIS account page.
+> * The Authoring APIs and the [LUIS](luis-reference-regions.md) website use the authoring key found in your LUIS account page.
 > * The Endpoint APIs use the LUIS subscription key found in the [Azure portal][azure-portal].
 
 ## Author your LUIS model 

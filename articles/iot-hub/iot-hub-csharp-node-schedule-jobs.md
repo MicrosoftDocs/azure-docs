@@ -77,6 +77,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 1. Add the following `using` statement if not already present in the default statements.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 
@@ -114,7 +115,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             directMethod,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Method Job");
     }
@@ -134,7 +135,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             twin,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Twin Update Job");
     }

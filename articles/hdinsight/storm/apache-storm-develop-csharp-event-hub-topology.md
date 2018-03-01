@@ -9,18 +9,18 @@ editor: cgronlun
 
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: ''
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-
+ROBOTS: NOINDEX
 ---
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
 
-Learn how to work with Azure Event Hubs from Apache Storm on HDInsight. This document uses a C# Storm topology to read and write data from Evbent Hubs
+Learn how to work with Azure Event Hubs from Apache Storm on HDInsight. This document uses a C# Storm topology to read and write data from Event Hubs
 
 > [!NOTE]
 > For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -33,9 +33,6 @@ The steps in this document use SCP.NET, a NuGet package that makes it easy to cr
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. Only Linux-based clusters created after October 28, 2016, support SCP.NET topologies.
 
 HDInsight 3.4 and greater use Mono to run C# topologies. The example used in this document works with HDInsight 3.6. If you plan on creating your own .NET solutions for HDInsight, check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
-
-> [!WARNING]
-> If you encounter problems building projects that use SCP.NET version 1.0.0.x, please contact Microsoft support for assistance.
 
 ### Cluster versioning
 
@@ -139,7 +136,7 @@ Create a directory named `eventhubspout`, and save the file into the directory.
 
 Event Hubs is the data source for this example. Use the information in the "Create an event hub" section of [Get started with Event Hubs](../../event-hubs/event-hubs-create.md).
 
-1. After the event hub has been created, view the **EventHub** blade in the Azure portal, and select **Shared access policies**. Select **+ Add** to add the following policies:
+1. After the event hub has been created, view the **EventHub** settings in the Azure portal, and select **Shared access policies**. Select **+ Add** to add the following policies:
 
    | Name | Permissions |
    | --- | --- |

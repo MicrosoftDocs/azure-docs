@@ -1,8 +1,8 @@
 | Resource | Default Limit |
 | --- | :--- |
-| Max nodes per cluster | 250 |
+| Max nodes per cluster | 100 |
 | Max pods per node | 110 |
-| Max cluster per subscription | 5<sup>1</sup> |
+| Max cluster per subscription | 20<sup>1</sup> |
 
 <sup>1</sup> Create an [Azure support request][azure-support] to request a limit increase.<br />
 

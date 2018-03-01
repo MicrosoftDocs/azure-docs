@@ -22,7 +22,7 @@ ms.author: ellacroi
 
 #Grow your business with Azure Marketplace
 
-Once you have developed the technical assets for your marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product in by followng marketing best practices. 
+Once you have developed the technical assets for your marketplace listing, you can increase the number of users coming to your app and the growth in usage of your product in by following marketing best practices. 
 
 >[!NOTE]
 >To learn about the publishing process and technical requirements, please read the [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide)

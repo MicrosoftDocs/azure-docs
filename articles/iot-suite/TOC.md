@@ -1,3 +1,5 @@
+# [IoT Suite Documentation](index.md)
+
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
 ## [Compare Azure IoT options](iot-suite-options.md)
@@ -99,6 +101,7 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
+## [Remote monitoring FAQ](iot-suite-faq-rm-v2.md)
 ## [Connected factory FAQ](iot-suite-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

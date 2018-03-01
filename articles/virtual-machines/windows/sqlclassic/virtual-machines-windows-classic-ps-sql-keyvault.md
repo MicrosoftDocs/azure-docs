@@ -4,7 +4,7 @@ description: Learn how to automate the configuration of SQL Server encryption fo
 services: virtual-machines-windows
 documentationcenter: ''
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

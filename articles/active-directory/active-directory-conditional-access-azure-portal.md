@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -82,6 +82,8 @@ One benefit of using a policy-based approach to protect access to your cloud app
 
 ## What you need to know
 
+### General requirements for using conditional access
+
 You can use Azure AD conditional access to protect cloud apps when an authentication attempt comes from:
 
 - A web browser
@@ -101,6 +103,11 @@ Examples for client apps conditional access does not apply to are:
 - Office 2013 when modern authentication is not enabled
 
 For more information, see [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](active-directory-conditional-access-no-modern-authentication.md).
+
+
+### License requirements for using conditional access
+
+Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## Next steps

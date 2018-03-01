@@ -1,20 +1,18 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using the Azure portal | Microsoft Docs
-description: Learn how to use the Azure portal to upload, download, and list blobs in Azure Blob storage.
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using the Azure portal | Microsoft Docs
+description: In this quickstart, you use the Azure portal to create a storage account and a container. Then you use the Azure portal to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
 ---
 
-# Transfer objects to/from Azure Blob storage using the Azure portal
+# Quickstart: Upload, download, and list blobs using the Azure portal
 
 In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a container in Azure Storage, and to upload and download block blobs in that container.
 

@@ -205,7 +205,7 @@ The code sample can use interactive login, username/password, or [service princi
 
 This form of authentication requires an Azure application be created with the necessary API permissions assigned. 
 
-1.	In Azure portal, click **New** > **Azure Active Directory** > **App registrations** > **New application registration**.
+1.	In Azure portal, click **Create a resource** > **Azure Active Directory** > **App registrations** > **New application registration**.
 
     ![New Application registration](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 
