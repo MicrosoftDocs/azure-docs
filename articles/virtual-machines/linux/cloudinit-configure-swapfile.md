@@ -44,13 +44,13 @@ mounts:
 - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Now, create a VM with [az vm create](/cli/azure/vm#create) and specify the cloud-init file with `--custom-data cloud_init_swapfile.txt` as follows:
+Now, create a VM with [az vm create](/cli/azure/vm#az_vm_create) and specify the cloud-init file with `--custom-data cloud_init_swapfile.txt` as follows:
 
 ```azurecli-interactive 
 az vm create \

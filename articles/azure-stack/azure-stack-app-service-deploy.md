@@ -13,17 +13,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
 
 ---
 # Add an App Service resource provider to Azure Stack
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
 > [!IMPORTANT]
 > Prior to running the installer, make sure that you have followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -98,7 +99,7 @@ To deploy App Service resource provider, follow these steps:
 
     > [!NOTE]
     > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Role | Minimum instances | Minimum SKU | Notes |

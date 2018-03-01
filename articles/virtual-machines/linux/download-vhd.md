@@ -40,7 +40,7 @@ To use the VHD as an image to create other VMs, complete these steps:
     exit 
     ```
 
-2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/#az_login).
 3. Stop and deallocate the VM.
 
     ```azurecli

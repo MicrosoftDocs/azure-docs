@@ -55,6 +55,7 @@
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installation wizard](active-directory-aadconnectsync-installation-wizard.md)
+### [How UserPrincipalName is populated](active-directory-aadconnect-userprincipalname.md)
 ### [Change the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)

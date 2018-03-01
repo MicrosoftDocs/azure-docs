@@ -15,7 +15,7 @@ ms.date: 09/12/2017
 
 # Collect model data by using data collection
 
-You can use the model data collection feature in Azure Machine Learning Workbench to archive model inputs and predictions from a web service.
+You can use the model data collection feature in Azure Machine Learning to archive model inputs and predictions from a web service.
 
 ## Install the data collection package
 You can install the data collection library natively on Linux and Windows.
@@ -33,6 +33,12 @@ On Linux, install the libxml++ library first. Run the following command, which m
 Then run the following command:
 
     pip install azureml.datacollector
+
+## Set environment variables
+
+Model data collection depends on two environment variables. AML_MODEL_DC_STORAGE_ENABLED must be set to **true** (all lowercase) and AML_MODEL_DC_STORAGE must be set to the connection string for the Azure Storage account where you want to store the data.
+
+These environment variables are already set for you when the web service is running on a cluster in Azure. When running locally you have to set them yourself. If you are using Docker, use the -e parameter of the docker run command to pass environment variables.
 
 ## Collect data
 

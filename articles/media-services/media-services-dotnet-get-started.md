@@ -387,4 +387,4 @@ The following code sample contains the code that you created in this tutorial: [
 
 <!-- URLs. -->
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-[Portal]: http://manage.windowsazure.com/
+[Portal]: http://portal.azure.com/

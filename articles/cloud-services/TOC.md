@@ -20,8 +20,6 @@
 #### [Blob storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Queue storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Configure packages for continuous build and deploy
-#### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
@@ -49,6 +47,7 @@
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
 ### [Configure automatic scaling](cloud-services-how-to-scale-portal.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
+### [Mitigating speculative execution](mitigate-se.md)
 
 ### [Guest OS patches](cloud-services-guestos-msrc-releases.md)
 ### Guest OS retirement
@@ -63,20 +62,18 @@
 
 ## Monitor
 ### [Monitor cloud service](cloud-services-how-to-monitor.md)
+### [Use performance counters](diagnostics-performance-counters.md)
 ### [Test performance](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Test with Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Enable diagnostics
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Use performance counters in Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Trace Cloud Service with Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Send diagnostic data to App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Troubleshoot
 ### Debug 
-#### [Enable remote debugging with cont. delivery](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Options for a Cloud Service](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Local Cloud Service with Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Published Cloud Service with Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

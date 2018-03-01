@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom:
@@ -62,14 +62,11 @@ All Azure Policy template samples are at [Templates for Azure Policy](json-sampl
 
 ## Mode
 
-We recommend that you set `mode` to `all` to have a policy assignment evaluate all resource groups and types. You can see an example of a policy definition that enforces tags on a resource group at [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md).
+The **mode** determines which resource types will be evaluated for a policy. The supported modes are:
+* `all`: evaluate resource groups and all resource types 
+* `indexed`: only evaluate resource types that support tags and location
 
-When you set it to **all**, resource groups and all resource types are evaluated for the policy. The portal uses **all** for all policies. If you use PowerShell or Azure CLI, you need to specify the `mode` parameter and set it to **all**.
-
-All policy definitions created using the portal use an `all` mode, however if you want to use PowerShell or Azure CLI, you need to specify the `mode` parameter and set it to `all`.
-
-If you set mode to `indexed`, the policy assignment will be evaluated only on resource types that support tags and location.
-
+We recommend that you set **mode** to `all`. All policy definitions created through the portal use the `all` mode. If you use  PowerShell or Azure CLI, you need to specify the **mode** parameter and set it to `all`. 
 
 ## Parameters
 
@@ -196,7 +193,6 @@ Policy supports the following types of effect:
 * **Append**: adds the defined set of fields to the request
 * **AuditIfNotExists**: enables auditing if a resource does not exist
 * **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
-* **DenyIfNotExists**: denies the creation of an exist if it does not exist
 
 For **append**, you must provide the following details:
 
@@ -212,7 +208,7 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object.
 
-With **AuditIfNotExists**, **DeployIfNotExists**, and **DenyIfNotExists**, you can evaluate the existence of a child resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks
+With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a child resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks
 .
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 
@@ -263,6 +259,7 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
 | Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Sets the availability set id for the virtual machine. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -333,6 +330,7 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
 | Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Check whether Virtual Network Service Endpoint is enabled. |
 
 ## Initiatives
 

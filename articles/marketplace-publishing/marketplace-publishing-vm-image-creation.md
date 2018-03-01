@@ -56,7 +56,7 @@ After you have added an offer, you need to define and identify your SKUs. You ca
 
 ## 2. Create an Azure-compatible VHD (Linux-based)
 This section focuses on best practices for creating a Linux-based VM image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation:
-[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+[Create a custom Linux VM image](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## 3. Create an Azure-compatible VHD (Windows-based)
 This section focuses on the steps to create a SKU based on Windows Server for the Azure Marketplace.
@@ -116,6 +116,9 @@ From the Microsoft Azure portal, you can create your VM based on an approved bas
 We strongly recommend that you develop your VHD in the cloud by using Remote Desktop Protocol (RDP). You connect to RDP with the user name and password specified during provisioning.
 
 > [!IMPORTANT]
+> **Do not use discs managed.** The virtual machine used to develop the VHD to the cloud must not be based on disks managed as it currently does not support the creation of an image from them.
+> Creating the virtual machine in the optional feature change the default for disks managed.
+
 > If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
 >
 >

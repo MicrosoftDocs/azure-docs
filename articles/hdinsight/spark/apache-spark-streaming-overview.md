@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: nitinme
+ms.date: 01/09/2018
+ms.author: maxluk
 ---
 # Overview of Spark Streaming
 

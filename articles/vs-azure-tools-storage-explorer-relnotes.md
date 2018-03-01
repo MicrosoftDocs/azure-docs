@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Storage Explorer (Preview) release notes | Microsoft Docs
+title: Microsoft Azure Storage Explorer (Preview) release notes
 description: Release notes for Microsoft Azure Storage Explorer (Preview)
 services: storage
 documentationcenter: na
@@ -19,17 +19,17 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer (Preview) release notes
 
-This article contains the release notes for Azure Storage Explorer 0.9.2 (Preview) release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.9.4 (Preview) release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 0.9.3
-12/08/2017
+## Version 0.9.4 / 0.9.3
+01/21/2018
 
-### Download Azure Storage Explorer 0.9.3 (Preview)
-- [Azure Storage Explorer 0.9.3 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.3 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.3 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 0.9.4 (Preview)
+- [Azure Storage Explorer 0.9.4 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.4 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.4 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 * Your existing Storage Explorer window will be re-used when:
@@ -41,6 +41,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 	* For Mac, there is a 'New Window' option under App Menu.
 
 ### Fixes
+* Fixed a security issue. Please upgrade to 0.9.4 at you earliest convenience.
 * Old activities were not appropriately being cleaned up. This affected the performance of long running jobs. They are now being cleaned up correctly.
 * Actions involving large numbers of files and directories would occasionally cause Storage Explorer to freeze. Requests to Azure for File Shares are now trottled to limit system resource use.
 
@@ -91,7 +92,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+	* [Online Documentation](./cosmos-db/storage-explorer.md)
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents
@@ -171,7 +172,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 10/20/2017
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+	* [Online Documentation](./cosmos-db/storage-explorer.md)
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents
@@ -369,9 +370,9 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 ### Version 0.8.9 / 0.8.8
 02/23/2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### New
@@ -402,7 +403,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 12/16/2016
 ### Version 0.8.7
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### New
 
@@ -490,7 +491,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 09/12/2016
 ### Version 0.8.4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### New
 
@@ -511,7 +512,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 08/03/2016
 ### Version 0.8.3
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### New
 
@@ -537,7 +538,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 07/07/2016
 ### Version 0.8.2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### New
 
@@ -560,11 +561,11 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 06/15/2016
 ### Version 0.8.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### New
 
@@ -605,10 +606,9 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 
 ### Version 0.7.20160325.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### New
 

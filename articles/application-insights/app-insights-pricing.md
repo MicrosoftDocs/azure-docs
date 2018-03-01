@@ -88,7 +88,7 @@ As [recently announced](https://blogs.technet.microsoft.com/msoms/2017/05/19/azu
  
 ## Review pricing plans and estimate costs
 
-Applicaition Insights makes it easy to understand the pricing plans available and what the costs are likely be be based on recent usage patterns. Start by opening the **Features + Pricing** blade in the Application Insights resource in the Azure portal:
+Application Insights makes it easy to understand the pricing plans available and what the costs are likely be be based on recent usage patterns. Start by opening the **Features + Pricing** blade in the Application Insights resource in the Azure portal:
 
 ![Choose Pricing.](./media/app-insights-pricing/01-pricing.png)
 
@@ -132,11 +132,11 @@ Here are some things you can do to reduce your data volume:
 
 ## Managing the maximum daily data volume
 
-You can use the daily volume cap to limit the data collected, but if the cap is met, it will result in a loss of all telemetery sent from your application for the remainder of the day. It is **not advisable** to have your application to hit the daily cap since you are unable to track the health and performance of your application after it is hit. 
+You can use the daily volume cap to limit the data collected, but if the cap is met, it will result in a loss of all telemetry sent from your application for the remainder of the day. It is **not advisable** to have your application to hit the daily cap since you are unable to track the health and performance of your application after it is hit. 
 
-Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetery unexpectedly. 
+Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetry unexpectedly. 
 
-To change the daily cap, in the Configure section of your Application Insihgts resource, click **Data volume management** then **Daily Cap**.
+To change the daily cap, in the Configure section of your Application Insights resource, click **Data volume management** then **Daily Cap**.
 
 ![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 

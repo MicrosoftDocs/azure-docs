@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-
 ---
+
 # Use Azure PowerShell to create a service principal to access resources
 
 When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials. This identity is known as a service principal. This approach enables you to:
@@ -24,10 +24,10 @@ When you have an app or script that needs to access resources, you can set up an
 * Assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 * Use a certificate for authentication when executing an unattended script.
 
-This topic shows you how to use [Azure PowerShell](/powershell/azure/overview) to set up everything you need for an application to run under its own credentials and identity.
+This article shows you how to use [Azure PowerShell](/powershell/azure/overview) to set up everything you need for an application to run under its own credentials and identity.
 
 ## Required permissions
-To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Azure Active Directory, and assign the service principal to a role. 
+To complete this article, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Azure Active Directory, and assign the service principal to a role. 
 
 The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -59,7 +59,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 
 The following script enables you to specify a scope other than the default subscription, and retries the role assignment if an error occurs:
 
@@ -102,9 +102,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -124,7 +125,7 @@ A few items to note about the script:
 * To grant the identity access to the default subscription, you do not need to provide either ResourceGroup or SubscriptionId parameters.
 * Specify the ResourceGroup parameter only when you want to limit the scope of the role assignment to a resource group.
 *  In this example, you add the service principal to the Contributor role. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 * If you need to grant the service principal access to more subscriptions or resource groups, run the `New-AzureRMRoleAssignment` cmdlet again with different scopes.
 
 
@@ -156,7 +157,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 
 The following script enables you to specify a scope other than the default subscription, and retries the role assignment if an error occurs. You must have Azure PowerShell 2.0 on Windows 10 or Windows Server 2016.
 
@@ -219,7 +220,7 @@ A few items to note about the script:
 * To grant the identity access to the default subscription, you do not need to provide either ResourceGroup or SubscriptionId parameters.
 * Specify the ResourceGroup parameter only when you want to limit the scope of the role assignment to a resource group.
 * In this example, you add the service principal to the Contributor role. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 * If you need to grant the service principal access to more subscriptions or resource groups, run the `New-AzureRMRoleAssignment` cmdlet again with different scopes.
 
 If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from Microsoft Script Center. Extract its contents and import the cmdlet you need.
@@ -317,7 +318,7 @@ A few items to note about the script:
 
 * Access is scoped to the subscription.
 * In this example, you add the service principal to the Contributor role. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 * If you need to grant the service principal access to more subscriptions or resource groups, run the `New-AzureRMRoleAssignment` cmdlet again with different scopes.
 
 ### Provide certificate through automated PowerShell script
@@ -374,7 +375,7 @@ To add a password, use:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-To add a certificate value, create a self-signed certificate as shown in this topic. Then, use:
+To add a certificate value, create a self-signed certificate as shown in this article. Then, use:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore

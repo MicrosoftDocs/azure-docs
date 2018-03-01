@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/28/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 
 ---
@@ -56,11 +56,12 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 			"type": "string",
 			"allowedValues": [
 				"East US",
-				"East US 2"
+				"East US 2",
+				"West Europe"
 			],
 			"defaultValue": "East US",
 			"metadata": {
-				"description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+				"description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
 			}
 		},
 		"storageAccountName": {

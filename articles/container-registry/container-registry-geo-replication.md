@@ -90,7 +90,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Geo-replication pricing
 
-Geo-replication is a feature of the [Premium SKU](container-registry-skus.md#premium) of Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
+Geo-replication is a feature of the [Premium SKU](container-registry-skus.md) of Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
 
 In the preceding example, Contoso consolidated two registries down to one, adding replicas to East US, Canada Central, and West Europe. Contoso would pay four times Premium per month, with no additional configuration or management. Each region now pulls their images locally, improving performance, reliability without network egress fees from West US to Canada and East US.
 

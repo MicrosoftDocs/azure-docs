@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Salesforce | Microsoft Docs'
+title: 'Tutorial: Configure Salesforce for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Salesforce.
 services: active-directory
 documentationCenter: na
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring Salesforce for automatic user provisioning
+# Tutorial: Configure Salesforce for automatic user provisioning
 
 The objective of this tutorial is to show the steps required to perform in Salesforce and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce.
 
@@ -86,23 +86,25 @@ The objective of this section is to outline how to enable user provisioning of A
 
 10. Copy the token, go to your Azure AD window, and paste it into the **Secret Token** field.
 
-11. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Salesforce app.
+11. The **Tenant URL** should be entered if the instance of Salesforce is on the Salesforce Government Cloud. Otherwise, it is optional. Enter the tenant URL using the format of https://your-instance.my.salesforce.com, replacing your-instance with the name of your Salesforce instance.
 
-12. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications, and check the checkbox below.
+12. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Salesforce app.
 
-13. Click **Save.**  
+13. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications, and check the checkbox below.
+
+14. Click **Save.**  
     
-14.  Under the Mappings section, select **Synchronize Azure Active Directory Users to Salesforce.**
+15.  Under the Mappings section, select **Synchronize Azure Active Directory Users to Salesforce.**
 
-15. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Salesforce. Note that the attributes selected as **Matching** properties are used to match the user accounts in Salesforce for update operations. Select the Save button to commit any changes.
+16. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Salesforce. Note that the attributes selected as **Matching** properties are used to match the user accounts in Salesforce for update operations. Select the Save button to commit any changes.
 
-16. To enable the Azure AD provisioning service for Salesforce, change the **Provisioning Status** to **On** in the Settings section
+17. To enable the Azure AD provisioning service for Salesforce, change the **Provisioning Status** to **On** in the Settings section
 
-17. Click **Save.**
+18. Click **Save.**
 
-This starts the initial synchronization of any users and/or groups assigned to Salesforce in the Users and Groups section. Note that the initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Salesforce app.
+This starts the initial synchronization of any users and/or groups assigned to Salesforce in the Users and Groups section. Note that the initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Salesforce app.
 
-You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to Salesforce.
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 

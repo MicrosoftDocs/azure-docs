@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
 ---
 # Create and deploy an Azure managed application with Azure CLI
@@ -101,7 +101,7 @@ az managedapp create \
   --resource-group applicationGroup \
   --managedapp-definition-id $appid \
   --managed-rg-id $managedGroupId \
-  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"<your-prefix>\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
+  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"storage\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
 ```
 
 Some of the parameters used in the preceding example are:

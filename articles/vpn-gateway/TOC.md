@@ -34,6 +34,7 @@
 ### Configure a P2S VPN
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-radius.md)
+### [Integrate P2S VPN RADIUS authentication with NPS server](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Configure VNet-to-VNet connections
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -75,7 +76,8 @@
 ## Configure 3rd party VPN devices
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
-## Troubleshoot
+## [Classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)
+## [Troubleshoot](vpn-gateway-troubleshoot.md)
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)
 ### [Point-to-Site connection problem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

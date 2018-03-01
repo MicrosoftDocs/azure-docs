@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
 
@@ -36,10 +36,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 2. Under **Azure Databricks (Preview)**, click **Create**.
 
-    > [!NOTE]
-    > Azure Databricks is currently in limited preview. If you want your Azure subscription to be considered for whitelisting for the preview, you must fill out the [sign-up form](https://databricks.azurewebsites.net/).
-
-2. Under **Azure Databricks Service**, provide the following values:
+3. Under **Azure Databricks Service**, provide the following values:
 
     ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
@@ -48,7 +45,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     * For **Resource group**, specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
     * For **Location**, select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).
 
-3. Click **Create**.
+4. Click **Create**.
 
 ## Create a Spark cluster in Databricks
 
@@ -147,7 +144,7 @@ Perform the following steps to create a notebook in Databricks, configure the no
 
 ## Clean up resources
 
-While creating the Spark cluster, if you selected the checkbox **Terminate after ___ minutes of activity**, the cluster will automatically terminate if it has been inactive for the specified time.
+While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically terminate if it has been inactive for the specified time.
 
 If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
 

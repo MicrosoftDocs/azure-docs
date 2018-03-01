@@ -70,7 +70,7 @@ Once you upgrade to a Recovery Services vault, configure reports for Azure Backu
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **What does this upgrade mean for my existing tooling?**</br>
-You must update your existing automation or tooling to the Resource Manager deployment model to ensure that it continues to work after the upgrade. Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
+You must update your existing automation or tooling to the Resource Manager deployment model to ensure that it continues to work after the upgrade. Consult the PowerShell cmdlets references for the [Resource Manager deployment model](backup-client-automation.md).
 
 **Can I roll back after upgrade?**</br>
 No. Rollback is not supported after the resources have been successfully upgraded.

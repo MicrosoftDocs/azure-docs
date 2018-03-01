@@ -1,17 +1,15 @@
 # Overview
 ## [What is Azure Government?](documentation-government-welcome.md)
-## [ITAR](documentation-government-overview-itar.md)
-## [Justice and Public Safety](documentation-government-overview-jps.md)
-## [Department of Defense](documentation-government-overview-dod.md)
+## [Available services](documentation-government-services.md)
+## [Developer guide](documentation-government-developer-guide.md)
 
 # Get Started
-## [Log in to the Azure Government portal](documentation-government-get-started-connect-with-portal.md)
-## [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
-## [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
-## [Connect to Azure Government from Visual Studio](documentation-government-get-started-connect-with-vs.md)
-## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
-## [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
-## [Connect to Azure Government from SSMS](documentation-government-connect-ssms.md)
+## [Virtual Machines](documentation-government-quickstarts-vm.md) 
+## [Azure App Services](documentation-government-howto-deploy-webandmobile.md)
+## [Azure Functions](documentation-government-functions.md)
+## [Cognitive Services](documentation-government-cognitiveservices.md)
+## [Integrate Azure AD Authentication](documentation-government-aad-auth-qs.md)
+## [GPUs](documentation-government-gpu.md)
 
 # How To
 ## Plan
@@ -21,22 +19,21 @@
 ## Manage
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
-## Develop
-### [Azure App Services](documentation-government-howto-deploy-webandmobile.md)
-### [Azure Functions](documentation-government-functions.md)
-### [Cognitive Services](documentation-government-cognitiveservices.md)
-### [Integrate Azure AD Authentication](documentation-government-aad-auth-qs.md)
-### [Virtual Machines](documentation-government-quickstarts-vm.md) 
-### [GPUs](documentation-government-gpu.md)
+### [Marketplace](documentation-government-manage-marketplace.md)
+## Connect
+### [Log in to the Azure Government portal](documentation-government-get-started-connect-with-portal.md)
+### [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
+### [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
+### [Connect to Azure Government from Visual Studio](documentation-government-get-started-connect-with-vs.md)
+### [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
+### [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
+### [Connect to Azure Government from SSMS](documentation-government-connect-ssms.md)
 
 # Reference
-## [Available services](documentation-government-services.md)
-## [Developer guide](documentation-government-developer-guide.md)
-## [Images](documentation-government-image-gallery.md)
-## [Extensions](documentation-government-extension.md)
-## [Marketplace](documentation-government-manage-marketplace.md)
-## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
-
+## Marketplace
+### [Images](documentation-government-image-gallery.md)
+### [Extensions](documentation-government-extension.md)
+### [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
 ## Services
 ### [Compute](documentation-government-compute.md)
 ### [Networking](documentation-government-networking.md)
@@ -51,6 +48,11 @@
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
 ### [Backup](documentation-government-services-backup.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+## [CSP for Azure Government](documentation-government-csp-application.md)
+## Certifications
+### [ITAR](documentation-government-overview-itar.md)
+### [Justice and Public Safety](documentation-government-overview-jps.md)
+### [Department of Defense](documentation-government-overview-dod.md)
 
 # Resources
 ## [Azure Government Website](https://azure.microsoft.com/overview/clouds/government/)

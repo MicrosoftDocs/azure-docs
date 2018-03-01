@@ -1,22 +1,18 @@
 ---
 title:  Azure Quickstart - Transfer objects to/from Azure Blob storage using Python | Microsoft Docs 
 description: Quickly learn to transfer objects to/from Azure Blob storage using Python
-services: storage
-documentationcenter: storage
+services: storage  
 author: ruthogunnnaike
-manager: cwatson
-editor: tysonn
+manager: jeconnoc 
 
-ms.assetid: 
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
 ---
+
 #  Transfer objects to/from Azure Blob storage using Python
 In this quickstart, you learn how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
 

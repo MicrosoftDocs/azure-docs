@@ -25,6 +25,8 @@ App Service provides pre-defined application stacks on Linux with support for sp
 
 ![Sample app running in Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
@@ -35,7 +37,7 @@ App Service provides pre-defined application stacks on Linux with support for sp
 
 ## Create a Web App for Container
 
-Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace `<app name>` with a unique app name.
+Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace `<app name>` with a unique app name.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx

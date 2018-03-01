@@ -13,7 +13,7 @@ ms.author: gitbeams
 ---
 
 # Custom Vision API C&#35; Tutorial
-Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open source example as a template for building your own app for Windows using the Custom Vision API.
+Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open-source example as a template for building your own app for Windows using the Custom Vision API.
 
 ## Prerequisites
 
@@ -25,67 +25,47 @@ To build this example, you need the Custom Vision API, which you can find at [SD
 
 ## Step 1: Create a console application and prepare the training key and the images needed for the example
 
-Start Visual Studio 2015, Community Edition, create a new Console Application, and replace the contents of Program.cs with the following code. This code defines and calls two helper methods. The method called **GetTrainingKey** prepares the training key. The one called **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint.
+Start Visual Studio 2015, Community Edition, create a new Console Application, and replace the contents of Program.cs with the following code. This code defines and calls two helper methods. The one called **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint.
 
 ```
+using Microsoft.Cognitive.CustomVision.Prediction;
+using Microsoft.Cognitive.CustomVision.Training;
+using Microsoft.Cognitive.CustomVision.Training.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using Microsoft.Cognitive.CustomVision;
 
 namespace SmokeTester
 {
     class Program
     {
-        private static List<MemoryStream> hemlockImages;
+        private static List<string> hemlockImages;
 
-        private static List<MemoryStream> japaneseCherryImages;
+        private static List<string> japaneseCherryImages;
 
         private static MemoryStream testImage;
 
         static void Main(string[] args)
         {
-            // You can either add your training key here, pass it on the command line, or type it in when the program runs
-            string trainingKey = GetTrainingKey("<your key here>", args);
+            // Add your training key from the settings page of the portal
+            string trainingKey = "<your key here>";
 
-            // Create the Api, passing in a credentials object that contains the training key
-            TrainingApiCredentials trainingCredentials = new TrainingApiCredentials(trainingKey);
-            TrainingApi trainingApi = new TrainingApi(trainingCredentials);
+            // Create the Api, passing in the training key
+            TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
 
             // Upload the images we need for training and the test image
             Console.WriteLine("\tUploading images");
             LoadImagesFromDisk();
-        }
-
-        private static string GetTrainingKey(string trainingKey, string[] args)
-        {
-            if (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Equals("<your key here>"))
-            {
-                if (args.Length >= 1)
-                {
-                    trainingKey = args[0];
-                }
-
-                while (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Length != 32)
-                {
-                    Console.Write("Enter your training key: ");
-                    trainingKey = Console.ReadLine();
-                }
-                Console.WriteLine();
-            }
-
-            return trainingKey;
-        }
+        }        
 
         private static void LoadImagesFromDisk()
         {
             // this loads the images to be uploaded from disk into memory
-            hemlockImages = Directory.GetFiles(@"..\..\..\..\..\SampleImages\Hemlock").Select(f => new MemoryStream(File.ReadAllBytes(f))).ToList();
-            japaneseCherryImages = Directory.GetFiles(@"..\..\..\..\..\SampleImages\Japanese Cherry").Select(f => new MemoryStream(File.ReadAllBytes(f))).ToList();
-            testImage = new MemoryStream(File.ReadAllBytes(@"..\..\..\..\..\SampleImages\Test\test_image.jpg"));
-
+            hemlockImages = Directory.GetFiles(@"..\..\..\Images\Hemlock").ToList();
+            japaneseCherryImages = Directory.GetFiles(@"..\..\..\Images\Japanese Cherry").ToList();
+            testImage = new MemoryStream(File.ReadAllBytes(@"..\..\..\Images\SampleData\Test\test_image.jpg"));
         }
     }
 }
@@ -119,11 +99,15 @@ namespace SmokeTester
             // Images can be uploaded one at a time
             foreach (var image in hemlockImages)
             {
-                trainingApi.CreateImagesFromData(project.Id, image, new List<string>() { hemlockTag.Id.ToString() });
+                using (var stream = new MemoryStream(File.ReadAllBytes(image)))
+                {
+                    trainingApi.CreateImagesFromData(project.Id, stream, new List<string>() { hemlockTag.Id.ToString() });
+                }
             }
 
             // Or uploaded in a single batch 
-            trainingApi.CreateImagesFromData(project.Id, japaneseCherryImages, new List<Guid>() { japaneseCherryTag.Id });
+            var imageFiles = japaneseCherryImages.Select(img => new ImageFileCreateEntry(Path.GetFileName(img), File.ReadAllBytes(img))).ToList();
+            trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFiles, new List<Guid>() { japaneseCherryTag.Id }));
 ```
 
 ## Step 5: Train the project
@@ -157,13 +141,12 @@ namespace SmokeTester
 ```
             // Now there is a trained endpoint, it can be used to make a prediction
 
-            // Get the prediction key, which is used in place of the training key when making predictions
-            var account = trainingApi.GetAccountInfo();
-            var predictionKey = account.Keys.PredictionKeys.PrimaryKey;
+            // Add your prediction key from the settings page of the portal
+            // The prediction key is used in place of the training key when making predictions
+            string predictionKey = "<your key here>";
 
-            // Create a prediction endpoint, passing in a prediction credentials object that contains the obtained prediction key
-            PredictionEndpointCredentials predictionEndpointCredentials = new PredictionEndpointCredentials(predictionKey);
-            PredictionEndpoint endpoint = new PredictionEndpoint(predictionEndpointCredentials);
+            // Create a prediction endpoint, passing in the obtained prediction key
+            PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
 
             // Make a prediction against the new project
             Console.WriteLine("Making a prediction:");

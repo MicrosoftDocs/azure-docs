@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -37,7 +37,8 @@ Specifically, this Azure SQL Data Warehouse connector supports:
 - As sink, loading data using **PolyBase** or bulk insert. The former is **recommended** for better copy performance.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure SQL Data Warehouse connector.
 
@@ -48,7 +49,7 @@ The following properties are supported for Azure SQL Data Warehouse linked servi
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureSqlDW** | Yes |
-| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. Only basic authentication is supported. Mark this field as a SecureString. |Yes |
+| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. Only basic authentication is supported. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 
@@ -265,7 +266,7 @@ SQL Data Warehouse PolyBase directly support Azure Blob and Azure Data Lake Stor
 
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore**.
+1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
 2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStoreFile**, and the format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat** with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
@@ -316,7 +317,7 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             }
         }
@@ -352,12 +353,15 @@ To use this feature, create an [Azure Storage linked service](connector-azure-bl
                 "type": "SqlSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             },
             "enableStaging": true,
             "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob"
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                }
             }
         }
     }

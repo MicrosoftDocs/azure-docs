@@ -73,7 +73,7 @@ For more details, see [Closing risk events manually](active-directory-identitypr
 
 This report provides you with an option to:
 
-- Searh resources
+- Search resources
 - Download the report data
 
 

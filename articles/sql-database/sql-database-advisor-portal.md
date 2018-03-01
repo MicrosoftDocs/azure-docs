@@ -89,6 +89,10 @@ If desired, you can add discarded items back to the **Recommendations** list:
 2. Select a discarded item from the list to view its details.
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
+> [!NOTE]
+> Please note that if SQL Database [Automatic tuning](sql-database-automatic-tuning.md) is enabled, and if you have manually discarded a recommendation from the list, such recommendation will never be applied automatically. Discarding a recommendation is a handy way for users to have Automatic tuning enabled in cases when requiring that a specific recommendation shouldn’t be applied.
+> You can revert this behavior by adding discarded recommendations back to the Recommendations list by selecting the Undo Discard option.
+> 
 
 ### Enable automatic tuning
 You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available, they are automatically applied. As with all recommendations managed by the service, if the performance impact is negative, the recommendation is reverted.

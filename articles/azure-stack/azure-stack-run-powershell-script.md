@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -100,7 +100,7 @@ After preparing the ASDK host computer, the ASDK can be deployed into the CloudB
 1. After the host computer successfully boots into the CloudBuilder.vhdx image, log in using the administrator credentials specified in the previous steps. 
 2. Open an elevated PowerShell console and run the **\AzureStack_Installer\asdk-installer.ps1** script (which might now be on a different drive in the CloudBuilder.vhdx image). Click **Install**.
 3. In the **Type** drop-down box, select **Azure Cloud** or **AD FS**.
-    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. To use this option, you will need an internet connection, the full name of an Azure AD directory tenant in the form of *domainname*.onmicrosoft.com, and global admin credentials for the specified directory. 
+    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. To use this option, you will need an internet connection, the full name of an Azure AD directory tenant in the form of *domainname*.onmicrosoft.com or an Azure AD verified custom domain name, and global admin credentials for the specified directory. 
     - **AD FS**: The default stamp Directory Service will be used as the identity provider. The default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
 4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
 5. Select a network adapter to use for the development kit and then click **Next**.
@@ -202,7 +202,7 @@ If your Azure AD identity is associated with **greater than one** Azure AD direc
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 If your environment **does not** have DHCP enabled then you must include the following additional parameters to one of the options above (example usage provided): 
@@ -215,7 +215,7 @@ If your environment **does not** have DHCP enabled then you must include the fol
 |Parameter|Required/Optional|Description|
 |-----|-----|-----|
 |AdminPassword|Required|Sets the local administrator account and all other user accounts on all the virtual machines created as part of development kit deployment. This password must match the current local administrator password on the host.|
-|InfraAzureDirectoryTenantName|Required|Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of .onmicrosoft.com.|
+|InfraAzureDirectoryTenantName|Required|Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of .onmicrosoft.com or an Azure AD verified custom domain name.|
 |TimeServer|Required|Use this parameter to specify a specific time server. This parameter must be provided as a valid time server IP address. Server names are not supported.|
 |InfraAzureDirectoryTenantAdminCredential|Optional|Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
 |InfraAzureEnvironment|Optional|Select the Azure Environment with which you want to register this Azure Stack deployment. Options include Public Azure, Azure - China, Azure - US Government.|

@@ -20,7 +20,7 @@ ms.author: dimakwan
 ---
 # Create an Azure Cosmos DB account using PowerShell
 
-The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](cli-samples.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](create-documentdb-dotnet.md#create-account).
+The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](cli-samples.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](create-sql-api-dotnet.md#create-account).
 
 ## Getting Started
 
@@ -191,8 +191,7 @@ Example:
 
 ## Next steps
 
-* To connect using .NET, see [Connect and query with .NET](create-documentdb-dotnet.md).
-* To connect using .NET Core, see [Connect and query with .NET Core](create-documentdb-dotnet-core.md).
+* To connect using .NET, see [Connect and query with .NET](create-sql-api-dotnet.md).
 * To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

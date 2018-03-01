@@ -23,7 +23,7 @@ Azure Cosmos DB delivers schema flexibility and rich indexing via a native [JSON
 In addition to the basic types, many applications need the [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) type to represent dates and timestamps. This article describes how developers can store, retrieve, and query dates in Azure Cosmos DB using the .NET SDK.
 
 ## Storing DateTimes
-By default, the [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) serializes DateTime values as [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strings. Most applications can use the default string representation for DateTime for the following reasons:
+By default, the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) serializes DateTime values as [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strings. Most applications can use the default string representation for DateTime for the following reasons:
 
 * Strings can be compared, and the relative ordering of the DateTime values is preserved when they are transformed to strings. 
 * This approach doesn't require any custom code or attributes for JSON conversion.
@@ -80,11 +80,11 @@ The SQL .NET SDK automatically supports querying data stored in Azure Cosmos DB 
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Cosmos DB](documentdb-sql-query.md).
+You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Cosmos DB](sql-api-sql-query.md).
 
 In this article, we looked at how to store, index, and query DateTimes in Azure Cosmos DB.
 
 ## Next Steps
 * Download and run the [Code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Learn more about [SQL queries](documentdb-sql-query.md)
+* Learn more about [SQL queries](sql-api-sql-query.md)
 * Learn more about [Azure Cosmos DB Indexing Policies](indexing-policies.md)

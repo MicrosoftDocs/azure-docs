@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/02/2017
   ms.author: v-gedod
 abstract:
-  description: Bing Videos Search API provides an experience similar to Bing.com/videos by returning images that Bing determines are relevant to a user's query.
+  description: Bing Videos Search API provides an experience similar to Bing.com/videos by returning videos that Bing determines are relevant to a query.
 sections:
 - title: 5-Minute Quickstarts
   items:

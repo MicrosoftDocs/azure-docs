@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Operational tasks and considerations | Microsoft 
 description: This topic describes operational tasks for Azure AD Connect sync and how to prepare for operating this component.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -262,7 +262,7 @@ do 
 } while ($reader.Read)
 
 #need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

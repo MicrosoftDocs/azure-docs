@@ -76,7 +76,7 @@ Compute Units are a measure of CPU processing throughput that is guaranteed to b
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
 ## Storage 
-The storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server. The storage used by the service includes the database files, transaction logs, and the PostgreSQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the storage configuration.
+The storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server. The storage used by the service includes the database files, temp files, transaction logs, and the PostgreSQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the storage configuration.
 
 Some storage capacity is included at a minimum with each pricing tier, noted in the preceding table as "Included storage size." Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 

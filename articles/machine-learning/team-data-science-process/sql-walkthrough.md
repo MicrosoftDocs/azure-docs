@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: fashah;bradsev
+ms.author: bradsev
 
 ---
 # The Team Data Science Process in action: using SQL Server

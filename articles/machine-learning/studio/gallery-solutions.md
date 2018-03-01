@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery Solutions | Microsoft Docs
-description: Discover Solutions in the Cortana Intelligence Gallery.
+title: Azure AI Gallery Solutions | Microsoft Docs
+description: Discover Solutions in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
+ms.author: garye
 
 ---
-# Discover Solutions in the Cortana Intelligence Gallery
+# Discover Solutions in the Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Solutions

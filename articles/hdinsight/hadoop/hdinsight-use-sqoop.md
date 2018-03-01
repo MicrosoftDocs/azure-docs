@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
 
 ---
@@ -226,7 +226,7 @@ The PowerShell sample performs the following steps:
    > Other than connection string information, the steps in this section should work for an Azure SQL database or for SQL Server. These steps were tested by using the following configuration:
    > 
    > * **Azure virtual network point-to-site configuration**: A virtual network connected the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](../../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
-   > * **Azure HDInsight 3.1**: See [Create Hadoop clusters in HDInsight using custom options](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster on a virtual network.
+   > * **Azure HDInsight**: See [Create Hadoop clusters in HDInsight using custom options](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster on a virtual network.
    > * **SQL Server 2014**: Configured to allow authentication and running the VPN client configuration package to connect securely to the virtual network.
    > 
    > 

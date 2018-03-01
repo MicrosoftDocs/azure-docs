@@ -34,7 +34,7 @@ Depending on how you [designed your application for business continuity](sql-dat
 To prevent the potential data loss when conducting a disaster recovery drill, perform the drill using a test environment by creating a copy of the production environment and using it to verify the application’s failover workflow.
 
 #### Outage simulation
-To simulate the outage, you can delete or rename the source database. This causes application connectivity failures.
+To simulate the outage, you can rename the source database. This causes application connectivity failures.
 
 #### Recovery
 * Perform the geo-restore of the database into a different server as described [here](sql-database-disaster-recovery.md).

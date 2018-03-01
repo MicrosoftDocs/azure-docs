@@ -18,7 +18,7 @@ ms.author: dobett
 
 ---
 
-# How to configure the Connected factory preconfigured solution
+# Configure the Connected factory preconfigured solution
 
 The Connected factory preconfigured solution shows a simulated dashboard for a fictional company Contoso. This company has factories in numerous global locations globally.
 

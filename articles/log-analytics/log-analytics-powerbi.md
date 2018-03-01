@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
 
 ---
@@ -83,12 +83,12 @@ When you configure Power BI with a [legacy Log Analytics workspace](log-analytic
 ![Log Analytics to Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### Power BI Schedules
-A *Power BI Schedule* includes a log search that exports a set of data from the OMS repository to a corresponding dataset in Power BI and a schedule that defines how often this search is run to keep the dataset current.
+A *Power BI Schedule* includes a log search that exports a set of data from Log Analytics to a corresponding dataset in Power BI and a schedule that defines how often this search is run to keep the dataset current.
 
 The fields in the dataset will match the properties of the records returned by the log search.  If the search returns records of different types then the dataset will include all of the properties from each of the included record types.  
 
-### Connecting OMS workspace to Power BI
-Before you can export from Log Analytics to Power BI, you must connect your OMS workspace to your Power BI account using the following procedure.  
+### Connecting Log Analytics workspace to Power BI
+Before you can export from Log Analytics to Power BI, you must connect your workspace to your Power BI account using the following procedure.  
 
 1. In the OMS console click the **Settings** tile.
 2. Select **Accounts**.

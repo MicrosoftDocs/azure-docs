@@ -148,7 +148,7 @@ To capture the image, first run the following command on the Linux VM. This comm
 sudo waagent -deprovision
 ```
 
-From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image.md).  
+From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image-classic.md).  
 
 ```
 azure vm shutdown <vm-name>
@@ -301,7 +301,7 @@ cluster12
 The following Intel MPI command runs a pingpong benchmark to verify the cluster configuration and connection to the RDMA network.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 On a working cluster with two nodes, you should see output like the following. On the Azure RDMA network, expect latency at or below 3 microseconds for message sizes up to 512 bytes.

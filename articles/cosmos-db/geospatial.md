@@ -152,7 +152,7 @@ If you don't have the latitude and longitude information, but have the physical 
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using Azure Cosmos DB using SQL and LINQ.
 
 ### Spatial SQL built-in functions
-Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on the complete set of built-in functions in the SQL language, see [Query Azure Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on the complete set of built-in functions in the SQL language, see [Query Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -393,6 +393,6 @@ Nolearned you've learnt about how to get started with geospatial support in Azur
 
 * Start coding with the [Geospatial .NET code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Get hands on with geospatial querying at the [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-* Learn more about [Azure Cosmos DB Query](documentdb-sql-query.md)
+* Learn more about [Azure Cosmos DB Query](sql-api-sql-query.md)
 * Learn more about [Azure Cosmos DB Indexing Policies](indexing-policies.md)
 

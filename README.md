@@ -38,7 +38,7 @@ You can create reusable content sections to be included in one or more articles.
 All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
 
 * [Markdown basics](https://help.github.com/articles/markdown-basics/)
-* [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+* [Printable markdown cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 
 ## Labels

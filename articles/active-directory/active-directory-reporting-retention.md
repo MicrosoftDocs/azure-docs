@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -57,7 +57,7 @@ This topic provides you with answers to the most common questions in conjunction
 | :--                    | :--           | :--                 | :--                 |
 | Directory Audit        | 7 days        | 30 days             | 30 days             |
 | Sign-in Activity       | N/A           | 30 days             | 30 days             |
-| Azure MFA Usage        | 90 days       | 90 days             | 90 days             |
+| Azure MFA Usage        | 30 days       | 30 days             | 30 days             |
 
 **Security Signals**
 

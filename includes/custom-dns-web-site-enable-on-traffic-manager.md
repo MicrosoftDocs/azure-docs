@@ -27,5 +27,5 @@ If you have not already added your web app as a Traffic Manager endpoint, you mu
    
    Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
 
-At this point, you should be able to enter the Traffic Manager domain name name in your browser and see that it successfully takes you to your web app.
+At this point, you should be able to enter the Traffic Manager domain name in your browser and see that it successfully takes you to your web app.
 

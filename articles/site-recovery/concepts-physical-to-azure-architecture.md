@@ -1,19 +1,10 @@
 ---
-title: Review the architecture for physical server replication to Azure | Microsoft Docs
+title: Physical server to Azure replication architecture in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of components and architecture used when replicating on-premises physical servers to Azure with the Azure Site Recovery service
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
 ---
 
@@ -60,22 +51,18 @@ The following table and graphic provide a high-level view of the components used
 After replication is set up and you've run a disaster recovery drill (test failover) to check everything's working as expected, you can run failover and failback as you need to. Note that:
 
 - Planned failover isn't supported.
-- You must fail back to an on-premises VMware VM. This means you need an on-premises VMware infrastructure, even if you're replicating on-premises physical servers to Azure.
-
-
-1. You fail over a single machine, or create recovery plans, to fail over multiple machines together.
-2. When you run a failover, Azure VMs are created from replicated data in Azure storage.
-3. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
-
-When your primary on-premises site is available again, you can fail back.
-
-1. You need to set up a failback infrastructure, including:
+- You must fail back to an on-premises VMware VM. This means you need an on-premises VMware infrastructure, even when you replicate on-premises physical servers to Azure.
+- You fail over a single machine, or create recovery plans, to fail over multiple machines together.
+- When you run a failover, Azure VMs are created from replicated data in Azure storage.
+- After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
+- When your primary on-premises site is available again, you can fail back.
+- You need to set up a failback infrastructure, including:
     - **Temporary process server in Azure**: To fail back from Azure, you set up an Azure VM to act as a process server, to handle replication from Azure. You can delete this VM after failback finishes.
     - **VPN connection**: To fail back, you need a VPN connection (or Azure ExpressRoute) from the Azure network to the on-premises site.
     - **Separate master target server**: By default, the master target server that was installed with the configuration server, on the on-premises VMware VM, handles failback. However, if you need to fail back large volumes of traffic, you should set up a separate on-premises master target server for this purpose.
     - **Failback policy**: To replicate back to your on-premises site, you need a failback policy. This was automatically created when you created your replication policy from on-premises to Azure.
     - **VMware infrastructure**: You need a VMware infrastructure for failback. You can't fail back to a physical server.
-2. After the components are in place, failback occurs in three stages:
+- After the components are in place, failback occurs in three stages:
     - Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
     - Stage 2: Run a failover to the on-premises site.
     - Stage 3: After workloads have failed back, you reenable replication.
@@ -87,6 +74,4 @@ When your primary on-premises site is available again, you can fail back.
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable VMware to Azure replication.
-Run a failover and failback.
+Follow [this tutorial](tutorial-physical-to-azure.md) to enable physical server to Azure replication.

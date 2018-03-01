@@ -30,7 +30,7 @@ The following video shows how to build a Web API backend and protect it using OA
 > 
 
 ## Create an Azure AD directory
-To secure your Web API backed using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
+To secure your Web API backend using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -78,13 +78,13 @@ The Web API in this example implements a basic calculator service using a model 
 
 Add the following `using` statement to the top of the `CalcInput.cs` file.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Replace the generated class with the following code.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -101,7 +101,7 @@ Right-click **Controllers** in **Solution Explorer** and choose **Add**->**Contr
 
 Add the following `using` statement to the top of the `CalcController.cs` file.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -109,7 +109,7 @@ using APIMAADDemo.Models;
 
 Replace the generated controller class with the following code. This code implements the `Add`, `Subtract`, `Multiply`, and `Divide` operations of the Basic Calculator API.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {

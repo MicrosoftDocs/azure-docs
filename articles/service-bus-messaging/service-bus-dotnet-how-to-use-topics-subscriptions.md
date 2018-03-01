@@ -374,7 +374,7 @@ To receive the messages you just sent, create another .NET Core console applicat
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
             {
-                // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
                 var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
                 {
                     // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.

@@ -5,6 +5,7 @@
 ## [Virtual network service endpoints](virtual-network-service-endpoints-overview.md)
 ## [Virtual network for Azure services](virtual-network-for-azure-services.md)
 ## [Security](security-overview.md)
+## [Container networking](container-networking.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Protection](ddos-protection-overview.md)
@@ -14,7 +15,9 @@
 ### [Access control lists](virtual-networks-acl.md)
 
 # Get Started
-## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
+## [Create virtual network - Portal](quick-create-portal.md)
+## [Create virtual network - PowerShell](quick-create-powershell.md)
+## [Create virtual network - Azure CLI](quick-create-cli.md)
 
 # How To
 ## Plan and design
@@ -69,7 +72,7 @@
 ##### Classic
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### Create a VM with a static private IP address
+#### Create VM - Static private IP address
 ##### [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -78,7 +81,7 @@
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Create a VM with multiple network interfaces
+#### Create VM - Multiple network interfaces
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Template](virtual-network-deploy-multinic-arm-template.md)
@@ -87,14 +90,15 @@
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Create a VM with multiple IP addresses
+#### Create VM - Multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
-#### [Create a VM with accelerated networking](virtual-network-create-vm-accelerated-networking.md)
+#### Create VM - Accelerated networking
+##### [Azure PowerShell](create-vm-accelerated-networking-powershell.md)
+##### [Azure CLI](create-vm-accelerated-networking-cli.md)
 
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -153,6 +157,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Logs](virtual-network-nsg-manage-log.md)
+### [Route tables](manage-route-table.md)
 ### Network interfaces (NICs)
 #### [Create, change, or delete NICs](virtual-network-network-interface.md)
 #### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
@@ -173,6 +178,7 @@
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
 ### [Cannot delete virtual networks](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Configure PTR for SMTP Banner Check](create-ptr-for-smtp-service.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

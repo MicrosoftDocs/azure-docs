@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -77,24 +77,44 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
 ## Create a cluster
-To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a party cluster.
+To deploy the application to a cluster in Azure, you can either join a party cluster or [create your own cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a party cluster, [follow the instructions](http://aka.ms/tryservicefabric).  
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. 
 
-For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
 
-Take note of the connection endpoint, which you use in the following step.  
+![PFX and connection endpoint](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+On a Windows computer, install the PFX in *CurrentUser\My* certificate store.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Remember the thumbprint for the following step.  
 
 ## Deploy the application to Azure using Visual Studio
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
 Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. 
 
-Type in the connection endpoint of the cluster in the **Connection Endpoint** field. When signing up for the party cluster, the connection endpoint is provided in the browser - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Click **Publish** and the application deploys.
+![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Open a browser and navigate to http://winh1x87d1d.westus.cloudapp.azure.com:80. You should see the IIS default web page:
+Click **Publish**.
+
+Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
+
+Open a browser and navigate to http://zwin7fh14scd.westus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
 
 ## Complete example Service Fabric application and service manifests
@@ -166,6 +186,7 @@ Here are the complete service and application manifests used in this quickstart.
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

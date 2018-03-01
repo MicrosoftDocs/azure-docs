@@ -3,7 +3,7 @@ title: Migrate from Java SDK to Maven - Update old Azure Service Fabric Java App
 description: Update the older Java applications which used to use the Service Fabric Java SDK, to fetch Service Fabric Java dependencies from Maven. After completing this setup, your older Java applications would be able to build .
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
-ms.author: saysa
+ms.author: rapatchi
 
 ---
 # Update your previous Java Service Fabric application to fetch Java libraries from Maven

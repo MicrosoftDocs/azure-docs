@@ -24,7 +24,7 @@ Modern identity management requires scaleable, consistent reliablity to ensure t
 
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud based directory and identity management service. Azure AD combines core directory services, advanced identity governance, and application access management. The multi-tenant, geo-distributed, high availability design of Azure AD means that you can rely on it for your most critical business needs.
 
-Azure AD includes a full suite of identity management capabilities including the ability to synchronize on-premises resource information, customizable company branding, simple license management, and even self-service password management.  These easy to set up capabilities can help get started using Azure AD to secure cloud-based applications, streamline IT processes, cut costs, and help ensure that corporate compliance goals are met.
+Azure AD includes a full suite of identity management capabilities including the ability to synchronize on-premises resource information, customizable company branding, simple license management, and even self-service password management. These easy-to-deploy capabilities can help you get started using Azure AD to secure cloud-based applications, streamline IT processes, cut costs, and help ensure that corporate compliance goals are met.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -86,6 +86,6 @@ Review enabled SSPR properties under **Azure Active Directory** > **Password res
 
 
 ## Next steps
-[Azure Active Directory Product Page](https://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory service page](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory pricing information page](https://azure.microsoft.com/pricing/details/active-directory/)

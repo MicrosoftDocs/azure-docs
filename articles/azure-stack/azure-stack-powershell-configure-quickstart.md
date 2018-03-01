@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: mabrigg
 
 ---
@@ -47,7 +47,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
-Get-Module -ListAvailable | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.

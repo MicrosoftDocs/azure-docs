@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
 
 ---
@@ -634,6 +634,21 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 - **IReplicator.CatchupReplicaSet**: This warning indicates one of two things. Either there are insufficient up replicas, which can be determined by looking at the replica status of the replicas in the partition or the System.FM health report for a stuck reconfiguration. Or the replicas are not acknowledging operations. The PowerShell command-let `Get-ServiceFabricDeployedReplicaDetail` can be used to determine the progress of all the replicas. The problem lies with replicas whose `LastAppliedReplicationSequenceNumber` is behind the primary's `CommittedSequenceNumber`.
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
+
+### Replicator system health reports
+**Replication queue full:**
+**System.Replicator** reports a warning when the replication queue is full. On the primary, the replication queue usually becomes full because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
+
+* **SourceId**: System.Replicator
+* **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
+* **Next steps**: If the report is on the primary, check the connection between the nodes in the cluster. If all connections are healthy, there could be at least one slow secondary with a high disk latency to apply operations. If the report is on the secondary, check the disk usage and performance on the node first and then the outgoing connection from the slow node to the primary.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** on the primary replica reports a warning when the connection to a secondary (remote) replicator is not healthy. Remote replicator's address is shown in the report's message, making it more convenient to detect if a wrong config has been passed in or there are network issues between the replicators.
+
+* **SourceId**: System.Replicator
+* **Property**: **RemoteReplicatorConnectionStatus**
+* **Next steps**: Check the error message and make sure the remote replicator address is configured correctly (for example, if remote replicator is opened with "localhost" listen address, it is not reachable from the outside). If address looks correct, check the connection between the primary node and the remote address to find any potential network issues.
 
 ### Replication queue full
 **System.Replicator** reports a warning when the replication queue is full. On the primary, the replication queue usually becomes full because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.

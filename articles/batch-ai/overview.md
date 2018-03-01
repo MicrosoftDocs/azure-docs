@@ -12,7 +12,7 @@ ms.service: batch-ai
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: 

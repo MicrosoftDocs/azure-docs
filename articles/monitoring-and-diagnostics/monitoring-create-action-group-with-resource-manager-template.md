@@ -124,7 +124,7 @@ To create an action group by using a Resource Manager template, you create a res
     "webhookReceiverName": {
       "type": "string",
       "metadata": {
-        "description": "Webhook receiver service URI."
+        "description": "Webhook receiver service Name."
       }
     },    
     "webhookServiceUri": {

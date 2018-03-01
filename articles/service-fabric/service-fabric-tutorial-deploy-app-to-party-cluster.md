@@ -24,15 +24,15 @@ This tutorial is part two of a series and shows you how to deploy an Azure Servi
 
 In part two of the tutorial series, you learn how to:
 > [!div class="checklist"]
-> * Deploy an application to a remote cluster using Visual Studio
-> * Remove an application from a cluster using Service Fabric Explorer
-
-In this tutorial series you learn how to:
-> [!div class="checklist"]
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * Deploy the application to a remote cluster
 > * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Deploy an application to a remote cluster using Visual Studio
+> * Remove an application from a cluster using Service Fabric Explorer
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -57,14 +57,33 @@ You can use your own cluster instead of the Party Cluster, if you want.  The ASP
 > [!NOTE]
 > Party clusters are not secured, so your applications and any data you put in them may be visible to others. Don't deploy anything you don't want others to see. Be sure to read over our Terms of Use for all the details.
 
+Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
+
+![PFX and connection endpoint](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+On a Windows computer, install the PFX in *CurrentUser\My* certificate store.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## Deploy the app to the Azure
 Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
 
-1. Right-click **Voting** in the Solution Explorer and choose **Publish**.
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**. 
 
-    ![Publish Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Type in the Connection Endpoint of the Party Cluster in the **Connection Endpoint** field and click **Publish**.
+2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. Click **Publish**. 
 
     Once the publish has finished, you should be able to send a request to the application via a browser.
 
@@ -79,9 +98,9 @@ Service Fabric Explorer is a graphical user interface to explore and manage appl
 
 To remove the application from the Party Cluster:
 
-1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. In Service Fabric Explorer, navigate to the **fabric://Voting** node in the treeview on the left-hand side.
+2. In Service Fabric Explorer, navigate to the **fabric:/Voting** node in the treeview on the left-hand side.
 
 3. Click the **Action** button in the right-hand **Essentials** pane, and choose **Delete Application**. Confirm deleting the application instance, which removes the instance of our application running in the cluster.
 

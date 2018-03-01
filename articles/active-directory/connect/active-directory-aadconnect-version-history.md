@@ -47,7 +47,7 @@ An improvement has been added to Azure AD Connect version 1.1.654.0 (and after) 
 - For customers who have upgraded from an older version of Azure AD Connect to 1.1.654.0 (or after), the permission changes will not be retroactively applied to existing AD DS accounts created prior to the upgrade. They will only be applied to new AD DS accounts created after the upgrade. This occurs when you are adding new AD forests to be synchronized to Azure AD.
 
 >[!NOTE]
->This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you should ensure that this vulnerability does not exist.
 
 #### <a name="lock"></a> Lock down access to the AD DS account
 Lock down access to the AD DS account by implementing the following permission changes in the on-premises AD:  
@@ -83,11 +83,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 Where 
 
-$ObjectDN = The Active Directory account whose permissions need to be tightened.
-$Credential = The credential used to authenticate the client when talking to Active Directory. This is generally the Enterprise Admin credentials used to create the account whose permissions needs tightening.
+**$ObjectDN** = The Active Directory account whose permissions need to be tightened.
+
+**$Credential** = Administrator credential that has the necessary privileges to restrict the permissions on $ObjectDN account. This is typically the Enterprise or Domain administrator. Use the fully qualified domain name of the administrator account to avoid account lookup failures. Example: contoso.com\admin.
 
 >[!NOTE] 
->$credential.UserName should be in FQDN\username format. Example: corp.contoso.com\bsimon 
+>$credential.UserName should be in FQDN\username format. Example: contoso.com\admin 
 
 ##### Example:
 
@@ -471,7 +472,7 @@ Azure AD Connect sync
   * Updated default sync rule set to not export attributes **userCertificate** and **userSMIMECertificate** if the attributes have more than 15 values.
   * AD attributes **employeeID** and **msExchBypassModerationLink** are now included in the default sync rule set.
   * AD attribute **photo** has been removed from default sync rule set.
-  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. To find out more about the attribute, refer to article section [Azure AD Connect sync: How to make a change to the default configuration - Enable synchronization of PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. 
   * Added **userType** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so.
 
 * Azure AD Connect now automatically enables the use of ConsistencyGuid attribute as the Source Anchor attribute for on-premises AD objects. Further, Azure AD Connect populates the ConsistencyGuid attribute with the objectGuid attribute value if it is empty. This feature is applicable to new deployment only. To find out more about this feature, refer to article section [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

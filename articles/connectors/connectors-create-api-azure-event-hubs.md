@@ -1,6 +1,6 @@
 ---
-title: Set up event monitor with Azure Event Hubs for Azure Logic Apps | Microsoft Docs
-description: Monitor data streams to receive events and send events for Azure Logic Apps with Azure Event Hubs
+title: Set up event monitoring with Azure Event Hubs for Azure Logic Apps | Microsoft Docs
+description: Monitor data streams to receive events and send events with your logic apps by using Azure Event Hubs
 services: logic-apps
 keywords: data stream, event monitor, event hubs
 author: ecfan
@@ -15,165 +15,134 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/31/2017
+ms.date: 02/06/2018
 ms.author: estfan; LADocs
 ---
 
 # Monitor, receive, and send events with the Event Hubs connector
 
-To set up an event monitor so that your logic app can detect events, receive events, and send events, 
-connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
-from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+To set up an event monitor so that your logic app can detect events, receive events, 
+and send events, connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
+from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 
+and [how pricing works for Logic Apps connectors](../logic-apps/logic-apps-pricing.md).
 
-## Requirements
+## Prerequisites
 
-* You have to have an [Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) 
-in Azure. Learn 
-[how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md). 
+Before you can use the Event Hubs connector, you must have these items:
 
-* To use [any connector](https://docs.microsoft.com/azure/connectors/apis-list) 
-in your logic app, you have to create a logic app first. Learn 
-[how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+* An [Azure Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md)
+* A [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="permissions-connection-string"></a>
-## Check Event Hubs namespace permissions and find the connection string
 
-For your logic app to access any service, 
+## Connect to Azure Event Hubs
+
+Before your logic app can access any service, 
 you have to create a [*connection*](./connectors-overview.md) 
 between your logic app and the service, if you haven't already. 
-This connection authorizes your logic app to access data.
+This connection authorizes your logic app to access data. 
 For your logic app to access your Event Hub, 
-you have to have **Manage** permissions and the 
-connection string for your Event Hubs namespace.
-
-To check your permissions and get the connection string, 
-follow these steps.
+check your permissions and get the connection string for your Event Hubs namespace.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
-2.  Go to your Event Hubs *namespace*, not the specific Event Hub. 
-On the namespace blade, under **Settings**, choose **Shared access policies**. 
+2.  Go to your Event Hubs *namespace*, not a specific Event Hub. 
+On the namespace page, under **Settings**, choose **Shared access policies**. 
 Under **Claims**, check that you have **Manage** permissions for that namespace.
 
     ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-3.  To copy the connection string for the Event Hubs namespace, 
-choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
-choose the copy button.
+3. If you want to later manually enter your connection information, 
+get the connection string for your Event Hubs namespace. 
+Choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
+choose the copy button. Save the connection string for later use.
 
     ![Copy Event Hubs namespace connection string](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
     > [!TIP]
     > To confirm whether your connection string is 
-    > associated with your Event Hubs namespace or with a specific Event Hub, 
+    > associated with your Event Hubs namespace or with a specific event hub, 
     > check the connection string for the `EntityPath` parameter. 
     > If you find this parameter, the connection string is for a specific 
     > Event Hub "entity", and is not the correct string to use with your logic app.
 
-4.  Now when you're prompted for credentials after adding 
-an Event Hubs trigger or action to your logic app, 
-you can connect to your Event Hubs namespace. 
-Give your connection a name, enter the connection string that you copied, 
-and choose **Create**.
+## Trigger workflow when your Event Hub gets new events
 
-    ![Enter connection string for Event Hubs namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
-
-    After you create your connection, 
-    the connection name should appear in the Event Hubs trigger or action. 
-    You can then continue with the other steps in your logic app.
-
-    ![Event Hubs namespace connection created](./media/connectors-create-api-azure-event-hubs/event-hubs-connection-created.png)
-
-## Start workflow when your Event Hub receives new events
-
-A [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+A [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is an event that starts a workflow in your logic app. To start a workflow
 when new events are sent to your Event Hub, follow these steps for adding 
 the trigger that detects this event.
 
-1.  In the [Azure portal](https://portal.azure.com "Azure portal"), 
+1. In the [Azure portal](https://portal.azure.com "Azure portal"), 
 go to your existing logic app or create a blank logic app.
 
-2.  In the search box for the Logic App Designer, enter `event hubs` for your filter. 
+2. In Logic Apps Designer, enter "event hubs" in the search box as your filter. 
 Select this trigger: **When events are available in Event Hub**
 
-    ![Select trigger for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
+   ![Select trigger for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
-    If you don't already have a connection to your Event Hubs namespace, 
-    you're prompted to create this connection now. Give your connection a name, 
-    and enter the connection string for your Event Hubs namespace. 
-    If necessary, learn [how to find your connection string](#permissions-connection-string).
+   1. If you don't already have a connection to your Event Hubs namespace, 
+   you're prompted to create this connection now. Give your connection a name, 
+   and select the Event Hubs namespace that you want to use.
 
-    ![Enter connection string for Event Hubs namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-connection.png)
+      ![Create Event Hub connection](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-    After you create the connection, 
-    the settings for the **When an event in available in an Event Hub** trigger appear.
+      Or, to manually enter the connection string, 
+      choose **Manually enter connection information**. 
+      Learn [how to find your connection string](#permissions-connection-string).
 
-    ![Trigger settings for when your Event Hub receives new events](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
+   2. Now select the Event Hubs policy to use, and choose **Create**.
 
-3.  Enter or select the name for the Event Hub that you want to monitor. 
-Select the frequency and interval for how often you want to check the Event Hub.
+      ![Create Event Hub connection, part 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
+
+3. Select the Event Hub to monitor, 
+and set up the interval and frequency for when to check the Event Hub.
+
+    ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
 
     > [!TIP]
     > To optionally select a consumer group for reading events, 
-    > choose **Show advanced options**. 
+    > choose **Show advanced options**.
 
-    ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-details.png)
+4. Save your logic app. On the designer toolbar, choose **Save**.
 
-    You've now set up a trigger to start a workflow for your logic app. 
-    Your logic app checks the specified Event Hub based on the schedule that you set. 
-    If your app finds new events in the Event Hub, 
-    the trigger runs other actions or triggers in your logic app.
+Now, when your logic app checks the selected Event Hub and finds 
+a new event, the trigger runs the actions in your logic app 
+for the found event.
 
 ## Send events to your Event Hub from your logic app
 
-An [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+An [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is a task performed by your logic app workflow. After you add a trigger to your logic app, 
 you can add an action to perform operations with data generated by that trigger. 
 To send an event to your Event Hub from your logic app, follow these steps.
 
-1.  In Logic App Designer, under your logic app trigger, 
-choose **New step** > **Add an action**.
+1. In Logic Apps Designer, under your trigger, choose **New step** > **Add an action**.
 
-    ![Choose "New Step", then "Add an action"](./media/connectors-create-api-azure-event-hubs/add-action.png)
+2. In the search box, enter "event hubs" as your filter.
+Select this action: **Event Hubs - Send event**
 
-    Now you can find and select an action to perform. 
-    Although you can select any action, for this example, 
-    we want the Event Hubs action to send events.
+   ![Select "Event Hubs - Send event"](./media/connectors-create-api-azure-event-hubs/select-event-hubs-send-event-action.png)
 
-2.  In the search box, enter `event hubs` for your filter.
-Select this action: **Send event**
+3. Select the Event Hub for where to send the event. 
+Then, enter the event content and any other details.
 
-    ![Select "Event Hubs - Send event" action](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
+   ![Select Event Hub name and provide event content](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-3.  Enter the required details for the event, 
-such as the name for the Event Hub where you want to send the event. 
-Enter any other optional details about the event, such as content for that event.
+4. Save your logic app.
 
-    > [!TIP]
-    > To optionally specify the Event Hub partition where to send the event, 
-    > choose **Show advanced options**. 
-
-    ![Enter Event Hub name and optional event details](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
-
-6.  Save your changes.
-
-    ![Save your logic app](./media/connectors-create-api-azure-event-hubs/save-logic-app.png)
-
-    You've now set up an action to send events from your logic app. 
+You've now set up an action that sends events from your logic app. 
 
 ## Connector-specific details
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/eventhubs/). 
+To learn more about triggers and actions defined by the Swagger file and any limits, 
+review the [connector details](/connectors/eventhubs/).
 
-## Get help
+## Get support
 
-To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-To help improve Logic Apps and connectors, vote on or submit ideas at the 
-[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 
-*  [Find other connectors for Azure Logic apps](./apis-list.md)
+* Learn more about [other connectors for Azure Logic apps](../connectors/apis-list.md)

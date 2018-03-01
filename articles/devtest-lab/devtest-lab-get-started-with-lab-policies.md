@@ -3,7 +3,7 @@ title: Manage basic lab policies in Azure DevTest Labs | Microsoft Docs
 description: Learn how to set some of the basic policies (settings) for a lab in DevTest Labs 
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 

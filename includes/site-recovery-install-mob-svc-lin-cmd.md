@@ -1,6 +1,7 @@
 1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
   ```
-  cd /tmp
+  cd /tmp ;
+
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
 2. To install Mobility Service, run the following command:
@@ -14,7 +15,7 @@
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### Mobility Service installer command-line
+#### Mobility Service installer command line
 
 ```
 Usage:
@@ -25,11 +26,11 @@ Usage:
 |-|-|-|-|
 |-r |Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
 |-d |Optional|Location where Mobility Service will be installed|/usr/local/ASR|
-|-v|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
+|-v|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware: use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts, and *Physical Servers* </br> - **Azure: use this value if you are installing agent on an Azure IaaS VM| VMware </br> Azure|
 |-q|Optional|Specifies to run installer in silent mode| N/A|
 
 
-#### Mobility Service configuration command-line
+#### Mobility Service configuration command line
 
 ```
 Usage:

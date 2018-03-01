@@ -40,8 +40,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 * Copy the **Application ID** that is assigned to your app. You will need this later.
 * Set up a native client **Redirect URI** (e.g. com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You will also need this later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## Create your policies
 
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. You need to create this policy, as described in the

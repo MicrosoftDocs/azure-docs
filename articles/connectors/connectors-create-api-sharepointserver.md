@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the SharePoint connector
 The SharePoint Connector provides an way to work with Lists on SharePoint.
 
-Get started by creating a logic app; see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Get started by creating a logic app; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to SharePoint
 To use the SharePoint Connector , you first create a **connection** then provide the details for these properties: 

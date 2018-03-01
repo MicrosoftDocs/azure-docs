@@ -84,26 +84,10 @@ sql-database-elastic-pool.md
 | Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### Premium RS elastic pool limits
-
-| eDTUs per pool | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 250 | 500 | 750 | 750 |
-| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 |
-| Max number DBs per pool | 50 | 100 | 100 | 100 |
-| Max concurrent workers (requests) per pool | 200 | 400 | 800 | 1600 |
-| Max concurrent logins per pool | 200 | 400 | 800 | 1600 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs choices per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Max eDTUs choices per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
+> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Canada Central, Canada East, France Central, Germany Central, Japan East, Korea Central, South Central US, South East Asia, US East2, West US, US Gov Virginia, and West Europe. 
 >
 >\*\* Min/max eDTUs per database starting at 200 eDTUs and higher in **Standard** pools are in preview.
 >

@@ -3,8 +3,8 @@ title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 editor: ''
 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-ms.author: jonatul
+ms.date: 12/18/2017
+ms.author: kumud
 ---
 
 # Overview of DNS zones and records

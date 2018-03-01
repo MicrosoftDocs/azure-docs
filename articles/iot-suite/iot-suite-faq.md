@@ -75,13 +75,20 @@ By default you can provision [10 IoT hubs per subscription](../azure-subscriptio
 
 Fifty. You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit, but by default, you can only provision 50 Cosmos DB instances per subscription.
 
+### How do I configure a dynamic map on the dashboard?
+
+For more information, see [Upgrade map key to see devices on a dynamic map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
+
 ### How many Free Bing Maps APIs can I provision in a subscription?
 
 Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The remote monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
 
 ### Can I create a preconfigured solution if I have Microsoft Azure for DreamSpark?
 
-Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a preconfigured solution.
+> [!NOTE]
+> Microsoft Azure for DreamSpark is now known as Microsoft Imagine for students.
+
+Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a preconfigured solution.
 
 ### Can I create a preconfigured solution if I have Cloud Solution Provider (CSP) subscription?
 

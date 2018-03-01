@@ -26,18 +26,21 @@ Figure 1: Activity Logs vs other types of logs
 
 The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside (the "control plane"). Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane").
 
-You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
-
-
 > [!WARNING]
 > The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log can be browsed in a separate section of the portal.
 >
 >
 
+You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
+
+> [!NOTE]
+
+>  [Alerts (Preview)](monitoring-overview-unified-alerts.md) currently offers an enhanced experience in creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
+
+
 View the following video introducing the Activity Log.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## Categories in the Activity Log
 The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](monitoring-activity-log-schema.md). These include:

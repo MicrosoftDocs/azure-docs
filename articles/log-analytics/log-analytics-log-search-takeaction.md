@@ -27,7 +27,7 @@ From a log search result in Azure Log Analytics, you can now select **Take actio
 
 ## To initiate runbook from log search
 
-To take action on an event and initiate a runbook from your log search results, you start by creating a log search and from the results you can invoke a runbook on-demand.  This can be achieved from the log search feature in the Azure or [OMS portal](../log-analytics/log-analytics-log-searches.md).  In this example, we perform a log search from the Azure portal with a basic demonstration of this feature.
+To take action on an event and initiate a runbook from your log search results, you start by creating a log search and from the results you can invoke a runbook on-demand.  This can be achieved from the log search feature in the [Azure portal](../log-analytics/log-analytics-log-search-new.md).  In this example, we perform a log search from the Azure portal with a basic demonstration of this feature.
 
 1. In the Azure portal, on the Hub menu click **More services** and select **Log Analytics**.  
 2. On the Log Analytics blade, select your Log Analytics workspace and on the workspace blade select **Log Search**.  
@@ -46,4 +46,4 @@ If you select a runbook that was configured to be [called from a Log Analytics a
 ## Next steps
 
 * Review the [Log Analytics log search reference](log-analytics-search-reference.md) to view all of the search fields and facets available in Log Analytics.
-* To learn how to invoke an Automation runbook automatically, review [calling an Azure Automation runbook from an OMS Log Analytics alert](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* To learn how to invoke an Automation runbook automatically, review [calling an Azure Automation runbook from a Log Analytics alert](../automation/automation-invoke-runbook-from-omsla-alert.md).  

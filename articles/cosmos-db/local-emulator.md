@@ -4,7 +4,7 @@ description: Using the Azure Cosmos DB Emulator, you can develop and test your a
 services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
+ms.date: 01/29/2018
+ms.author: danoble
 
 ---
 # Use the Azure Cosmos DB Emulator for local development and testing
@@ -36,6 +36,9 @@ ms.author: arramac
 </table>
   
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
+
+> [!NOTE]
+> At this time the Data Explorer in the emulator only fully supports SQL API collections and MongoDB collections. Table, Graph, and Cassandra containers are not fully supported. 
 
 This article covers the following tasks: 
 
@@ -59,9 +62,6 @@ We recommend getting started by watching the following video, where Kirill Gavry
 The Azure Cosmos DB Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
 While we created a high-fidelity local emulation of the actual Azure Cosmos DB service, the implementation of the Azure Cosmos DB Emulator is different than that of the service. For example, the Azure Cosmos DB Emulator uses standard OS components such as the local file system for persistence, and HTTPS protocol stack for connectivity. This means that some functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not available via the Azure Cosmos DB Emulator.
-
-> [!NOTE]
-> At this time the Data Explorer in the emulator only supports the creation of SQL API collections and MongoDB collections. The Data Explorer in the emulator does not currently support the creation of tables and graphs. 
 
 ## Differences between the Emulator and the service 
 Because the Azure Cosmos DB Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
@@ -133,7 +133,7 @@ You can run the emulator on a local network. To enable network access, specify t
 To enable network access for the first time the user should shutdown the emulator and delete the emulator’s data directory (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## Developing with the Emulator
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/documentdb/) to interact with the Emulator. The Azure Cosmos DB Emulator also includes a built-in Data Explorer that lets you create collections for the SQL and MongoDB APIs, and view and edit documents without writing any code.   
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/documentdb/) to interact with the Emulator. The Azure Cosmos DB Emulator also includes a built-in Data Explorer that lets you create collections for the SQL and MongoDB APIs, and view and edit documents without writing any code.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -356,9 +356,16 @@ Starting interactive shell
 
 Now use the endpoint and master key in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
 
-```
+From the command line:
+```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
+```
+
+From PowerShell:
+```powershell
+cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
+.\importcert.ps1
 ```
 
 Closing the interactive shell once the Emulator has been started will shutdown the Emulator’s container.
@@ -402,6 +409,14 @@ To collect debugging traces, run the following commands from an administrative c
 2. In the Windows search box, type **Apps & features** and click on the **Apps & features (System settings)** result.
 3. In the list of apps, scroll to **Azure Cosmos DB Emulator**, select it, click **Uninstall**, then confirm and click **Uninstall** again.
 4. When the app is uninstalled, navigate to C:\Users\<user>\AppData\Local\CosmosDBEmulator and delete the folder. 
+
+## Change list
+
+You can check the version number by right clicking the local emulator icon on the task bar and clicking the about menu item.
+
+### 1.20 Released on January 26, 2018
+
+* Enabled the MongoDB aggregation pipeline by default.
 
 ## Next steps
 

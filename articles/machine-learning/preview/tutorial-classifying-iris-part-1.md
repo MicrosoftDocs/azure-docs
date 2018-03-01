@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ---
 
@@ -60,26 +60,30 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 
    ![Data view](media/tutorial-classifying-iris/data_view.png)
 
-3. Leave the default values, and then select the **Next** button.  
+3. Select **Text Files(*.csv, .json, .txt.,... )** and click **Next**.
+   ![Data Source](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. Browse to the file **iris.csv**, and click **Next**.  
  
    ![Select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Make sure you select the **iris.csv** file from within the current project directory for this exercise. Otherwise, later steps might fail.
    
-4. After selecting the file, select the **Finish** button.
+5. Leave the default values and click **Finish**.
 
-4. A new file named **iris-1.dsource** is created. The file is named uniquely with a dash-1, because the sample project already comes with an unnumbered **iris.dsource** file.  
+6. A new file named **iris-1.dsource** is created. The file is named uniquely with  "-1" because the sample project already comes with an unnumbered **iris.dsource** file.  
 
    The file opens, and the data is shown. A series of column headers, from **Column1** to **Column5**, is automatically added to this data set. Scroll to the bottom and notice that the last row of the data set is empty. The row is empty because there is an extra line break in the CSV file.
 
    ![Iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Select the **Metrics** button. Observe the histograms. A complete set of statistics has been calculated for each column. You can also select the **Data** button to see the data again. 
+7. Select the **Metrics** button. Observe the histograms. A complete set of statistics has been calculated for each column. You can also select the **Data** button to see the data again. 
 
    ![Iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Select the **Prepare** button. The **Prepare** dialog box opens. 
+8. Select the **Prepare** button. The **Prepare** dialog box opens. 
 
    The sample project comes with an **iris.dprep** file. By default, it asks you to create a new data flow in the **iris.dprep** data preparation package that already exists. 
 
@@ -89,27 +93,27 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 
    A new data preparation package named **iris-1.dprep** is created and opened in the data preparation editor.
 
-7. Now let's do some basic data preparation. Rename the column names. Select each column header to make the header text editable. 
+9. Now let's do some basic data preparation. Rename the column names. Select each column header to make the header text editable. 
 
    Enter **Sepal Length**, **Sepal Width**, **Petal Length**, **Petal Width**, and **Species** for the five columns respectively.
 
    ![Rename the columns](media/tutorial-classifying-iris/rename_column.png)
 
-8. To count distinct values, select the **Species** column, and then right-click to select it. Select **Value Counts** from the drop-down menu. 
+10. To count distinct values, select the **Species** column, and then right-click to select it. Select **Value Counts** from the drop-down menu. 
 
    ![Select Value Counts](media/tutorial-classifying-iris/value_count.png)
 
    This action opens the **Inspectors** pane, and displays a histogram with four bars. The target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
 
-9. To filter out nulls, select the bar from the graph that represents the null value. There is one row with a **(null)** value. To remove this row, select the minus sign (**-**).
+11. To filter out nulls, select the bar from the graph that represents the null value. There is one row with a **(null)** value. To remove this row, select the minus sign (**-**).
 
    ![Value count histogram](media/tutorial-classifying-iris/filter_out.png)
 
-10. Notice the individual steps detailed in the **STEPS** pane. As you renamed the columns and filtered the null value rows, each action was recorded as a data-preparation step. You can edit individual steps to adjust the settings, reorder the steps, and remove steps.
+12. Notice the individual steps detailed in the **STEPS** pane. As you renamed the columns and filtered the null value rows, each action was recorded as a data-preparation step. You can edit individual steps to adjust the settings, reorder the steps, and remove steps.
 
    ![Steps](media/tutorial-classifying-iris/steps.png)
 
-11. Close the data preparation editor. Select **Close** (x) on the **iris-1** tab with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
+13. Close the data preparation editor. Select **Close** (x) on the **iris-1** tab with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
 
 ## Generate Python/PySpark code to invoke a data preparation package
 

@@ -20,7 +20,7 @@ ms.author: LADocs; jehollan
 
 # Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
 
-After you [create and run a logic app](../logic-apps/logic-apps-create-a-logic-app.md), 
+After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
 you can check its runs history, trigger history, status, and performance. 
 For real-time event monitoring and richer debugging, 
 set up [diagnostics logging](#azure-diagnostics) for your logic app. 

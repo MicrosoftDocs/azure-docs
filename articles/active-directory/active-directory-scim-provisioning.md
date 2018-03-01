@@ -1,5 +1,5 @@
 ---
-title: Using System for Cross-Domain Identity Management automatically provision users and groups from Azure Active Directory to applications | Microsoft Docs
+title: Automate provisioning of apps using SCIM in Azure Active Directory | Microsoft Docs
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 12/12/2017
 ms.author: asmalser
 
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
+ms.custom: aaddev;it-pro;seohack1
 
 
 ---

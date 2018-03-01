@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
 
 ---
@@ -32,16 +32,17 @@ You can enable streaming of the Activity Log either programmatically or via the 
 The service bus or event hub namespace does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ### Via Azure portal
-1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
+1. Navigate to the **Activity Log** blade using the All services search on the left side of the portal.
    
-    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Click the **Export** button at the top of the blade.
+    ![Navigate to Activity Log in portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Click the **Export** button at the top of activity log blade.
    
-    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. In the blade that appears, you can select the regions for which you would like to stream events and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+    ![Export button in portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. In the blade that appears, you can select the regions for which you would like to stream events and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events. Select **All regions**.
    
-    ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
+    ![Export Activity Log blade](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. Click **Save** to save these settings. The settings are immediately applied to your subscription.
+5. If you have several subscriptions, you should repeat this action and send all the data to the same event hub.
 
 ### Via PowerShell Cmdlets
 If a log profile already exists, you first need to remove that profile.
@@ -50,8 +51,10 @@ If a log profile already exists, you first need to remove that profile.
 2. If so, use `Remove-AzureRmLogProfile` to remove it.
 3. Use `Set-AzureRmLogProfile` to create a profile:
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 The Service Bus Rule ID is a string with this format: {service bus resource ID}/authorizationrules/{key name}, for example 
@@ -63,7 +66,7 @@ If a log profile already exists, you first need to remove that profile.
 2. If so, use `azure insights logprofile delete` to remove it.
 3. Use `azure insights logprofile add` to create a profile:
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

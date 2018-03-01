@@ -3,21 +3,20 @@ title: Actions and NotActions - Azure role-based access control (RBAC) | Microso
 description: This topic describes the built in roles for role-based access control (RBAC). The roles are continuously added, so check the documentation freshness.
 services: active-directory
 documentationcenter: ''
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: ''
 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang:
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer:
+ms.date: 01/30/2018
+ms.author: rolyon
+ms.reviewer: rqureshi
 
-ms.custom: H1Hack27Feb2017
+ms.custom: it-pro
 ---
 # Built-in roles for Azure role-based access control
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
@@ -65,7 +64,9 @@ This article only addresses the different roles that exist today. When you assig
 | [Redis Cache Contributor](#redis-cache-contributor) |Can manage Redis caches |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) |Can manage scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) |Can manage search services |
-| [Security Manager](#security-manager) |Can manage security components, security policies, and virtual machines |
+| [Security Admin](#security-administrator) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
+| [Security Manager](#security-manager) | Can manage security components, security policies, and virtual machines |
+| [Security Reader](#security-reader) | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes |
 | [Site Recovery Contributor](#site-recovery-contributor) | Can manage Site Recovery in Recovery Services vault |
 | [Site Recovery Operator](#site-recovery-operator) | Can manage failover and failback operations Site Recovery in Recovery Services vault |
 | [Site Recovery Reader](#site-recovery-reader) | Can view all Site Recovery management operations  |
@@ -503,21 +504,50 @@ Can manage Search services
 | Microsoft.Search/searchServices/* |Create and manage search services |
 | Microsoft.Support/* |Create and manage support tickets |
 
+### Security Administrator
+In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.Authorization/policyAssignments/* | Create and manage policy assignments |
+| Microsoft.Authorization/policySetDefinitions/* | Create and manage policy sets |
+| Microsoft.Authorization/policyDefinitions/* | Create and manage policy definitions |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
+| Microsoft.Security/*/read | Read security components and policies |
+| Microsoft.Support/* |Create and manage support tickets |
+
 ### Security Manager
 Can manage security components, security policies, and virtual machines
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Read roles and role Assignments |
-| Microsoft.ClassicCompute/*/read |Read configuration information classic compute virtual machines |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Write configuration for virtual machines |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.ClassicCompute/*/read |Read configuration information classic virtual machines |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Write configuration for classic virtual machines |
 | Microsoft.ClassicNetwork/*/read |Read configuration information about classic network |
-| Microsoft.Insights/alertRules/* |Create and manage alert rules |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Security/* |Create and manage security components and policies |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Security reader
+In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
+| Microsoft.Security/*/read | Read security components and policies |
+| Microsoft.Support/* |Create and manage support tickets |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 
 ### Site Recovery Contributor
 Can manage all Site Recovery management actions, except creating Recovery Services vault and assigning access rights to other users
@@ -700,7 +730,7 @@ Can manage SQL servers and databases but not their security-related policies
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Read authorization |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
 | Microsoft.Insights/alertRules/* |Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
@@ -869,3 +899,4 @@ Can manage websites but not the web plans to which they are connected
 * [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
 * [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
 * [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
+* [Permissions in Azure Security Center](../security-center/security-center-permissions.md)
