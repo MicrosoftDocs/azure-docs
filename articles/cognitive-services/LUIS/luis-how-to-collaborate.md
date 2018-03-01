@@ -2,14 +2,14 @@
 title: Collaborate with other contributors on LUIS apps in Azure | Microsoft Docs
 description: Learn how to Collaborate with other contributors on Language Understanding (LUIS) applications.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: cahann;v-geberr
+ms.author: v-geberr;
 ---
 
 # Collaborate with others on Language Understanding (LUIS) apps  

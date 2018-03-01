@@ -21,10 +21,13 @@ ms.author: owend
 
 # Import a Power BI Desktop file
 
-You can create a new model in Azure AS by importing a Power BI Desktop file (pbix) file. Model metadata, cached data, and datasource connections are imported. Reports and visualizations are not imported. Once in your server, model changes can be made by updating and reimporting the pbix, by using the web designer (preview) feature in the portal, or by using SQL Server Management Studio (SSMS). Imported models cannot be opened or exported to Visual Studio.
+You can create a new model in Azure AS by importing a Power BI Desktop file (pbix) file. Model metadata, cached data, and datasource connections are imported. Reports and visualizations are not imported.
 
-> [!NOTE]
-> If your pbix model connects to on-premises data sources, an [on-premises gateway](analysis-services-gateway.md) must be configured for your server.
+**Restrictions**   
+- The pbix model must connect to [Analysis Services supported data sources](analysis-services-datasource.md) only. 
+- The pbix model cannot have live or DirectQuery connections. 
+- If the pbix model connects to on-premises data sources, an [On-premises data gateway](analysis-services-gateway.md) must be configured for your Analysis Services server.
+- Import may fail if your pbix data model contains metadata not supported in Analysis Services.
 
 ## To import from pbix
 
