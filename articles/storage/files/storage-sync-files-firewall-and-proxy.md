@@ -23,7 +23,8 @@ Azure File Sync connects your on-premises servers to Azure storage, enabling mul
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
 
 ## Overview
-Communication with Azure for the purposes of file sync is not monolithic. There are multiple services in Azure, all with individual endpoints to which the server must be enabled to communicate.
+Azure File Sync orchestrates multiple cloud services involved in delivering an integrated sync experience.
+As a result enabling your network to support Azure File Sync through firewalls and proxies requires enabling communication to several cloud services.
 
 For instance:
 - Azure Storage
@@ -32,16 +33,21 @@ For instance:
 - Authentication services
 
 > [!Note]  
-> With Azure File Sync all calls are made by the server (outbound). None of the involved services ever initiate communication to the server.
+> The Azure File Sync agent on Windows Server initiates all requests to cloud services. (outbound)
+> No Azure services initiates communication to the Azure File Sync agent.
+
 
 ## Ports
-All required communication uses port 443(SSL) exclusively.
-Ensure that this port is open, outbound.
+Azure File Sync communicates exclusively over port 443 (SSL).
+As a result, all traffic is encrypted in transport. 
+
+* As a result sync meta data as well as file data movements are always encrypted. 
+* Storage account encryption decides encryption-at-rest behavior and is an independent setting on an Azure Storage account.
 
 ## Networks and special connections to Azure
 The Azure File Sync agent has no requirements regarding special channels like [ExpressRoute](../../expressroute/expressroute-introduction.md), etc. to Azure.
 
-File sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning. *some features are not yet available
+Azure File Sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning. *some features are not yet available
 
 ## Proxy
 Azure File Sync currently supports machine-wide proxy settings. This proxy setting is transparent to the Azure File Sync agent as the entire traffic of the server is routed through this proxy.
@@ -49,7 +55,7 @@ Azure File Sync currently supports machine-wide proxy settings. This proxy setti
 Soon the Azure File Sync agent installer will allow for configuration of app-specific proxy settings. This will allow configuration of a proxy specifically for Azure File Sync traffic.
 
 ## Firewall
-As mentioned before, port 443 needs to be open outbound. Based on policies in your datacenter, branch or region, further restricting traffic over this port to specific domains may be desired or required. Certain challenges come attached with that.
+As mentioned before, port 443 needs to be open outbound. Based on policies in your datacenter, branch or region, further restricting traffic over this port to specific domains may be desired or required.
 
 The following table describes the required domains for communication:
 
@@ -57,7 +63,7 @@ The following table describes the required domains for communication:
 |---------|----------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | Any user call (like PowerShell) goes to/through this URL, incl. the initial server registration call. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
-| **Azure Active Directory** | https://graph.windows.net/ | A service principal in the Azure Active Directory of the used subscription for delegating a minimal set of rights to the Azure File Sync service. This cretion of a service principal is done automatically and only once, when Azure File Sync is set up for the first time. As a result, this action must be performed by an authenticated user with subscription owner privileges. |
+| **Azure Active Directory** | https://graph.windows.net/ | A service principal in the Azure Active Directory of the used subscription for delegating a minimal set of rights to the Azure File Sync service. This creation of a service principal is done automatically and only once, when Azure File Sync is set up for the first time. As a result, this action must be performed by an authenticated user with subscription owner privileges. |
 | **Azure Storage** | *.core.windows.net | When the server downloads a file (sync or recall in the cloud tiering case), then the server performs that more efficiently when talking directly to the Azure File Share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | *.one.microsoft.com | After initial server registration, the server will be given a regional URL of the Azure File Sync service instance in that region. The server will use it to communicate directly and efficiently with the instance handling its sync. |
 
