@@ -138,7 +138,7 @@ The following example defines a rule to scale in the number of VM instances by o
 
 
 ## Create an autoscaling scale set
-Lets use the sample template to create a scale set and apply autoscale rules. You can [review the complete template](https://raw.githubusercontent.com/iainfoulds/infrastructure_automation/master/scale_sets/autoscale.json), or [see the *Microsoft.insights/autoscalesettings* resource provider section](https://github.com/iainfoulds/infrastructure_automation/blob/master/scale_sets/autoscale.json#L220) of the template.
+Lets use the sample template to create a scale set and apply autoscale rules. You can [review the complete template](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json), or [see the *Microsoft.insights/autoscalesettings* resource provider section](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) of the template.
 
 First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
@@ -151,7 +151,7 @@ Now create a virtual machine scale set with [az group deployment create](/cli/az
 ```azurecli-interactive
 az group deployment create \
   --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/iainfoulds/infrastructure_automation/master/scale_sets/autoscale.json
+  --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.

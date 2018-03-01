@@ -50,7 +50,7 @@ For more information, see the [Custom Script Extension overview](../virtual-mach
 ### Use Azure PowerShell
 PowerShell uses a hashtable to store the file to download and the command to execute. The following example:
 
-- Instructs the VM instances to download a script from GitHub - *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
+- Instructs the VM instances to download a script from GitHub - *https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1*
 - Sets the extension to run an install script - `powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
 - Gets information about a scale set with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
 - Applies the extension to the VM instances with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
@@ -60,7 +60,7 @@ The Custom Script Extension is applied to the *myScaleSet* VM instances in the r
 ```powershell
 # Define the script for your Custom Script Extension to run
 $customConfig = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
@@ -95,7 +95,7 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 
 ```json
 {
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate_nginx.sh"],
   "commandToExecute": "./automate_nginx.sh"
 }
 ```
@@ -120,7 +120,7 @@ If the upgrade policy on your scale set is *manual*, update your VM instances wi
 
 The PowerShell DSC extension lets you customize VM instances in a scale set with PowerShell. The following example:
 
-- Instructs the VM instances to download a DSC package from GitHub  - *https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip*
+- Instructs the VM instances to download a DSC package from GitHub  - *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Sets the extension to run an install script - `configure-http.ps1`
 - Gets information about a scale set with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
 - Applies the extension to the VM instances with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
@@ -132,7 +132,7 @@ The DSC extension is applied to the *myScaleSet* VM instances in the resource gr
 $dscConfig = @{
   "wmfVersion" = "latest";
   "configuration" = @{
-    "url" = "https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip";
+    "url" = "https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip";
     "script" = "configure-http.ps1";
     "function" = "WebsiteTest";
   };
@@ -196,7 +196,7 @@ If you update your application code, libraries, or packages, you can push the la
 
 ```json
 {
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate_nginx.sh"],
   "commandToExecute": "./automate_nginx.sh"
 }
 ```
@@ -205,7 +205,7 @@ Any updates you make to your application are not exposed to the Custom Script Ex
 
 ```json
 {
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx_v2.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate_nginx_v2.sh"],
   "commandToExecute": "./automate_nginx_v2.sh"
 }
 ```
