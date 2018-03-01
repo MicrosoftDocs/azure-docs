@@ -215,17 +215,14 @@ az network public-ip show \
   --output tsv
 ``` 
 
-## Delete a load balancer
+## Clean up resources
 
-To remove a load balancer with [az network lb delete](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#delete). 
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
 
-```azurecli-interactive
-az network lb delete --resource-group MyResourceGroup --name MyLoadBalancer
+```azurecli-interactive 
+az group delete --name myResourceGroupLB
 ```
 
+
 ## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-cli.md)
-
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
-
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+In this quickstart, you created a resource group, network resources, and backend servers. You then used those resources to create an application gateway. To learn more about application gateways and their associated resources, continue to the how-to articles.
