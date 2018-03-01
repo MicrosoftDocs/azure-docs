@@ -36,7 +36,7 @@ This problem occurs if the client certificate is missing from **Certificates - C
 
 To resolve this problem, follow these steps:
 
-1. Open Certificate Manager: Click **Start**, type **manage computer certificates**, and then click ***manage computer certificates** in the search result.
+1. Open Certificate Manager: Click **Start**, type **manage computer certificates**, and then click **manage computer certificates** in the search result.
 
 2. Make sure that the following certificates are in the correct location:
 
