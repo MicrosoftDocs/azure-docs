@@ -192,7 +192,7 @@ Yes, For details, see [Virtual network integration for Azure services](virtual-n
 
 ### Which Azure PaaS resources can I restrict access to from a VNet?
 
-Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database), can restrict network access to only resources in a VNet through the use of virtual network service endpoints. For details, see [Virtual network service endpoints overview.](virtual-network-service-endpoints-overview.md).
+Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database), can restrict network access to only resources in a VNet through the use of virtual network service endpoints. For details, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md).
 
 ### Can I move my services in and out of VNets?
 No. You cannot move services in and out of VNets. You will have to delete and re-deploy the resource to move it to another VNet.
