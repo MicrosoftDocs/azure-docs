@@ -4,7 +4,7 @@ description: Use this Azure CLI example script to create a SQL database.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
-manager: jstrauss
+manager: janeng
 editor: carlrab
 ms.service: sql-database
 ms.custom: DBs & servers, mvc
