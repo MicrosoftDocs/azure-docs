@@ -14,7 +14,8 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
     Collection id|Items|Enter *Items* as the name for your new collection. Collection ids have the same character requirements as database names.
     Storage capacity| Fixed (10 GB)|Change the value to **Fixed (10 GB)**. This value is the storage capacity of the database.
     Throughput|400 RU|Change the throughput to 400 request units per second (RU/s). Storage capacity must be set to **Fixed (10 GB)** in order to set throughput to 400 RU/s. If you want to reduce latency, you can scale up the throughput later. 
-    Unique keys|/category, /name, /description| Enter */category, /name, /description* as the unique keys. Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](unique-keys.md) article.
+    
+    In addition to the above settings, you can optionally add a unique key for the collection. We will leave the field empty in this example. Unique keys provide developers with the ability to add a layer of data integrity to the database. By creating a unique key policy while creating a collection, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](../articles/cosmos-db/unique-keys.md) article.
     
     Click **OK**.
 
