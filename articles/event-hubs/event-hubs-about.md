@@ -22,11 +22,7 @@ ms.author: shvija;sethm
 
 Azure Event Hubs is a Big Data streaming service that ingests millions of events per second, and provides low latency and high throughput for real-time analytics and visualization.
 
-## Why use Event Hubs?
-
-Your organization needs data-driven strategies to increase competitive advantage. You want to stream data or analyze real-time data to get valuable insights. Event Hubs provides a streaming platform with low latency and seamless integration with Azure services to build a complete Big Data pipeline.
-
-Event Hubs is used in scenarios such as the following:
+Event Hubs is used in scenarios such as (but not limited to) the following:
 
 - Anomaly detection (fraud/outliers)
 - Application logging
@@ -36,6 +32,10 @@ Event Hubs is used in scenarios such as the following:
 - Transaction processing
 - User telemetry processing
 - Device telemetry streaming 
+
+## Why use Event Hubs?
+
+Your organization needs data-driven strategies to increase competitive advantage. You want to stream data or analyze real-time data to get valuable insights. Event Hubs provides a streaming platform with low latency and seamless integration with Azure services to build a complete Big Data pipeline.
 
 The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. 
 

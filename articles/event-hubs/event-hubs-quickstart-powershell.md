@@ -94,7 +94,7 @@ The next step is to run the sample code that streams events to an event hub, and
 
 First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) and [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) samples from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
 
-## Send
+## Stream events
 
 1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
 
@@ -108,7 +108,7 @@ First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tre
 
 6. From the **Build** menu, click **Build Solution** to ensure there are no errors.
 
-## Receive
+## Receive and process events
 
 1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
 
