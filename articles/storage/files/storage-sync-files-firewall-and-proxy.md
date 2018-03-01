@@ -18,7 +18,7 @@ ms.author: fauhse
 ---
 
 # Azure File Sync proxy and firewall settings
-Azure File Sync connects your on-premises servers to Azure storage, enabling multi-site synchronization and cloud tiering features. As such, an on-premises server must be connected to the internet. An IT admin needs to decide the best path for the server to take to reach into Azure cloud services.
+Azure File Sync connects your on-premises servers to Azure storage, enabling multi-site synchronization and cloud tiering features. As such, an on-premises server must be connected to the internet. An IT admin needs to decide the best path for the server to reach into Azure cloud services.
 
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
 
@@ -33,8 +33,7 @@ For instance:
 - Authentication services
 
 > [!Note]  
-> The Azure File Sync agent on Windows Server initiates all requests to cloud services. (outbound)  
-> No Azure service initiates communication to the Azure File Sync agent.
+> The Azure File Sync agent on Windows Server initiates all requests to cloud services. (outbound) <br/> No Azure service initiates communication to the Azure File Sync agent.
 
 
 ## Ports
@@ -88,7 +87,7 @@ If *.one.microsoft.com is too broad, you can limit the server's communication by
 ## Summary and risk limitation
 The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains as well as responses from them. Microsoft strives to keep this list updated.
 
-Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and changed over time. Therefore it is a prudent measure to check the table in this document as part of a change management process from one Azure File Sync agent version to another on a test-deployment of the latest agent. This way you can ensure that your firewall is configured to allow traffic to domains the most recent agent requires.
+Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and changed over time. Therefore it is a prudent measure to check the tables in this document as part of a change management process from one Azure File Sync agent version to another on a test-deployment of the latest agent. This way you can ensure that your firewall is configured to allow traffic to domains the most recent agent requires.
 
 ## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
