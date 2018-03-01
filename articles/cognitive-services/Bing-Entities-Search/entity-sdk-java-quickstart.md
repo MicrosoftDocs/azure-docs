@@ -125,8 +125,8 @@ public static void handlingDisambiguation(String subscriptionKey)
             List<Thing> disambigEntities = new ArrayList<Thing>();
             for(Thing thing : entrys) {
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
-                    System.out.println("\r\nSearched for \"Tom Cruise\" and found a dominant entity with this description:");
-                    System.out.println(String.format("Searched for \"harry potter\" and found a dominant entity with type hint \"%s\" with this description:",
+                    System.out.println("\r\nSearched for \"Harry Potter\" and found a dominant entity with this description:");
+                    System.out.println(String.format("Searched for \"Harry Potter\" and found a dominant entity with type hint \"%s\" with this description:",
                             thing.entityPresentationInfo().entityTypeDisplayHint()));
                     System.out.println(thing.description());
                 }
