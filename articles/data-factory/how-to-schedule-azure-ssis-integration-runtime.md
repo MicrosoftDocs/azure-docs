@@ -3,7 +3,7 @@ title: How to schedule Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
+ms.author: douglasl
 
 ---
 # How to schedule starting and stopping of an Azure SSIS integration runtime 
