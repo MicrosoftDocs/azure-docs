@@ -1,6 +1,6 @@
 ﻿---
-title: Workflow triggers and actions - Azure Logic Apps | Microsoft Docs
-description: Learn more about the kinds of triggers and actions that you can use for creating and automating workflows and processes with Azure Logic Apps
+title: Workflow triggers and actions for Azure Logic Apps | Microsoft Docs
+description: Learn about the triggers and actions that you can use for automating workflows and processes with Azure Logic Apps
 services: logic-apps
 author: MandiOhlinger
 manager: anneta
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
-ms.author: LADocs; mandia
+ms.author: klam; LADocs
 ---
 
 # Triggers and actions for logic app workflows
@@ -37,16 +37,16 @@ Here are the two ways that you can start  initiate a run of your workflow:
 All triggers contain these top-level elements:  
   
 ```json
-"trigger-name": {
-    "type": "trigger-type",
-    "inputs": { call-settings },
+"<trigger-name>": {
+    "type": "<trigger-type>",
+    "inputs": { <call-settings> },
     "recurrence": {  
         "frequency": "Second|Minute|Hour|Day|Week|Month",
-        "interval": recurrence-interval-based-on-frequency
+        "interval": <recurrence-interval-based-on-frequency>
     },
-    "conditions": [ array-of-required-conditions ],
-    "splitOn": "property-used-for-creating-separate-workflows",
-    "operationOptions": "operation-options-for-trigger"
+    "conditions": [ <array-of-required-conditions> ],
+    "splitOn": "<property-used-for-creating-separate-workflows>",
+    "operationOptions": "<operation-options-for-trigger>"
 }
 ```
 
@@ -94,7 +94,7 @@ like this example:
     "recurrence": {
         "frequency": "Week",
         "interval": "1",
-        "startTime" : "2017-09-18T00:00:00Z"
+        "startTime": "2017-09-18T00:00:00Z"
     }
 }
 ```
@@ -106,17 +106,17 @@ Here's the definition for this trigger:
     "type": "Recurrence",
     "recurrence": {
         "frequency": "second|minute|hour|day|week|month",
-        "interval": recurrence-interval-based-on-frequency,
+        "interval": <recurrence-interval-based-on-frequency>,
         "schedule": {
             // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ one-or-more-hour-marks ], 
+            "hours": [ <one-or-more-hour-marks> ], 
             // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ one-or-more-minute-marks ], 
+            "minutes": [ <one-or-more-minute-marks> ], 
             // Applies only when frequency is Week. Separate values with commas.
             "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
         },
-        "startTime": "start-date-time-with-format-YYYY-MM-DDThh:mm:ss",
-        "timeZone": "specify-time-zone"
+        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+        "timeZone": "<specify-time-zone>"
     }
 }
 ```
@@ -453,7 +453,7 @@ so you can construct your trigger like this example:
         "frequency": "minute",
         "interval": 1
     },
-    "intputs": {
+    "inputs": {
         "uri": "https://mydomain.com/myAPI",
         "method": "GET"
     },
@@ -498,8 +498,8 @@ To configure this setting, set the `operationOptions` property to `singleInstanc
 "triggers": {
     "myHTTPTrigger": {
         "type": "Http",
-        "inputs": { ... },
-        "recurrence": { ... },
+        "inputs": { },
+        "recurrence": { },
         "operationOptions": "singleInstance"
     }
 }
@@ -580,7 +580,7 @@ a 30-second delay between each attempt:
     "inputs": {
         "method": "GET",
         "uri": "https://mynews.example.com/latest",
-        "retryPolicy" : {
+        "retryPolicy": {
             "type": "fixed",
             "interval": "PT30S",
             "count": 2
@@ -734,7 +734,7 @@ and includes a `statusCode`, `body`, and `headers`:
   
 ```json
 "myResponseAction": {
-    "type": "response",
+    "type": "Response",
     "inputs": {
         "statusCode": 200,
         "body": {
@@ -1241,5 +1241,5 @@ This looping action runs inner actions until a condition results to true.
 
 ## Next steps
 
-* [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md)
-* [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows)
+* Learn about [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md)
+* Learn about [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows)
