@@ -1,5 +1,5 @@
 ---
-title: Learn about Azure microservices security policies | Microsoft Docs
+title: Learn about Azure Service Fabric application security | Microsoft Docs
 description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
 services: service-fabric
 documentationcenter: .net
@@ -13,11 +13,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 03/01/2018
 ms.author: mfussell
 
 ---
-# Configure security policies for your application
+# Service Fabric application and service security
+
+## Account policies
+
+## Securing the hosting environment
+
+## Managing secrets
+
+## Securing service communication
+
+
+## Configure security policies for your application
 By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
 
 By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
