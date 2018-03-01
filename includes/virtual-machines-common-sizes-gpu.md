@@ -1,4 +1,3 @@
-
 ---
  title: include file
  description: include file
@@ -10,7 +9,6 @@
  ms.author: danlep
  ms.custom: include file
 ---
-
 
 GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
