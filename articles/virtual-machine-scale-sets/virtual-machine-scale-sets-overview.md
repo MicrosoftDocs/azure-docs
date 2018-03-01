@@ -42,17 +42,18 @@ Azure virtual machine scale sets provide the management capabilities for applica
     - Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low, while customers continue to receive an acceptable level of performance as demand grows and additional VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
 
 - **Works at large-scale**
-    -Scale sets support up to 1,000 VM instances. If you create and upload your own custom VM images, the limit is 300 VM instances. For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) and [Premium Storage](../virtual-machines/windows/premium-storage.md).
+    - Scale sets support up to 1,000 VM instances. If you create and upload your own custom VM images, the limit is 300 VM instances.
+    - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) and [Premium Storage](../virtual-machines/windows/premium-storage.md).
 
 
 ## Differences between virtual machines and scale sets
-Scale sets are built from virtual machines. With scale sets, the management and automation layers are provided to run and scale your applications. You could instead manually create and manage individual VMs, or integrate existing tools to build a similar level of automation. The following table outlines the benefits of scale sets to manage multiple VM instances.
+Scale sets are built from virtual machines. With scale sets, the management and automation layers are provided to run and scale your applications. You could instead manually create and manage individual VMs, or integrate existing tools to build a similar level of automation. The following table outlines the benefits of scale sets compared to manually managing multiple VM instances.
 
 | Scenario                           | Manual group of VMs                                                                    | Virtual machine scale set |
 |------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
-| Add additional VM instances        | Manual process to create, configure, ensure compliance                                 | Automatic from central configuration |
+| Add additional VM instances        | Manual process to create, configure, and ensure compliance                             | Automatic from central configuration |
 | Traffic balancing and distribution | Azure load balancer or Application Gateway                                             | Azure load balancer or Application Gateway |
-| High availability and redundancy   | Manually create Availability Set or distribute and track VMs across Availability Zones | Automatic distribution of VM instances across Availability Sets or Availability Zones |
+| High availability and redundancy   | Manually create Availability Set or distribute and track VMs across Availability Zones | Automatic distribution of VM instances across Availability Zones or Availability Sets |
 | Autoscaling of VMs                 | Manual use of monitoring and Azure Automation                                          | Yes - based on host metrics, in-guest metrics, Application Insights, or schedule |
 
 There is no additional cost to scale sets. You only pay for the underlying compute resources such as the VM instances, load balancer, or Managed Disk storage. The management and automation features, such as autoscale and redundancy, incur no additional charges over the use of VMs.
