@@ -35,6 +35,7 @@ This article covers the Resource Manager deployment model. You can also [manage 
 > The following sample Azure CLI commands expect an existing simple environment. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
 
 ## Specify a static private IP address when creating a VM
+Network connection properties, such as DNS server IP addresses, should not be edited directly within Windows VMs as they may get erased during service heal, when the virtual network adaptor gets replaced, and cause VM connectivity/RDP issues.
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, complete the following steps:
 
