@@ -1,7 +1,7 @@
 
 ## Add the application’s registration information to your app
 
-In this step, you need to add the Application Id to your project:
+In this step, you need to add the Application ID to your project:
 
 1.	In `ViewController.swift`, replace the line starting with '`let kClientID`' with:
 ```swift
