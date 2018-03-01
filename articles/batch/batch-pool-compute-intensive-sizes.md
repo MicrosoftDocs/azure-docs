@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.author: danlep
 
 
@@ -31,11 +31,11 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Subscription and account limits
 
-* **Quotas and limits** - The [cores quotas per Batch account](batch-quota-limit.md#resource-quotas) can limit the number of nodes of a given size you can add to a Batch pool You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. 
+* **Quotas and limits** - The [cores quota per Batch account](batch-quota-limit.md#resource-quotas) can limit the number of nodes of a given size you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. 
 
-  Additionally, use of certain VM families in your Batch account, such as NCv2, NCv3 and ND, is restricted because of limited capacity. Use of these families is only available by requesting a quota increase from the default of 0 cores.  
+  Additionally, use of certain VM families in your Batch account, such as NCv2, NCv3, and ND, is restricted because of limited capacity. Use of these families is only available by requesting a quota increase from the default of 0 cores.  
 
-  If you need to request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+  If you need to, [request a quota increase](batch-quota-limit.md#increase-a-quota) at no charge.
 
 * **Region availability** - Compute-intensive VMs might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
@@ -50,10 +50,10 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, ND series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers | N/A | 
+| [NC, NCv2, NCv3, ND series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-vms) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers | N/A | 
 | [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
-*RDMA connectivity on RDMA-capable N-series VMs is supported on Ubuntu 16.04 LTS (from Azure Marketplace) with Intel MPI.
+*RDMA connectivity on RDMA-capable N-series VMs may require [additional configuration](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) that varies by distribution.
 
 
 
@@ -70,7 +70,7 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 ### Windows pools - Cloud services configuration
 
 > [!NOTE]
-> N-series sizes are not supported in Batch pools with the cloud services configuration.
+> N-series sizes are not supported in Batch pools with the Cloud Service configuration.
 >
 
 | Size | Capability | Operating systems | Required software | Pool settings |
