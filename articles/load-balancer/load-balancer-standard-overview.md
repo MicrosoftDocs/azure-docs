@@ -370,7 +370,7 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
 
 <a name="additionalpreviewregions"></a>
 >[!IMPORTANT]
-> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, South Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
+> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
 
 
 ### Sign up by using Azure CLI 2.0
