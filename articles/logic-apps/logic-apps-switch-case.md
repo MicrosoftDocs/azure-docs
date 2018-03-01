@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: LADocs; estfan
+ms.author: estfan; LADocs
 ---
 
 # Perform different actions in logic apps with a switch statement

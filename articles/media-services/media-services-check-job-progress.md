@@ -30,6 +30,7 @@ When you run jobs, you often require a way to track job progress. You can check 
 ## Define StateChanged event handler to monitor job progress
 The following code example defines the StateChanged event handler. This event handler tracks job progress and provides updated status, depending on the state. The code also defines the LogJobStop method. This helper method logs error details.
 
+```csharp
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
         Console.WriteLine("Job state changed event:");
@@ -104,7 +105,7 @@ The following code example defines the StateChanged event handler. This event ha
     {
         return jobID.Replace(":", "_");
     }
-
+```
 
 
 ## Next step
