@@ -149,12 +149,12 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 
 To help with troubleshooting issues with the MFA Server AD FS Adapter use the steps that follow to enable additional logging.
 
-1. In MFA Server UX, AD FS section, check the “Enable logging” checkbox.
-2. On each AD FS server, use regedit.exe to create string value registry key Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath with value “C:\Program Files\Multi-Factor Authentication Server\” (or different path of admin’s choosing).  Note, the trailing backslash is important.
-3. Create C:\Program Files\Multi-Factor Authentication Server\Logs directory (or Logs directory under the different path created in step 1).
+1. In the MFA Server interface, open the AD FS section, and check the **Enable logging** checkbox.
+2. On each AD FS server, use **regedit.exe** to create string value registry key `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath` with value `C:\Program Files\Multi-Factor Authentication Server\` (or other path of your choice).  **Note, the trailing backslash is important.**
+3. Create `C:\Program Files\Multi-Factor Authentication Server\Logs` directory (or other directory as created in **Step 1**).
 4. Grant Modify access on the Logs directory to the AD FS service account.
 5. Restart the AD FS service.
-6. Verify that MultiFactorAuthAdfsAdapter.log file was created in the Logs directory.
+6. Verify that `MultiFactorAuthAdfsAdapter.log` file was created in the Logs directory.
 
 ## Related topics
 
