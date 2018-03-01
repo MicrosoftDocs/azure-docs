@@ -17042,6 +17042,11 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
-    }
+    },
+   {
+            "source_path": "articles/python-how-to-install.md",
+            "redirect_url": "/python/azure/python-sdk-azure-install",
+            "redirect_document_id": false
+     }
    ]
 }
