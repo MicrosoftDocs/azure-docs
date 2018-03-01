@@ -72,22 +72,6 @@ The following steps restore the sample server to a point-in-time:
 >[!Note]
 >Note the new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
 
-## Geo restore
-If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MySQL is available.  
-
-1. Select the **New** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for MySQL**.
-
-   ![The "Azure Database for MySQL" option](./media/howto-restore-server-portal/1-create-database.png)
-
-2. In the form's **Select Source** dropdown, choose **Backup**. This action loads a list of servers that have geo redundant backups enabled. Select one of these backups to be the source of your new server.
-   ![Select Source: Backup and list of geo redundant backups](./media/howto-restore-server-portal/2-georestore.png)
-
-3. Fill out the rest of the form with your preferences. You can select any **Location**. After selecting the location, you can select **Pricing Tier**. By default the parameters for the existing server you are restoring from are displayed. You can click **OK** without making any changes to inherit those settings. Or you can change **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
-
->[!Note]
->The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
-
-
 ## Next steps
 - Learn more about the service's [backups](concepts-backup.md).
 - Learn more about [business continuity](concepts-business-continuity.md) options.

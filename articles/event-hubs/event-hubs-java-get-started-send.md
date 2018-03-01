@@ -53,15 +53,13 @@ For the following sample, first create a new Maven project for a console/shell a
 import java.io.IOException;
 import java.nio.charset.*;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 
 import com.microsoft.azure.eventhubs.*;
-import com.microsoft.azure.servicebus.*;
 
 public class Send
 {
     public static void main(String[] args) 
-            throws ServiceBusException, ExecutionException, InterruptedException, IOException
+            throws EventHubException, IOException
     {
 ```
 
