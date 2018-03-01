@@ -143,8 +143,10 @@ The following considerations apply:
 1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add the following elements to **appSettings** defined in your app.config file:
 
-		<add key="Issuer" value="http://testacs.com"/>
-		<add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## Example
 

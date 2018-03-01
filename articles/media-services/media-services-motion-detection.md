@@ -44,6 +44,8 @@ You can use the following parameters:
 | detectionZones |An array of detection zones:<br/>- Detection Zone is an array of 3 or more points<br/>- Point is an x and y coordinate from 0 to 1. |Describes the list of polygonal detection zones to be used.<br/>Results are reported with the zones as an ID, with the first one being 'id':0 |Single zone, which covers the entire frame. |
 
 ### JSON example
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -71,7 +73,7 @@ You can use the following parameters:
         ]
       }
     }
-
+```
 
 ## Motion Detector output files
 A motion detection job returns a JSON file in the output asset, which describes the motion alerts, and their categories, within the video. The file contains information about the time and duration of motion detected in the video.
@@ -149,7 +151,7 @@ The following JSON example shows the output:
               }
             ],
 ```
-    …
+
 ## Limitations
 * The supported input video formats include MP4, MOV, and WMV.
 * Motion Detection is optimized for stationary background videos. The algorithm focuses on reducing false alarms, such as lighting changes, and shadows.
@@ -162,35 +164,35 @@ The following program shows how to:
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a video motion detection task based on a configuration file that contains the following json preset: 
    
-```json
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
-```
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
 
 3. Download the output JSON files. 
 

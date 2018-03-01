@@ -587,7 +587,7 @@ The Microsoft Media Platform: Player Framework for iOS contains a collection of 
 ### Scheduling Ads with VMAP
 The following example shows how to schedule ads using a VMAP file.
 
-```
+```csharp
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 
@@ -608,6 +608,8 @@ The following example shows how to schedule ads using a VMAP file.
 ### Scheduling Ads with VAST
 The following sample shows how to schedule a late binding VAST ad.
 
+
+```csharp
     //Example:3 How to schedule a late binding VAST ad.
     // set the start time for the ad
     adLinearTime.startTime = 13;
@@ -632,8 +634,11 @@ The following sample shows how to schedule a late binding VAST ad.
     {
         [self logFrameworkError];
     }
+```
 
    The following sample shows how to schedule an early binding VAST ad.
+
+```csharp
     //Example:4 Schedule an early binding VAST ad
     //Download the VAST file
     if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
@@ -658,9 +663,11 @@ The following sample shows how to schedule a late binding VAST ad.
             [self logFrameworkError];
         }
     }
+```
 
 The following sample shows how to insert an ad using Rough Cut Editing (RCE)
 
+```csharp
     //Example:1 How to use RCE.
     // specify manifest for ad content
     NSString *secondContent=@"http://wamsblureg001orig-hs.cloudapp.net/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -674,9 +681,11 @@ The following sample shows how to insert an ad using Rough Cut Editing (RCE)
     {
         [self logFrameworkError];
     }
+```
 
 The following example shows how to schedule an ad pod.
 
+```csharp
     //Example:5 Schedule an ad Pod.
     // Set start time for ad
     adLinearTime.startTime = 23;
@@ -702,9 +711,11 @@ The following example shows how to schedule an ad pod.
     {
         [self logFrameworkError];
     }
+```
 
 The following example shows how to schedule a non-sticky mid-roll ad. A non-sticky ad is only played once regardless of any seeking the viewer performs.
 
+```csharp
     //Example:6 Schedule a single non sticky mid roll Ad
     // specify URL to content
     NSString *oneTimeAd=@"http://wamsblureg001orig-hs.cloudapp.net/5389c0c5-340f-48d7-90bc-0aab664e5f02/Windows%208_%20You%20and%20Me%20Together-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -729,9 +740,11 @@ The following example shows how to schedule a non-sticky mid-roll ad. A non-stic
     {
         [self logFrameworkError];
     }
+```
 
 The following example shows how to schedule a sticky mid-roll ad. A sticky ad is displayed each time the specified point on the video timeline is reached.
 
+```csharp
     //Example:7 Schedule a single sticky mid roll Ad
     NSString *stickyAd=@"http://wamsblureg001orig-hs.cloudapp.net/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     // create AdInfo instance
@@ -753,10 +766,11 @@ The following example shows how to schedule a sticky mid-roll ad. A sticky ad is
     {
         [self logFrameworkError];
     }
-
+```
 
 The following sample shows how to schedule a post-roll ad.
 
+```csharp
     //Example:8 Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     // create AdInfo instance
@@ -774,9 +788,11 @@ The following sample shows how to schedule a post-roll ad.
     {
         [self logFrameworkError];
     }
+```
 
 The following sample shows how to schedule a pre-roll ad.
 
+```csharp
     //Example:9 Schedule Pre Roll Ad
     NSString *adURLString = @"http://wamsblureg001orig-hs.cloudapp.net/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     AdInfo *adInfo = [[[AdInfo alloc] init] autorelease];
@@ -794,9 +810,11 @@ The following sample shows how to schedule a pre-roll ad.
     {
         [self logFrameworkError];
     }
+```
 
 The following sample shows how to schedule a mid-roll overlay ad.
 
+```csharp
     // Example10: Schedule a Mid Roll overlay Ad
     NSString *adURLString = @"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
     //Create AdInfo instance
@@ -818,7 +836,7 @@ The following sample shows how to schedule a mid-roll overlay ad.
     {
         [self logFrameworkError];
     }
-
+```
 
 
 ## Media Services learning paths

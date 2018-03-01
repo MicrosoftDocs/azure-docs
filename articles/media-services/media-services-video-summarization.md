@@ -42,7 +42,9 @@ Here are some examples of what the Azure Media Video Thumbnails media processor 
 When creating a video thumbnail task with **Azure Media Video Thumbnails**, you must specify a configuration preset. The above thumbnail sample was created with the following basic JSON configuration:
 
 ```json
-    {"version":"1.0"}
+    {
+        "version":"1.0"
+    }
 ```
 
 Currently, you can change the following parameters:
@@ -79,17 +81,17 @@ The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset: 
-   
-```json
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
-```
+    ```
 
 3. Downloads the output files. 
 

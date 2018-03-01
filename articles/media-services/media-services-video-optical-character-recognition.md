@@ -48,6 +48,7 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
 
 #### JSON preset example
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -66,8 +67,11 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
              ]
         }
     }
+```
 
 #### XML preset example
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -85,6 +89,7 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## OCR output files
 The output of the OCR media processor is a JSON file.

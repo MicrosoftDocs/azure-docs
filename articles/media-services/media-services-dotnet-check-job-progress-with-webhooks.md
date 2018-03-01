@@ -378,135 +378,135 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 	* webhook URL that expects to get the notifications, 
 	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
 
-```xml
-        <appSettings>
-            <add key="AMSAADTenantDomain" value="domain" />
-            <add key="AMSRESTAPIEndpoint" value="endpoint" />
+    ```xml
+            <appSettings>
+                <add key="AMSAADTenantDomain" value="domain" />
+                <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-            <add key="AMSClientId" value="clinet id" />
-            <add key="AMSClientSecret" value="client secret" />
+                <add key="AMSClientId" value="clinet id" />
+                <add key="AMSClientSecret" value="client secret" />
 
-            <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-            <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-        </appSettings>
-```
+                <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+                <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+            </appSettings>
+    ```
 
 4. Update your Program.cs file with the following code:
 
-```csharp
-		using System;
-		using System.Configuration;
-		using System.Linq;
-		using Microsoft.WindowsAzure.MediaServices.Client;
+    ```csharp
+            using System;
+            using System.Configuration;
+            using System.Linq;
+            using Microsoft.WindowsAzure.MediaServices.Client;
 
-		namespace NotificationWebHook
-		{
-		    class Program
-		    {
-			// Read values from the App.config file.
-			private static readonly string _AMSAADTenantDomain =
-			    ConfigurationManager.AppSettings["AMSAADTenantDomain"];
-			private static readonly string _AMSRESTAPIEndpoint =
-			    ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            namespace NotificationWebHook
+            {
+                class Program
+                {
+                // Read values from the App.config file.
+                private static readonly string _AMSAADTenantDomain =
+                    ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+                private static readonly string _AMSRESTAPIEndpoint =
+                    ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
 
-			private static readonly string _AMSClientId =
-			    ConfigurationManager.AppSettings["AMSClientId"];
-			private static readonly string _AMSClientSecret =
-			    ConfigurationManager.AppSettings["AMSClientSecret"];
+                private static readonly string _AMSClientId =
+                    ConfigurationManager.AppSettings["AMSClientId"];
+                private static readonly string _AMSClientSecret =
+                    ConfigurationManager.AppSettings["AMSClientSecret"];
 
-			private static readonly string _webHookEndpoint =
-			    ConfigurationManager.AppSettings["WebhookURL"];
-			private static readonly string _signingKey =
-			     ConfigurationManager.AppSettings["WebhookSigningKey"];
+                private static readonly string _webHookEndpoint =
+                    ConfigurationManager.AppSettings["WebhookURL"];
+                private static readonly string _signingKey =
+                    ConfigurationManager.AppSettings["WebhookSigningKey"];
 
-			// Field for service context.
-			private static CloudMediaContext _context = null;
+                // Field for service context.
+                private static CloudMediaContext _context = null;
 
-			static void Main(string[] args)
-			{
-			    AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain,
-				    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-					AzureEnvironments.AzureCloudEnvironment);
+                static void Main(string[] args)
+                {
+                    AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
 
-			    AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+                    AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-			    _context = new CloudMediaContext(new Uri(_AMSRESTAPIEndpoint), tokenProvider);
+                    _context = new CloudMediaContext(new Uri(_AMSRESTAPIEndpoint), tokenProvider);
 
-			    byte[] keyBytes = Convert.FromBase64String(_signingKey);
+                    byte[] keyBytes = Convert.FromBase64String(_signingKey);
 
-			    IAsset newAsset = _context.Assets.FirstOrDefault();
+                    IAsset newAsset = _context.Assets.FirstOrDefault();
 
-			    // Check for existing Notification Endpoint with the name "FunctionWebHook"
+                    // Check for existing Notification Endpoint with the name "FunctionWebHook"
 
-			    var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
-			    INotificationEndPoint endpoint = null;
+                    var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
+                    INotificationEndPoint endpoint = null;
 
-			    if (existingEndpoint != null)
-			    {
-				Console.WriteLine("webhook endpoint already exists");
-				endpoint = (INotificationEndPoint)existingEndpoint;
-			    }
-			    else
-			    {
-				endpoint = _context.NotificationEndPoints.Create("FunctionWebHook",
-				    NotificationEndPointType.WebHook, _webHookEndpoint, keyBytes);
-				Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
-			    }
+                    if (existingEndpoint != null)
+                    {
+                    Console.WriteLine("webhook endpoint already exists");
+                    endpoint = (INotificationEndPoint)existingEndpoint;
+                    }
+                    else
+                    {
+                    endpoint = _context.NotificationEndPoints.Create("FunctionWebHook",
+                        NotificationEndPointType.WebHook, _webHookEndpoint, keyBytes);
+                    Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
+                    }
 
-			    // Declare a new encoding job with the Standard encoder
-			    IJob job = _context.Jobs.Create("MES Job");
+                    // Declare a new encoding job with the Standard encoder
+                    IJob job = _context.Jobs.Create("MES Job");
 
-			    // Get a media processor reference, and pass to it the name of the 
-			    // processor to use for the specific task.
-			    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+                    // Get a media processor reference, and pass to it the name of the 
+                    // processor to use for the specific task.
+                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-			    ITask task = job.Tasks.AddNew("My encoding task",
-			    processor,
-			    "Adaptive Streaming",
-			    TaskOptions.None);
+                    ITask task = job.Tasks.AddNew("My encoding task",
+                    processor,
+                    "Adaptive Streaming",
+                    TaskOptions.None);
 
-			    // Specify the input asset to be encoded.
-			    task.InputAssets.Add(newAsset);
+                    // Specify the input asset to be encoded.
+                    task.InputAssets.Add(newAsset);
 
-			    // Add an output asset to contain the results of the job. 
-			    // This output is specified as AssetCreationOptions.None, which 
-			    // means the output asset is not encrypted. 
-			    task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
+                    // Add an output asset to contain the results of the job. 
+                    // This output is specified as AssetCreationOptions.None, which 
+                    // means the output asset is not encrypted. 
+                    task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
-			    // Add the WebHook notification to this Task and request all notification state changes.
-			    // Note that you can also add a job level notification
-			    // which would be more useful for a job with chained tasks.  
-			    if (endpoint != null)
-			    {
-				task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
-				Console.WriteLine("Created Notification Subscription for endpoint: {0}", _webHookEndpoint);
-			    }
-			    else
-			    {
-				Console.WriteLine("No Notification Endpoint is being used");
-			    }
+                    // Add the WebHook notification to this Task and request all notification state changes.
+                    // Note that you can also add a job level notification
+                    // which would be more useful for a job with chained tasks.  
+                    if (endpoint != null)
+                    {
+                    task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
+                    Console.WriteLine("Created Notification Subscription for endpoint: {0}", _webHookEndpoint);
+                    }
+                    else
+                    {
+                    Console.WriteLine("No Notification Endpoint is being used");
+                    }
 
-			    job.Submit();
+                    job.Submit();
 
-			    Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
-			    Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
+                    Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
+                    Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
 
-			    Console.WriteLine("Job Submitted");
+                    Console.WriteLine("Job Submitted");
 
-			}
-			private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-			{
-			    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-			    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+                }
+                private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+                {
+                    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+                    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-			    if (processor == null)
-				throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                    if (processor == null)
+                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-			    return processor;
-			}
-		    }
-		}
-```
+                    return processor;
+                }
+                }
+            }
+    ```
 
 ## Next steps
 

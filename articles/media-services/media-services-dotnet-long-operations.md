@@ -189,7 +189,7 @@ public class ChannelOperations
 
 ### The client code
 
-```
+```csharp
 ChannelOperations channelOperations = new ChannelOperations();
 string opId = channelOperations.StartChannelCreation("MyChannel001");
 
