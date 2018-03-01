@@ -2,10 +2,10 @@ Updates to the Azure File Sync agent will be released on a regular basis to add 
 
 ### Major vs. minor agent versions
 * Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: 2.*.* 
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bugfixes and smaller improvements but no new features. For example: *.3.*
+* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: *.3.*
 
 > [!Important]
-> If you use domain specific firewall rules, check the [Azure File Sync Firewall and Proxy document](storage-sync-files-firewall-and-proxy.md) for each new agent release to ensure your firewall rules allow communication to the currently required set of domains.
+> If you use domain-specific firewall rules, check the [Azure File Sync Firewall and Proxy document](storage-sync-files-firewall-and-proxy.md) for each new agent release to ensure your firewall rules allow communication to the currently required set of domains.
 
 ### Upgrade paths
 * [The latest Azure File Sync agent installer](https://go.microsoft.com/fwlink/?linkid=858257) (*.msi) can be downloaded from the Microsoft Download Center. <br/>It is possible to use the *.msi file to upgrade an existing install. For that, the existing agent must be uninstalled before the latest version can then be installed. All settings as well as the server registration will be maintained for a seamless experience.
@@ -16,8 +16,8 @@ A specific Azure File Sync agent version is supported for a limited time. The se
 
 The following rules guarantee enough time and notifications to accommodate agent updates/upgrades in any change management process:
 
-> 1. A newly released major agent version is guaranteed to be supported for at least 6 months from the date of release.
-> 2. Any agent version will receive a warning at least 3 months prior to its expiration. Find it in the Azure portal -> <YourStorageSyncService> -> Registered servers section.
+> 1. A newly released major agent version has guaranteed supported for at least six months from the date of release.
+> 2. Any agent version will receive a warning at least three months prior to its expiration. Find it in the Azure portal -> <YourStorageSyncService> -> Registered servers section.
 
 
 > [!Info]
