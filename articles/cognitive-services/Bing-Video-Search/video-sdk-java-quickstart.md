@@ -1,5 +1,5 @@
 ---
-title: Bing Video Search SDK Java Quickstart | Microsoft Docs
+title: Bing Video Search SDK Java quickstart | Microsoft Docs
 description: Learn how to set up the Bing Video Search SDK console application.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/18/2018
 ms.author: v-gedod
 ---
-# Bing Video Search SDK Java Quickstart
+# Bing Video Search SDK Java quickstart
 
 The Bing Video Search SDK provides the REST API functionality for video queries and parsing results. 
 

@@ -1,5 +1,5 @@
 ---
-title: Bing Image Search SDK Java Quickstart | Microsoft Docs
+title: Bing Image Search SDK Java quickstart | Microsoft Docs
 description: Learn how to set up the Bing Image Search SDK console application.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
 ---
-# Bing Image Search SDK Java Quickstart
+# Bing Image Search SDK Java quickstart
 
 The Bing Image Search SDK provides the REST API functionality for image queries and parsing results. 
 
