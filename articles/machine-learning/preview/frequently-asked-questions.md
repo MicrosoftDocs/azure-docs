@@ -5,7 +5,7 @@ services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -18,14 +18,6 @@ ms.date: 08/30/2017
 **What is Azure Machine Learning?**
 
 Azure Machine Learning is a fully managed Azure service that allows you to create, test, manage, and deploy machine learning and AI models. Our new services and downloadable application offer a code-first approach that leverages the cloud, on-premises, and edge to provide the train, deploy, manage, and monitor models with power, speed, and flexibility. Alternatively, Azure Machine Learning Studio offers a browser-based, visual drag-and-drop authoring environment where no coding is required. 
-
-**How do I get started with the preview?**
-
-The easiest way to get started is to sign up for the Experimentation Service in Azure. From the portal, you can also download our free Workbench application or sign up for a Model Management account. In addition, you can visit our documentation site for How-To articles, videos, demo code and more. 
-
-**I do not have an Azure subscription. Can I still try the new services?**
-
-As part of the Microsoft Azure portfolio, our new services require an Azure subscription. Additionally,  you must have adequate permissions to create assets such as Resource Groups, Virtual Machines, etc. 
 
 **In which regions are the new services be available?**
 
@@ -47,7 +39,7 @@ We currently support Python only. We are working on R integration and expect to 
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning for Spark?**
 
-A: MMLSpark provides deep learning and data science tools for Apache Spark, with emphasis on productivity, ease of experimentation and state-of-the-art algorithms. MMLSpark offers integration of Spark Machine Learning pipelines with the Microsoft Cognitive Toolkit and OpenCV. You can create powerful, highly scalable predictive, and analytical models for image and text data. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms. For more information on MMLSpark, visit our product documentation. 
+MMLSpark provides deep learning and data science tools for Apache Spark, with emphasis on productivity, ease of experimentation and state-of-the-art algorithms. MMLSpark offers integration of Spark Machine Learning pipelines with the Microsoft Cognitive Toolkit and OpenCV. You can create powerful, highly scalable predictive, and analytical models for image and text data. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms. For more information on MMLSpark, visit our product documentation. 
 
 **Which versions of Spark are supported by the new tools and services? Top section**
 
@@ -130,7 +122,7 @@ No. Azure Machine Learning Workbench is a free application. You can download it 
 
 **Do you support command-line capabilities?**
 
-A: Yes, Azure Machine Learning offers a full CLI interface. The Machine Learning CLI is installed by default with the Azure Machine Learning Workbench. It is also provided as part of the Linux Data Science virtual machine on Azure and will be integrated into the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Yes, Azure Machine Learning offers a full CLI interface. The Machine Learning CLI is installed by default with the Azure Machine Learning Workbench. It is also provided as part of the Linux Data Science virtual machine on Azure and will be integrated into the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 
 
 **Can I use Jupyter Notebooks with Workbench?**
@@ -139,7 +131,7 @@ Yes! You can run Jupyter notebooks in Workbench, with Workbench as the client ho
 
 **Which Jupyter Notebook kernels are supported?**
 
-A: The current version of Jupyter included with Workbench launches a Python 3 kernel, and an additional kernel for each "runconfig" file in your aml_config folder. Supported configurations include:
+The current version of Jupyter included with Workbench launches a Python 3 kernel, and an additional kernel for each "runconfig" file in your aml_config folder. Supported configurations include:
 - Local Python
 - Python in local or remote Docker
 
@@ -172,7 +164,7 @@ For public preview, Workbench supports “Derive Column by Example”, “Split 
 
 **Are there any data size limits enforced by Azure Machine Learning Workbench, Experimentation, or Model Management?**
 
-A: No, the new services do not impose any data limitations. However, there are limitations introduced by the environment in which you are performing your data preparation, model training, experimentation, or deployment. For example, if you are targeting a local environment for training, you are limited by the available space in your hard drive. Alternatively, if you are targeting HDInsight, you are limited by any associated size or compute restraints. 
+No, the new services do not impose any data limitations. However, there are limitations introduced by the environment in which you are performing your data preparation, model training, experimentation, or deployment. For example, if you are targeting a local environment for training, you are limited by the available space in your hard drive. Alternatively, if you are targeting HDInsight, you are limited by any associated size or compute restraints. 
 
 ## Algorithms and libraries
 

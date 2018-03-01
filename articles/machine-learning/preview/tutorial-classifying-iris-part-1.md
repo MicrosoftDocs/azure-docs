@@ -26,8 +26,6 @@ This tutorial is **part one of a three-part series**. In this tutorial, you walk
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
-The screenshots are Windows-specific, but the macOS experience is almost identical.
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -58,7 +56,7 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
    Project name | myIris |Enter a unique name that identifies your account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
    Project directory | c:\Temp\ | Specify the directory in which the project is created.
    Project description | _leave blank_ | Optional field useful for describing the projects.
-   Visualstudio.com |_leave blank_ | Optional field. A project can optionally be associated with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com |_leave blank_ | Optional field. You can associate a project with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Workspace | IrisGarden (if it exists) | Choose a workspace that you have created for your Experimentation account in the Azure portal. <br/>If you followed the Quickstart, you should have a workspace by the name IrisGarden. If not, select the one you created when you created your Experimentation account or any other you want to use.
    Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 
@@ -71,25 +69,25 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
 
 ## Create a data preparation package
 
-In this part of the tutorial, you explore the data and start the data preparation process. When you prepare your data in Azure Machine Learning Workbench, a JSON representation of the transformations you perform in the Workbench is stored in a local data preparation package (*.dprep file). This data preparation package is the primary container for your data preparation work in Workbench.
+Next, you can explore the data and start preparing the data in Azure Machine Learning Workbench. Each transformation you perform in Workbench is stored in a JSON format in a local data preparation package (*.dprep file). This data preparation package is the primary container for your data preparation work in Workbench.
 
-This data preparation package can be handed off for execution to a runtime, such as local-C#/CoreCLR, Scala/Spark, or Scala/HDI. where code is generated for the appropriate runtime for execution. 
+This data preparation package can be handed off later to a runtime, such as local-C#/CoreCLR, Scala/Spark, or Scala/HDI. 
 
 1. Select the folder icon to open the file view and then select **iris.csv** to open that file.  
 
-   The file is a table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
+   This file contains a table with 5 columns and 50 rows. Four columns are numerical feature columns. The fifth column is a string target column. None of the columns have header names.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
    >[!NOTE]
-   > Do not include data files in your project folder, particularly when the file size is large. We include **iris.csv** in this template for demonstration purposes because it's tiny. For more information, see [How to read and write large data files](how-to-read-write-files.md).
+   > Do not include data files in your project folder, particularly when the file size is large. Because the **iris.csv** data file is tiny, it was included in this template for demonstration purposes. For more information, see [How to read and write large data files](how-to-read-write-files.md).
 
 2. In the **Data View**, select the plus sign (**+**) to add a new data source. The **Add Data Source** page opens. 
 
-   ![Data view](media/tutorial-classifying-iris/data_view.png)
+   ![Data view in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data_view.png)
 
 3. Select **Text Files(*.csv, .json, .txt.,... )** and click **Next**.
-   ![Data Source](media/tutorial-classifying-iris/data-source.png)
+   ![Data Source in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data-source.png)
    
 
 4. Browse to the file **iris.csv**, and click **Next**.  
@@ -110,6 +108,7 @@ This data preparation package can be handed off for execution to a runtime, such
 1. Select the **Metrics** button. Histograms are generated and displayed onscreen.
 
    You switch back to the data view by selecting the **Data** button. 
+   
    ![Iris data view](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
 1. Observe the histograms. A complete set of statistics has been calculated for each column. 
@@ -161,7 +160,7 @@ This data preparation package can be handed off for execution to a runtime, such
 
    ![Steps](media/tutorial-classifying-iris/steps.png)
 
-1. Close the data preparation editor. Select **Close** (x) on the **iris-1** tab with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
+1. Close the data preparation editor. Select the x icon on the **iris-1** tab with the graph icon to close the tab. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
 
    ![Close](media/tutorial-classifying-iris/close.png)
 

@@ -25,7 +25,9 @@ This quickstart shows you how to:
 * Access the command-line interface (CLI)
 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+As part of the Microsoft Azure portfolio, Azure Machine Learning services require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Additionally, you must have adequate permissions to create assets such as Resource Groups, Virtual Machines, and so on. 
 
 <a name="prerequisites"></a>You can install the Azure Machine Learning Workbench application on the following operating systems:
 - Windows 10 or Windows Server 2016
