@@ -49,12 +49,26 @@ The manifest file has been pre-created with a login server name of `microsoft`. 
 vi azure-vote-all-in-one-redis.yaml
 ```
 
+Alternatively, if you are working in Windows, you can use Visual Studio Code.
+
+```console
+code azure-vote-all-in-one-redis.yaml
+```
+
 Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
 
 ```yaml
 containers:
 - name: azure-vote-front
   image: microsoft/azure-vote-front:v1
+```
+
+The above code then becomes.
+
+```yaml
+containers:
+- name: azure-vote-front
+  image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Save and close the file.
