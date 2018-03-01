@@ -92,7 +92,7 @@ There is no impact to the availability of your container when you change the thr
 
 ## Throughput isolation in globally distributed databases
 
-When you have replicated your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that RU usage in one region does not impact RU usage in another region. For example, if you write data to one region, and read data from another region, the RUs used to perform the write operation in region A do not take away from the RUs used for the read operation in region B. RUs are not split across the regions in which you've deployed. Each region in which the database is replicated has the the full amount of RUs provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
+When you have replicated your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that RU usage in one region does not impact RU usage in another region. For example, if you write data to one region, and read data from another region, the RUs used to perform the write operation in region A do not take away from the RUs used for the read operation in region B. RUs are not split across the regions in which you've deployed. Each region in which the database is replicated has the full amount of RUs provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
 
 ## Request unit considerations
 When estimating the number of request units to reserve for your Azure Cosmos DB container, it is important to take the following variables into consideration:
