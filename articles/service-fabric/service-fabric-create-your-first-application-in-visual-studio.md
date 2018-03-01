@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric reliable service with C#
-description: Create, deploy, and debug a Reliable Service application built on Azure Service Fabric, with Visual Studio.
+description: Create, deploy, and debug a Reliable Services application built on Azure Service Fabric, with Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -19,7 +19,7 @@ ms.author: ryanwi
 
 # Create your first C# Service Fabric stateful Reliable Services application
 
-Learn how to deploy your first Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you'll have a local cluster that's running with a Reliable Services application.
+Learn how to deploy your first Azure Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you'll have a local cluster that's running with a Reliable Services application.
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Before you get started, make sure that you've [set up your development environme
 
 ## Create the application
 
-1. Launch Visual Studio as an administrator.
+1. Start Visual Studio as an administrator.
 
-2. Create a project by selecting **Ctrl**+**Shift**+**N**.
+2. Create a project by selecting Ctrl+Shift+N.
 
-3. In the **New Project** dialog box, select **Cloud > Service Fabric Application**.
+3. In the **New Project** dialog box, select **Cloud** > **Service Fabric Application**.
 
 4. Name the application **MyApplication**. Then select **OK**.
 
@@ -64,7 +64,7 @@ For an overview of the contents of the service project, see [Getting started wit
 
 Now that you have an application, run, deploy, and debug it by taking the following steps.
 
-1. In Visual Studio, select **F5** to deploy the application for debugging.
+1. In Visual Studio, select F5 to deploy the application for debugging.
 
     >[!NOTE]
     >The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging. This might take some time. The cluster creation status is displayed in the Visual Studio output window.
@@ -73,7 +73,7 @@ Now that you have an application, run, deploy, and debug it by taking the follow
     
     ![Local cluster system tray notification][4]
 
-    After the application starts, Visual Studio automatically brings up the **Diagnostics Event Viewer**, where you can see trace output from your services.
+    After the application starts, Visual Studio automatically brings up the Diagnostics Event Viewer, where you can see trace output from your services.
     
     ![Diagnostic events viewer][5]
 
@@ -83,7 +83,7 @@ Now that you have an application, run, deploy, and debug it by taking the follow
     >![Locating Service Event Source Name][service-event-source-name]
 
 
-2. Next, open the **ETW Providers** dialog box. Then select the gear icon that's located in the **Diagnostics Events** tab. Paste the name of the event source that you copied into the **ETW Providers** input box. Then select the **Apply** button. This automatically starts tracing events.
+2. Next, open the **ETW Providers** dialog box. Then select the gear icon that's located on the **Diagnostics Events** tab. Paste the name of the event source that you copied into the **ETW Providers** input box. Then select the **Apply** button. This automatically starts tracing events.
 
     ![Setting Diagnostics Event source name][setting-event-source-name]
 
@@ -103,13 +103,13 @@ Now that you have an application, run, deploy, and debug it by taking the follow
 
     ![Breakpoint in stateful service RunAsync method][7]
 
-7. Launch the **Service Fabric Explorer** tool by right-clicking on the **Local Cluster Manager** system tray application and then selecting **Manage Local Cluster**.
+7. Start the Service Fabric Explorer tool by right-clicking the **Local Cluster Manager** system tray application and then selecting **Manage Local Cluster**.
 
-    ![Launch Service Fabric Explorer from the local cluster manager][systray-launch-sfx]
+    ![Start Service Fabric Explorer from the local cluster manager][systray-launch-sfx]
 
-    [**Service Fabric Explorer**](service-fabric-visualizing-your-cluster.md) offers a visual representation of a cluster. It includes the set of applications that is deployed to it and the set of physical nodes that make it up.
+    [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) offers a visual representation of a cluster. It includes the set of applications that is deployed to it and the set of physical nodes that make it up.
 
-8. In the left pane, expand **Cluster > Nodes**, and find the node where your code is running. Then, to simulate a machine restarting, select **Actions > Deactivate (Restart)**.
+8. In the left pane, expand **Cluster** > **Nodes**, and find the node where your code is running. Then, to simulate a machine restarting, select **Actions** > **Deactivate (Restart)**.
 
     ![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
@@ -125,11 +125,11 @@ Remember, this local cluster is real. Stopping the debugger removes your applica
 
 ### Keep application and trace data
 
-Shut down the cluster by right-clicking on the **Local Cluster Manager** system tray application and then selecting **Stop Local Cluster**.
+Shut down the cluster by right-clicking the **Local Cluster Manager** system tray application and then selecting **Stop Local Cluster**.
 
 ### Delete the cluster and all data
 
-Remove the cluster by right-clicking on the **Local Cluster Manager** system tray application. Then choose **Remove Local Cluster**. 
+Remove the cluster by right-clicking the **Local Cluster Manager** system tray application. Then choose **Remove Local Cluster**. 
 
 If you choose this option, Visual Studio redeploys the cluster the next time you run the application. Choose this option if you don't intend to use the local cluster for a while or if you need to reclaim resources.
 
