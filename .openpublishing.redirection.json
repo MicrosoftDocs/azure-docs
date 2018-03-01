@@ -4824,6 +4824,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-change-tracking.md",
+            "redirect_url": "/azure/automation/automation-change-tracking",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
             "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
             "redirect_document_id": false
