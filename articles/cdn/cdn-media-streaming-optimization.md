@@ -26,11 +26,11 @@ The request patterns of streaming also provide some new challenges. When a popul
  
 **Azure CDN from Akamai** offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the standard Akamai pricing tier. 
 
-The **Azure CDN from Verizon** delivers streaming media directly in the general web delivery optimization type.
+**Azure CDN from Verizon** delivers streaming media directly in the general web delivery optimization type.
  
-## Configure endpoint to optimize media streaming in Azure CDN from Akamai
+## Configure an endpoint to optimize media streaming
  
-You can configure your content delivery network (CDN) endpoint to optimize delivery for large files via the Azure portal. You can also use the REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal:
+You can configure your content delivery network (CDN) endpoint to optimize delivery for large files via the Azure portal. You can also use the REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal for an **Azure CDN from Akamai** profile:
 
 1. To add a new endpoint, on the **CDN profile** page, select **Endpoint**.
   
@@ -45,7 +45,6 @@ After you create the endpoint, it applies the optimization for all files that ma
 ## Media streaming optimizations for Azure CDN from Akamai
  
 Media streaming optimization for **Azure CDN from Akamai** is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [Large file optimization](cdn-large-file-optimization.md).
-
 
 The general media delivery or video-on-demand media delivery optimization types use a CDN with back-end optimizations to deliver media assets faster. They also use configurations for media assets based on best practices learned over time.
 
