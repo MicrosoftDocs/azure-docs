@@ -97,13 +97,11 @@ Browse to the endpoint IP address on port 8080, for example `http://52.186.64.52
 
 Create your first OpenFaas function. Click on the **hamburger menu** > **Deploy New Function** > and search for **Figlet**.
 
-![Figlet](media/container-service-serverless/figlet.png)
-
 Select the Figlet function, and click **Deploy**.
 
-![alt text](media/container-service-serverless/invoke.png "Test OpenFaas")
+![Figlet](media/container-service-serverless/figlet.png)
 
-Finally, use curl to invoke the function. Replace the IP address in the followinf exmaple with that of your OpenFaas gateway.
+Finally, use curl to invoke the function. Replace the IP address in the following exmaple with that of your OpenFaas gateway.
 
 ```azurecli-interactive
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
@@ -172,6 +170,10 @@ Create a file named `plans.json` and copy in the following json.
 Notice that the connection string has been altered to reference the **plans** database.
 
 ```azurecli-interactive
+brew install mongodb
+```
+
+```azurecli-interactive
 mongoimport --uri=$COSMOS -c plans < plans.json
 ```
 
@@ -189,6 +191,7 @@ To deploy the pre-built Golang container, you need values for the following vari
 * OpenFaaS Gateway IP: The URL for your deployed OpenFaaS Gateway with AKS, it is the same as your OpenFaaS UI URL without the ui suffix, in the case of this example: ```http://52.191.114.246:8080```
 
 * image: You can use the pre-built container which has been pushed to Docker Hub
+
  ```console
  shanepeckham/openfaascosmos
  ```
@@ -202,17 +205,17 @@ To deploy the pre-built Golang container, you need values for the following vari
 
 You can now use the faas-cli to deploy the pre-built container to the OpenFaaS Gateway. To do so you need to run the following command:
 
-```console
-$  faas-cli deploy -g http://52.226.73.206:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true"
+```azurecli-interctive
+faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
 ```
-Select enter to deploy your function and you should see your newly created OpenFaaS endpoint for your function:
+Once deployed, you should see your newly created OpenFaaS endpoint for the function.
 
 ```console
 Deployed. 202 Accepted.
 URL: http://52.191.114.246:8080/function/cosmos-query
 ```
 
-Now you can test your function using curl:
+Now you can test the function using curl.
 
 ```console
 $  curl -s http://52.191.114.246:8080/function/cosmos-query  | jq
@@ -236,4 +239,5 @@ You can also test the function within the OpenFaaS UI:
 ![alt text](media/container-service-serverless/OpenFaaSUI.png)
 
 # Next Steps
+
 The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on the options to do this. 
