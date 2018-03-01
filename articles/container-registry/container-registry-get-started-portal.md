@@ -106,7 +106,7 @@ In order to deploy to an instance from the registry we need to navigate to the r
 
 ![Launching an Azure Container Instance from the portal][qs-portal-10]
 
-A context menu will appear, select Launch Instance
+A context menu will appear, select Run Instance
 
 ![Launch ACI context menu][qs-portal-11]
 
@@ -114,7 +114,7 @@ Fill in container name, ensure the correct subscription is selected, select the 
 
 ![Launch ACI deployment options][qs-portal-12]
 
-When deployment starts a tile is placed on your portal dashboard indicating deployment progress. Once deployment completes, the tile is updated to show your new **mycontainer-myc1** container group.
+When deployment starts a tile is placed on your portal dashboard indicating deployment progress. Once deployment completes, the tile is updated to show your new **mycontainer** container group.
 
 ![ACI deployment status][qs-portal-13]
 
