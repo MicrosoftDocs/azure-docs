@@ -198,29 +198,29 @@ Just for fun, a To Language is randomly selected if the user has not run the app
 
 ## Authenticating requests
 
-To authenticate to the Microsoft Translator Speech service you need to send your Azure subscription key in the header as the value for 'Ocp-Apim-Subscription-Key' in the connection request.
+To authenticate to the Microsoft Translator Speech service you need to send your Azure subscription key in the header as the value for `Ocp-Apim-Subscription-Key` in the connection request.
 
 ## Translation overview
 
-The Translate API (WebSockets endpoint 'wss://dev.microsofttranslator.com/speech/translate') accepts audio to be translated in monophonic, 16 kHz, 16-bit signed WAVE format. The service returns one or more JSON responses containing both the recognized and translated text. If text-to-speech has been requested, an audio file is sent.
+The Translate API (WebSockets endpoint `wss://dev.microsofttranslator.com/speech/translate`) accepts audio to be translated in monophonic, 16 kHz, 16-bit signed WAVE format. The service returns one or more JSON responses containing both the recognized and translated text. If text-to-speech has been requested, an audio file is sent.
 
-The user chooses the audio source using the Microphone/File Input menu. The audio may come from an audio device (such as a microphone) or from a '.WAV' file.
+The user chooses the audio source using the Microphone/File Input menu. The audio may come from an audio device (such as a microphone) or from a `.WAV` file.
 
-The method 'StartListening_Click' is invoked when the user clicks the Start button. This event handler, in turn, calls Connect() to begin the process of sending audio to the service API endpoint. The 'Connect()' method performs the following tasks:
+The method `StartListening_Click` is invoked when the user clicks the Start button. This event handler, in turn, calls `Connect()` to begin the process of sending audio to the service API endpoint. The `Connect()` method performs the following tasks:
 
 
 > [!div class="checklist"]
 > * Getting user settings from the main window and validate them
 > * Initializing the audio input and output streams
-> * Calling 'ConnectAsync()' to handle the rest of the work
+> * Calling `ConnectAsync()` to handle the rest of the work
 
 `ConnectAsync()`, in turn, handles the following chores:
 
 > [!div class="checklist"]
-> * Authenticating with Azure Subscription key in header 'Ocp-Apim-Subscription-Key'
-> * Creating a 'SpeechClient' instance (found in 'SpeechClient.cs') to communicate with the service
-> * Initializing 'TextMessageDecoder' and 'BinaryMessageDecoder' instances (see 'SpeechResponseDecoder.cs') to handle responses
-> * Sending the audio via the 'SpeechClient' instance to the Translator Speech service
+> * Authenticating with Azure Subscription key in header `Ocp-Apim-Subscription-Key`
+> * Creating a `SpeechClient` instance (found in `SpeechClient.cs`) to communicate with the service
+> * Initializing `TextMessageDecoder` and `BinaryMessageDecoder` instances (see `SpeechResponseDecoder.cs`) to handle responses
+> * Sending the audio via the `SpeechClient` instance to the Translator Speech service
 > * Receiving and processing the results of the translation
 
 The responsibilities of `SpeechClient` are fewer:
