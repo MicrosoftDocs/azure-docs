@@ -34,7 +34,7 @@ To use your Azure key for the workflows available within Content Moderator, ente
 > [!NOTE]
 > Once you replace the two places in the review tool with the key and the Resource ID from your Azure subscription,
 > your **Trial Ocp-Apim-Subscription-Key** displayed on the Credentials screen is no longer used, but is always available.
->
+> The trial key limits you to maximum 5,000 transactions per month at 1 request per second (RPS).
 
 ![Content Moderator Resource ID in the Azure portal](images/credentials-azure-portal-resourceid.PNG)
 
