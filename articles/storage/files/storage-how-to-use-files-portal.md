@@ -81,7 +81,7 @@ Create a directory within your file share. Adding a directory provides a hierarc
 When finished, the *myDirectory* directory will be listed on the page for the *myshare* file share.
 
 
-### Upload a file 
+## Upload a file 
 
 Upload a file from your local machine to the new directory in your file share.
 
