@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 0301/2017
+ms.date: 03/01/2017
 ms.author: v-geberr
 ---
 
@@ -16,9 +16,9 @@ ms.author: v-geberr
 The app dashboard enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
 
 > [!CAUTION]
-> If you want the most up-to-date metrics for LUIS, you need:
-> * Use a LUIS endpoint key created in Azure
-> * Use LUIS endpoint key for all endpoint requests
+> If you want the most up-to-date metrics for LUIS, you need to:
+> * Use a LUIS [endpoint key](azureibizasubscription.md) created in Azure
+> * Use LUIS endpoint key for all endpoint requests including LUIS [API](https://aka.ms/luis-endpoint-apis) and bot
 > * Use different endpoint key for each LUIS app. Do not use a single endpoint key for all apps. The endpoint key is tracked at the key level, not at the app level.  
 
 The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as [endpoint](luis-glossary.md#endpoint) usage over time. <!--The following image shows the **Dashboard** page.-->
