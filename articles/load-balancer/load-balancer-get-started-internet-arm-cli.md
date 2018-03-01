@@ -32,7 +32,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
 The following example creates a resource group named *myResourceGroupLB* in the *easts* location:
 
 ```azurecli-interactive
-       az group create --name myResourceGroupLB --location eastus
+  az group create --name myResourceGroupLB --location eastus
 ```
 
 ## Create a virtual network
@@ -40,14 +40,14 @@ The following example creates a resource group named *myResourceGroupLB* in the 
 Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
 
 ```azurecli-interactive
-   az network vnet create --resource-group myResourceGroupLB --location eastus --name myVnet --subnet-name mySubnet
+  az network vnet create --resource-group myResourceGroupLB --location eastus --name myVnet --subnet-name mySubnet
 ```
 ## Create a public IP address
 
 To access your web app on the Internet, you need a public IP address for the load balancer. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) to create a public IP address named *myPublicIP* in *myResourceGroup*.
 
 ```azurecli-interactive
-   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
+  az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
 ```
 
 ## Create the load balancer and configure its settings
@@ -58,13 +58,13 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
 
 Create load balancer, the frontend IP pool that receives the incoming network traffic on the load balancer, and the backend IP pool where the front-end pool sends the load balanced network traffic.
 
-    ```azurecli-interactive
-     az network lb create \
-       --resource-group myResourceGroupLB \
-       --name myLoadBalancer \
-       --public-ip-address myPublicIP \ 
-       --frontend-ip-name myFrontEndPool \
-       --backend-pool-name myBackEndPool
+```azurecli-interactive
+   az network lb create \
+     --resource-group myResourceGroupLB \
+     --name myLoadBalancer \
+     --public-ip-address myPublicIP \ 
+     --frontend-ip-name myFrontEndPool \
+     --backend-pool-name myBackEndPool
        
     ```
 
