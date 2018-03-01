@@ -2,7 +2,7 @@
 title: Create an Azure Virtual Network with multiple subnets - Portal | Microsoft Docs
 description: Learn how to create a virtual network with multiple subnets using the Azure portal.
 services: virtual-network
-documentationcenter: ''
+documentationcenter:
 author: jimdial
 manager: jeconnoc
 editor: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2018
+ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
 ---
