@@ -64,7 +64,7 @@ The command line used to install Visual Studio when building the images is as fo
 If the images don't include a Visual Studio feature that you require, provide feedback through the feedback tool in the upper-right corner of the page.
 
 ## What size VM should I choose?
-Azure offers a full range of virtual machine sizes. Because Visual Studio is a powerful, multi-threaded application, you want a VM size that includes at least 2 processors and 7 GB of memory. The following VM sizes are recommended for the Visual Studio images:
+Azure offers a full range of virtual machine sizes. Because Visual Studio is a powerful, multi-threaded application, you want a VM size that includes at least two processors and 7 GB of memory. We recommend the following VM sizes for the Visual Studio images:
 
    * Standard_D2_v3
    * Standard_D2s_v3
@@ -76,12 +76,12 @@ Azure offers a full range of virtual machine sizes. Because Visual Studio is a p
     
 For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
-With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or you can resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
+With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 
 ## After the VM is running, what's next?
 Visual Studio follows the “bring your own license” model in Azure. As with an installation on proprietary hardware, one of the first steps is licensing your Visual Studio installation. To unlock Visual Studio, either:
-- Sign in with a Microsoft account that’s associated with a Visual Studio subscription, or 
-- Unlock Visual Studio with the product key that came with your initial purchase.
+- Sign in with a Microsoft account that’s associated with a Visual Studio subscription 
+- Unlock Visual Studio with the product key that came with your initial purchase
 
 For more information, see [Sign in to Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/signing-in-to-visual-studio) and [How to unlock Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-unlock-visual-studio).
 
