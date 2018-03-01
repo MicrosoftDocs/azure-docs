@@ -78,7 +78,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - **Update to the *Test-AzureStack* cmdlet** to improve diagnostics for storage. For more information on this cmdlet, see [Validation for Azure Stack](azure-stack-diagnostic-test.md).
 
-- **You can update Azure Stack secrets** (Accounts and Certificates). For more information about managing secrets, see [Rotate secrets in Azure Stack](azure-stack-rotate-secrets.md).
+- **You can update Azure Stack secrets** (Accounts and Certificates). For more information about managing secrets, see [Rotate secrets in Azure Stack](azure-stack-rotate-secrets.md). 
 
 - **Role-Based Access Control (RBAC) improvements** - You can now use RBAC to delegate permissions to Universal User Groups when Azure Stack is deployed with AD FS. To learn more about RBAC, see [Manage RBAC](azure-stack-manage-permissions.md).
 
