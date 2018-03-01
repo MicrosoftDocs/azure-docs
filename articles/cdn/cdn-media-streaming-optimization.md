@@ -1,5 +1,5 @@
 ---
-title: Media streaming optimization via the Azure Content Delivery Network
+title: Media streaming optimization via Azure CDN
 description: Optimize streaming media files for smooth delivery
 services: cdn
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ---
-# Media streaming optimization via the Azure Content Delivery Network 
+# Media streaming optimization via Azure CDN 
  
 Use of high-definition video is increasing on the Internet, which creates difficulties for efficient delivery of large files. Customers expect smooth playback of video on demand or live video assets on a variety of networks and clients all over the world. A fast and efficient delivery mechanism for media streaming files is critical to ensure a smooth and enjoyable consumer experience.  
 
