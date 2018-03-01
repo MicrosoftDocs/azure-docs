@@ -46,7 +46,10 @@ kubectl create namespace openfaas-fn
 A Helm chart for OpenFaaS is included in the cloned repository. Use this to deploy OpenFaaS into your AKS cluster.
 
 ```azurecli-interactive
-helm install --namespace openfaas -n openfaas --set functionNamespace=openfaas-fn,serviceType=LoadBalancer,rbac=false chart/openfaas/ 
+helm install --namespace openfaas -n openfaas \
+  --set functionNamespace=openfaas-fn, \
+  --set serviceType=LoadBalancer, \
+  --set rbac=false chart/openfaas/ 
 ```
 
 Output:
@@ -75,38 +78,39 @@ To verify that openfaas has started, run:
 When the service has been deployed, a public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the kubectl get service command. It may take a minute for the IP address to be assigned to the service.
 
 ```console
-kubectl get service -n openfaas
+kubectl get service -l component=gateway --namespace openfaas
 ```
 
 Output. 
 
 ```console
-NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)          AGE
-alertmanager            ClusterIP      10.0.162.129   <none>           9093/TCP         3m
-alertmanager-external   ClusterIP      10.0.67.255    <none>           9093/TCP         3m
-faas-netesd             ClusterIP      10.0.164.82    <none>           8080/TCP         3m
-faas-netesd-external    ClusterIP      10.0.10.120    <none>           8080/TCP         3m
-gateway                 ClusterIP      10.0.16.93     <none>           8080/TCP         3m
-gateway-external        LoadBalancer   10.0.1.89      52.191.114.246   8080:31143/TCP   3m
-nats                    ClusterIP      10.0.99.173    <none>           4222/TCP         3m
-nats-external           ClusterIP      10.0.45.42     <none>           4222/TCP         3m
-prometheus              ClusterIP      10.0.153.0     <none>           9090/TCP         3m
-prometheus-external     LoadBalancer   10.0.54.203    52.226.128.86    9090:31208/TCP   3m
+NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
+gateway            ClusterIP      10.0.156.194   <none>         8080/TCP         7m
+gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
 ## Test OpenFaas
 
-Browse to the endpoint IP address on port 8080.
+Browse to the endpoint IP address on port 8080, for example `http://52.186.64.52:8080`.
 
-And create your first OpenFaas function - you can use the Figlet service from the OpenFaaS marketplace as a smoketest.
+![OpenFaaS UI](media/container-service-serverless/openfaas.png)
+
+Create your first OpenFaas function. Click on the **hamburger menu** > **Deploy New Function** > and search for **Figlet**.
+
+![Figlet](media/container-service-serverless/figlet.png)
+
+Select the Figlet function, and click **Deploy**.
 
 ![alt text](media/container-service-serverless/invoke.png "Test OpenFaas")
 
-And let's use curl for this endpoint
+Finally, use curl to invoke the function. Replace the IP address in the followinf exmaple with that of your OpenFaas gateway.
 
-```console
-$  curl -X POST http://52.191.114.246:8080/function/figlet -d "Hello Azure"
+```azurecli-interactive
+curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
+
+Output:
+
 ```console
  _   _      _ _            _                        
 | | | | ___| | | ___      / \    _____   _ _ __ ___ 
@@ -116,14 +120,11 @@ $  curl -X POST http://52.191.114.246:8080/function/figlet -d "Hello Azure"
 
 ```
 
+## Deploy your own function
 
-
-## Deploying your own function to OpenFaaS
-OpenFaaS has its own CLI that allows you to create a function in languages of your choice, or deploy a Docker container.
+OpenFaaS has a CLI that allows you to create functions in a languages of your choice, or deploy a Docker container.
 
 As an example, you can use a CosmosDB instance, and provide that data through a lightweight function for public consumption.
-
-### Install the FaaS CLI
 
 Install the [FaaS CLI](https://github.com/openfaas/faas-cli) so that you can deploy your functions quickly, or deploy via brew for the Mac.
 
@@ -131,52 +132,30 @@ Install the [FaaS CLI](https://github.com/openfaas/faas-cli) so that you can dep
 brew install faas-cli
 ```
 
-### Deploy Cosmos DB
+## Deploy Cosmos DB
+
 Create a new resource group for backing services.
 
-```console
-$  az group create -n serverless-backing -l eastus
-```
-```console
-Location    Name
-----------  ----------------
-eastus      serverless-backing
+```azurecli-interactive
+az group create --name serverless-backing --location eastus
 ```
 
-And deploy a CosmosDB instance of type "Mongo" to store 
+Deploy a CosmosDB instance of type "Mongo". The instance needs a unique name, update `openfaas-cosmose` to something unique to your environment. 
 
-```console
-$  az cosmosdb create -n openfaas-cosmos -g serverless-backing --kind MongoDB
-```
-```console
-DatabaseAccountOfferType    DocumentEndpoint                                  Kind     Location    Name             ProvisioningState    ResourceGroup
---------------------------  ------------------------------------------------  -------  ----------  ---------------  -------------------  ------------------
-Standard                    https://openfaas-cosmos.documents.azure.com:443/  MongoDB  East US     openfaas-cosmos  Succeeded            serverless-backing
+```azurecli-interactive
+az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos007 --kind MongoDB
 ```
 
-### Get CosmosDB Connection String
+Get the Cosmos database connection string and store it in a variable.
 
-```console
-$  az cosmosdb list-connection-strings -g serverless-backing -n openfaas-cosmos -o json
+```azurecli-interactive
+COSMOS=$(az cosmosdb list-connection-strings --resource-group serverless-backing --name openfaas-cosmos007 --query connectionStrings[0].connectionString --output tsv)
 ```
-
-```json
-{
-  "connectionStrings": [
-    {
-      "connectionString": "mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/?ssl=true",
-      "description": "Default MongoDB Connection String"
-    }
-  ]
-}
-```
-
 ## Load sample data into a collection in CosmosDB
 
 Use the *mongoimport* tool to load the CosmosDB instance with data that the Function will present back to the calling user.  
 
-The data to load should be saved into a file called plans.json
-
+Create a file named `plans.json` and copy in the following json.
 
 ```json
 {
@@ -192,12 +171,16 @@ The data to load should be saved into a file called plans.json
 
 Notice that the connection string has been altered to reference the **plans** database.
 
+```azurecli-interactive
+mongoimport --uri=$COSMOS -c plans < plans.json
+```
+
+Output:
+
 ```console
-$  mongoimport --uri="mongodb://openfaas-cosmos:OTIVxYGZok-{snip}-byu2ee4vCA==@openfaas-cosmos.documents.azure.com:10255/plans?ssl=true"  -c plans < plans.json 
 2018-02-19T14:42:14.313+0000    connected to: localhost
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
-
 
 ##  Deploying your function in OpenFaaS
 
