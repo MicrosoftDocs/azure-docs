@@ -42,7 +42,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 3.	Fill out the new server details form with the following information:
 
-    ![Create a server](./media/quickstart-create-database-portal/3-create.png)
+    ![Create a server](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
     - Server name: **mydemoserver** (name of a server maps to DNS name and is thus required to be globally unique) 
     - Subscription: If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for.
@@ -52,9 +52,9 @@ Follow these steps to create an Azure Database for PostgreSQL server:
     - PostgreSQL Version
 
    > [!IMPORTANT]
-   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
+   > The server admin login and password that you specify here are required to log in to the server and its databases later in this tutorial. Remember or record this information for later use.
 
-4.	Click **Pricing tier** to specify the pricing tier for your new server. For this quickstart, select **General Purpose**, **Gen 4** compute generation, 2 **vCores**, 5 GB of **storage** and 7 days **backup retention period**. Select the **Geographically Redundant** backup redundancy option to have your server's automatic backups stored in geo-redundant storage.
+4.	Click **Pricing tier** to specify the pricing tier for your new server. For this tutorial, select **General Purpose**, **Gen 4** compute generation, 2 **vCores**, 5 GB of **storage** and 7 days **backup retention period**. Select the **Geographically Redundant** backup redundancy option to have your server's automatic backups stored in geo-redundant storage.
  ![Azure Database for PostgreSQL - pick the pricing tier](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
 5.	Click **Ok**.
