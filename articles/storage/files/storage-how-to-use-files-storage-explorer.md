@@ -60,7 +60,10 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
 ## Create a storage account
+
 A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
+
+You can't create a storage account in the Storage Explorer. For this example, create a resource group and storage account using the [Azure portal](https://portal.azure.com).
 
 1. In the left menu, click on the **+** to create a resource.
 2. Type **Storage account** into the search and select **Storage account - blob, file, table, queue** and then click **Create**.
@@ -101,18 +104,23 @@ The *myDirectory* directory will be listed on the tab for the *myshare* file sha
 
 ## Upload a file 
 
-Upload a file from your local machine to the new directory in your file share.
+Upload a file from your local machine to the new directory in your file share. You can upload an entire folder or just a single file.
 
-1. Click on the **myDirectory** directory. The **myDirectory** page opens.
-2. In the menu at the top, click **Upload**. The **Upload files** page opens.
-3. Click on the folder icon to open a window to browse your local files. 
-4. Select a file and then click **Open**. 
-5. In the **Upload files** page, verify the file name and then click **Upload**.
-6. When finished, the file should appear in the list on the **myDirectory** page.
+1. In the menu at the top, select **Upload**. This gives you the option to upload a folder or a file.
+
+2. Select **Upload File** and then choose a file from your local machine to upload.
+
+3. In **Upload to a directory** type *myDirectory* and then click **Upload**. 
+
+
+When finished, the file should appear in the list on the **myDirectory** page.
 
 
 ## Download a file
-You can download a copy of a file in your file share by right-clicking on the file and selecting **Download**. The download experience depends on the operating system and browser you're using.
+
+You can download a copy of a file in your file share by right-clicking on the file and selecting **Download**. Choose where you want to put the file on your local machine and then click **Save**.
+
+You will see the progress of the download in the **Activities** pane at the bottom of the window.
 
 
 ## Optional: Use snapshots
@@ -124,26 +132,25 @@ A snapshot preserves a point-in-time copy of an Azure file share. File share sna
 
 This example will walk you through creating a snapshot, viewing the contents, deleting a file and then restoring the file from the snapshot.
 
-1. Open the page for the file share by opening the storage account from your dashboard > **Files** > **myshare**. 
-2. On the page for the file share, click the **Snapshot** button on menu at the top of the page and then select **Create a snapshot**.
-3. Once the snapshot is created, you can click **Snapshot** again and then select **View snapshots** to list the snapshots for the share.
-4. Close the snapshots page to go back to the **myshare** page and click on **myDirectory**.
-5. In the **myDirectory** page, right-click on the file you uploaded and then click **Delete**. This will delete the file from the file share.
-6. Once the file is deleted, close the **myDirectory** page and to go back to the **myshare** page.
-7. Click on **Snapshots** in the top menu and select **View snapshots**. 
-8. Click on the snapshot that you created earlier and it will open the contents in a new page. 
-9. Click on **myDirectory** in the snapshot and you should see the file that you deleted. 
-10. Right-click on the deleted file and select **Restore**. A dialog for restoring the file opens.
-11. A pop-up will appear giving you a choice between restoring the file as a copy or overwriting the original file. Since we have deleted the original file, we can select **Overwrite original file** to restore the file as it was before we deleted it. Click **OK** to restore the file to the Azure file share.
-12. Once the file is done being restored, close the page for the snapshot and go back to **myshare** > **myDirectory** and the file should be back in its original place.
+1. Open the tab for the *myshare* file share.
+2. In the menu at the top of the tab, click **Create Snapshot**.
+3. View the snapshot by clicking on the **... More** button in the menu at the top of the tab and select **View Snapshots for File Share**.
+4. The snapshot contents should be the same as the contents of the file share.
+5. Go back to the **myshare** file share by clicking on it in the left pane. 
+6. Navigate to the file you uploaded, right-click on it and select **Delete**. You can see the progress in the Activities tab at the bottom right.
+7. Click on the **... More** button again and select **View Snapshots for File Share** again. 
+8. Navigate through the snapshot until you find the file you deleted and select it, then click on the **... More** button and select **Restore Snapshot**. You will get a warning that restoring the file will overwrite the contents of the file share and it cannot be undone. Select **OK**.
+9. Go back to your file share and the file should now be back in the file share.
+
 
 
 ## Clean up resources
-When you're done, you can delete the resource group, which deletes the storage account, the Azure file share, and any other resources you deployed inside the resource group.
+
+When you're done, you can delete the resource group in the [Azure portal](https://portal.azure.com), which deletes the storage account, the Azure file share, and any other resources you deployed inside the resource group.
 
 1. In the left menu, click **Resource groups**.
-2. Right-click the resource group and select **Delete resource group**. A page opens, warning you about what resources will be deleted along with the resource group.
-3. Type the name of the resource group and then click **Delete**.
+2. Right-click the *myResourceGroup* and select **Delete resource group**. A page opens, warning you about what resources will be deleted along with the resource group.
+3. Type *myResourceGroup* as the name of the resource group and then click **Delete**.
 
 
 ## Next steps
