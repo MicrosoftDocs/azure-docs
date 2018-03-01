@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows
+ author: dlepow
+ ms.service: virtual-machines-windows
+ ms.topic: include
+ ms.date: 03/01/2018
+ ms.author: danlep
+ ms.custom: include file
+---
+
 ## Supported operating systems and drivers
 
 ### NC, NCv2, NCv3 and ND-series - NVIDIA Tesla drivers
