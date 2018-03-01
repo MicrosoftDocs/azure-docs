@@ -18,19 +18,37 @@ ms.reviewer: alfredo
 
 ---
 
-# Add tenants for usage and billing to Azure Stack
+# Add tenant for usage and billing to Azure Stack
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the steps required to configure Azure Stack so that when a new tenant uses resources their usage will be reported to their Cloud Service Provider (CSP) subscription. 
+This article describes the steps required add an end user to Azure Stack managed by a Cloud Service Provider (CSP). When the new tenant uses resources, Azure Stack will report usage to their CSP subscription.
 
-CSP often offer services to multiple customers (tenants) on their Azure Stack deployment. Registering tenants ensures that each tenant’s usage will be reported and billed to the corresponding CSP subscription. If you do not complete the steps in this article, tenant usage is charged to the subscription used in the initial registration of Azure Stack.
+CSPs often offer services to multiple customers (tenants) on their Azure Stack deployment. Registering tenants ensures that each tenant’s usage will be reported and billed to the corresponding CSP subscription. If you do not complete the steps in this article, tenant usage is charged to the subscription used in the initial registration of Azure Stack. Before you can add an end customer to Azure Stack for usage tracking and to manage their tenant, you will need to configure Azure Stack as a CSP. For steps and resources, see [Manage usage and billing for Azure Stack as a Cloud Service Provider](azure-stack-add-manage-billing-as-a-csp.md).
+
+The following diagram shows the steps that you will need to follow to add an end customer to your CSP account for usage tracking. By adding the end customer, you will also be to manage resources in Azure Stack. You have two options for how you would like to manage their resources:
+
+1. You can maintain the end customer tenant and provide credentials to the local Azure Stack subscription to the end customer.  
+2. Or the end customer can work with their subscription locally and add the CSP as a guest with owner permissions.  
+
+**Steps to add an end customer**
+
+![Set up Cloud Service Provider for usage tracking and to manage the end customer account](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
 
 ## Create a new customer in Partner Center
 
 Add the customer in Partner Center and creates an Azure subscription. For instructions, see [Add a new customer](https://msdn.microsoft.com/en-us/partner-center/add-a-new-customer).
 
-## Configure usage reporting by adding a new tenant to your registration
+
+##  Create an Azure subscription for the end customer
+
+After you've created a record of your customer in Partner Center, you can sell them subscriptions to products in the catalog. For instructions, see [Create, suspend, or cancel customer subscriptions](https://msdn.microsoft.com/partner-center/create-a-new-subscription).
+
+## Create a guest user in end customer directory
+
+If the end customer will manager their own account, create a guest user in their directory, and send them the information. The end user will then add the guest and elevate the guest permission to **Owner** to the Azure Stack CSP account.
+ 
+## Update the registration with the end customer subscription
 
 Update your registration with the new customer’s subscription. Azure reports the customer's usage using the customer identity from Partner Central. This step ensures that each customer’s usage is reported under that customer’s individual CSP subscription. This makes tracking user usage and billing much easier.
 
@@ -57,16 +75,14 @@ Update your registration with the new customer’s subscription. Azure reports t
 > [!Note]  
 > Tenants need to be registered with each Azure Stack they use. If a tenant uses more than one Azure Stack, you need to update the initial registrations of each deployment with the tenant subscription.
 
-## Add the new tenant to Azure Stack
+## Create a local Azure Stack subscription
 
-You can configure Azure Stack to support users from multiple Azure AD tenants to use services in Azure Stack. To provide services to an end user, you either:
+Configure Azure Stack to support users from multiple Azure AD tenants to use services in Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
 
- - Manage the end customer account and their Azure AD tenant for them. In this case, you will add their new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
- - Manage the end customer tenant from a guest account with owner privileges for the Azure AD tenant. Create the guest account, and send the information to your end customer. The end customer than add **owner** privileges to the guest account.
 
-## Verify the end customer
+## Create a local resource in the end customer tenant in Azure Stack
 
-Once you have added the new customer to Azure Stack, or the end customer tenant has enabled your guest account with owner privileges, verify that you could create a resource in their tenant.
+Once you have added the new customer to Azure Stack, or the end customer tenant has enabled your guest account with owner privileges, verify that you could create a resource in their tenant. For example, they can [Create a Windows virtual machine with the Azure Stack portal](azure-stack-quick-windows-portal.md).
 
 ## Next steps
 

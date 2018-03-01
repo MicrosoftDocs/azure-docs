@@ -24,37 +24,40 @@ ms.reviewer: alfredo
 
 This article walks you through registering Azure Stack as a Cloud Provider (CSP) and adding customers.
 
-## Cloud Service Provider subscription types
+The following diagram shows the steps that you will need to choose your shared services account and register azure account with the account. When this has been done, you can onboard your end customers.
 
-The types of subscriptions that can be used for registration are:
+**Steps to add usage tracking as a CSP**
+
+![Process for enabling usage and management as a Cloud Service Provider.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
+
+## Create a CSP or CSPSS subscription
+
+### Cloud Service Provider subscription types
+
+You will need to choose the type of shared services account that you use for Azure Stack. The types of subscriptions that can be used for registration are:
 
  - Cloud Service Provider 
  - Partner Shared Services subscription 
 
-### CSP Shared Services
+#### CSP Shared Services
 
 Cloud Service Provider Shared Services (CSPSS) subscriptions are the preferred choice for registration when a Direct CSP or a CSP Distributor operates Azure Stack.
 
 CSPSS subscriptions are associated with a shared-services tenant. When you register Azure Stack, you need to provide credentials for an account that is an owner of the subscription. The account you use to register Azure Stack can be different from the administrator account that you use for deployment; the two do *not* need to belong to the same domain. In other words, you may deploy using the tenant that you already use. For example you may use ContosoCSP.onmicrosoft.com, then register using a different tenant, for example IURContosoCSP.onmicrosoft.com. You will need to remember that you log in using ContosoCSP.onmicrosoft.com when you do day-to-do Azure Stack administration. When you sign in to Azure using IURContosoCSP.onmicrosoft.com when you need to do registration operations.
 
-Please refer to the following for a description of CSPSS subscriptions, and instructions on how to create subscription [Add Azure Partner Shared Services](https://msdn.microsoft.com/partner-center/shared-services).
+Refer to the following for a description of CSPSS subscriptions, and instructions on how to create subscription [Add Azure Partner Shared Services](https://msdn.microsoft.com/partner-center/shared-services).
 
-### CSP subscriptions
+#### CSP subscriptions
 
 Cloud Service Provider (CSP) subscriptions are the preferred choice for registration when a CSP Reseller or an end customer operates the Azure Stack.
 
-## Register Azure Stack with your subscription
+## Register Azure Stack with shared services subscription
 
 To register with Azure Stack, see [Register Azure Stack with your Azure Subscription](azure-stack-registration.md).
 
-## Add end customers or users to Azure Stack
+## Add end customer
 
-1. Create customer in partner center. For steps, see [Add a new customer](https://msdn.microsoft.com/partner-center/add-a-new-customer).
-2. Onboard customer tenant in Azure Stack For steps, see [Add tenants for usage and billing](azure-stack-csp-howto-register-tenants.md)
-3. Add customer’s tenant to registration for usage reporting. For steps, see [Add tenants for usage and billing](azure-stack-csp-howto-register-tenants.md)
-
-> [!note]  
-> If the customer wants you as the CSP to manage their Azure Stack subscription or resources, refer the customer to [Create Azure CSP as guest with user role to tenant](user\azure-stack-csp-enable-billing-usage-tracking.md).
+To configure Azure Stack so that when a new tenant uses resources their usage will be reported to their Cloud Service Provider (CSP) subscription, see [Add tenant for usage and billing to Azure Stack](azure-stack-csp-howto-register-tenants.md).
 
 ## Reference for Cloud Service Providers
 
