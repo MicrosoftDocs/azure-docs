@@ -14,7 +14,7 @@ ms.date: 09/28/2017
 # Configuring Azure Machine Learning Experimentation Service
 
 ## Overview
-Azure Machine Learning Experimentation Service enables data scientists to execute their experiments using the Azure Machine Learning execution and run management capabilities. It provides a framework for agile experimentation with fast iterations. Azure Machine Learning Workbench allows you to start with local runs on your machine and provides an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or HDInsight Clusters running Spark.
+Azure Machine Learning Experimentation Service enables data scientists to execute their experiments using the Azure Machine Learning execution and run management capabilities. It provides a framework for agile experimentation with fast iterations. Azure Machine Learning Workbench allows you to start with local runs on your machine and also an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or HDInsight Clusters running Spark.
 
 Experimentation Service is built for providing isolated, reproducible, and consistent runs of your experiments. It helps you manage your compute targets, execution environments, and run configurations. By using the Azure Machine Learning Workbench execution and run management capabilities, you can easily move  between different environments. 
 
@@ -67,7 +67,7 @@ Conda is used to manage local Docker and remote Docker executions as well as HDI
 ### Run configuration
 In addition to the compute target and execution environment, Azure Machine Learning provides a framework to define and change *run configurations*. Different executions of your experiment may require different configuration as part of iterative experimentation. You may be sweeping different parameter ranges, using different data sources, and tuning spark parameters. Experimentation Service provides a framework for managing run configurations.
 
-Running _az ml computetarget attach_ command produces two files in your **aml_config** folder in your project: a .compute and  a .runconfig following this convention: _<your_computetarget_name>.compute_ and _<your_computetarget_name>.runconfig_. The .runconfig file is automatically created for your convenience when you create a compute target. You can create and manage other run configurations using _az ml runconfigurations_ command in CLI. You can also create and edit them on your file system.
+Running _az ml computetarget attach_ command produces two files in your **aml_config** folder in your project: a ".compute" and  a ".runconfig" following this convention: _<your_computetarget_name>.compute_ and _<your_computetarget_name>.runconfig_. The .runconfig file is automatically created for your convenience when you create a compute target. You can create and manage other run configurations using _az ml runconfigurations_ command in CLI. You can also create and edit them on your file system.
 
 Run configuration in Workbench also enables you to specify environment variables. You can specify environment variables and use them in your code by adding the following section in your .runconfig file. 
 
@@ -89,7 +89,7 @@ _**The following figure shows the high-level flow for initial experiment run.**_
 In this section, we dive into execution scenarios and learn about how Azure Machine Learning runs experiments, specifically running an experiment locally, on a remote VM, and on an HDInsight Cluster. This section is a walkthrough starting from creating a compute target to executing your experiments.
 
 >[!NOTE]
->For the rest of this article we are using the CLI (Command-line interface) commands to show the concepts and the capabilities. Capabilities described here can also be used from Workbench.
+>For the rest of this article, we are using the CLI (Command-line interface) commands to show the concepts and the capabilities. Capabilities described here can also be used from Workbench.
 
 ## Launching the CLI
 An easy way to launch the CLI is opening a project in Workbench and navigating to **File-->Open Command Prompt**.
@@ -99,7 +99,7 @@ An easy way to launch the CLI is opening a project in Workbench and navigating t
 This command launches a terminal window in which you can enter commands to execute scripts in the current project folder. This terminal window is configured with the Python 3.5.2 environment, which is installed by Workbench.
 
 >[!NOTE]
-> When you execute any _az ml_ command from the command window, you need to be authenticated against Azure. CLI uses an independent authentication cache then the desktop app and so logging in to Workbench doesn't mean you are authenticated in your CLI environment. To authenticate, follow the steps below. Authentication token is cached locally for a period of time so you only need to repeat these steps when the token expires. When the token expires or if you are seeing authentication errors, execute the following commands:
+> When you execute any _az ml_ command from the command window, you need to be authenticated against Azure. CLI uses an independent authentication cache then the desktop app and so logging in to Workbench doesn't mean you are authenticated in your CLI environment. To authenticate, use the following the steps. Authentication token is cached locally for a period of time so you only need to repeat these steps when the token expires. When the token expires or if you are seeing authentication errors, execute the following commands:
 
 ```
 # to authenticate 
@@ -122,7 +122,7 @@ $ az account show
 ## Running scripts and experiments
 With Workbench, you can execute your Python and PySpark scripts on various compute targets using the _az ml experiment submit_ command. This command requires a run configuration definition. 
 
-Workbench creates a corresponding .runconfig file when you create a compute target, but you can create additional run configurations using _az ml runconfiguration  create_ command. You can also manually edit the run configuration files.
+Workbench creates a corresponding runconfig file when you create a compute target, but you can create additional run configurations using _az ml runconfiguration  create_ command. You can also manually edit the run configuration files.
 
 Run configurations show up as part of experiment run experience in Workbench. 
 
@@ -215,9 +215,9 @@ _**Overview of remote vm execution for a Python script:**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
 
 ## Running a script on a remote VM targeting user-managed environments
-Experimentation service also supports running a script on user's own Python environment inside a remote Ubuntu virtual machine. This allows you to manage your own environment for execution and still leverage Azure Machine Learning capabilities. 
+Experimentation service also supports running a script on user's own Python environment inside a remote Ubuntu virtual machine. This allows you to manage your own environment for execution and still use Azure Machine Learning capabilities. 
 
-You should follow the following steps to run your script on your own environment.
+Follow the following steps to run your script on your own environment.
 * Prepare your Python environment on a remote Ubuntu VM or a DSVM installing your dependencies.
 * Install Azure Machine Learning requirements using the following command.
 
@@ -238,7 +238,7 @@ az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_addre
 >[!NOTE]
 >This will set "userManagedEnvironment" parameter in your .compute configuration file to true.
 
-* Set location of your Python runtime executable in your .compute file. This should be a reference to the full path of your python executable. 
+* Set location of your Python runtime executable in your .compute file. You should refer to the full path of your python executable. 
 ```
 pythonLocation: python3
 ```
@@ -251,7 +251,7 @@ $ az ml experiment submit -c remotevm myscript.py
 >[!NOTE]
 > When you are running on a DSVM, you should use the following commands
 
-If you would like to run directly on DSVM's global python environment, you should run the following command.
+If you would like to run directly on DSVM's global python environment, run this command.
 ```
 sudo /anaconda/envs/py35/bin/pip install <package>
 ```
