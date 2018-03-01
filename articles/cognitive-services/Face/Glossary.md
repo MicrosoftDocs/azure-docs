@@ -118,7 +118,7 @@ Facial hair is one of the [attributes](#Attributes) used to describe the facial 
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-### <a name="FaceList"></a>FaceList
+#### <a name="FaceList"></a>FaceList
 
 FaceList is a collection of [PersistedFace](#PersistedFace) and is the unit of [Find Similar](#Find-Similar). A FaceList comes with a [FaceList ID](#FaceList-ID), as well as other attributes such as [Name](#Name) and [User Data](#UserData-User-Data).
 
@@ -188,8 +188,9 @@ Faces and the LargePersonGroup/PersonGroup are represented by [face IDs](#Face-I
 Identified results are [candidates](#Candidate), represented by [Persons](#Person) with confidence.
 Multiple faces in the input are considered separately, and each face will have its own identified result.
 
-**Please Note:** the LargePersonGroup/PersonGroup should be trained successfully before identification.
-If the LargePersonGroup/PersonGroup is not trained, or the training [status](#Status-Train) is not shown as 'succeeded' (i.e. 'running', 'failed', or 'timeout'), the request response is 400.
+> [!NOTE]
+> The LargePersonGroup/PersonGroup should be trained successfully before identification. If the LargePersonGroup/PersonGroup is not trained, or the training [status](#Status-Train) is not shown as 'succeeded' (i.e. 'running', 'failed', or 'timeout'), the request response is 400.
+> 
 
 For more details, please refer to the following guides:
 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239),
