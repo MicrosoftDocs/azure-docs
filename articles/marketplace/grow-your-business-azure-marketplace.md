@@ -116,8 +116,6 @@ Whatever your offer's maturity and the goals of your organization, the keys to  
 
 As part of being a new publisher in the Azure Marketplace, we'll offer you some free Marketplace GTM benefits. You should think critically about how to use these benefits in your campaign strategy. Let our marketing team know your Marketplace campaign goals and your desired audience action. We can customize these deliverables to work into your plan.
 
-For additional go-to-market support, visit [Microsoft Go To Market](https://www.MicrosoftGoToMarket.com). There, you can find templates, web content, training, and tools to promote your business. 
-
 For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing). It's a program of the Microsoft Partner Network.
 
 #### Take advantage of Marketplace GTM benefits
