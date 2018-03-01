@@ -49,4 +49,4 @@ Once the zoom level is determined, the x and y values can be calculated. The top
 
 Here is the zoom grid for zoom level 1:
 
-![Zoom grid for zoom level 1](./media/zoom-levels-and-tile-grid/api_x_y.png) 
+![Zoom grid for zoom level 1](./media/zoom-levels-and-tile-grid/api_x_y.png)
