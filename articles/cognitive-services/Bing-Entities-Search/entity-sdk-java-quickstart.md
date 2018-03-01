@@ -133,7 +133,7 @@ public static void handlingDisambiguation(String subscriptionKey)
 
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DISAMBIGUATION_ITEM) {
                     disambigEntities.add(thing);
-                    System.out.println("Searched for \"Tom Cruise\" and found a dominant entity with this description:");
+                    System.out.println("Searched for \"Harry Potter\" and found a dominant entity with this description:");
                     System.out.println(thing.description());
                 }
 
