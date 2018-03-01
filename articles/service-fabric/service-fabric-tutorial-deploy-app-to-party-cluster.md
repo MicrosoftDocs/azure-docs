@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2018
-ms.author: cristyg
+ms.author: mikkelhegn
 ms.custom: mvc
 
 ---
@@ -66,11 +66,11 @@ This tutorial will follow steps to create a cluster from Visual Studio. For the 
 
 1. Right-click on the application project in the Solution Explorer and choose **Publish**.
 
-    ![Publish Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
-
 2. Sign in by using your Azure account so that you can have access to your subscription(s). This step is optional if you're using a party cluster.
 
 3. Select the dropdown for the **Connection Endpoint** and select the "<Create New Cluster...>" option.
+    
+    ![Publish Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
     
 4. In the "Create cluster" dialog, modify the following settings:
 
