@@ -22,7 +22,7 @@ ms.author: jdial
 
 Azure Virtual Network enables Azure resources to communicate with each other and the internet. A virtual network isolates your resources from others' resources in the Azure cloud. You can connect virtual networks to other virtual networks, or to your on-premises network. 
 
-Azure Virtual Network provides the following broad capabilities. To learn more about each capability, select it:
+Azure Virtual Network provides the following broad capabilities:
 - **[Isolation:](#isolation)** Virtual networks are isolated from one another. You can create separate virtual networks for development, testing, and production that use the same CIDR (10.0.0.0/0, for example) address blocks. Conversely, you can create multiple virtual networks that use different CIDR address blocks and connect the networks together. You can segment a virtual network into multiple subnets. Azure provides internal name resolution for resources deployed in a virtual network. If necessary, you can configure a virtual network to use your own DNS servers, instead of using Azure internal name resolution.
 - **[Internet communication:](#internet)** Resources, such as virtual machines deployed in a virtual network, have access to the Internet, by default. You can also enable inbound access to specific resources, as needed.
 - **[Azure resource communication:](#within-vnet)** Azure resources deployed in a virtual network can communicate with each other using private IP addresses, even if the resources are deployed in different subnets. Azure provides default routing between subnets, connected virtual networks, and on-premises networks, so you don't have to configure and manage routes. If desired, you can customize Azure's routing.
