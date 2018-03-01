@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/02/2018
 ms.author: nitinme
 
 
@@ -80,10 +80,10 @@ You can also use the following command to access the Databricks filesystem (DBFS
 For a complete reference on commands, see [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
 
-## See also
+## Next steps
 
-* [Azure CLI overview](../cloud-shell/overview.md)
-* [Azure CLI reference](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
-* [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+* To learn more about Azure CLI, see [Azure CLI overview](../cloud-shell/overview.md)
+* To see a list of commands for Azure CLI, see [Azure CLI reference](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* To see a list of commands for Databricks CLI, see [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
 
