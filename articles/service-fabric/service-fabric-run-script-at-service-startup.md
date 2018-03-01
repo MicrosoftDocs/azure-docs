@@ -173,7 +173,7 @@ In the PowerShell file, add the following to set a system environment variable:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-* [Learn about application and service security]()
+* [Learn about application and service security](service-fabric-application-and-service-security.md)
 * [Understand the application model](service-fabric-application-model.md)
 * [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
