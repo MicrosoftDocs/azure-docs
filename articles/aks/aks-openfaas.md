@@ -1,7 +1,9 @@
 # Using OpenFaaS on AKS
-[OpenFaaS](https://www.openfaas.com/) is a framework for building Serverless functions on top of containers.  As an Open Source project it has gained large-scale adoption within the community.
+
+[OpenFaaS](https://www.openfaas.com/) is a framework for building Serverless functions on top of containers. As an Open Source project it has gained large-scale adoption within the community.
 
 ## Prerequisites
+
 In order to complete the steps within this article, you need the following.
 
 * Basic understanding of Kubernetes.
@@ -9,45 +11,45 @@ In order to complete the steps within this article, you need the following.
 * Azure CLI installed on your development system.
 * Git command-line tools installed on your system.
 
-## Install OpenFaaS
+## Get OpenFaaS
 
-```console
-$  git clone https://github.com/openfaas/faas-netes
+Clone the OpenFaaS project repository to your development system.
+
+```azurecli-interactive
+git clone https://github.com/openfaas/faas-netes
 ```
 
-```console
-Cloning into 'faas-netes'...
-remote: Counting objects: 2065, done.
-remote: Compressing objects: 100% (14/14), done.
-remote: Total 2065 (delta 9), reused 9 (delta 4), pack-reused 2047
-Receiving objects: 100% (2065/2065), 2.16 MiB | 2.04 MiB/s, done.
-Resolving deltas: 100% (910/910), done.
-```
+Change into the directory of the cloned repository.
 
-```console
-$  cd faas-netes 
+```azurecli-interactive
+cd faas-netes 
 ```
 
 ## Create OpenFaaS namespaces
-OpenFaaS and its Functions you will be hosting should have their own namespaces. 
 
-Create those within your cluster.
+As a good practice, OpenFaaS and OpenFaaS functions should be stored in their own Kubernetes namespace.
 
-```console
-$  kubectl create ns openfaas
-```
-```console   
-$  kubectl create ns openfaas-fn
+Create a namespace for the OpenFaaS system.
+
+```azurecli-interactive
+kubectl create namespace openfaas
 ```
 
+Create a second namespace for OpenFaaS functions.
+
+```azurecli-interactive 
+kubectl create namespace openfaas-fn
+```
 
 ## Deploy OpenFaaS
 
-Using Helm, the deployment of OpenFaaS is very simple.  
+A Helm chart for OpenFaaS is included in the cloned repository. Use this to deploy OpenFaaS into your AKS cluster.
 
-```console
-$  helm install --namespace openfaas -n openfaas --set functionNamespace=openfaas-fn,serviceType=LoadBalancer,rbac=false chart/openfaas/ 
+```azurecli-interactive
+helm install --namespace openfaas -n openfaas --set functionNamespace=openfaas-fn,serviceType=LoadBalancer,rbac=false chart/openfaas/ 
 ```
+
+Output:
 
 ```
 NAME:   openfaas
@@ -68,12 +70,16 @@ To verify that openfaas has started, run:
 
   kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
-### Get Gateway and Prometheus Endpoint IP addresses
-Once the service has been deployed, you see the Gateway public IP address within the Kubernetes published services.
+## Get public IP address
+
+When the service has been deployed, a public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the kubectl get service command. It may take a minute for the IP address to be assigned to the service.
 
 ```console
-$  kubectl get svc -n openfaas
+kubectl get service -n openfaas
 ```
+
+Output. 
+
 ```console
 NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)          AGE
 alertmanager            ClusterIP      10.0.162.129   <none>           9093/TCP         3m
@@ -89,7 +95,10 @@ prometheus-external     LoadBalancer   10.0.54.203    52.226.128.86    9090:3120
 ```
 
 ## Test OpenFaas
-Goto the endpoint IP address with your browser, port 8080.  And create your first OpenFaas function - you can use the Figlet service from the OpenFaaS marketplace as a smoketest.
+
+Browse to the endpoint IP address on port 8080.
+
+And create your first OpenFaas function - you can use the Figlet service from the OpenFaaS marketplace as a smoketest.
 
 ![alt text](media/container-service-serverless/invoke.png "Test OpenFaas")
 
