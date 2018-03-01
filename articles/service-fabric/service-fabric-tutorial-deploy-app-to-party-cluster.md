@@ -3,8 +3,8 @@ title: Deploy an Azure Service Fabric application to a Cluster from Visual Studi
 description: Learn how to deploy an application to a Cluster from Visual Studio
 services: service-fabric
 documentationcenter: .net
-author: cristyg
-manager: paulyuk
+-author: mikkelhegn 
+-manager: msfussell 
 editor: ''
 
 ms.assetid:
@@ -19,8 +19,14 @@ ms.custom: mvc
 
 ---
 
-# Deploy an application to a Cluster in Azure
+# Tutorial: deploy an application to a Service Fabric cluster in Azure
 This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to a new cluster in Azure directly from Visual Studio.
+
+In this tutorial you learn how to:
+> [!div class="checklist"]
+> * Create a cluster from Visual Studio
+> * Deploy an application to a remote cluster using Visual Studio
+
 
 In this tutorial series, you learn how to:
 > [!div class="checklist"]
@@ -28,11 +34,6 @@ In this tutorial series, you learn how to:
 > * Deploy the application to a remote cluster
 > * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
-
-In this tutorial you learn how to:
-> [!div class="checklist"]
-> * Create a cluster from Visual Studio
-> * Deploy an application to a remote cluster using Visual Studio
 
 
 ## Prerequisites
@@ -53,9 +54,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ### Select a Service Fabric cluster to which to publish
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
-You have three options for deployment:
+You have two options for deployment:
 - Create a cluster from Visual Studio. This option allows you to create a secure cluster directly from Visual Studio with your preferred configurations. This type of cluster is ideal for test scenarios, where you can create the cluster and then publish directly to it within Visual Studio.
-- Publish to a party cluster. Party clusters are free, limited-time Service Fabric clusters run by the Service Fabric team. Currently they are available for use for one hour.
 - Publish to an existing cluster in your subscription.
 
 This tutorial will follow steps to create a cluster from Visual Studio. For the other options, you can copy and paste your connection endpoint or choose it from your subscription.
@@ -71,15 +71,17 @@ This tutorial will follow steps to create a cluster from Visual Studio. For the 
 2. Sign in by using your Azure account so that you can have access to your subscription(s). This step is optional if you're using a party cluster.
 
 3. Select the dropdown for the **Connection Endpoint** and select the "<Create New Cluster...>" option.
+    
+4. In the "Create cluster" dialog, modify the following settings:
 
-    ![Create Cluster Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
-
-    1. In this dialog, specify the name of your cluster in the "Cluster Name" field, as well as the subscription and location you want to use.
-    2. You can modify the number of nodes. By default you have three nodes, the minimum required for testing Service Fabric scenarios.
+    1. Specify the name of your cluster in the "Cluster Name" field, as well as the subscription and location you want to use.
+    2. Optional: You can modify the number of nodes. By default you have three nodes, the minimum required for testing Service Fabric scenarios.
     3. Select the "Certificate" tab. In this tab, type a password to use to secure the certificate of your cluster. This certificate helps make your cluster secure. You can also modify the path to where you want to save the certificate. Visual Studio can also import the certificate for you, since this is a required step to publish the application to the cluster.
     4. Select the "VM Detail" tab. Specify the password you would like to use for the Virtual Machines (VM) that make up the cluster. The user name and password can be used to remotely connect to the VMs. You must also select a VM machine size and can change the VM image if needed.
     5. Optional: On the "Advanced" tab you can modify the list of ports you want opened on the load balancer that will be created along with the cluster. You can also add an existing Application Insights key to be used to route application log files to.
     6. When you are done modifying settings, select the "Create" button. Creation takes a few minutes to complete; the output window will indicate when the cluster is fully created.
+    
+    ![Create Cluster Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 4. Once the cluster you want to use is ready, right-click on the application project and choose **Publish**.
 
