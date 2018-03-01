@@ -43,6 +43,8 @@ Tiles are called by zoom level and the x and y coordinates corresponding to the 
 
 When determining which zoom level to use, remember that each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it may only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its, it may take four tiles:
 
+![Zoom demo scale](./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
+
 Once the zoom level is determined, the x and y values can be calculated. The top left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2zoom -1, y=2zoom-1.
 
 Here is the zoom grid for zoom level 1:
