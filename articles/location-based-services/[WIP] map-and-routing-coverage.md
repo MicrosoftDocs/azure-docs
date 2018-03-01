@@ -6,7 +6,7 @@ Check out Market Coverage for **Geocoding** [here](geocoding-coverage.md).
 
 Check out Market Coverage for **Traffic** [here](traffic-coverage.md).
 
-|Region|Routing|Maps|
+|Region|Route|Render|
 |--- |--- |--- |
 |**Africa**|
 |Algeria|✓|✓|
