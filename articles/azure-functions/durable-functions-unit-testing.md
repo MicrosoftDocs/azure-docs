@@ -18,7 +18,10 @@ ms.author: kadimitr
 
 # Durable Functions Unit Testing
 
-This page shows how to unit test Durable Functions. Two abstract classes are available that allow mocking:
+
+## Introduction
+
+Unit testing is an important part of modern software development practices. Unit tests verifies business logic behavior and protects from introducing unnoticed breaking changes in future. Every single unit test is focused on testing specific behavior. That requires Durable Functions core methods to return expected output when provided pre-defined input. This process is called mocking and Durable Functions supports it via two abstract classes:
 
 * [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 
 
@@ -31,294 +34,177 @@ These classes are base classes for [DurableOrchestrationClient](https://azure.gi
 
 Find more details in the following paragraphs for testing Orchestration Client and Orchestrator.
 
-## Unit testing
-
-Visual Studio currently provides the best experience for developing apps that use Durable Functions. Run your functions locally and also publish them to Azure. You can start with an empty project or with a set of sample functions.
-
 ### Prerequisites
 
-* Install the [latest version of Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 or greater). Include the **Azure development** workload in your setup options.
+The examples below are using the following frameworks: 
 
-* Set up [xUnit](http://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio  
+* [xUnit](https://xunit.github.io/) - Testing framework
 
-* Add [moq](https://www.nuget.org/packages/moq/) NuGet package to your project
+* [moq](https://github.com/moq/moq4) - Mocking framework
 
-* Add [FluentAssertions](https://www.nuget.org/packages/FluentAssertions/) NuGet package
+* [FluentAssertions](http://fluentassertions.com/) - .NET extension for more natural assertions 
 
-### Unit test Orchestration Client
+
+## Unit testing trigger functions
+
+In this secion, the unit test will validate the value set to `Retry-After` header in the response of the sample function defined below. The sample is using C# 
 
 1. First, use [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)  instead of  [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) in the signature of the Orchestration client function:
 
 ```csharp
-[FunctionName("HttpSyncStart")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(
-            AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
-            HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClientBase starter,
-            string functionName,
-            TraceWriter log)
-        {
-            ...
-        }
+
+public static class HttpStart
+{
+    [FunctionName("HttpStart")]
+    public static async Task<HttpResponseMessage> Run(
+        [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+        [OrchestrationClient] DurableOrchestrationClientBase starter,
+        string functionName,
+        TraceWriter log)
+    {
+        // Function input comes from the request content.
+        dynamic eventData = await req.Content.ReadAsAsync<object>();
+        string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+        log.Info($"Started orchestration with ID = '{instanceId}'.");
+
+        var res = starter.CreateCheckStatusResponse(req, instanceId);
+        res.Headers.RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10));
+        return res;
+    }
+}
+
 ```
 
-2. Mock the behavior of [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) in your unit tests. The following sample uses [xUnit](https://xunit.github.io/) and the popular mocking library [moq](https://github.com/moq/moq4):
+2. Then, mock the behavior of [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) in your unit tests :
+
+```csharp
+
+public class HttpStartTests
+{
+    [Fact]
+    public async Task HttpStart_returns_retryafter_header()
+    {
+        // Define constants
+        const string functionName = "SampleFunction";
+        const string instanceId = "7E467BDB-213F-407A-B86A-1954053D3C24";
+
+        // Mock TraceWriter
+        var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+
+        // Mock DurableOrchestrationClientBase
+        var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
+
+        // Mock StartNewAsync method
+        durableOrchestrationClientBaseMock.
+            Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
+            ReturnsAsync(instanceId);
+
+        // Mock CreateCheckStatusResponse method
+        durableOrchestrationClientBaseMock
+            .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId))
+            .Returns(new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(string.Empty),
+            });
+
+        // Call Orchestration trigger function
+        var result = await HttpStart.Run(
+            new HttpRequestMessage()
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(string.Empty), Encoding.UTF8, "application/json"),
+                RequestUri = new Uri("https://www.microsoft.com/"),
+            },
+            durableOrchestrationClientBaseMock.Object, 
+            functionName,
+            traceWriterMock.Object);
+
+        // Validate output
+        result.Headers.RetryAfter.Should().NotBeNull();
+
+        // Validate output's Retry-After header value
+        result.Headers.RetryAfter.Delta.Should().Be(TimeSpan.FromSeconds(10));
+     }
+}
+
+```
+
+## Unit testing orchestrator functions
+
+Orchestrator functions are even more interesting for unit testing since they usually contain a lot more business logic. Currently, Orchestrator functions can be implemented only in C#.
+
+In this section the unit tests will validate the output of the following Orchestrator function:
+
+```csharp
+
+[FunctionName("E1_HelloSequence")]
+public static async Task<List<string>> Run(
+    [OrchestrationTrigger] DurableOrchestrationContextBase context)
+{
+    var outputs = new List<string>();
+
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
+}
+
+```
+
+And the unit test for this function is below:
 
  ```csharp
 
- var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase> { CallBase = true };
-            durableOrchestrationClientBaseMock.
-                Setup(x => x.StartNewAsync(FunctionName, It.IsAny<object>())).
-                ReturnsAsync(InstanceId);
-            durableOrchestrationClientBaseMock
-                .Setup(x => x.WaitForCompletionOrCreateCheckStatusResponseAsync(request, InstanceId, timeout, retryInterval))
-                .ReturnsAsync(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent(EventData)
-                });
+[Fact]
+public async Task Run_retuns_multiple_greetings()
+{
+    // Setup DurableOrchestrationContextBase mock
+    var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
+    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
+    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
+    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
 
- ```
+    // Call Orchestrator function
+    var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
 
-The goal will be to verify the behavior defined in this Orchestration client:
+    // Verify business logic
+    Assert.Equal(3, result.Count);
+    Assert.Equal("Hello Tokyo!", result[0]);
+    Assert.Equal("Hello Seattle!", result[1]);
+    Assert.Equal("Hello London!", result[2]);
+}
+
+  ```
+
+## Unit testing activity functions
+
+Activity function can be unit tested in the same way as non-durable functions. Base classes for mocking are not available for unit testing Activity functions.
+So, avoid using [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) because its methods can not be mocked. 
+
+In this section the unit tests will validate the behavior of the following Activity function:
 
 ```csharp
-using System;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
 
-namespace VSSample
+[FunctionName("E1_SayHello")]
+public static string SayHello([ActivityTrigger] string name)
 {
-    public static class HttpSyncStart
-    {
-        private const string Timeout = "timeout";
-        private const string RetryInterval = "retryInterval";
-
-
-        [FunctionName("HttpSyncStart")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(
-            AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
-            HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClientBase starter,
-            string functionName,
-            TraceWriter log)
-        {
-            // Function input comes from the request content.
-            dynamic eventData = await req.Content.ReadAsAsync<object>();
-            string instanceId = await starter.StartNewAsync(functionName, eventData);
-
-            log.Info($"Started orchestration with ID = '{instanceId}'.");
-
-            TimeSpan? timeout = GetTimeSpan(req, Timeout);
-            TimeSpan? retryInterval = GetTimeSpan(req, RetryInterval);
-            
-            return await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
-                req,
-                instanceId,
-                timeout,
-                retryInterval);
-        }
-
-        private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
-        {
-            var queryParameterStringValue = request.GetQueryNameValuePairs()?
-                .FirstOrDefault(x => x.Key == queryParameterName)
-                .Value;
-            if (string.IsNullOrEmpty(queryParameterStringValue)) { return null; }
-            return TimeSpan.FromSeconds(double.Parse(queryParameterStringValue));
-        }
-    }
+    return $"Hello {name}!";
 }
 
 ```
 
-Complete sample with a helper method used by several tests can be found in the following snippet: The original Orchestration client function has minimal business logic. So, the unit tests are demonstrating the mocking:
+And the unit test will verify the format of the output:
 
 ```csharp
-using System;
-using System.Diagnostics;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using Moq;
-using FluentAssertions;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
 
-namespace VSSample.Tests
+[Fact]
+public void SayHello_returns_greeting()
 {
-    public class HttpSyncStartTests
-    {
-        private const string FunctionName = "SampleFunction";
-        private const string EventData = "EventData";
-        private const string InstanceId = "7E467BDB-213F-407A-B86A-1954053D3C24";
-
-        [Fact]
-        public async Task Run_uses_default_values_when_query_parameters_missing()
-        {
-            await Check_behavior_based_on_query_parameters("https://www.microsoft.com/", null, null);
-        }
-
-        [Fact]
-        public async Task Run_uses_default_value_for_timeout()
-        {
-            await Check_behavior_based_on_query_parameters("https://www.microsoft.com/?retryInterval=2", null, TimeSpan.FromSeconds(2));
-        }
-
-        [Fact]
-        public async Task Run_uses_default_value_for_retryInterval()
-        {
-            await Check_behavior_based_on_query_parameters("https://www.microsoft.com/?timeout=6", TimeSpan.FromSeconds(6), null);
-        }
-
-        [Fact]
-        public async Task Run_uses_query_parameters()
-        {
-            await Check_behavior_based_on_query_parameters("https://www.microsoft.com/?timeout=6&retryInterval=2", TimeSpan.FromSeconds(6), TimeSpan.FromSeconds(2));
-        }
-
-        private static async Task Check_behavior_based_on_query_parameters(string url, TimeSpan? timeout, TimeSpan? retryInterval)
-        {
-            var name = new Name { First = "John", Last = "Smith" };
-            var request = new HttpRequestMessage
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(name), Encoding.UTF8, "application/json"),
-                RequestUri = new Uri(url)
-            };
-            var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
-            var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase> { CallBase = true };
-            durableOrchestrationClientBaseMock.
-                Setup(x => x.StartNewAsync(FunctionName, It.IsAny<object>())).
-                ReturnsAsync(InstanceId);
-            durableOrchestrationClientBaseMock
-                .Setup(x => x.WaitForCompletionOrCreateCheckStatusResponseAsync(request, InstanceId, timeout, retryInterval))
-                .ReturnsAsync(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent(EventData)
-                });
-            var result = await HttpSyncStart.Run(request, durableOrchestrationClientBaseMock.Object, FunctionName, traceWriterMock.Object);
-            result.StatusCode.Should().Be(HttpStatusCode.OK);
-            (await result.Content.ReadAsStringAsync()).Should().Be(EventData);
-        }
-    }
-
-    public class Name
-    {
-        public string First { get; set; }
-        public string Last { get; set; }
-    }
-}
-
-```
-
-### Unit test Orchestrator
-
-Orchestrator functions have more business logic so unit testing them is more common scenario.
-
-1. First, use [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)  instead of  [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) in the signature of the Orchestrator function:
-
-```csharp
-[FunctionName("E1_HelloSequence")]
-        public static async Task<List<string>> Run(
-            [OrchestrationTrigger] DurableOrchestrationContextBase context)
-        {
-            ...
-        }
-```
-
-2. Mock the behavior of [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html) in your unit tests. The following sample uses [xUnit](https://xunit.github.io/) and the popular mocking library [moq](https://github.com/moq/moq4):
-
-The goal will be to verify the behavior defined in this Orchestrator:
-
-```csharp
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-
-namespace VSSample
-{
-    public static class HelloSequence
-    {
-        [FunctionName("E1_HelloSequence")]
-        public static async Task<List<string>> Run(
-            [OrchestrationTrigger] DurableOrchestrationContextBase context)
-        {
-            var outputs = new List<string>();
-
-            outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
-            outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
-            outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
-
-            // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
-            return outputs;
-        }
-
-        [FunctionName("E1_SayHello")]
-        public static string SayHello([ActivityTrigger] string name)
-        {
-            return $"Hello {name}!";
-        }
-    }
- }
-```
-
-Next, the mocked behavior will be set up:
-
-```csharp
-
- var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
-
-```
-
-Complete sample with two tests is available in the following snippet:
-
-```csharp
-
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Moq;
-using Xunit;
-
-namespace VSSample.Tests
-{
-    public class HelloSequenceTests
-    {
-        [Fact]
-        public void SayHello_returns_greeting()
-        {
-            var result = HelloSequence.SayHello("Tokyo");
-            Assert.Equal("Hello Tokyo!", result);
-        }
-
-        [Fact]
-        public async Task Run_retuns_multiple_greetings()
-        {
-            var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
-
-            var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
-
-            Assert.Equal(3, result.Count);
-            Assert.Equal("Hello Tokyo!", result[0]);
-            Assert.Equal("Hello Seattle!", result[1]);
-            Assert.Equal("Hello London!", result[2]);
-        }
-    }
+    var result = HelloSequence.SayHello("John");
+    Assert.Equal("Hello John!", result);
 }
 
 ```
