@@ -11,7 +11,7 @@ ms.assetid: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: multiple
+ms.devlang: na
 ms.topic: overview
 ms.date: 03/02/2018
 ms.custom: mvc
@@ -20,28 +20,28 @@ ms.author: chwolf
 ---
 # What is Azure Service Bus?
 
-Microsoft Azure Service Bus is a fully managed enterprise integration message broker. It is most commonly used to decouple applications and services from each other. Service Bus provides a highly reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services, commonly called *endpoints*, via *messages*. You can also think of messages as data packages. A message can contain text (including JSON and XML) as well as binary data.
+Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and provides a highly reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services, commonly called *endpoints*, via *messages*. A message can contain text (including JSON and XML) as well as binary data. You can think of messages as data packages. 
 
-Some common messaging scenarios are:
+Some common Service Bus messaging scenarios are:
 
 * Transferring business data, such as sales or purchase orders, journals or inventory movements.
 * Improving reliability and scalability of applications and services through decoupling (applications do not have to be online at the same time).
-* Enable 1:*n* relations between publishers and subscribers.
+* Enable 1:*n* relationships between publishers and subscribers.
 
 ## Queues
 
-Messages sent to and received from the message broker are stored in *queues*. Queues enable you to store the messages until the receiving application is available to receive and process them.
+Messages sent to and received from the message broker are stored in *queues*. Queues enable you to store messages until the receiving application is available to receive and process them.
 
 ![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Messages in queues are ordered, and a timestamp is applied on arrival. Once accepted, the message is held safely in redundant, triple replicated storage, with intra-region disaster recovery backups.
+Messages in queues are ordered, and Service Bus applies a timestamp on arrival. Once accepted, the message is held safely in redundant, triple replicated storage, with intra-region disaster recovery backups.
+
+### Delivery modes
 
 Queues have two delivery modes: *pull* and *forward*.
 
 * [Pull](service-bus-quickstart-powershell.md) – delivers messages on request.
 * [Forward](service-bus-auto-forwarding.md) – delivers a message to a single forwarding destination.
-
-Service Bus has advanced features, discussed later in this article, that enable you to solve more complex messaging problems. For example, Service Bus supports enforcing first in, first out (FIFO) receiving via [sessions](message-sessions.md), chaining multiple entities with [auto-forwarding](service-bus-auto-forwarding.md), or [dead-letter queues](service-bus-dead-letter-queues.md) if messages cannot be processed for any reason. 
 
 ## Topics
 
@@ -52,6 +52,10 @@ You can also use *topics* to send and receive messages. While a queue is often u
 Topics can have multiple, independent subscriptions. A subscriber to a topic is eligible to receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
 
 In some scenarios you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional actions, filter specified messages, and set or modify message properties.
+
+## Advanced features
+
+Service Bus has advanced features, discussed in the next section, that enable you to solve more complex messaging problems. For example, Service Bus supports enforcing first in, first out (FIFO) receiving via [sessions](message-sessions.md), chaining multiple entities with [auto-forwarding](service-bus-auto-forwarding.md), or [dead-letter queues](service-bus-dead-letter-queues.md) if messages cannot be processed for any reason. 
 
 ## Key Service Bus features
 
