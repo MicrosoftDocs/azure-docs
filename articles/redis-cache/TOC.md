@@ -1,51 +1,62 @@
 # Overview
-##[Why use Redis cache](https://azure.microsoft.com/services/cache/)
-##[Explore premium tier features](cache-premium-tier-intro.md)
+## [About Azure Redis Cache](cache-overview.md)
 ## Scenarios
-###[Access items in a cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
-###[Configure high availability](https://azure.microsoft.com/pricing/details/cache/)
-###[Connect securely using SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
-###[Migrate from Managed Cache Service](cache-migrate-to-redis.md)
-###[Patterns & Practices Caching guidance](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
+### [Access items in a cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
+### [Connect securely using SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
+### [Patterns & Practices Caching guidance](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
+# Quickstarts
+## [Create]
+## [ASP.NET](cache-web-app-howto.md)
+## [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+## [Node](cache-nodejs-get-started.md)
+## [Java](cache-java-get-started.md)
+## [Python](cache-python-get-started.md)
 
-# Get started
-##[ASP.NET](cache-web-app-howto.md)
-##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-##[Node](cache-nodejs-get-started.md)
-##[Java](cache-java-get-started.md)
-##[Python](cache-python-get-started.md)
-##[Redis Cache FAQ](cache-faq.md)
+# Tutorials
+## [ASP.NET](cache-web-app-howto.md)
 
-# How to
+# Samples
+## [Redis cache samples](cache-redis-samples.md)
+## [Azure PowerShell - Deployment and Management](cache-howto-manage-redis-cache-powershell.md)
+## [Azure CLI - Deployment and Management](cli-samples.md)
+
+# How-to guides
 ## Plan
-###[Choose a cache tier](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
-###[Persist your cache with Redis data persistence](cache-how-to-premium-persistence.md)
-###[Secure your cache with a virtual network](cache-how-to-premium-vnet.md)
-###[Distribute your cache with clustering](cache-how-to-premium-clustering.md)
+### [Choose a cache tier](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+### [Persist your cache with Redis data persistence](cache-how-to-premium-persistence.md)
+### [Secure your cache with a virtual network](cache-how-to-premium-vnet.md)
+### [Distribute your cache with clustering](cache-how-to-premium-clustering.md)
+
 ## Automate
-###[Deploy and manage using Azure Powershell](cache-howto-manage-redis-cache-powershell.md)
-###[Deploy and Manage using Azure CLI](cli-samples.md)
-###[Provision a Redis Cache](cache-redis-cache-arm-provision.md)
-###[Provision a Web App with Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
+### [Deploy and manage using Azure Powershell](cache-howto-manage-redis-cache-powershell.md)
+### [Deploy and Manage using Azure CLI](cli-samples.md)
+### [Provision a Redis Cache](cache-redis-cache-arm-provision.md)
+### [Provision a Web App with Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
+
 ## Integrate with ASP.NET
-###[Session state provider](cache-aspnet-session-state-provider.md)
-###[Output cache provider](cache-aspnet-output-cache-provider.md)
+### [Session state provider](cache-aspnet-session-state-provider.md)
+### [Output cache provider](cache-aspnet-output-cache-provider.md)
+
 ## Manage
-###[Configure in Azure portal](cache-configure.md)
-###[Configure Geo-replication](cache-how-to-geo-replication.md)
-###[Import/Export data](cache-how-to-import-export-data.md)
-###[Reboot](cache-administration.md#reboot)
-###[Schedule updates](cache-administration.md#schedule-updates)
+### [Configure in Azure portal](cache-configure.md)
+### [Configure Geo-replication](cache-how-to-geo-replication.md)
+### [Import/Export data](cache-how-to-import-export-data.md)
+### [Reboot](cache-administration.md#reboot)
+### [Schedule updates](cache-administration.md#schedule-updates)
+
 ## Monitor and troubleshoot
-###[Monitor in Azure portal](cache-how-to-monitor.md)
-###[Troubleshoot cache issues](cache-how-to-troubleshoot.md)
-###[Set alerts for exceptions](cache-how-to-monitor.md#operations-and-alerts)
+### [Monitor in Azure portal](cache-how-to-monitor.md)
+### [Troubleshoot cache issues](cache-how-to-troubleshoot.md)
+### [Set alerts for exceptions](cache-how-to-monitor.md#operations-and-alerts)
+
 ## Scale
-###[Update to a different size and tier](cache-how-to-scale.md)
-###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
+### [Update to a different size and tier](cache-how-to-scale.md)
+### [Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
+
 ## Integrate with Spring Boot
-###[Use a Spring Boot Initializer app with Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
+### [Use a Spring Boot Initializer app with Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
+## [Migrate from In-Role Cache](cache-migrate-to-redis.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=redis-cache)
@@ -60,5 +71,11 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cache/)
-## [Redis cache samples](cache-redis-samples.md)
+## Best Practices
+### [Best Practices for Azure Redis Cache](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f)
+### [Azure Architecture Best Practices for Caching](https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json)
+###
+## [Redis Cache FAQ](cache-faq.md)
+## [Videos](https://www.youtube.com/results?search_query=azure+redis+cache)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azurecache&filter=alltypes&sort=lastpostdesc)
 
