@@ -37,7 +37,7 @@ To configure Azure AD integration with Palo Alto Networks - Admin UI, you need t
 - A Palo Alto Networks Next-Generation Firewall or Panorama (centralized management system for the firewalls)
 
 > [!NOTE]
-> When you test the steps in this tutorial, we recommend that you not use a production environment.
+> When you test the steps in this tutorial, we recommend that you do *not* use a production environment.
 
 To test the steps in this tutorial, follow these recommendations:
 
@@ -103,16 +103,13 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	
     c. In the **Reply URL** box, type the Assertion Consumer Service (ACS) URL that uses the following pattern: *https://\<Customer Firewall FQDN>:443/SAML20/SP/ACS*.
 	
-
     > [!NOTE] 
     > The preceding values are not real. Update them values with the actual Sign-On URL and Identifier. To obtain the values, contact [Palo Alto Networks - Admin UI Client support team](https://support.paloaltonetworks.com/support). 
  
-4. Palo Alto Networks - Admin UI application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+4. Because the Palo Alto Networks - Admin UI application expects the SAML assertions in a specific format, configure the claims as shown in the following image. Manage the attribute values in the **User Attributes** section of the **Application Integration** page by doing the following:
 	
-    ![Configure single sign-on](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
+    ![The SAML Token Attributes list](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
 	
-5. In the **User Attributes** section of the **Single sign-on** window, configure the SAML token attribute as shown in the preceding image and do the following:
-
    > [!NOTE]
    > Because the attribute values are examples only, map the appropriate values for *username* and *adminrole*. There is another optional attribute, *accessdomain*, which is used to restrict admin access to specific virtual systems on the firewall.
    >
@@ -142,23 +139,23 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
     > * [Device access domain for Admin UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
     >
 
-6. Under **SAML Signing Certificate**, select **Metadata XML**, and then select **Save**.
+5. Under **SAML Signing Certificate**, select **Metadata XML**, and then select **Save**.
 
     ![The Metadata XML download link](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
 
     ![The Save button](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-7. Open the Palo Alto Networks Firewall Admin UI as an administrator in a new window.
+6. Open the Palo Alto Networks Firewall Admin UI as an administrator in a new window.
 
-8. Select the **Device** tab.
+7. Select the **Device** tab.
 
     ![The Device tab](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-9. In the left pane, select **SAML Identity Provider**, and then select **Import** to import the metadata file.
+8. In the left pane, select **SAML Identity Provider**, and then select **Import** to import the metadata file.
 
     ![The Import metadata file button](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-10. In the **SAML Identify Provider Server Profile Import** window, do the following:
+9. In the **SAML Identify Provider Server Profile Import** window, do the following:
 
 	![The "SAML Identify Provider Server Profile Import" window](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
@@ -172,11 +169,11 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	
     e. To commit the configurations on the firewall, select **Commit**.
 
-11. In the left pane, select **SAML Identity Provider**, and then select the SAML Identity Provider Profile (for example, **AzureAD Admin UI**) that you created in the preceding step. 
+10. In the left pane, select **SAML Identity Provider**, and then select the SAML Identity Provider Profile (for example, **AzureAD Admin UI**) that you created in the preceding step. 
 
     ![The SAML Identity Provider Profile](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
 
-12. In the **SAML Identity Provider Server Profile** window, do the following:
+11. In the **SAML Identity Provider Server Profile** window, do the following:
 
     ![The "SAML Identity Provider Server Profile" window](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
@@ -184,20 +181,20 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
   
     b. Select **OK**.
 
-13. On the Palo Alto Networks Firewall's Admin UI, select **Device**, and then select **Admin Roles**.
+12. On the Palo Alto Networks Firewall's Admin UI, select **Device**, and then select **Admin Roles**.
 
-14. Select the **Add** button. 
+13. Select the **Add** button. 
 
-15. In the **Admin Role Profile** window, in the **Name** box, provide a name for the administrator role (for example, **fwadmin**).  
+14. In the **Admin Role Profile** window, in the **Name** box, provide a name for the administrator role (for example, **fwadmin**).  
     The administrator role name should match the SAML Admin Role attribute name that was sent by the Identity Provider. The administrator role name and value were created in step 5.
 
     ![Configure Palo Alto Networks Admin Role](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-16. On the Firewall's Admin UI, select **Device** and select **Authentication Profile**.
+15. On the Firewall's Admin UI, select **Device** and select **Authentication Profile**.
 
-17. Select the **Add** button. 
+16. Select the **Add** button. 
 
-18. In the **Authentication Profile** window, do the following: 
+17. In the **Authentication Profile** window, do the following: 
 
     ![The "Authentication Profile" window](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
 
@@ -220,17 +217,17 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
     g. Select **OK**.
 
-19. To enable administrators to use SAML SSO by using Azure, select **Device** > **Setup**. In the **Setup** pane, select the **Management** tab and then, under **Authentication Settings**, select the **Settings** ("gear") button. 
+18. To enable administrators to use SAML SSO by using Azure, select **Device** > **Setup**. In the **Setup** pane, select the **Management** tab and then, under **Authentication Settings**, select the **Settings** ("gear") button. 
 
  ![The Settings button](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
-20. Select the SAML Authentication profile that you created in step 18 (for example, **AzureSAML_Admin_AuthProfile**).
+19. Select the SAML Authentication profile that you created in step 17 (for example, **AzureSAML_Admin_AuthProfile**).
 
  ![The Authentication Profile field](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-21. Select **OK**.
+20. Select **OK**.
 
-22. To commit the configuration, select **Commit**.
+21. To commit the configuration, select **Commit**.
 
 
 > [!TIP]
