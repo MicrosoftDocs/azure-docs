@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Create an Azure Container Registry using PowerShell
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell.
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -70,21 +70,21 @@ To push an image to an Azure Container registry, you must first have an image. I
 docker pull microsoft/aci-helloworld
 ```
 
-Tag the image using the [docker tag][docker-tag] command. 
+The image must be tagged with the ACR login server name. Use the [docker tag][docker-tag] command to do this. 
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"
 docker tag microsoft/aci-helloworld $image
 ```
 
-Finally, use [docker push][docker-push] to push the images to the ACR instance.
+Finally, use [docker push][docker-push] to push the image to ACR.
 
 ```powershell
 docker push $image
 ```
 
 ## Deploy image to ACI
-To deploy to an instance from the registry we will need to convert our Registry Credential to a PSCredential.
+To deploy the image as a container instance in Azure Container Instance (ACI) first convert the registry credential to a PSCredential.
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
@@ -98,7 +98,7 @@ New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Imag
 emoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
 ```
 
-You should get an intial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running repeat the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup].  It should take less than a minute.
+You should get an initial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check to see when it is running repeat the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]. It should take less than a minute.
 
 ```powershell
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
@@ -107,17 +107,17 @@ You should get an intial response back from Azure Resource Manager with details 
 Example output: `Succeeded`
 
 ## View the application
-Once the deployment to ACI is successful, retrieve the containers public IP address with the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command:
+Once the deployment to ACI is successful, retrieve the container's public IP address with the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command:
 
 ```powershell
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
 ```
 
-Example output: `"13.88.176.27"`
+Example output: `"13.72.74.222"`
 
-To see the running application, navigate to the public IP address in your favorite browser.  It should look something like this:
+To see the running application, navigate to the public IP address in your favorite browser. It should look something like this:
 
-![Hello world app in the browser][aci-app-browser]
+![Hello world app in the browser][qs-portal-15]
 
 ## Clean up resources
 
@@ -144,7 +144,7 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 
 <!-- Links - internal -->
 [Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
-[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
+[Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
 
 <!-- IMAGES> -->
-[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png

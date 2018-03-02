@@ -11,10 +11,9 @@ ms.date: 02/28/2018
 ms.author: marsma
 ms.custom: mvc
 ---
-
 # Create a container registry using the Azure portal
 
-An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal.
+An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
 
 To complete this quickstart, you must have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
@@ -102,15 +101,16 @@ In this example, we select the **aci-helloworld** repository, and we can see the
 ![Creating a container registry in the Azure portal][qs-portal-09]
 
 ## Deploy image to ACI
-In order to deploy to an instance from the registry we need to navigate to the repository (aci-helloworld), and then click on the elipses next to v1.
+
+In order to deploy to an instance from the registry we need to navigate to the repository (aci-helloworld), and then click on the ellipsis next to v1.
 
 ![Launching an Azure Container Instance from the portal][qs-portal-10]
 
-A context menu will appear, select Run Instance
+A context menu will appear, select **Run instance**:
 
 ![Launch ACI context menu][qs-portal-11]
 
-Fill in container name, ensure the correct subscription is selected, select the existing Resource Group: "myResourceGroup" and then click OK to launch the Azure Container Instance.
+Fill in container name, ensure the correct subscription is selected, select the existing **Resource group**: "myResourceGroup" and then click OK to launch the Azure Container Instance.
 
 ![Launch ACI deployment options][qs-portal-12]
 
@@ -123,6 +123,7 @@ Select the mycontainer-myc1 container group to display the container group prope
 ![ACI container details][qs-portal-14]
 
 ## View the application
+
 Once the container moves to the **Running** state, navigate to the IP address you noted in the previous step to display the application hosted in your new container.
 
 ![Hello world app in the browser][qs-portal-15]

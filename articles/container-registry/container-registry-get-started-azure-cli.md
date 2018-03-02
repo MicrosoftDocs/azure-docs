@@ -11,12 +11,11 @@ ms.date: 02/28/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ---
-
 # Create a container registry using the Azure CLI
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
 
-This quickstart requires that you are running the Azure CLI version 2.0.25 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli].
+This quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli].
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
@@ -32,7 +31,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-In this quickstart a *Basic* registry is created. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs][container-registry-skus].
+In this quickstart you create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -40,7 +39,7 @@ Create an ACR instance using the [az acr create][az-acr-create] command.
 
 The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
-```azurecli
+```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
 ```
 
@@ -67,13 +66,13 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Throughout the rest of this quickstart `<acrName>` denotes a placeholder for the container registry name.
+Throughout the rest of this quickstart `<acrName>` is a placeholder for the container registry name.
 
 ## Log in to ACR
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login][az-acr-login] command.
 
-```azurecli
+```azurecli-interactive
 az acr login --name <acrName>
 ```
 
@@ -89,7 +88,7 @@ docker pull microsoft/aci-helloworld
 
 Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name of the ACR instance.
 
-```azurecli
+```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
@@ -109,7 +108,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 
 The following example lists the repositories in a registry:
 
-```azurecli
+```azurecli-interactive
 az acr repository list --name <acrName> --output table
 ```
 
@@ -123,7 +122,7 @@ aci-helloworld
 
 The following example lists the tags on the **aci-helloworld** repository.
 
-```azurecli
+```azurecli-interactive
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
@@ -136,37 +135,40 @@ v1
 ```
 
 ## Deploy image to ACI
-In order to deploy to an instance from the created registry the acr password must be retrieved. Step one in this process is setting admin enabled to true on the registry.  You can do that with the following command:
 
-```azurecli
+In order to deploy a container instance from the registry you created, you must provide the registry credentials when you deploy it. In production scenarios you should use a [service principal][container-registry-auth-aci] for container registry access, but to keep this quickstart brief, enable the admin user on your registry with the following command:
+
+```azurecli-interactive
 az acr update --name <acrName> --admin-enabled true
 ```
 
-Once admin is enabled retrieve the password with this command:
-```azurecli
+Once admin is enabled the username is the same as your registry name and you can retrieve the password with this command:
+
+```azurecli-interactive
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace <acrLoginServer> and <acrPassword> with the values you obtained from previous commands.
+To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace <acrName>, <acrLoginServer>, and <acrPassword> with the values you obtained from previous commands.
 
-```azurecli
-az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+```azurecli-interactive
+az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-You should get an intial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running repeat the [az container show][az-container-show].  It should take less than a minute.
+You should get an initial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running, repeat the [az container show][az-container-show]. It should take less than a minute.
 
-```azurecli
+```azurecli-interactive
 az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
 ```
 
 ## View the application
-Once the deployment to ACI is successful, retrieve the containers public IP address with the [az container show][az-container-show] command:
 
-```azurecli
-az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.ip
+Once the deployment to ACI is successful, retrieve the container's FQDN with the [az container show][az-container-show] command:
+
+```azurecli-interactive
+az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
 ```
 
-Example output: `"13.88.176.27"`
+Example output: `"aci-demo.eastus.azurecontainer.io"`
 
 To see the running application, navigate to the public IP address in your favorite browser.
 
@@ -182,7 +184,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]
@@ -208,3 +210,4 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [azure-container-show]: /cli/azure/container#az_container_show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-auth-aci]: container-registry-auth-aci.md
