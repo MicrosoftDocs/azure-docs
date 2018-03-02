@@ -314,7 +314,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
 |Execution environment of the custom logic      |Windows or Linux      |Windows (.Net Framework 4.5.2)      |
 |Executing scripts      |Support executing scripts directly (for example "cmd /c echo hello world" on Windows VM)      |Requires implementation in the .Net DLL      |
 |Dataset required      |Optional      |Required to chain activities and pass information      |
-|Pass information from activity to custom logic      |Through ReferenceObjects (LinkedServices and Datasets) and ExtendedProperties (custom properties) and      |Through ExtendedProperties (custom properties), Input, and Output Datasets      |
+|Pass information from activity to custom logic      |Through ReferenceObjects (LinkedServices and Datasets) and ExtendedProperties (custom properties)      |Through ExtendedProperties (custom properties), Input, and Output Datasets      |
 |Retrieve information in custom logic      |Parse activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |Through .Net SDK (.Net Frame 4.5.2)      |
 |Logging      |Writes directly to STDOUT      |Implementing Logger in .Net DLL      |
 
