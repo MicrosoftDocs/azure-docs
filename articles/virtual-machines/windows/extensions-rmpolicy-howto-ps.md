@@ -33,7 +33,7 @@ In this example, we are going to block the installation of the VM agent that all
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension" `
+$definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' 

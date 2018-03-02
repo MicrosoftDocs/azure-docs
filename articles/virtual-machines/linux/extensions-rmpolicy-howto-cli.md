@@ -19,16 +19,16 @@ ms.author: danis
 
 # How to use Azure Policy to Restrict Extensions Installation on VMs
 
-If you want to prevent extension installation, or certain extensions being install to your VMs, you can use an Azure policy to restrict VMs having specific or all extensions installed. Policies are scoped to a resource group. 
+If you want to prevent the use or installation of certain extension on your Linux VMs, you can create an Azure policy using the CLI to restrict extensions for VMs within a resource group. 
 
 
 This tutorial requires that you are running the Azure CLI version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create a rules file
 
-In order to restrict what extensions can be installed, you need to have a rule to provide the logic to identify the extension.
+In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
 
-This example shows you how to create the rules file in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
+This example shows you how to create a rules file for Linux VMs in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
@@ -48,7 +48,7 @@ Copy and paste the following .json into the file.
 			},
 			{
 				"field": "Microsoft.OSTCExtensions/virtualMachines/extensions/publisher",
-				"equals": "Microsoft.Compute"
+				"equals": "Microsoft.OSTCExtensions"
 			},
 			{
 				"field": "Microsoft.OSTCExtensions/virtualMachines/extensions/type",
@@ -67,12 +67,14 @@ When you are done, hit the **Esc** key and then type **:wq** to save and close t
 
 ## Create parameters file
 
-You also need a parameters file that creates an array structure for you to use for passing in a list of the extensions to block.
+You also need a [parameters](/azure/azure-policy/policy-definition#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
+
+This example shows you how to create a parameters file for Linux VMs in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
 
 In the [bash Cloud Shell](https://shell.azure.com/bash), type:
 
 ```bash 
-vim '~/clouddrive/azurepolicy.parameters.json
+vim ~/clouddrive/azurepolicy.parameters.json
 ```
 
 Copy and paste the following .json into the file.
@@ -100,7 +102,7 @@ In this example, the rules and parameters are the files you created and stored a
 
 ```azurecli-interactive
 az policy definition create \
-   --name 'not-allowed-vmextension' \
+   --name 'not-allowed-vmextension-linux' \
    --display-name 'Block VM Extensions' \
    --description 'This policy governs which VM extensions that are blocked.' \
    --rules '~/clouddrive/azurepolicy.rules.json' \
@@ -118,9 +120,9 @@ Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) 
 
 ```azurecli-interactive
 az policy assignment create \
-   --name 'not-allowed-vmextension' \
+   --name 'not-allowed-vmextension-linux' \
    --scope /subscriptions/<subscription Id>/resourceGroups/myResourceGroup \
-   --policy "not-allowed-vmextension" \
+   --policy "not-allowed-vmextension-linux" \
    --params '{
 		"notAllowedExtensions": {
 			"value": [
@@ -158,11 +160,11 @@ az vm user update \
 
 ## Removing the assignment
 ```azurecli-interactive
-az policy assignment delete --name 'not-allowed-vmextension' --resource-group myResourceGroup
+az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-group myResourceGroup
 ```
 ## Removing the policy
 ```azurecli-interactive
-az policy definition delete --name 'not-allowed-vmextension'
+az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
 
