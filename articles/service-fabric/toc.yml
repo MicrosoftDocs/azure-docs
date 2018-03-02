@@ -139,6 +139,8 @@
       href: service-fabric-application-and-service-manifests.md
     - name: Hosting model
       href: service-fabric-hosting-model.md
+    - name: Application and service security
+      href: service-fabric-application-and-service-security.md
     - name: Service state
       href: service-fabric-concepts-state.md
     - name: Service partitioning
