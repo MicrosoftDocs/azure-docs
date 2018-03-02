@@ -19,7 +19,7 @@ ms.author: danis
 
 # How to use Azure Policy to Restrict Extensions Installation on VMs
 
-If you want to prevent extension installation, or certain extensions being install to your VMs, you can use Azure Resource Manager to restrict VMs having specific or all extensions installed, this can be scoped to a resource group. 
+If you want to prevent extension installation, or certain extensions being install to your VMs, you can use an Azure policy to restrict VMs having specific or all extensions installed. Policies are scoped to a resource group. 
 
 
 
@@ -92,7 +92,7 @@ $assignment
 
 ## Test the policy
 
-The fastest way to test, is to try to reset the password on a VM. The following should fail with the message "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy."
+To test the policy, try to reset the password on a VM. The following should fail with the message "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy."
 
 ```
 Set-AzureRmVMAccessExtension `

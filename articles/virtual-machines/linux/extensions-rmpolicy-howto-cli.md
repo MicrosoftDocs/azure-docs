@@ -19,7 +19,7 @@ ms.author: danis
 
 # How to use Azure Policy to Restrict Extensions Installation on VMs
 
-If you want to prevent extension installation, or certain extensions being install to your VMs, you can use Azure Resource Manager to restrict VMs having specific or all extensions installed, this can be scoped to a resource group. 
+If you want to prevent extension installation, or certain extensions being install to your VMs, you can use an Azure policy to restrict VMs having specific or all extensions installed. Policies are scoped to a resource group. 
 
 
 This tutorial requires that you are running the Azure CLI version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -67,7 +67,7 @@ When you are done, hit the **Esc** key and then type **:wq** to save and close t
 
 ## Create parameters file
 
-You also need a parameters file that creates a array structure for you to use for passing in a list of the extensions to block.
+You also need a parameters file that creates an array structure for you to use for passing in a list of the extensions to block.
 
 In the [bash Cloud Shell](https://shell.azure.com/bash), type:
 
@@ -133,7 +133,8 @@ az policy assignment create \
 
 ## Test the policy
 
-Create a VM to test the policy.
+Test the policy by creating a new VM and trying to add a new user.
+
 
 ```azurecli-interactive
 az vm create \
