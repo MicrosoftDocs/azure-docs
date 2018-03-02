@@ -1,6 +1,6 @@
 ---
-title: Deploy an Azure Service Fabric application to a Cluster from Visual Studio | Microsoft Docs
-description: Learn how to deploy an application to a Cluster from Visual Studio
+title: Deploy an Azure Service Fabric application to a cluster from Visual Studio | Microsoft Docs
+description: Learn how to deploy an application to a cluster from Visual Studio
 services: service-fabric
 documentationcenter: .net
 -author: mikkelhegn 
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Tutorial: deploy an application to a Service Fabric cluster in Azure
+# Tutorial: Deploy an application to a Service Fabric cluster in Azure
 This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to a new cluster in Azure directly from Visual Studio.
 
 In this tutorial you learn how to:
@@ -42,8 +42,8 @@ Before you begin this tutorial:
 - [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
-## Download the Voting sample application
-If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
+## Download the voting sample application
+If you did not build the voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -60,7 +60,7 @@ You have two options for deployment:
 
 This tutorial will follow steps to create a cluster from Visual Studio. For the other options, you can copy and paste your connection endpoint or choose it from your subscription.
 > [!NOTE]
-> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and Party Clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
+> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### Deploy the app to the Service Fabric cluster
 
