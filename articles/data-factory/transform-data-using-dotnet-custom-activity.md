@@ -297,7 +297,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
 
 ## Difference between Custom Activity in Azure Data Factory version 2 and (Custom) DotNet Activity in Azure Data Factory version 1
 
-  In Azure Data Factory version 1, you implement (Custom) DotNet Activity code by creating a .Net Class Library project with a class that implements the Execute method of the IDotNetActivity interface. The Linked Services, Datasets, and Extended Properties in (Custom) DotNet Activity JSON payload are passed to the Execution Method as strong typed objects. For details, refer to [(Custom) DotNet in version 1](v1/data-factory-use-custom-activities.md). Because of that, your custom code needs to be written in .Net Framework 4.5.2 and be executed on Windows-based Azure Batch Pool nodes. 
+  In Azure Data Factory version 1, you implement (Custom) DotNet Activity code by creating a .Net Class Library project with a class that implements the Execute method of the IDotNetActivity interface. The Linked Services, Datasets, and Extended Properties in (Custom) DotNet Activity JSON payload are passed to the Execution Method as strong typed objects. For details, refer to [(Custom) DotNet in version 1](v1/data-factory-use-custom-activities.md). Because of this implementation, your custom code needs to be written in .Net Framework 4.5.2 and be executed on Windows-based Azure Batch Pool nodes. 
 
   In Azure Data Factory V2 Custom Activity, you are not required to implement a .Net interface. You can now directly run commands, scripts, and run your own custom code complied as executable. You achieve so by specifying the Command property together with the folderPath property. Custom Activity uploads the executable and dependencies in folderpath and executes the command for you. 
 
@@ -328,7 +328,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
    - Microsoft.Azure.Management.DataFactories NuGet package is no longer required. 
    - Compile your code, upload executable, and dependencies to Azure Storage and define the path in folderPath property. 
 
-For a complete sample of how the end to end DLL and pipeline sample described in Data Factory version 1 document [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewrite into Data Factory version 2 Custom Activity style. Refer to a [Data Factory version 2 Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+For a complete sample of how the end to end DLL and pipeline sample described in Data Factory version 1 document [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewritten into Data Factory version 2 Custom Activity style. Refer to a [Data Factory version 2 Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## Auto-scaling of Azure Batch
 You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks. 
