@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -286,91 +286,6 @@ $session | Remove-PSSession
 The SQL resource provider is a locked down virtual machine. Updating the resource provider virtual machine's security can be done through the PowerShell Just Enough Administration (JEA) endpoint _DBAdapterMaintenance_.
 
 A script is provided with the RP's installation package to facilitate these operations.
-
-### Update secrets
-There are three operations that can be performed through this JEA endpoint relating to secrets:
-* Update the external SSL certificate used by the admin and tenant portal extensions
-* Update the RP virtual machine local administrator password
-* Update the password for the diagnostic user
-
-You can perform any or all of these operations at the same time.
-
-You will need the RP virtual machine's username and current password, set at installation time, and the password for the cloudadmin account. You will also need the IP addresses of the  privileged endpoint and the RP virtual machine to access the JEA endpoint.
-
-```
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
-$domain = "AzureStack"
-
-# For integrated systems, use the IP address of one of the ERCS virtual machines
-$privilegedEndpoint = "AzS-ERCS01"
-
-# Set credentials for the new Resource Provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
-    ("sqlrpadmin", $vmLocalAdminPass)
-
-# And the cloudadmin credential required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$CloudAdminCreds = New-Object System.Management.Automation.PSCredential `
-    ("$domain\cloudadmin", $CloudAdminPass)
-
-# The service admin account (can be Azure AD or AD FS).
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
-
-# Change the following as appropriate if you will be updating the SSL certificate
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-
-# Point to the directory for the new SSL certificate.
-$CertPath = 'C:\TEMP\SQLRP'
-
-# New diagnostic user password
-$DiagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-
-
-```
-
-Example 1:  Change all Secrets at the same time
-```
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $CloudAdminCreds -AzCredential $AdminCreds `
-    -diagUserPassWord $DiagPass -DependencyFilesLocalPath $certPath `
-    -DefaultSSLCertificatePassword $certPasswd -VMLocalCredential $AdminCreds
-```
-
-Example 2: Change Diagnostic user password only
-```
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $CloudAdminCreds -AzCredential $adminCreds `
-    -diagUserPassWord $DiagPass 
-```
-
-Example 3:  Change VM local administrator account password
-```
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $CloudAdminCreds -AzCredential $adminCreds `
-    -VMLocalCredential $localCreds
-```
-
-Example 4:  Change SSL Certificate
-```
-.\SecretRotationSQLProvider.ps1 -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $CloudAdminCreds -AzCredential $adminCreds `
-    -DependencyFilesLocalPath $CertPath -DefaultSSLCertificatePassword $PfxPass 
-```
-
-SecretRotationSQLProvider.ps1 parameters
-
-| Parameter name | Description | Comment or default value |
-| --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
-| **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
-| **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. |  |
-| **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
-| **DiagUserPassord** | New password for the diagnostic endpoint user account | _Optional_ |
-| **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory | _Required if changing the certificate_ |
-| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required if changing the certificate_ |
 
 ### Update the virtual machine operating system
 There are several ways to update the Windows Server VM:
