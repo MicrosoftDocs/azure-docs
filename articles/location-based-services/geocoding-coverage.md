@@ -79,8 +79,8 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Venezuela|VE| | |●|●|●|
 |Virgin Islands - British|VG| | | |●|●|
 |Virgin Islands - United States|VI|●|●|●|●|●|
-|**Asia Pacific**|
 ||||||||
+|**Asia Pacific**|
 |American Samoa|AS| | |●|●|●|
 |Australia|AU|●|●|●|●|●|
 |Bangladesh|BD| | | |●|●|
@@ -139,7 +139,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Vanuatu|VU| | | |●|●|
 |Vietnam|VN|●|●|●|●|●|
 |Wallis and Futuna Islands, Territory of the|WF| | | |●|●|
-|--- |--- |--- |--- |--- |--- |--- |
+||||||||
 |**Europe**|
 |Albania|AL| | |●|●|●|
 |Andorra|AD|●|●|●|●|●|
@@ -204,7 +204,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |United Kingdom|GB|●|●|●|●|●|
 |Uzbekistan|UZ| | | |●|●|
 |Vatican City|VA| | |●|●|●|
-|--- |--- |--- |--- |--- |--- |--- |
+||||||||
 |**Middle East Africa**|
 |Afghanistan|AF| | | |●|●|
 |Algeria|DZ| | |●|●|●|
