@@ -19,27 +19,21 @@ ms.author: danis
 
 # How to use Azure Policy to Restrict Extensions Installation on VMs
 
-If you want to prevent extension installation, or certain extensions being install to your VMs, you can use an Azure policy to restrict VMs having specific or all extensions installed. Policies are scoped to a resource group. 
+If you want to prevent the use or installation of certain extension on your Windows VMs, you can create an Azure policy using PowerShell to restrict extensions for VMs within a resource group. 
 
+## Create rules file
 
+In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
 
+This example shows you how to create a rules file for Windows VMs in Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
-## Create the policy
+In a [Cloud Shell](https://shell.azure.com/powershell), type:
 
-A policy definition is an object used to store the configuration that you would like to use. Create a policy definition using the [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet.
-
-In this example, we are going to block the installation of the VM agent that allows you to reset passwords and the Custom Script Extension that can be used to run scripts and commands on a VM. the policy defines the type and publisher of the extensions and refers to **parameters** for defining exactly which extensions should be blocked.
-
-
-
-```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension-windows" `
-   -DisplayName "Not allowed VM Extensions" `
-   -description "This policy governs which VM extensions that are explicitly denied."   `
-   -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' 
+```bash 
+vim $home/clouddrive/rules.json
 ```
 
-The following .json is what is stored as **azurepolicy.rules.json** in GitHub and used for **-Policy** above. If you are creating your own policy, you can use this as a starting point and store it in your own location.
+Copy and paste the following .json into the file.
 
 ```json
 {
@@ -65,11 +59,58 @@ The following .json is what is stored as **azurepolicy.rules.json** in GitHub an
 }
 ```
 
+When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
+
+## Create parameters file
+
+You also need a [parameters](/azure/azure-policy/policy-definition#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
+
+This example shows you how to create a parameters file for VMs in Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
+
+In [Cloud Shell](https://shell.azure.com/powershell), type:
+
+```bash 
+vim ~/clouddrive/parameters.json
+```
+
+Copy and paste the following .json into the file.
+
+```json
+{
+	"notAllowedExtensions": {
+		"type": "Array",
+		"metadata": {
+			"description": "The list of extensions that will be denied. Example: BGInfo, CustomScriptExtension, JsonAADDomainExtension, VMAccessAgent.",
+			"strongType": "type",
+			"displayName": "Denied extension"
+		}
+	}
+}
+```
+
+When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
+
+## Create the policy
+
+A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create a policy definition using the [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet.
+
+ The policy rules and parameters are the files you created and stored as .json files in your cloud shell.
+
+
+```azurepowershell-interactive
+$definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension-windows" `
+   -DisplayName "Not allowed VM Extensions" `
+   -description "This policy governs which VM extensions that are explicitly denied."   `
+   -Policy '$home/clouddrive/rules.json' `
+   -Parameter '$home/clouddrive/parameters.json
+```
+
+
+
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access Agent or Custom Script extensions. For Linux VMs, the custom script extension is called **CustomScriptForLinux** and the Vm access extension is **VMAccessForLinux**
-
+This example assigns the policy to a resource group using [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access Agent or Custom Script extensions. 
 
 Use the [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet to get your subscription ID to use in place of the one in the example.
 
