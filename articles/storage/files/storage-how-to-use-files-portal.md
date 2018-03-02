@@ -130,5 +130,5 @@ When you're done, you can delete the resource group, which deletes the storage a
 
 ## Next steps
 
-You can mount a file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [Mac](storage-how-to-use-files-mac.md) operating systems.
+You can mount a file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md) operating systems.
 
