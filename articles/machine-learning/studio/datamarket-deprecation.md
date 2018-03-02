@@ -30,11 +30,3 @@ The Cognitive Services Text Analytics API supports all the scenarios that the ea
 language detection and topic detection.
 
 
-## Recommendations API 
-
-Previous DataMarket Recommendations API customers should start using the [Cognitive Services Recommendations API](https://www.microsoft.com/cognitive-services/recommendations-api).
-The Cognitive Services Recommendations API supports all the scenarios that the earlier DataMarket version did, as well as additional scenarios, such as 
-batch support and better offline metrics to evaluate the quality of models. 
-
-For more information about how to start using the Cognitive Services Recommendations API, see [Migrate to Azure Cognitive Services
-Recommendations API](http://aka.ms/recomigrate).
