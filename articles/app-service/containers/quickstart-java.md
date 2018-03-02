@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/java-docs-hello-world
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-java.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app.md)]
 
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
@@ -99,3 +99,5 @@ The Java sample code is running in a web app with built-in image.
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
+
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
