@@ -27,11 +27,25 @@ The following versions are supported for the Azure File Sync Agent:
 
 | Version | Release date | Support end date |
 |----------------------|--------------|------------------|
-| 2.0.11.0 | February 8, 2018 | Currently supported |
-| 1.1.0.0 | September 26, 2017 | July 30, 2018 |
+| 2.1.0.0 | 2018-02-28 | Current version |
+| 2.0.11.0 | 2018-02-08 | Current version |
+| 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### Azure File Sync Agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 2.1.0.0
+The following release notes are for agent version 2.1.0 released on February 28th, 2018. These are additive to the release notes below for version 2.0.11.0
+
+Unique changes to this monthly update include:
+- Improvement in cluster failover handling.
+- Improvement in handling tiered files to be more reliable.
+- Allow agent installation on domain controller machines added to a 2008R2 domain environment.
+- Fix excessive diagnostics generation on servers with many files.
+- Improvement in error handling for session failures.
+- Improvement in error handling for file transfer issues.
+- Change default interval to run cloud tiering when enabled on server endpoint to one hour. 
+- Temporary blocking moving Azure File Sync (Storage Sync Service) resources to a new Azure subscription
 
 ## Agent version 2.0.11.0
 The following release notes are for version 2.0.11.0 of the Azure File Sync Agent (released February 9, 2018). 

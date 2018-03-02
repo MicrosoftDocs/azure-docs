@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -90,7 +90,7 @@ First, get the ID of the service principal configured for AKS. Update the resour
 CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
-Get the ACR registry resource id. Update the `--name` to the name of your ACR registry and the resource group to the resource group where the ACR registry is located.
+Get the ACR registry resource id. Update the regsitry name to that of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
 ```azurecli
 ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
@@ -99,7 +99,7 @@ ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --que
 Create the role assignment, which grants the proper access.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
 ## Next steps

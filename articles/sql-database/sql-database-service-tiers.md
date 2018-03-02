@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
 
 ---
@@ -32,8 +32,8 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
 |Backup retention|7 days|35 days|35 days|
 |CPU|Low|Low, Medium, High|Medium, High|
-|IO throughput|Low	| Medium | Order of magnitude higher than Standard|
-|IO latency|Higher than Premium|Higher than Premium|Lower than Basic and Standard|
+|IO throughput (approximate) |2.5 IOPS per DTU	| 2.5 IOPS per DTU | 48 IOPS per DTU|
+|IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
 |Columnstore indexing and in-memory OLTP|N/A|N/A|Supported|
 |||||
 

@@ -47,6 +47,7 @@ An in-depth explanation of Vowpal Wabbit arguments can be found [here](https://g
   - Windows: Use `.msi` installer [here](https://github.com/eisber/vowpal_wabbit/releases)
   - Other platforms: Source code [here](https://github.com/JohnLangford/vowpal_wabbit/releases)
 - Python 3 (installed and on your path)
+- numpy (use the package manager of your choice)
 - `Microsoft/mwt-ds` repository (clone from [here](https://github.com/Microsoft/mwt-ds))
 - Decision Service JSON log file: By default, the base command includes `--dsjson`, which enables Decision Service JSON parsing of the input data file. An example of this format can be found [here](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json)
 

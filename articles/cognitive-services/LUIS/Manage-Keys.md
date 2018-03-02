@@ -9,7 +9,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/02/2018
 ms.author: v-geberr
 ---
 
@@ -26,7 +26,7 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 <a name="programmatic-key" ></a>
 ## Authoring key
 
-An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps. The authoring key is provided to author your LUIS app or to test endpoint queries. 
+An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The authoring key is provided to author your LUIS app or to test endpoint queries. 
 
 To find the authoring Key, log in to [LUIS][LUIS] and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
@@ -57,7 +57,8 @@ Publishing regions are different from authoring regions. Make sure you create an
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
 
-## Create and use an endpoint key
+<a name="create-and-use-an-endpoint-key"></a>
+## Assign endpoint key
 On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the authoring (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).

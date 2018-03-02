@@ -57,8 +57,12 @@
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
-      - name: Get PKI certificates for Azure Stack deployment
+      - name: Get Azure Stack PKI certificates
         href: azure-stack-get-pki-certs.md
+      - name: Prepare Azure Stack PKI certificates
+        href: prepare-pki-certs.md
+      - name: Validate Azure Stack PKI certificates
+        href: validate-pki-certs.md
     - name: Identity integration
       href: azure-stack-integrate-identity.md
     - name: Register Azure Stack
