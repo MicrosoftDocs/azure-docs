@@ -230,9 +230,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |French Southern and Antarctic Lands|TF| | | |●|●|
 |Gabon|GA| | |●|●|●|
 |Gambia|GM| | | |●|●|
-
 |Gaza|XG3| | | |●|●|
-
 |Ghana|GH| | |●|●|●|
 |Guinea|GN| | |●|●|●|
 |Guinea-Bissau|GW| | |●|●|●|
