@@ -16,7 +16,7 @@ ms.date: 02/28/2018
 # Tutorial: Classify Iris part 2 - Build a model
 Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
-This tutorial is part two of a three-part series. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
+This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
 
 > [!div class="checklist"]
 > * Use Azure Machine Learning Workbench.
