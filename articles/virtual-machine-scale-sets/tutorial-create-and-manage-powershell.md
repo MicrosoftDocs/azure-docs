@@ -39,7 +39,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine scale set. Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
 
- ```azurepowershell-interactive 
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
@@ -48,23 +48,23 @@ The resource group name is specified when you create or modify a scale set throu
 
 ## Create a scale set
 First, set an administrator username and password for the VM instances with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
-  
+
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). To distribute traffic to the individual VM instances, a load balancer is also created.
+Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet" `
-    -Location "EastUS" `
-    -VirtualNetworkName "myVnet" `
-    -SubnetName "mySubnet" `
-    -PublicIpAddressName "myPublicIPAddress" `
-    -LoadBalancerName "myLoadBalancer" `
-    -Credential $cred
+  -ResourceGroupName "myResourceGroup" `
+  -VMScaleSetName "myScaleSet" `
+  -Location "EastUS" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -Credential $cred
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances.
@@ -109,13 +109,15 @@ Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Na
 The following example output shows the instance name, public IP address of the load balancer, and port number that the NAT rules forward traffic to:
 
 ```powershell
-Name        Protocol FrontendPort BackendPort
-----        -------- ------------ -----------
-myRDPRule.0 Tcp             50001        3389
-myRDPRule.1 Tcp             50002        3389
+Name             Protocol FrontendPort BackendPort
+----             -------- ------------ -----------
+myScaleSet3389.0 Tcp             50001        3389
+myScaleSet5985.0 Tcp             51001        5985
+myScaleSet3389.1 Tcp             50002        3389
+myScaleSet5985.1 Tcp             51002        5985
 ```
 
-The *Name* of the rule aligns with the name of the VM instance as shown in a previous [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) command. For example, to connect to VM instance *0*, you use *myRDPRule.0* and connect to port *50001*. To connect to VM instance *1*, use the value from *myRDPRule.1* and connect to port *50002*.
+The *Name* of the rule aligns with the name of the VM instance as shown in a previous [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) command. For example, to connect to VM instance *0*, you use *myScaleSet3389.0* and connect to port *50001*. To connect to VM instance *1*, use the value from *myScaleSet3389.1* and connect to port *50002*. To use PowerShell remoting, you connect to the appropriate VM instance rule for *TCP* port *5985*.
 
 View the public IP address of the load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
@@ -143,19 +145,19 @@ Once logged in to the VM instance, you could perform some manual configuration c
 ## Understand VM instance images
 When you defined a scale set configuration with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) in a previous step, you used a Windows Server 2016 Datacenter image. The Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) command.
 
- ```azurepowershell-interactive 
+```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
 To view a list of images for a given publisher, use [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). The image list can also be filtered by `-PublisherName` or `–Offer`. In the following example, the list is filtered for all images with publisher name of *MicrosoftWindowsServer* and an offer that matches *WindowsServer*:
 
- ```azurepowershell-interactive 
+```azurepowershell-interactive
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
 The following example output shows all of the available Windows Server images:
 
- ```powershell
+```powershell
 Skus                                  Offer         PublisherName          Location
 ----                                  -----         -------------          --------
 2008-R2-SP1                           WindowsServer MicrosoftWindowsServer eastus
@@ -173,14 +175,19 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-You can use this information to create scale sets that use different platform images. The following example would define a configuration with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) that use Windows Server 2016 Datacenter Core.
+When you created a scale set at the start of the tutorial, a default VM image of *Windows Server 2016 DataCenter* was provided for the VM instances. You can specify a different VM image based on the output from [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). The following example would create a scale set with the `-ImageName` parameter to specify a VM iamge of *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers*. As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
-```powershell
-Set-AzureRmVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher "MicrosoftWindowsServer" `
-  -ImageReferenceOffer "WindowsServer" `
-  -ImageReferenceSku "2016-Datacenter-Server-Core" `
-  -ImageReferenceVersion "latest"
+```azurepowershell-interactive
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet2" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet2" `
+  -PublicIpAddressName "myPublicIPAddress2" `
+  -LoadBalancerName "myLoadBalancer2" `
+  -UpgradePolicy "Automatic" `
+  -ImageName "2016-Datacenter-with-Containers"
 ```
 
 
@@ -202,13 +209,13 @@ The following table categorizes common VM sizes into use cases.
 ### Find available VM instance sizes
 To see a list of VM instance sizes available in a particular region, use the [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) command. 
 
- ```azurepowershell-interactive 
-Get-AzureRmVMSize -Location EastUS
+```azurepowershell-interactive
+Get-AzureRmVMSize -Location "EastUS"
 ```
 
 The output is similar to the following condensed example, which shows the resources assigned to each VM size:
 
- ```powershell
+```powershell
 Name                   NumberOfCores MemoryInMB MaxDataDiskCount OSDiskSizeInMB ResourceDiskSizeInMB
 ----                   ------------- ---------- ---------------- -------------- --------------------
 Standard_DS1_v2                    1       3584                4        1047552                 7168
@@ -224,13 +231,19 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-You can use this information to create scale sets that use a different VM size. The following example would define a configuration with [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) that uses the *Standard_F1* VM instance size:
+When you created a scale set at the start of the tutorial, a default VM SKU of *Standard_D1_v2* was provided for the VM instances. You can specify a different VM instance size based on the output from [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). The following example would create a scale set with the `-VmSize` parameter to specify a VM instance size of *Standard_F1*. As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
-```powershell
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location "EastUS" `
-    -SkuCapacity 2 `
-    -SkuName "Standard_F1"
+```azurepowershell-interactive
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet3" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet3" `
+  -PublicIpAddressName "myPublicIPAddress3" `
+  -LoadBalancerName "myLoadBalancer3" `
+  -UpgradePolicy "Automatic" `
+  -VmSize "Standard_F1"
 ```
 
 ## Change the capacity of a scale set

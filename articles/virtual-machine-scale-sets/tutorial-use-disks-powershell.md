@@ -91,125 +91,18 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
 ### Attach disks at scale set creation
-First, create a resource group with the  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
+Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
-```
-
-Create a virtual network and a load balancer that has a public IP address and distributes remote connection traffic on port 3389. To create these resources, copy and paste the following PowerShell cmdlets:
-
-```azurepowershell-interactive
-# Create a virtual network subnet
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 10.0.0.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myVnet" `
-  -Location "EastUS" `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-
-# Create a public IP address
-$publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -AllocationMethod Static `
-  -Name "myPublicIP"
-
-# Create a frontend and backend IP pool
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
-  -Name "myFrontEndPool" `
-  -PublicIpAddress $publicIP
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
-
-# Create a Network Address Translation (NAT) pool
-$inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
-  -Name "myRDPRule" `
-  -FrontendIpConfigurationId $frontendIP.Id `
-  -Protocol TCP `
-  -FrontendPortRangeStart 50001 `
-  -FrontendPortRangeEnd 50010 `
-  -BackendPort 3389
-
-# Create the load balancer
-$lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myLoadBalancer" `
-  -Location "EastUS" `
-  -FrontendIpConfiguration $frontendIP `
-  -BackendAddressPool $backendPool `
-  -InboundNatPool $inboundNATPool
-
-# Create IP address configurations
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
-  -SubnetId $vnet.Subnets[0].Id
-```
-
-Now create a virtual machine scale set configuration with [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/New-AzureRmVmssConfig). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
-
-```azurepowershell-interactive
-# Provide your own secure password for use with the VM instances
-$securePassword = "P@ssword!"
-$adminUsername = "azureuser"
-
-# Create a config object
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location "EastUS" `
-    -SkuCapacity 2 `
-    -SkuName "Standard_DS2" `
-    -UpgradePolicyMode Automatic
-
-# Reference a virtual machine image from the gallery
-Set-AzureRmVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher "MicrosoftWindowsServer" `
-  -ImageReferenceOffer "WindowsServer" `
-  -ImageReferenceSku "2016-Datacenter" `
-  -ImageReferenceVersion "latest"
-
-# Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig `
-  -AdminUsername $adminUsername `
-  -AdminPassword $securePassword `
-  -ComputerNamePrefix "myVM"
-
-# Attach the virtual network to the config object
-Add-AzureRmVmssNetworkInterfaceConfiguration `
-  -VirtualMachineScaleSet $vmssConfig `
-  -Name "network-config" `
-  -Primary $true `
-  -IPConfiguration $ipConfig
-```
-
-Add two disks with the [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk) cmdlet. The first disk is *64* GB in size, and the second disk is *128* GB. Finally, create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss).
-
-
-```azurepowershell-interactive
-# Add the first data disk to the scale set config
-Add-AzureRmVmssDataDisk `
-  -VirtualMachineScaleSet $vmssConfig `
-  -CreateOption Empty `
-  -Lun 1 `
-  -DiskSizeGB 64
-
-# Add the second data disk to the scale set config
-Add-AzureRmVmssDataDisk `
-  -VirtualMachineScaleSet $vmssConfig `
-  -CreateOption Empty `
-  -Lun 2 `
-  -DiskSizeGB 128
-
-# Create the scale set
 New-AzureRmVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
-  -VirtualMachineScaleSet $vmssConfig
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic"
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances.
@@ -232,9 +125,9 @@ Add-AzureRmVmssDataDisk `
 
 # Update the scale set to apply the change
 Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
 
