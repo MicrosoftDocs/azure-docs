@@ -17,8 +17,8 @@ A specific Azure File Sync agent version is supported for a limited time. The se
 The following rules guarantee enough time and notifications to accommodate agent updates/upgrades in any change management process:
 
 > <ol>
- **<li>** Any major agent version has guaranteed supported for at least six months from the date of release.</li>
- **<li>** Any agent version will receive a warning at least three months prior to its expiration. Find it in the Azure portal -> YourStorageSyncService -> Registered servers section.</li>
+ <li>Any major agent version has guaranteed supported for at least six months from the date of release.</li>
+ <li>Any agent version will receive a warning at least three months prior to its expiration. Find it in the Azure portal -> YourStorageSyncService -> Registered servers section.</li>
 </ol>
 
 > [!Note]
