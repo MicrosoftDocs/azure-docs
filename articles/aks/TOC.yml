@@ -72,7 +72,7 @@
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
     - name: Using OpenFaaS with AKS
-      href: aks-openfaas.md
+      href: openfaas.md
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard

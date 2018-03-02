@@ -1,6 +1,6 @@
 # Using OpenFaaS on AKS
 
-[OpenFaaS]:[open-faas] is a framework for building Serverless functions on top of containers. As an Open Source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Container Service (AKS) cluster.
+[OpenFaaS][open-faas] is a framework for building Serverless functions on top of containers. As an Open Source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Container Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ To verify that openfaas has started, run:
 ```
 ## Test OpenFaaS
 
-When the service has been deployed, a public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the [kubectl get service]:[kubectl-get] command. It may take a minute for the IP address to be assigned to the service.
+When the service has been deployed, a public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the [kubectl get service][kubectl-get] command. It may take a minute for the IP address to be assigned to the service.
 
 ```console
 kubectl get service -l component=gateway --namespace openfaas
@@ -223,7 +223,7 @@ You can also test the function within the OpenFaaS UI:
 
 # Next Steps
 
-The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on the options to do this. 
+The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on secure configuration options. 
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
