@@ -24,7 +24,7 @@ This how-to guide shows you how to deploy your code to [Azure App Service](app-s
 
 ## Prerequisites
 
-To follow the steps in this how-to:
+To follow the steps in this how-to guide:
 
 * [Install Git](http://www.git-scm.com/downloads).
 * Maintain a local Git repository with code you want to deploy.
@@ -37,11 +37,11 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 ## Prepare your repository
 
-Make sure that your repository root contains the right files in your project.
+Make sure that your repository root has the correct files in your project.
 
 | Runtime | Root directory files |
 |-|-|
-| ASP.NET/ASP.NET Core | _.sln_, _.csproj_, or _default.aspx_ |
+| ASP.NET/ASP.NET Core | _*.sln_, _*.csproj_, or _default.aspx_ |
 | PHP | _index.php_ |
 | Ruby (Linux only) | _Gemfile_ |
 | Node.js | _server.js_, _app.js_, or _package.json_ with a start script |
@@ -74,7 +74,7 @@ To create a Git-enabled app instead, run [`az webapp create`](/cli/azure/webapp?
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
 ```
 
-The `az webapp create` command should show an output similar to the following:
+The `az webapp create` command should give you something similar to the following output:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -106,7 +106,7 @@ Push to the Azure remote to deploy your app with the following command. When pro
 git push azure master
 ```
 
-You should be able to see runtime-specific automation in the output, such as MSBuild for ASP.NET/ASP.NET Core, `npm install` for Node.js, and `pip install` for Python. 
+You may see runtime-specific automation in the output, such as MSBuild for ASP.NET/ASP.NET Core, `npm install` for Node.js, and `pip install` for Python. 
 
 Once deployment is finished, your app in the Azure portal should now have a record of your `git push` in the **Deployment options** page.
 
@@ -116,26 +116,26 @@ Browse to your app to verify that the content is deployed.
 
 ## Troubleshooting
 
-The following are errors or problems commonly encountered when using Git to publish to an App Service app in Azure:
+The following are common errors or problems when using Git to publish to an App Service app in Azure:
 
 ---
 **Symptom**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**Cause**: This error can occur if the app is not up and running.
+**Cause**: This error can happen if the app isn't up and running.
 
 **Resolution**: Start the app in the Azure portal. Git deployment is unavailable when the Web App is stopped.
 
 ---
 **Symptom**: `Couldn't resolve host 'hostname'`
 
-**Cause**: This error can occur if the address information entered when creating the 'azure' remote was incorrect.
+**Cause**: This error can happen if the address information entered when creating the 'azure' remote was incorrect.
 
 **Resolution**: Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.
 
 ---
 **Symptom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Cause**: This error can occur if you do not specify a branch during `git push`, or if you have not set the `push.default` value in `.gitconfig`.
+**Cause**: This error can happen if you don't specify a branch during `git push`, or if you have not set the `push.default` value in `.gitconfig`.
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
@@ -146,7 +146,7 @@ git push azure master
 ---
 **Symptom**: `src refspec [branchname] does not match any.`
 
-**Cause**: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.
+**Cause**: This error can happen if you try to push to a branch other than master on the 'azure' remote.
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
@@ -157,7 +157,7 @@ git push azure master
 ---
 **Symptom**: `RPC failed; result=22, HTTP code = 5xx.`
 
-**Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
+**Cause**: This error can happen if you try to push a large git repository over HTTPS.
 
 **Resolution**: Change the git configuration on the local machine to make the postBuffer bigger
 
@@ -168,7 +168,7 @@ git config --global http.postBuffer 524288000
 ---
 **Symptom**: `Error - Changes committed to remote repository but your web app not updated.`
 
-**Cause**: This error can occur if you are deploying a Node.js app containing a package.json file that specifies additional required modules.
+**Cause**: This error can happen if you deploy a Node.js app with a _package.json_ file that specifies additional required modules.
 
 **Resolution**: Additional messages containing 'npm ERR!' should be logged prior to this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:
 
