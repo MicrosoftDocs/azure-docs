@@ -65,13 +65,13 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 ```
 
 > [!TIP]
-> The example creates the provisioning service in the West US location. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and searching for "Device Provisioning Service".
+> The example creates the provisioning service in the West US location. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `-- location "West US"`.
 >
 
 
 ## Get the connection string for the IoT hub
 
-You need your IoT Hub's connection string to link it with the device provisioning service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) command to get the connection string and use its output to set a variable that you will use when you link the two resources. 
+You need your IoT hub's connection string to link it with the device provisioning service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) command to get the connection string and use its output to set a variable that you will use when you link the two resources. 
 
 The following example sets the *hubConnectionString* variable to the value of the connection string for the primary key of the hub's *iothubowner* policy. You can specify a different policy with the `--policy-name` parameter. The command uses the Azure CLI [query](/cli/azure/query-azure-cli) and [output](/cli/azure/format-output-azure-cli#tsv-output-format) options to extract the connection string from the command output.
 
@@ -84,6 +84,10 @@ You can use the `echo` command to see the connection string.
 ```azurecli-interactive 
 echo $hubConnectionString
 ```
+
+> [!NOTE]
+> These two commands are valid for a host running under Bash. If you are using a local Windows/CMD shell or a PowerShell host, you need to modify the commands to use  the correct syntax for that environment.
+>
 
 ## Link the IoT hub and the provisioning service
 
