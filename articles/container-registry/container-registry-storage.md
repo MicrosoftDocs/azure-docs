@@ -15,25 +15,29 @@ ms.author: marsma
 
 Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry is backed by an Azure Storage account managed by Azure. This managed storage scheme provides several benefits, including encryption-at-rest for image data security and geo-redundant storage for high availability. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
 
+## Managed storage
+
+Azure manages the storage of your container images in an Azure Storage account dedicated only to your registry, containing only your images. This storage account is managed entirely by Azure, so it doesn't appear in your subscription. Because Azure manages the account, role-based access control is simplified by requiring you to manage permissions only for the registry, and not the storage account backing your images.
+
 ## Encryption-at-rest
 
-All container images are encrypted at rest using [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md). Azure automatically encrypts your image data before storing it, and decrypts it on-the-fly when you or your applications and services pull an image.
+All container images are encrypted at rest using [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md). Azure automatically encrypts your image data before storing it, and decrypts it on-the-fly when you or your applications and services pull an image. Azure manages the encryption keys for you; you cannot currently use your own encryption keys.
 
 ## Geo-redundant storage
 
 Container images are stored in [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) storage accounts. Your images are automatically replicated to a secondary data center that is geographically distant from your registry's primary location. In the case of a regional failure, Azure Container Registry automatically and transparently routes requests to this secondary region for continued access to your images. For even more redundancy, consider using ACR's [geo-replication feature](container-registry-geo-replication.md).
 
-## Indefinite storage
-
-For as long as your registry exists in your Azure subscription, Azure Container Registry will maintain your images. You can delete images by using the [Azure CLI](/cli/azure/acr), the [REST API](/rest/api/containerregistry/), or with the [Azure portal][portal].
-
 ## Capacity limits
 
-Azure Container Registry enforces capacity safety limits for each of the service tiers (SKUs). For example, the safety limit for a Premium registry is 5 TB. These safety limits are in place to help protect against unintended charges due to abnormal registry usage, for example, a misbehaving script pushing massive numbers of images to the registry. These safety limits aren't expected to be reached during normal production usage of a registry.
+Azure Container Registry enforces capacity limits for each of the service tiers (SKUs). For example, Premium registries are limited to 5 TB.
+
+These limits, however, are enforced primarily as a safety measure to help protect against unexpected charges due to abnormal registry usage. For example, a misbehaving script pushing massive numbers of images to the registry. These safety limits aren't expected to be reached during normal production usage of a registry.
 
 ## Image count limits
 
-Azure Container Registry imposes no limits on the number of images, layers, or repositories in a registry.
+Azure Container Registry imposes no limits on the number of images, layers, tags, or repositories in a registry.
+
+Although ACR doesn't limit the number of these resources, very high numbers of repositories and tags can impact the performance of your registry. You should periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the [REST API](/rest/api/containerregistry/), or with the [Azure portal][portal] as part of your registry management routine.
 
 ## Storage cost
 
