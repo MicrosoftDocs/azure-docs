@@ -31,7 +31,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Belize                                              |                 |                |              |      ✓     |          ✓         |
 | Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolivia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Bonaire, Sint Eustatius and Saba                    |                 |                |              |      ✓     |          ✓         |
+| Bonaire, Sint Eustatius, and Saba|                 |                |              |      ✓     |          ✓         |
 | Brazil                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cayman Islands                                      |                 |                |       ✓      |      ✓     |          ✓         |
@@ -47,7 +47,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Falkland Islands                                    |                 |                |              |      ✓     |          ✓         |
 | French Guiana                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Grenada                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Guadaloupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Guadeloupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -65,7 +65,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Saint Kitts And Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Lucia                                         |                 |                |              |      ✓     |          ✓         |
 | Saint Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Pierre and Miquelon, Overseas Collectivity of |                 |                |       ✓      |      ✓     |          ✓         |
+| Saint Pierre and Miquelon|                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Vincent and the Grenadines                    |                 |                |              |      ✓     |          ✓         |
 | Sint Maarten                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | South Georgia and the South Sandwich Islands        |                 |                |              |      ✓     |          ✓         |
@@ -86,10 +86,10 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | British Indian Ocean Territory                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodia                                            |                 |                |              |      ✓     |          ✓         |
-| China, People's Republic of                         |                 |                |              |      ✓     |          ✓         |
+| China |                 |                |              |      ✓     |          ✓         |
 | Christmas Island                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Cocos Islands                                       |                 |                |              |      ✓     |          ✓         |
-| Comorros                                            |                 |                |              |      ✓     |          ✓         |
+| Cocos (Keeling) Islands|                 |                |              |      ✓     |          ✓         |
+| Comoros|                 |                |              |      ✓     |          ✓         |
 | Cook Islands                                        |                 |                |              |      ✓     |          ✓         |
 | Fiji |                 |                |              |      ✓     |          ✓         |
 | French Polynesia                                    |                 |                |              |      ✓     |          ✓         |
@@ -104,7 +104,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Micronesia |                 |                |              |      ✓     |          ✓         |
 | Mongolia                                            |                 |                |              |      ✓     |          ✓         |
 | Nauru                                               |                 |                |              |      ✓     |          ✓         |
-| Nepal                                               |                 |                |              |      ✓     |          ✓         |
+| Napal|                 |                |              |      ✓     |          ✓         |
 | New Caledonia                                       |                 |                |              |      ✓     |          ✓         |
 | New Zealand                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
@@ -216,7 +216,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Côte d'Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
-| Democratic Republic of Congo                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Democratic Republic of the Congo                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egypt                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Equatorial Guinea, Republic of                      |                 |                |       ✓      |      ✓     |          ✓         |
@@ -254,7 +254,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Nigeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Oman                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Qatar                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Reunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Réunion|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Saudi Arabia                                        |                 |                |       ✓      |      ✓     |          ✓         |
