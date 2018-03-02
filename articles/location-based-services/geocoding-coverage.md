@@ -80,7 +80,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Virgin Islands - British|VG| | | |●|●|
 |Virgin Islands - United States|VI|●|●|●|●|●|
 |**Asia Pacific**|
-|--- |--- |--- |--- |--- |--- |--- |
+||||||||
 |American Samoa|AS| | |●|●|●|
 |Australia|AU|●|●|●|●|●|
 |Bangladesh|BD| | | |●|●|
