@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/18/2016
+ms.date: 03/02/2018
 ms.author: mandia; ladocs
 ---
 
@@ -31,18 +31,21 @@ To get started with the GitHub connector,
 To use the GitHub connector in a logic app, 
 you must first create a *connection* and then provide details for these properties: 
 
-| Property | Required | Description |
-| --- | --- | --- |
-| Token |Yes |Provide GitHub credentials. |
+| Property | Required | Description | 
+| -------- | -------- | ----------- | 
+| Token | Yes | Provide your GitHub credentials. |
 
-After you create the connection, you can execute the actions and listen for the triggers described in this article.
+After you create the connection, you can execute the actions 
+and listen for the triggers described in this article.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## Connector-specific details
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/github/).
+For triggers and actions defined in Swagger and any limits, 
+review the [connector details](/connectors/github/).
 
-## More connectors
-Go back to the [APIs list](apis-list.md).
+## Find more connectors
+
+* Review the [Connectors list](apis-list.md).
