@@ -1,6 +1,6 @@
 ---
-title: Image Search SDK Java quickstart | Microsoft Docs
-description: Setup for Image Search SDK console application.
+title: Bing Image Search SDK Java quickstart | Microsoft Docs
+description: Learn how to set up the Bing Image Search SDK console application.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
 ---
-# Image Search SDK Java quickstart
+# Bing Image Search SDK Java quickstart
 
-The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
+The Bing Image Search SDK provides the REST API functionality for image queries and parsing results. 
 
 ## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Install Bing Image Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
+Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
  <dependencies>
     <dependency>
@@ -28,7 +28,7 @@ Install Bing Image Search SDK dependencies using Maven, Gradle, or another depen
  </dependencies> 
 ```
 ## Image Search client
-Add imports to the class implementation:
+Add imports to the class implementation.
 ```
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
 import com.microsoft.azure.cognitiveservices.imagesearch.ImageObject;
@@ -47,7 +47,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Implement the `ImageSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
+Implement the **ImageSearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
 ```
 public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
     return new ImageSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -72,7 +72,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search images for "Canadian Rockies". Verify the number of results.  Print `firstImageResult`, `pivotSuggestion`, and `queryExpansion`.
+Search for images about the "Canadian Rockies." Verify the number of results. Print the values for the **firstImageResult**, **pivotSuggestions**, and **queryExpansions** parameters.
 ```
 public static void imageSearch(String subscriptionKey)
 {
@@ -157,7 +157,7 @@ public static void imageSearch(String subscriptionKey)
 }
 
 ```
-Search search images for "Gibraltar", filtered for animated gifs and wide aspect.  Verify number of results. Print out `insightsToken`, `thumbnailUrl`, and `webUrl` of first result:
+Search for images about "Gibraltar" and filter for animated GIFs and a wide aspect ratio. Verify the number of results. Print the values for the **insightsToken**, **thumbnailUrl**, and **webUrl** parameters for the first result.
 ```
 public static void imageSearchWithFilters(String subscriptionKey)
 {
@@ -201,7 +201,7 @@ public static void imageSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Search for trending images. Verify `categories` and `tiles`.
+Search for trending images. Verify the **categories** and **tiles** parameters.
 ```
 public static void imageTrending(String subscriptionKey)
 {
@@ -218,14 +218,14 @@ public static void imageTrending(String subscriptionKey)
         }
         else
         {
-            // Categories
+            // Categories of images
             if (trendingResults.categories().size() > 0)
             {
                 TrendingImagesCategory firstCategory = trendingResults.categories().get(0);
                 System.out.println(String.format("Category count: %d", trendingResults.categories().size()));
                 System.out.println(String.format("First category title: %s", firstCategory.title()));
 
-                // Tiles
+                // Tiles for images
                 if (firstCategory.tiles().size() > 0)
                 {
                     TrendingImagesTile firstTile = firstCategory.tiles().get(0);
@@ -253,7 +253,7 @@ public static void imageTrending(String subscriptionKey)
 }
 
 ```
-Search images for "Degas", and then search for image `details` of the first image.
+Search for images with the query "Degas" and then search for details about the first image result. 
 ```
 public static void imageDetail(String subscriptionKey)
 {
@@ -293,7 +293,7 @@ public static void imageDetail(String subscriptionKey)
                     System.out.println("Couldn't find best representative query!");
                 }
 
-                // Caption
+                // Image caption
                 if (imageDetail.imageCaption() != null)
                 {
                     System.out.println(String.format("Image caption: %s",
@@ -306,7 +306,7 @@ public static void imageDetail(String subscriptionKey)
                     System.out.println("Couldn't find image caption!");
                 }
 
-                // Pages including the image
+                // Pages that include the image
                 if (imageDetail.pagesIncluding().value().size() > 0)
                 {
                     ImageObject firstPage = imageDetail.pagesIncluding().value().get(0);
@@ -340,7 +340,7 @@ public static void imageDetail(String subscriptionKey)
                     System.out.println("Couldn't find any related searches!");
                 }
 
-                // Visually similar images
+                // Images that are visually similar
                 if (imageDetail.visuallySimilarImages().value().size() > 0)
                 {
                     ImageObject firstVisuallySimilarImage = imageDetail.visuallySimilarImages().value().get(0);
@@ -389,7 +389,7 @@ public static void imageDetail(String subscriptionKey)
     }
 }
 ```
-Add the previous methods to a class with main function to run the code:
+Add the methods described in this article to a class with a main function for executing the code.
 ```
 package ImageSDK;
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
@@ -403,7 +403,7 @@ public class ImageSrchSDK {
 		imageTrending("YOUR-SUBSCRIPTION-KEY");
 		imageDetail("YOUR-SUBSCRIPTION-KEY");
 
-    // Include methods documented previously.
+    // Include the methods described in this article.
 }
 
 ```
