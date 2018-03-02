@@ -1,0 +1,2 @@
+>[!NOTE]
+>This article mentions capabilities that require a standard IoT hub, like cloud-to-device messaging and device twins. For more information about basic and standard IoT hubs, see [Scale your IoT Hub solution](../articles/iot-hub/iot-hub-scaling.md).
