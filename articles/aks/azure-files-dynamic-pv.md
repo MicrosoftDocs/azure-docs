@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Persistent volumes with Azure files - dynamic provisioning
+# Persistent volumes with Azure files
 
 A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure file share as a Kubernetes persistent volume in an AKS cluster. 
 

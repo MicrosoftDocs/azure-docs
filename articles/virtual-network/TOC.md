@@ -1,3 +1,5 @@
+# [Virtual Network Documentation](index.md)
+
 # Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [Routing](virtual-networks-udr-overview.md)
@@ -15,7 +17,9 @@
 ### [Access control lists](virtual-networks-acl.md)
 
 # Get Started
-## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
+## [Create virtual network - Portal](quick-create-portal.md)
+## [Create virtual network - PowerShell](quick-create-powershell.md)
+## [Create virtual network - Azure CLI](quick-create-cli.md)
 
 # How To
 ## Plan and design
@@ -155,6 +159,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Logs](virtual-network-nsg-manage-log.md)
+### [Route tables](manage-route-table.md)
 ### Network interfaces (NICs)
 #### [Create, change, or delete NICs](virtual-network-network-interface.md)
 #### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
@@ -175,6 +180,7 @@
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
 ### [Cannot delete virtual networks](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Configure PTR for SMTP Banner Check](create-ptr-for-smtp-service.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

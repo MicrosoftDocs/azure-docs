@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -33,7 +33,7 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 ## Configure the monitoring solution
 
-In the Azure portal, select **New** and search for `Container Monitoring Solution`. Once located, select **Create**.
+In the Azure portal, select **Create a resource** and search for `Container Monitoring Solution`. Once located, select **Create**.
 
 ![Add solution](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
@@ -130,13 +130,13 @@ spec:
 
 Create the DaemonSet with the following command:
 
-```azurecli-interactive
+```azurecli
 kubectl create -f oms-daemonset.yaml
 ```
 
 To see that the DaemonSet is created, run:
 
-```azurecli-interactive
+```azurecli
 kubectl get daemonset
 ```
 

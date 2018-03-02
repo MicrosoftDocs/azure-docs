@@ -84,12 +84,17 @@
       items: 
         - name: Use with Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Connect to Azure SQL database
+          href: apache-spark-connect-to-sql-database.md
+        - name: Implement a lambda architecture using Spark and Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Spark streaming
       items:
         - name: Overview
           href: apache-spark-streaming-overview.md
-        - name: Process streaming events
-          href: apache-spark-eventhub-streaming.md
+        - name: Create highly available Spark streaming jobs in YARN
+          href: apache-spark-streaming-high-availability.md
         - name: Structured streaming using Event Hubs
           href: apache-spark-eventhub-structured-streaming.md
         - name: Structured streaming with Kafka
@@ -101,6 +106,8 @@
         - name: Spark streaming (DStream) with Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Create Spark streaming jobs with exactly-once event processing
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark and Machine Learning
       items:
         - name: Predict HVAC performance
@@ -198,6 +205,8 @@
         maintainContext: true
     - name: Manage
       items:
+      - name: Configure Spark settings
+        href: apache-spark-settings.md
       - name: Optimize Spark jobs
         href: apache-spark-perf.md
       - name: Cluster capacity planning

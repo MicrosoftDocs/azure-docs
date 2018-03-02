@@ -135,7 +135,6 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
             var dictionary = (IReliableDictionary<TKey, TValue>)operation.ReliableState;
             dictionary.RebuildNotificationAsyncCallback = this.OnDictionaryRebuildNotificationHandlerAsync;
             dictionary.DictionaryChanged += this.OnDictionaryChangedHandler;
-            }
         }
     }
 }

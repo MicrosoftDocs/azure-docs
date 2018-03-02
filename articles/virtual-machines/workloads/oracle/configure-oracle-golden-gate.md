@@ -47,7 +47,7 @@ The following is a summary of the environment configuration:
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription with the [az login](/cli/azure/#login) command. Then follow the on-screen directions.
+Sign in to your Azure subscription with the [az login](/cli/azure/#az_login) command. Then follow the on-screen directions.
 
 ```azurecli
 az login
@@ -55,7 +55,7 @@ az login
 
 ### Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
 
 The following example creates a resource group named `myResourceGroup` in the `westus` location.
 
@@ -77,7 +77,7 @@ az vm availability-set create \
 
 ### Create a virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 

@@ -219,4 +219,4 @@ To learn more about HBase and upgrading HDInsight clusters, see the following ar
 * [Upgrade an HDInsight cluster to a newer version](../hdinsight-upgrade-cluster.md)
 * [Monitor and manage Azure HDInsight using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)
 * [Hadoop components and versions](../hdinsight-component-versioning.md)
-<!--  * [Optimizing configurations using Ambari](hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)  -->
+* [Optimize configurations using Ambari](../hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)

@@ -1,3 +1,5 @@
+# [VPN Gateway Documentation](index.md)
+
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
@@ -19,6 +21,8 @@
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [Download VPN device configuration scripts](vpn-gateway-download-vpndevicescript.md)
+
 ## Configure Point-to-Site connections - native Azure certificate authentication
 ### Configure a P2S VPN
 #### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -34,6 +38,7 @@
 ### Configure a P2S VPN
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-radius.md)
+### [Integrate P2S VPN RADIUS authentication with NPS server](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Configure VNet-to-VNet connections
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -76,7 +81,7 @@
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)
-## Troubleshoot
+## [Troubleshoot](vpn-gateway-troubleshoot.md)
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)
 ### [Point-to-Site connection problem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

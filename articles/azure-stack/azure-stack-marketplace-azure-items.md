@@ -3,8 +3,8 @@ title: Azure Marketplace items available for Azure Stack | Microsoft Docs
 description: These Azure Marketplace items can be used in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: JeffGoldner
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
 
 ---
 # Azure Marketplace items available for Azure Stack
@@ -23,7 +24,7 @@ ms.author: JeffGoldner
 
 
 ## Virtual Machine Extensions
-It is advisable to download these whenever there are updates for the VM Extensions you require. Extensions shipped in the product will not be updated in the normal patch and update process; please check for updates frequently. Other extensions are only available through Marketplace Management.
+Whenever there are updates to virtual machine (VM) extensions you use, you should download them. Extensions shipped in the product do not update in the normal patch and update process; so check for updates frequently. Other extensions are only available through Marketplace Management.
 
 |  | Item name | Description | Publisher | OS Type |
 | --- | --- | --- | --- | --- |
@@ -35,16 +36,14 @@ It is advisable to download these whenever there are updates for the VM Extensio
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [ VM Access for Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Download this update to the in-box version of the VMAccess for Linux Extension. This is important if you plan to use Debian Linux VMs.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis Backup Extension for Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | The Acronis Backup Extension for Microsoft Azure is part of the Acronis Backup family of data protection products. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis Backup Extension for Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | The Acronis Backup Extension for Microsoft Azure is part of the Acronis Backup family of data protection products. | Acronis International GmbH. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro Deep Security extension for Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro Deep Security extension for Windows. | Trend Micro | Windows |
 
 ## Microsoft Virtual Machine Images and Solution Templates
 
-Microsoft Azure Stack supports the following Azure Marketplace virtual machines and solution templates. Please download any dependencies separately, as noted. Applications such as SQL Server and Machine Learning Server require proper licensing, except where marked as Free or Trial.
+Microsoft Azure Stack supports the following Azure Marketplace virtual machines and solution templates. Download any dependencies separately, as noted. Applications such as SQL Server and Machine Learning Server require proper licensing, except where marked as Free or Trial.
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Enterprise-class solutions that are simple to deploy, cost-effective, application-focused, and user-centric. These images are updated regularly with the latest patches. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Enterprise-class solutions that are simple to deploy, cost-effective, application-focused, and user-centric. These images are updated regularly with the latest patches. <b>Important information: Images downloaded before January 18, 2018 must be deleted and replaced with the latest versions.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Remote Desktop Services (RDS) Deployment](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Create a basic Remote Desktop Services (RDS) deployment. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 Trial on Windows Server 2012 Datacenter and Visual Studio 2017 community edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 Trial on Windows Server 2016 Datacenter. | Microsoft |
@@ -69,9 +68,9 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Free express version of SQL Server 2016 SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Database platform for intelligent, mission-critical applications. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Database platform for intelligent, mission-critical applications. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning Server 9.2.1 on Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning Server 9.2.1 on CentOS Linux 7.2. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft Machine Learning Server 9.3.0 on Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
 
 ## Linux Distributions

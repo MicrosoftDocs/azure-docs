@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 
 ---
@@ -394,8 +394,6 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](spark/apache-spark-eventhub-streaming.md)
-
 ### Run jobs
 * [Run Hive jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Run Pig jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

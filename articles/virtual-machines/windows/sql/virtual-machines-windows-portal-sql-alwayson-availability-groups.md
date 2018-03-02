@@ -4,7 +4,7 @@ description: This tutorial shows you how to create an Always On availability gro
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-resource-manager
 
@@ -60,8 +60,8 @@ In this tutorial, use the Azure portal to:
 Azure provides a gallery image for the entire solution. To locate the template:
 
 1. Sign in to the Azure portal by using your account.
-2. In the Azure portal, click **+New** to open the **New** blade.
-3. On the **New** blade, search for **AlwaysOn**.
+2. In the Azure portal, click **Create a resource** to open the **New** pane.
+3. On the **New** pane, search for **AlwaysOn**.
    ![Find AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. In the search results, locate **SQL Server AlwaysOn Cluster**.
    ![AlwaysOn Template](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)

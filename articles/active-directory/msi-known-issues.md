@@ -3,7 +3,7 @@ title: FAQs and known issues with Managed Service Identity (MSI) for Azure Activ
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
@@ -42,6 +42,7 @@ The following Linux distributions support MSI:
 - CentOS 7.1
 - RedHat 7.2
 - Ubuntu 15.04
+- Ubuntu 16.04
 
 Other Linux distributions are currently not supported and extension might fail on unsupported distributions.
 

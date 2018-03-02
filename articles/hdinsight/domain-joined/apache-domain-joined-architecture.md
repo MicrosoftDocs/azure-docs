@@ -3,7 +3,7 @@ title: Domain-joined Azure HDInsight architecture | Microsoft Docs
 description: Learn how to plan domain-joined HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: saurinsh
+author: bhanupr
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
-ms.author: saurinsh
+ms.author: bprakash
 
 ---
 # Plan Azure domain-joined Hadoop clusters in HDInsight

@@ -3,7 +3,7 @@ title: How to configure MSI on an Azure VM by using a template
 description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: daveba
 manager: mtillman
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Configure a VM Managed Service Identity by using a template
