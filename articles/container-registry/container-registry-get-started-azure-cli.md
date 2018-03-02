@@ -7,13 +7,13 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ---
 # Create a container registry using the Azure CLI
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI, push a container image into the registry and finally deploy the container from your registry into Azure Container Instances (ACI).
 
 This quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli].
 
@@ -184,7 +184,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and launched an instance of it via Azure Container Instances. Continue to the Azure Container Instances tutorial for a deeper look at ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]

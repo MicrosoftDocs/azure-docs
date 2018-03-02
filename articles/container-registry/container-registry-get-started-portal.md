@@ -7,13 +7,13 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
 ---
 # Create a container registry using the Azure portal
 
-An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
+An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal, push a container image into the registry and finally deploy the container from your registry into Azure Container Instances (ACI).
 
 To complete this quickstart, you must have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
@@ -136,7 +136,7 @@ When no longer needed, delete the **myResourceGroup** resource group. Doing so w
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it via Azure Container Instances. Continue to the Azure Container Instances tutorial for a deeper look at ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials][container-instances-tutorial-prepare-app]

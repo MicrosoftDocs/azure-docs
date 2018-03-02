@@ -7,14 +7,14 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Create an Azure Container Registry using PowerShell
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell, push a container image into the registry and finally deploy the container from your registry into Azure Container Instances (ACI).
 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -84,7 +84,7 @@ docker push $image
 ```
 
 ## Deploy image to ACI
-To deploy the image as a container instance in Azure Container Instance (ACI) first convert the registry credential to a PSCredential.
+To deploy the image as a container instance in Azure Container Instances (ACI) first convert the registry credential to a PSCredential.
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
