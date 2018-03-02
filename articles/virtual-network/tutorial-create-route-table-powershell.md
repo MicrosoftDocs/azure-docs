@@ -185,7 +185,7 @@ $vmConfig = New-AzureRmVMConfig `
 Create the virtual machine using the virtual machine configuration with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVmNva*. 
 
 ```azurepowershell-interactive
-$vm = New-AzureRmVM `
+$vmNva = New-AzureRmVM `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -VM $vmConfig `
@@ -203,7 +203,7 @@ Create two virtual machines in the virtual network so you can validate that traf
 Create a virtual machine in the *Public* subnet with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVmWeb* in the *Public* subnet of the *myVirtualNetwork* virtual network. 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+$vmWeb = New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "East US" `
     -VirtualNetworkName "myVirtualNetwork" `
@@ -218,7 +218,7 @@ Azure assigned 10.0.0.4 as the private IP address of the virtual machine, becaus
 Create a virtual machine in the *Private* subnet.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+$vmMgmt = New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "East US" `
     -VirtualNetworkName "myVirtualNetwork" `
@@ -275,7 +275,7 @@ mstsc /v:<publicIpAddress>
 
 A Remote Desktop Protocol (.rdp) file is created, downloaded to your computer, and opened. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection. 
 
-You enabled IP forwarding within Azure for the virtual machine's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the virtual machine, the operating system, or an application running within the virtual machine, must also be able to forward network traffic. When you deploy a network virtual appliance in a production environment, the appliance typically filters, logs, or performs some other function before forwarding traffic. In this article however, the operating system simply forwards all traffic it receives. Enable IP forwarding within the operating system of the *myVmNva* by completing the following steps:
+You enabled IP forwarding within Azure for the virtual machine's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the virtual machine, the operating system, or an application running within the virtual machine, must also be able to forward network traffic. When you deploy a network virtual appliance in a production environment, the appliance typically filters, logs, or performs some other function before forwarding traffic. In this article however, the operating system simply forwards all traffic it receives. Enable IP forwarding within the operating system of the *myVmNva*:
 
 Remote desktop to the *myVmNva* virtual machine with the following command from a command prompt:
 
@@ -291,7 +291,7 @@ Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters 
     
 Restart the virtual machine, which will also disconnect the remote desktop session.
 
-Use the following command to test routing for network traffic to the *myVmWeb* virtual machine from the *myVmMgmt* virtual machine.
+After the *myVmNva* virtual machine restarts, use the following command to test routing for network traffic to the *myVmWeb* virtual machine from the *myVmMgmt* virtual machine.
 
 ```
 tracert myvmweb
@@ -316,7 +316,7 @@ Use the following command to remote desktop to the *myVmWeb* virtual machine fro
 mstsc /v:myVmWeb
 ```
 
-Use the following command to determine routing for network traffic to the *myVmMgmt* virtual machine from the *myVmWeb* virtual machine.
+Use the following command, from a command prompt, to test routing for network traffic to the *myVmMgmt* virtual machine from the *myVmWeb* virtual machine.
 
 ```bash
 tracert myvmmgmt
@@ -340,23 +340,29 @@ Close the remote desktop sessions to both the *myVmWeb* and *myVmMgmt* virtual m
 
 ## Troubleshoot routing
 
-As you learned in previous steps, Azure applies default routes, that you can, optionally, override with your own routes. Sometimes, traffic may not be routed as you expect it to be. Use [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) to determine how traffic is routed between two virtual machines. For example, the following command tests traffic routing from the *myVmWeb* (10.0.0.4) virtual machine to the *myVmMgmt* (10.0.1.4) virtual machine:
+As you learned in previous steps, Azure applies default routes, that you can, optionally, override with your own routes. Sometimes, traffic may not be routed as you expect it to be. Use [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) to enable a Network Watcher in the EastUS region, if you don't already have a Network Watcher in that region:
 
-```azurecli-interactive
-# Enable network watcher for east region, if you don't already have a network watcher enabled for the region.
-az network watcher configure --locations eastus --enabled true
+```azurepowershell-interactive
+# Enable network watcher for east region, if you don't already have a network watcher enabled for the region:
+$nw = New-AzureRmNetworkWatcher `
+ -Location eastus `
+ -Name myNetworkWatcher_eastus `
+ -ResourceGroupName myResourceGroup
+```
 
-```azurecli-interactive
-az network watcher show-next-hop \
-  --dest-ip 10.0.1.4 \
-  --resource-group myResourceGroup \
-  --source-ip 10.0.0.4 \
-  --vm myVmWeb \
-  --out table
+Use [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) to determine how traffic is routed between two virtual machines. For example, the following command tests traffic routing from the *myVmWeb* (10.0.0.4) virtual machine to the *myVmMgmt* (10.0.1.4) virtual machine:
+
+```azurepowershell-interactive
+Get-AzureRmNetworkWatcherNextHop `
+  -DestinationIPAddress 10.0.1.4 `
+  -NetworkWatcherName NetworkWatcher_eastus `
+  -ResourceGroupName NetworkWatcherRG `
+  -SourceIPAddress 10.0.0.4 `
+  -TargetVirtualMachineId $vmWeb.Id
 ```
 The following output is returned after a short wait:
 
-```azurecli
+```azurepowershell
 NextHopIpAddress    NextHopType       RouteTableId
 ------------------  ---------------- ---------------------------------------------------------------------------------------------------------------------------
 10.0.2.4            VirtualAppliance  /subscriptions/<Subscription-Id>/resourceGroups/myResourceGroup/providers/Microsoft.Network/routeTables/myRouteTablePublic
@@ -364,13 +370,16 @@ NextHopIpAddress    NextHopType       RouteTableId
 
 The output informs you that the next hop IP address for traffic from *myVmWeb* to *myVmMgmt* is 10.0.2.4 (the *myVmNva* virtual machine), that the next hop type is *VirtualAppliance*, and that the route table that causes the routing is *myRouteTablePublic*.
 
-The effective routes for each network interface are a combination of Azure's default routes and any routes you define. To see all routes effective for a network interface in a virtual machine with [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). For example, to show the effective routes for the X network interface in the X virtual machine, enter the following command:
+The effective routes for each network interface are a combination of Azure's default routes and any routes you define. To see all routes effective for a network interface in a virtual machine with [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). For example, to show the effective routes for the *myVmWeb* network interface in the *myVmWeb* virtual machine, enter the following command:
 
 ```azurepowershell-interactive
 Get-AzureRmEffectiveRouteTable `
-  -NetworkInterfaceName VM1-NIC1 `
-  -ResourceGroupName myResourceGroup
+  -NetworkInterfaceName myVmWeb `
+  -ResourceGroupName myResourceGroup `
+  | Format-Table
 ```
+
+All default routes, and the route you added in a previous step, are returned.
 
 ## Clean up resources
 

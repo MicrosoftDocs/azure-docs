@@ -276,7 +276,7 @@ As you learned in previous steps, Azure applies default routes, that you can, op
 
 ```azurecli-interactive
 # Enable network watcher for east region, if you don't already have a network watcher enabled for the region.
-az network watcher configure --locations eastus --enabled true
+az network watcher configure --locations eastus --resource-group myResourceGroup --enabled true
 
 ```azurecli-interactive
 az network watcher show-next-hop \
@@ -296,14 +296,15 @@ NextHopIpAddress    NextHopType       RouteTableId
 
 The output informs you that the next hop IP address for traffic from *myVmWeb* to *myVmMgmt* is 10.0.2.4 (the *myVmNva* virtual machine), that the next hop type is *VirtualAppliance*, and that the route table that causes the routing is *myRouteTablePublic*.
 
-The effective routes for each network interface are a combination of Azure's default routes and any routes you define. To see all routes effective for a network interface in a virtual machine with [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). For example, to show the effective routes for the X network interface in the X virtual machine, enter the following command:
+The effective routes for each network interface are a combination of Azure's default routes and any routes you define. See all routes effective for a network interface in a virtual machine with [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). For example, to show the effective routes for the *MyVmWebVMNic* network interface in the *myVmWeb* virtual machine, enter the following command:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
-  --name 10.0.1.4 \
-  --resource-group myResourceGroup \
-  --out table
+  --name MyVmWebVMNic \
+  --resource-group myResourceGroup
 ```
+
+All default routes, and the route you added in a previous step, are returned.
 
 ## Clean up resources
 
