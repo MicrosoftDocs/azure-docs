@@ -186,7 +186,7 @@ In this section of the tutorial, you define a function in the Stream Analysis jo
 
 1. Make sure you have the web service URL and API key that you downloaded earlier in the Excel workbook.
 
-2. Return to the job overview blade.
+2. Navigate to your job blade > 
 
 3. Under **Settings**, select **Functions** and then click **+ Add**.
 
