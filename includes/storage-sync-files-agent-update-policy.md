@@ -16,11 +16,11 @@ A specific Azure File Sync agent version is supported for a limited time. The se
 
 The following rules guarantee enough time and notifications to accommodate agent updates/upgrades in any change management process:
 
-> **1.** A newly released major agent version has guaranteed supported for at least six months from the date of release.
-> **2.** Any agent version will receive a warning at least three months prior to its expiration. Find it in the Azure portal -> YourStorageSyncService -> Registered servers section.
+> <ol>
+ **<li>** Any major agent version has guaranteed supported for at least six months from the date of release.</li>
+ **<li>** Any agent version will receive a warning at least three months prior to its expiration. Find it in the Azure portal -> YourStorageSyncService -> Registered servers section.</li>
+</ol>
 
-  
-
-> [!Info]
+> [!Note]
 > The lifetime of a minor agent version is bound to the associated major version. <br/>
 Installing an agent version with an expiration warning will display a warning but succeed. Attempting to install or connect with an expired agent version is not supported and will be blocked.
