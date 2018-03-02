@@ -17,7 +17,7 @@ ms.author: abnarain
 
 ---
 
-# Azure Data Factory - Security considerations for data movement
+#  Security considerations for data movement in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-data-movement-security-considerations.md)
 > * [Version 2 - Preview](data-movement-security-considerations.md)
@@ -29,9 +29,9 @@ This article describes basic security infrastructure that data movement services
 
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
-Even though Data Factory is available in only **East US**, **East US 2**, and **West Europe** regions (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region. 
+Even though Data Factory is only available in the **East US**, **East US 2**, and **West Europe** regions (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area or region unless you explicitly instruct the service to use an alternate region. 
 
-Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) and processing of data using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using SDKs and Azure Monitor.
+Azure Data Factory does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. With Data Factory, you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) and processing of data using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. You can also monitor and manage workflows using SDKs and Azure Monitor.
 
 Data movement using Azure Data Factory has been **certified** for:
 -	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
@@ -39,42 +39,39 @@ Data movement using Azure Data Factory has been **certified** for:
 -	[ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -	[CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
+If you're interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
 In this article, we review security considerations in the following two data movement scenarios: 
 
-- **Cloud scenario**- In this scenario, both your source and destination are publicly accessible through internet. These include managed cloud storage services like Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS services such as Salesforce, and web protocols such as FTP and OData. You can find a complete list of supported data sources [here](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Hybrid scenario**- In this scenario, either your source or destination is behind a firewall or inside an on-premises corporate network or the data store is in a private network/ virtual network (most often the source) and is not publicly accessible. Database servers hosted on virtual machines also fall under this scenario.
+- **Cloud scenario**: In this scenario, both your source and destination are publicly accessible through the internet. These include managed cloud storage services like Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS services such as Salesforce, and web protocols such as FTP and OData. You can find a complete list of supported data sources [here](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Hybrid scenario**: In this scenario, either your source or destination is behind a firewall or inside an on-premises corporate network or the data store is in a private network or virtual network (most often the source) and is not publicly accessible. Database servers hosted on virtual machines also fall under this scenario.
 
 ## Cloud scenarios
 ###Securing data store credentials
-- Store encrypted credentials in Azure Data Factory managed store.
+- **Store encrypted credentials in a Azure Data Factory managed store**. Azure Data Factory protects your data store credentials by **encrypting** them with **certificates managed by Microsoft**. These certificates are rotated every **two years** (which includes renewal of certificate and migration of credentials). These encrypted credentials are securely stored in an **Azure Storage managed by Azure Data Factory management services**. For more information about Azure Storage security, see [Azure Storage Security Overview](../security/security-storage-overview.md).
 
-   Azure Data Factory protects your data store credentials by **encrypting** them by using **certificates managed by Microsoft**. These certificates are rotated every **two years** (which includes renewal of certificate and migration of credentials). These encrypted credentials are securely stored in an **Azure Storage managed by Azure Data Factory management services**. For more information about Azure Storage security, refer [Azure Storage Security Overview](../security/security-storage-overview.md).
-- Store credentials in Azure Key Vault 
-
-   You can now choose to store data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), then let Azure Data Factory to retrieve it during execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
+- **Store credentials in Azure Key Vault**. You can now choose to store the data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), and then let Azure Data Factory retrieve it during the execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### Data encryption in transit
 If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS.
 
 > [!NOTE]
-> All connections to **Azure SQL Database** and **Azure SQL Data Warehouse** always require encryption (SSL/TLS) while data is in transit to and from the database. While authoring a pipeline using JSON, add the **encryption** property and set it to **true** in the **connection string**. For **Azure Storage**, you can use **HTTPS** in the connection string.
+> All connections to **Azure SQL Database** and **Azure SQL Data Warehouse** require encryption (SSL/TLS) while data is in transit to and from the database. While authoring a pipeline using JSON, add the **encryption** property and set it to **true** in the **connection string**. For **Azure Storage**, you can use **HTTPS** in the connection string.
 
 ### Data encryption at rest
-Some data stores support encryption of data at rest. We suggest that you enable data encryption mechanism for those data stores. 
+Some data stores support encryption of data at rest. We recommend that you enable data encryption mechanism for those data stores. 
 
 #### Azure SQL Data Warehouse
 Transparent Data Encryption (TDE) in Azure SQL Data Warehouse helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### Azure SQL Database
-Azure SQL Database also supports transparent data encryption (TDE), which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the data without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
+Azure SQL Database also supports transparent data encryption (TDE), which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the data, without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### Azure Data Lake Store
-Azure Data Lake store also provides encryption for data stored in the account. When enabled, Data Lake store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [Security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
+Azure Data Lake Store also provides encryption for data stored in the account. When enabled, Data Lake Store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [Security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### Azure Blob Storage and Azure Table Storage
-Azure Blob Storage and Azure Table storage supports Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md).
+Azure Blob Storage and Azure Table Storage supports Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md).
 
 #### Amazon S3
 Amazon S3 supports both client and server encryption of data at Rest. For more information, see [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
