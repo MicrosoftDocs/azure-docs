@@ -7,13 +7,13 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
 
 # Create your first container in Azure Container Instances
-Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few seconds, you'll see this in your browser:
+Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this quickstart, you create a container in Azure and expose it to the internet with a fully qualified domain name (FQDN). This operation is completed in a single command. Within just a few seconds, you'll see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account][azure-account] 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
 
 ## Create a resource group
 

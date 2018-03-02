@@ -6,7 +6,9 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 02/22/2018
 ms.author: anoopkv
 ---
 

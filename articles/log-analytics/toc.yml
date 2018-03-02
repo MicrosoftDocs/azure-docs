@@ -107,7 +107,7 @@
       href: https://docs.loganalytics.io
     - name: Transition from legacy language
       href: log-analytics-log-search-transition.md
-    - name: Cross-workspace searches
+    - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
       href: log-analytics-log-search-takeaction.md
