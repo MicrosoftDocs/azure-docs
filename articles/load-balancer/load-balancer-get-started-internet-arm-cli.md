@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/01/2017
+ms.date: 03/02/2017
 ms.author: kumud
 ---
-# Creating a public load balancer using the Azure CLI
+# Create a public load balancer using Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart details using the Azure CLI to create and configure load balancer to load balance web apps between two VMs running Ubuntu server.
 
@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroupLB* in the *easts* location:
+The following example creates a resource group named *myResourceGroupLB* in the *eastus* location:
 
 ```azurecli-interactive
   az group create --name myResourceGroupLB --location eastus
@@ -81,7 +81,7 @@ A health probe checks all virtual machine instances to make sure they can send n
 ```
 ### Create the load balancer rule
 
-In this step, you create a load balancer rule myLoadBalancerRuleWeb with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the front-end pool myFrontEndPool and sending load-balanced network traffic to the back-end address pool myBackEndPool, also using port 80. 
+In this step, you create a load balancer rule myLoadBalancerRuleWeb with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool myFrontEndPool and sending load-balanced network traffic to the backend address pool myBackEndPool, also using port 80. 
 
 ```azurecli-interactive
   az network lb rule create \
