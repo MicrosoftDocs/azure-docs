@@ -288,6 +288,6 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 
 |Terms|Definitions|
 |--- |--- |
-|<sup>1</sup> - Address Point|Derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding is supported.|
-|<sup>2</sup> - House Number|Derived from the Address Interpolation index in Online Search. This field is only supported when Search and Geocoding is supported.|
-|<sup>3</sup> - User-assigned code|Online Search specific code, not an official ISO 3166-1 code.|
+|**<sup>1</sup> - Address Point**|Derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding is supported.|
+|**<sup>2</sup> - House Number**|Derived from the Address Interpolation index in Online Search. This field is only supported when Search and Geocoding is supported.|
+|**<sup>3</sup> - User-assigned code**|Online Search specific code, not an official ISO 3166-1 code.|
