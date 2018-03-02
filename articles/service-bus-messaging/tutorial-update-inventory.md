@@ -38,45 +38,37 @@ To complete this tutorial, make sure you have installed:
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-## Log in to the Azure Portal
+## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
-
-## Launch Azure Cloud Shell
-
-TBD, if necessary.
+Either portal or PowerShell.
 
 ## Create a namespace
 
-TBD
+Either portal or PowerShell.
 
 ## Create a topic
 
-TBD
+Either portal or PowerShell.
 
 ## Create a subscription to the topic
 
-TBD
+Either portal or PowerShell.
 
 ## Add a filter
 
-TBD
-
-## Send messages to the topic
-
-TBD
+Use PowerShell.
 
 ## Create a console application and add Service Bus NuGet package
 
-TBD
+Use .NET Core.
 
 ## Write code to send
 
-TBD
+Link to download sample code from GitHub.
 
 ## Write code to receive
 
-TBD
+Link to download sample code from GitHub.
 
 ## Clean up resources
 

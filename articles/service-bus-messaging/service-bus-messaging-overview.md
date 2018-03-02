@@ -25,7 +25,7 @@ Microsoft Azure Service Bus is a fully managed enterprise integration message br
 Some common Service Bus messaging scenarios are:
 
 * Transferring business data, such as sales or purchase orders, journals or inventory movements.
-* Improving reliability and scalability of applications and services through decoupling (applications do not have to be online at the same time).
+* Improving reliability and scalability of applications and services through decoupling (client and service do not have to be online at the same time).
 * Enable 1:*n* relationships between publishers and subscribers.
 
 ## Queues
@@ -59,7 +59,7 @@ Service Bus has advanced features, discussed in the next section, that enable yo
 
 ## Key Service Bus features
 
-The following list summarizes key Azure Service Bus features:
+The following list summarizes some advanced features supported by Azure Service Bus:
 
 ### Scheduled delivery
 
