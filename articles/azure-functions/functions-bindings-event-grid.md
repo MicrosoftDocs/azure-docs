@@ -315,7 +315,7 @@ Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-The `functionName` parameter must be the method name, not the name specified in the `FunctionName` attribute. For this reason, if you have multiple functions in a project, they need to have unique method names (not all named `Run`) for local testing Event Grid triggers.
+The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
 The following screenshots show the headers and request body in Postman:
 
@@ -376,7 +376,7 @@ Create an Event Grid subscription of the type you want to test, and give it your
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-The `functionName` parameter must be the method name, not the name specified in the `FunctionName` attribute. For this reason, if you have multiple functions in a project, they need to have unique method names (not all named `Run`) for local testing Event Grid triggers.
+The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
 Here's an example using the Azure CLI:
 

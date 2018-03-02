@@ -3,7 +3,7 @@ title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 01/08/2018
-ms.author: sasubram
+ms.author: twooley
 ms.reviewer: sasubram 
 
 ---

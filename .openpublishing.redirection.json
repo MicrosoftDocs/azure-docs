@@ -1734,6 +1734,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-vm-change-tracking.md",
+            "redirect_url": "/azure/automation/automation-change-tracking",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-azure-vm-alert-integration.md",
             "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
             "redirect_document_id": false
@@ -4831,6 +4836,11 @@
 		{
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-change-tracking.md",
+            "redirect_url": "/azure/automation/automation-change-tracking",
             "redirect_document_id": false
         },
         {
@@ -17057,6 +17067,11 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
-    }
+    },
+   {
+            "source_path": "articles/python-how-to-install.md",
+            "redirect_url": "/python/azure/python-sdk-azure-install",
+            "redirect_document_id": false
+     }
    ]
 }

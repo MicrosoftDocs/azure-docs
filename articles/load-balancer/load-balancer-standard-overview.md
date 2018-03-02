@@ -370,7 +370,7 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
 
 <a name="additionalpreviewregions"></a>
 >[!IMPORTANT]
-> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, South Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
+> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
 
 
 ### Sign up by using Azure CLI 2.0
@@ -463,6 +463,7 @@ The following limitations apply at the time of preview and are subject to change
 - In the context of Availability Zones, a zonal Public IP address cannot be moved from one zone to another.
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - Portal does not yet support the expanded preview regions.  Please use client tools like templates, Azure CLI 2.0 or PowerShell as a workaround.
+- Move subscription operations are not supported.
 
 
 ## Next steps
