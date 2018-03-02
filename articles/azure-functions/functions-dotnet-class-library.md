@@ -119,7 +119,7 @@ The same package is used for both version 1.x and 2.x of the Functions runtime. 
   <TargetFramework>net461</TargetFramework>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.6" />
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
 </ItemGroup>
 ```
 
@@ -131,13 +131,13 @@ The same package is used for both version 1.x and 2.x of the Functions runtime. 
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.6" />
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
 </ItemGroup>
 ```
 
 Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those target the .NET Framework, while 2.x triggers and bindings target .NET Core.
 
-The `Sdk` package also depends on `Newtonsoft.Json`, and indirectly on `WindowsAzure.Storage`. These dependencies determine the versions of those packages that you can use with your code. The reason for the restriction is to ensure compatibility with the version of .NET that the project targets.
+The `Sdk` package also depends on `Newtonsoft.Json`, and indirectly on `WindowsAzure.Storage`. These dependencies determine the versions of those packages that you can use with your code. The reason for the restriction is to ensure compatibility with the version of the Functions runtime that the project targets. For example, `Newtonsoft.Json` has version 11 for .NET Framework 4.6.1, but the Functions runtime that targets `net461` is only compatible with `Newtonsoft.Json` 9.0.1.
 
 The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
