@@ -43,9 +43,9 @@ Data Lake Analytics can use your existing IT investments for identity, managemen
 
 Data Lake Analytics is a cost-effective solution for running big data workloads. You pay on a per-job basis when data is processed. No hardware, licenses, or service-specific support agreements are required. The system automatically scales up or down as the job starts and completes, so you never pay for more than what you need. [Learn more about controlling costs and saving money](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
     
-## Works with all your Azure Data**
+## Works with all your Azure Data
   
-Data Lake Analytics is optimized to work with Azure Data Lake Store - providing the highest level of performance, throughput, and parallelization for your big data workloads.  Data Lake Analytics also works with Azure Blob storage and Azure SQL Database and Azure Warehouse.
+Data Lake Analytics worsk with Azure Data Lake Store for the highest performance, throughput, and parallelization and works with Azure Storage blobs, Azure SQL Database, Azure Warehouse.
 
 ## Next steps
  
