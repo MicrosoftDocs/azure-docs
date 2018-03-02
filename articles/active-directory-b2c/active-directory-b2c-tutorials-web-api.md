@@ -5,7 +5,7 @@ services: active-directory-b2c
 author: PatAltimore
 
 ms.author: patricka
-ms.reviewer: saraford
+ms.reviewer: parja
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
@@ -41,7 +41,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 1. Select **Azure AD B2C** from the services list in the Azure portal.
 
-2. In the B2C settings, click **Applications** and then click **+ Add**.
+2. In the B2C settings, click **Applications** and then click **Add**.
 
     To register the sample web API in your tenant, use the following settings.
     
@@ -85,11 +85,13 @@ To configure scopes for the API, add the following entries.
 | **Scope** | Hello.Read | Read access to hello |
 | **Scope** | Hello.Write | Write access to hello |
 
+Click **Save**.
+
 The published scopes can be used to grant a client app permission to the web API.
 
 ### Grant app permissions to web API
 
-To call a protected web API from an app, you need to grant your app permissions to the API. 
+To call a protected web API from an app, you need to grant your app permissions to the API. In this tutorial, use the web app created in [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md). 
 
 1. In the Azure portal, select **Azure AD B2C** from the services list and click **Applications** to view the registered app list.
 

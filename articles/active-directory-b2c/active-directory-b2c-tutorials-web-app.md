@@ -36,23 +36,25 @@ Applications need to be [registered](../active-directory/develop/active-director
 
 Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-[!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-In the B2C settings, click **Applications** and then click **Add**.
+1. Select **Azure AD B2C** from the services list in the Azure portal. 
 
-To register the sample web app in your tenant, use the following settings:
+2. In the B2C settings, click **Applications** and then click **Add**. 
 
-![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
+    To register the sample web app in your tenant, use the following settings:
 
-| Setting      | Suggested value  | Description                                        |
-| ------------ | ------- | -------------------------------------------------- |
-| **Name** | My Sample Web App | Enter a **Name** that describes your app to consumers. | 
-| **Include web app / web API** | Yes | Select **Yes** for a web app. |
-| **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
-| **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample runs locally (localhost) and listens on port 44316. |
-| **Include native client** | No | Since this is a web app and not a native client, select No. |
-
-Click **Create** to register your app.
+    ![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
+    
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | My Sample Web App | Enter a **Name** that describes your app to consumers. | 
+    | **Include web app / web API** | Yes | Select **Yes** for a web app. |
+    | **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
+    | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample runs locally (localhost) and listens on port 44316. |
+    | **Include native client** | No | Since this is a web app and not a native client, select No. |
+    
+3. Click **Create** to register your app.
 
 Registered apps are displayed in the applications list for the Azure AD B2C tenant. Select your web app from the list. The web app's property pane is displayed.
 
@@ -130,7 +132,7 @@ To enable password reset on your application, you need to create a **password re
 
 ## Update web app code
 
-Now that you have a web app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app. 
+Now that you have a web app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app you can download from GitHub. 
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web app from GitHub.
 

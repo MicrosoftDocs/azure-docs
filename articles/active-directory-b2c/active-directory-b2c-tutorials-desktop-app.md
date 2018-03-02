@@ -36,21 +36,25 @@ Applications need to be [registered](../active-directory/develop/active-director
 
 Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-In the B2C settings, click **Applications** and then click **Add**.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-To register the sample web app in your tenant, use the following settings:
+1. Select **Azure AD B2C** from the services list in the Azure portal. 
 
-![Add a new app](media/active-directory-b2c-tutorials-desktop-app/desktop-app-registration.png)
+2. In the B2C settings, click **Applications** and then click **Add**. 
 
-| Setting      | Suggested value  | Description                                        |
-| ------------ | ------- | -------------------------------------------------- |
-| **Name** | My Sample WPF App | Enter a **Name** that describes your app to consumers. | 
-| **Include web app / web API** | No | Select **No** for a desktop app. |
-| **Include native client** | Yes | Since this is a desktop app and is considered a native client. |
-| **Redirect URI** | Default values | Unique identifier to which Azure AD B2C redirects the user agent in an OAuth 2.0 response. |
-| **Custom Redirect URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Enter `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` Policies send tokens to this URI. |
-
-Click **Create** to register your app.
+    To register the sample web app in your tenant, use the following settings:
+    
+    ![Add a new app](media/active-directory-b2c-tutorials-desktop-app/desktop-app-registration.png)
+    
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | My Sample WPF App | Enter a **Name** that describes your app to consumers. | 
+    | **Include web app / web API** | No | Select **No** for a desktop app. |
+    | **Include native client** | Yes | Since this is a desktop app and is considered a native client. |
+    | **Redirect URI** | Default values | Unique identifier to which Azure AD B2C redirects the user agent in an OAuth 2.0 response. |
+    | **Custom Redirect URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Enter `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` Policies send tokens to this URI. |
+    
+3. Click **Create** to register your app.
 
 Registered apps are displayed in the applications list for the Azure AD B2C tenant. Select your desktop app from the list. The registered desktop app's property pane is displayed.
 
@@ -139,13 +143,13 @@ To change the app settings:
     private static string ClientId = "The Application ID for your desktop app registered in your tenant";
     ```
 
-3. Update the **PolicySignUpSignIn** variable with the policy name you created in a previous step. Remember to include the *b2c_1_* prefix.
+3. Update the **PolicySignUpSignIn** variable with the *sign-up or sign-in policy* name you created in a previous step. Remember to include the *b2c_1_* prefix.
 
 ```C#
 public static string PolicySignUpSignIn = "b2c_1_SiUpIn";
 ```
 
-## Step 5 - Run and test the sample desktop application
+## Run the sample desktop application
 
 Press **F5** to build and run the desktop app. 
 

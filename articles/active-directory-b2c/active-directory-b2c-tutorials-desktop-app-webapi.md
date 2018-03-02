@@ -2,10 +2,11 @@
 title: Use Azure Active Directory B2C to protect an Node.js web API tutorial
 description: Tutorial on how to use Active Directory B2C to protect an Node.js web api and call it from a .NET desktop app.
 services: active-directory-b2c
-author: saraford
+author: PatAltimore
 
 ms.author: patricka
-ms.date: 12/07/2017
+ms.reviewer: parja
+ms.date: 3/01/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
@@ -31,121 +32,134 @@ In this tutorial, you learn how to:
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with **.NET desktop development** and **ASP.NET and web development** workloads.
 * Install [Node.js](https://nodejs.org/en/download/)
 
-## Step 1 - Register the Web API with Azure AD B2C
+## Register web API
 
-Make sure you are in your B2C tenant in the upper right drop-down.
+Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/active-directory-dev-glossary.md#resource-server) by [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application) that present an [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/active-directory-dev-glossary.md#application-object) in your tenant. 
 
-![verify in correct tenant](media/active-directory-b2c-tutorials-spa/verify-in-correct-tenant.png)
+Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-Click on your Azure AD B2C resource from your dashboard. 
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-Click on **Applications** then click **Add**. 
+1. Select **Azure AD B2C** from the services list in the Azure portal.
 
-Fill out the following details:
+2. In the B2C settings, click **Applications** and then click **Add**.
 
-- **Name** – For you to identify your Web API in the Azure portal, e.g. `Hello API`
-- **Application ID** – This is the Application ID to put into the sample project
-- **Web App / Web API** – Select yes, since this is a Web API
-- **Reply URL** – Enter `https://localhost:44332` because you are running the sample locally
-- **App ID URL** – Enter `helloAPI` for this sample. Because a tenant can have more than 1 registered API, this unique App ID URL is needed to define scopes only for this particular API. Scopes are defined per App ID URL and are not global to a tenant.
+    To register the sample web API in your tenant, use the following settings.
+    
+    ![Add a new API](media/active-directory-b2c-tutorials-desktop-app-webapi/web-api-registration.png)
+    
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | My sample Node.js web API | Enter a **Name** that describes your web API to developers. |
+    | **Include web app / web API** | Yes | Select **Yes** for a web API. |
+    | **Allow implicit flow** | Yes | Select **Yes** since the API uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
+    | **Reply URL** | `http://localhost:5000` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your API requests. In this tutorial, the sample web API runs locally (localhost) and listens on port 5000. |
+    | **App ID URI** | demoapi | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
+    | **Native client** | No | Since this is a web API and not a native client, select No. |
+    
+3. Click **Create** to register your API.
 
-The resulting screenshot looks like:
+Registered APIs are displayed in the applications list for the Azure AD B2C tenant. Select your web API from the list. The web API's property pane is displayed.
 
-![web-api-registration.png](media/active-directory-b2c-tutorials-desktop-app/web-api-registration.png)
+![Web API properties](./media/active-directory-b2c-tutorials-web-api/b2c-web-api-properties.png)
 
-Registering your Web API with Azure AD B2C defines a trust relationship. Since the API is now registered with B2C, the API can now trust the B2C access tokens it receives from other applications.
+Make note of the **Application Client ID**. The ID uniquely identifies the API and is needed when configuring the API later in the tutorial.
 
-## Step 2 - Define and configure scopes
+Registering your web API with Azure AD B2C defines a trust relationship. Since the API is registered with B2C, the API can now trust the B2C access tokens it receives from other applications.
 
-The Web API determines which permissions the user has by looking at the scopes provided in the access token for that user. For example, some users could have both read and write access, whereas other users might have read-only permissions. 
+## Define and configure scopes
 
-This examples show you how to define read and write permissions for the API; however, you could also define other permissions, e.g. write-only. 
+[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read and write permissions for the web API.
 
-### Define the scopes for the web API
+### Define scopes for the web API
 
-From the web API registration page, click Published scopes (Preview)
+Registered APIs are displayed in the applications list for the Azure AD B2C tenant. Select your web API from the list. The web API's property pane is displayed.
 
-![app general published scopes](media/active-directory-b2c-tutorials-desktop-app/app-general-published-scopes.png)
+Click **Published scopes (Preview)**.
 
-And fill out the scopes as shown below. Use the scope name "demo.read" and description "read access." 
+To configure scopes for the API, add the following entries. 
 
-Hit Save.
+![scopes defined in web api](media/active-directory-b2c-tutorials-web-api/scopes-defined-in-web-api.png)
 
-![scopes defined in web api](media/active-directory-b2c-tutorials-desktop-app/scopes-defined-in-web-api.png)
+| Setting      | Suggested value  | Description                                        |
+| ------------ | ------- | -------------------------------------------------- |
+| **Scope** | demo.read | Read access to demo API|
 
-The scope names listed under the Scope heading go into your code.
+Click **Save**.
 
-### Grant the app permissions to the web API
+The published scopes can be used to grant a client app permission to the web API.
 
-In the previous steps, you created scopes for an API. In these steps, you define the API scopes for the WPF application.
+### Grant app permissions to web API
 
-Switch over to your WPF application in the Portal and click API access (Preview)
+To call a protected web API from an app, you need to grant your app permissions to the API. In this tutorial, use the desktop app created in [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
 
-![app general api access](media/active-directory-b2c-tutorials-desktop-app/app-general-published-scopes.png)
+1. In the Azure portal, select **Azure AD B2C** from the services list and click **Applications** to view the registered app list.
 
-Click Add at the top. A window appears on the far right hand side.
+2. Select **My Sample WPF App** from the app list and click **API access (Preview)** then **Add**.
 
-Select your Web API by its portal name and select the scopes you created in the Web API registration.
+3. In the **Select API** dropdown, select your registered web API **My sample Node.js web API**.
 
-![selecting scopes for app](media/active-directory-b2c-tutorials-desktop-app/selecting-scopes-for-app.png)
+4. In the **Select Scopes** dropdown, select the scopes you defined in the web API registration.
 
-Click **OK** button at the bottom of screen.
+    ![selecting scopes for app](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
 
-![ok button at bottom](media/active-directory-b2c-tutorials-desktop-app/ok-button-at-bottom.png)
+5. Click **OK**.
 
-Now your WPF app and web API are registered with B2C.
+Your **My Sample WPF App** is registered to call the protected **My sample Node.js web API**. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the WPF deskop app app. The desktop app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
-## Step 3 - Update the sample code to use your tenant and policy
+## Update web API code
 
-Now that the WPF app and web API are registered with B2C and you have a policy, it is time to configure the sample applications to talk to your B2C tenant.
+Now that the web API is registered and you have scopes defined, you need to configure the web API code to use your Azure AD B2C tenant. In this tutorial, you configure a sample Node.js web app you can download from GitHub. 
 
-Open the `active-directory-b2c-wpf` solution in Visual Studio.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) or clone the sample web app from GitHub.
 
-Open the `App.xaml.cs` file in the `active-directory-b2c-wpf` project. This project is configured to talk to a demo tenant called `fabrikamb2c.onmicrosoft.com` To update this sample talk to the sample API included in this solution, make the following update:
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
+```
+The Node.js web API sample uses the Passport.js library to enable Azure AD B2C to protect calls to the API. 
 
-```C#
-// public static string ApiEndpoint = "https://fabrikamb2chello.azurewebsites.net/hello";
-public static string ApiEndpoint = "https://localhost:44332/hello";
+### Configure the web API
+
+1. Open the `index.html` file in the Node.js web API sample.
+2. Configure the sample with the Azure AD B2C tenant registration information. Change the following lines of code:
+
+```nodejs
+var tenantID = "<your-tenant-name>.onmicrosoft.com";
+var clientID = "<Application ID for your Node.js Web API>";
+var policyName = "B2C_1_SiUpIn";  // Sign-in / sign-up policy name
 ```
 
-Provide the App ID URI of the API to the WPF app. The WPF app uses the App ID URI to tell B2C which API it wants permissions to call. Update this sample to use the scope you defined in your tenant as follows: 
+### Configure the desktop app
 
-```C#
-// public static string[] ApiScopes = { "https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read" };
+1. Open the `active-directory-b2c-wpf` solution from [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md) in Visual Studio.
 
-public static string[] ApiScopes = { "https://<your tenant name>.onmicrosoft.com/helloAPI/demo.read" };
-```
+## Run the sample desktop application and web API
 
-Next, in the **HelloAPI-server** project, open the `Web.config` and make the following changes:
+Run the Node.js web API:
 
-```C#
+1. Launch a Node.js command line.
+2. Change to the directory containing the Node.js sample. For example `cd c:\active-directory-b2c-javascript-nodejs-webapi`
+3. Run the following commands:
+    ```
+    npm install && npm update
+    node index.js
+    ```
 
-<add key="ida:Tenant" value="<your tenant name>.onmicrosoft.com" />
-<add key="ida:ClientId" value="<Application ID for your Web API>" />
-```
+Run the desktop app:
 
-Update the value with the value you used to create your policy, e.g. `b2c_1_SiUpIn`
+1. Press **F5** to run the desktop app.
+2. Sign in using the email address and password used in the [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
+3. Click the **Call API** button. 
 
-```C#
-<add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
-```
+The desktop app makes a request to the web API to and gets a response with the logged-in user's display name. You're protected desktop app is calling the protected web API in your Azure AD B2C tenant.
 
-Now your samples are ready to run.
+## Clean up resources
 
-## Step 4 - Run and test the sample WPF application and web API
-
-You will need to run both the `active-directory-b2c-wpf` and `HelloAPI-server` projects at the same time. 
-
-1. In Solution Explorer, right-click on the solution and open the **Common Properties - Startup Project** window. 
-2. Select **Multiple startup projects**.
-3. Change the **Action** for both projects from **None** to **Start** as shown in the image below.
-
-![Set Startup Page in Visual Studio](media/active-directory-b2c-tutorials-desktop-app/SetupStartupProjects.png)
-
-Press **F5** to start both applications.
-
-If you've already have an existing account in your B2C tenant, you can use that account to sign into the WPF application. Otherwise, click the sign up link to sign up for the WPF Application. Once signed in, click the `Call API` button to access the API resource. 
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## Next Steps
 
-This article walked you through creating a Sign Up or Sign In policy. There are other built-in policies for resetting passwords, editing a profile, and so forth, which you can find more information about in the article [reference policies.](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies)
+This article walked you through protecting a ASP.NET web API by registering and defining scopes in Azure AD B2C. Learn more by browsing the available Azure AD B2C code samples.
+
+> [!div class="nextstepaction"]
+> [Azure AD B2C code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c&sort=0)
