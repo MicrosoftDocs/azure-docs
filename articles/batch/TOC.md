@@ -42,12 +42,13 @@
 
 ## Create and manage pools
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
+### [Choose a VM size for compute nodes](batch-pool-vm-sizes.md)
 ### [Configure access to compute nodes](pool-endpoint-configuration.md)
 ### [Create a pool with a custom image](batch-custom-images.md)
 ### [Create a pool in a virtual network](batch-virtual-network.md)
-### [Linux compute nodes](batch-linux-nodes.md)
-### [Low-priority VMs](batch-low-pri-vms.md)
+### [Use compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
+### [Use Linux compute nodes](batch-linux-nodes.md)
+### [Use low-priority VMs](batch-low-pri-vms.md)
 
 ## Manage jobs and tasks
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
