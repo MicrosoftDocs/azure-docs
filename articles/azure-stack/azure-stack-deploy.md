@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
 
 ---
@@ -21,8 +21,10 @@ ms.author: jeffgilb
 
 *Applies to: Azure Stack Development Kit*
 
-Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+Before you deploy the [Azure Stack Development Kit (ASDK)](azure-stack-poc.md), make sure that your development kit host computer meets requirements described in this article.
 
+> [!NOTE]
+> The ASDK must be installed on a physical host computer. Installing the ASDK on an Azure VM is not supported.
 
 ## Hardware
 | Component | Minimum | Recommended |
@@ -119,9 +121,10 @@ Make sure there is a DHCP server available on the network that the NIC connects 
 ### Internet access
 Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
 
+Q: Is it possible to run ASDK on an Azure VM? 
+A: No. As of today, it is not officially supported.
 
 ## Next steps
 [Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
-
