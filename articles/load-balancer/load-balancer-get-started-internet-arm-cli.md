@@ -50,7 +50,7 @@ To access your web app on the Internet, you need a public IP address for the loa
   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
 ```
 
-## Create the load balancer and configure its settings
+## Create Azure Load Balancer
 
 Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend pool named **myFrontEndPool**, a back-end pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step.
 
@@ -225,4 +225,4 @@ az group delete --name myResourceGroupLB
 
 
 ## Next steps
-In this quickstart, you created a resource group, network resources, and backend servers. You then used those resources to create an application gateway. To learn more about application gateways and their associated resources, continue to the how-to articles.
+In this quickstart, you created a resource group, network resources, and backend servers. You then used those resources to create a aload balancer. To learn more about load balancers and their associated resources, continue to the how-to articles.
