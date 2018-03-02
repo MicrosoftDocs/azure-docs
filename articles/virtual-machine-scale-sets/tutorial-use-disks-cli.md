@@ -137,7 +137,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroup \
   --vmss-name myScaleSet \
-  --settings '{"fileUris":["https://raw.githubusercontent.com/iainfoulds/compute-automation-configurations/preparevmdisks/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
+  --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
 To confirm that the disks have been prepared correctly, SSH to one of the VM instances. List the connection information for your scale set with [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):

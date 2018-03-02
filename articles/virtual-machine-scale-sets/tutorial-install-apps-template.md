@@ -69,7 +69,7 @@ The *fileUris* property is used to define the source install scripts or packages
 }
 ```
 
-For a complete example of an Azure template that deploys a scale set and the Custom Script Extension, see [https://github.com/iainfoulds/infrastructure_automation/blob/master/scale_sets/azuredeploy.json](https://github.com/iainfoulds/infrastructure_automation/blob/master/scale_sets/azuredeploy.json). This sample template is used in the next section.
+For a complete example of an Azure template that deploys a scale set and the Custom Script Extension, see [https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json). This sample template is used in the next section.
 
 
 ## Create a scale set
@@ -84,7 +84,7 @@ Now create a virtual machine scale set with [az group deployment create](/cli/az
 ```azurecli-interactive 
 az group deployment create \
   --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/iainfoulds/infrastructure_automation/master/scale_sets/azuredeploy.json
+  --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
@@ -142,7 +142,7 @@ Apply the Custom Script Extension configuration to the VM instances in your scal
 ```azurecli-interactive 
 az group deployment create \
   --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/iainfoulds/infrastructure_automation/master/scale_sets/azuredeployv2.json
+  --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```
 
 All VM instances in the scale set are automatically updated with the latest version of the sample web page. To see the updated version, refresh the web site in your browser:

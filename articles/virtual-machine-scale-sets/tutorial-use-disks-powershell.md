@@ -248,7 +248,7 @@ The following example executes a script from a GitHub sample repo on each VM ins
 ```azurepowershell-interactive
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
-  "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/compute-automation-configurations/preparevmdisks/prepare_vm_disks.ps1");
+  "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1");
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
 }
 
