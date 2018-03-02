@@ -104,7 +104,7 @@ The following tasks can be automated with PowerShell:
 * [Create a Recovery Services vault](backup-azure-vms-automation.md#create-a-recovery-services-vault)
 * [Back up Azure VMs](backup-azure-vms-automation.md#back-up-azure-vms)
 * [Trigger a backup job](backup-azure-vms-automation.md#trigger-a-backup-job)
-* [Monitor a backup job](backup-azure-vms-automation.md#monitor-a-backup-job)
+* [Monitor a backup job](backup-azure-vms-automation.md#monitoring-a-backup-job)
 * [Restore an Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)
 
 ## Create a recovery services vault
