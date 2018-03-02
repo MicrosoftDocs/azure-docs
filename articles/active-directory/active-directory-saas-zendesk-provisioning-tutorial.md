@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: v-ant-msft
+ms.author: v-ant
 ---
 
 # Tutorial: Configure Zendesk for automatic user provisioning
