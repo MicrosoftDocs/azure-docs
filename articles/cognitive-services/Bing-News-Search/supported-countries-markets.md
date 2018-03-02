@@ -89,7 +89,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Canada|French|fr-CA|
 |France|French|fr-FR|  
 |Italy|Italian|it-IT| 
-|Portuguese|Brazil|pt-BR|
+|Brazil|Portuguese|pt-BR|
 |People's republic of China|Chinese|zh-CN|
 
 ## Supported markets for news trending endpoint
@@ -107,7 +107,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |India|English|en-IN|
 |France|French|fr-FR|
 |Canada|French|fr-CA|
-|Portuguese|Brazil|pt-BR|
+|Brazil|Portuguese|pt-BR|
 |People's republic of China|Chinese|zh-CN|
 
 
