@@ -180,6 +180,7 @@
         "articles/cloud-shell/**/*.md": "https://feedback.azure.com/forums/598699-azure-cloud-shell",
         "articles/cloudfoundry/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cognitive-services/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/cognitive-services/Text-Analytics/**/*.md": "https://cognitive.uservoice.com/forums/555922-text-analytics",
         "articles/connectors/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/container-instances/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",
         "articles/container-registry/**/*.md": "https://feedback.azure.com/forums/903958-azure-container-registry",
