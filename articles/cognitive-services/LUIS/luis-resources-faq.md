@@ -9,8 +9,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/31/2018
-ms.author: v-demak;v-geberr;
+ms.date: 02/28/2018
+ms.author: v-geberr;
 ---
 # Language Understanding FAQ
 
@@ -69,27 +69,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 
 ## How can I deal with spelling mistakes in utterances?
 
-You can integrate your LUIS app with Bing Spell Check to spell check utterances before sending them to the LUIS endpoint. To enable Bing Spell Check, do the following steps:
-   1. [Get an API key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api) for [Bing SpellCheck API v7](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).  Free trial keys provide 1,000 transactions per month, up to 1 per second. They expire after a 30-day period.
-   2. Check the **Enable Bing spell checker** checkbox in the [Publish app](./PublishApp.md) page when you publish your app.
-   3. Include `spellCheck=true` in the query to the LUIS app's endpoint when you access the app from your client application. If the **Enable Bing spell checker** checkbox is checked, this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
-   4. Include the `bing-spell-check-subscription-key` parameter in the query to the LUIS app's endpoint when you access the app from your client application. Set the parameter to the value of your Bing SpellCheck API key. If the **Enable Bing spell checker** checkbox is checked, a placeholder for this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
-
-If Bing Spell Check detects a misspelling, the `query` field in the LUIS app's JSON response contains the original query, and the `alteredQuery` field contains the corrected query sent to LUIS.
-
-```json
-{
-  "query": "boook a flight",
-  "alteredQuery": "book a flight",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9714768
-  },
-  "entities": []
-}
-```
-
-If you don't want to use a spell check service, you can label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
+See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial.
 
 ## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
@@ -156,6 +136,9 @@ Example apps illustrating specific data extraction are:
 |App|Data Extracted|
 |--|--|
 |[MyCommunicator quickstart](luis-quickstart-primary-and-secondary-data.md)|[Message] entity<br>`Text boss [I'll be late to meeting]`
+
+## Is LUIS available on-premise or in private cloud?
+No. 
 
 ## Next steps
 

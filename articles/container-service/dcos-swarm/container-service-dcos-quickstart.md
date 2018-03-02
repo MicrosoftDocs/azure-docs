@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 08/04/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---

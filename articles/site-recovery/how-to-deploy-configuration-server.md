@@ -6,17 +6,17 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/25/2018
 ms.author: anoopkv
 ---
 
 # Deploy a configuration server
 
-You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server.
+You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server when you're replicating VMware VMs to Azure. [Follow this article](site-recovery-set-up-physical-to-azure.md) if you need to set up a configuration server for physical server replication.
 
 ## Prerequisites
 
-We recommend that you deploy the configuration server as a highly available VMware VM. For physical server replication, the configuration server can be set up on a physical machine. Minimum hardware requirements are summarized in the following table.
+We recommend that you deploy the configuration server as a highly available VMware VM. Minimum hardware requirements are summarized in the following table.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -114,4 +114,4 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Next steps
 
-Review the tutorials on how to set up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) and [physical servers](tutorial-physical-to-azure.md) to Azure.
+Set up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) to Azure.
