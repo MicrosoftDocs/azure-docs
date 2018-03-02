@@ -49,7 +49,7 @@ Refer to the following for a description of CSPSS subscriptions, and instruction
 
 #### CSP subscriptions
 
-Cloud Service Provider (CSP) subscriptions are the preferred choice for registration when a CSP Reseller or an end customer operates the Azure Stack.
+Cloud Service Provider (CSP) subscriptions are the preferred choice for registration when a CSP reseller or an end customer operates  Azure Stack.
 
 ## Register Azure Stack with shared services subscription
 
