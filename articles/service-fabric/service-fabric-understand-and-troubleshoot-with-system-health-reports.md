@@ -56,7 +56,7 @@ The report specifies the global-lease timeout as the time-to-live (TTL). The rep
 ### Rebuild
 
 The Failover Manager (FM) service manages information about the cluster nodes. When FM loses its data and goes into data loss, it can't guarantee that it has the most updated information about the cluster nodes. In this case, the system goes through a rebuild, and System.FM gathers data from all nodes in the cluster in order to rebuild its state. Sometimes, due to networking or node issues, rebuild can get stuck or stalled. The same can happen with the Failover Manager Master (FMM) service. The FMM is a stateless system service that keeps track of where all the FMs are in the cluster. The FMM's primary is always the node with the ID closest to 0. If that node gets dropped, a rebuild is triggered.
-When one of the previous conditions happens, System.FM or **System.FMM** flags it through an error report. Rebuild might be stuck in one of two phases:
+When one of the previous conditions happens, **System.FM** or **System.FMM** flags it through an error report. Rebuild might be stuck in one of two phases:
 
 * **Waiting for broadcast**: FM/FMM waits for the broadcast message reply from the other nodes.
 
