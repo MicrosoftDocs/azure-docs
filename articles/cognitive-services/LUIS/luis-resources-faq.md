@@ -141,7 +141,7 @@ Example apps illustrating specific data extraction are:
 No. 
 
 ## What are the LUIS best practices? 
-Start with the [Authoring Cycle](luis-concept-app-iteration), then read the best practices for [Intents](luis-concept-intent.md#best-practice---only-required-specific-intents), [Entities](luis-concept-entity-types.md#best-practices), and [Utterances](luis-concept-utterance.md#best-practices). 
+Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the best practices for [Intents](luis-concept-intent.md#best-practice---only-required-specific-intents), [Entities](luis-concept-entity-types.md#best-practices), and [Utterances](luis-concept-utterance.md#best-practices). 
 
 ## Next steps
 
