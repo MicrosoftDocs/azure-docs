@@ -231,6 +231,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Gabon|GA| | |●|●|●|
 |Gambia|GM| | | |●|●|
 |Gaza|XG3| | | |●|●|
+
 |Ghana|GH| | |●|●|●|
 |Guinea|GN| | |●|●|●|
 |Guinea-Bissau|GW| | |●|●|●|
@@ -283,3 +284,9 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Yemen|YE| | | |●|●|
 |Zambia|ZM| | |●|●|●|
 |Zimbabwe|ZW| | |●|●|●|
+
+|Definitions|
+|--- |
+|1 - Address Point|Derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding is supported.|
+|2 - House Number|Derived from the Address Interpolation index in Online Search. This field is only supported when Search and Geocoding is supported.|
+|3 - User-assigned code|Online Search specific code, not an official ISO 3166-1 code.|
