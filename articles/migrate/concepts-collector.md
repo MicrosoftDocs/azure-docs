@@ -171,13 +171,15 @@ You can upgrade the Collector to the latest version without downloading the OVA 
 
 ### List of updates
 
-	For Upgrade to version 1.0.9.5 download [package](https://aka.ms/migrate/col/upgrade_9_5)
+#### Upgrade to version 1.0.9.5
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | d969ebf3bdacc3952df0310d8891ffdf
-    SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-    SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
+For Upgrade to version 1.0.9.5 download [package](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## Next steps
 
