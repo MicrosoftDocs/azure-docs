@@ -279,15 +279,14 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Tunisia|TN| | |●|●|●|
 |Uganda|UG| | |●|●|●|
 |United Arab Emirates|AE|●|●|●|●|●|
-|West Bank|XW3| | | |●|●|
+|West Bank|XW<sup>3</sup>| | | |●|●|
 |Yemen|YE| | | |●|●|
 |Zambia|ZM| | |●|●|●|
 |Zimbabwe|ZW| | |●|●|●|
 
 
 
-
-|Definitions||
+|Terms|Definitions|
 |--- |--- |
 |1 - Address Point|Derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding is supported.|
 |2 - House Number|Derived from the Address Interpolation index in Online Search. This field is only supported when Search and Geocoding is supported.|
