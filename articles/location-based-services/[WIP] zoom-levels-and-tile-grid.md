@@ -7,9 +7,9 @@ The world is divided into square tiles. Online Maps (Raster) has 19 zoom levels,
 
 Zoom level 1 uses 4 tiles to render the world: a 2 x 2 square
 
-![World tile top left](./media/zoom-levels-and-tile-grid/world1a.png) ![World tile top right](./media/zoom-levels-and-tile-grid/world1c.png) 
+![World tile top left](./media/zoom-levels-and-tile-grid/world1a.png)   ![World tile top right](./media/zoom-levels-and-tile-grid/world1c.png) 
 
-![World tile bottom left](./media/zoom-levels-and-tile-grid/world1b.png) ![World tile bottom right](./media/zoom-levels-and-tile-grid/world1d.png) 
+![World tile bottom left](./media/zoom-levels-and-tile-grid/world1b.png)   ![World tile bottom right](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
 Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 20 is a grid 2<sup>20</sup> x 2<sup>20</sup>, or 1,048,576 x 1,048,576 tiles (109,951,162,778 in total).
