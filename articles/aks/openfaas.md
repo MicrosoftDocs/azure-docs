@@ -71,9 +71,8 @@ To verify that openfaas has started, run:
 
   kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
-## Test OpenFaaS
 
-When the service has been deployed, a public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the [kubectl get service][kubectl-get] command. It may take a minute for the IP address to be assigned to the service.
+A public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the [kubectl get service][kubectl-get] command. It may take a minute for the IP address to be assigned to the service.
 
 ```console
 kubectl get service -l component=gateway --namespace openfaas
@@ -91,11 +90,17 @@ Browse to the external gateway IP address on port 8080, `http://52.186.64.52:808
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
-## Create function portal
+Finally, install the OpenFaaS CLI. This exmaple used brew, see the [OpenFaaS CLI documentation][open-faas-cli] for more options.
 
-Click on the **hamburger menu** > **Deploy New Function** > and search for **Figlet**.
+```console
+brew install faas-cli
+```
 
-Select the Figlet function, and click **Deploy**.
+## Create first function
+
+Now that OpenFaaS is operation, create a simple function using the OpenFaas portal.
+
+Click on the **hamburger menu** > **Deploy New Function** > and search for **Figlet**. Select the Figlet function, and click **Deploy**.
 
 ![Figlet](media/container-service-serverless/figlet.png)
 
@@ -116,29 +121,35 @@ Output:
 
 ```
 
-## Prepare for second function
+## Create second function
 
-Create a new resource group for backing services.
+Now create a second function. This example will be deployed using the OpenFaaS CLI and includes a custom container image and retrieving data from a Cosmos DB. Several items need to be configured before creating the function. 
+
+First you will create a Cosmos DB instance that is used with the function.
+
+Create a new resource group for the Cosmos DB.
 
 ```azurecli-interactive
 az group create --name serverless-backing --location eastus
 ```
 
-Deploy a CosmosDB instance of type "Mongo". The instance needs a unique name, update `openfaas-cosmose` to something unique to your environment. 
+Deploy a CosmosDB instance of type "Mongo". The instance needs a unique name, update `openfaas-cosmos` to something unique to your environment. 
 
 ```azurecli-interactive
-az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos007 --kind MongoDB
+az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
 Get the Cosmos database connection string and store it in a variable.
 
 ```azurecli-interactive
-COSMOS=$(az cosmosdb list-connection-strings --resource-group serverless-backing --name openfaas-cosmos007 --query connectionStrings[0].connectionString --output tsv)
+COSMOS=$(az cosmosdb list-connection-strings \
+  --resource-group serverless-backing \
+  --name openfaas-cosmos007 \
+  --query connectionStrings[0].connectionString \
+  --output tsv)
 ```
 
-Use the *mongoimport* tool to load the CosmosDB instance with data.
-
-Create a file named `plans.json` and copy in the following json.
+Now populate the Cosmos DB with test data. Create a file named `plans.json` and copy in the following json.
 
 ```json
 {
@@ -152,11 +163,13 @@ Create a file named `plans.json` and copy in the following json.
 }
 ```
 
-Notice that the connection string has been altered to reference the **plans** database.
+Use the *mongoimport* tool to load the CosmosDB instance with data. If needed, install the Mongo DB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
 
 ```azurecli-interactive
 brew install mongodb
 ```
+
+Load the data in to the database.
 
 ```azurecli-interactive
 mongoimport --uri=$COSMOS -c plans < plans.json
@@ -169,26 +182,13 @@ Output:
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
-## Create second function
-
-OpenFaaS has a CLI that allows you to create functions in a language of your choice. You can also deploy Docker containers.
-
-As an example, you can use a CosmosDB instance, and provide that data through a lightweight function for public consumption.
-
-Install the [FaaS CLI](https://github.com/openfaas/faas-cli) so that you can deploy your functions quickly, or deploy via brew for the Mac.
-
-```console
-brew install faas-cli
-```
-
-Run the following command to deploy the pre-built container.
+Run the following command to create the function which is comprised of the pre-built container.
 
 ```azurecli-interctive
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
 ```
 
 Once deployed, you should see your newly created OpenFaaS endpoint for the function.
-
 
 ```console
 Deployed. 202 Accepted.
@@ -198,26 +198,16 @@ URL: http://52.186.64.52:8080/function/cosmos-query
 Now you can test the function using curl.
 
 ```console
-$  curl -s http://52.186.64.52:8080/function/cosmos-query  | jq
+curl -s http://52.186.64.52:8080/function/cosmos-query
 ```
 
 Output:
 
 ```json
-[
-  {
-    "ID": "",
-    "Name": "two_person",
-    "FriendlyName": "",
-    "PortionSize": "",
-    "MealsPerWeek": "",
-    "Price": 72,
-    "Description": "Our basic plan, delivering 3 meals per week, which will feed 1-2 people."
-  }
-]
+[{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]
 ```
 
-You can also test the function within the OpenFaaS UI:
+You can also test the function within the OpenFaaS UI.
 
 ![alt text](media/container-service-serverless/OpenFaaSUI.png)
 
@@ -226,5 +216,7 @@ You can also test the function within the OpenFaaS UI:
 The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on secure configuration options. 
 
 <!-- LINKS - external -->
+[install-mongo]: https://docs.mongodb.com/manual/installation/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [open-faas]: https://www.openfaas.com/
+[open-faas-cli]: https://github.com/openfaas/faas-cli
