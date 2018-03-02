@@ -32,13 +32,11 @@ There are a few exceptions and limitations to choosing a VM size:
 
 Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)) *except* for the following:
 
-
 | Family  | Unsupported sizes  |
 |---------|---------|
 | Basic A-series | Basic_A0 (A0) |
 | A-series | Standard_A0 |
 | B-series | All |
-| M-series | Standard_M64s, Standard_M128ms |
 | Fsv2-series<sup>*</sup> | All |
 
 <sup>*</sup>Sizes in this series are on the roadmap for future support.
@@ -51,9 +49,6 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 |---------|---------|
 | A-series | ExtraSmall |
 | Av2-series | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
-| M-series | Standard_M64s, Standard_M128ms |
-
-
 
 ## Restricted VM families
 The following VM families can be allocated in Batch pools, but you must request a specific quota increase (see [this article](batch-quota-limit.md#increase-a-quota)):
@@ -75,7 +70,7 @@ These sizes can only be used in pools in the Virtual Machine configuration.
 
 * **Quotas** - The [cores quotas](batch-quota-limit.md#resource-quotas) in your Batch account can limit the number of nodes of a given size you can add to a Batch pool. To request a quota increase, see [this article](batch-quota-limit.md#increase-a-quota). 
 
-* **Pool configuration** - In general, you have more VM size options  when you create a pool in the Virtual Machine configuration, compared with the Cloud Service configuration.
+* **Pool configuration** - In general, you have more VM size options when you create a pool in the Virtual Machine configuration, compared with the Cloud Service configuration.
 
 ## Next steps
 
