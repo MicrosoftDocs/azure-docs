@@ -28,7 +28,7 @@ Azure Service Fabric components provide system health reports on all entities in
 System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
 
 > [!NOTE]
-> Health reports sent by user watchdogs are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created, for example, when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
+> Health reports sent by user watchdogs are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created. An example is when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
 > 
 > 
 
@@ -51,15 +51,18 @@ The report specifies the global-lease timeout as the time-to-live (TTL). The rep
 
 * **SourceId**: System.Federation
 * **Property**: Starts with **Neighborhood** and includes node information.
-* **Next steps**: Investigate why the neighborhood is lost, for example, check the communication between cluster nodes.
+* **Next steps**: Investigate why the neighborhood is lost. For example, check the communication between cluster nodes.
 
 ### Rebuild
 
-The **Failover Manager** service (**FM**) manages information about the cluster nodes. When FM loses its data and goes into data loss, it can't guarantee that it has the most updated information about the cluster nodes. In this case, the system goes through a **Rebuild**, and System.FM gathers data from all nodes in the cluster in order to rebuild its state. Sometimes, due to networking or node issues, rebuild can get stuck or stalled. The same can happen with the **Failover Manager Master** service **(FMM)**. The FMM is a stateless system service that keeps track of where all the **FMs** are in the cluster. The **FMMs** primary is always the node with the ID closest to 0. If that node gets dropped, a **Rebuild** is triggered.
-When one of the previous conditions happens, **System.FM** or **System.FMM** flag it through an Error report. Rebuild could be stuck in one of two phases:
+The Failover Manager (FM) service manages information about the cluster nodes. When FM loses its data and goes into data loss, it can't guarantee that it has the most updated information about the cluster nodes. In this case, the system goes through a rebuild, and System.FM gathers data from all nodes in the cluster in order to rebuild its state. Sometimes, due to networking or node issues, rebuild can get stuck or stalled. The same can happen with the Failover Manager Master (FMM) service. The FMM is a stateless system service that keeps track of where all the FMs are in the cluster. The FMM's primary is always the node with the ID closest to 0. If that node gets dropped, a rebuild is triggered.
+When one of the previous conditions happens, System.FM or **System.FMM** flags it through an error report. Rebuild might be stuck in one of two phases:
 
-* Waiting for broadcast: **FM/FMM** waits for the broadcast message reply from the other nodes. **Next steps:** Investigate whether there is a network connection issue between nodes.
-* Waiting for nodes: **FM/FMM** already received a broadcast reply from the other nodes and is waiting for a reply from specific nodes. The health report lists the nodes for which the FM/FMM is waiting for a response. **Next steps:** Investigate the network connection between the **FM/FMM** and the listed nodes. Investigate each listed node for other possible issues.
+* **Waiting for broadcast**: FM/FMM waits for the broadcast message reply from the other nodes.
+
+  * **Next steps**: Investigate whether there is a network connection issue between nodes.
+* **Waiting for nodes**: FM/FMM already received a broadcast reply from the other nodes and is waiting for a reply from specific nodes. The health report lists the nodes for which the FM/FMM is waiting for a response.
+   * **Next steps**: Investigate the network connection between the FM/FMM and the listed nodes. Investigate each listed node for other possible issues.
 
 * **SourceID**: System.FM or System.FMM
 * **Property**: Rebuild.
@@ -126,7 +129,7 @@ System.CM reports as OK when the application has been created or updated. It inf
 
 * **SourceId**: System.CM
 * **Property**: State.
-* **Next steps**: If the application has been created or updated, it should include the Cluster Manager health report. Otherwise, check the state of the application by issuing a query, for example, the PowerShell cmdlet **Get-ServiceFabricApplication -ApplicationName** *applicationName*.
+* **Next steps**: If the application has been created or updated, it should include the Cluster Manager health report. Otherwise, check the state of the application by issuing a query. For example, use the PowerShell cmdlet **Get-ServiceFabricApplication -ApplicationName** *applicationName*.
 
 The following example shows the state event on the **fabric:/WordCount** application:
 
@@ -641,7 +644,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 
 * **SourceId**: System.Replicator
 * **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
-* **Next steps**: If the report is on the primary, check the connection between the nodes in the cluster. If all connections are healthy, there could be at least one slow secondary with a high disk latency to apply operations. If the report is on the secondary, check the disk usage and performance on the node first. Then check the outgoing connection from the slow node to the primary.
+* **Next steps**: If the report is on the primary, check the connection between the nodes in the cluster. If all connections are healthy, there might be at least one slow secondary with a high disk latency to apply operations. If the report is on the secondary, check the disk usage and performance on the node first. Then check the outgoing connection from the slow node to the primary.
 
 **RemoteReplicatorConnectionStatus:**
 **System.Replicator** on the primary replica reports a warning when the connection to a secondary (remote) replicator is not healthy. The remote replicator's address is shown in the report's message, which makes it more convenient to detect if the wrong configuration was passed in or if there are network issues between the replicators.
@@ -657,7 +660,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 * **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
 
 ### Slow Naming operations
-**System.NamingService** reports the health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient, for example, under [service management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System.NamingService** reports the health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient. For example, they can be found under [service management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > The Naming service resolves service names to a location in the cluster. Users can use it to manage service names and properties. It's a Service Fabric partitioned-persisted service. One of the partitions represents the *Authority Owner*, which contains metadata about all Service Fabric names and services. The Service Fabric names are mapped to different partitions, called *Name Owner* partitions, so the service is extensible. Read more about the [Naming service](service-fabric-architecture.md).
@@ -668,7 +671,7 @@ When a Naming operation takes longer than expected, the operation is flagged wit
 
 * **SourceId**: System.NamingService
 * **Property**: Starts with the prefix "**Duration_**" and identifies the slow operation and the Service Fabric name on which the operation is applied. For example, if create service at name **fabric:/MyApp/MyService** takes too long, the property is **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" points to the role of the Naming partition for this name and operation.
-* **Next steps**: Check to see why the Naming operation fails. Each operation can have different root causes. For example, the delete service might be stuck. The service could be stuck because the application host keeps crashing on a node due to a user bug in the service code.
+* **Next steps**: Check to see why the Naming operation fails. Each operation can have different root causes. For example, the delete service might be stuck. The service might be stuck because the application host keeps crashing on a node due to a user bug in the service code.
 
 The following example shows a create service operation. The operation took longer than the configured duration. "AO" retries and sends work to "NO." "NO" completed the last operation with TIMEOUT. In this case, the same replica is primary for both the "AO" and "NO" roles.
 
@@ -855,11 +858,11 @@ System.Hosting reports a warning if node capacities aren't defined in the cluste
 * **Next steps**: The preferred way to overcome this problem is to change the cluster manifest to enable automatic detection of available resources. Another way is to update the cluster manifest with correctly specified node capacities for these metrics.
 
 ## Next steps
-[View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
+* [View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
 
-[How to report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+* [How to report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+* [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric application upgrade](service-fabric-application-upgrade.md)
+* [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
