@@ -54,8 +54,8 @@ The following table shows a list of supported operating systems:
 
 |Operating System  |Notes  |
 |---------|---------|
-|Windows Server 2008 and higher     | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 and WMF 5.0 or later are needed for Windows Server 2008 R2 SP1<br>Nano Server not supported         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
+|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 and WMF 5.0 or later are needed for Windows Server 2008 R2 SP1        |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
@@ -68,7 +68,7 @@ The following table lists the operating systems that are not supported:
 |Operating System  |Notes  |
 |---------|---------|
 |Windows client     | Client operating systems (Windows 7, Windows 10, etc.) are not supported.        |
-|Nano Server     | Nano server is part of Windows 2016.        |
+|Windows Server 2016 Nano Server     | Not supported       |
 
 ### Client requirements
 
