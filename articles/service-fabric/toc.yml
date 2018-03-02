@@ -395,7 +395,7 @@
       items:
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
-      -name: Run a setup script
+      - name: Run a setup script
         href: service-fabric-run-script-at-service-startup.md
       - name: Configure security policies for your application
         href: service-fabric-application-runas-security.md
