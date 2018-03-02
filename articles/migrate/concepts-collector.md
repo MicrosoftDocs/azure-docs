@@ -155,6 +155,30 @@ The Collector only discovers the machine data and sends it to the project. The p
 
 Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
 
+## How to upgrade Collector
+
+You can upgrade the Collector to the latest version without downloading the OVA once again.
+
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/latestupgrade).
+2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
+
+	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+	
+	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Copy the zip file to the Azure Migrate collector virtual machine (collector appliance).
+4. Right-click on the zip file and select Extract All.
+5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
+
+### List of updates
+
+	For Upgrade to version 1.0.9.5 download [package](https://aka.ms/migrate/col/upgrade_9_5)
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | d969ebf3bdacc3952df0310d8891ffdf
+    SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+    SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
+
 ## Next steps
 
 [Set up an assessment for on-premises VMware VMs](tutorial-assessment-vmware.md)
