@@ -36,8 +36,7 @@ The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (V
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : A visual data mining and machine learning software in Java.
   * [Apache Drill](https://drill.apache.org/): A schema-free SQL Query Engine for Hadoop, NoSQL, and Cloud Storage.  Supports ODBC and JDBC interfaces to enable querying NoSQL and files from standard BI tools like PowerBI, Excel, Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
-* Git including Git Bash to work with source code repositories including GitHub, Visual Studio Team Services
-* Windows ports of several popular Linux command-line utilities (including awk, sed, perl, grep, find, wget, curl, etc.) accessible through command prompt. 
+* Git including Git Bash to work with source code repositories including GitHub, Visual Studio Team Services and provides several popular Linux command-line utilities (including awk, sed, perl, grep, find, wget, curl, etc.) accessible both on git-bash and command prompt. 
 
 Doing data science involves iterating on a sequence of tasks:
 
@@ -96,9 +95,7 @@ Once your VM is created and provisioned, you are ready to start using the tools 
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
 
-### Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench is a desktop application and command-line interface. The Workbench has built-in data preparation that learns your data preparation steps as you perform them. It also provides project management, run history, and notebook integration to bolster your productivity. You can take advantage of the best open-source frameworks, including TensorFlow, Cognitive Toolkit, Spark ML, and scikit-learn to develop your models. On the DSVM, we provide a desktop icon to install the Azure Machine Learning workbench into the individual user's %LOCALAPPDATA% directory. Each user that needs to use the Workbench needs to do a one time action of double-clicking the ```AzureML Workbench Setup``` desktop icon to install their instance of the Workbench. Azure Machine Learning also creates and uses a per-user Python environment that is extracted in the %LOCALAPPDATA%\amlworkbench\python.
 
 ### Microsoft ML Server Developer Edition
 If you wish to use Microsoft enterprise libraries for scalable R or Python for your analytics, the VM has Microsoft ML Server Developer edition (Previously known as Microsoft R Server) installed. Microsoft ML Server is a broadly deployable enterprise-class analytics platform available for both R and Python and is  scalable, commercially supported and secure. Supporting a variety of big data statistics, predictive modeling and machine learning capabilities, ML Server supports the full range of analytics – exploration, analysis, visualization, and modeling. By using and extending open source R and Python, Microsoft ML Server is fully compatible with R / Python scripts, functions and CRAN / pip / Conda packages, to analyze data at enterprise scale. It also addresses the in-memory limitations of Open Source R by adding parallel and chunked processing of data. This enables you to run analytics on data much bigger than what fits in main memory.  Visual Studio Community Edition included on the VM contains the R Tools for Visual Studio and Python tools for Visual Studio extension that provides a full IDE for working with R or Python. We also provide other IDEs as well such as [RStudio](http://www.rstudio.com) and [PyCharm Community edition](https://www.jetbrains.com/pycharm/) on the VM. 
@@ -162,6 +159,10 @@ To help you build dashboards and great visualizations, the **Power BI Desktop** 
 > 
 > 
 
+### Azure Machine Learning Workbench
+
+Azure Machine Learning Workbench is a desktop application and command-line interface. The Workbench has built-in data preparation that learns your data preparation steps as you perform them. It also provides project management, run history, and notebook integration to bolster your productivity. You can take advantage of the best open-source frameworks, including TensorFlow, Cognitive Toolkit, Spark ML, and scikit-learn to develop your models. On the DSVM, we provide a desktop icon to install the Azure Machine Learning workbench into the individual user's %LOCALAPPDATA% directory. Each user that needs to use the Workbench needs to do a one time action of double-clicking the ```AzureML Workbench Setup``` desktop icon to install their instance of the Workbench. Azure Machine Learning also creates and uses a per-user Python environment that is extracted in the %LOCALAPPDATA%\amlworkbench\python.
+
 ## Additional Microsoft development tools
 The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the Microsoft Data Science Virtual Machine desktop.  
 
@@ -169,7 +170,7 @@ The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloa
 | Item | Directory |
 | --- | --- |
 | Jupyter notebook server configurations |C:\ProgramData\jupyter |
-| Jupyter Notebook samples home directory |c:\dsvm\notebooks |
+| Jupyter Notebook samples home directory |c:\dsvm\notebooks and c:\users\<username>\notebooks|
 | Other samples |c:\dsvm\samples |
 | Anaconda (default: Python 3.6) |c:\Anaconda |
 | Anaconda Python 2.7 environment |c:\Anaconda\envs\python2 |
@@ -180,7 +181,7 @@ The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloa
 | Miscellaneous tools |c:\dsvm\tools |
 
 > [!NOTE]
-> On Windows Server 2012 edition of the DSVM, the default Anaconda environment is Python 2.7. The secondary environment is Python 3.5 located at c:\Anaconda\envs\py35. 
+> On Windows Server 2012 edition of the DSVM and Windows Server 2016 edition before March 2018, the default Anaconda environment is Python 2.7. The secondary environment is Python 3.5 located at c:\Anaconda\envs\py35. 
 > 
 > 
 
