@@ -40,7 +40,6 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Colombia                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Curaçao                                             |                 |                |              |      ✓     |          ✓         |
 | Dominica                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Dominicana                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Ecuador                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -51,7 +50,6 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Guadaloupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Guyana                                              |                 |                |              |      ✓     |          ✓         |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -79,6 +77,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Virgin Islands - British                            |                 |                |              |      ✓     |          ✓         |
 | Virgin Islands - United States                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| |                 |                |              |            |                    |
 | **Asia Pacific**                                        |                 |                |              |            |                    |
 | American Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -92,20 +91,17 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Cocos Islands                                       |                 |                |              |      ✓     |          ✓         |
 | Comorros                                            |                 |                |              |      ✓     |          ✓         |
 | Cook Islands                                        |                 |                |              |      ✓     |          ✓         |
-| Dokdo and Takeshima                                 |                 |                |              |      ✓     |                    |
-| East Timor                                          |                 |                |              |      ✓     |          ✓         |
-| Fiji, Republic of                                   |                 |                |              |      ✓     |          ✓         |
+| Fiji |                 |                |              |      ✓     |          ✓         |
 | French Polynesia                                    |                 |                |              |      ✓     |          ✓         |
 | Heard Island and McDonald Islands                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| India                                               |                 |                |              |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
 | Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Micronesia, Federated States of                     |                 |                |              |      ✓     |          ✓         |
+| Micronesia |                 |                |              |      ✓     |          ✓         |
 | Mongolia                                            |                 |                |              |      ✓     |          ✓         |
 | Nauru                                               |                 |                |              |      ✓     |          ✓         |
 | Nepal                                               |                 |                |              |      ✓     |          ✓         |
@@ -116,7 +112,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | North Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Northern Mariana Islands                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
-| Palau, Republic of                                  |                 |                |              |      ✓     |          ✓         |
+| Palau |                 |                |              |      ✓     |          ✓         |
 | Papua New Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Paracel Islands                                     |                 |                |              |      ✓     |                    |
 | Philippines                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -137,7 +133,8 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Wallis and Futuna Islands, Territory of the         |                 |                |              |      ✓     |          ✓         |
+| Wallis and Futuna|                 |                |              |      ✓     |          ✓         |
+| |                 |                |              |            |                    |
 | **Europe**                                              |                 |                |              |            |                    |
 | Albania                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -147,7 +144,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Belgium                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnia And Herzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Byelorussia                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belerus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croatia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cyprus                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Czech Republic                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -202,6 +199,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatican City                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| |                 |                |              |            |                    |
 | **Middle East Africa**                                  |                 |                |              |            |                    |
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -213,7 +211,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Cameroon                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Cape Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Cabo Verde|                 |                |       ✓      |      ✓     |          ✓         |
 | Central African Republic                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -224,10 +222,9 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Equatorial Guinea, Republic of                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Ethiopia                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| French Southern and Antarctic Lands                 |                 |                |              |      ✓     |          ✓         |
+| French Southern Territories|                 |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
-| Gaza                                                |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guinea                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
@@ -240,12 +237,12 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Lebanon                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Libyan Arab Jamahiriya                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Libya|                 |                |       ✓      |      ✓     |          ✓         |
 | Madagascar                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Maldives, Republic of                               |                 |                |              |      ✓     |          ✓         |
+| Maldives |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Marshall Islands, Republic of the                   |                 |                |              |      ✓     |          ✓         |
+| Marshall Islands |                 |                |              |      ✓     |          ✓         |
 | Mauritania                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
