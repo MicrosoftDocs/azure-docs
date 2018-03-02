@@ -1,3 +1,15 @@
+---
+title: include file 
+description: include file 
+services: logic-apps
+author: MandiOhlinger
+ms.service: logic-apps
+ms.topic: include 
+ms.date: 03/02/2018
+ms.author: mandia
+ms.custom: include file
+---
+
 1. In the [Azure portal](https://portal.azure.com), 
 create a blank logic app. 
 
