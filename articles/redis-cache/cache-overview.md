@@ -42,17 +42,21 @@ There are many common patterns where Redis Cache is used to support application 
 * **Distributed transactions** - it is a common requirement for applications to execute a series of commands against a backend data-store that need to be treated as a single operation. All commands must succeed without interruption, or all must be rolled back. Redis Cache supports executing a batch of commands as a single operation in the form of [Transactions](https://redis.io/topics/transactions).
 
 
-## Advantages of Premium Tier Caches
+## Azure Redis Cache offerings
 
-  Azure Redis Cache is available in the following tiers: 
+Azure Redis Cache is available in the following tiers: 
 
   * **Basic** - Single node, multiple sizes, ideal for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA).
 
   * **Standard** - A replicated cache in a two-node primary/secondary configuration managed by Microsoft, with a high-availability SLA.
 
-  * **Premium** - The Premium-tier is an Enterprise ready tier, which includes all of the Standard tier features and more, as described in the following points.
+  * **Premium** - The Premium-tier is an Enterprise ready tier, which includes all of the Standard tier features and more.
 
-  This section describes advantages of Premium-tier Azure Redis Cache. The [Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/) page also provides a detailed comparison of each tier.
+The Premium-tier is considered to be the Enterprise ready tier. 
+
+To scale to the premium tier from one of the other tiers, choose one of the premium tiers in the Change pricing tier blade. You can also scale your cache using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Redis Cache](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+
+The following points describe some of the advantages of Premium-tier Azure Redis Cache. The [Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/) page also provides a detailed comparison of each tier.
   
   * **Better performance compared to Standard or Basic tier** - Caches in the Premium tier are deployed on hardware that has faster processors and provides better performance compared to the Basic or Standard Tier. Premium tier Caches have higher throughput and lower latencies. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. For example, the throughput of a 53 GB P4 (Premium) cache is 250 K requests per second as compared to 150 K for 53 GB C6 (Standard) cache. For more information about size, throughput, and bandwidth with premium caches, see [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
@@ -106,7 +110,6 @@ There are many common patterns where Redis Cache is used to support application 
     For more information, see [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md).
 
 
-  To scale to the premium tier from one of the other tiers, choose one of the premium tiers in the Change pricing tier blade. You can also scale your cache using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Redis Cache](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
 
 

@@ -6,7 +6,7 @@
 ### [Patterns & Practices Caching guidance](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 # Quickstarts
-## [Create]
+## [Create a new cache](cache-create-first-cache.md)
 ## [ASP.NET](cache-web-app-howto.md)
 ## [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ## [Node](cache-nodejs-get-started.md)
@@ -74,8 +74,7 @@
 ## Best Practices
 ### [Best Practices for Azure Redis Cache](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f)
 ### [Azure Architecture Best Practices for Caching](https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json)
-###
 ## [Redis Cache FAQ](cache-faq.md)
 ## [Videos](https://www.youtube.com/results?search_query=azure+redis+cache)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azurecache&filter=alltypes&sort=lastpostdesc)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc)
 
