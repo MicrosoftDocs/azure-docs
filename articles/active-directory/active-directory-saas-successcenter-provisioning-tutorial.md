@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
+manager: beatrizd
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: v-ant-msft
+ms.author: v-ant
 ---
 
 # Tutorial: Configure Cornerstone OnDemand for automatic user provisioning
