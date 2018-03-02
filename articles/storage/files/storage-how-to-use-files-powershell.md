@@ -235,5 +235,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [Mac](storage-how-to-use-files-mac.md) operating systems.
+You can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md) operating systems.
 
