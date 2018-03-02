@@ -4,6 +4,8 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 
 ### Windows
 
+#### Manual option
+
 1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
 2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
 3. Open the properties for the appropriate adapter: **Local Area Connection**.
@@ -24,6 +26,51 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
 7. Configure Windows to use the private IP address of the primary IP configuration in Azure as the primary IP address for Windows. See [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) for details. 
 
+#### Using the network shell utility option
+
+```powershell
+ <#
+    .SYNOPSIS
+        Configures a windows NIC with multiple private ips
+
+    .PARAMETER AdapterName
+        The adapter name. e.g. "Local Network Connection"
+    
+    .PARAMETER DnsAddress
+        The DNS server address
+
+    .PARAMETER SubnetAddress
+        the subnet mask. e.g. 255.255.0.0
+
+    .PARAMETER GatewayAddress
+        the first ip in the block, e.g. 10.0.0.1
+    
+    .PARAMETER PrimaryPrivateIp
+        the primary private ip. e.g. 10.0.0.4
+        
+    .PARAMETER PrivateIps
+        list of private ips. e.g. 10.0.0.5,10.0.0.6
+
+    .EXAMPLE
+	    PS C:\> Update-NetworkAdapterIps "Local Network Connection" "8.8.8.8" "255.255.0.0" "10.0.0.1" "10.0.0.4" "10.0.0.5","10.0.0.6"
+#>
+Function Update-NetworkAdapterIps($AdapterName, $DnsServer, $SubnetAddress, $GatewayAddress, $PrimaryPrivateIp, $PrivateIps)
+{
+ $netsh = "netsh"
+ # First, configure the dns server
+ & $netsh interface ipv4 add dnsserver `"$AdapterName`" $DnsServer
+
+ # Second, add the primary ip address
+ & $netsh interface ipv4 add address `"$AdapterName`" $PrimaryPrivateIp $SubnetAddress $GatewayAddress
+
+ # Now, add all of the private ips
+ "Received " +  $PrivateIps.Length + " private ips"
+ For ($i=0; $i -lt $PrivateIps.Length; $i++) {
+   $ip = $PrivateIps[$i]
+   & $netsh interface ipv4 add address `"$AdapterName`" $ip $SubnetAddress $GatewayAddress	 
+ }
+}
+```
 
 ### Validation (Windows)
 
