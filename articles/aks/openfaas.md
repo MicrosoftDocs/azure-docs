@@ -100,11 +100,11 @@ brew install faas-cli
 
 Now that OpenFaaS is operation, create a simple function using the OpenFaas portal.
 
-Click on the **hamburger menu** > **Deploy New Function** > and search for **Figlet**. Select the Figlet function, and click **Deploy**.
+Click on **Deploy New Function** and search for **Figlet**. Select the Figlet function, and click **Deploy**.
 
 ![Figlet](media/container-service-serverless/figlet.png)
 
-Finally, use curl to invoke the function. Replace the IP address in the following example with that of your OpenFaas gateway.
+Use curl to invoke the function. Replace the IP address in the following example with that of your OpenFaas gateway.
 
 ```azurecli-interactive
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
@@ -125,9 +125,7 @@ Output:
 
 Now create a second function. This example will be deployed using the OpenFaaS CLI and includes a custom container image and retrieving data from a Cosmos DB. Several items need to be configured before creating the function. 
 
-First you will create a Cosmos DB instance that is used with the function.
-
-Create a new resource group for the Cosmos DB.
+First, create a new resource group for the Cosmos DB.
 
 ```azurecli-interactive
 az group create --name serverless-backing --location eastus
@@ -139,12 +137,12 @@ Deploy a CosmosDB instance of type "Mongo". The instance needs a unique name, up
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Get the Cosmos database connection string and store it in a variable.
+Get the Cosmos database connection string and store it in a variable. Update the value for the `--resource-group` argument to the name of your resource group, and the `--name` argument to the name of your Cosmos DB.
 
 ```azurecli-interactive
 COSMOS=$(az cosmosdb list-connection-strings \
   --resource-group serverless-backing \
-  --name openfaas-cosmos007 \
+  --name openfaas-cosmos \
   --query connectionStrings[0].connectionString \
   --output tsv)
 ```
@@ -163,13 +161,13 @@ Now populate the Cosmos DB with test data. Create a file named `plans.json` and 
 }
 ```
 
-Use the *mongoimport* tool to load the CosmosDB instance with data. If needed, install the Mongo DB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
+Use the *mongoimport* tool to load the CosmosDB instance with data. If needed, install the MongoDB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
 
 ```azurecli-interactive
 brew install mongodb
 ```
 
-Load the data in to the database.
+Load the data into the database.
 
 ```azurecli-interactive
 mongoimport --uri=$COSMOS -c plans < plans.json
@@ -182,7 +180,7 @@ Output:
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
-Run the following command to create the function which is comprised of the pre-built container.
+Run the following command to create the function. Update the value of the `-g` argument with your OpenFaaS gateway address.
 
 ```azurecli-interctive
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
@@ -195,7 +193,7 @@ Deployed. 202 Accepted.
 URL: http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Now you can test the function using curl.
+Now you can test the function using curl. Update the IP address with the OpenFaaS gateway address.
 
 ```console
 curl -s http://52.186.64.52:8080/function/cosmos-query
