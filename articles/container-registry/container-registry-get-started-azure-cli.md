@@ -148,7 +148,7 @@ Once admin is enabled the username is the same as your registry name and you can
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace <acrName>, <acrLoginServer>, and <acrPassword> with the values you obtained from previous commands.
+To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace `<acrName>`, `<acrLoginServer>`, and `<acrPassword>` with the values you obtained from previous commands.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
@@ -207,7 +207,7 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
-[azure-container-show]: /cli/azure/container#az_container_show
+[az-container-show]: /cli/azure/container#az_container_show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md
 [container-registry-auth-aci]: container-registry-auth-aci.md

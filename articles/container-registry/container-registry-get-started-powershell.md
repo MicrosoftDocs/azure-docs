@@ -94,11 +94,10 @@ $pscred = New-Object System.Management.Automation.PSCredential($creds.Username, 
 To deploy your container image from the container registry with 1 CPU core and 1 GB of memory, run the following command:
 
 ```powershell
-New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -M
-emoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -MemoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
 ```
 
-You should get an initial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check to see when it is running repeat the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]. It should take less than a minute.
+You should get an initial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check to see when it is running repeat the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command. It should take less than a minute.
 
 ```powershell
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
@@ -129,7 +128,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it via Azure Container Instances, continue to the Azure Container Instances tutorial for a deeper look at ACI.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, and launched an instance of it in Azure Container Instances. Continue to the Azure Container Instances tutorial for a deeper look at ACI.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)

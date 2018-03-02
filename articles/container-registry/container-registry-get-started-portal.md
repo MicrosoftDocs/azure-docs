@@ -110,7 +110,7 @@ A context menu will appear, select **Run instance**:
 
 ![Launch ACI context menu][qs-portal-11]
 
-Fill in container name, ensure the correct subscription is selected, select the existing **Resource group**: "myResourceGroup" and then click OK to launch the Azure Container Instance.
+Fill in **Container name**, ensure the correct subscription is selected, select the existing **Resource group**: "myResourceGroup" and then click OK to launch the Azure Container Instance.
 
 ![Launch ACI deployment options][qs-portal-12]
 
