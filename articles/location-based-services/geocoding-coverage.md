@@ -282,6 +282,8 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 
 
 
+
+
 |Terms|Definitions|
 |--- |--- |
 |**<sup>1</sup> - Address Point**|Derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding is supported.|
