@@ -25,7 +25,7 @@ Create a resource group with the [az group create][az-group-create] command. An 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -39,7 +39,7 @@ Create an ACR instance using the [az acr create][az-acr-create] command.
 
 The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
-```azurecli-interactive
+```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
 ```
 
@@ -72,7 +72,7 @@ Throughout the rest of this quickstart `<acrName>` is a placeholder for the cont
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login][az-acr-login] command.
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -88,7 +88,7 @@ docker pull microsoft/aci-helloworld
 
 Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name of the ACR instance.
 
-```azurecli-interactive
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
@@ -108,7 +108,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 
 The following example lists the repositories in a registry:
 
-```azurecli-interactive
+```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
@@ -122,7 +122,7 @@ aci-helloworld
 
 The following example lists the tags on the **aci-helloworld** repository.
 
-```azurecli-interactive
+```azurecli
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
@@ -138,25 +138,25 @@ v1
 
 In order to deploy a container instance from the registry you created, you must provide the registry credentials when you deploy it. In production scenarios you should use a [service principal][container-registry-auth-aci] for container registry access, but to keep this quickstart brief, enable the admin user on your registry with the following command:
 
-```azurecli-interactive
+```azurecli
 az acr update --name <acrName> --admin-enabled true
 ```
 
 Once admin is enabled the username is the same as your registry name and you can retrieve the password with this command:
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace `<acrName>`, `<acrLoginServer>`, and `<acrPassword>` with the values you obtained from previous commands.
 
-```azurecli-interactive
+```azurecli
 az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
 You should get an initial response back from Azure Resource Manager with details on your container. To monitor the status of your container and check and see when it is running, repeat the [az container show][az-container-show]. It should take less than a minute.
 
-```azurecli-interactive
+```azurecli
 az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
 ```
 
@@ -164,7 +164,7 @@ az container show --resource-group myResourceGroup --name acr-quickstart --query
 
 Once the deployment to ACI is successful, retrieve the container's FQDN with the [az container show][az-container-show] command:
 
-```azurecli-interactive
+```azurecli
 az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
 ```
 
@@ -178,7 +178,7 @@ To see the running application, navigate to the public IP address in your favori
 
 When no longer needed, you can use the [az group delete][az-group-delete] command to remove the resource group, ACR instance, and all container images.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
