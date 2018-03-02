@@ -35,9 +35,9 @@ These limits, however, are enforced primarily as a safety measure to help protec
 
 ## Image count limits
 
-Azure Container Registry imposes no limits on the number of images, layers, tags, or repositories in a registry.
+Azure Container Registry imposes no limits on the number of images, layers, tags, or repositories in a registry. However, very high numbers of repositories and tags can impact the performance of your registry.
 
-Although ACR doesn't limit the number of these resources, very high numbers of repositories and tags can impact the performance of your registry. You should periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the [REST API](/rest/api/containerregistry/), or with the [Azure portal][portal] as part of your registry management routine.
+You should periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry management routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
 
 ## Storage cost
 
