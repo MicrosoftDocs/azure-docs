@@ -69,22 +69,22 @@ Create a device identity for your simulated device so that it can communicate wi
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
 On the machine where you'll run the IoT Edge device, download the IoT Edge control script:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure the runtime with your IoT Edge device connection string from the previous section:
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Start the runtime:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Check Docker to see that the IoT Edge agent is running as a module:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -100,7 +100,7 @@ In this quickstart, you created a new IoT Edge device and installed the IoT Edge
 
 Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -108,7 +108,7 @@ sudo docker ps
 
 View the messages being sent from the tempSensor module to the cloud:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
