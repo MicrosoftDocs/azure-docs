@@ -142,7 +142,7 @@ Apply the Custom Script Extension configuration to the VM instances in your scal
 ```azurecli-interactive 
 az group deployment create \
   --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeployv2.json
+  --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```
 
 All VM instances in the scale set are automatically updated with the latest version of the sample web page. To see the updated version, refresh the web site in your browser:
