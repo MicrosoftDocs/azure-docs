@@ -86,7 +86,7 @@ The system account must have the following privileges:
 
     - Only a single certificate file exists in the DependencyFilesLocalPath.
     
-    - The file name must not contain any special characters.
+    - The file name must not contain any special characters or spaces.
 
 
 5. Open a **new** elevated (administrative) PowerShell console. Then change to the directory where you extracted the files. Use a new window to avoid problems that might arise from incorrect PowerShell modules that are already loaded on the system.

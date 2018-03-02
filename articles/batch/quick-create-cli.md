@@ -113,7 +113,7 @@ do
    az batch task create \
     --task-id mytask$i \
     --job-id myjob \
-    --command-line "/bin/bash -c printenv | grep AZ_BATCH; sleep 90s"
+    --command-line "/bin/bash -c 'printenv | grep AZ_BATCH; sleep 90s'"
 done
 ```
 

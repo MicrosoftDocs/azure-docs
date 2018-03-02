@@ -3,7 +3,7 @@ title: Create a simple app with two intents - Azure | Microsoft Docs
 description: Learn how to create a simple LUIS app using two intents and no entities to identify user utterances. 
 services: cognitive-services
 author: v-geberr
-manager: kamran.iqbal
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
@@ -32,7 +32,7 @@ Once the type of utterance is identified, LUIS is done. The calling application 
 
     ![Intents page](./media/luis-quickstart-intents-only/intents-list.png)
 
-5. From the left panel, select **Create new intent**. Enter the new intent name `GetStoreInfo`. This intent should be selected any time a user wants information about your store such as what you sell, what hours you are open, and how to contact you.
+5. Select **Create new intent**. Enter the new intent name `GetStoreInfo`. This intent should be selected any time a user wants information about your store such as what you sell, what hours you are open, and how to contact you.
 
     By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
