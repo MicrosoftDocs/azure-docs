@@ -9,17 +9,17 @@
     href: model-management-overview.md
 - name: Quickstarts
   items:
-  - name: Install and create
+  - name: Install and start
     href: quickstart-installation.md
 - name: Tutorials
   items:
-  - name: 1 - Prepare data
+  - name: '1: Prepare data'
     href: tutorial-classifying-iris-part-1.md
-  - name: 2 - Build a model 
+  - name: '2: Build models' 
     href: tutorial-classifying-iris-part-2.md
-  - name: 3 - Deploy a model
+  - name: '3: Deploy models'
     href: tutorial-classifying-iris-part-3.md
-  - name: 4 - Advanced data preparation
+  - name: '4: Advanced data preparation'
     href: tutorial-bikeshare-dataprep.md  
 - name: Concepts   
   items: 
@@ -194,25 +194,15 @@
   items:  
   - name: Frequently asked questions
     href: frequently-asked-questions.md
-  - name: Known issues and troubleshooting
+  - name: Issues and troubleshooting
     href: known-issues-and-troubleshooting-guide.md
-  - name: Team Data Science Process documentation
-    href: ../team-data-science-process/overview.md
-  - name: Data Science VM documentation
-    href: ../data-science-virtual-machine/overview.md
-  - name: Azure Roadmap
+  - name: Support and training
+    href: support-for-aml-services.md
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-  - name: Feedback forum
-    href: https://feedback.azure.com/forums/257792-machine-learning
+    href: aml-services-pricing.md
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Support options
-    href: https://azure.microsoft.com/support/options/
+  - name: Team Data Science Process
+    href: ../team-data-science-process/overview.md
