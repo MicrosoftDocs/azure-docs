@@ -1,6 +1,6 @@
 ---
 title: Best practices for using Azure Data Lake Store | Microsoft Docs
-description: Learn the best practices data ingestion, date security, and performance related to using Azure Data Lake Store 
+description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Store 
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2018
+ms.date: 03/02/2018
 ms.author: sachins
 
 ---
@@ -98,11 +98,9 @@ Below are the top three recommended options for orchestrating replication betwee
 |**Scale limits**     | Bounded by worker nodes        | Limited by Max Cloud Data Movement units        | Bound by Analytics units        |
 |**Supports copying deltas**     |   Yes      | No         | No         |
 |**Built-in orchestration**     |  No (use Oozie Airflow or cron jobs)       | Yes        | No (Use Azure Automation or Windows Task Scheduler)         |
-|**Supported file systems**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerous, see [here].         | ADL to ADL, WASB to ADL (same region only)        |
+|**Supported file systems**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerous, see [Connectors](../data-factory/connector-azure-blob-storage.md).         | ADL to ADL, WASB to ADL (same region only)        |
 |**OS support**     |Any OS running Hadoop         | N/A          | Windows 10         |
    
-<< TBD: Add a link in the table >>
-
 
 ### Use Distcp for data movement between two locations 
 
