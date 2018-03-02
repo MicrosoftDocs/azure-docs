@@ -25,8 +25,6 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic.md)]
 
-[!INCLUDE [iot-hub-basic2](../../includes/iot-hub-basic2.md)]
-
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
