@@ -167,7 +167,7 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 }
 ```
 
-These properties describe the configuration of the VM itself, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VMs in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview#overprovisioning.md)).
+These properties describe the configuration of the VM itself, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VMs in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### The scale set VM instance view
@@ -323,7 +323,7 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
 - You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [ Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade).
+> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [ Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
 
