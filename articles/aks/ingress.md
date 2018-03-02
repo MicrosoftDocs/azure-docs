@@ -55,8 +55,8 @@ IP="52.224.125.195"
 DNSNAME="demo-aks-ingress"
 
 # Get resource group and public ip name
-RESOURCEGROUP=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
-PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name]" --output tsv)
+RESOURCEGROUP=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
+PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[name]" --output tsv)
 
 # Update public ip address with dns name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
@@ -65,7 +65,7 @@ az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --d
 If needed, run the following command to retrieve the FQDN. Update the IP address value with that of your ingress controller.
 
 ```azurecli
-az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
+az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
 The ingress controller is now accessible through the FQDN.

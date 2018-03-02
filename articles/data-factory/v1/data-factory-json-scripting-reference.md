@@ -3,7 +3,7 @@ title: Azure Data Factory - JSON Scripting Reference | Microsoft Docs
 description: Provides JSON schemas for Data Factory entities. 
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---

@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/09/2018
-ms.author: v-demak
+ms.author: v-geberr;
 ---
 # Phrase list features in LUIS
 

@@ -397,6 +397,8 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: SQL APIs
     items:
+    - name: Async Java
+      href: sql-api-sdk-async-java.md
     - name: Java
       href: sql-api-sdk-java.md
     - name: .NET
