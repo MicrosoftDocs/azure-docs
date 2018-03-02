@@ -48,7 +48,7 @@ There are four main steps in this flow:
 
 [Azure Key Vault][key-vault-get-started] is used here as a safe storage location for certificates and as a way to get certificates installed on Service Fabric clusters in Azure. If you are not deploying to Azure, you do not need to use Key Vault to manage secrets in Service Fabric applications.
 
-For an example, see [Manage application secrets](service-fabric-secret-management.md).
+For an example, see [Manage application secrets](service-fabric-application-secret-management.md).
 
 ## Securing service communication
 
