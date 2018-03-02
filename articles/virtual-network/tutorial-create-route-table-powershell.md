@@ -1,6 +1,6 @@
 ---
 title: Route network traffic - PowerShell | Microsoft Docs
-description: Learn how to route network traffic with a route table using using PowerShell.
+description: Learn how to route network traffic with a route table using PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -32,9 +32,9 @@ Azure automatically routes traffic between all subnets within a virtual network,
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Create a route table
 
@@ -50,7 +50,7 @@ Create a route table with [New-AzureRmRouteTable](/powershell/module/azurerm.net
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzureRmRouteTable `
-  -Name 'myRouteTable-Public' `
+  -Name 'myRouteTablePublic' `
   -ResourceGroupName myResourceGroup `
   -location EastUS
 ```
@@ -62,12 +62,12 @@ A route table contains zero or more routes. Create a route by retrieving the rou
 ```azurepowershell-interactive
 Get-AzureRmRouteTable `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myRouteTable-Public" `
+  -Name "myRouteTablePublic" `
   | Add-AzureRmRouteConfig `
   -Name "ToPrivateSubnet" `
   -AddressPrefix 10.0.1.0/24 `
   -NextHopType "VirtualAppliance" `
-  -NextHopIpAddress $nic.IpConfigurations[0].PrivateIpAddress `
+  -NextHopIpAddress 10.0.2.4 `
  | Set-AzureRmRouteTable
 ```
 
@@ -154,7 +154,7 @@ $subnetConfigDmz = Get-AzureRmVirtualNetworkSubnetConfig `
 $nic = New-AzureRmNetworkInterface `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
-  -Name 'myNic-Nva' `
+  -Name 'myVmNva' `
   -SubnetId $subnetConfigDmz.Id `
   -EnableIPForwarding
 ```
@@ -188,16 +188,19 @@ Create the virtual machine using the virtual machine configuration with [New-Azu
 $vm = New-AzureRmVM `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
-  -VM $vmConfig
+  -VM $vmConfig `
+  -AsJob
 ```
 
-The virtual machine takes a few minutes to create. Do not continue to the next step until Azure finishes creating the virtual machine and returns output about the virtual machine. In production environments, the network virtual appliance you deploy is often a pre-configured virtual machine. Several network virtual appliances are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?search=network%20virtual%20appliance&page=1).
+The `-AsJob` option creates the virtual machine in the background, so you can continue to the next step. When prompted, enter the user name and password you want to log in to the virtual machine with. In production environments, the network virtual appliance you deploy is often a pre-configured virtual machine. Several network virtual appliances are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?search=network%20virtual%20appliance&page=1).
+
+Azure assigned 10.0.2.4 as the private IP address of the virtual machine, because 10.0.2.4 is the first available IP address in the *DMZ* subnet of *myVirtualNetwork*.
 
 ### Create virtual machines
 
 Create two virtual machines in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the network virtual appliance in a later step. 
 
-Create a virtual machine in the *Public* subnet with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVmWeb* in the *Public* subnet of the *myVirtualNetwork* virtual network. The `-AsJob` option creates the virtual machine in the background, so you can continue to the next step. When prompted, enter the user name and password you want to log in to the virtual machine with.
+Create a virtual machine in the *Public* subnet with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVmWeb* in the *Public* subnet of the *myVirtualNetwork* virtual network. 
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -224,9 +227,9 @@ New-AzureRmVm `
     -Name "myVmMgmt"
 ```
 
-The virtual machine takes a few minutes to create. Though not in the returned output, Azure assigned 10.0.1.4 as the private IP address of the virtual machine, because 10.0.1.4 is the first available IP address in the *Private* subnet of *myVirtualNetwork*. 
+The virtual machine takes a few minutes to create. Azure assigned 10.0.1.4 as the private IP address of the virtual machine, because 10.0.1.4 is the first available IP address in the *Private* subnet of *myVirtualNetwork*. 
 
-Don't continue with the next step until the virtual machine is created.
+Don't continue with the next step until the virtual machine is created and Azure returns output to PowerShell.
 
 ### Route traffic through a network virtual appliance
 
@@ -253,6 +256,8 @@ Set-AzureRmVMExtension `
   -SettingString '{"commandToExecute": "netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow"}' `
   -Location EastUS
 ```
+
+The previous commands may take a few minutes to complete. Do not continue with the next step until the commands complete and output is returned to PowerShell. Though tracert is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
 You connect to a virtual machine's public IP address from the Internet. Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to return the public IP address of a virtual machine. The following example returns the public IP address of the *myVmMgmt* virtual machine:
 
@@ -375,7 +380,7 @@ When no longer needed, use [Remove-AzureRmResourcegroup](/powershell/module/azur
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-In this article, you created a route table and associated it to a subnet. You created a network virtual appliance that routed traffic from a public subnet to a private subnet. While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next tutorial to learn how to restrict network access to Azure PaaS resources.
+In this article, you created a route table and associated it to a subnet. You created a network virtual appliance that routed traffic from a public subnet to a private subnet. While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next article to learn how to restrict network access to Azure PaaS resources.
 
 > [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-powershell.md)
+> [Restrict network access to PaaS resources](virtual-network-service-endpoints-configure.md#azure-powershell)

@@ -40,7 +40,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 Azure routes traffic between all subnets in a virtual network, by default. To learn more about Azure's default routes, see [System routes](virtual-networks-udr-overview.md). To override Azure's default routing, you create a route table that contains routes, and associate the route table to a virtual network subnet.
 
-1. Click **+ Create a resource** on the upper, left corner of the Azure portal.
+1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Route table**.
 3. Select your **Subscription** and select or enter the following information, then select **Create**:
  
@@ -67,7 +67,7 @@ A route table contains zero or more routes.
 
 Before you can associate a route table to a subnet, you have to create a virtual network and subnet:
 
-1. Click **+ Create a resource** on the upper, left corner of the Azure portal.
+1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual network**.
 3. Under **Create virtual network**, select, or enter the following information, then select **Create**:
     
@@ -128,7 +128,7 @@ In a previous step, you created a route that specified a network virtual applian
 
 The virtual machine takes a few minutes to create. Do not continue to the next step until Azure finishes creating the virtual machine and opens a box with information about the virtual machine.
 
-You must enable IP forwarding for each Azure [network interface](virtual-network-network-interface.md) attached to a virtual machine that forwards traffic destined for any IP address that isn't assigned to the network interface. Complete the following steps to enable IP forwarding:
+When Azure created the virtual machine, it also created a [network interface](virtual-network-network-interface.md) in the *DMZ* subnet and attached the network interface to the virtual machine. IP forwarding must be enabled for each Azure network interface that forwards traffic destined for any IP address that isn't assigned to the network interface.
 
 1. In the box that opened for the virtual machine after it was created, under **SETTINGS**, select **Networking**, and then select **myvmnva158** (the network interface Azure created for your virtual machine has a different number after **myvmnva**), as shown in the following picture:
 
@@ -136,7 +136,7 @@ You must enable IP forwarding for each Azure [network interface](virtual-network
 
     When you created the network virtual appliance in the *DMZ* subnet, Azure automatically created the network interface, attached the network interface to the virtual machine, and assigned the private IP address *10.0.2.4* to the network interface. 
 
-2. Under **SETTINGS**, select **IP configurations**, select **Enabled** for **IP forwarding**, and then click **Save**, as shown in the following picture:
+2. Under **SETTINGS**, select **IP configurations**, select **Enabled** for **IP forwarding**, and then select **Save**, as shown in the following picture:
 
     ![Enable IP forwarding](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png) 
 
@@ -272,4 +272,4 @@ When no longer needed, delete the resource group and all resources it contains:
 In this article, you created a route table and associated it to a subnet. You created a network virtual appliance that routed traffic from a public subnet to a private subnet. While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next tutorial to learn how to restrict network access to Azure PaaS resources.
 
 > [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-portal.md)
+> [Restrict network access to PaaS resources](virtual-network-service-endpoints-configure.md#azure-portal)

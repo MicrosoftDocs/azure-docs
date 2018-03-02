@@ -318,4 +318,4 @@ az group delete --name myResourceGroup --yes
 In this article, you created a route table and associated it to a subnet. You created a network virtual appliance that routed traffic from a public subnet to a private subnet. While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next tutorial to learn how to restrict network access to Azure PaaS resources.
 
 > [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-cli.md)
+> [Restrict network access to PaaS resources](virtual-network-service-endpoints-configure.md#azure-cli)
