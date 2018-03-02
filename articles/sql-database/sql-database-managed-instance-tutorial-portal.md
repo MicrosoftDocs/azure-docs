@@ -2,6 +2,7 @@
 title: 'Azure portal: Create SQL Database Managed Instance | Microsoft Docs'
 description: Create an Azure SQL Database Managed Instance in a VNet and use SSMS to restore the Wide World Importers database backup.
 keywords: sql database tutorial, create a sql database managed instance
+services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: managed instance
@@ -116,7 +117,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route.
 
 8. Click **OK**.
 
- ## To apply the route table to the Managed Instance subnet
+## To apply the route table to the Managed Instance subnet
 
 The following steps show you how to set the new route table on the Managed Instance subnet.
 
@@ -264,7 +265,7 @@ You are connected to your virtual machine in the Server Manager dashboard.
 > [!IMPORTANT]
 > Do not continue until your Managed Instance is successfully provisioned. After it is provivioned, retrieve the host name for your instance in the **Managed instance** field on the **Overview** tab for your Managed Instance. In will be similar to this: **drfadfadsfd.tr23.westus1-a.worker.database.windows.net**.
 
-## Install SQL Server Management Studio (SSMS) and connect to the Managed Instance
+## Install SSMS and connect to the Managed Instance
 
 The following steps show you how to download and install SSMS, and then connect to your Managed Instance.
 
@@ -295,7 +296,7 @@ Use the following steps to download the Wide World Importers - Standard backup f
 
 Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak in the URL address box and then, when prompted, click **Save** to save this file in the **Downloads** folder.
 
-## Create Azure storage account and upload the Wide World Importers - Standard backup file
+## Create Azure storage account and upload backup file
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate **Storage** and then click **Storage Account** to open the storage account form.

@@ -51,7 +51,7 @@
     href: sql-database-security-tutorial.md
   - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: 5 - Create Managed Instance and restore database
+  - name: 5 - Create Managed Instance
     href: sql-database-managed-instance-tutorial-portal.md
 - name: Samples
   items:
@@ -269,6 +269,12 @@
       href: sql-database-elastic-query-horizontal-partitioning.md
     - name: Query across tables with different schemas
       href: sql-database-elastic-query-vertical-partitioning.md
+  - name: Managed instance
+    items:
+    - name: VNet configuration
+      href: sql-database-managed-instance-vnet-configuration.md
+    - name: Custom DNS
+      href: sql-database-managed-instance-custom-dns.md
   - name: Security
     items:
     - name: Configure Azure AD auth

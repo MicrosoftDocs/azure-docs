@@ -2,24 +2,18 @@
 title: Azure SQL Database Managed Instance Overview | Microsoft Docs
 description: This topic describes an Azure SQL Database Managed Instance and explains how it works and how it is different from a single database in Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: 
+manager: Craig.Guyer
 ms.service: sql-database
-ms.custom: DBs & servers
-ms.devlang: na
+ms.custom: managed instance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
 ms.date: 02/28/2018
 ms.author: carlrab
 ---
 
 # What is an Azure SQL Database Managed Instance?
 
-Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNET)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
+Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
  
 The following diagram outlines key features of the Managed Instance:
 
@@ -36,7 +30,7 @@ The following table outlines key differences and envisioned usage scenarios betw
 
 | | Usage scenario | 
 | --- | --- | 
-|Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNET support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
+|Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNet support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
 |Azure SQL Database |For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><br>• conversion of the business model from selling licenses to selling service subscriptions (for ISVs),  <br>• easy and bullet-proof tenant isolation <br> • a simplified database-centric programming model  <br>• the potential to scale out without hitting a hard ceiling. <br><br>For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are <br><br>• a simplified database-centric programming model  <br>• predictable performance for each database.|
 |SQL IaaS |For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
@@ -49,7 +43,7 @@ The following table outlines key differences and envisioned usage scenarios betw
 | --- | --- |
 |• No hardware purchasing and management <br>• No management overhead for managing underlying infrastructure <br>• Quick provisioning and service scaling <br>• Automated patching and version upgrade <br> • Integration with other PaaS data services (SQL Server Integration Service and SQL Server Analysis Service) |• 99.99% uptime SLA  <br>• Built in high availability <br>• Data protected with automated backups <br>• Customer configurable backup retention period <br>• User-initiated backups <br>• Point in time database restore capability |
 |**Security and compliance** | **Management**|
-| • Isolated environment (VNET integration, single-tenant service, dedicated compute and storage <br>• Encryption of the data in transit <br>• Azure AD authentication, single sign-on support <br>• Adheres to compliance standards same as Azure SQL database <br>• SQL auditing <br>• Threat detection | • Azure Resource Manager API for automating service provisioning and scaling <br>• Azure portal functionality for manual service provisioning and scaling <br>• Data Migration Service) 
+| • Isolated environment (VNet integration, single-tenant service, dedicated compute and storage <br>• Encryption of the data in transit <br>• Azure AD authentication, single sign-on support <br>• Adheres to compliance standards same as Azure SQL database <br>• SQL auditing <br>• Threat detection | • Azure Resource Manager API for automating service provisioning and scaling <br>• Azure portal functionality for manual service provisioning and scaling <br>• Data Migration Service) 
 
 ![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
@@ -84,7 +78,7 @@ The following outlines key features of the General Purpose service tier:
 | HA | Based on remote storage |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
-| VNET - Azure Resource Manager deployment | Yes |
+| VNet - Azure Resource Manager deployment | Yes |
 | Portal support | Yes|
 |||
 
@@ -139,6 +133,8 @@ Azure SQL Database [Threat Detection](sql-database-threat-detection.md) compleme
 ### Azure Active Directory integration and multi-factor authentication 
 
 SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) to increase data and application security while supporting a single sign-on process. 
+
+![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
 ### Authentication 
 SQL database authentication refers to how users prove their identity when connecting to the database. SQL Database supports two types of authentication:  
