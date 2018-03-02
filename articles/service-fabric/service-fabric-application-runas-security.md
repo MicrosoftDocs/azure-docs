@@ -299,33 +299,38 @@ The following example shows how to create a gMSA account called *svc-Test$*; how
 
 ##### Example
 1. Have an active directory domain administrator create a group managed service account using the `New-ADServiceAccount` commandlet and ensure that the `PrincipalsAllowedToRetrieveManagedPassword` includes all of the service fabric cluster nodes. Note that `AccountName`, `DnsHostName`, and `ServicePrincipalName` must be unique.
-```
-New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
-```
+
+    ```poweshell
+    New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+    ```
+
 2. On each of the service fabric cluster nodes (for example, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), install and test the gMSA.
-```
-Add-WindowsFeature RSAT-AD-PowerShell
-Install-AdServiceAccount svc-Test$
-Test-AdServiceAccount svc-Test$
-```
+    
+    ```powershell
+    Add-WindowsFeature RSAT-AD-PowerShell
+    Install-AdServiceAccount svc-Test$
+    Test-AdServiceAccount svc-Test$
+    ```
+
 3. Configure the User principal, and configure the RunAsPolicy to reference the user.
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
-      <ConfigOverrides />
-      <Policies>
-         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
-      </Policies>
-   </ServiceManifestImport>
-  <Principals>
-    <Users>
-      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
-    </Users>
-  </Principals>
-</ApplicationManifest>
-```
+    
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+        <ServiceManifestImport>
+          <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+          <ConfigOverrides />
+          <Policies>
+              <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+          </Policies>
+        </ServiceManifestImport>
+      <Principals>
+        <Users>
+          <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+        </Users>
+      </Principals>
+    </ApplicationManifest>
+    ```
 
 ## Assign a security access policy for HTTP and HTTPS endpoints
 If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer1 account to an endpoint called **EndpointName**, which gives it full access rights.
