@@ -35,6 +35,8 @@ Managed registry storage provides the following benefits:
 * Ability to freely [move between SKUs](container-registry-skus.md#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase.
 * Unified security model for the registry and its storage provides simplified rights management. You manage permissions only for the container registry, without having to also manage permissions for a separate storage account.
 
+For additional details on image storage in ACR, see [Container image storage in Azure Container Registry](container-registry-storage.md).
+
 ## Migration considerations
 
 When you change a Classic registry to a managed registry, Azure must copy all existing container images from the ACR-created storage account in your subscription to a storage account managed by Azure. Depending on the size of your registry, this process can take a few minutes to several hours.

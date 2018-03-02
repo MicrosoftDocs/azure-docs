@@ -13,7 +13,7 @@ ms.author: marsma
 
 # Container image storage in Azure Container Registry
 
-Every [Basic, Standard, or Premium](container-registry-skus.md) Azure container registry is backed by an Azure Storage account managed by Azure. This managed storage scheme provides several benefits, including encryption-at-rest for image data security and geo-redundant storage for high availability. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
+Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry is backed by an Azure Storage account managed by Azure. This managed storage scheme provides several benefits, including encryption-at-rest for image data security and geo-redundant storage for high availability. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
 
 ## Encryption-at-rest
 
