@@ -42,17 +42,17 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
         "settings": {
             "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-			"traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-			"perfCounterTrace": "[parameters('perfCounterTrace')]",
-			"networkTrace": "[parameters('networkTrace')]",
-			"xperfTrace": "[parameters('xperfTrace')]",
-			"storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-		  "protectedSettings": {
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"		
-		    }
+        }
       }
     }
 ```
@@ -182,17 +182,17 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
         "settings": {
             "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-			      "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-			      "perfCounterTrace": "[parameters('perfCounterTrace')]",
-			      "networkTrace": "[parameters('networkTrace')]",
-			      "xperfTrace": "[parameters('xperfTrace')]",
-			      "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-		  "protectedSettings": {            
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"		
-		    }
+        }
       }
     }
   ]
@@ -205,8 +205,8 @@ The `Set-AzureRmVMExtension` command can be used to deploy Azure Performance Dia
 PowerShell
 
 ````
-$PublicSettings = @{ "storageAccountName"="mystorageaccount","performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountKey"="mystoragekey" };
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -216,7 +216,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## Information on the data captured

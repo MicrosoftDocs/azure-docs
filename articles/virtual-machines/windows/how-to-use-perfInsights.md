@@ -116,9 +116,9 @@ Information about Windows VM, disks or storage pools configuration, performance 
 | Firewall configuration            | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | SQL Server configuration          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | Performance diagnostics traces *  | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
-| Performance counter trace **      |                            |                                    |                          |                      | Yes                  |
+| Performance counter trace **      |                            |                                    | Yes                      |                      | Yes                  |
 | SMB counter trace **              |                            |                                    |                          | Yes                  |                      |
-| SQL Server counter trace **       |                            |                                    |                          |                      | Yes                  |
+| SQL Server counter trace **       |                            |                                    | Yes                      |                      | Yes                  |
 | Xperf trace                       |                            |                                    |                          |                      | Yes                  |
 | StorPort trace                    |                            |                                    |                          |                      | Yes                  |
 | Network trace                     |                            |                                    |                          | Yes                  | Yes                  |
