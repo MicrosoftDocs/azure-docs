@@ -18,7 +18,7 @@ ms.author: johnkem
 
 ---
 # Stream the Azure Activity Log to Event Hubs
-The [**Azure Activity Log**](monitoring-overview-activity-logs.md) can be streamed in near real time to any application using the built-in “Export” option in the portal, or by enabling the Service Bus Rule Id in a Log Profile via the Azure PowerShell Cmdlets or Azure CLI.
+The [**Azure Activity Log**](monitoring-overview-activity-logs.md) can be streamed in near real time to any application using the built-in “Export” option in the portal, or by enabling the Service Bus Rule ID in a Log Profile via the Azure PowerShell Cmdlets or Azure CLI.
 
 ## What you can do with the Activity Log and Event Hubs
 Here are just a few ways you might use the streaming capability for the Activity Log:
@@ -32,15 +32,15 @@ You can enable streaming of the Activity Log either programmatically or via the 
 The Event Hubs namespace does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ### Via Azure portal
-1. Navigate to the **Activity Log** blade using the All services search on the left side of the portal.
+1. Navigate to the **Activity Log** section using the All services search on the left side of the portal.
    
     ![Navigate to Activity Log in portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Click the **Export** button at the top of activity log blade. Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings -- those are only for filtering what you see while browsing your Activity Log in the portal.
+2. Click the **Export** button at the top of the activity log. Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings -- those are only for filtering what you see while browsing your Activity Log in the portal.
    
     ![Export button in portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
-3. In the blade that appears, select **All regions**. Do not select particular regions.
+3. In the section that appears, select **All regions**. Do not select particular regions.
    
-    ![Export Activity Log blade](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+    ![Export Activity Log](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
     
     > [!WARNING]
     > Only select 'All regions.' Otherwise you will miss key events that you would have otherwise expected to receive. This is due to the fact that the Activity Log is a global (non-regional) log, so most events do not have a region associated with them.
