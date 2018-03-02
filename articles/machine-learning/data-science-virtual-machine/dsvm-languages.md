@@ -32,6 +32,10 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 | How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 3.6 . <br/> * `python2` environment located at `/anaconda/envs/python2`is Python 2.7       |
 | Links to Samples      | Sample Jupyter notebooks for Python are included     |
 | Related Tools on the DSVM      | PySpark, R, Julia      |
+
+> [!NOTE]
+> Windows Server 2016 created before March 2018 contains Python 3.5 and Python 2.7. Also Python 2.7 is the conda **root** environment and **py35** is the Python 3.5 environment. 
+
 ### How to use / run it?    
 
 * Running in command prompt
@@ -50,7 +54,8 @@ python --version
 ```
 * Using in an IDE
 
-Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment setup automatically in PTVS in Python 3.6. 
+Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment setup automatically in PTVS by default is Python 3.6. 
+
 > [!NOTE]
 > To point the PTVS at Python 2.7, you need to create a  custom environment in PTVS. To set this environment paths in the Visual Studio  Community Edition, navigate to **Tools** -> **Python Tools** -> **Python Environments** and then click **+ Custom**. Then set the location to `c:\anaconda\envs\python2` and then click _Auto Detect_. 
 
@@ -135,7 +140,7 @@ The default Python environments on the DSVM are global environment readable by a
 | ------------- | ------------- |
 | Language versions Supported | Microsoft R Open 3.x (100% compatible with CRAN-R<br /> Microsoft R Server 9.x Developer edition (A Scalable Enterprise ready R platform)|
 | Supported DSVM Editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Links to Samples      | Sample Jupyter notebooks for R are included     |
 | Related Tools on the DSVM      | SparkR, Python, Julia      |
 ### How to use / run it?    
