@@ -277,17 +277,17 @@ for example:
 
     | Property | Value | Description |
     | -------- | ----- | ----------- | 
-    | **To** | <*email-address@domain*> | The recipient's email address. For testing, use your own email address. | 
+    | **To** | *<email-address@domain>* | The recipient's email address. For testing, use your own email address. | 
     | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
     | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
-    ||| 
+    |||| 
 
 11. Save your logic app. To manually test your logic app, 
 on the designer toolbar, choose **Run**.
 
-After your logic starts running, you get an email with the content that you specified:
+    After your logic starts running, you get an email with the content that you specified:
 
-![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+    ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## Prevent endless loops
 
