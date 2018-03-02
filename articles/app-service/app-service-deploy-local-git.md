@@ -135,9 +135,9 @@ The following are common errors or problems when using Git to publish to an App 
 ---
 **Symptom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Cause**: This error can happen if you don't specify a branch during `git push`, or if you have not set the `push.default` value in `.gitconfig`.
+**Cause**: This error can happen if you don't specify a branch during `git push`, or if you haven't set the `push.default` value in `.gitconfig`.
 
-**Resolution**: Perform the push operation again, specifying the master branch. For example:
+**Resolution**: Run `git push` again, specifying the master branch. For example:
 
 ```bash
 git push azure master
@@ -148,7 +148,7 @@ git push azure master
 
 **Cause**: This error can happen if you try to push to a branch other than master on the 'azure' remote.
 
-**Resolution**: Perform the push operation again, specifying the master branch. For example:
+**Resolution**: Run `git push` again, specifying the master branch. For example:
 
 ```bash
 git push azure master
@@ -170,7 +170,7 @@ git config --global http.postBuffer 524288000
 
 **Cause**: This error can happen if you deploy a Node.js app with a _package.json_ file that specifies additional required modules.
 
-**Resolution**: Additional messages containing 'npm ERR!' should be logged prior to this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:
+**Resolution**: Additional messages with 'npm ERR!' should be logged before this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:
 
 * **Malformed package.json file**: npm ERR! Couldn't read dependencies.
 * **Native module that does not have a binary distribution for Windows**:
