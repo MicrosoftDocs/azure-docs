@@ -26,7 +26,7 @@ Azure Performance Diagnostics VM Extension helps collect performance diagnostic 
 This extension can be installed on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. It can also be installed on Windows 8.1 and Windows 10.
 
 ## Extension schema
-The following JSON shows the schema for Azure Performance Diagnostics VM Extension. This extension requires the name and key for a storage account to store the diagnostics output and report. These values are sensitive and should be stored inside a protected setting configuration. Azure VM extension protected setting data is encrypted, and it is only decrypted on the target virtual machine. Note that **storageAccountName** and **storageAccountKey** are case-sensitive. Other required parameters are listed in the following section.
+The following JSON shows the schema for Azure Performance Diagnostics VM Extension. This extension requires the name and key for a storage account to store the diagnostics output and report. These values are sensitive. Storage account key should be stored inside a protected setting configuration. Azure VM extension protected setting data is encrypted, and it is only decrypted on the target virtual machine. Note that **storageAccountName** and **storageAccountKey** are case-sensitive. Other required parameters are listed in the following section.
 
 ```JSON
     {
@@ -40,17 +40,17 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-			      "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-			      "perfCounterTrace": "[parameters('perfCounterTrace')]",
-			      "networkTrace": "[parameters('networkTrace')]",
-			      "xperfTrace": "[parameters('xperfTrace')]",
-			      "storPortTrace": "[parameters('storPortTrace')]",
+			"traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+			"perfCounterTrace": "[parameters('perfCounterTrace')]",
+			"networkTrace": "[parameters('networkTrace')]",
+			"xperfTrace": "[parameters('xperfTrace')]",
+			"storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
 		  "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
             "storageAccountKey": "[parameters('storageAccountKey')]"		
 		    }
       }
@@ -72,12 +72,13 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
 |xperfTrace|x|Option to enable XPerf Trace. Valid values are **x** or empty value. If you do not want to capture this trace, leave the value as empty.
 |storPortTrace|s|Option to enable StorPort Trace. Valid values are **s** or empty value. If you do not want to capture this trace, leave the value as empty.
 |srNumber|123452016365929|The support ticket number, if available. Leave the value as empty if you don’t have it.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Current Date Time in Utc. If you are using the portal to install this extension, you do not need to provide this value.
 |storageAccountName|mystorageaccount|The name of the storage account to store the diagnostics logs and results.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|The key for the storage account.
 
 ## Install the extension
 
-Follow these steps to install the extension on Windows virtual machines:
+Follow these instructions to install the extension on Windows virtual machines:
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 2. Select the virtual machine where you want to install this extension.
@@ -179,6 +180,7 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
 			      "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
 			      "perfCounterTrace": "[parameters('perfCounterTrace')]",
@@ -188,8 +190,7 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-		  "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+		  "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"		
 		    }
       }
@@ -199,13 +200,13 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
 ````
 
 ## PowerShell deployment
-The `Set-AzureRmVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine. Before running the command, store the public and private configurations in a PowerShell hash table.
+The `Set-AzureRmVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount","performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" };
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,7 +232,7 @@ To assist the support engineer working on your support ticket, Microsoft might u
 
 To view the report, extract the zip file and open the **PerfInsights Report.html** file.
 
-You might also be able to download the zip file directly from the portal by selecting the extension.
+You should also be able to download the zip file directly from the portal by selecting the extension.
 
 ![Screenshot of Performance Diagnostics detailed status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
