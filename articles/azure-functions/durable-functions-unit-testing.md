@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Unit Testuing
+title: Durable Functions Unit Testing
 description: Learn how to unit test Durable Functions.
 services: functions
 author: kadimitr

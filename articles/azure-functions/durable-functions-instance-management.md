@@ -22,7 +22,9 @@ ms.author: azfuncdf
 
 ## Starting instances
 
-The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) starts a new instance of an orchestrator function. Instances of this class can be acquired using the `orchestrationClient` binding. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the `orchestrationTrigger` trigger binding. The method completes when the orchestration process is started.
+The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) starts a new instance of an orchestrator function. Instances of this class can be acquired using the `orchestrationClient` binding. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the `orchestrationTrigger` trigger binding. 
+
+The task completes when the orchestration process is started. The orchestration process should start within 30 seconds. If it takes longer, a `TimeoutException` is thrown. 
 
 The parameters to [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) are as follows:
 
@@ -78,7 +80,7 @@ The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
     * **ContinuedAsNew**: The instance has restarted itself with a new history. This is a transient state.
     * **Failed**: The instance failed with an error.
     * **Terminated**: The instance was abruptly terminated.
-* **History**: If `showHistory` is set to `true`, the execution history of the orchestration will be provided.
+* **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
     
 This method returns `null` if the instance either doesn't exist or has not yet started running.
 
@@ -142,6 +144,60 @@ public static Task Run(
 
 > [!WARNING]
 > If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+
+## Wait for orchestration completion
+
+The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class exposes a [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API that can be used to get synchronously the actual output from an orchestration instance. The method uses default value of 10 seconds for `timeout` and 1 second for `retryInterval` when they are not set.  
+
+Here is an example HTTP-trigger function that demonstrates how to use this API:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
+
+The function can be called with the following line using **2-seconds timeout** and **0.5-second retry interval**:
+
+```bash
+    http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
+```
+
+And depending on the time required to get the response from the orchestration instance there are two cases:
+
+1. The **orchestration instances complete within the defined timeout** (in this case 2 seconds), then the response is the actual orchestration instance output delivered synchronously:
+
+```http
+    HTTP/1.1 200 OK
+    Content-Type: application/json; charset=utf-8
+    Date: Thu, 14 Dec 2017 06:14:29 GMT
+    Server: Microsoft-HTTPAPI/2.0
+    Transfer-Encoding: chunked
+
+    [
+        "Hello Tokyo!",
+        "Hello Seattle!",
+        "Hello London!"
+    ]
+```
+
+2. The **orchestration instances cannot complete within the defined timeout** (in this case 2 seconds), then the response is the default one described in **HTTP API URL discovery**:
+
+```http
+    HTTP/1.1 202 Accepted
+    Content-Type: application/json; charset=utf-8
+    Date: Thu, 14 Dec 2017 06:13:51 GMT
+    Location: http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==
+    Retry-After: 10
+    Server: Microsoft-HTTPAPI/2.0
+    Transfer-Encoding: chunked
+
+    {
+        "id": "d3b72dddefce4e758d92f4d411567177",
+        "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==",
+        "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==",
+        "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA=="
+    }
+```
+
+> [!NOTE]
+> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The preceding example is for the Azure Functions 2.0 host.
 
 ## Next steps
 
