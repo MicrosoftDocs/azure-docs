@@ -3,11 +3,11 @@ title: Indexing in Azure Cosmos DB MongoDB API | Microsoft Docs
 description: Presents an overview of the indexing capabilities in Azure Cosmos DB MongoDB API.
 services: cosmos-db
 documentationcenter: ''
-author: orkostak
+author: orestis-ms
 manager: sivethe
 editor: ''
 
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
+ms.assetid: daacbabf-1bb5-497f-92db-079910703047
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
 ms.workload: 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/01/2018
-ms.author: orkostak
+ms.author: orestis-ms
 
 ---
 
@@ -101,6 +101,4 @@ The preceding command will cause the deletion of any documents in ```db.coll``` 
 Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the --noIndexRestore flag in the command line).
 
 ## Next steps
-
-> [!div class="nextstepaction"]
->[How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
+*[How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
