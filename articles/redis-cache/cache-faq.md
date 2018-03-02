@@ -243,7 +243,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 * You can also use the Redis command-line tools. To use them, perform the following steps:
 * Download the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/).
 * Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
-* `redis-cli -h <your cache="" name="">
+* `redis-cli -h <redis cache name>
   .redis.cache.windows.net -a <key>
   `
 
