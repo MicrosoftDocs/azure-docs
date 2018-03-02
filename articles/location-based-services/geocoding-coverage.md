@@ -20,7 +20,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 
 | Region             | Address points<sup>1</sup>|House numbers<sup>2</sup>| Street level | City level | Points of interest |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
-| Americas                                            |                 |                |              |            |                    |
+| **Americas**                                            |                 |                |              |            |                    |
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarctica                                          |                 |                |              |      ✓     |          ✓         |
 | Antigua And Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
@@ -79,7 +79,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Virgin Islands - British                            |                 |                |              |      ✓     |          ✓         |
 | Virgin Islands - United States                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Asia Pacific                                        |                 |                |              |            |                    |
+| **Asia Pacific**                                        |                 |                |              |            |                    |
 | American Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
@@ -138,7 +138,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Wallis and Futuna Islands, Territory of the         |                 |                |              |      ✓     |          ✓         |
-| Europe                                              |                 |                |              |            |                    |
+| **Europe**                                              |                 |                |              |            |                    |
 | Albania                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Armenia                                             |                 |                |              |      ✓     |          ✓         |
@@ -202,7 +202,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 | United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatican City                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| Middle East Africa                                  |                 |                |              |            |                    |
+| **Middle East Africa**                                  |                 |                |              |            |                    |
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
