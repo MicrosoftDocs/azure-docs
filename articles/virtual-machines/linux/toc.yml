@@ -418,11 +418,7 @@
     - name: VMAccess Extension
       href: using-vmaccess-extension.md
     - name: Restrict extension installation
-      items:   
-      - name: Using RBAC 
-        href: extensions-rbac-howto-cli.md
-      - name: Using Azure Policy 
-        href: extensions-rmpolicy-howto-cli.md   
+      href: extensions-rmpolicy-howto-cli.md   
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs

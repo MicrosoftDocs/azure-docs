@@ -350,11 +350,7 @@
     - name: Network Watcher Agent
       href: extensions-nwa.md
     - name: Restrict extension installation
-      items:   
-      - name: Using RBAC 
-        href: extensions-rbac-howto-ps.md
-      - name: Using Azure Policy 
-        href: extensions-rmpolicy-howto-ps.md 
+      href: extensions-rmpolicy-howto-ps.md 
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
