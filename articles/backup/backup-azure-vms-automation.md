@@ -79,7 +79,7 @@ To begin:
 3. Sign in to your Azure account using **Login-AzureRmAccount**. This cmdlet brings up a web page prompts you for your account credentials: 
     - Alternately, you can include your account credentials as a parameter in the **Login-AzureRmAccount** cmdlet, using the **-Credential** parameter.
     - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Login-AzureRmAccount -Tenant "fabrikam.com"**
-4. Associate the subscription you want to use with the acount, since an account can have several subscriptions:
+4. Associate the subscription you want to use with the account, since an account can have several subscriptions:
 
     ```PS
     PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
