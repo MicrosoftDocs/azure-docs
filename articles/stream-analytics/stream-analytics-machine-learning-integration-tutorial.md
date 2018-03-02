@@ -76,9 +76,7 @@ For this step, you can use any CSV file, such as the one available from GitHub.
 
     !['Upload' button for a container](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. In the **Upload blob** blade, specify the CSV file that you want to use for this tutorial. For **Blob type**, select **Block blob** and set the block size to 4 MB, which is sufficient for this tutorial.
-
-    ![upload blob file](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. In the **Upload blob** blade, upload the **sampleinput.csv** file that you downloaded earlier. For **Blob type**, select **Block blob** and set the block size to 4 MB, which is sufficient for this tutorial.
 
 9. Click the **Upload** button at the bottom of the blade.
 
