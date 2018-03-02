@@ -48,7 +48,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobeexperiencemanager-tutorial.png)| [Adobe Experience Manager](active-directory-saas-adobeexperiencemanager-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ADPeTime.png)| [ADP eTime](active-directory-saas-adpetime-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ADPGlobalView.png)| [ADP GlobalView](active-directory-saas-adglobalview-tutorial.md)|
-|![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-agiloft-tutorial.png)| [Agiloft] (active-directory-saas-agiloft-tutorial.md)|
+|![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-agiloft-tutorial.png)| [Agiloft](active-directory-saas-agiloft-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aha.png)| [Aha!](active-directory-saas-aha-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Airwatch.png)| [AirWatch](active-directory-saas-airwatch-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Alcumus.png)| [Alcumus Info Exchange](active-directory-saas-alcumus-info-tutorial.md)|
@@ -82,11 +82,11 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Birst.png)| [Birst Agile Business Analytics](active-directory-saas-birst-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearnShibboleth.png)| [Blackboard Learn - Shibboleth](active-directory-saas-blackboard-learn-shibboleth-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearn.png)| [Blackboard Learn](active-directory-saas-blackboard-learn-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlueJeans.png)| [BlueJeans](active-directory-saas-bluejeans-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlueJeans.png)| [BlueJeans](active-directory-saas-bluejeans-tutorial.md)|[BlueJeans - User Provisioning](active-directory-saas-bluejeans-provisioning-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonus.ly](active-directory-saas-bonus-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](active-directory-saas-boomi-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-box-tutorial.png)| [Box](active-directory-saas-box-tutorial.md)| [Box - User Provisioning](active-directory-saas-box-userprovisioning-tutorial.md)|
-| ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpm’online] (active-directory-saas-bpmonline-tutorial.md)|
+| ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpm’online](active-directory-saas-bpmonline-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bridge.png)| [Bridge](active-directory-saas-bridge-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Brightspace.png)| [Brightspace by Desire2Learn](active-directory-saas-brightspace-desire2learn-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bitabiz-tutorial.png)| [BritaBIZ](active-directory-saas-bitabiz-tutorial.md)||
