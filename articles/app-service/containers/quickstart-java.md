@@ -25,7 +25,7 @@ ms.custom: mvc
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Java app to App Service on Linux using a built-in image. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Java code to the web app.
 
-![Sample app running in Azure](media/quickstart-java/hello-world-in-browser.png)
+![Sample app running in Azure](media/quickstart-java/qshello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,7 +57,7 @@ http://<app name>.azurewebsites.net
 
 Here is what your new web app should look like:
 
-![Empty web app page](media/quickstart-java/app-service-web-service-created.png)
+![Empty web app page](media/quickstart-java/qsapp-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
@@ -105,7 +105,7 @@ http://<app_name>.azurewebsites.net
 
 The Java sample code is running in a web app with built-in image.
 
-![Sample app running in Azure](media/quickstart-java/hello-world-in-browser.png)
+![Sample app running in Azure](media/quickstart-java/qshello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
 
@@ -115,11 +115,11 @@ Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to
 
 From the left menu, click **App Services**, and then click the name of your Azure web app.
 
-![Portal navigation to Azure web app](./media/quickstart-java/java-docs-hello-world-app-service-list.png)
+![Portal navigation to Azure web app](./media/quickstart-java/qsnodejs-docs-hello-world-app-service-list.png)
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
-![App Service page in Azure portal](media/quickstart-java/java-docs-hello-world-app-service-detail.png)
+![App Service page in Azure portal](media/quickstart-java/qsnodejs-docs-hello-world-app-service-detail.png)
 
 The left menu provides different pages for configuring your app. 
 
