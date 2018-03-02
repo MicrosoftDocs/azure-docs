@@ -179,7 +179,7 @@ The left menu provides different pages for configuring your app.
 
 ## Video
 
-[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
+>[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## Next steps
 
