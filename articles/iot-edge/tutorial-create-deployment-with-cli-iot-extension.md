@@ -8,7 +8,7 @@ author: chrissie926
 manager: timlt
 
 ms.author: menchi
-ms.date: 02/12/2018
+ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -95,7 +95,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+                 "image": "microsoft/azureiotedge-agent:1.0-preview",
                  "createOptions": "{}"
                }
              },
@@ -104,7 +104,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+                 "image": "microsoft/azureiotedge-hub:1.0-preview",
                  "createOptions": "{}"
                }
              }
@@ -116,7 +116,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
+                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
                  "createOptions": "{}"
                }
              }
