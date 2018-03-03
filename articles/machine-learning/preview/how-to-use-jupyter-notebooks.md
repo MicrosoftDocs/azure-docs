@@ -68,7 +68,7 @@ When you open a notebook in Azure Machine Learning Workbench, it's displayed in 
 
 ![Notebook preview](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-Selecting the **Start Notebook Server** button starts the Jupyter server and switches the notebook into **Edit Mode**. The familiar Jupyter Notebook user interface appears embedded in the Workbench. You can now set a kernel from the **Kernel**  menu and start your interactive notebook session. 
+Selecting the **Start Notebook Server** button starts the Jupyter server and switches the notebook into **Edit Mode**. The familiar Jupyter Notebook user interface appears embedded in Workbench. You can now set a kernel from the **Kernel**  menu and start your interactive notebook session. 
 
 >[!NOTE]
 >With non-local kernels, it can take a minute or two to start if you're using it for the first time. You can execute the `az ml experiment prepare` command from the CLI window to prepare the compute target so the kernel starts much faster after the compute target is prepared.
