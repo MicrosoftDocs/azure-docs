@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/05/2018
 ms.author: marsma
 ---
 
@@ -26,7 +26,7 @@ Managed registries provide:
 * [Geo-replication](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Most of all, a Classic registry depends on the storage account that Azure automatically provisioned in your Azure subscription when you created the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of *managed storage*. That is, Azure transparently manages the storage of your images for you--a separate storage account is not created in your own subscription.
+Most of all, a Classic registry depends on the storage account that Azure automatically provisioned in your Azure subscription when you created the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of [managed storage](container-registry-storage.md). That is, Azure transparently manages the storage of your images for you--a separate storage account is not created in your own subscription.
 
 Managed registry storage provides the following benefits:
 
