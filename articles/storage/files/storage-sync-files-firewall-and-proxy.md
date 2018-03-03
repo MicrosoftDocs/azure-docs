@@ -42,7 +42,7 @@ As a result all traffic is encrypted.
 ## Networks and special connections to Azure
 The Azure File Sync agent has no requirements regarding special channels like [ExpressRoute](../../expressroute/expressroute-introduction.md), etc. to Azure.
 
-Azure File Sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning. &ast;some features are not yet available
+Azure File Sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning. Not all features are available at this time. If you would like to have the ability to configure specific behavior, please let us know on our [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## Proxy
 Azure File Sync currently supports machine-wide proxy settings. This proxy setting is transparent to the Azure File Sync agent as the entire traffic of the server is routed through this proxy.
