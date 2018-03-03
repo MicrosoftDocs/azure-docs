@@ -84,7 +84,7 @@ If you're configuring and managing disaster recovery of file servers hosted on A
 
 ## Use File Sync to replicate files hosted on an IaaS virtual machine
 
-**Azure Files** can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Azure file shares also can be replicated with File Sync to Windows servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's used. The following steps describe the disaster recovery recommendation for Azure VMs that perform the same functionality as traditional file servers:
+Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Azure file shares also can be replicated with File Sync to Windows servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's used. The following steps describe the disaster recovery recommendation for Azure VMs that perform the same functionality as traditional file servers:
 * Protect machines by using Site Recovery. Follow the steps in [Replicate an Azure VM to another Azure region](azure-to-azure-quickstart.md).
 * Use File Sync to replicate files from the VM that acts as the file server to the cloud.
 * Use the Site Recovery [recovery plan](site-recovery-create-recovery-plans.md) feature to add scripts to [mount the Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.

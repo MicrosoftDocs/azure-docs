@@ -4,6 +4,7 @@ description: Describes how to replicate Hyper-V VMs in Virtual Machine Manager c
 services: site-recovery
 author: sujaytalasila
 manager: rochakm
+
 ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
@@ -40,7 +41,7 @@ Prepare Virtual Machine Manager as follows:
 
 ## Prepare for PowerShell
 
-Make sure you have Azure PowerShell ready to go.
+Make sure you have Azure PowerShell ready to go:
 
 - If you already use PowerShell, upgrade to version 0.8.10 or later. [Learn more](/powershell/azureps-cmdlets-docs) about how to set up PowerShell.
 - After you set up and configure PowerShell, review the [service cmdlets](/powershell/azure/overview).
@@ -196,6 +197,7 @@ To test your deployment, run a test failover for a single virtual machine. You a
        $Servers = Get-AzureRmSiteRecoveryServer
        $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 2. Perform a test failover, as follows:
+
 - For a single VM:
 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer

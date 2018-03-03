@@ -20,16 +20,16 @@ This article summarizes the supported components and settings for disaster recov
 
 **Scenario** | **Details**
 --- | --- 
-**Hyper-V with Virtual Machine Manager** | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](tutorial-vmm-to-vmm.md).
-**Hyper-V without Virtual Machine Manager** | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell. 
+Hyper-V with Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](tutorial-vmm-to-vmm.md).
+Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell. 
 
 
 ## On-premises servers
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-**Hyper-V (running without Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates | When you configure a Hyper-V site in Site Recovery, mixing hosts running Windows Server 2016 and 2012 R2 isn't supported.<br/><br/> For VMs located on a host running Windows Server 2016, recovery to an alternate location isn't supported.
-**Hyper-V (running with Virtual Machine Manager)** | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | If Virtual Machine Manager is used, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.<br/><br/> A Virtual Machine Manager cloud that mixes Hyper-V hosts running on Windows Server 2016 and 2012 R2 isn't currently supported.<br/><br/> Environments that include an upgrade of an existing Virtual Machine Manager 2012 R2 server to 2016 aren't supported.
+Hyper-V (running without Virtual Machine Manager) | Windows Server 2016, Windows Server 2012 R2 with latest updates | When you configure a Hyper-V site in Site Recovery, mixing hosts running Windows Server 2016 and 2012 R2 isn't supported.<br/><br/> For VMs located on a host running Windows Server 2016, recovery to an alternate location isn't supported.
+Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | If Virtual Machine Manager is used, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.<br/><br/> A Virtual Machine Manager cloud that mixes Hyper-V hosts running on Windows Server 2016 and 2012 R2 isn't currently supported.<br/><br/> Environments that include an upgrade of an existing Virtual Machine Manager 2012 R2 server to 2016 aren't supported.
 
 
 ## Replicated VMs
@@ -138,19 +138,19 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-**Guest operating system** | Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Prerequisites check fails if unsupported.
-**Guest operating system architecture** | 64-bit | Prerequisites check fails if unsupported.
-**Operating system disk size** | Up to 2,048 GB for generation 1 VMs.<br/><br/> Up to 300 GB for generation 2 VMs.  | Prerequisites check fails if unsupported.
-**Operating system disk count** | 1 | Prerequisites check fails if unsupported.
-**Data disk count** | 16 or less  | Prerequisites check fails if unsupported.
-**Data disk VHD size** | Up to 4,095 GB | Prerequisites check fails if unsupported.
-**Network adapters** | Multiple adapters are supported |
-**Shared VHD** | Not supported | Prerequisites check fails if unsupported.
-**FC disk** | Not supported | Prerequisites check fails if unsupported.
-**Hard disk format** | VHD <br/><br/> VHDX | Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises, the virtual machines continue to use the VHDX format.
-**BitLocker** | Not supported | BitLocker must be disabled before you enable replication for a VM.
-**VM name** | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number. | Update the value in the VM properties in Site Recovery.
-**VM type** | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+Guest operating system | Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Prerequisites check fails if unsupported.
+Guest operating system architecture | 64-bit | Prerequisites check fails if unsupported.
+Operating system disk size | Up to 2,048 GB for generation 1 VMs.<br/><br/> Up to 300 GB for generation 2 VMs.  | Prerequisites check fails if unsupported.
+Operating system disk count | 1 | Prerequisites check fails if unsupported.
+Data disk count | 16 or less  | Prerequisites check fails if unsupported.
+Data disk VHD size | Up to 4,095 GB | Prerequisites check fails if unsupported.
+Network adapters | Multiple adapters are supported |
+Shared VHD | Not supported | Prerequisites check fails if unsupported.
+FC disk | Not supported | Prerequisites check fails if unsupported.
+Hard disk format | VHD <br/><br/> VHDX | Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises, the virtual machines continue to use the VHDX format.
+BitLocker | Not supported | BitLocker must be disabled before you enable replication for a VM.
+VM name | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number. | Update the value in the VM properties in Site Recovery.
+VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## Recovery Services vault actions
 
@@ -166,8 +166,8 @@ To make sure your deployment is compatible with settings in this article, make s
 
 **Name** | **Description** | **Details**
 --- | --- | --- | --- | ---
-**Azure Site Recovery provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| Latest version: 5.1.2700.1 (available from the Azure portal)<br/><br/> [Latest features and fixes](https://aka.ms/latest_asr_updates)
-**Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
+Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| Latest version: 5.1.2700.1 (available from the Azure portal)<br/><br/> [Latest features and fixes](https://aka.ms/latest_asr_updates)
+Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
 
 
 
