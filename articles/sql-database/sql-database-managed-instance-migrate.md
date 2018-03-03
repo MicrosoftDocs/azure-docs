@@ -31,7 +31,7 @@ First, determine whether Managed Instance is compatible with the database requir
 
 Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. DMA does not yet support Managed Instance as migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review list of reported feature parity and compatibility issues against product documentation. Most of the blocking issues preventing a migration to Azure SQL Database have been removed with Managed Instance. For instance, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in Managed Instances. 
 
-However, There are some cases when you need to consider an alternative option, such as [SQL Server on Virtual Machines in Azure](../virtual-machines/sql-server/). Here are some examples:
+However, there are some cases when you need to consider an alternative option, such as [SQL Server on Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
 
 - If you require direct access to the operating system or file system, for instance to install 3rd party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
@@ -79,7 +79,7 @@ To learn more about this scenario and configuration steps for DMS, see [Migrate 
 
 ### Native RESTORE from URL
 
-RESTORE of native backups (.bak files) taken from SQL Server on-premises or [SQL Server on Virtual Machines](../virtual-machines/sql-server/), available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of key capabilities on SQL DB Managed Instance that enables quick and easy offline database migration. 
+RESTORE of native backups (.bak files) taken from SQL Server on-premises or [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of key capabilities on SQL DB Managed Instance that enables quick and easy offline database migration. 
 
 The following diagram explains the process at the high level:
 
