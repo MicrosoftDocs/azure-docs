@@ -152,14 +152,14 @@ You need to change the app to use the app registration in your tenant. You also 
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
-2. In the **TaskWebApp** web app project, open the **Web.config** file and make the following updates:
+2. In the **TaskWebApp** web app project, open the **Web.config** file and make the following updates to the existing keys:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="App key you generated for your registered web app" />
+    <add key="ida:ClientSecret" value="App key you generated for your registered web app. Note: If your app key contains a double quote, you need to escape the double quote with a preceeding backslash. e.g. \" " />
     ```
 3. Update the existing keys with the values of the policy names you created in a previous step. Remember to include the *b2c_1_* prefix.
 

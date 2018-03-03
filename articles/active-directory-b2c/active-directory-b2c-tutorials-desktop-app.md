@@ -5,7 +5,7 @@ services: active-directory-b2c
 author: PatAltimore
 
 ms.author: patricka
-ms.reviewer: saraford
+ms.reviewer: parja
 ms.date: 2/28/2018
 ms.custom: mvc
 ms.topic: tutorial
@@ -169,7 +169,7 @@ The sample app supports sign up, sign in, editing a profile, and password reset.
 
 4. Click **Create** to create a local account in the Azure AD B2C tenant.
 
-Now the user can use their email address to sign in and use the desktop app.
+Now, the user can use their email address to sign in and use the desktop app.
 
 > [!NOTE]
 > If you click the **Call API** button, you will receive an "Unauthorized" error. You receive this error because you are attempting to access a resource from the demo tenant. Since your access token is only valid for your Azure AD tenant, the API call is unauthorized. Continue with the next tutorial to create a protected web API for your tenant. 

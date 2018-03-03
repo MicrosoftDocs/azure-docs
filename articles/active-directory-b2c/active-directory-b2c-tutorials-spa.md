@@ -1,169 +1,199 @@
 ---
-title: Integrate Azure Active Directory B2C into a single page application (JavaScript)
-description: Part 1 of a tutorial on integrating Azure Active Directory B2C into a single page application for your users to sign up and access an ASP.NET Core Web API resource
+title: Use Azure Active Directory B2C for User Authentication in a single page application
+description: Tutorial on how to use Azure Active Directory B2C to provide user login for a single page application (JavaScript).
 services: active-directory-b2c
-author: saraford
+author: PatAltimore
 
 ms.author: patricka
-ms.date: 12/07/2017
+ms.reviewer: paraj
+ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Part 1 - Integrate Azure AD B2C into a Single Page Application (JavaScript)
+# Tutorial: Authenticate users with Azure Active Directory B2C in a single page application (JavaScript)
 
-Azure AD B2C enables your applications to authenticate to
+This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign in and sign up users in a single page application (SPA). Azure AD B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
-* Social Accounts such as Facebook, Google, LinkedIn, and more.
-* Enterprise Accounts using open standard protocols, OpenID Connect or SAML
-* Local Accounts using email address/username and password
-
-This tutorial is a continuation of the [test drive a B2C single page application](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa) demostrating a sample WPF application that allows the users to sign in and access an API resource (by receiving a hello message back) in a hosted Azure AD B2C test tenant environment. 
-
-In this tutorial, you learn how to
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register a sample single page application (SPA) in your Azure AD B2C tenant.
-> * Create a user sign-up/sign-in policy for your SPA for a local account using an email address and password.
-> * Register a sample ASP.NET Core Web API in your Azure AD B2C tenant. 
-> * Configure a sample SPA and the ASP.NET Core Web API to use your Azure AD B2C tenant coordinates. 
-
-## Prerequisites
-
-You need the following: 
-
-* Create your own [Azure AD B2C Tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started)
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-    - **ASP.NET and web development**
-* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) or later
-* [Visual Studio Code](https://code.visualstudio.com/)
-* VS Code [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [Node](https://nodejs.org/en/download/)
+> * Register a sample single page application in your Azure AD B2C tenant.
+> * Create policies for user sign-up, sign-in, editing a profile, and password reset.
+> * Configure the sample application to use your Azure AD B2C tenant.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Step 1 - Download the sample node.js single page app
+## Prerequisites
 
-[Download](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) or clone the sample from GitHub.
+* Create your own [Azure AD B2C Tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started)
+* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) or later
+* Install [Node.js](https://nodejs.org/en/download/)
 
-```bash
+## Register single page app
+
+Applications need to be [registered](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in your tenant before they can receive [access tokens](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) for the app in your tenant. 
+
+Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+
+1. Select **Azure AD B2C** from the services list in the Azure portal. 
+
+2. In the B2C settings, click **Applications** and then click **Add**. 
+
+    To register the sample web app in your tenant, use the following settings:
+    
+    ![Add a new app](media/active-directory-b2c-tutorials-spa/spa-registration.png)
+    
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | My sample single page app | Enter a **Name** that describes your app to consumers. | 
+    | **Include web app / web API** | Yes | Select **Yes** for a single page app. |
+    | **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
+    | **Reply URL** | `http://localhost:6420` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample runs locally (localhost) and listens on port 6420. |
+    | **Include native client** | No | Since this is a single page app and not a native client, select No. |
+    
+3. Click **Create** to register your app.
+
+Registered apps are displayed in the applications list for the Azure AD B2C tenant. Select your single page app from the list. The registered single page app's property pane is displayed.
+
+![Single page app properties](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
+
+Make note of the **Application Client ID**. The ID uniquely identifies the app and is needed when configuring the app later in the tutorial.
+
+## Create policies
+
+An Azure AD B2C policy defines user workflows. For example, signing in, signing up, changing passwords, and editing profiles are common workflows.
+
+### Create a sign-up or sign-in policy
+
+To sign up users to access then sign in to the web app, create a **sign-up or sign-in policy**.
+
+1. From the Azure AD B2C portal page, select **Sign-up or sign-in policies** and click **Add**.
+
+    To configure your policy, use the following settings:
+
+    ![Add a sign-up or sign-in policy](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
+
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiUpIn** in the sample code. | 
+    | **Identity provider** | Email signup | The identity provider used to uniquely identify the user. |
+    | **Sign up attributes** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
+    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+
+2. Click **Create** to create your policy. 
+
+### Create a profile editing policy
+
+To allow users to reset their user profile information on their own, create a **profile editing policy**.
+
+1. From the Azure AD B2C portal page, select **Profile editing policies** and click **Add**.
+
+    To configure your policy, use the following settings:
+
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiPe** in the sample code. | 
+    | **Identity provider** | Local Account SignIn | The identity provider used to uniquely identify the user. |
+    | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
+    | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
+
+2. Click **Create** to create your policy. 
+
+### Create a password reset policy
+
+To enable password reset on your application, you need to create a **password reset policy**. This policy describes the consumer experience during password reset and the contents of tokens that the application receives on successful completion.
+
+1. From the Azure AD B2C portal page, select **Password reset policies** and click **Add**.
+
+    To configure your policy, use the following settings.
+
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | SSPR | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SSPR** in the sample code. | 
+    | **Identity provider** | Reset password using email address | This is the identity provider used to uniquely identify the user. |
+    | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful password reset. |
+
+2. Click **Create** to create your policy. 
+
+## Update single page app code
+
+Now that you have an app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample SPA JavaScript app you can download from GitHub. 
+
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample web app from GitHub.
+
+```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
+The sample app demonstrates how a single page app can use Azure AD B2C for user sign-up, sign-in, and call a protected web API. You need to change the app to use the app registration in your tenant and configure the policies you created. 
 
-### Sample single page application overview
+To change the app settings:
 
-This tutorial demostrates a node.js SPA calling an ASP.NET Core web API with the appropriate scopes to receive a message back. 
+1. Open the `index.html` file in the Node.js web API sample.
+2. Configure the sample with the Azure AD B2C tenant registration information. Change the following lines of code:
 
-You can sign up to use the application by clicking the **Login** button.
+    ```javascript
+    // The current application coordinates were pre-registered in a B2C tenant.
+    var applicationConfig = {
+        clientID: '<Application ID for your SPA obtained from portal app registration>',
+        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/b2c_1_SiUpIn",
+        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
+        webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
+    };
+    ```
 
-![Sign in button on single page app](media/active-directory-b2c-tutorials-spa/single-page-app-launch-screen.png)
+    The policy name used in this tutorial is **b2c_1_SiUpIn**. If you are using a different policy name, use your policy name in `authority` value.
 
-On the following sign up or sign in screen, you can enter your sign-up information. 
+## Step 5 - Run the sample single page app
+
+1. Launch a Node.js command prompt.
+2. Change to the directory containing the Node.js sample. For example `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
+3. Run the following commands:
+    ```
+    npm install && npm update
+    node server.js
+    ```
+
+    The console window displays the port number of where the app is hosted.
+    
+    ```
+    Listening on port 6420...
+    ```
+
+4. Use a browser to navigate to the address `http://localhost:6420` to view the app.
+
+The sample app supports sign up, sign in, editing a profile, and password reset. This tutorial highlights how a user signs up to use the app using an email address. You can explore other scenarios on your own.
+
+### Sign up using an email address
+
+1. Click **Login** to sign up as a user of the SPA app. This uses the **b2c_1_SiUpIn** policy you defined in a previous step.
+
+2. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link. 
+
+3. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the policy.
+
+    Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes. 
+
+    ![Sign-up workflow](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+
+4. Click **Create** to create a local account in the Azure AD B2C tenant.
+
+Now, the user can use their email address to sign in and use the SPA app.
 
 > [!NOTE]
-> You need to use a valid email address to receive the verification code.
+> After login, the app displays an "insufficient permissions" error. You receive this error because you are attempting to access a resource from the demo tenant. Since your access token is only valid for your Azure AD tenant, the API call is unauthorized. Continue with the next tutorial to create a protected web API for your tenant. 
 
-![User signing up on page](media/active-directory-b2c-tutorials-spa/sign-up-screen.png)
+## Clean up resources
 
-Upon successful sign up, you will see your display name in the token info section.  
-
-![Display name shown after sign up.png](media/active-directory-b2c-tutorials-spa/successful-sign-in.png)
-
-Once logged in, you can click **Call Web API** button to call the web API and receive a welcome message addressed to you.
-
-![User signing up on page](media/active-directory-b2c-tutorials-spa/api-call-results.png)
-
-## Step 2 - Register the Single Page Application with your Azure AD B2C tenant
-
-Make sure you are in your B2C tenant in the upper right drop-down.
-
-![verify in correct tenant](media/active-directory-b2c-tutorials-spa/verify-in-correct-tenant.png)
-
-Click on your Azure AD B2C resource from your dashboard. 
-
-Click on **Applications** then click **Add**. 
-
-Fill out the following details:
-
-- **Name** – the friendly name to identify your app in the Azure portal, e.g. `MSAL.js SPA sample`
-- **Web App / Web API** – mark **Yes** since this is a single page app
-- **Allow implicit flow** – keep the default as **Yes**
-- **Reply URL** – enter `http://localhost:6420` since this is the URL where your SPA sample code uses. 
-- **App ID URI** – leave this blank.
-- **Native client** - leave marked as `No` since this is a single page app
-
-Your web application registration should look like the following image:
-
-![web app registration](media/active-directory-b2c-tutorials-spa/spa-registration.png)
-
-Click **Create** to register the application. Once created, you can view the properties of your single page application, e.g. its `Application ID`, by click **Application** - `MSAL.js Sample App`
-
-## Step 3 - Create a Sign In or Sign Up policy
-
-A policy defines certain user workflows, for example, signing in, signing up, changing passwords, and so forth. This sections shows you how to create a **Sign in or Sign up** policy.
-
-If you already have an existing policy from a previous tutorial, you can skip to the next step. 
-
-From the B2C portal page, go to **Policies - Sign up or Sign in** and click **Add**
-
-Configure your policy using the following: 
-
-1. Call the policy `b2c_1_SiUpIn`. This policy name is used in the sample code.
-2. Identity provider - select **email signup**
-3. Sign up attributes – these are the fields your users see when they sign up for your app. Make sure to check **Display Name** and **Postal Code** since the sample apps use these attributes.
-4. Application claims – these are the claims that appear in an token. Make sure to check **Display Name**, **Postal Code**,  **User is new** and **User’s Object ID** are checked. 
-
-Press **OK** to finish creating your policy. 
-
-## Step 4 - Update the sample code to use your tenant and policy
-
-Now that the SPA is registered with B2C and you have a policy, it is time to configure the sample application to talk to your B2C tenant.
-
-Open the sample you cloned from GitHub, e.g. open `active-directory-b2c-javascript-msal-singlepageapp` folder in Visual Studio Code.
-
-> [!Note]
-> By default, the samples are configured to talk to a demo tenant called `fabrikamb2c.onmicrosoft.com` To have this sample talk to your specific tenant, you need to update the `index.html` file.
-
-In the `index.html` file, for the `applicationConfig` variable, make the following updates to the 4 lines of code below:
-
-```javascript
-        // The current application coordinates were pre-registered in a B2C tenant.
-        var applicationConfig = {
-            clientID: '<The Application ID for your SPA as seen in the portal registration>',
-            authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/b2c_1_SiUpIn",
-            b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/HelloCoreAPI/read"],
-            webApi: 'https://localhost:44332/hello',
-        };
-```
-
-Part 2 of this tutorial creates the ASP.NET Core Web API registration with the App ID URI `https://<your-tenant-name>.onmicrosoft.com/HelloCoreAPI/` and Scope `read`. 
-
-The policy name used in this walkthrough is **b2c_1_SiUpIn** If you are using a different policy name, updated the policy name in the `authority` variable.
-
-## Step 5 - Run and test the single page application
-
-From your command prompt, run the following:
-
-```bash
-cd active-directory-b2c-javascript-msal-singlepageapp
-npm install && npm update
-node server.js
-```
-
-The console window shows the port number for the web application
-
-```bash
-Listening on port 6420...
-```
-
-You can visit http://localhost:6420 and click the Login button to start the Azure AD B2C sign in or sign up workflow.
-
-However, if you click the **Call Web API** link, you will receive an error "user is unauthorized." You receive this error because you are attempting to access a resource from the demo tenant, so your access token is not valid for this API resource.  
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## Next Steps
 
-In this tutorial, you learned how to create an Azure AD B2C tenant, create a sign in or sign up policy, and update the sample single page application to use your own Azure AD B2C tenant coordinates. To learn more, continue to the next tutorial to learn how to register and update the sample ASP.NET Core Web API to use your Azure AD B2C tenant.
+In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample single page app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
 
 > [!div class="nextstepaction"]
-> [Continue to Part 2: Access a B2C-secured ASP.NET Web API resource](active-directory-b2c-tutorials-spa-part-1.md)
+> 
