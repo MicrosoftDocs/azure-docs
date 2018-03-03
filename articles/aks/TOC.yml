@@ -47,10 +47,12 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: Azure Disks
+    - name: Persistent Volume - Disks
       href: azure-disks-dynamic-pv.md
-    - name: Azure Files
+    - name: Persistent Volume - Files
       href: azure-files-dynamic-pv.md
+    - name: Kubernetes Volume - Files
+      href: azure-files-volume.md
   - name: Configure networking
     items:
     - name: Static IP address
