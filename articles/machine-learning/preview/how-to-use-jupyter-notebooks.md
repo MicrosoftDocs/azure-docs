@@ -22,9 +22,9 @@ Azure Machine Learning Workbench supports interactive data science experimentati
 ## Jupyter Notebook architecture
 At a high level, Jupyter Notebook architecture includes three components. Each can run in different compute environments:
 
-- **Client**: Receives user input and displays rendered output
-- **Server**: Web server hosts the notebook files (.ipynb files)
-- **Kernel**: Runtime environment in which execution of the notebook cells happens
+- **Client**: Receives user input and displays rendered output.
+- **Server**: Web server that hosts the notebook files (.ipynb files).
+- **Kernel**: Runtime environment in which execution of the notebook cells happens.
 
 For more information, see the official [Jupyter documentation](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). The following diagram depicts how this client, server, and kernel architecture maps to the components in Azure Machine Learning:
 
@@ -39,7 +39,7 @@ You can access different kernels in Azure Machine Learning Workbench by defining
 ### Kernel naming convention
 Azure Machine Learning Workbench generates custom Jupyter kernels. These kernels are named *\<project name> \<run config name>*. For example, if you have a run configuration named _docker-python_ in a project named _myIris_,  Azure Machine Learning makes available a kernel named *myIris docker-python.* You set the running kernel in the Jupyter Notebook **Kernel** menu, in the **Change kernel** submenu. The name of the running kernel appears on the far right of the menu bar.
  
-Currently, Azure Machine Learning Workbench supports the following types of kernels:
+Currently, Azure Machine Learning Workbench supports the following types of kernels.
 
 ### Local Python kernel
 This Python kernel supports execution on local machines. It's integrated with Azure Machine Learning Run History support. The name of the kernel is typically *my_project_name local.*
@@ -51,7 +51,7 @@ This Python kernel supports execution on local machines. It's integrated with Az
 This Python kernel runs in a Docker container either on your local machine or in a remote Linux virtual machine (VM). The name of the kernel is typically *my_project docker.* The associated `docker.runconfig` file has the `Framework` field set to `Python`.
 
 ### PySpark kernel in Docker (local or remote)
-This PySpark kernel executes scripts in a Spark context running inside of a Docker container, either on your local machine or on a remote Linux VM. The kernel name is typically *my_project docker.* The associated `docker.runconfig` file has the `Framework` field set to `PySpark`.
+This PySpark kernel executes scripts in a Spark context running inside a Docker container, either on your local machine or on a remote Linux VM. The kernel name is typically *my_project docker.* The associated `docker.runconfig` file has the `Framework` field set to `PySpark`.
 
 ### PySpark kernel in an Azure HDInsight cluster
 This kernel runs in the remote Azure HDInsight cluster that you attached as a compute target for your project. The kernel name is typically *my_project my_hdi.* 
@@ -59,21 +59,21 @@ This kernel runs in the remote Azure HDInsight cluster that you attached as a co
 >[!IMPORTANT]
 >In the `.compute` file for the HDI compute target, you must change the `yarnDeployMode` field to `client` (the default value is `cluster`) to use this kernel. 
 
-## Start a Jupyter server from the Azure Machine Learning Workbench
-From the Azure Machine Learning Workbench, notebooks can be accessed via the Workbench **Notebooks** tab. The _Classifying Iris_ sample project includes an `iris.ipynb` sample notebook.
+## Start a Jupyter server from Azure Machine Learning Workbench
+From Azure Machine Learning Workbench, you can access notebooks via the **Notebooks** tab. The _Classifying Iris_ sample project includes an `iris.ipynb` sample notebook.
 
-![notebooks tab](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
+![Notebooks tab](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
 
 When you open a notebook in Azure Machine Learning Workbench, it's displayed in its own document tab in **Preview Mode**. This is a read-only view that doesn't require a running Jupyter server and kernel.
 
-![notebook preview](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
+![Notebook preview](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
 Selecting the **Start Notebook Server** button starts the Jupyter server and switches the notebook into **Edit Mode**. The familiar Jupyter Notebook user interface appears embedded in the Workbench. You can now set a kernel from the **Kernel**  menu and start your interactive notebook session. 
 
 >[!NOTE]
 >With non-local kernels, it can take a minute or two to start if you're using it for the first time. You can execute the `az ml experiment prepare` command from the CLI window to prepare the compute target so the kernel starts much faster after the compute target is prepared.
 
-![edit mode](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
+![Edit Mode](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
 This is a fully interactive Jupyter Notebook experience. All regular notebook operations and keyboard shortcuts are supported from this window, except for some file operations that can be done via the Workbench **Notebooks** tab and **File** tab.
 
@@ -95,11 +95,11 @@ Copy and paste this URL into your browser when you connect for the first time, t
 ```
 Your default browser automatically opens with the Jupyter server pointing to the project home directory. You can also use the URL and token displayed in the CLI window to open other browser windows locally. 
 
-![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
+![Project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
 
 You can now select an `.ipynb` notebook file, open it, set the kernel (if it hasn't been set), and start your interactive session.
 
-![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+![Project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
 
 ## Use magic commands to manage experiments
 
@@ -116,7 +116,7 @@ logger.log("Cell","Load Data")
 
 To turn off cell run tracking, use the `%azureml history off` magic command.
 
-You can use the `%azureml upload` magic command to save model and data files from your run. The saved objects appear as outputs in the run history view for a given run:
+You can use the `%azureml upload` magic command to save model and data files from your run. The saved objects appear as outputs in the run history view:
 
 ```
 modelpath = os.path.join("outputs","model.pkl")
