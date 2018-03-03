@@ -1,6 +1,6 @@
 ---
 title: Overview of Microsoft Azure Data Lake Analytics | Microsoft Docs
-description: 'Data Lake Analytics is an Azure Big Data service that lets you use data to drive your business using insights gained from your data in the cloud, regardless its size or where it is.'
+description: 'Data Lake Analytics islets you drive you business using insights gained your cloud data at any scale.'
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
@@ -20,24 +20,24 @@ ms.author: saveenr
 # Overview of Microsoft Azure Data Lake Analytics
 
 ## What is Azure Data Lake Analytics?
+
 Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it is running, making it cost-effective. The analytics service supports includes U-SQL, a language that unifies the benefits of SQL with the power of imperative code. U-SQL lets you analyze data across Data Lake Store, SQL Server in Azure, Azure SQL Database, and Azure SQL Data Warehouse.
 
 ## Dynamic scaling
   
-Data Lake Analytics is architected for cloud scale and performance.  It dynamically provisions resources and lets you do analytics on terabytes or even exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute resources used, you don’t have to rewrite code. You can focus on your business logic only and not on how you process and store large datasets.
+Data Lake Analytics dynamically provisions resources and lets you do analytics on terabytes to petabytes of data. When the job completes, it winds down resources automatically and immediately. You pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute resources used, you don’t have to rewrite code. 
 
 ## Develop faster, debug, and optimize smarter using familiar tools
   
-Data Lake Analytics has deep integration with Visual Studio, so you can use familiar tools to run, debug, and tune your code. Visualizations of your U-SQL jobs let you see how your code runs at scale, so you can easily identify performance bottlenecks and optimize costs.
-
+Data Lake Analytics deep integrates with Visual Studio. You can use familiar tools to run, debug, and tune your code. Visualizations of your U-SQL jobs let you see how your code runs at scale, so you can easily identify performance bottlenecks and optimize costs.
 
 ## U-SQL: simple and familiar, powerful, and extensible
   
-Data Lake Analytics includes U-SQL, a query language that extends the familiar, simple, declarative nature of SQL with the expressive power of C#. The U-SQL language is built on the same distributed runtime that powers the big data systems inside Microsoft. Millions of SQL and .NET developers can now process and analyze their data with the skills they already have.
+Data Lake Analytics includes U-SQL, a query language that extends the familiar, simple, declarative nature of SQL with the expressive power of C#. The U-SQL language uses the same distributed runtime that powers Microsoft's internal exabyte-scale data lake. SQL and .NET developers can now process and analyze their data with the skills they already have.
 
 ## Integrates seamlessly with your IT investments
   
-Data Lake Analytics can use your existing IT investments for identity, management, security, and data warehousing. This approach simplifies data governance and makes it easy to extend your current data applications. Data Lake Analytics is integrated with Active Directory for user management and permissions and comes with built-in monitoring and auditing.
+Data Lake Analytics uses your existing IT investments for identity, management, and security. This approach simplifies data governance and makes it easy to extend your current data applications. Data Lake Analytics is integrated with Active Directory for user management and permissions and comes with built-in monitoring and auditing.
 
 ## Affordable and cost effective
 
