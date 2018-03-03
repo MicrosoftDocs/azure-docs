@@ -13,9 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/22/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.reviewer: ppacent
 ---
 
 # Generate PKI certificates for Azure Stack deployment
@@ -71,3 +71,5 @@ The following workflow describes how you can customize and use the sample INF fi
 4. **Import .CER**. The CA returns a .CER file. Using the same Windows computer from which you generated the request file, import the .CER file returned into the computer/personal store. 
 5. **Export and copy .PFX to deployment folders**. Export the certificate (including the Private Key) as a .PFX file, and copy the .PFX file to the deployment folders described in [Azure Stack deployment PKI requirements](azure-stack-pki-certs.md).
 
+## Next steps
+[Prepare Azure Stack PKI certificates](prepare-pki-certs.md)

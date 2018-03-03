@@ -1,3 +1,5 @@
+# [Stream Analytics Documentation](index.md)
+
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
@@ -62,6 +64,7 @@
 ### [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 ### [Event hub reader limits](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)
+### [Get malformed events](stream-analytics-malformed-events.md)
 
 ## Automate
 ### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)

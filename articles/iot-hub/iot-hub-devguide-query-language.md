@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 02/26/2018
 ms.author: elioda
 
 ---
@@ -128,7 +128,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-This grouping query would return a result similar to the following example. Here, three devices report successful configuration, two are still applying the configuration, and one reported an error. 
+This grouping query would return a result similar to the following example:
 
 ```json
 [
@@ -146,6 +146,8 @@ This grouping query would return a result similar to the following example. Here
     }
 ]
 ```
+
+In this example, three devices reported successful configuration, two are still applying the configuration, and one reported an error.
 
 Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
 
@@ -169,8 +171,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Note how the **query** object is instantiated with a page size (up to 100), and then multiple pages can be retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
-Note that the query object exposes multiple **Next***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
+The **query** object is instantiated with a page size (up to 100). Then multiple pages are retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
+
+The query object exposes multiple **Next** values, depending on the deserialization option required by the query. For example, device twin or job objects, or plain JSON when using projections.
 
 ### Node.js example
 The query functionality is exposed by the [Azure IoT service SDK for Node.js][lnk-hub-sdks] in the **Registry** object.
@@ -195,16 +198,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Note how the **query** object is instantiated with a page size (up to 100), and then multiple pages can be retrieved by calling the **nextAsTwin** methods multiple times.
-Note that the query object exposes multiple **next***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
+The **query** object is instantiated with a page size (up to 100). Then multiple pages are retrieved by calling the **nextAsTwin** method multiple times.
+
+The query object exposes multiple **Next** values, depending on the deserialization option required by the query. For example, device twin or job objects, or plain JSON when using projections.
 
 ### Limitations
+
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by id, it is always preferable to use the retrieve device twin API, which always contains the latest values and has higher throttling limits.
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the retrieve device twin API. This API always contains the latest values and has higher throttling limits.
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
 ## Get started with jobs queries
+
 [Jobs][lnk-jobs] provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
 Logically,
 
@@ -240,7 +246,7 @@ Logically,
 Currently, this collection is queryable as **devices.jobs** in the IoT Hub query language.
 
 > [!IMPORTANT]
-> Currently, the jobs property is never returned when querying device twins (that is, queries that contains 'FROM devices'). It can only be accessed directly with queries using `FROM devices.jobs`.
+> Currently, the jobs property is never returned when querying device twins. That is, queries that contain 'FROM devices'. The jobs property can only be accessed directly with queries using `FROM devices.jobs`.
 >
 >
 
@@ -279,9 +285,9 @@ Currently, queries on **devices.jobs** do not support:
 
 ## Device-to-cloud message routes query expressions
 
-Using [device-to-cloud routes][lnk-devguide-messaging-routes], you can configure IoT Hub to dispatch device-to-cloud messages to different endpoints based on expressions evaluated against individual messages.
+Using [device-to-cloud routes][lnk-devguide-messaging-routes], you can configure IoT Hub to dispatch device-to-cloud messages to different endpoints. Dispatching is based on expressions evaluated against individual messages.
 
-The route [condition][lnk-query-expressions] uses the same IoT Hub query language as conditions in twin and job queries. Route conditions are evaluated on the message headers and body. Your routing query expression may involve only message headers, only the message body, or both message headers and message body. IoT Hub assumes a specific schema for the headers and message body in order to route messages. The following sections describe what is required for IoT Hub to properly route.
+The route [condition][lnk-query-expressions] uses the same IoT Hub query language as conditions in twin and job queries. Route conditions are evaluated on the message headers and body. Your routing query expression may involve only message headers, only the message body, or both. IoT Hub assumes a specific schema for the headers and message body in order to route messages. The following sections describe what is required for IoT Hub to properly route.
 
 ### Routing on message headers
 
@@ -289,27 +295,27 @@ IoT Hub assumes the following JSON representation of message headers for message
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Message system properties are prefixed with the `'$'` symbol.
-User properties are always accessed with their name. If a user property name happens to coincide with a system property (such as `$to`), the user property will be retrieved with the `$to` expression.
-You can always access the system property using brackets `{}`: for instance, you can use the expression `{$to}` to access the system property `to`. Bracketed property names always retrieve the corresponding system property.
+User properties are always accessed with their name. If a user property name coincides with a system property (such as `$contentType`), the user property is retrieved with the `$contentType` expression.
+You can always access the system property using brackets `{}`: for instance, you can use the expression `{$contentType}` to access the system property `contentType`. Bracketed property names always retrieve the corresponding system property.
 
 Remember that property names are case insensitive.
 
@@ -339,20 +345,66 @@ Refer to the [Expression and conditions][lnk-query-expressions] section for the 
 
 ### Routing on message bodies
 
-IoT Hub can only route based on message body contents if the message body is properly formed JSON encoded in either UTF-8, UTF-16, or UTF-32. Set the content type of the message to `application/json` and the content encoding to one of the supported UTF encodings in the message headers. If either of the headers is not specified, IoT Hub will not attempt to evaluate any query expression involving the body against the message. If your message is not a JSON message, or if the message does not specify the content type and content encoding, you may still use message routing to route the message based on the message headers.
+IoT Hub can only route based on message body contents if the message body is properly formed JSON encoded in UTF-8, UTF-16, or UTF-32. Set the content type of the message to `application/json`. Set the content encoding to one of the supported UTF encodings in the message headers. If either of the headers is not specified, IoT Hub does not attempt to evaluate any query expression involving the body against the message. If your message is not a JSON message, or if the message does not specify the content type and content encoding, you can still use message routing to route the message based on the message headers.
+
+The following example shows how to create a message with a properly formed and encoded JSON body:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
 
 You can use `$body` in the query expression to route the message. You can use a simple body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with a message header reference. For example, the following are all valid query expressions:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## Basics of an IoT Hub query
-Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause and, for each group, a row is generated as specified in the SELECT clause.
+Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
 
 ```sql
 SELECT <select_list>
@@ -371,7 +423,7 @@ The allowed conditions are described in section [Expressions and conditions][lnk
 
 ## SELECT clause
 The **SELECT <select_list>** is mandatory and specifies what values are retrieved from the query. It specifies the JSON values to be used to generate new JSON objects.
-For each element of the filtered (and optionally grouped) subset of the FROM collection, the projection phase generates a new JSON object, constructed with the values specified in the SELECT clause.
+For each element of the filtered (and optionally grouped) subset of the FROM collection, the projection phase generates a new JSON object. This object is constructed with the values specified in the SELECT clause.
 
 Following is the grammar of the SELECT clause:
 
@@ -400,7 +452,7 @@ SELECT [TOP <max number>] <projection list>
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 
 ## GROUP BY clause
-The **GROUP BY <group_specification>** clause is an optional step that can be executed after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
+The **GROUP BY <group_specification>** clause is an optional step that executes after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
 
 An example of a query using GROUP BY is:
 
@@ -430,7 +482,7 @@ At a high level, an *expression*:
 * Evaluates to an instance of a JSON type (such as Boolean, number, string, array, or object).
 * Is defined by manipulating data coming from the device JSON document and constants using built-in operators and functions.
 
-*Conditions* are expressions that evaluate to a Boolean. Any constant different than Boolean **true** is considered as **false** (including **null**, **undefined**, any object or array instance, any string, and clearly the Boolean **false**).
+*Conditions* are expressions that evaluate to a Boolean. Any constant different than Boolean **true** is considered as **false**. This rule includes **null**, **undefined**, any object or array instance, any string, and the Boolean **false**.
 
 The syntax for expressions is:
 
@@ -511,7 +563,7 @@ In routes conditions, the following type checking and casting functions are supp
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
 | IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
-| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric or `null`). |
+| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
 | IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
 
 In routes conditions, the following string functions are supported:

@@ -13,12 +13,12 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
 
-## Network connectivity
+# Network connectivity
 This article provides Azure Stack network infrastructure information to help you decide how to best integrate Azure Stack into your existing networking environment. 
 
 > [!NOTE]
@@ -59,10 +59,10 @@ This /24 (254 host IP’s) network is private to the Azure Stack region (does no
 - **Internal virtual IP network**. A /25 network dedicated to internal-only VIPs for the software load balancer.
 
 ### Azure Stack infrastructure network
-This /24 network is dedicated to internal Azure Stack components so that they can communicate and exchange data among themselves. This subnet requires routable IP addresses, but is kept private to the solution by using Access Control Lists (ACLs) , It isn’t expected to be routed beyond the border switches except for a very small range equivalent in size to a /27 network utilized by some of these services when they require access to external resources and/or the internet. 
+This /24 network is dedicated to internal Azure Stack components so that they can communicate and exchange data among themselves. This subnet requires routable IP addresses, but is kept private to the solution by using Access Control Lists (ACLs). It isn’t expected to be routed beyond the border switches except for a small range equivalent in size to a /27 network utilized by some of these services when they require access to external resources and/or the internet. 
 
 ### Public infrastructure network
-This /27 network is the very small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS), the ERCS VM requires internet access during registration to Azure and should be routable to your management network for troubleshooting purposes.
+This /27 network is the small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS), the ERCS VM requires internet access during registration to Azure and should be routable to your management network for troubleshooting purposes.
 
 ### Public VIP network
 The Public VIP Network is assigned to the network controller in Azure Stack. It’s not a logical network on the switch. The SLB uses the pool of addresses and assigns /32 networks for tenant workloads. On the switch routing table, these /32 IPs are advertised as an available route via BGP. This network contains the external-accessible or public IP addresses. The Azure Stack infrastructure uses at least 8 addresses from this Public VIP Network while the remainder is used by tenant VMs. The network size on this subnet can range from a minimum of /26 (64 hosts) to a maximum of /22 (1022 hosts), we recommend that you plan for a /24 network.
@@ -79,12 +79,7 @@ You'll need to make Azure Stack services available to users from outside Azure S
 ### Ports and URLs
 To make Azure Stack services (such as the portals, Azure Resource Manager, DNS, etc.) available to external networks, you must allow inbound traffic to these endpoints for specific URLs, ports, and protocols.
  
-In a deployment where a transparent proxy uplink to a traditional proxy server, you must allow specific ports and URLs for outbound communication. These include ports and URLs for identity, marketplace syndication, patch and update, registration, and usage data.
-
-For more information, see:
-- [Inbound ports and protocols](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [Outbound ports and URLs](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+In a deployment where a transparent proxy uplinks to a traditional proxy server, you must allow specific ports and URLs for both [inbound](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) and [outbound](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) communication. These include ports and URLs for identity, marketplace syndication, patch and update, registration, and usage data.
 
 ## Next steps
-[Azure Stack border connectivity](azure-stack-border-connectivity.md)
+[Border connectivity](azure-stack-border-connectivity.md)

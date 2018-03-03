@@ -3,7 +3,7 @@ title: How to assign a user-assigned MSI access to an Azure resource, using Azur
 description: Step by step instructions for assigning a user-assigned MSI on one resource, access to another resource, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

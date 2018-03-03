@@ -25,7 +25,11 @@ Azure SQL Database is an automatically managed data service that constantly moni
 ## Enable automatic tuning on server
 On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure Defaults are FORCE_LAST_GOOD_PLAN enabled, CREATE_INDEX enabled, and DROP_INDEX disabled.
 
-### Portal
+## Configure automiatic tuning e-mail notifications
+
+See [Automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md)
+
+### Azure portal
 To enable automatic tuning on Azure SQL Database server, navigate to the server in Azure portal and then select **Automatic tuning** in the menu. Select the automatic tuning options you want to enable and select **Apply**:
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
@@ -35,7 +39,7 @@ Automatic tuning options on server are applied to all databases on the server. B
 ### REST API
 [Click here, to read more about how to enable automatic tuning on the server level via REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
-## Enable automatic tuning on database
+## Enable automatic tuning on an individual database
 
 The Azure SQL Database enables you to individually specify the automatic tuning configuration on each database. On the database level you can choose to inherit automatic tuning configuration from parent server, "Azure Defaults" or not to inherit the configuration. Azure Defaults are FORCE_LAST_GOOD_PLAN enabled, CREATE_INDEX enabled, and DROP_INDEX disabled.
 
@@ -43,7 +47,7 @@ The Azure SQL Database enables you to individually specify the automatic tuning 
 > The general recommendation is to manage the automatic tuning configuration at server level so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database if the database is different that others on the same server.
 >
 
-### Portal
+### Azure portal
 
 To enable automatic tuning on a single database, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the server by selecting the option or you can specify the configuration for a database individually.
 

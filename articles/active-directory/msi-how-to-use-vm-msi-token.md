@@ -3,7 +3,7 @@ title: How to use an Azure VM Managed Service Identity to acquire an access toke
 description: Step by step instructions and examples for using an Azure VM MSI to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 

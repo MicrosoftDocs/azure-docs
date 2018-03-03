@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
 
 ---
@@ -31,7 +31,7 @@ These are manual methods because you need to decide what [service tiers](sql-dat
 
 ## Increasing performance tier of your database
 
-Azure SQL Database offers four [service tiers](sql-database-service-tiers.md) that you can choose from: Basic, Standard, Premium, and Premium RS (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md). Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers four [service tiers](sql-database-service-tiers.md) that you can choose from: Basic, Standard, and Premium (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md). Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
@@ -46,7 +46,6 @@ Azure SQL Database offers four [service tiers](sql-database-service-tiers.md) th
   * **High peak load**. An application that requires substantial CPU, memory, or input/output (I/O) to complete its operations requires a dedicated, high-performance level. For example, a database operation known to consume several CPU cores for an extended time is a candidate for the Premium service tier.
   * **Many concurrent requests**. Some database applications service many concurrent requests, for example, when serving a website that has a high traffic volume. Basic and Standard service tiers limit the number of concurrent requests per database. Applications that require more connections would need to choose an appropriate reservation size to handle the maximum number of needed requests.
   * **Low latency**. Some applications need to guarantee a response from the database in minimal time. If a specific stored procedure is called as part of a broader customer operation, you might have a requirement to have a return from that call in no more than 20 milliseconds, 99 percent of the time. This type of application benefits from the Premium service tier, to make sure that the required computing power is available.
-* **Premium RS**: The Premium RS tier is designed for IO-intensive workloads that do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record.
 
 The service level that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 

@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/26/2018
 ms.author: larryfr
 ---
 # Use Apache Kafka with Storm on HDInsight
@@ -32,7 +32,7 @@ The code for the example used in this document is available at [https://github.c
 
 To compile this project, you need the following configuration for your development environment:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher. HDInsight 3.5 or higher require Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -117,7 +117,7 @@ This project contains two topologies:
     This topology uses the Storm HdfsBolt to write data to default storage for the Storm cluster.
 ### Flux
 
-The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
+The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
 
 The following parameters are set at run time for these topologies:
 
@@ -127,7 +127,7 @@ The following parameters are set at run time for these topologies:
 
 * `${kafka.zookeeper.hosts}`: The hosts that Zookeeper runs on in the Kafka cluster.
 
-For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## Download and compile the project
 
@@ -168,7 +168,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
     ```
 
     > [!IMPORTANT]
-    > The Bash example assumes that `$CLUSTERNAME` contains the name of the HDInsight cluster. It also assumes that [jq](https://stedolan.github.io/jq/) is installed. When prompted, enter the password for the cluster login account.
+    > The Bash example assumes that `$CLUSTERNAME` contains the name of the HDInsight cluster. It also assumes that [jq](https://stedolan.github.io/jq/) version 1.5 or greater is installed. When prompted, enter the password for the cluster login account.
 
     The value returned is similar to the following text:
 
@@ -214,7 +214,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 4. Save the `dev.properties` file and then use the following command to upload it to the Storm cluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Replace **USERNAME** with the SSH user name for the cluster. Replace **BASENAME** with the base name you used when creating the cluster.
@@ -283,6 +283,9 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
     Use Ctrl+c to stop the script.
 
 ## Start the reader
+
+> [!NOTE]
+> When viewing the reader in the Storm UI, you may see a __Topology spouts lag error__ section. For this example, you can ignore this error.
 
 1. From the SSH session to the Storm cluster, use the following command to start the reader topology:
 

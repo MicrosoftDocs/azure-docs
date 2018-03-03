@@ -43,7 +43,7 @@ For AzureRM, the cmdlets in the following table are used to create and manage au
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Removes an Automation credential. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Sets the properties for an existing Automation credential. |
 
-## Runbook activities
+## Activities
 The activities in the following table are used to access credentials in a runbook and DSC configurations.
 
 | Activities | Description |

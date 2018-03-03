@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
 ---
 # Stream big data into a data warehouse
@@ -70,7 +70,7 @@ To complete this tutorial, you must have:
 
 ## Deploy the infrastructure
 
-To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). For the preview release, Event Grid supports **westus2** and **westcentralus** regions. Use one of these regions for the resource group location.
+To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use one of the [supported regions](overview.md) for the resource group location.
 
 For Azure CLI, use:
 

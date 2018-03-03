@@ -331,9 +331,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 ## <a name="register"></a>Register for the global virtual network peering preview
 
-The ability to peer virtual networks in different regions is currently in preview. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2). Virtual network peerings created between virtual networks in different regions may not have the same level of availability and reliability as a peering between virtual networks in the same region. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
-
-To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell or the Azure CLI:
+Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. See [Virtual network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) for available regions. To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell or the Azure CLI:
 
 ### PowerShell
 

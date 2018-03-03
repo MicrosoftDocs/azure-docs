@@ -119,7 +119,7 @@ To minimize data movement, select a distribution column that:
 
 ### What to do when none of the columns are a good distribution column
 
-When no good candidate columns exist, then consider using round-robin as the distribution method.
+If none of your columns have enough distinct values for a distribution column, you can create a new column as a composite of one or more values. To avoid data movement during query execution, use the composite distribution column as a join column in queries.
 
 Once you design a hash-distributed table, the next step is to load data into the table.  For loading guidance, see [Loading overview](sql-data-warehouse-overview-load.md). 
 

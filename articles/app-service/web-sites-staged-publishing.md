@@ -248,7 +248,7 @@ The Azure CLI provides cross-platform commands for working with Azure, including
 * To list the commands available for Azure App Service in the Azure CLI, call `azure site -h`.
 
 > [!NOTE] 
-> For [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands for deployment slots, see [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
+> For [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 - - -
 ### azure site list

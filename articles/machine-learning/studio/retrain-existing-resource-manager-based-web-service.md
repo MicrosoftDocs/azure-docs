@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.author: v-donglo
+ms.author: raymondl
 
 ---
 # Retrain an existing predictive web service

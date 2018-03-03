@@ -56,7 +56,7 @@ For installation instructions, see [How to install and configure Azure PowerShel
 To perform this migration, you must be added as a co-administrator for the subscription in the [Azure portal](https://portal.azure.com).
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **Subscription**. If you don't see it, select **More services**.
+2. On the Hub menu, select **Subscription**. If you don't see it, select **All services**.
 3. Find the appropriate subscription entry, then look at the **MY ROLE** field. For a co-administrator, the value should be _Account admin_.
 
 If you are not able to add a co-administrator, then contact a service administrator or co-administrator for the subscription to get yourself added.   
