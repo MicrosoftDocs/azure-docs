@@ -86,7 +86,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Browse to the external gateway IP address on port 8080, `http://52.186.64.52:8080` in this example.
+To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -98,7 +98,7 @@ brew install faas-cli
 
 ## Create first function
 
-Now that OpenFaaS is operation, create a simple function using the OpenFaas portal.
+Now that OpenFaaS is operational, create a function using the OpenFaas portal.
 
 Click on **Deploy New Function** and search for **Figlet**. Select the Figlet function, and click **Deploy**.
 
@@ -131,13 +131,15 @@ First, create a new resource group for the Cosmos DB.
 az group create --name serverless-backing --location eastus
 ```
 
-Deploy a CosmosDB instance of type "Mongo". The instance needs a unique name, update `openfaas-cosmos` to something unique to your environment. 
+Deploy a CosmosDB instance of kind `MongoDB`. The instance needs a unique name, update `openfaas-cosmos` to something unique to your environment. 
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Get the Cosmos database connection string and store it in a variable. Update the value for the `--resource-group` argument to the name of your resource group, and the `--name` argument to the name of your Cosmos DB.
+Get the Cosmos database connection string and store it in a variable. 
+
+Update the value for the `--resource-group` argument to the name of your resource group, and the `--name` argument to the name of your Cosmos DB.
 
 ```azurecli-interactive
 COSMOS=$(az cosmosdb list-connection-strings \
@@ -161,7 +163,9 @@ Now populate the Cosmos DB with test data. Create a file named `plans.json` and 
 }
 ```
 
-Use the *mongoimport* tool to load the CosmosDB instance with data. If needed, install the MongoDB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
+Use the *mongoimport* tool to load the CosmosDB instance with data. 
+
+If needed, install the MongoDB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
 
 ```azurecli-interactive
 brew install mongodb
@@ -193,7 +197,7 @@ Deployed. 202 Accepted.
 URL: http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Now you can test the function using curl. Update the IP address with the OpenFaaS gateway address.
+Test the function using curl. Update the IP address with the OpenFaaS gateway address.
 
 ```console
 curl -s http://52.186.64.52:8080/function/cosmos-query
