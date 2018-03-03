@@ -197,15 +197,16 @@ To test your deployment, run a test failover for a single virtual machine. You a
 
        $Servers = Get-AzureRmSiteRecoveryServer
        $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
-2. Perform a test failover, as follows:
 
-- For a single VM:
+2. Perform a test failover.
+
+   For a single VM:
 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
 
         $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
     
-- For a recovery plan:
+   For a recovery plan:
 
         $recoveryplanname = "test-recovery-plan"
 
@@ -217,29 +218,31 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 
 ## Run planned and unplanned failovers
 
-1. Perform a planned failover, as follows:
+1. Perform a planned failover.
 
--  For a single VM:
+   For a single VM:
 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
-- For a recovery plan:
+
+   For a recovery plan:
 
         $recoveryplanname = "test-recovery-plan"
 
         $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
-2. Perform an unplanned failover, as follows:
 
-- For a single VM:
+2. Perform an unplanned failover.
+
+   For a single VM:
         
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
-- For a recovery plan:
+   For a recovery plan:
 
         $recoveryplanname = "test-recovery-plan"
 
