@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/16/2018
+  ms.date: 03/09/2018
   ms.author: jeffgilb
 abstract:
   description: The Azure Stack Development Kit (ASDK) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services.<br/><br/>If you're an Azure Stack operator who manages the integrated systems infrastructure and offers services, see our <a href="/azure/azure-stack/">operator documentation</a>.
@@ -39,14 +39,14 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Deploy applications across both Azure and Azure Stack.'
+    text: 'Deploy virtual machines and applications across both Azure and Azure Stack.'
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-stack/asdk/asdk-marketplace-item">Add an Azure Stack marketplace item</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-offer-services">Offer IaaS services</a>
-    - html: <a href="/azure/azure-stack/asdk/asdk-change-offers">Modify or update offers and plans</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-subscribe-services">Subscribe to an offer</a>
+    - html: <a href="/azure/azure-stack/asdk/asdk-update-offers">Update offers and plans</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-create-vm-template">Create a virtual machine from a template</a>
 - title: Reference
   items:

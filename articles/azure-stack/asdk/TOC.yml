@@ -21,10 +21,10 @@
     href: asdk-marketplace-item.md
   - name: 2. Offer IaaS services
     href: asdk-offer-services.md
-  - name: 3. Modify or update offers and plans
-    href: asdk-change-offers.md 
-  - name: 4. Subscribe to an offer
+  - name: 3. Subscribe to an offer
     href: asdk-subscribe-services.md
+  - name: 4. Update offers and plans
+    href: asdk-update-offers.md 
   - name: 5. Create a virtual machine from a template
     href: asdk-create-vm-template.md 
 - name: Concepts
@@ -35,8 +35,6 @@
     href: asdk-architecture.md
   - name: ASDK administration basics
     href: asdk-admin-basics.md
-  - name: Advanced evaluation tasks
-    href: asdk-advanced-eval.md
 - name: How to
   items:
   - name: Deploy the ASDK
@@ -44,7 +42,7 @@
     - name: Download and extract the development kit
       href: asdk-download.md
     - name: Prepare the ASDK host computer
-      href: asdk-prepare-host 
+      href: asdk-prepare-host.md
     - name: Install the ASDK
       href: asdk-install.md
     - name: Post-deployment configuration
