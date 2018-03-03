@@ -33,7 +33,8 @@ This article shows how to automate the steps for replication of Hyper-V VMs in S
 
 Prepare Virtual Machine Manager as follows:
 
-* Make sure you have [Virtual Machine Manager logical networks](https://docs.microsoft.com/system-center/vmm/network-logical) on the source and target Virtual Machine Manager servers.
+* Make sure you have [Virtual Machine Manager logical networks](https://docs.microsoft.com/system-center/vmm/network-logical) on the source and target Virtual Machine Manager servers:
+
     - The logical network on the source server should be associated with the source cloud in which Hyper-V hosts are located.
     - The logical network on the target server should be associated with the target cloud.
 * Make sure you have [VM networks](https://docs.microsoft.com/system-center/vmm/network-virtual) on the source and target Virtual Machine Manager servers. VM networks should be linked to the logical network in each location.
@@ -122,7 +123,7 @@ Make sure you have Azure PowerShell ready to go:
         $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
-    > The Virtual Machine Manager cloud can contain Hyper-V hosts running different versions of Windows Server, but the replication policy is for a specific version of an operating system. If you have different hosts running on different operating systems, create separate replication policies for each system. For example, if you have five hosts running on Windows Server 2012 and three on Windows Server 2012 R2, create two replication policies. You create one for each type of operating system.
+    > The Virtual Machine Manager cloud can contain Hyper-V hosts running different versions of Windows Server, but the replication policy is for a specific version of an operating system. If you have different hosts running on different operating systems, create separate replication policies for each system. For example, if you have five hosts running on Windows Server 2012 and three hosts running on Windows Server 2012 R2, create two replication policies. You create one for each type of operating system.
 
 2. Retrieve the primary protection container (primary Virtual Machine Manager cloud) and recovery protection container (recovery Virtual Machine Manager cloud).
 
@@ -217,6 +218,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 ## Run planned and unplanned failovers
 
 1. Perform a planned failover, as follows:
+
 -  For a single VM:
 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
@@ -230,6 +232,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 2. Perform an unplanned failover, as follows:
+
 - For a single VM:
         
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
@@ -245,7 +248,7 @@ To check the completion of the operation, follow the steps in [Monitor activity]
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
 ## Monitor activity
-Use the following commands to monitor failover activity. You have to wait in between jobs for the processing to finish.
+Use the following commands to monitor failover activity. Wait for the processing to finish in between jobs.
 
     Do
     {

@@ -24,7 +24,9 @@ This article describes how to protect a file server by using Site Recovery and m
 - [Replicate an on-premises file server by using Site Recovery](#replicate-an-on-premises-file-server-by-using-site-recovery)
 
 ## File server architecture
-The aim of an open distributed file-sharing system is to provide an environment where a group of geographically distributed users can collaborate to efficiently work on files and be guaranteed that their integrity requirements are enforced. A typical on-premises file server ecosystem that supports a high number of concurrent users and a large number of content items uses Distributed File System Replication (DFSR) for replication scheduling and bandwidth throttling. DFSR uses a compression algorithm known as Remote Differential Compression (RDC) that can be used to efficiently update files over a limited-bandwidth network. It detects insertions, removals, and rearrangements of data in files. DFSR is enabled to replicate only the changed file blocks when files are updated. There are also file server environments, where daily backups are taken in non-peak timings, which cater to disaster needs. There is no implementation of DFSR.
+The aim of an open distributed file-sharing system is to provide an environment where a group of geographically distributed users can collaborate to work efficiently on files and be guaranteed that their integrity requirements are enforced. A typical on-premises file server ecosystem that supports a high number of concurrent users and a large number of content items uses Distributed File System Replication (DFSR) for replication scheduling and bandwidth throttling. 
+
+DFSR uses a compression algorithm known as Remote Differential Compression (RDC) that can be used to efficiently update files over a limited-bandwidth network. It detects insertions, removals, and rearrangements of data in files. DFSR is enabled to replicate only the changed file blocks when files are updated. There are also file server environments, where daily backups are taken in non-peak timings, which cater to disaster needs. DFSR isn't implemented.
 
 The following diagram illustrates the file server environment with DFSR implemented.
 				
@@ -55,7 +57,7 @@ The following diagram helps you determine what strategy to use for your file ser
 |---------|---------|---------|
 |File server environment with or without DFSR|   [Use Site Recovery for replication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery doesn't support shared disk clusters or network attached storage (NAS). If your environment uses these configurations, use any of the other approaches, as appropriate. <br> Site Recovery doesn't support SMB 3.0. The replicated VM incorporates changes only when changes made to the files are updated in the original location of the files.
 |File server environment with DFSR     |  [Extend DFSR to an Azure IaaS virtual machine](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |  	DFSR works well in extremely bandwidth-crunched environments. This approach requires an Azure VM that is up and running all the time. You need to account for the cost of the VM in your planning.         |
-|Azure IaaS VM     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to ensure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     |
+|Azure IaaS VM     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     |
 
 
 ### Site Recovery support
@@ -69,11 +71,11 @@ Because Site Recovery replication is application agnostic, these recommendations
  
 
 > [!IMPORTANT]
-> Before you proceed with any of the following three approaches, ensure that these dependencies are taken care of.
+> Before you continue with any of the following three approaches, make sure that these dependencies are taken care of.
 
 **Site-to-site connectivity**: A direct connection between the on-premises site and the Azure network must be established to allow communication between servers. Use a secure site-to-site VPN connection to an Azure virtual network that is used as the disaster recovery site. For more information, see [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
-**Active Directory**: DFSR depends on Active Directory. This means that the Active Directory forest with local domain controllers is extended to the disaster recovery site in Azure. Even if you aren't using DFSR, if the intended users need to be granted access or verified for access, you must perform these steps. For more information, see [Extend on-premises Active Directory to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
+**Active Directory**: DFSR depends on Active Directory. This means that the Active Directory forest with local domain controllers is extended to the disaster recovery site in Azure. Even if you aren't using DFSR, if the intended users need to be granted access or verified for access, you must take these steps. For more information, see [Extend on-premises Active Directory to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
 ## Disaster recovery recommendation for Azure IaaS virtual machines
 
@@ -100,7 +102,7 @@ The following steps briefly describe how to use File Sync:
 
 ### Replicate an IaaS file server virtual machine by using Site Recovery
 
-If you have on-premises clients that access the IaaS file server virtual machine, perform the first two steps as well. Otherwise, proceed to step 3.
+If you have on-premises clients that access the IaaS file server virtual machine, take the first two steps as well. Otherwise, go to step 3.
 
 1. Establish a site-to-site VPN connection between the on-premises site and the Azure network.
 2. Extend on-premises Active Directory.
@@ -125,7 +127,7 @@ The following steps describe replication for a VMware VM. For steps to replicate
 1. Establish a site-to-site VPN connection between the on-premises site and the Azure network. 
 2. Extend on-premises Active Directory.
 3. [Create and provision a file server VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Windows Azure Virtual Network.
-Ensure that the virtual machine is added to the same Windows Azure Virtual Network, which has cross-connectivity with the on-premises environment. 
+Make sure that the virtual machine is added to the same Windows Azure Virtual Network, which has cross-connectivity with the on-premises environment. 
 4. Install and [configure DFSR](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) on Windows Server.
 5. [Implement a DFS namespace](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6. With the DFS namespace implemented, failover of shared folders from production to disaster recovery sites can be done by updating the DFS namespace folder targets. After these DFS namespace changes replicate via Active Directory, users are connected to the appropriate folder targets transparently.
@@ -148,7 +150,7 @@ Follow these steps to use File Sync:
 6. In the event of a disaster in your on-premises environment, perform a failover by using a [recovery plan](site-recovery-create-recovery-plans.md). Add the script to mount the Azure file share and access the share in your virtual machine.
 
 > [!NOTE]
-> Ensure that port 445 is open. Azure Files uses the SMB protocol. SMB communicates over TCP port 445. Check to see if your firewall isn't blocking TCP port 445 from a client machine.
+> Make sure that port 445 is open. Azure Files uses the SMB protocol. SMB communicates over TCP port 445. Check to see if your firewall isn't blocking TCP port 445 from a client machine.
 
 
 ## Do a test failover
@@ -160,7 +162,7 @@ Follow these steps to use File Sync:
 5. After the secondary environment is up, perform your validations.
 6. After the validations are finished, select **Cleanup test failover** on the recovery plan, and the test failover environment is cleaned.
 
-For more information on how to perform test failover, see [Test failover to Site Recovery](site-recovery-test-failover-to-azure.md).
+For more information on how to perform a test failover, see [Test failover to Site Recovery](site-recovery-test-failover-to-azure.md).
 
 For guidance on doing test failover for Active Directory and DNS, see [Test failover considerations for AD and DNS](site-recovery-active-directory.md).
 
