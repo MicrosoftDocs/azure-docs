@@ -271,8 +271,8 @@
       href: sql-database-elastic-query-vertical-partitioning.md
   - name: Managed Instance
     items:
-    -name: Connect applications
-     href: sql-database-managed-instance-connect-app.md
+    - name: Connect applications
+      href: sql-database-managed-instance-connect-app.md
   - name: Security
     items:
     - name: Configure Azure AD auth

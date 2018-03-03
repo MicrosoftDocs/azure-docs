@@ -42,7 +42,7 @@ This scenario is a bit more complex because Managed Instance has private IP addr
  
 There are two options for connecting VNets: 
 - [Azure Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) 
-- VNet-to-VNet VPN gateway ([Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
+- VNet-to-VNet VPN gateway ([Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
 The peering option is the preferable one because peering uses the Microsoft backbone network so, from the connectivity perspective, there is no noticeable difference in latency between virtual machines in peered VNet and in the same VNet. VNet peering is limited to the networks in the same region, although cross-region peering is enabled in some regions as a preview.  
  
@@ -54,7 +54,7 @@ The peering option is the preferable one because peering uses the Microsoft back
 Managed Instance can only be accessed through a private IP address. In order to access it from on-premises, you need to make a Site-to-Site connection between the application and the Managed Instance VNet. 
  
 There are two options how to connect on-premises to Azure VNet: 
-- Site-to-Site VPN connection ([Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)) 
+- Site-to-Site VPN connection ([Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)) 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) connection  
  
 If you've established on-premises to Azure connection successfully and you can't establish connection to Managed Instance, check if your firewall has open outbound connection on SQL port 1433 as well as 11000-12000 range of ports for redirection. 
@@ -63,7 +63,7 @@ If you've established on-premises to Azure connection successfully and you can't
 
 Managed Instance can be accessed only through a private IP address so in order to access it from Azure App Service you first need to make a connection between the application and the Managed Instance VNet. See [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
  
-For troubleshooting, see [Troubleshooting VNets and Applications](../app-service/web-sites-integrate-with-vnet#troubleshooting.md). If a connection cannot be established, try synching the networking configuration. 
+For troubleshooting, see [Troubleshooting VNets and Applications](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). If a connection cannot be established, try synching the networking configuration. 
  
 A special case of connecting Azure App Service to SQL Managed Instance is when you integrated Azure App Service to a network peered to SQL Managed Instance VNet. That case requires the following configuration to be set up: 
 
