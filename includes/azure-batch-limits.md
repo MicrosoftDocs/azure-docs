@@ -7,7 +7,7 @@
 | Pools per Batch account | 20 - 100 | 2500 |
 
 > [!NOTE]
-> Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode.
+> Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
 <sup>1</sup> The number of dedicated cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
 
