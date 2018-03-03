@@ -1,3 +1,17 @@
+---
+title: Use OpenFaaS with Azure Container Service (AKS)
+description: Deploy and use OpenFaaS with Azure Container Service (AKS)
+services: container-service
+author: justindavies
+manager: timlt
+
+ms.service: container-service
+ms.topic: article
+ms.date: 03/05/2018
+ms.author: nepeters
+ms.custom: mvc
+---
+
 # Using OpenFaaS on AKS
 
 [OpenFaaS][open-faas] is a framework for building Serverless functions on top of containers. As an Open Source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Container Service (AKS) cluster.
