@@ -16,29 +16,29 @@ manager: cguyer
 
 Today you have multiple choices when deciding how and where you will host your application. 
  
-You may choose to host application in the cloud either by using Azure App Service or some of our virtual network (VNet) integrated options like Azure App Service Environment, Virtual Machine, Virtual Machine Scale Set. You could also take hybrid cloud approach and keep your applications on-premises. 
+You may choose to host application in the cloud either by using Azure App Service or some of Azure's virtual network (VNet) integrated options like Azure App Service Environment, Virtual Machine, Virtual Machine Scale Set. You could also take hybrid cloud approach and keep your applications on-premises. 
  
 Whatever choice you made, you can connect it to Managed Instance.  
 
 ![high availability](./media/sql-database-managed-instance/high-availability.png)
 
-This article provides high level overview of these connection scenarios: 
+This article provides high-level overview of these connection scenarios: 
 
-- Connecting application that is inside the same VNet as Managed Instance (link to come later)
-- Connecting application that is inside different VNet then Managed Instance (link to come later) 
-- Connecting on-premises application to Managed Instance (link to come later) 
-- Connecting Azure App Service hosted application to Managed Instance (link to come later) 
-- Connecting application that is on the developers box to Managed Instance (link to come later) 
+- Connecting application that is inside the same VNet as Managed Instance <!---(link to come later)
+- Connecting application that is inside different VNet than Managed Instance <!---(link to come later) 
+- Connecting on-premises application to Managed Instance <!---(link to come later) 
+- Connecting Azure App Service hosted application to Managed Instance <!---(link to come later) 
+- Connecting application that is on the developers box to Managed Instance <!---(link to come later) 
  
 ## Connecting application that is inside the same VNet as Managed Instance 
 
-This is the simplest scenario. Virtual machines inside the VNet can connect to each other directly even if they are inside different subnets. That means that all you need to connect application inside an Azure Application Environment or Virtual Machine is to set the connection string appropriately.  
+This scenario is the simplest. Virtual machines inside the VNet can connect to each other directly even if they are inside different subnets. That means that all you need to connect application inside an Azure Application Environment or Virtual Machine is to set the connection string appropriately.  
  
-In case you can’t establish the connection, check if you have an Network Security Group set on application subnet. If that is the case you need to open outbound connection on SQL port 1433 as well as 11000-12000 range of ports for redirection. 
+In case you can’t establish the connection, check if you have a Network Security Group set on application subnet. In this case, you need to open outbound connection on SQL port 1433 as well as 11000-12000 range of ports for redirection. 
 
 ## Connecting application that is inside different VNet than Managed Instance 
 
-This scenario is a bit more complex because Managed Instance has private IP address in its own VNet. To connect, an application needs access to the VNet where Managed Instance is deployed. So, first you need to make a connection between the application and the Managed Instance VNet. The VNets don’t have to be in the same subscription in order for this to work. 
+This scenario is a bit more complex because Managed Instance has private IP address in its own VNet. To connect, an application needs access to the VNet where Managed Instance is deployed. So, first you need to make a connection between the application and the Managed Instance VNet. The VNets don’t have to be in the same subscription in order for this scenario to work. 
  
 There are two options for connecting VNets: 
 - [Azure Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) 
@@ -63,15 +63,15 @@ If you've established on-premises to Azure connection successfully and you can't
 
 Managed Instance can be accessed only through a private IP address so in order to access it from Azure App Service you first need to make a connection between the application and the Managed Instance VNet. See [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
  
-For troubleshooting, see [Troubleshooting VNets and Applications](../app-service/web-sites-integrate-with-vnet#troubleshooting.md). One of things you might try if connection can not be established is to sync the networking configuration. 
+For troubleshooting, see [Troubleshooting VNets and Applications](../app-service/web-sites-integrate-with-vnet#troubleshooting.md). If a connection cannot be established, try synching the networking configuration. 
  
-A special case of connecting Azure App Service to SQL Managed Instance is when you integrated Azure App Service to a network peered to SQL Managed Instance VNet. That case requires the following configuration to be setup: 
+A special case of connecting Azure App Service to SQL Managed Instance is when you integrated Azure App Service to a network peered to SQL Managed Instance VNet. That case requires the following configuration to be set up: 
 
 - SQL Managed Instance VNet must NOT have gateway  
 - SQL Managed Instance VNet must have Use remote gateways option set 
 - Peered VNet must have Allow gateway transit option set 
  
-This is illustrated in the following diagram:
+This scenario is illustrated in the following diagram:
 
 ![integrated app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
  
