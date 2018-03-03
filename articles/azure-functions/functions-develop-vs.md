@@ -56,7 +56,7 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
     
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
- For more information, see [Functions class library project](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project).
+ For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
 ## Configure the project for local development
 
