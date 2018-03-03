@@ -25,7 +25,7 @@ All container images are encrypted at rest using [Storage Service Encryption (SS
 
 ## Geo-redundant storage
 
-Container images are stored in [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) storage accounts. Your images are automatically replicated to a secondary data center that is geographically distant from your registry's primary location. In the case of a regional failure, Azure Container Registry automatically and transparently routes requests to this secondary region for continued access to your images. For even more redundancy, consider using ACR's [geo-replication feature](container-registry-geo-replication.md).
+Container images are stored in [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) storage accounts. Your images are automatically replicated to a secondary data center that is geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to this secondary region for continued access to your images. For even more redundancy, consider using ACR's [geo-replication feature](container-registry-geo-replication.md).
 
 ## Capacity limits
 
@@ -35,7 +35,7 @@ To help protect against unexpected charges due to abnormal registry usage, Azure
 
 Azure Container Registry imposes no limits on the number of images, layers, tags, or repositories in a registry. However, very high numbers of repositories and tags can impact the performance of your registry.
 
-You should periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry management routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
+Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry management routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
 
 ## Storage cost
 
