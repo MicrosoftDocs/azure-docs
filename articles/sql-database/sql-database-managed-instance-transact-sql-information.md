@@ -20,7 +20,7 @@ Azure SQL Database Managed Instance (preview) provides high compatibility with o
 
 ## <a name="Differences"></a> T-SQL differences from SQL Server 
 
-In this section are summarized key differences in T-SQL syntax and behavior between Managed Instance and on-premises SQL Server Database Engine, as well as unsupported features.
+This section summarizes key differences in T-SQL syntax and behavior between Managed Instance and on-premises SQL Server Database Engine, as well as unsupported features.
 
 ### Always-On availability
 
@@ -65,14 +65,14 @@ Limitations:
 - Max backup stripe size is 195GB (PAGE blob size). Increase the number of stripes in the backup command to distribute stripe sizes. 
 
 > [!TIP]
-> To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore support bigger files because a different blob types is used.  
+> To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore support bigger files because a different blob type is used.  
 
 - Managed Instance works with up to 32 stripes, which is enough for the databases up to 4TB.
  
 ### Buffer pool extension 
  
 - [Buffer pool extension](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) is not supported.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` is not supported. See [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-server-configuration-transact-sql). 
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` is not supported. See [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql). 
  
 ### Bulk insert / openrowset
 
@@ -102,7 +102,7 @@ WITH PRIVATE KEY ( <private_key_options> )
 Managed Instance cannot access file shares and Windows folders, so the following constraints apply: 
 - Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` is not supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY` cannot reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-assembly-transact-sql).
+- `ALTER ASSEMBLY` cannot reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
  
 ### Compatibility levels 
  
@@ -132,18 +132,18 @@ Server collation is `SQL_Latin1_General_CP1_CI_AS` and cannot be changed. See [C
  
 - Multiple log files are not supported. 
 - In-memory objects are not supported  
-- There is a limit 280 files per instance implying max 280 files per database.  
+- There is a limit of 280 files per instance implying max 280 files per database.  
 - Every database has one `FILEGROUP` called `XTP` that contains memory optimized data. If original database backup didn't have memory optimized file group, it will be added during restore. 
-- Cannot create general purpose database with objects in `XTP` filegroups (Memory-optimized tables, natively compiled stored procedures)  
+- Cannot create general-purpose database with objects in `XTP` filegroups (Memory-optimized tables, natively compiled stored procedures)  
 - Database cannot contain file groups containing file stream data.  Restore will fail if .bak contains `FILESTREAM` data.  
 - Every file is placed on separate Azure Premium disk. IO and throughput depend on the size of each individual file. See [Azure Premium disk performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### CREATE DATABASE statement
 
 The following are `CREATE DATABASE` limitations: 
-- Files and file groups cannot be defined  
-- `CONTAINMENT` option is not supported  
-- `WITH `<options> are not supported  
+- Files and file groups cannot be defined.  
+- `CONTAINMENT` option is not supported.  
+- `WITH `<options> are not supported.  
    > [!TIP]
    > As workaround, use `ALTER DATABASE` after `CREATE DATABASE` to set database options to add files or to set containment.  
 
@@ -226,13 +226,13 @@ In-database R and Python external libraries are not yet supported. See [SQL Serv
  -` GetFileNamespacePath()` 
  - `FileTableRootPath()` 
 
-For more information, see [FILESTREAM](https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server) and [FileTables](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server).
+For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) and [FileTables](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server).
 
 ### Full-text Semantic Search
 
 [Semantic Search](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) is not supported.
 
-### Linked servers / OPENROWSET / OPENDATASOURCE
+### Linked servers
  
 Linked servers in Managed Instance support limited number of targets: 
 - Supported targets: SQL Server, SQL Database Managed Instance, SQL Server on a virtual machine.
@@ -242,19 +242,19 @@ Operations
 
 - Cross-instance write transactions are not supported.
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
-- `OPENROWSET` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in Virtual Machines). See [OPENROWSET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in virtual machines). Only `SQLNCLI` value is supported as provider. For example: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- `OPENROWSET` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in Virtual Machines). See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in virtual machines). Only `SQLNCLI` value is supported as provider. For example: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
  
 ### Logins / users 
 
-- SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql).
+- SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax are not supported.
-- Azure Active Directory (AAD) user who created the instance has [unrestricted admin priviledges](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Non-administrator Azure Active Directory (AAD) users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- Azure Active Directory (AAD) user who created the instance has [unrestricted admin priviledges](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
+- Non-administrator Azure Active Directory (AAD) users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
  
 ### Polybase
 
-External tables referencing the files in HDFS or Azure blob storage are not supported. For information about Polybase, see [Polybase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide).
+External tables referencing the files in HDFS or Azure blob storage are not supported. For information about Polybase, see [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication 
  
@@ -290,11 +290,11 @@ Limitations:
 - `.BAK` files containing multiple backup sets cannot be restored. 
 - `.BAK` files containing multiple log files cannot be restored. 
 - Restore will fail if .bak contains `FILESTREAM` data.
-- Backups containing databases that have active In-memory OLTP objects cannot be currently restored.  
+- Backups containing databases that have active In-memory OLTP objects cannot currently be restored.  
 - Backups containing databases where at some point in-memory objects existed cannot currently be restored.   
 - Backups containing databases in read-only mode cannot currently be restored. This limitation will be removed soon.   
  
-For information about Restore statements, see [RESTORE Statements](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql).
+For information about Restore statements, see [RESTORE Statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### Service broker 
  
@@ -320,8 +320,8 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
  - `max text repl size` 
  - `remote data archive` 
  - `remote proc trans` 
-- `sp_execute_external_scripts` is not supported. See [sp_execute_external_scripts](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
-- `xp_cmdshell` is not supported. See [xp_cmdshell](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
+- `sp_execute_external_scripts` is not supported. See [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
+- `xp_cmdshell` is not supported. See [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` are not supported. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db` and `sp_detach_db`] are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `[`sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
@@ -357,7 +357,7 @@ The following features are currently not supported but will be enabled in future
 - Enabling/disabling Agent
 - Alerts
 
-For information about SQL Server Agent, see [SQL Server Agent](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent).
+For information about SQL Server Agent, see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
  
 ### Tables 
 
@@ -367,7 +367,7 @@ The following are not supported:
 - `EXTERNAL TABLE` 
 - `MEMORY_OPTIMIZED`  
 
-For information about creating tables, see [CREATE TABLE statement](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql).
+For information about creating tables, see [CREATE TABLE statement](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql).
  
 ## <a name="Changes"></a> Behavior changes 
  
@@ -394,7 +394,7 @@ Each Managed Instance has up to 35TB reserved storage space, and every database 
 ### Incorrect configuration of SAS key during database restore
 
 `RESTORE DATABASE` that reads .bak file might be constantly re-try to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring database to be sure that SAS key is correct.
-Make sure that you remove leading `?` from the SAS key generated using Azure Portal.
+Make sure that you remove leading `?` from the SAS key generated using Azure portal.
 
 ### Tooling
 
@@ -409,6 +409,6 @@ There can be only one database mail profile and it must be called `AzureManagedI
 
 ## Next steps
 
-- For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
+- For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
 - For a  tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
