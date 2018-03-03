@@ -19,7 +19,7 @@ In this article, you learn about the methods for migrating a SQL Server 2005 or 
 > [!NOTE]
 > To migrate a single database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 
-SQL Database Managed Instance is an expansion of the existing SQL Database service, providing a third deployment option alongside single databases and elastic pools.  It is designed to enable database lift-and-shift to a fully-managed PaaS, without re-designing the application. SQL Database Managed Instance provides high compatibility with the on-premises SQL Server programming model and out-of-box support for the large majority of SQL Server features and accompanying tools and services.
+SQL Database Managed Instance is an expansion of the existing SQL Database service, providing a third deployment option alongside single databases and elastic pools.  It is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. SQL Database Managed Instance provides high compatibility with the on-premises SQL Server programming model and out-of-box support for the large majority of SQL Server features and accompanying tools and services.
 
 At the high level, application migration process looks like on the following diagram:
 
@@ -33,7 +33,7 @@ Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-over
 
 However, there are some cases when you need to consider an alternative option, such as [SQL Server on Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
 
-- If you require direct access to the operating system or file system, for instance to install 3rd party or custom agents on the same virtual machine with SQL Server.
+- If you require direct access to the operating system or file system, for instance to install third party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
 - If absolutely you need to stay at a specific version of SQL Server (2012, for instance).
 - If your compute requirements are much lower that Managed Instance offers in public preview (one vCore, for instance) and database consolidation is not acceptable option.
@@ -44,13 +44,13 @@ Managed Instance is fully contained in your virtual network, so it provides the 
 
 ![application deployment topologies](./media/sql-database-managed-instance-migration/application-deployment-topologies.png)
 
-Any of the selected options allow connectivity to a SQL endpoint only through private IP addresses, which guarantees the optimal level of isolation for your data. For more details, see How to connect your application to Managed Instance.
+Any of the selected options allow connectivity to a SQL endpoint only through private IP addresses, which guarantees the optimal level of isolation for your data. <!--- For more information, see How to connect your application to Managed Instance.--->
 
 ## Deploy to an optimally-sized Managed Instance
 
 Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a new purchasing model that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores. The new purchasing model for Managed Instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. THis new model enables you to right-size your destination environment in the cloud.
 
-You can select compute and storage resource at deployment time and then change it afterwards without introducing downtime for your application.
+You can select compute and storage resources at deployment time and then change it afterwards without introducing downtime for your application.
 
 ![managed instance sizing](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
@@ -58,20 +58,20 @@ To learn how to create the VNet infrastructure and Managed Instance - and restor
 
 ## Select migration method and migrate
 
-Managed Instance targets user scenarios requiring mass database migration from on-premises or IaaS database implementations. They are optimal choice when you need to lift and shift the back end of the applications that regularly use instance level and / or cross-database functionalities. If that’s your scenario, you can move an entire instance to a corresponding environment in Azure without the need to re-architecture your applications. 
+Managed Instance targets user scenarios requiring mass database migration from on-premises or IaaS database implementations. They are optimal choice when you need to lift and shift the back end of the applications that regularly use instance level and / or cross-database functionalities. If this is your scenario, you can move an entire instance to a corresponding environment in Azure without the need to rearchitecture your applications. 
 
 To move SQL instances, you need to plan carefully:
 
--	The migration of all databases that need to be collocated (i.e. running on the same instance)
+-	The migration of all databases that need to be collocated (ones running on the same instance)
 -	The migration of instance-level objects that your application depends on, including logins, credentials, SQL Agent Jobs and Operators, and server level triggers. 
 
-Managed Instance is a fully managed service that allows you to delegate some of the regular DBA activities to the platform as they are built-in. Therefore, some instance level data does not need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as [high availability](sql-database-high-availability.md) is built in.
+Managed Instance is a fully managed service that allows you to delegate some of the regular DBA activities to the platform as they are built in. Therefore, some instance level data does not need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as [high availability](sql-database-high-availability.md) is built in.
 
-Managed Instance supports several database migration options, described in the following sections.
+Managed Instance supports the following several database migration options:
 
 ### Azure Database Migration Service
 
-The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing 3rd party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Azure SQL Database Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
+The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Azure SQL Database Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
 
 ![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
@@ -101,16 +101,16 @@ For a full tutorial that includes restoring a database backup to a Managed Insta
 
 ### Migrate using BACPAC file
 
-You can import a data-tier application (DAC) file – a .bacpac file – to create a copy of the original database, with the data, on a new instance of the Database Engine, including Azure SQL Database and SQL Managed Instance. See [Import a BACPAC file to a new Azure SQL Database](sql-database-import.md).
+You can import to Azure SQL Database and  Managed Instance from a create a copy of the original database, with the data, in a BACPAC file. See [Import a BACPAC file to a new Azure SQL Database](sql-database-import.md).
 
 ## Monitor applications
 
-You should track application behavior and performance after migration. In Managed Instance, some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database). Database migration to Azure SQL Database will keep original compatibility level in majority of cases. If the compatibility level of a user database was 100 or higher before the migration, it remains the same after migration. If the compatibility level of a user database was 90 before migration, in the upgraded database, the compatibility level is set to 100, which is the lowest supported compatibility level in Managed Instance. Compatibility level of system databases is 140.
+Track application behavior and performance after migration. In Managed Instance, some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database). Database migration to Azure SQL Database will keep original compatibility level in majority of cases. If the compatibility level of a user database was 100 or higher before the migration, it remains the same after migration. If the compatibility level of a user database was 90 before migration, in the upgraded database, the compatibility level is set to 100, which is the lowest supported compatibility level in Managed Instance. Compatibility level of system databases is 140.
 
-To reduce migration risks, you should only change the database compatibility level after performance monitoring. Use Query Store as optimal tool for getting information about workload performance before and after database compatibility level change, as explained in [Keep performance stability during the upgrade to newer SQL Server version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+To reduce migration risks, change the database compatibility level only after performance monitoring. Use Query Store as optimal tool for getting information about workload performance before and after database compatibility level change, as explained in [Keep performance stability during the upgrade to newer SQL Server version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Once you are on a fully managed platform, take advantages that are provided automatically as part of the SQL Database service. For instance, you don’t have to create backups on Managed Instance -  the service performs this for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). During public preview, the retention period is fixed to 7 days.
-Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built-in.
+Once you are on a fully managed platform, take advantages that are provided automatically as part of the SQL Database service. For instance, you don’t have to create backups on Managed Instance -  the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). During public preview, the retention period is fixed to seven days.
+Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
 
 To strengthen security, consider using some of the features that are available:
 •	Azure Active Directory Authentication at the database level
@@ -119,4 +119,4 @@ To strengthen security, consider using some of the features that are available:
 
 ## Next steps
 
-For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
+For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
