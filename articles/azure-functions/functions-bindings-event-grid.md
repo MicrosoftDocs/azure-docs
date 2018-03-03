@@ -220,7 +220,7 @@ For C# and F# functions, you can use the following parameter types for the Event
 
 * `JObject`
 * `string`
-* `Microsoft.Azure.WebJobs.Extensions.EventGrid`- Defines properties for the fields common to all types. This type is deprecated, but its replacement is not published to NuGet yet.
+* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`- Defines properties for the fields common to all event types. This type is deprecated, but its replacement is not published to NuGet yet.
 
 For JavaScript functions, the parameter named by the *function.json* `name` property has a reference to the event object.
 
