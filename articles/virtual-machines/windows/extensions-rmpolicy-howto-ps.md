@@ -29,8 +29,8 @@ This example shows you how to create a rules file for Windows VMs in Cloud Shell
 
 In a [Cloud Shell](https://shell.azure.com/powershell), type:
 
-```bash 
-vim $home/clouddrive/rules.json
+``` 
+nano $home/clouddrive/rules.json
 ```
 
 Copy and paste the following .json into the file.
@@ -59,7 +59,7 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
+When you are done, hit the **Ctrl + O** and then **Enter** to save the file. Hit **Ctrl + X** to close the file and exit.
 
 ## Create parameters file
 
@@ -69,8 +69,8 @@ This example shows you how to create a parameters file for VMs in Cloud Shell, b
 
 In [Cloud Shell](https://shell.azure.com/powershell), type:
 
-```bash 
-vim ~/clouddrive/parameters.json
+```
+nano $home/clouddrive/parameters.json
 ```
 
 Copy and paste the following .json into the file.
@@ -80,7 +80,7 @@ Copy and paste the following .json into the file.
 	"notAllowedExtensions": {
 		"type": "Array",
 		"metadata": {
-			"description": "The list of extensions that will be denied. Example: BGInfo, CustomScriptExtension, JsonAADDomainExtension, VMAccessAgent.",
+			"description": "The list of extensions that will be denied.",
 			"strongType": "type",
 			"displayName": "Denied extension"
 		}
@@ -88,7 +88,7 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, hit the **Esc** key and then type **:wq** to save and close the file.
+When you are done, hit the **Ctrl + O** and then **Enter** to save the file. Hit **Ctrl + X** to close the file and exit.
 
 ## Create the policy
 
@@ -98,11 +98,12 @@ A policy definition is an object used to store the configuration that you would 
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension-windows" `
+$definition = New-AzureRmPolicyDefinition `
+   -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
-   -Policy '$home/clouddrive/rules.json' `
-   -Parameter '$home/clouddrive/parameters.json
+   -Policy 'C:\Users\ContainerAdministrator\clouddrive\rules.json' `
+   -Parameter 'C:\Users\ContainerAdministrator\clouddrive\parameters.json'
 ```
 
 
@@ -117,7 +118,7 @@ Use the [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.prof
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
 $assignment = New-AzureRMPolicyAssignment `
-   -Name "not-allowed-vmextension" `
+   -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
    -PolicyParameter '{
@@ -133,28 +134,28 @@ $assignment
 
 ## Test the policy
 
-To test the policy, try to reset the password on a VM. The following should fail with the message "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy."
+To test the policy, try to use the VM Access extension. The following should fail with the message "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy."
 
 ```
 Set-AzureRmVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
-   -Location EastUS `
+   -Location EastUS 
 ```
 
-In the portal, the VM should fail validation and list what extension is causing the failure.
+In the portal, the password change should fail with the "The template deployment failed because of policy violation." message.
 
 ## Removing the assignment
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension -Scope $scope
+Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## Removing the policy
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension
+Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
 ```
 	
 ## Next Steps
