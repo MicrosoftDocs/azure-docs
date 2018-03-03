@@ -2,16 +2,22 @@
 title: Azure SQL Database Managed Instance Overview | Microsoft Docs
 description: This topic describes an Azure SQL Database Managed Instance and explains how it works and how it is different from a single database in Azure SQL Database.
 services: sql-database
+documentationcenter: na
 author: CarlRabeler
-manager: Craig.Guyer
+manager: jhubbard
+editor: ''
+ms.assetid: 
 ms.service: sql-database
-ms.custom: managed instance
+ms.custom: DBs & servers
+ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.tgt_pltfrm: na
+ms.workload: "Active"
+ms.date: 02/28/2018
 ms.author: carlrab
 ---
 
-# What is an Azure SQL Database Managed Instance?
+# What is an Azure SQL Database Managed Instance (preview)?
 
 Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNET)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
  
@@ -184,4 +190,4 @@ Managed Instance enable system administrator to focus on what matters the most f
 ## Next steps
 
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-<!---- For a quickstart tutorial, see Create a Managed Instance - sql-database-quickstart-managed-instance.md (to be created)--->
+- For a tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md

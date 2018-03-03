@@ -141,6 +141,8 @@
     items:
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
+    - Name: Migrate to Managed Instance
+      href: sql-database-managed-instance-migrate.md
     - name: SQL Database T-SQL changes
       href: sql-database-transact-sql-information.md
     - name: Managed Instance T-SQL changes
