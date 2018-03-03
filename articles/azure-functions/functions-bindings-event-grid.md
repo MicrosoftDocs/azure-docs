@@ -34,7 +34,7 @@ If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Use
 
 The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub repository.
 
-The package is used for [C# class library development](functions-triggers-bindings.md#-local-c-development-using-visual-studio-or-vs-code) and [Functions v2 binding extension registration](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
+The package is used for [C# class library development](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) and [Functions v2 binding extension registration](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
 
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
