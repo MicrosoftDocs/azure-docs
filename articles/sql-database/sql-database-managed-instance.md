@@ -7,7 +7,7 @@ manager: Craig.Guyer
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: carlrab
 ---
 
