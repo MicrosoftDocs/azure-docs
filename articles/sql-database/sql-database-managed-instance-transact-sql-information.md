@@ -223,7 +223,7 @@ In-database R and Python external libraries are not yet supported. See [SQL Serv
  - `GetPathLocator()` 
  - `GET\_FILESTREAM\_TRANSACTION\_CONTEXT()` 
  - `PathName()` 
- -` GetFileNamespacePath()` 
+ - `GetFileNamespacePath()` 
  - `FileTableRootPath()` 
 
 For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) and [FileTables](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server).
@@ -273,10 +273,10 @@ Replication is not yet supported. For information about Replication, see [SQL Se
    - `RESTORE REWINDONLY ONLY`
 - Source  
  - `FROM URL` (Azure blob storage) - supported 
- - `FROM DISK`/`TAPE`/backup device - not supported 
- - Backup sets - not supported 
+ - `FROM DISK`/`TAPE`/backup device is not supported 
+ - Backup sets are not supported 
 - `WITH` <options> are not supported (No differential, `STATS`, etc.)     
-- `ASYNC RESTORE` - Restore continues even if client connection breaks. If customer loses connection, he/she can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database)  
+- `ASYNC RESTORE` - Restore continues even if client connection breaks. If you loss a connection, can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
 The following database options that are set/overridden and cannot be changed later:  
 - `NEW_BROKER` (if broker is not enabled in .bak file)  
@@ -323,33 +323,33 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 - `sp_execute_external_scripts` is not supported. See [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` is not supported. See [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` are not supported. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
-- `sp_attach_db` and `sp_detach_db`] are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
-- `[`sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
+- `sp_attach_db` and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+- `sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### SQL Server Agent 
  
 - SQL Agent settings are read only. `sp_set_agent_properties` is not supported in Managed Instance.  
 - Jobs  
  - Subsystems - only T-SQL job steps are supported  
-  - SSIS - not yet supported 
-  - Replication - not yet supported  
-   - Transaction-Log reader - not yet supported  
-   - Snapshot - not yet supported  
-   - Distributor - not yet supported  
-   - Merge - not supported  
-   - Queue Reader - not supported  
-  - Command shell - not yet supported 
+  - SSIS is not yet supported 
+  - Replication is not yet supported  
+   - Transaction-Log reader is not yet supported  
+   - Snapshot is not yet supported  
+   - Distributor is not yet supported  
+   - Merge is not supported  
+   - Queue Reader is not supported  
+  - Command shell is not yet supported 
    - No access to external resources (e.g. network shares via robocopy)  
-  - PowerShell - not yet supported  
-  - Analysis Services - not supported  
+  - PowerShell is not yet supported  
+  - Analysis Services is not supported  
  - Notifications are partially supported.
   - Email notification is supported, requires configuring a Database Mail profile. 
    - There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation)  
-  - Pager - not supported  
-  - NetSend - not supported 
- - Alerts – currently not supported (public preview limitation)
- - Proxies - not supported  
-- Eventlog - not supported 
+  - Pager is not supported  
+  - NetSend is not supported 
+ - Alerts is not yet not supported
+ - Proxies is not supported  
+- Eventlog is not supported 
  
 The following features are currently not supported but will be enabled in future:  
 - Proxies
@@ -378,7 +378,7 @@ The following variables, functions, and views return different results:
 - `@@SERVICENAME` returns NULL, as it makes no sense in Managed Instance environment. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` is supported. Returns NULL if AAD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` is not supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
-- `GETDATE()` always returns date in UTL time-zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
+- `GETDATE()` always returns date in UTC time-zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 - `SERVERPROPERTY('EngineEdition')` returns value 8. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 
 ## <a name="Issues"></a> Known issues and limitations
