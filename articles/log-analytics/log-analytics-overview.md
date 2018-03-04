@@ -78,7 +78,9 @@ For example, the following view is from Application Insights.  If you click the 
 
 ## Exporting Log Analytics data
 
-In order to analyze data outside of Log Analytics, you can export the data into tools such as [Power BI](log-analytics-powerbi.md) or Excel.  You can also leverage the [Log Search API](log-analytics-log-search-api.md) to build custom solutions that leverage Log Analytics data or to integrate with other systems.
+Log Analytics also makes its data available outside of Azure.  You can configure [Power BI](log-analytics-powerbi.md) to import the results of a query at regular intervals allowing you to take advantage of its features such as combing data from different sources and sharing reports on the web and mobile devices.  You can also leverage the [Log Search API](log-analytics-log-search-api.md) to build custom solutions that leverage Log Analytics data or to integrate with other systems.
+
+![Power BI](media/log-analytics-overview/power-bi.png)
 
 
 ## Add functionality with management solutions
