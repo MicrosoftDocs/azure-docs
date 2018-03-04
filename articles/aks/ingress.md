@@ -22,6 +22,14 @@ This document walks through a sample deployment of the [NGINX ingress controller
 
 Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information. 
 
+Update the chart repository.
+
+```console
+helm repo update
+```
+
+Install the NGINX ingress controller.
+
 ```
 helm install stable/nginx-ingress
 ```
