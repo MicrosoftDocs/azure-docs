@@ -23,6 +23,8 @@ For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-
 Before using an Azure File Share as a Kubernetes volume, you must create an Azure Storage account and the file share. The following script can be used to complete these tasks. Take note or update the parameter values, some of these are needed when creating the Kubernetes volume.
 
 ```azurecli-interactive
+#!/bin/bash
+
 # Change these four parameters
 AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 AKS_PERS_RESOURCE_GROUP=myAKSShare
@@ -43,43 +45,20 @@ az storage share create -n $AKS_PERS_SHARE_NAME
 
 # Get storage account key
 STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
+
+# Echo storage account name and key
+echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
+echo Storgae account key: $STORAGE_KEY
 ```
 
 ## Create Kubernetes Secret
 
 Kubernetes needs credentials to access the file share. These credentials are stored in a [Kubernetes secret][kubernetes-secret], which is referenced when creating a Kubernetes pod.
 
-When creating a Kubernetes secret, the secret values must be base64 encoded.
+Use the following command to create the secret. Replace `STORAGE_ACCOUNT_NAME` with your storage account name, and `STORAGE_ACCOUNT_KEY` with your storage key.
 
-First, encode the name of the storage account. If needed, replace `$AKS_PERS_STORAGE_ACCOUNT_NAME` with the name of the Azure storage account.
-
-```azurecli-interactive
-echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
-```
-
-Next, encode the storage account key. If needed, replace `$STORAGE_KEY` with the name of the Azure storage account key.
-
-```azurecli-interactive
-echo -n $STORAGE_KEY | base64
-```
-
-Create a file named `azure-secret.yaml` and copy in the following YAML. Update the `azurestorageaccountname` and `azurestorageaccountkey` values with the base64 encoded values retrieved in the last step.
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: azure-secret
-type: Opaque
-data:
-  azurestorageaccountname: <base64_encoded_storage_account_name>
-  azurestorageaccountkey: <base64_encoded_storage_account_key>
-```
-
-Use the [kubectl create][kubectl-create] command to create the secret.
-
-```azurecli-interactive
-kubectl create -f azure-secret.yaml
+```console
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=STORAGE_ACCOUNT_KEY
 ```
 
 ## Mount file share as volume
@@ -93,7 +72,7 @@ metadata:
  name: azure-files-pod
 spec:
  containers:
-  - image: kubernetes/pause
+  - image: neilpeterson/aks-helloworld
     name: azure
     volumeMounts:
       - name: azure
