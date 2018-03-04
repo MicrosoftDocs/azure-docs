@@ -65,7 +65,9 @@ Next, you create a webhook in your GitHub repository.
 
 1. In GitHub, navigate to a repository that you own. You can also use any repository that you have forked. If you need to fork a repository, use <https://github.com/Azure-Samples/functions-quickstart>.
 
-1. Click **Settings**, then click **Webhooks**, and  **Add webhook**.
+Enable Issues in the forked project under Settings -> Options -> Features.
+
+1. Click **Settings**, then click **Webhooks**, and  **Add webhook**.
 
     ![Add a GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
