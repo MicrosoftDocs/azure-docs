@@ -103,7 +103,7 @@ For more information, see [Packages](#packages), [Attributes](#attributes), [Con
 
 ### C# script example
 
-The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs some of the fields that are common to all events and all of the event-specific data.
+The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
 
 Here's the binding data in the *function.json* file:
 
@@ -159,7 +159,7 @@ For more information, see [Packages](#packages), [Attributes](#attributes), [Con
 
 ### JavaScript example
 
-The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs some of the fields that are common to all events and all of the event-specific data.
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
 Here's the binding data in the *function.json* file:
 
