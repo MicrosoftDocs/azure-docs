@@ -33,7 +33,7 @@ The `default` storage class provisions a standard Azure disk. The `managed-premi
 
 ## Create persistent volume claim
 
-A persistent volume claim uses a storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
+When using an Azure disk, a persistent volume claim can be used to automatically create a disk that can then be mounted in a pod. The disk is created in the same resource group as the AKS resources.
 
 This example manifest creates a persistent volume claim using the `managed-premium` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
