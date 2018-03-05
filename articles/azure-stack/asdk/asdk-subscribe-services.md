@@ -54,12 +54,12 @@ To subscribe to an offer as a user, you need to login to the Azure Stack user po
 
 
 ## Test the offer
-While logged in to the [user portal](portal.local.azurestack.external), you can test the offer by provisioning a virtual machine using the new subscription capabilities. 
+While logged in to the [user portal](https://portal.local.azurestack.external), you can test the offer by provisioning a virtual machine using the new subscription capabilities. 
 
 > [!NOTE]
-> This test requires the Windows Server 2016 Datacenter VM image that was added to the Azure Stack marketplace in a [previous tutorial](asdk-marketplace.md). 
+> This test requires the Windows Server 2016 Datacenter VM image that was added to the Azure Stack marketplace in a [previous tutorial](asdk-marketplace-item.md). 
 
-1. Log in to the [user portal](portal.local.azurestack.external).
+1. Log in to the [user portal](https://portal.local.azurestack.external).
 
 2. In the user portal, click **Virtual Machines** > **Add** > **Windows Server 2016 Datacenter**, and then click **Create**.
 
