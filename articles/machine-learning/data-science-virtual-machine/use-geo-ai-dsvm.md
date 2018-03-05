@@ -21,7 +21,7 @@ ms.author: gokuma;bradsev
 
 # Using the Geo AI Data Science VM
 
-Use the Geo AI Data Science VM to fetch data for analysis, perform data wrangling, and build models for AI applications that consume geospatial information. Once you have provisioned your Geo AI Data Science VM and signed into ArcGIS Pro with your ArcGIS account, you can start interacting with ArcGIS desktop and ArcGis online. You can also access ArcGIS from Python interfaces and an R language bridge pre-configured on the Geo-Data Science VM. To build rich AI applications, combine it with the machine learning and deep learning frameworks and other data science software available on the Data Science VM .  
+Use the Geo AI Data Science VM to fetch data for analysis, perform data wrangling, and build models for AI applications that consume geospatial information. Once you have provisioned your Geo AI Data Science VM and signed into ArcGIS Pro with your ArcGIS account, you can start interacting with ArcGIS desktop and ArcGis online. You can also access ArcGIS from Python interfaces and an R language bridge pre-configured on the Geo-Data Science VM. To build rich AI applications, combine it with the machine learning and deep learning frameworks and other data science software available on the Data Science VM.  
 
 
 ## Configuration details
@@ -43,7 +43,7 @@ In addition to the ML and deep learning framework-based samples from the base Da
 
 2. [Getting stated with Geospatial analytics with R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): An introductory sample that shows how to work with Geospatial data using the R interface to ArcGIS provided by the [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) library. 
 
-3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land cover label. Examples of land cover labels are "forested" or "water". The model returns such a label for every pixel in the image. The model is built using Microsoft's open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning framework. The example also shows how to scale out the training on [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) and consume the model predictions in ArcGIS Pro software. 
+3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are "forested" or "water." The model returns such a label for every pixel in the image. The model is built using Microsoft's open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning framework. The example also shows how to scale out the training on [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) and consume the model predictions in ArcGIS Pro software. 
 
 
 ## Next Steps
