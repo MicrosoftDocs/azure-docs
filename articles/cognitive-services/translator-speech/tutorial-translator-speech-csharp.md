@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.technology: translator
 ms.devlang: csharp
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 3/5/2018
 ms.author: v-jerkin
 ---
 # Tutorial: Microsoft Translator WPF application in C#
