@@ -45,8 +45,6 @@ Management certificates allow you to authenticate with the classic deployment mo
 ### Limitations
 There is a limit of 100 management certificates per subscription. There is also a limit of 100 management certificates for all subscriptions under a specific service administrator’s user ID. If the user ID for the account administrator has already been used to add 100 management certificates and there is a need for more certificates, you can add a co-administrator to add the additional certificates. 
 
-Before adding more than 100 certificates, see if you can reuse an existing certificate. Using co-administrators adds potentially unneeded complexity to your certificate management process.
-
 <a name="create"></a>
 ## Create a new self-signed certificate
 You can use any tool available to create a self-signed certificate as long as they adhere to these settings:
