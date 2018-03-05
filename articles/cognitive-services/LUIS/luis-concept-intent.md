@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 03/05/2018
 ms.author: v-geberr;
 ---
 # Intents in LUIS
@@ -40,6 +40,18 @@ Create an intent when this intent would trigger an action in your client applica
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" } | What's the weather like in `Seattle`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 
+
+## Custom intents
+
+Create an intent when you want to group utterances. [Utterances](luis-concept-utterance.md) correspond to a single intent. Utterances in your intent can use any [entity](luis-concept-entity-types.md) in the app since entities are not intent-specific. 
+
+## Prebuilt domain intents
+
+[Prebuilt domains](luis-how-to-use-prebuilt-domains.md) have intents with utterances.  
+
+## None intent
+
+The **None** intent is how you teach LUIS utterances that are not in the app domain. If you do not add any utterances for the **None** intent, LUIS forces an utterance that is outside the domain into one of the domain intents. The **None** is created but left empty on purpose because a new app can be any domain. 
 
 ## Best practice - only required, specific intents
 It is a best practice to use only as many intents as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in calling application or bot. 
