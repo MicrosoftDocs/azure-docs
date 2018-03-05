@@ -1,6 +1,6 @@
 ---
 title: Azure Protect personal data at rest with encryption | Microsoft Docs
-description: This article is part of a series helping you use Azure to protect personal data
+description: This article is part of a series helping you use Azure to protect personal data. The information here may be used to comply with industry or government requirements such as General Data Protection Regulation (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/05/2018
 ms.author: barclayn
 ms.custom: 
 ---
@@ -21,8 +21,7 @@ ms.custom:
 
 This article helps you understand and use Azure encryption technologies to secure data at rest.
 
-Encryption of data at rest is essential as a best practice to protect sensitive or personal data and to meet compliance and data privacy requirements.
-Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk.
+Encryption of data at rest is essential as a best practice to protect sensitive or personal data and to meet compliance and data privacy requirements. Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. Information contained in this article may be used to comply with General Data Protection Regulation (GDPR).
 
 ## Scenario 
 
