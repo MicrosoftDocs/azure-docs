@@ -77,7 +77,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Expressions](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](sql-database-xevent-db-diff-from-svr.md) | Yes - see [Extended events differences ](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | No | No |
-| [Files and file groups](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Primary file group only | Yes |
+ [Files and file groups](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Primary file group only | Yes |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | No |
 | [Full-text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Third-party word breakers are not supported |Third-party word breakers are not supported |
 | [Functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
