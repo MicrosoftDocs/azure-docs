@@ -55,7 +55,7 @@ The scenario that's outlined in this tutorial consists of two main building bloc
 ## Add Palo Alto Networks - Admin UI from the gallery
 To configure the integration of Azure AD with Palo Alto Networks - Admin UI, add Palo Alto Networks - Admin UI from the gallery to your list of managed SaaS apps by doing the following:
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
 
 	![The Azure Active Directory button][1]
 
