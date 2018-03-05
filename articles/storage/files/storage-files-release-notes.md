@@ -117,7 +117,7 @@ For more information on how to install and configure the Azure File Sync agent w
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
 - Paths that are longer than 2,048 characters.
-- The DACL portion of a security descriptor if it's larger than 2 K. (This issue applies only when you have more than about 40 ACEs on a single item.)
+- The DACL portion of a security descriptor if it's larger than 2 KB. (This issue applies only when you have more than about 40 ACEs on a single item.)
 - The SACL portion of a security descriptor that's used for auditing.
 - Extended attributes.
 - Alternate data streams.
