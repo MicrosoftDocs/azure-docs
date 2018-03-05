@@ -21,7 +21,7 @@ This article describes how to enable replication of on-premises VMware VMs to Az
 This article assumes that you have:
 
 1.  [Set up on-premises source environment](vmware-azure-set-up-source.md).
-2.  [Set up target environment in Azure](svmware-azure-set-up-target.md).
+2.  [Set up target environment in Azure](vmware-azure-set-up-target.md).
 
 
 ## Before you start

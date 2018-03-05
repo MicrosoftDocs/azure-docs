@@ -96,7 +96,7 @@ C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
 
 Use the downloaded vault registration key and follow the steps in the articles given below to complete installation and registration of the Configuration Server.
 * [Choose your protection goals](vmware-azure-set-up-source.md#choose-your-protection-goals)
-* [Set up the source environment](vmware-azure-set-up-source.md#set-up-the-source-environment) 
+* [Set up the source environment](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ## Set the vault context
 
