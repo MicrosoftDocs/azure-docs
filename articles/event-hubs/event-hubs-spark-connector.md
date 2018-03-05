@@ -1,6 +1,6 @@
-Shubha---
-title: Integrating Acpache Spark with Azure Event Hubs | Microsoft Docs
-description: Enable Auto-inflate on a namespace to automatically scale up throughput units
+---
+title: Integrating Apache Spark with Azure Event Hubs | Microsoft Docs
+description: Integrate with Apache Spark to enable Structured Streaming with Event Hubs
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -10,6 +10,8 @@ editor: ''
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
 ms.date: 03/05/2018
 ms.author: shvija
 
