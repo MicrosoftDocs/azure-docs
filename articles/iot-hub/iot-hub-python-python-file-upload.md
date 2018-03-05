@@ -3,7 +3,7 @@ title: Upload files from devices to Azure IoT Hub with Python | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Python. Uploaded files are stored in an Azure storage blob container.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2018
-ms.author: v-masebo
+ms.date: 03/05/2018
+ms.author: kgremban
 
 ---
 # Upload files from your device to the cloud with IoT Hub
@@ -26,7 +26,7 @@ This tutorial follows how to use the [file upload capabilities of IoT Hub](iot-h
 - Securely provide a storage container for uploading a file.
 - Use the Python client to upload a file through your IoT hub.
 
-The [Get started with IoT Hub](iot-hub-node-node-getstarted.md) and [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+The [Get started with IoT Hub](iot-hub-node-node-getstarted.md) tutorial demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
 > [!NOTE]
 > IoT Hub Python SDK currently only supports uploading character-based files such as **.txt** files.
