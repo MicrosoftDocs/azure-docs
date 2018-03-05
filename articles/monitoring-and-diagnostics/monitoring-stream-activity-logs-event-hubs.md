@@ -46,7 +46,7 @@ To update the Activity Log log profile to include streaming, the user who's maki
    
    ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
 
-   Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings. Those are only for filtering what you see while browsing througn your Activity Log in the portal.
+   Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings. Those are only for filtering what you see while browsing through your Activity Log in the portal.
 3. In the section that appears, select **All regions**. Do not select particular regions.
    
    ![Export section](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
