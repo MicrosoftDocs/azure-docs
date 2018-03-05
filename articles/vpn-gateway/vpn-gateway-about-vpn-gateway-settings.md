@@ -25,7 +25,7 @@ A VPN gateway is a type of virtual network gateway that sends encrypted traffic 
 A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.
 
 >[!NOTE]
-> The values in this article apply to virtual network gateways that use the -GatewayType 'Vpn'. This is why they are referred to as VPN gateways. For values that apply to -GatewayType 'ExpressRoute', see [Virtual Network Gateways for ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md). The values for ExpressRoute gateways are not the same values that you use for VPN gateways.
+> The values in this article apply to virtual network gateways that use the -GatewayType 'Vpn'. This is why they are referred to as VPN gateways. For values that apply to -GatewayType 'ExpressRoute', see [Virtual Network Gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). The values for ExpressRoute gateways are not the same values that you use for VPN gateways.
 >
 >
 
