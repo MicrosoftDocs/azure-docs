@@ -38,7 +38,7 @@ The full table of values for zoom levels is here:
 |17|1.2|307.2|
 |18|0.6|152.8|
 |19|0.3|76.4|
-|20|0.15|38,2|
+|20|0.15|38.2|
 
 Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
 
