@@ -24,8 +24,6 @@ ms.author: mimig
 ## Overview
 This article shows how to perform common scenarios using Azure Storage Table service or Azure Comsos DB in a Node.js application.
 
-The code examples in this article assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these articles:
-
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -453,7 +451,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 For more information, see the following resources.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) repository on GitHub.
-* [Node.js Developer Center](/develop/nodejs/)
-* [Create and deploy a Node.js application to an Azure website](../app-service/app-service-web-get-started-nodejs.md)
+* [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) repository on GitHub.
+* [Azure for Node.js Developers](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
+* [Create a Node.js web app in Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
