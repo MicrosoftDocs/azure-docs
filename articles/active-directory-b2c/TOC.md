@@ -4,13 +4,17 @@
 ## [About Azure AD B2C](active-directory-b2c-overview.md)
 
 # Quickstarts
-## [Test drive an Azure AD B2C web app](active-directory-b2c-quickstarts-web-app.md)
-## [Test drive an Azure AD B2C desktop app](active-directory-b2c-quickstarts-desktop-app.md)
-## [Test drive an Azure AD B2C single-page app](active-directory-b2c-quickstarts-spa.md)
+## [Try an Azure AD B2C web app](active-directory-b2c-quickstarts-web-app.md)
+## [Try an Azure AD B2C desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+## [Try an Azure AD B2C single-page app](active-directory-b2c-quickstarts-spa.md)
 
 # Tutorials
-## [Authenticate users ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
-## [Protect ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
+## [ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
+## [Single-page app](active-directory-b2c-tutorials-spa.md)
+## [.NET WPF desktop app](active-directory-b2c-tutorials-desktop-app.md)
+## [ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
+## [ASP.NET Core web API](active-directory-b2c-tutorials-spa-webapi.md)
+## [Node.js web API](active-directory-b2c-tutorials-desktop-app-webapi.md)
 
 # Concepts
 ## [OAuth 2.0 authorization](active-directory-b2c-reference-oauth-code.md)
