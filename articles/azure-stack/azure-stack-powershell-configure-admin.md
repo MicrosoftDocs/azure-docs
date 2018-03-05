@@ -35,7 +35,7 @@ Run the following prerequisites either from the [development kit](azure-stack-co
 
 Configure the Azure Stack operator environment with PowerShell. Based on the type of deployment, Azure AD or AD FS, run one of the following scripts: Replace the Azure AD tenantName, GraphAudience endpoint, and ArmEndpoint values with your own environment configuration.
 
-### Azure Active Directory (AAD) based deployments
+### Azure Active Directory (Azure AD) based deployments
 
 ````powershell  
 #  Create an administrator environment
