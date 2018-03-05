@@ -23,9 +23,9 @@ To delete the vault, follow the recommended steps for your scenario.
 
 1. Delete all protected VMs by following the steps in [Disable protection for a VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 
-2. Delete all replication policies by following the steps in [Delete a replication policy](vmware-azure-set-up-replication.md#delete-a-replication-policy).
+2. Delete all replication policies by following the steps in [Delete a replication policy](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
 
-3. Delete references to vCenter by following the steps in [Delete a vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-in-azure-site-recovery).
+3. Delete references to vCenter by following the steps in [Delete a vCenter server](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
 
 4. Delete the configuration server by following the steps in [Decommission a configuration server](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
