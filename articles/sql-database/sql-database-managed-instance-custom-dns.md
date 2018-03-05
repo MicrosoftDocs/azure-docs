@@ -47,27 +47,27 @@ DNS configuration on an Azure VNet requires that you enter IP addresses, so conf
 
 1. In the Azure portal, open the custom DNS VM network interface.
 
-<!--->   ![network-interface](./media/sql-database-managed-instance-custom-dns/network-interface.png)---> 
+![network-interface](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
 
 2. In IP Configurations section. select IP configuration 
 
-<!--->   ![ip configuration](./media/sql-database-managed-instance-custom-dns/ip-configuration.png) 
---->
+![ip configuration](./media/sql-database-managed-instance-custom-dns/ip-configuration.png) 
+
 
 3. Set private IP address as Static. Write down the IP address (10.0.1.5 on this screenshot) 
 
-<!-->   ![static](./media/sql-database-managed-instance-custom-dns/static.png) 
---->
+![static](./media/sql-database-managed-instance-custom-dns/static.png) 
+
 
 ## Register Custom DNS as primary and Azure DNS as secondary 
 
-1. In the Azure portal, find custom DNS option for your VNet.
+4. In the Azure portal, find custom DNS option for your VNet.
 
-<!--->   ![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)---> 
+![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
 
-2. Switch to Custom and enter your custom DNS server IP address as well as Azure's recursive resolvers IP address, such as 168.63.129.16. 
+5. Switch to Custom and enter your custom DNS server IP address as well as Azure's recursive resolvers IP address, such as 168.63.129.16. 
 
-<!--->   ![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)---> 
+![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
    > Not setting Azure’s recursive resolver in DNS list could cause the Managed Instance to enter faulty state.
