@@ -93,6 +93,11 @@ In this section, we list the prerequisites required to use this service. Review 
 ### Storage account
 You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Azure Import/Export only supports classic, Blob Storage accounts and General Purpose v1 storage accounts. Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 
+> [!IMPORTANT] 
+> The Azure Import Export service does not support storage accounts where the [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled. 
+> 
+> 
+
 ### Data types
 You can use Azure Import/Export service to copy data to **Block** blobs, **Page** blobs, or **Files**. Conversely, you can only export **Block** blobs, **Page** blobs or **Append** blobs from Azure storage using this service. The service supports only import of Azure Files into Azure storage. Exporting Azure Files is not currently supported.
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/02/2018
 ms.author: johnkem
 
 ---
@@ -30,24 +30,31 @@ Here are two ways you might use the streaming capability for the Activity Log:
 * **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log. For more information, see [Dan Rosanova’s video about using Event Hubs in a global-scale telemetry platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## Enable streaming of the Activity Log
-You can enable streaming of the Activity Log either programmatically or via the portal. Either way, you pick a Service Bus namespace and a shared access policy for that namespace. An event hub is created in that namespace when the first new Activity Log event occurs. 
+You can enable streaming of the Activity Log either programmatically or via the portal. Either way, you pick an Event Hubs namespace and a shared access policy for that namespace. An event hub with the name insights-logs-operationallogs is created in that namespace when the first new Activity Log event occurs. 
 
-If you don't have a Service Bus namespace, you first need to create one. If you previously streamed Activity Log events to this Service Bus namespace, the event hub that was previously created will be reused. 
+If you don't have an Event Hubs namespace, you first need to create one. If you previously streamed Activity Log events to this Event Hubs namespace, the event hub that was previously created will be reused. 
 
-The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify shared access policies for the Service Bus namespace in the Azure portal under the **Configure** tab for your Service Bus namespace. 
+The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the **Configure** tab for your Event Hubs namespace. 
 
-To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Service Bus authorization rule. The Service Bus or Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ### Via the Azure portal
-1. Browse to the **Activity Log** pane by using the **All services** search on the left side of the portal.
+1. Browse to the **Activity Log** section by using the **All services** search on the left side of the portal.
    
    ![Selecting Activity Log from the list of services in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Select the **Export** button at the top of **Activity Log** pane.
+2. Select the **Export** button at the top of the log.
    
    ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
-3. In the pane that appears, select the regions for which you want to stream events. Also select the Service Bus namespace in which you want to create an event hub for streaming these events. Select **All regions**.
+
+   Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings. Those are only for filtering what you see while browsing througn your Activity Log in the portal.
+3. In the section that appears, select **All regions**. Do not select particular regions.
    
-   ![Export Activity Log pane](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+   ![Export section](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+
+   > [!WARNING]  
+   > If you select anything other than **All regions**, you'll miss key events that you expect to receive. The Activity Log is a global (non-regional) log, so most events do not have a region associated with them. 
+   > 
+
 4. Select **Save** to save these settings. The settings are immediately applied to your subscription.
 5. If you have several subscriptions, repeat this action and send all the data to the same event hub.
 
