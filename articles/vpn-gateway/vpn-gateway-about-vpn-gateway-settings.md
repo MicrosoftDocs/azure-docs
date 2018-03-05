@@ -29,7 +29,7 @@ A VPN gateway connection relies on the configuration of multiple resources, each
 >
 >
 
-## <a name="gwtype"></a>Gateway types.md)
+## <a name="gwtype"></a>Gateway types
 
 Each virtual network can only have one virtual network gateway of each type. When you are creating a virtual network gateway, you must make sure that the gateway type is correct for your configuration.
 
