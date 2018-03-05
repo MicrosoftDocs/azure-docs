@@ -11,11 +11,11 @@ ms.date: 03/05/2018
 ms.author: manayar
 
 ---
-# Overview of multi-tenant support for VMware VM replication to Azure with CSP
+# Overview of multi-tenant support for VMware replication to Azure with CSP
 
 [Azure Site Recovery](site-recovery-overview.md) supports multi-tenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program. 
 
-This article provides an overview of implementing and managing multi-tenant VMware to Azure replication scenarios. 
+This article provides an overview of implementing and managing multi-tenant VMware to Azure replication. 
 
 ## Multi-tenant environments
 
@@ -36,54 +36,55 @@ The basic requirement in a multi-tenant scenario is that tenants must be isolate
 The architecture is shown in the following diagram.
 
 ![Shared HSP with one vCenter](./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png)  
-**Shared-hosting scenario with one vCenter**
 
-In the diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs and enables tenant isolation. A VMware virtual-machine replication scenario uses the configuration server to manage accounts to discover VMs and install agents. The same principles apply to multi-tenant environments, with the addition of restricting VM discovery through vCenter access control.
+**Shared-hosting with one vCenter server**
 
-The data-isolation requirement necessitates that all sensitive infrastructure information (such as access credentials) remains undisclosed to tenants. For this reason, we recommend that all components of the management server remain under the exclusive control of the partner. The management server components are:
-* Configuration server (CS)
-* Process server (PS)
-* Master target server (MT)
+In the diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs, and enables tenant isolation. VMware VM replication uses the configuration server to discover VMs, and install agents. The same principles apply to multi-tenant environments, with the addition of restricting VM discovery using vCenter access control.
+
+The data isolation requirement means that all sensitive infrastructure information (such as access credentials) remains undisclosed to tenants. For this reason, we recommend that all components of the management server remain under the exclusive control of the partner. The management server components are:
+
+* Configuration server)
+* Process server
+* Master target server
 
 A seperate scaled-out process server is also under the partner's control.
 
-### Configuration server accounts
+## Configuration server accounts
 
 Every configuration server in the multi-tenant scenario uses two accounts:
 
-- **vCenter access account**: This account is used to discover tenant VMs. It has vCenter access permissions assigned to it (as described in the next section). To help avoid accidental access leaks, we recommend that partners enter these credentials themselves in the configuration tool.
+- **vCenter access account**: This account is used to discover tenant VMs. It has vCenter access permissions assigned to it. To help avoid access leaks, we recommend that partners enter these credentials themselves in the configuration tool.
 
-- **Virtual machine access account**: This account is used to install the mobility agent on the tenant VMs through an automatic push. It is usually a domain account that a tenant might provide to a partner, or one that the partner might manage directly. If a tenant doesn't want to share the details with the partner directly, they can be allowed to enter the credentials through limited-time access to the CS or, with the partner's assistance, install mobility agents manually.
+- **Virtual machine access account**: This account is used to install the Mobility service agent on tenant VMs, with an automatic push. It is usually a domain account that a tenant might provide to a partner, or an account that the partner might manage directly. If a tenant doesn't want to share the details with the partner directly, they can enter the credentials through limited-time access to the configuration server. Or, with the partner's assistance, they can install the Mobility service agent manually.
 
-#### vCenter account requirements
+## vCenter account requirements
 
-You must configure the CS with an account that has a special role assigned to it. 
+You must configure the configuration server with an account that has a special role assigned to it. 
 
-- The role assignment must be applied to the vCenter access account for each vCenter object and not propagated to the child objects, as shown below. This configuration ensures tenant isolation, because access propagation can result in accidental access to other objects.
+- The role assignment must be applied to the vCenter access account for each vCenter object, and not propagated to the child objects. This configuration ensures tenant isolation, because access propagation can result in accidental access to other objects.
 
     ![The Propagate to Child Objects option](./media/vmware-azure-multi-tenant-overview/assign-permissions-without-propagation.png)
 
-- The alternative approach is to assign the user account and role at the datacenter object and propagate them to the child objects. Then give the account a *No access* role for every object (such as other tenants’ VMs) that should be inaccessible to a particular tenant. This configuration is cumbersome, and it exposes accidental access controls, because every new child object is also automatically granted access that's inherited from the parent. Therefore, we recommend that you use the first approach.
+- The alternative approach is to assign the user account and role at the datacenter object, and propagate them to the child objects. Then give the account a **No access** role for every object (such as VMs that belong to other tenants) that should be inaccessible to a particular tenant. This configuration is cumbersome. It exposes accidental access controls, because every new child object is also automatically granted access that's inherited from the parent. Therefore, we recommend that you use the first approach.
 
-##### Create a vCenter account
+### Create a vCenter account
 
-1. Create a new role by cloning the pre-defined *Read-only* role, and then give it a convenient name (such as Azure_Site_Recovery, as shown in this example).
+1. Create a new role by cloning the predefined *Read-only* role, and then give it a convenient name (such as Azure_Site_Recovery, as shown in this example).
 2. Assign the following permissions to this role:
 
     * **Datastore**: Allocate space, Browse datastore, Low-level file operations, Remove file, Update virtual machine files
     * **Network**: Network assign
     * **Resource**: Assign VM to resource pool, Migrate powered off VM, Migrate powered on VM
     * **Tasks**: Create task, Update task
-    * **Virtual machine**:
-        * Configuration > all
-        * Interaction > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
-        * Inventory > Create from existing, Create new, Register, Unregister
-        * Provisioning > Allow virtual machine download, Allow virtual machine files upload
-        * Snapshot management > Remove snapshots
+    * **VM - Configuration**: All
+    - **VM - Interaction** > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
+    - **VM - Inventory** > Create from existing, Create new, Register, Unregister
+    - **VM - Provisioning** > Allow virtual machine download, Allow virtual machine files upload
+    - **VM - Snapshot management** > Remove snapshots
 
 	    ![The Edit Role dialog box](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
-3. Assign access levels to the vCenter account (used in the tenant CS) for various objects, as follows:
+3. Assign access levels to the vCenter account (used in the tenant configuration server) for various objects, as follows:
 
 >| Object | Role | Remarks |
 >| --- | --- | --- |
