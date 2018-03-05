@@ -41,8 +41,8 @@ This article describes how to fail back virtual machines from Azure Virtual Mach
 After you have failed over to Azure, you can fail back to your on-premises site by executing the following steps:
 
 1. [Reprotect](vmware-azure-reprotect.md) the virtual machines on Azure so that they start to replicate to VMware virtual machines in your on-premises site. As part of this process, you also need to:
-	1. Set up an on-premises master target: Windows master target for Windows virtual machines and [Linux master target](site-recovery-how-to-install-linux-master-target.md) for Linux virtual machines.
-	2. Set up a [process server](vmware-azure-set-up-process-server.md).
+	1. Set up an on-premises master target: Windows master target for Windows virtual machines and [Linux master target](vmware-azure-install-linux-master-target.md) for Linux virtual machines.
+	2. Set up a [process server](vmware-azure-set-up-process-server-azure.md).
 	3. Initiate [reprotect](vmware-azure-reprotect.md). This will turn off the on-premises virtual machine and synchronize the Azure virtual machine's data with the on-premises disks.
 
 1. Once your virtual machines on Azure are replicating to your on-premises site, you initiate a fail over from Azure to the on-premises site.
