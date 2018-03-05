@@ -50,8 +50,8 @@ Log in to the Azure portal at http://portal.azure.com.
 2. Select **Subnets** and then select **+ Subnet**, as shown in the following picture:
 
      ![Add a subnet](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
-
-3. In the **Add subnet** box that appears, enter *Private* for **Name**, enter *10.0.1.0/24* for **Address range**, and then select **OK**. 
+     
+3. In the **Add subnet** box that appears, enter *Private* for **Name**, enter *10.0.1.0/24* for **Address range**, and then select **OK**.  A subnet address range cannot overlap with the address ranges of other subnets within a virtual network. 
 
 Before deploying Azure virtual networks and subnets for production use, we recommend that you thoroughly familiarize yourself with address space [considerations](virtual-network-manage-network.md#create-a-virtual-network) and [virtual network limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Once resources are deployed into subnets, some virtual network and subnet changes, such as changing address ranges, can require redeployment of existing Azure resources deployed within subnets.
 
@@ -80,6 +80,8 @@ A virtual network enables several types of Azure resources to communicate with t
 7. Complete steps 1-6 again, but enter *myVmMgmt* for the **Name** of the virtual machine and select **Private** for the **Subnet**.
 
 The virtual machines take a few minutes to create. Do not continue with the remaining steps until both virtual machines are created.
+
+The virtual machines created in this article have one [network interface](virtual-network-network-interface.md) with one IP address that is dynamically assigned to the network interface. After you've deployed the VM, you can [add multiple public and private IP addresses, or change the IP address assignment method to static](virtual-network-network-interface-addresses.md#add-ip-addresses). You can [add network interfaces](virtual-network-network-interface-vm.md#vm-add-nic), up to the limit supported by the [VM size](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that you select when you create a virtual machine. You can also [enable single root I/O virtualization (SR-IOV)](create-vm-accelerated-networking-powershell.md) for a VM, but only when you create a VM with a VM size that supports the capability.
 
 ### Communicate between virtual machines and with the internet
 
@@ -124,7 +126,9 @@ The virtual machines take a few minutes to create. Do not continue with the rema
         Minimum = 0ms, Maximum = 0ms, Average = 0ms
     ```
       
-    You can see that the address of the *myVmMgmt* virtual machine is 10.0.1.4. 10.0.1.4 was the first available IP address in the address range of the *Private* subnet that you deployed the *myVmMgmt* virtual machine to in a previous step.  You see that the fully qualified domain name of the virtual machine is *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Though the *dar5p44cif3ulfq00wxznl3i3f* portion of the domain name is different for your virtual machine, the remaining portions of the domain name are the same. By default, all Azure virtual machines use the default Azure DNS service. All virtual machines within a virtual network can resolve the names of all other virtual machines in the same virtual network using Azure's default DNS service. Instead of using Azure's default DNS service, you can use your own DNS server or the private domain capability of the Azure DNS service. For details, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) or [Using Azure DNS for private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    You can see that the address of the *myVmMgmt* virtual machine is 10.0.1.4. 10.0.1.4 was the first available IP address in the address range of the *Private* subnet that you deployed the *myVmMgmt* virtual machine to in a previous step.  You see that the fully qualified domain name of the virtual machine is *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Though the *dar5p44cif3ulfq00wxznl3i3f* portion of the domain name is different for your virtual machine, the remaining portions of the domain name are the same. 
+
+    By default, all Azure virtual machines use the default Azure DNS service. All virtual machines within a virtual network can resolve the names of all other virtual machines in the same virtual network using Azure's default DNS service. Instead of using Azure's default DNS service, you can use your own DNS server or the private domain capability of the Azure DNS service. For details, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) or [Using Azure DNS for private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 9. To install Internet Information Services (IIS) for Windows Server on the *myVmWeb* virtual machine, enter the following command from a PowerShell session:
 
@@ -134,13 +138,12 @@ The virtual machines take a few minutes to create. Do not continue with the rema
 
 10. After the installation of IIS is complete, disconnect the *myVmWeb* remote desktop session, which leaves you in the *myVmMgmt* remote desktop session. Open a web browser and browse to http://myvmweb. You see the IIS welcome page.
 11. Disconnect the *myVmMgmt* remote desktop session.
-12. Attempt to view the IIS welcome page from your own computer. When Azure created the *myVmWeb* virtual machine, a public IP address resource named *myVmWeb* was also created and assigned to the virtual machine. You can see that 52.170.5.92 was assigned to the *myVmMgmt* virtual machine in the picture in step 2. To find the public IP address assigned to the *myVmWeb* virtual machine, search for *myVmWeb* in the search box, then select it when it appears in the search results. 
+12. Find the public IP address of the *myVmWeb* virtual machine. When Azure created the *myVmWeb* virtual machine, a public IP address resource named *myVmWeb* was also created and assigned to the virtual machine. You can see that 52.170.5.92 was assigned for **Public IP address** to the *myVmMgmt* virtual machine in the picture in step 2. To find the public IP address assigned to the *myVmWeb* virtual machine, search for *myVmWeb* in the portal's search box, then select it when it appears in the search results.
 
     Though a virtual machine isn't required to have a public IP address assigned to it, Azure assigns a public IP address to each virtual machine you create, by default. To communicate from the Internet to a virtual machine, a public IP address must be assigned to the virtual machine. All virtual machines can communicate outbound with the Internet, whether or not a public IP address is assigned to the virtual machine. To learn more about outbound Internet connections in Azure, see [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+13. On your own computer, browse to the public IP address of the *myVmWeb* virtual machine. The attempt to view the IIS welcome page from your own computer fails. The attempt fails because when the virtual machines were deployed, Azure created a network security group for each virtual machine, by default. 
 
-    On your own computer, browse to the public IP address of the *myVmWeb* virtual machine. The attempt to view the IIS welcome page from your own computer fails. The attempt fails because when the virtual machines were deployed, Azure created a network security group for each virtual machine, by default. 
-
-    A network security group contains security rules that allow or deny inbound and outbound network traffic by port and IP address. The default network security group Azure created allows communication over all ports between resources in the same virtual network. For Windows virtual machines, the default network security group denies all inbound traffic from the Internet over all ports, accept TCP port 3389 (RDP). As a result, by default, you can also RDP directly to the *myVmWeb* virtual machine from the Internet, even though you might not want port 3389 open to a web server. Since web browsing communicates over port 80, communication fails from the Internet because there is no rule in the default network security group allowing traffic over port 80.
+     A network security group contains security rules that allow or deny inbound and outbound network traffic by port and IP address. The default network security group Azure created allows communication over all ports between resources in the same virtual network. For Windows virtual machines, the default network security group denies all inbound traffic from the Internet over all ports, accept TCP port 3389 (RDP). As a result, by default, you can also RDP directly to the *myVmWeb* virtual machine from the Internet, even though you might not want port 3389 open to a web server. Since web browsing communicates over port 80, communication fails from the Internet because there is no rule in the default network security group allowing traffic over port 80.
 
 ## Clean up resources
 
