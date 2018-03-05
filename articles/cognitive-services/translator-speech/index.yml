@@ -3,6 +3,7 @@ documentType: LandingData
 title: Translator Speech API Documentation
 metadata:
   title: Translator Speech Documentation - Tutorials, API Reference
+  titleSuffix: Cognitive Services
   description: Learn how to use Translator Speech API for speech to speech and speech to text translation in multiple languages. Tutorials show you how write code that makes use of the Translator service.
   services: cognitive-services
   author: Jann-Skotdal
