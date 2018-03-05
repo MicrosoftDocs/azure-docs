@@ -22,21 +22,21 @@ Whatever choice you made, you can connect it to Managed Instance.
 
 ![high availability](./media/sql-database-managed-instance/high-availability.png)
 
-This article provides high-level overview of these connection scenarios: 
+This article provides high-level overview of common connection scenarios: 
 
-- Connecting application that is inside the same VNet as Managed Instance <!---(link to come later)
+<!---- Connecting application that is inside the same VNet as Managed Instance (link to come later)
 - Connecting application that is inside different VNet than Managed Instance <!---(link to come later) 
 - Connecting on-premises application to Managed Instance <!---(link to come later) 
 - Connecting Azure App Service hosted application to Managed Instance <!---(link to come later) 
-- Connecting application that is on the developers box to Managed Instance <!---(link to come later) 
+- Connecting application that is on the developers box to Managed Instance <!---(link to come later)---> 
  
-## Connecting application that is inside the same VNet as Managed Instance 
+## Connect an application is inside the same VNet 
 
 This scenario is the simplest. Virtual machines inside the VNet can connect to each other directly even if they are inside different subnets. That means that all you need to connect application inside an Azure Application Environment or Virtual Machine is to set the connection string appropriately.  
  
 In case you can’t establish the connection, check if you have a Network Security Group set on application subnet. In this case, you need to open outbound connection on SQL port 1433 as well as 11000-12000 range of ports for redirection. 
 
-## Connecting application that is inside different VNet than Managed Instance 
+## Connect an application inside a different VNet 
 
 This scenario is a bit more complex because Managed Instance has private IP address in its own VNet. To connect, an application needs access to the VNet where Managed Instance is deployed. So, first you need to make a connection between the application and the Managed Instance VNet. The VNets don’t have to be in the same subscription in order for this scenario to work. 
  
@@ -49,7 +49,7 @@ The peering option is the preferable one because peering uses the Microsoft back
 > [!IMPORTANT]
 > VNet peerings created cross-region may not have the same level of availability and reliability as peerings in a general availability release. VNet peerings may have constrained capabilities and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) updates page. 
 
-## Connecting on-premises application to Managed Instance 
+## Connect an on-premises application 
 
 Managed Instance can only be accessed through a private IP address. In order to access it from on-premises, you need to make a Site-to-Site connection between the application and the Managed Instance VNet. 
  
@@ -59,7 +59,7 @@ There are two options how to connect on-premises to Azure VNet:
  
 If you've established on-premises to Azure connection successfully and you can't establish connection to Managed Instance, check if your firewall has open outbound connection on SQL port 1433 as well as 11000-12000 range of ports for redirection. 
 
-## Connecting Azure App Service hosted application to SQL Managed Instance 
+## Connect an Azure App Service hosted application 
 
 Managed Instance can be accessed only through a private IP address so in order to access it from Azure App Service you first need to make a connection between the application and the Managed Instance VNet. See [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
  
@@ -75,10 +75,13 @@ This scenario is illustrated in the following diagram:
 
 ![integrated app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## Connecting application that is on the developers box to SQL Managed Instance 
+## Connect an application on the developers box 
 
 Managed Instance can be accessed only through a private IP address so in order to access it from your developer box, you first need to make a connection between your developer box and the Managed Instance VNet.  
  
 Configure a Point-to-Site connection to a VNet using native Azure certificate authentication articles ([Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) shows in detail how it could be done.  
 
 ## Next steps
+
+- For information about Managed Instance, see [What is a Managed Instance](sql-database-mangaed-instance.md).
+- For a tutorial, see [Create a Managed Instance](sql-database-managed-instnace-tutorial-portal.md).
