@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Tutorial: Use Azure Active Directory B2C to protect an ASP.NET Core Web API from a Single Page Application (JavaScript)
+# Tutorial: Use Azure Active Directory B2C to protect an ASP.NET Core Web API
 
 This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C protected ASP.NET Core web API resource from a single page app.
 

@@ -35,10 +35,17 @@ Try Azure Active Directory B2C functionality in a quickstart:
 * [Test drive an Azure AD B2C enabled single-page app](active-directory-b2c-quickstarts-spa.md)
 * [Test drive an Azure AD B2C enabled desktop app](active-directory-b2c-quickstarts-desktop-app.md)
 
-Try a step-by-step a solution in a tutorial:
+Try authenticating users with Azure AD B2C in a step-by-step tutorial:
 
-* [Authenticate users with Azure Active Directory B2C in an ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
-* [Use Azure Active Directory B2C to protect an ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
+* [ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
+* [Single page application](active-directory-b2c-tutorials-spa.md)
+* [.NET Windows Presentation Foundation desktop app](active-directory-b2c-tutorials-desktop-app.md)
+
+Try protecting a web API with Azure AD B2C in a step-by-step tutorial:
+
+* [ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
+* [ASP.NET Core web API](active-directory-b2c-tutorials-spa-webapi.md)
+* [Node.js web API](active-directory-b2c-tutorials-desktop-app-webapi.md)
 
 Browse a code sample:
 
