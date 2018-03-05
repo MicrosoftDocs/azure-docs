@@ -381,7 +381,7 @@ Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl
 * Post to the URL of your Event Grid trigger function, using the following pattern:
 
 ```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
@@ -442,7 +442,7 @@ The ngrok URL doesn't get special handling by Event Grid, so your function must 
 Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint, using the following pattern:
 
 ```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
