@@ -57,7 +57,7 @@ To fully benefit from the public preview, we suggest that developers consuming t
 ## Features by stage and known issues
 Custom Policy/Identity Experience Framework capabilities are under constant and rapid development.  This table is an index of features/component availability.
 
-Post questions in Stack Overflow at [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Post questions in Stack Overflow at [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### Identity Providers, Tokens, Protocols

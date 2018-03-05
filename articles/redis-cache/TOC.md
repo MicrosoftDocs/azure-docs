@@ -1,3 +1,5 @@
+# [Redis Cache Documentation](index.md)
+
 # Overview
 ## [About Azure Redis Cache](cache-overview.md)
 

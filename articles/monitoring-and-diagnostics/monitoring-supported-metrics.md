@@ -858,7 +858,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|QueryDuration|Query Duration|Count|Average|DAX Query duration in last interval|No Dimensions|
+|QueryDuration|Query Duration|Milliseconds|Average|DAX Query duration in last interval|No Dimensions|
 |QueryPoolJobQueueLength|Threads: Query pool job queue length|Count|Average|Number of jobs in the queue of the query thread pool.|No Dimensions|
 
 ## Microsoft.Relay/namespaces

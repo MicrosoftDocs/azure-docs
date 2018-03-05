@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: v-donglo
+ms.author: raymondl
 
 ---
 # Manage a Web service using the Azure Machine Learning Web Services portal

@@ -29,10 +29,17 @@ In general, unprovisioning a device involves two steps:
 
 2. Disable or delete the device's entry in the identity registry for the IoT Hub where it was provisioned. To learn more, see [Manage device identities](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) in the Azure IoT Hub documentation. 
 
-The exact steps you take to unprovision a device will depend on the attestation mechanism it uses.
+The exact steps you take to unprovision a device depend on its attestation mechanism and its applicable enrollment entry with your provisioning service.
 
-Devices that use TPM attestation or X.509 attestation with a self-signed leaf certificate (no certificate chain) are provisioned through an individual enrollment entry. For these devices, you can delete the entry to permanently revoke the device's access to the provisioning service or disable the entry to temporarily revoke its access, and then follow-up by either deleting or disabling the device in the identity registry with the IoT hub that it was provisioned to.
+## Individual enrollments
+Devices that use TPM attestation or X.509 attestation with a leaf certificate are provisioned through an individual enrollment entry. 
 
+To unprovision a device that has an individual enrollment: 
+1. For devices that use TPM attestation, delete the individual enrollment entry to permanently revoke the device's access to the provisioning service or disable the entry to temporarily revoke its access. For devices that use X.509 attestation, you can either delete or disable the entry. Be aware, though, that if you delete an individual enrollment for a device that uses X.509 attestation and an enabled enrollment group exists for a signing certificate in that device's certificate chain, the device can re-enroll. For such devices, it may be safer to disable the enrollment entry. Doing so prevents the device from re-enrolling, regardless of whether an enabled enrollment group exists for one of its signing certificates.
+2. Disable or delete the device in the identity registry of the IoT hub that it was provisioned to. 
+
+
+## Enrollment groups
 With X.509 attestation, devices can also be provisioned through an enrollment group. Enrollment groups are configured with a signing certificate, either an intermediate or root CA certificate, and control access to the provisioning service for devices with that certificate in their certificate chain. To learn more about enrollment groups and X.509 certificates with the provisioning service, see [X.509 certificates](concepts-security.md#x509-certificates). 
 
 To see a list of devices that have been provisioned through an enrollment group, you can view the enrollment group's details. This is an easy way to understand which IoT hub each device has been provisioned to. To view the device list: 
@@ -46,8 +53,15 @@ To see a list of devices that have been provisioned through an enrollment group,
 
 With enrollment groups, there are two scenarios to consider:
 
-- To unprovision all of the devices that have been provisioned through an enrollment group, you must first disable the enrollment group to blacklist its signing certificate. Then you can use the list of provisioned devices for that enrollment group to disable or delete each device from the identity registry of its respective IoT hub. After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group. Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll. 
-- To unprovision a single device from an enrollment group, you must first create a disabled individual enrollment for its leaf (device) certificate. This revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Then you can use the list of provisioned devices in the enrollment group details to find the IoT hub that the device was provisioned to and disable or delete it from that hub's identity registry. Do not delete the disabled individual enrollment for the device. Doing so will allow the device to re-enroll through the enrollment group. 
+- To unprovision all of the devices that have been provisioned through an enrollment group:
+  1. Disable the enrollment group to blacklist its signing certificate. 
+  2. Use the list of provisioned devices for that enrollment group to disable or delete each device from the identity registry of its respective IoT hub. 
+  3. After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group. Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll. 
+- To unprovision a single device from an enrollment group:
+  1. Create a disabled individual enrollment for its leaf (device) certificate. This revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Do not delete the disabled individual enrollment for the device. Doing so will allow the device to re-enroll through the enrollment group. 
+  2. Use the list of provisioned devices for that enrollment group to find the IoT hub that the device was provisioned to and disable or delete it from that hub's identity registry. 
+  
+  
 
 
 

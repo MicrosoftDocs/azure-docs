@@ -38,7 +38,7 @@ Event Grid topics are Azure resources, and must be placed in an Azure resource g
 
 A topic provides a user-defined endpoint that you post your events to. 
 
-1. To create a topic in your resource group, select **More services** and search for *event grid*. Select **Event Grid Topics** from the available options.
+1. To create a topic in your resource group, select **All services** and search for *event grid*. Select **Event Grid Topics** from the available options.
 
    ![Create event grid topic](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -62,7 +62,7 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
 You subscribe to a topic to tell Event Grid which events you want to track. 
 
-1. To create an Event Grid subscription, again select **More Services** and search for *event grid*. Select **Event Grid Subscriptions** from the available options.
+1. To create an Event Grid subscription, again select **All Services** and search for *event grid*. Select **Event Grid Subscriptions** from the available options.
 
    ![Create event grid subscription](./media/custom-event-quickstart-portal/create-subscription.png)
 

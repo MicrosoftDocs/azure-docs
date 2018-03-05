@@ -1,24 +1,18 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using Node.js| Microsoft Docs
-description: Quickly learn to transfer objects to/from Azure Blob storage using Node.js
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Node.js | Microsoft Docs
+description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
+author: craigshoemaker
+manager: jeconnoc
 
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
+ms.date: 02/22/2018
+ms.author: cshoe
 ---
 
-# Transfer objects to/from Azure Blob storage using Node.js
+# Quickstart: Upload, download, and list blobs using Node.js
 
 In this quickstart, you learn how to use Node.js to upload, download, and list block blobs in a container in Azure Blob storage.
 
@@ -106,9 +100,9 @@ Next, we walk through the sample code so that you can understand how it works.
 
 ### Get references to the storage objects
 
-The first thing to do is create the reference to the `BlobService` used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
+The first thing to do is create the reference to the **BlobService** object used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
-* Create an instance of the **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** object, which points to the Blob service in your storage account.
+* Create an instance of the [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) object, which points to the Blob service in your storage account.
 
 * Create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container starts with **quickstartcontainer-**.
 
@@ -196,4 +190,4 @@ In this quickstart, you learned how to transfer files between a local disk and A
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-nodejs-how-to-use-blob-storage.md)
 
-For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For the Node.js reference for Azure Storage, see [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

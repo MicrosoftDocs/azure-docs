@@ -30,7 +30,7 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 ### Create an account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **New** > **Intelligence + analytics** > **Data Lake Analytics**.
+2. Click **Create a resource** > **Intelligence + analytics** > **Data Lake Analytics**.
 3. Select values for the following items: 
    1. **Name**: The name of the Data Lake Analytics account.
    2. **Subscription**: The Azure subscription used for the account.

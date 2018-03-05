@@ -133,6 +133,8 @@
        href: functions-run-local.md
      - name: Visual Studio development
        href: functions-develop-vs.md
+     - name: Error handling
+       href: functions-bindings-error-pages.md 
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -212,9 +214,9 @@
     - name: Timer
       href: functions-bindings-timer.md
     - name: Twilio
-      href: functions-bindings-twilio.md
+      href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md     
+    href: functions-host-json.md  
   - name: App settings reference
     href: functions-app-settings.md     
   - name: OpenAPI reference
