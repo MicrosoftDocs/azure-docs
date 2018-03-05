@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
 
 ---
@@ -262,7 +262,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```  
 
 ## Node version and package management
-The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
+As of the date this article was last updated, the node version is currently locked at `6.11.2`. You can see the current version by printing `process.version` from any function. We're investigating adding support for more versions and making it configurable.
 
 The following steps let you include packages in your function app: 
 
