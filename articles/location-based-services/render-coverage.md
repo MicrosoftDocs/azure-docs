@@ -1,4 +1,4 @@
-# Azure Location Based Services - Routing Coverage
+# Azure Location Based Services - Render Coverage
 
 Check out coverage for **Geocoding** [here](geocoding-coverage.md).  
 Check out coverage for **Traffic** [here](traffic-coverage.md).  
