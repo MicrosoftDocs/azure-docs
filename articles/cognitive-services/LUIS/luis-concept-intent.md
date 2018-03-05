@@ -51,7 +51,7 @@ Create an intent when you want to group utterances. [Utterances](luis-concept-ut
 
 ## None intent
 
-The **None** intent is how you teach LUIS utterances that are not in the app domain. If you do not add any utterances for the **None** intent, LUIS forces an utterance that is outside the domain into one of the domain intents. The **None** is created but left empty on purpose because a new app can be any domain. 
+The **None** intent is how you teach LUIS utterances that are not in the app domain. If you do not add any utterances for the **None** intent, LUIS forces an utterance that is outside the domain into one of the domain intents. The **None** intent is created but left empty on purpose because a new app can be any domain. 
 
 ## Best practice - only required, specific intents
 It is a best practice to use only as many intents as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in calling application or bot. 
