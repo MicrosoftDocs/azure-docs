@@ -110,7 +110,7 @@ A context menu will appear, select **Run instance**:
 
 ![Launch ACI context menu][qs-portal-11]
 
-Fill in **Container name**, ensure the correct subscription is selected, select the existing **Resource group**: "myResourceGroup" and then click OK to launch the Azure Container Instance.
+Fill in **Container name**, ensure the correct subscription is selected, select the existing **Resource group**: "myResourceGroup" and then click **OK** to launch the Azure Container Instance.
 
 ![Launch ACI deployment options][qs-portal-12]
 
@@ -118,19 +118,19 @@ When deployment starts a tile is placed on your portal dashboard indicating depl
 
 ![ACI deployment status][qs-portal-13]
 
-Select the mycontainer-myc1 container group to display the container group properties. Take note of the **IP address** of the container group, as well as the **STATUS** of the container.
+Select the mycontainer container group to display the container group properties. Take note of the **IP address** of the container group, as well as the **STATUS** of the container.
 
 ![ACI container details][qs-portal-14]
 
 ## View the application
 
-Once the container moves to the **Running** state, navigate to the IP address you noted in the previous step to display the application hosted in your new container.
+Once the container is in the **Running** state, use your favorite browser to navigate to the IP address you noted in the previous step to display the application.
 
 ![Hello world app in the browser][qs-portal-15]
 
 ## Clean up resources
 
-When no longer needed, delete the **myResourceGroup** resource group. Doing so will delete the resource group, ACR instance, and all container images.
+To clean up your resources navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, the Azure Container Registry, and all Azure Container Instances.
 
 ![Creating a container registry in the Azure portal][qs-portal-08]
 

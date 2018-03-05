@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Create an Azure Container Registry using PowerShell
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell, push a container image into the registry and finally deploy the container from your registry into Azure Container Instances (ACI).
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -120,7 +120,7 @@ To see the running application, navigate to the public IP address in your favori
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] command to remove the resource group, ACR instance, and all container images.
+When no longer needed, you can use the [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] command to remove the resource group, Azure Container Registry, and all Azure Container Instances.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
