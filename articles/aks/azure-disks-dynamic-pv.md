@@ -13,21 +13,15 @@ ms.author: nepeters
 
 # Persistent volumes with Azure disks
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. 
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-This document details using persistent volumes to dynamically create an Azure disk for used with AKS pods. The following Kubernetes objects are discussed throughout this document.
-
-- Storage class - defines how storage is provisioned, this includes things like what disk type and disk SKU to use during disk creation.
-- Persistent volume claim - uses a storage class to create and provision a piece of storage, and Azure disk in this case.
-- Pod - once the persistent volume claim has been created, the Azure disk is auto-created and ready for use with a pod.
-
-For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
+This document details using persistent volumes to dynamically create an Azure disk for used with AKS pods.
 
 ## Built in storage classes
 
 A storage class is used to define how a dynamically created persistent volume is configured. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. Use the `kubectl get storageclass` command to see these.
+Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. Use the [kubectl get storageclass][kubectl-get] command to see these.
 
 ```console
 NAME                PROVISIONER                AGE
@@ -92,6 +86,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
