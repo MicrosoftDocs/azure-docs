@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/09/2018
 ms.author: marsma
 ---
 
@@ -17,7 +17,7 @@ Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container
 
 ## Managed storage
 
-Azure manages the storage of your container images in an Azure Storage account dedicated only to your registry, containing only your images. This storage account is managed entirely by Azure, so it doesn't appear in your subscription. Because Azure manages the account, role-based access control is simplified by requiring you to manage permissions only for the registry, and not the storage account backing your images.
+Azure Container Registry manages the storage of your container images in Azure Storage accounts that provide encryption at rest and geographic redundancy. Because image storage is managed entirely by Azure, a separate storage account doesn't appear in your subscription. With Azure managing the storage accounts, role-based access control is simplified by requiring you to manage permissions only for the registry, and not storage accounts backing your images.
 
 ## Encryption-at-rest
 
