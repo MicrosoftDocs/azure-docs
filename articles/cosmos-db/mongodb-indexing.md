@@ -19,7 +19,7 @@ ms.author: orestis-ms
 ---
 
 
-# Indexing in the Azure Cosmos DB MongoDB API
+# Indexing in the Azure Cosmos DB: MongoDB API
 
 Azure Cosmos DB MongoDB API leverages automatic index management capabilities of Azure Cosmos DB. As a result, users have access to the default indexing policies of Azure Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into the collection. For most scenarios, we recommend using the default indexing policy set on the account.
 
@@ -38,7 +38,9 @@ Compound indexes hold references to multiple fields of a document. Logically, th
 
 ## Creating unique indexes
 
-[Unique indexes](unique-keys.md) are useful for enforcing that no two or more documents contain the same value for the indexed field(s). Currently, unique indexes can be created only when the collection is empty (contains no documents). 
+[Unique indexes](unique-keys.md) are useful for enforcing that no two or more documents contain the same value for the indexed field(s). 
+>[!important] 
+> Currently, unique indexes can be created only when the collection is empty (contains no documents). 
 The following command creates a unique index on the field “student_id”:
 
 ```JavaScript
