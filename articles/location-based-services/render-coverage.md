@@ -143,9 +143,8 @@ The following table provides coverage information for Azure LBS Render of Rester
 
 The following table provides coverage information for Azure LBS Render of Vector Tiles .
 
-
 |Region|Render - Vector Tiles Unified|
-|--- |--- |
+|--- |:---: |
 | **Africa**                         |                |
 |Algeria|✓|
 |Angola|✓|
@@ -158,7 +157,6 @@ The following table provides coverage information for Azure LBS Render of Vector
 |Chad|Ø|
 |Comoros|Ø|
 |Congo|✓|
-|Democratic Republic of Congo|✓|
 |Democratic Republic of Congo|✓|
 |Côte d'Ivoire|Ø|
 |Djibouti|Ø|
@@ -174,7 +172,7 @@ The following table provides coverage information for Azure LBS Render of Vector
 |Kenya|✓|
 |Lesotho|✓|
 |Liberia|Ø|
-|Libyan Arab Jamahiriya|Ø|
+| Libya |Ø|
 |Madagascar|Ø|
 |Malawi|✓|
 |Mali|✓|
@@ -214,7 +212,7 @@ The following table provides coverage information for Azure LBS Render of Vector
 |Belize|✓|
 |Bermuda|✓|
 |Plurinational State of Bolivia|✓|
-|Sint Eustatius and Saba Bonaire|✓|
+| Bonaire, Sint Eustatius, and Saba |✓|
 |Brazil|✓|
 |Canada|✓|
 |Cayman Islands|✓|
@@ -275,7 +273,6 @@ The following table provides coverage information for Azure LBS Render of Vector
 |Democratic People's Republic of Korea|Ø|
 |Dokdo and Takeshima|Ø|
 |Hong Kong|✓|
-|India|Ø|
 |Indonesia|✓|
 |Iran|Ø|
 |Japan|Ø|
@@ -287,7 +284,7 @@ The following table provides coverage information for Azure LBS Render of Vector
 |Maldives|Ø|
 |Mongolia|Ø|
 |Myanmar|Ø|
-|Nepal|Ø|
+| Napal |Ø|
 |Pakistan|Ø|
 |Philippines|✓|
 |Republic of Korea|Ø|
@@ -362,7 +359,7 @@ The following table provides coverage information for Azure LBS Render of Vector
 |                                |                |
 | **Europe**                   |                |
 |Bahrain|✓|
-|Cape Verde|✓|
+| Cabo Verde |✓|
 |Egypt|✓|
 |Iraq|✓|
 |Israel|✓|
@@ -402,6 +399,8 @@ The following table provides coverage information for Azure LBS Render of Vector
 |United States Minor Outlying Islands|Ø|
 |Vanuatu|Ø|
 |Wallis and Futuna|Ø|
+
+
 
 
 ##### Legend
