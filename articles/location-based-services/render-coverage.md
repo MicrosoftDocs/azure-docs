@@ -144,6 +144,265 @@ The following table provides coverage information for Azure LBS Render of Rester
 The following table provides coverage information for Azure LBS Render of Vector Tiles .
 
 
+|Region|Render - Vector Tiles Unified|
+|--- |--- |
+| **Africa**                         |                |
+|Algeria|✓|
+|Angola|✓|
+|Benin|✓|
+|Botswana|✓|
+|Burkina Faso|✓|
+|Burundi|✓|
+|Cameroon|✓|
+|Central African Republic|Ø|
+|Chad|Ø|
+|Comoros|Ø|
+|Congo|✓|
+|Democratic Republic of Congo|✓|
+|Democratic Republic of Congo|✓|
+|Côte d'Ivoire|Ø|
+|Djibouti|Ø|
+|Egypt|✓|
+|Equatorial Guinea|Ø|
+|Eritrea|Ø|
+|Ethiopia|Ø|
+|Gabon|✓|
+|Gambia|Ø|
+|Ghana|✓|
+|Guinea|Ø|
+|Guinea-Bissau|Ø|
+|Kenya|✓|
+|Lesotho|✓|
+|Liberia|Ø|
+|Libyan Arab Jamahiriya|Ø|
+|Madagascar|Ø|
+|Malawi|✓|
+|Mali|✓|
+|Mauritania|✓|
+|Mauritius|✓|
+|Mayotte|✓|
+|Morocco|✓|
+|Mozambique|✓|
+|Namibia|✓|
+|Niger|✓|
+|Nigeria|✓|
+|Réunion|✓|
+|Rwanda|✓|
+|Saint Helena, Ascension and Tristan da Cunha|Ø|
+|Sao Tome and Principe|Ø|
+|Senegal|✓|
+|Sierra Leone|Ø|
+|Somalia|Ø|
+|South Africa|✓|
+|South Sudan|Ø|
+|Sudan|Ø|
+|Swaziland|✓|
+|United Republic of Tanzania|✓|
+|Togo|✓|
+|Uganda|✓|
+|Zambia|✓|
+|Zimbabwe|✓|
+|                                |                |
+| **Americas**                       |                |
+|American Samoa|✓|
+|Anguilla|✓|
+|Antigua and Barbuda|✓|
+|Argentina|✓|
+|Aruba|✓|
+|Bahamas|✓|
+|Barbados|✓|
+|Belize|✓|
+|Bermuda|✓|
+|Plurinational State of Bolivia|✓|
+|Sint Eustatius and Saba Bonaire|✓|
+|Brazil|✓|
+|Canada|✓|
+|Cayman Islands|✓|
+|Chile|✓|
+|Clipperton Island|✓|
+|Colombia|✓|
+|Costa Rica|✓|
+|Cuba|✓|
+|Curaçao|✓|
+|Dominica|✓|
+|Dominican Republic|✓|
+|Ecuador|✓|
+|Falkland Islands (Malvinas)|✓|
+|French Guiana|✓|
+|Grenada|✓|
+|Guadeloupe|✓|
+|Guam|✓|
+|Guatemala|✓|
+|Guyana|✓|
+|Haiti|✓|
+|Honduras|✓|
+|Jamaica|✓|
+|Martinique|✓|
+|Mexico|✓|
+|Montserrat|✓|
+|Nicaragua|✓|
+|Northern Mariana Islands|✓|
+|Panama|✓|
+|Paraguay|✓|
+|Peru|✓|
+|Puerto Rico|✓|
+|Quebec (Canada)|✓|
+|Saint Barthélemy|✓|
+|Saint Kitts and Nevis|✓|
+|Saint Lucia|✓|
+|Saint Martin (French part)s|✓|
+|Saint Pierre and Miquelon|✓|
+|Saint Vincent and the Grenadines|✓|
+|Sint Maarten (Dutch part)|✓|
+|South Georgia and the South Sandwich Islands|✓|
+|Suriname|✓|
+|Trinidad and Tobago|✓|
+|Turks and Caicos Islands|✓|
+|United States|✓|
+|Uruguay|✓|
+|Bolivarian Republic of Venezuela|✓|
+|Virgin Islands, British|✓|
+|Virgin Islands, U.S.|✓|
+|                                |                |
+| **Asia**                   |                |
+|Afghanistan|Ø|
+|Bangladesh|Ø|
+|Bhutan|Ø|
+|British Indian Ocean Territory|Ø|
+|Brunei Darussalam|✓|
+|Cambodia|Ø|
+|China|Ø|
+|Democratic People's Republic of Korea|Ø|
+|Dokdo and Takeshima|Ø|
+|Hong Kong|✓|
+|India|Ø|
+|Indonesia|✓|
+|Iran|Ø|
+|Japan|Ø|
+|Kazakhstan|✓|
+|Kyrgyzstan|Ø|
+|Lao People's Democratic Republic|Ø|
+|Macao|✓|
+|Malaysia|✓|
+|Maldives|Ø|
+|Mongolia|Ø|
+|Myanmar|Ø|
+|Nepal|Ø|
+|Pakistan|Ø|
+|Philippines|✓|
+|Republic of Korea|Ø|
+|Senkaku Islands|✓|
+|Singapore|✓|
+|Sri Lanka|Ø|
+|Syrian Arab Republic|Ø|
+|Taiwan|✓|
+|Tajikistan|Ø|
+|Thailand|✓|
+|Timor-Leste|Ø|
+|Turkmenistan|Ø|
+|Uzbekistan|Ø|
+|Viet Nam|✓|
+|                                |                |
+| **Europe**                   |                |
+|Albania|✓|
+|Andorra|✓|
+|Armenia|Ø|
+|Austria|✓|
+|Azerbaijan|Ø|
+|Belarus|✓|
+|Belgium|✓|
+|Bosnia and Herzegovina|✓|
+|Bulgaria|✓|
+|Croatia|✓|
+|Cyprus|✓|
+|Czechia|✓|
+|Denmark|✓|
+|Estonia|✓|
+|Faroe Islands|Ø|
+|Finland|✓|
+|France|✓|
+|Georgia|Ø|
+|Germany|✓|
+|Greece|✓|
+|Greenland|Ø|
+|Guernsey|✓|
+|Vatican|✓|
+|Hungary|✓|
+|Iceland|✓|
+|Ireland|✓|
+|Isle of Man|✓|
+|Italy|✓|
+|Jan Mayen|✓|
+|Jersey|✓|
+|Latvia|✓|
+|Liechtenstein|✓|
+|Lithuania|✓|
+|Luxembourg|✓|
+|Macedonia|✓|
+|Malta|✓|
+|Moldova|✓|
+|Monaco|✓|
+|Montenegro|✓|
+|Netherlands|✓|
+|Norway|✓|
+|Poland|✓|
+|Portugal|✓|
+|Romania|✓|
+|Russia|✓|
+|San Marino|✓|
+|Serbia|✓|
+|Slovakia|✓|
+|Slovenia|✓|
+|Southern Kurils|✓|
+|Spain|✓|
+|Svalbard|✓|
+|Switzerland|✓|
+|Ukraine|✓|
+|United Kingdom|✓|
+|                                |                |
+| **Europe**                   |                |
+|Bahrain|✓|
+|Cape Verde|✓|
+|Egypt|✓|
+|Iraq|✓|
+|Israel|✓|
+|Jordan|✓|
+|Kuwait|✓|
+|Lebanon|✓|
+|Oman|✓|
+|Qatar|✓|
+|Saudi Arabia|✓|
+|Tunisia|✓|
+|Turkey|✓|
+|United Arab Emirates|✓|
+|Yemen|✓|
+|                                |                |
+| **Oceania**                   |                |
+|Australia|✓|
+|Cocos (Keeling) Islands|Ø|
+|Cook Islands|Ø|
+|Fiji|Ø|
+|French Polynesia|Ø|
+|Kiribati|Ø|
+|Marshall Islands|Ø|
+|Micronesia|Ø|
+|Nauru|Ø|
+|New Caledonia|Ø|
+|New Zealand|✓|
+|Niue|Ø|
+|Norfolk Island|Ø|
+|Palau|Ø|
+|Papua New Guinea|Ø|
+|Pitcairn|Ø|
+|Samoa|Ø|
+|Solomon Islands|Ø|
+|Tokelau|Ø|
+|Tonga|Ø|
+|Tuvalu|Ø|
+|United States Minor Outlying Islands|Ø|
+|Vanuatu|Ø|
+|Wallis and Futuna|Ø|
+
 
 ##### Legend
 
