@@ -62,13 +62,13 @@ For more information on how to install and configure the Azure File Sync agent w
 - Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md).
 - This release adds support for DFS-R. For more information, see the [Planning guide](storage-sync-files-planning.md#distributed-file-system-dfs).
 - Don't use File Server Resource Manager (FSRM) or other file screens. File screens can cause endless sync failures when files are blocked because of the file screen.
-- The duplication of Registered Servers (including VM cloning) can lead to unexpected results (in particular, sync might never converge).
+- The duplication of Registered Servers (including VM cloning) can lead to unexpected results. In particular, sync might never converge.
 - Data deduplication and cloud tiering aren't supported on the same volume.
  
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
 - Paths that are longer than 2,048 characters.
-- The discretionary access control list (DACL) portion of a security descriptor if it's larger than 2 K. (This issue applies only when you have more than about 40 access control entries (ACEs) on a single item.)
+- The discretionary access control list (DACL) portion of a security descriptor if it's larger than 2 KB. (This issue applies only when you have more than about 40 access control entries (ACEs) on a single item.)
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
 - Extended attributes.
 - Alternate data streams.
@@ -82,7 +82,7 @@ The following items don't sync, but the rest of the system continues to operate 
  
 ### Server endpoints
 - A server endpoint can be created only on an NTFS volume. ReFS, FAT, FAT32, and other file systems aren't currently supported by Azure File Sync.
-- A server endpoint can't be on the system volume (for example, C:\MyFolder isn't an acceptable path unless C:\MyFolder is a mount point).
+- A server endpoint can't be on the system volume. For example, C:\MyFolder isn't an acceptable path unless C:\MyFolder is a mount point.
 - Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
 - Deleting a large number (over 10,000) of directories from a server at a single time can cause sync failures. Delete directories in batches of less than 10,000. Make sure the delete operations sync successfully before deleting the next batch.
@@ -92,9 +92,9 @@ The following items don't sync, but the rest of the system continues to operate 
 - Changed in this release: fast DR namespace sync performance is increased dramatically.
  
 ### Cloud tiering
-- Changed from the previous version: new files are tiered within 1 hour (previously 32 hours) subject to the tiering policy setting. We provide a PowerShell cmdlet to tier on-demand. You can use the cmdlet to evaluate tiering more efficiently without waiting for the background process.
+- Changed from the previous version: new files are tiered within 1 hour (previously 32 hours) subject to the tiering policy setting. We provide a PowerShell cmdlet to tier on demand. You can use the cmdlet to evaluate tiering more efficiently without waiting for the background process.
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
-- When viewing file properties from an SMB client, the offline attribute might appear to be set incorrectly due to SMB caching of file metadata.
+- When you're viewing file properties from an SMB client, the offline attribute might appear to be set incorrectly due to SMB caching of file metadata.
 - Changed from the previous version: files are now downloaded as tiered files on other servers provided that the file is new or is already a tiered file.
 
 ## Agent version 1.1.0.0
@@ -111,7 +111,7 @@ For more information on how to install and configure the Azure File Sync agent w
 ### Interoperability
 - Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md).
 - Don't use FSRM or other file screens. File screens can cause endless sync failures when files are blocked because of the file screen.
-- The duplication of Registered Servers (including VM cloning) can lead to unexpected results (in particular, sync might never converge).
+- The duplication of Registered Servers (including VM cloning) can lead to unexpected results. In particular, sync might never converge.
 - Data deduplication and cloud tiering aren't supported on the same volume.
  
 ### Sync limitations
@@ -131,7 +131,7 @@ The following items don't sync, but the rest of the system continues to operate 
  
 ### Server endpoints
 - A server endpoint can be created only on an NTFS volume. ReFS, FAT, FAT32, and other file systems aren't currently supported by Azure File Sync.
-- A server endpoint can't be on the system volume (for example, C:\MyFolder isn't an acceptable path unless C:\MyFolder is a mount point).
+- A server endpoint can't be on the system volume. For example, C:\MyFolder isn't an acceptable path unless C:\MyFolder is a mount point.
 - Failover Clustering is supported only with clustered disks and not with CSVs.
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
 - Deleting a large number (over 10,000) of directories from a server at a single time can cause sync failures. Delete directories in batches of less than 10,000. Make sure the delete operations sync successfully before deleting the next batch.
@@ -139,6 +139,6 @@ The following items don't sync, but the rest of the system continues to operate 
 - Don't store an OS or application paging file that's within a server endpoint.
  
 ### Cloud tiering
-- To ensure that files can be correctly recalled, the system might not automatically tier new or changed files for up to 32 hours. This process includes first-time tiering after a new server endpoint is configured. We provide a PowerShell cmdlet to tier on-demand. You can use the cmdlet to evaluate tiering more efficiently without waiting for the background process.
+- To ensure that files can be correctly recalled, the system might not automatically tier new or changed files for up to 32 hours. This process includes first-time tiering after a new server endpoint is configured. We provide a PowerShell cmdlet to tier on demand. You can use the cmdlet to evaluate tiering more efficiently without waiting for the background process.
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
-- When viewing file properties from an SMB client, the offline attribute might appear to be set incorrectly due to SMB caching of file metadata.
+- When you're viewing file properties from an SMB client, the offline attribute might appear to be set incorrectly due to SMB caching of file metadata.
