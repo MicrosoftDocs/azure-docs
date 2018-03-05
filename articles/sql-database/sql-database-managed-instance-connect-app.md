@@ -83,5 +83,5 @@ Configure a Point-to-Site connection to a VNet using native Azure certificate au
 
 ## Next steps
 
-- For information about Managed Instance, see [What is a Managed Instance](sql-database-mangaed-instance.md).
-- For a tutorial, see [Create a Managed Instance](sql-database-managed-instnace-tutorial-portal.md).
+- For information about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md).
+- For a tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
