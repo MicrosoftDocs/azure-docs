@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data in transit with encryption in Azure | Microsoft Docs
-description: Using encryption in Azure to protect personal data
+description: Using encryption in Azure to protect personal data. This information will be helpful in your efforts to comply with General Data Protection Regulation (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/05/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Azure encryption technologies: Protect personal data in transit with encryption
 
-This article will help you understand and use Azure encryption technologies to secure data in transit. 
-
-Protecting the privacy of personal data as it travels across the network is an essential part of a multi-layered defense-in-depth security strategy. Encryption in transit is designed to prevent an attacker who intercepts transmissions from being able to view or use the data.
+This article will help you understand and use Azure encryption technologies to secure data in transit. Protecting the privacy of personal data as it travels across the network is an essential part of a multi-layered defense-in-depth security strategy. Encryption in transit is designed to prevent an attacker who intercepts transmissions from being able to view or use the data. The information contained in this article may be useful in an organization's efforts to comply with General Data Protection Regulation (GDPR).
 
 ## Scenario
 
