@@ -89,7 +89,7 @@ The following outlines key features of the General Purpose service tier:
 | SQL Server version / build | SQL Server (latest available) |
 | Min storage size | 32 GB |
 | Max storage size | 8 TB |
-| Expected storage IOPS | 500-7500 IOPS per data file (depends on data file). See [Premium Storage](../virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes.md) |
+| Expected storage IOPS | 500-7500 IOPS per data file (depends on data file). See [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
 | Managed automated backups | Yes |
