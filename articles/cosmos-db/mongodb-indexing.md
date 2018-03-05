@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/01/2018
-ms.author: orestis-ms
+ms.author: orkostak
 
 ---
 
