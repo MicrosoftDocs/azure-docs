@@ -19,7 +19,7 @@ ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Quickstart: Redeploy the ASDK
+# Quickstart: redeploy the ASDK
 In this quickstart, you deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
 
 > [!IMPORTANT]

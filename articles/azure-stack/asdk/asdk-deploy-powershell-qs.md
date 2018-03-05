@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack - PowerShell | Microsoft Docs
-description: In this quickstart, you install the ASDK.
+description: In this quickstart, you install the ASDK from the command line.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -13,13 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom:
-ms.date: 02/16/2018
+ms.custom: mvc
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
-# Quickstart: Deploy the ASDK - PowerShell
+# Quickstart: deploy the ASDK - PowerShell
 In this quickstart you will deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
 
 The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you'll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
