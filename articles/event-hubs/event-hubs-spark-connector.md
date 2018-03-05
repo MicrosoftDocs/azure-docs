@@ -20,11 +20,11 @@ ms.author: shvija
 
 # Integrating Acpache Spark with Azure Event Hubs
 
-To enable building _end-to-end_ distributed streaming applications easy for users, Azure Event Hubs seamlessly integrates with [Apache Spark](https://spark.apache.org/). Our integration supports [Spark Core](https://wikipedia.org/wiki/Apache_Spark#Spark_Core), [Spark Streaming](https://spark.apache.org/streaming/), [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). The Event Hubs Connector for Apache Spark which enables this integration is available on [GitHub](https://github.com/Azure/azure-event-hubs-spark). This library is also available for use in Maven projects from the [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)
+To enable building _end-to-end_ distributed streaming applications easy for users, Azure Event Hubs seamlessly integrates with [Apache Spark](https://spark.apache.org/). This integration supports [Spark Core](https://wikipedia.org/wiki/Apache_Spark#Spark_Core), [Spark Streaming](https://spark.apache.org/streaming/), [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). The Event Hubs Connector for Apache Spark which enables this integration is available on [GitHub](https://github.com/Azure/azure-event-hubs-spark). This library is also available for use in Maven projects from the [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)
 
-In this article, we’ll show you how make a simple continuous application in Azure Databricks. While we use Azure Databricks, Spark Clusters are also available using [HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
+In this article, we’ll show you how to make a continuous application in Azure Databricks. While this article uses Azure Databricks, you can use Spark Clusters available using [HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
 
-In the example below we will setup two Scala notebooks, one notebook for streaming events from an Event Hub and one notebook for sending messages to the same Event Hub.
+In the example below we will set up two Scala notebooks, one notebook for streaming events from an Event Hub and one notebook for sending messages to the same Event Hub.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In the example below we will setup two Scala notebooks, one notebook for streami
 3. An Azure Databricks instance. If you do not have one, [create one](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
 4. [Create a library using maven coordinate:'com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.0'](https://databricks.com/blog/2015/07/28/using-3rd-party-libraries-in-databricks-apache-spark-packages-and-maven-libraries.html)
 
-Use the below in your notebook to stream event from the Event Hub
+Use the following in your notebook to stream event from the Event Hub
 
 ```java
 import org.apache.spark.eventhubs._
@@ -58,7 +58,7 @@ val eventhubs = reader.load()
   .as[String]
 
 ```
-Use the below in your application to send events your Event Hub using the Spark's batch API. You can also write streaming query to send messages to the Event Hub.
+Use the following in your application to send events your Event Hub using the Spark's batch API. You can also write streaming query to send messages to the Event Hub.
 
 ```java
 import org.apache.spark.eventhubs._
@@ -86,7 +86,7 @@ df.write
 
 ```
 
-This artice gives you a glimpse of how the Event Hubs Connector works for building real-time fault tolerant streaming solutions. Follow the next steps to learn more.
+This article gives you a glimpse of how the Event Hubs Connector works for building real-time fault tolerant streaming solutions. Follow the next steps to learn more.
 
 ## Next steps
 
