@@ -170,7 +170,7 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## Run the sample web app and web API
+## Run the sample
 
 You need to run both the **TaskWebApp** and **TaskService** projects. 
 

@@ -148,7 +148,7 @@ To change the app settings:
 
     The policy name used in this tutorial is **B2C_1_SiUpIn**. If you are using a different policy name, use your policy name in `authority` value.
 
-## Step 5 - Run the sample single page app
+## Run the sample
 
 1. Launch a Node.js command prompt.
 2. Change to the directory containing the Node.js sample. For example `cd c:\active-directory-b2c-javascript-msal-singlepageapp`

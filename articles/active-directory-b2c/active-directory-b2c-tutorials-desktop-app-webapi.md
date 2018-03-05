@@ -133,7 +133,7 @@ var policyName = "B2C_1_SiUpIn";  // Sign-in / sign-up policy name
 
 1. Open the `active-directory-b2c-wpf` solution from [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md) in Visual Studio.
 
-## Run the sample desktop application and web API
+## Run the sample
 
 Run the Node.js web API:
 
