@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/25/2018
+ms.date: 03/05/2018
 ms.author: nepeters
 ---
 
@@ -29,30 +29,13 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
-If these storage classes work for your needs, you do not need to create a new one.
-
-## Create storage class
-
-If you would like to create a new storage class configured for Azure disks, you can do so using the following sample manifest. 
-
-The `storageaccounttype` value of `Standard_LRS` indicates that a standard disk is created. This value can be changed to `Premium_LRS` to create a [premium disk][premium-storage]. To use premium disks, the AKS node virtual machine must have a size compatible with premium disks. See [this document][premium-storage] for a list of compatible sizes.
-
-```yaml
-apiVersion: storage.k8s.io/v1beta1
-kind: StorageClass
-metadata:
-  name: azure-managed-disk
-provisioner: kubernetes.io/azure-disk
-parameters:
-  kind: Managed
-  storageaccounttype: Standard_LRS
-```
+The `default` storage class provisions a standard Azure disk. The `managed-premium` storage class provisions a premium Azure disk.
 
 ## Create persistent volume claim
 
 A persistent volume claim uses a storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
 
-This example manifest creates a persistent volume claim using the `azure-managed-disk` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
+This example manifest creates a persistent volume claim using the `managed-premium` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
 > [!NOTE]
 > An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc]. 
@@ -63,7 +46,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: azure-managed-disk
   annotations:
-    volume.beta.kubernetes.io/storage-class: azure-managed-disk
+    volume.beta.kubernetes.io/storage-class: managed-premium
 spec:
   accessModes:
   - ReadWriteOnce
