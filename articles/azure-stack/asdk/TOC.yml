@@ -35,6 +35,8 @@
     href: asdk-architecture.md
   - name: ASDK administration basics
     href: asdk-admin-basics.md
+  - name: Advanced evaluation tasks
+    href: asdk-advanced-eval.md
 - name: How to
   items:
   - name: Deploy the ASDK
