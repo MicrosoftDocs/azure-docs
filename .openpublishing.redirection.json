@@ -45,8 +45,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/msi-known-issues.md ",
-            "redirect_url": "/azure/active-directory/managed-service-identity/known-issues.md ",
+            "source_path": "articles/active-directory/msi-known-issues.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/known-issues.md",
             "redirect_document_id": true
         },
         {
