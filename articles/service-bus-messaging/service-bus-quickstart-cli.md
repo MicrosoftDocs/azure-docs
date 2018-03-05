@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: sethm
 
 ---
@@ -28,19 +28,11 @@ This quickstart describes how to send and receive messages with Service Bus, usi
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
-## Launch Azure Cloud Shell
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure Cloud Shell is a free Bash shell that you can run directly from within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click **Cloud Shell** on the upper right menu in the Azure portal.
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-![][1]
-
-This option launches an interactive shell that you can use to run the steps in this article.
-
-![][2]
-
-## Install CLI locally
-
-If you choose to install and use the CLI locally, this article requires that you run the latest version of Azure CLI (2.0.14 or later). To find the version, run the `cli az –version` command. If you need to install or upgrade, see [Install Azure CLI 2.0][].
+## Log in to Azure
 
 1. Once CLI is installed, open a command prompt and issue the following command:
 

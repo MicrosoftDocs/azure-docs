@@ -1,5 +1,5 @@
 ---
-title: Send and receive messages to and from Azure Service Bus | Microsoft Docs
+title: Azure quickstart - Send and receive messages to and from Azure Service Bus | Microsoft Docs
 description: Learn to send and receive Service Bus messages using PowerShell and the .NET Standard client
 services: service-bus-messaging
 documentationcenter: ''
@@ -11,10 +11,11 @@ ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
-ms.author: sethm
+ms.date: 03/02/2018
+ms.author: chwolf;sethm
 
 ---
 # Send and receive messages using PowerShell
@@ -25,39 +26,64 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 This quickstart describes how to send and receive messages to and from a Service Bus queue using PowerShell to first create a messaging namespace and a queue within that namespace. The procedure also obtains the authorization credentials on that namespace. Then the .NET Standard client is used to send and receive messages from this queue.
 
-## Prerequisites
+If you do not have an Azure subscription, create a [free account][] before you begin.
 
-1. If you do not have an Azure subscription, create a [free account][] before you begin.
-2. Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
-3. Install and configure [Git][]. 
+This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
-## Create resources
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Run the following PowerShell cmdlets. Replace all placeholders with the appropriate values.
+## Log in to Azure
+
+Log in to your Azure subscription with the **Login-AzureRmAccount** cmdlet and follow the on-screen directions.
 
 ```azurepowershell-interactive
-# Run this first - Log on and install Service Bus module
 Login-AzureRmAccount
-Install-Module AzureRM.ServiceBus
-
-# Optional - Use this to change to the current subscription or to see the subscription you currently use
-Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
-Get-AzureRmContext
-
-# Create resource group 
-New-AzureRmResourceGroup –Name <resource_group_name> –Location westus2
-
-# Create a namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName <resource_group_name> -NamespaceName <namespace_name> -Location westus2
-
-# Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName <resource_group_name> -NamespaceName <namespace_name> -Name <queue_name> -EnablePartitioning $False
-
-# Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
 ```
 
-Copy and paste the **PrimaryConnectionString** and the **Queue name** you select to a temporary location, such as Notepad. You will need it in the next step.
+## Check subscription context
+
+Optionally, you can use these commands to change to the current subscription or to see the subscription you currently use:
+
+```azurepowershell-interactive
+Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
+Get-AzureRmContext
+```
+
+## Create a resource group
+
+A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group.
+
+You create a new resource group with the **[New-AzureRmResourceGroup][]** cmdlet. The following example creates a resource group named `ServiceBusResourceGroup` in the **East US** region:
+
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name ServiceBusResourceGroup -Location eastus
+```
+
+## Create a messaging namespace
+
+A Service Bus messaging namespace provides a unique scoping container for a group of Service Bus objects. The following example creates a namespace in your resource group. Replace `<namespace_name>` with a unique name for your namespace:
+
+```azurepowershell-interactive
+New-AzureRmServiceBusNamespace -ResourceGroupName ServiceBusResourceGroup -NamespaceName <namespace_name> -Location eastus
+```
+
+## Create a queue
+
+To create a queue, issue the following command. Specify the namespace in which you want to create it, and replace `<queue_name>` with a unique name for the queue, as in the following example:
+
+```azurepowershell-interactive
+New-AzureRmServiceBusQueue -ResourceGroupName ServiceBusResourceGroup -NamespaceName <namespace_name> -Name <queue_name> -EnablePartitioning $False
+```
+
+## Get credentials
+
+To obtain the connection string, which contains the credentials you need to connect to the queue, run the following cmdlet:
+
+```azurepowershell-interactive
+Get-AzureRmServiceBusKey -ResourceGroupName ServiceBusResourceGroup -Namespace <namespace_name> -Name RootManageSharedAccessKey
+```
+
+Copy and paste the **PrimaryConnectionString** and the **queue_name** you selected to a temporary location, such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
@@ -86,6 +112,7 @@ In this article, you created a Service Bus namespace and other resources require
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Learn how to use topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
+[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
 [Git]: https://www.visualstudio.com/learn/install-and-set-up-git/
