@@ -6,11 +6,11 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: raynew
 
 ---
-# Azure Site Recovery: Frequently asked questions (FAQ)
+# Azure Site Recovery: frequently asked questions (FAQ)
 This article includes frequently asked questions about Azure Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 ## General
@@ -102,8 +102,9 @@ During regular replication, data is replicated to geo-redundant Azure storage an
 ### Can I automate Site Recovery scenarios with an SDK?
 Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for deploying Site Recovery using PowerShell:
 
-* [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+* [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [Replicate VMware to Azure with PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
 ### If I replicate to Azure what kind of storage account do I need?
 You need an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal.
@@ -119,7 +120,7 @@ Extended or chained replication isn't supported. Request this feature in [feedba
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude specific disks from replication?
-This is supported when you're [replicating VMware VMs and Hyper-V VMs](site-recovery-exclude-disk.md) to Azure, using the Azure portal.
+This is supported when you're replicating VMware VMs and Hyper-V VMs to Azure, using the Azure portal.
 
 ### Can I replicate virtual machines with dynamic disks?
 Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines to Azure. The operating system disk must be a basic disk.

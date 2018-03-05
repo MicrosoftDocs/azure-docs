@@ -7,7 +7,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/05/2017
 ms.author: rajanaki
  
 ---
@@ -59,7 +59,7 @@ To reprotect a failed over VM, the Azure VM must be running. This is so that the
 
 **The datastore is not accessible from ESXi host.**
 
-Check the [master target prerequisites](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) and the [supported datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) for failback.
+Check the [master target prerequisites](vmware-azure-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) and the [supported datastores](vmware-azure-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) for failback.
 
 
 ## Troubleshoot failback errors

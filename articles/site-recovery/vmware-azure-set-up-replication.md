@@ -39,7 +39,7 @@ Associate the replication policy with your on-premises configuration server.
     ![Configuration server association](./media/vmware-azure-set-up-replication/associate2.png)
 
 
-## Dissociate or delete a replication policy
+## Disassociate or delete a replication policy
 1. Choose the replication policy.
     a. To dissociate the policy from the configuration server, make sure that no replicated machines are using the policy. Then, click **Dissociate**.
     b. To delete the policy, make sure it's not associated with a configuration server. Then, click **Delete**. It should take 30-60 seconds to delete.
