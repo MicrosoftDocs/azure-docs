@@ -7,12 +7,9 @@ author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
-ms.assetid: 
 ms.service: event-hubs
-ms.devlang: na
+ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/05/2018
 ms.author: shvija
 
@@ -24,7 +21,7 @@ To enable building _end-to-end_ distributed streaming applications easy for user
 
 This article will show you how to make a continuous application in Azure Databricks. While this article uses Azure Databricks, you can use Spark Clusters available using [HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview)
 
-In the example below you will set up two Scala notebooks, one notebook for streaming events from an Event Hub and one notebook for sending messages to the same Event Hub.
+In the example below you will set up two Scala notebooks, one for streaming events from an Event Hub and other for sending messages to it.
 
 ## Prerequisites
 
