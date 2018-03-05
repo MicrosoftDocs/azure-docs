@@ -21,7 +21,9 @@ This document details using persistent volumes to dynamically create an Azure di
 
 A storage class is used to define how a dynamically created persistent volume is configured. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. Use the [kubectl get storageclass][kubectl-get] command to see these.
+Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. The `default` storage class provisions a standard Azure disk. The `managed-premium` storage class provisions a premium Azure disk. If the AKS nodes in your cluster use premium storage, select `managed-premium'.
+
+Use the [kubectl get sc][kubectl-get] command to see the pre-created storage classes.
 
 ```console
 NAME                PROVISIONER                AGE
@@ -29,13 +31,13 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
-The `default` storage class provisions a standard Azure disk. The `managed-premium` storage class provisions a premium Azure disk.
-
 ## Create persistent volume claim
 
-When using an Azure disk, a persistent volume claim can be used to automatically create a disk that can then be mounted in a pod. The disk is created in the same resource group as the AKS resources.
+A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Managed Azure disk.
 
-This example manifest creates a persistent volume claim using the `managed-premium` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
+Create a file named `azure-premimum.yaml`, and copy in the following manifest.
+
+Take note that the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access. Also, the pre-created `managed-premium` storgae class is specified in the anotation.
 
 ```yaml
 apiVersion: v1
@@ -50,6 +52,12 @@ spec:
   resources:
     requests:
       storage: 5Gi
+```
+
+Create the persistent volume claim with the [kubectl create][kubectl-create] command.
+
+```azurecli-interactive
+kubectl create -f azure-premimum.yaml
 ```
 
 > [!NOTE]
@@ -86,6 +94,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
