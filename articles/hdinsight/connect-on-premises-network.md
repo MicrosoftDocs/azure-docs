@@ -276,8 +276,8 @@ You can use network security groups (NSG) or user-defined routes (UDR) to contro
 
 2. For the IP addresses identified in step 1, allow inbound traffic from that IP addresses.
 
-   * If you are using __NSG__: Allow __inbound__ traffic on port __443__ from the __Internet__ for the IP address.
-   * If you are using __UDR__: Set the __Next Hop__ type of the route to __Internet__ for the IP address.
+   * If you are using __NSG__: Allow __inbound__ traffic on port __443__ for the IP addresses.
+   * If you are using __UDR__: Set the __Next Hop__ type of the route to __Internet__ for the IP addresses.
 
 For an example of using Azure PowerShell or the Azure CLI to create NSGs, see the [Extend HDInsight with Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
 
