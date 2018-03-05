@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit architecture reference | Microsoft Docs
-description: Describes the Azure Stack Development Kit architecture.
+title: Azure Stack Development Kit Architecture | Microsoft Docs
+description: Describes the Azure Stack Development Kit (ASDK) architecture.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -22,12 +22,12 @@ ms.reviewer: misainat
 The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
 
 ## Logical architecture diagram
-The following diagram illustrates the logical architecture of the ASDK and its components.
+The following diagram illustrates the logical architecture of the (ASDK) and its components.
 
 ![ASDK architecture](media/asdk-architecture/image1.png)
 
 ## Virtual machine roles
-The ASDK offers services using the following VMs hosted on the development kit host computer:
+The Azure Stack development kit offers services using the following VMs on the host:
 
 | Name | Description |
 | ----- | ----- |
@@ -47,4 +47,4 @@ The ASDK offers services using the following VMs hosted on the development kit h
 
 
 ## Next steps
-[Learn about basic administration tasks](asdk-admin-basics.md)
+[Learn more about ASDK administration](asdk-admin-basics.md)
