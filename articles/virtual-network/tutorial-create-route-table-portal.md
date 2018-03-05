@@ -105,7 +105,7 @@ You can associate a route table to zero or more subnets. A subnet can have zero 
 
 To test routing, you'll create a virtual machine that serves as the network virtual appliance that the route you created in a previous step routes through. After creating the network virtual appliance, you'll deploy a virtual machine into the *Public* and *Private* subnets. You'll then route traffic from the *Public* subnet to the *Private* subnet through the network virtual appliance.
 
-## Create a network virtual appliance
+### Create a network virtual appliance
 
 In a previous step, you created a route that specified a network virtual appliance as the next hop type. A virtual machine running a network application is often referred to as a network virtual appliance. In production environments, the network virtual appliance you deploy is often a pre-configured virtual machine. Several network virtual appliances are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?search=network%20virtual%20appliance&page=1). In this article, a basic virtual machine is created.
 
