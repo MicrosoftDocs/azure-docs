@@ -4,7 +4,7 @@ description: How to use a Geo AI Virtual Machine on Azure.
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk; bradsev
+author: gopitk; bradsev;
 manager: cgronlun
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: gokuma;bradsev
+ms.author: gokuma; bradsev;
 
 ---
 

@@ -26,20 +26,20 @@ The Azure **Geo AI Data Science VM** (Geo-DSVM) delivers geospatial analytics ca
 The Geo AI Data Science VM is a product offering arising out of the collaboration between ESRI and Microsoft. The result is a powerful environment that provides the ability to:
 
 - explore data with the most popular AI and data science tools
-- apply statistical analysis to data which has a geographical or spatial aspect
+- apply statistical analysis to data with geographical or spatial aspects
 - train models for predictive analytics using machine learning and deep learning algorithms
 - create rich visualization
 
-It is supported on the Windows 2016 Data Science Virtual Machine. Python and R interfaces to ArcGIS are also pre-configured on the Geo-DSVM enabling programmatic access to geospatial analytics within your AI applications. We also provide samples in the form of Jupyter notebooks to get started with building AI applications infused with geospatial intelligence.
+It is supported on the Windows 2016 Data Science Virtual Machine. Python and R interfaces to ArcGIS are also pre-configured on the Geo-DSVM enabling programmatic access to geospatial analytics within your AI applications. Jupyter Notebook samples are also provided to help get started with building AI applications infused with geospatial intelligence.
 
 
 ## Why Geo AI Data Science VM? 
 
-Integrating geography and location information with your data brings a powerful new dimension to understanding a world increasingly instrumented with IOT devices. This has a wide range of applications in virtually every segment  of civil society, whether commercial, governmental, academic, or not-for-profit activities. Geospatial analytics provides robust tools for gathering, managing and analyzing geographic and location-based data and powerful visualization that can enable unique insights into the significance of such data. 
+Integrating geography and location information with your data brings a powerful new dimension to understanding a world increasingly instrumented with IOT devices. A wide range of applications exists in virtually every segment of civil society, whether commercial, governmental, academic, or not-for-profit activities. Geospatial analytics provides robust tools for gathering, managing and analyzing geographic and location-based data and powerful visualization that can enable unique insights into the significance of such data. 
 
-The [Data Science Virtual Machine (DSVM)](overview.md) from Microsoft is a popular experimentation and modeling environment on Azure, that provides a host of AI, Machine Learning, and data science tools. These are all conveniently pre-configured to help you be immediately productive. 
+The [Data Science Virtual Machine (DSVM)](overview.md) from Microsoft is a popular experimentation and modeling environment on Azure, that provides a host of AI, Machine Learning, and data science tools. These platforms and tools are all conveniently pre-configured to help you be immediately productive. 
 
-By combining the predictive capabilities of the Data Science VM with the scalability of the Azure Cloud and the Geospatial analytics software from [ESRI](http://www.esri.com), data scientists and geo-spatial analysts now have a productive platform to obtain derive new intelligence from their data and identify new opportunities. 
+By combining the predictive capabilities of the Data Science VM with the scalability of the Azure Cloud and the Geospatial analytics software from [ESRI](http://www.esri.com), data scientists and geo-spatial analysts now have a productive platform from which to obtain new intelligence from their data and identify new opportunities. 
 
 
 ## Next Steps
