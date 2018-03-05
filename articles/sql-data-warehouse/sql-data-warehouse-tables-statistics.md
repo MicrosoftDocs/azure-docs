@@ -220,9 +220,9 @@ CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 )
 AS
 
-IF @create-type IS NULL
+IF @create_type IS NULL
 BEGIN
-    SET @create-type = 1;
+    SET @create_type = 1;
 END;
 
 IF @create_type NOT IN (1,2,3)
