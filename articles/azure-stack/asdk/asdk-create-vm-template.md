@@ -1,5 +1,5 @@
 ---
-title: Create a VM using a template | Microsoft Docs
+title: In this tutorial, you create an Azure Stack VM using a template | Microsoft Docs
 description: Describes how to use the ASDK to create a VM using a predfined template and a GitHub custom template.
 services: azure-stack
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/16/2018
+ms.custom: mvc
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
-# Create a VM using a community template
+# Tutorial: create a VM using a community template
 As an Azure Stack operator or user, you can create a VM using [custom GitHub quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates) rather than deploying one manually from the Azure Stack marketplace.
 
 In this tutorial, you learn how to:

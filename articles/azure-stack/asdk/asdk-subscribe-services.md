@@ -1,5 +1,5 @@
 ---
-title: Subscribe to an offer | Microsoft Docs
+title: In this tutorial, you learn how to subscribe to an Azure Stack offer | Microsoft Docs
 description: This tutorial shows you how to create a new subscription to Azure Stack services and test the offer by creating a test virtual machine.
 services: azure-stack
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/16/2018
+ms.custom: mvc
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
-# Create and test a subscription
+# Tutorial: create and test a subscription
 This tutorial shows you how to create a subscription containing an offer and then test it. 
 For the test, you will log in to the [user portal](https://portal.local.azurestack.external) as a cloud administrator, subscribe to the offer, and then create a virtual machine.
 

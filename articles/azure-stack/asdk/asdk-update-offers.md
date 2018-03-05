@@ -1,5 +1,5 @@
 ---
-title: Update Azure Stack offers and plans | Microsoft Docs
+title: In this tutorial, you learn how to update Azure Stack offers and plans | Microsoft Docs
 description: This article describes how to view and modify existing offers and plans. 
 services: azure-stack
 documentationcenter: ''
@@ -14,12 +14,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/09/2018
+ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Update offers and plans
+# Tutorial: update offers and plans
 As an Azure Stack operator, you create plans that contain the desired services and applicable quotas for your users to subscribe to. These *base plans* contain the core services to be offered to your users and you can only have one base plan per offer. If you need to modify your offer, you can use *add-on plans* that allow you to modify the plan to extend computer, storage, or network quotas initially offered with the base plan. 
 
 Although combining everything in a single plan may be optimal in some cases, you may want to have a base plan, and offer additional services using add-on plans. For instance, you could decide to offer IaaS services as part of a base plan, with all PaaS services treated as add-on plans. Plans can also be used to control consumption of resources in your limited ASDK environment. For example, if you want your users to be mindful of their resource usage, you could have a relatively small base plan (depending on the services required) and as users reach capacity, they would be alerted that they have already consumed the allocation of resources based on their assigned plan. From there, the users may select an available add-on plan for additional resources. 
