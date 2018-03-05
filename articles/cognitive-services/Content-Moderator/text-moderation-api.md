@@ -128,10 +128,10 @@ The following example shows a sample response:
       		"Index": 89
     		}],
     	"SSN": [{
-      		"Text": "665778988",
+      		"Text": "999999999",
       		"Index": 56
     		}, {
-      		"Text": "544-56-7788",
+      		"Text": "999-99-9999",
       		"Index": 267
     		}]
 		}
