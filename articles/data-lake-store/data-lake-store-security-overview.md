@@ -86,21 +86,19 @@ You can use activity or diagnostic logs, depending on whether you are looking fo
 * Account management-related activities use Azure Resource Manager APIs and are surfaced in the Azure portal via activity logs.
 * Data-related activities use WebHDFS REST APIs and are surfaced in the Azure portal via diagnostic logs.
 
-### Activity logs
+### Activity log
 To comply with regulations, an organization might require adequate audit trails of account management activities if it needs to dig into specific incidents. Data Lake Store has built-in monitoring and it logs all account management activities.
 
 For account management audit trails, view and choose the columns that you want to log. You also can export activity logs to Azure Storage.
 
-![Audit logs****Needs replacement](./media/data-lake-store-security-overview/audit-logs.png "Audit logs")
+![Activity log](./media/data-lake-store-security-overview/activity-logs.png "Activity log")
 
 For more information on working with activity logs, see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
 
-### Diagnostic logs
-You can set data access audit trails in the Azure portal (in Diagnostic Settings) and create an Azure Blob storage account where the logs are stored.
+### Diagnostics logs
+You can enable data access audit and diagnostic logging in the Azure portal and send the logs to an Azure Blob storage account, an event hub, or Log Analytics.
 
-![Diagnostic logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostic logs")
-
-After you configure diagnostic settings, you can view the logs on the **Diagnostic Logs** tab.
+![Diagnostics logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostics logs")
 
 For more information on working with diagnostic logs with Azure Data Lake Store, see [Accessing diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md).
 
