@@ -144,7 +144,7 @@ Create three network interfaces with [az network nic create](/cli/azure/network/
 ```azurecli-interactive
 for i in `seq 1 3`; do
 az network nic create \
---resource-group myResourceGroupLB0304 \
+--resource-group myResourceGroupLB \
 --name myNic$i \
 --vnet-name myVnet \
 --subnet mySubnet \
@@ -165,7 +165,7 @@ Create an availability set with [az vm availabilityset create](/cli/azure/networ
 
  ```azurecli-interactive
 az vm availability-set create \
---resource-group myResourceGroupLB0 \
+--resource-group myResourceGroupLB \
 --name myAvailabilitySet \
 --platform-fault-domain-count 3 \
 --platform-update-domain-count 3
@@ -222,7 +222,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
  ```azurecli-interactive
   for i in `seq 1 3`; do
   az vm create \
-  --resource-group myResourceGroupLB0304 \
+  --resource-group myResourceGroupLB \
   --name myVM$i \
   --availability-set myAvailabilitySet \
   --nics myNic$i \
@@ -238,7 +238,7 @@ To get the public IP address of the load balancer, use [az network public-ip sho
 
 ```azurepowershell-interactive
 az network public-ip show \
-  --resource-group myResourceGroupLBCLI \
+  --resource-group myResourceGroupLB \
   --name myPublicIP \
   --query [ipAddress] \
   --output tsv
