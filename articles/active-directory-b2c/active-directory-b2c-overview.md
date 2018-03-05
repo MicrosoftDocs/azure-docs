@@ -31,9 +31,9 @@ With minimal configuration, Azure AD B2C enables your application to authenticat
 
 Try Azure Active Directory B2C functionality in a quickstart:
 
-* [Test drive an Azure AD B2C enabled web app](active-directory-b2c-quickstarts-web-app.md)
-* [Test drive an Azure AD B2C enabled single-page app](active-directory-b2c-quickstarts-spa.md)
-* [Test drive an Azure AD B2C enabled desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+* [ASP.NET web app](active-directory-b2c-quickstarts-web-app.md)
+* [Node.js single-page app](active-directory-b2c-quickstarts-spa.md)
+* [.NET Windows Presentation Foundation desktop app](active-directory-b2c-quickstarts-desktop-app.md)
 
 Try authenticating users with Azure AD B2C in a step-by-step tutorial:
 
@@ -89,6 +89,6 @@ We encourage you to get notifications of when security incidents occur by visiti
 
 Try Azure Active Directory B2C functionality with one of our quickstarts:
 
-* [Test drive an Azure AD B2C enabled web app](active-directory-b2c-quickstarts-web-app.md)
-* [Test drive an Azure AD B2C enabled single-page app](active-directory-b2c-quickstarts-spa.md)
-* [Test drive an Azure AD B2C enabled desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+* [ASP.NET web app](active-directory-b2c-quickstarts-web-app.md)
+* [Node.js single-page app](active-directory-b2c-quickstarts-spa.md)
+* [.NET Windows Presentation Foundation desktop app](active-directory-b2c-quickstarts-desktop-app.md)
