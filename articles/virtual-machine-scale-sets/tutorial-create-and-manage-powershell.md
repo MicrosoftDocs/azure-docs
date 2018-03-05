@@ -175,7 +175,7 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-When you created a scale set at the start of the tutorial, a default VM image of *Windows Server 2016 DataCenter* was provided for the VM instances. You can specify a different VM image based on the output from [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). The following example would create a scale set with the `-ImageName` parameter to specify a VM iamge of *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers*. As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
+When you created a scale set at the start of the tutorial, a default VM image of *Windows Server 2016 DataCenter* was provided for the VM instances. You can specify a different VM image based on the output from [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). The following example would create a scale set with the `-ImageName` parameter to specify a VM iamge of *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -187,7 +187,7 @@ New-AzureRmVmss `
   -PublicIpAddressName "myPublicIPAddress2" `
   -LoadBalancerName "myLoadBalancer2" `
   -UpgradePolicy "Automatic" `
-  -ImageName "2016-Datacenter-with-Containers"
+  -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest"
 ```
 
 
