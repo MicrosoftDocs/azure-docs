@@ -30,7 +30,7 @@ This article provides high-level overview of common connection scenarios:
 - Connecting Azure App Service hosted application to Managed Instance <!---(link to come later) 
 - Connecting application that is on the developers box to Managed Instance <!---(link to come later)---> 
  
-## Connect an application is inside the same VNet 
+## Connect an application inside the same VNet 
 
 This scenario is the simplest. Virtual machines inside the VNet can connect to each other directly even if they are inside different subnets. That means that all you need to connect application inside an Azure Application Environment or Virtual Machine is to set the connection string appropriately.  
  

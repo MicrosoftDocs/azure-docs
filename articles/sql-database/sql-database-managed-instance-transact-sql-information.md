@@ -10,13 +10,12 @@ ms.date: 03/07/2018
 ms.author: carlrab 
 manager: cguyer 
 --- 
-
 # Azure SQL Database Managed Instance (preview) T-SQL differences from SQL Server 
 
-Azure SQL Database Managed Instance (preview) provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
+Azure SQL Database Managed Instance (preview) provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
  - [T-SQL differences and unsupported features](#Differences)
  - [Features that have different behavior in Managed Instance](#Changes)
- - [temporary limitations and known issues](#Issues)
+ - [Temporary limitations and known issues](#Issues)
 
 ## <a name="Differences"></a> T-SQL differences from SQL Server 
 
@@ -52,7 +51,7 @@ For more information, see:
 ### Backup 
 
 Managed Instance has automatic backups, and enables users to create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups are not supported.  
-- Backup target: 
+- Managed Instance can backup a database only on Azure Blob Storage account: 
  - Only `BACKUP TO URL` is supported 
  - `FILE`, `TAPE`, and backup devices are not supported  
 - Most of the general `WITH` <options> are supported 
@@ -62,13 +61,12 @@ Managed Instance has automatic backups, and enables users to create full databas
  - Log-specific options: `NORECOVERY`, `STANDBY`, and `NO_TRUNCATE` are not supported 
  
 Limitations:  
+- Managed Instance can backup a database to a backup with up to 32 stripes, which is enough for the databases up to 4TB.
 - Max backup stripe size is 195GB (PAGE blob size). Increase the number of stripes in the backup command to distribute stripe sizes. 
 
 > [!TIP]
 > To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore support bigger files because a different blob type is used.  
 
-- Managed Instance works with up to 32 stripes, which is enough for the databases up to 4TB.
- 
 ### Buffer pool extension 
  
 - [Buffer pool extension](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) is not supported.
@@ -83,7 +81,7 @@ Managed Instance cannot access file shares and Windows folders, so the files mus
 ### Certificates 
 
 Managed Instance cannot access file shares and Windows folders, so the following constraints apply: 
-- `CREATE`/`BACKUP` `FROM`/`TO` files is not supported for certificates
+- `CREATE FROM`/`BACKUP TO` file is not supported for certificates
 - `CREATE`/`BACKUP` certificate from `FILE`/`ASSEMBLY` is not supported. Private key files cannot be used.  
  
 See [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) and [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql).  
@@ -221,7 +219,7 @@ In-database R and Python external libraries are not yet supported. See [SQL Serv
 - Tables cannot have `FILESTREAM` types
 - The following functions are not supported:
  - `GetPathLocator()` 
- - `GET\_FILESTREAM\_TRANSACTION\_CONTEXT()` 
+ - `GET_FILESTREAM_TRANSACTION_CONTEXT()` 
  - `PathName()` 
  - `GetFileNamespacePath()` 
  - `FileTableRootPath()` 
@@ -235,15 +233,15 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 ### Linked servers
  
 Linked servers in Managed Instance support limited number of targets: 
-- Supported targets: SQL Server, SQL Database Managed Instance, SQL Server on a virtual machine.
-- Not supported targets: files, Analysis Services, other RDBMS.
+- Supported targets: SQL Server, SQL Database Managed Instance, and SQL Server on a virtual machine.
+- Not supported targets: files, Analysis Services, and other RDBMS.
 
 Operations
 
 - Cross-instance write transactions are not supported.
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - `OPENROWSET` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in Virtual Machines). See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in virtual machines). Only `SQLNCLI` value is supported as provider. For example: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in virtual machines). Only `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as provider. For example: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
  
 ### Logins / users 
 
@@ -272,20 +270,20 @@ Replication is not yet supported. For information about Replication, see [SQL Se
    - `RESTORE LOG ONLY` 
    - `RESTORE REWINDONLY ONLY`
 - Source  
- - `FROM URL` (Azure blob storage) - supported 
- - `FROM DISK`/`TAPE`/backup device is not supported 
- - Backup sets are not supported 
+ - `FROM URL` (Azure blob storage) is only supported option.
+ - `FROM DISK`/`TAPE`/backup device is not supported.
+ - Backup sets are not supported. 
 - `WITH` <options> are not supported (No differential, `STATS`, etc.)     
-- `ASYNC RESTORE` - Restore continues even if client connection breaks. If you loss a connection, can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `ASYNC RESTORE` - Restore continues even if client connection breaks. If you lose a connection, can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
 The following database options that are set/overridden and cannot be changed later:  
 - `NEW_BROKER` (if broker is not enabled in .bak file)  
 - `ENABLE_BROKER` (if broker is not enabled in .bak file)  
-- `AUTO_CLOSE=OFF` (if a database in .bak file has AUTO_CLOSE=ON)  
+- `AUTO_CLOSE=OFF` (if a database in .bak file has `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (if a database in .bak file has `SIMPLE` or `BULK_LOGGED` recovery mode)
 - Memory optimized file group is added and called XTP if it was not in the source .bak file  
 - Any existing memory optimized file group is renamed to XTP  
-- `MULTI_USER`, `SINGLE_USER` and `RESTRICTED_USER` user are converted to `MULTI_USER`   
+- `SINGLE_USER` and `RESTRICTED_USER` options are converted to `MULTI_USER`   
 Limitations:  
 - `.BAK` files containing multiple backup sets cannot be restored. 
 - `.BAK` files containing multiple log files cannot be restored. 
@@ -322,38 +320,36 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
  - `remote proc trans` 
 - `sp_execute_external_scripts` is not supported. See [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` is not supported. See [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` are not supported. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
-- `sp_attach_db` and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+- `Extended stored procedures` are not supported, including `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### SQL Server Agent 
  
-- SQL Agent settings are read only. `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs  
- - Subsystems - only T-SQL job steps are supported  
-  - SSIS is not yet supported 
-  - Replication is not yet supported  
-   - Transaction-Log reader is not yet supported  
-   - Snapshot is not yet supported  
-   - Distributor is not yet supported  
-   - Merge is not supported  
-   - Queue Reader is not supported  
-  - Command shell is not yet supported 
-   - No access to external resources (e.g. network shares via robocopy)  
-  - PowerShell is not yet supported  
-  - Analysis Services is not supported  
- - Notifications are partially supported.
-  - Email notification is supported, requires configuring a Database Mail profile. 
-   - There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation)  
-  - Pager is not supported  
-  - NetSend is not supported 
- - Alerts is not yet not supported
- - Proxies is not supported  
-- Eventlog is not supported 
+- SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
+- Jobs - only T-SQL job steps are currently supported (more steps will be added during public preview).
+ - SSIS is not yet supported. 
+ - Replication is not yet supported  
+  - Transaction-Log reader is not yet supported.  
+  - Snapshot is not yet supported.  
+  - Distributor is not yet supported.  
+  - Merge is not supported.  
+  - Queue Reader is not supported.  
+ - Command shell is not yet supported. 
+  - Managed Instance cannot access external resources (e.g. network shares via robocopy).  
+ - PowerShell is not yet supported.
+ - Analysis Services are not supported.  
+- Notifications are partially supported.
+ - Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+ - Pager is not supported.  
+ - NetSend is not supported. 
+ - Alerts are not yet not supported.
+ - Proxies are not supported.  
+- Eventlog is not supported. 
  
 The following features are currently not supported but will be enabled in future:  
 - Proxies
-- Job schedule on idle CPU 
+- Scheduling jobs on idle CPU 
 - Enabling/disabling Agent
 - Alerts
 
@@ -393,7 +389,7 @@ Each Managed Instance has up to 35TB reserved storage space, and every database 
 
 ### Incorrect configuration of SAS key during database restore
 
-`RESTORE DATABASE` that reads .bak file might be constantly re-try to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring database to be sure that SAS key is correct.
+`RESTORE DATABASE` that reads .bak file might be constantly re-try to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
 Make sure that you remove leading `?` from the SAS key generated using Azure portal.
 
 ### Tooling
@@ -411,4 +407,4 @@ There can be only one database mail profile and it must be called `AzureManagedI
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a  tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- For a tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
