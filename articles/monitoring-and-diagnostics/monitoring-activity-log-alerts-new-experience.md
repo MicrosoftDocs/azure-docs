@@ -108,7 +108,7 @@ Use the following procedure:
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Under **define alert rules,** provide the following details:
+4. Under **define alert rules details**, provide the following details:
 
     - **Alert rule name** – Name for the new alert rule
     - **Description** – Description for the new alert rule
