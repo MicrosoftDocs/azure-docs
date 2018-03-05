@@ -16,7 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: kumud
 ---
-# Create a public load balancer using Azure CLI
+# Create a load balancer to load balance VMS using Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to create network resources, backend servers, and a load balancer that helps load balance a web app between two VMs running Ubuntu server.
 
