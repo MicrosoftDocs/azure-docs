@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/05/2018
 ms.author: dariagrigoriu;cephalin
 
 ---
@@ -41,13 +41,15 @@ Make sure that your repository root has the correct files in your project.
 
 | Runtime | Root directory files |
 |-|-|
-| ASP.NET/ASP.NET Core | _*.sln_, _*.csproj_, or _default.aspx_ |
+| ASP.NET (Windows only) | _*.sln_, _*.csproj_, or _default.aspx_ |
+| ASP.NET Core | _*.sln_ or _*.csproj_ |
 | PHP | _index.php_ |
 | Ruby (Linux only) | _Gemfile_ |
 | Node.js | _server.js_, _app.js_, or _package.json_ with a start script |
-| Python | _\*.py_, _requirements.txt_, or _runtime.txt_ |
+| Python (Windows only) | _\*.py_, _requirements.txt_, or _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, or _iisstart.htm_ |
 | WebJobs | _\<job_name>/run.\<extension>_ under _App\_Data/jobs/continuous_ (for continuous WebJobs) or _App\_Data/jobs/triggered_ (for triggered WebJobs). For more information, see [Kudu WebJobs documentation](https://github.com/projectkudu/kudu/wiki/WebJobs) |
+| Functions | See [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
 
 To customize your deployment, you can include a _.deployment_ file in the repository root. For more information, see [Customizing deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
@@ -106,7 +108,7 @@ Push to the Azure remote to deploy your app with the following command. When pro
 git push azure master
 ```
 
-You may see runtime-specific automation in the output, such as MSBuild for ASP.NET/ASP.NET Core, `npm install` for Node.js, and `pip install` for Python. 
+You may see runtime-specific automation in the output, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
 
 Once deployment is finished, your app in the Azure portal should now have a record of your `git push` in the **Deployment options** page.
 
