@@ -113,10 +113,11 @@ Once you are on a fully managed platform, take advantages that are provided auto
 Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
 
 To strengthen security, consider using some of the features that are available:
-•	Azure Active Directory Authentication at the database level
-•	Auditing and Threat Detection to monitor activities
-•	Controlling Access to sensitive and privileged data ([Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)).
+- Azure Active Directory Authentication at the database level
+- Auditing and Threat Detection to monitor activities
+- Controlling Access to sensitive and privileged data ([Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)).
 
 ## Next steps
 
-For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
+- For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
+- For a tutorial that includes a restore from backup, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).

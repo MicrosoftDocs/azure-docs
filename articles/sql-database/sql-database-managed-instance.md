@@ -190,4 +190,4 @@ Managed Instance enable system administrator to focus on what matters the most f
 ## Next steps
 
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md
+- For a tutorial, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
