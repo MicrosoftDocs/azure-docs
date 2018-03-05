@@ -1,5 +1,6 @@
 ---
 title: Translator Speech Tutorial (C#) | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Learn how to use the Translator speech service to translate text in real time.
 services: cognitive-services
 author: jerrykindall
@@ -13,8 +14,6 @@ ms.date: 10/25/2017
 ms.author: v-jerkin
 ---
 # Tutorial: Microsoft Translator WPF application in C#
-
-### Screen shot here - main application UI
 
 This tutorial is a tour of an interactive speech translation tool that uses the Microsoft Translator Speech translation service, a part of Microsoft Cognitive Services in Azure. You learn how to:
 
@@ -51,8 +50,6 @@ Paste your Microsoft Translator Speech subscription key in this window, then cli
 Back in the main window, choose the audio input and output devices you want to use and the From and To languages. If you want to hear audio of the translation, make sure the **TTS** (text-to-speech) option is checked. If you want to see speculative partial translations as you speak, enable the **Partial Results** option.
 
 Finally, click **Start** to begin translation. Say something you wish to have translated and watch the recognized text and the translation appear in the window. If you enabled the TTS option, you also hear the translation.
-
-#### Screen shot - main window after recognizing some text
 
 ## Obtaining supported languages
 
