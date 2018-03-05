@@ -22,12 +22,12 @@ ms.reviewer: misainat
 The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
 
 ## Logical architecture diagram
-The following diagram illustrates the logical architecture of the (ASDK) and its components.
+The following diagram illustrates the logical architecture of the ASDK and its components.
 
 ![ASDK architecture](media/asdk-architecture/image1.png)
 
 ## Virtual machine roles
-The Azure Stack development kit offers services using the following VMs on the host:
+The ASDK offers services using the following VMs hosted on the development kit host computer:
 
 | Name | Description |
 | ----- | ----- |
@@ -47,4 +47,4 @@ The Azure Stack development kit offers services using the following VMs on the h
 
 
 ## Next steps
-[Learn more about ASDK administration](asdk-admin-basics.md)
+[Learn about basic ASDK administration tasks](asdk-admin-basics.md)
