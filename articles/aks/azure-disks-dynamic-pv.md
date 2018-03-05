@@ -13,7 +13,13 @@ ms.author: nepeters
 
 # Persistent volumes with Azure disks
 
-A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure disk as a Kubernetes persistent volume in an AKS cluster. 
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. 
+
+This document details using persistent volumes to dynamically create an Azure disk for used with AKS pods. The following Kubernetes objects are discussed throughout this document.
+
+- Storage class - defines how storage is provisioned, this includes things like what disk type and disk SKU to use during disk creation.
+- Persistent volume claim - uses a storage class to create and provision a piece of storage, and Azure disk in this case.
+- Pod - once the persistent volume claim has been created, the Azure disk is auto-created and ready for use with a pod.
 
 For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
@@ -37,9 +43,6 @@ When using an Azure disk, a persistent volume claim can be used to automatically
 
 This example manifest creates a persistent volume claim using the `managed-premium` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
-> [!NOTE]
-> An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc]. 
-
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -54,6 +57,9 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+> [!NOTE]
+> An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc].
 
 ## Using the persistent volume
 
