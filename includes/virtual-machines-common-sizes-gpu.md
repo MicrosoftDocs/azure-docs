@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: multiple
  ms.topic: include
- ms.date: 03/01/2018
+ ms.date: 03/05/2018
  ms.author: danlep
  ms.custom: include file
 ---
@@ -93,23 +93,13 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 
 The NV-series virtual machines are powered by [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 |
+Each GPU in NV instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-GRID licensing terms for NV instances include:
-
-*  A maximum of 1 NVIDIA GRID Virtual Workstation per GPU, for users of remote professional graphics applications. 
-
-* A maximum of 25 concurrent GRID Virtual Applications per GPU, for hosted desktop solutions such as RDSH or Citrix XenApp.
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks | Virtual Workstations | Virtual Applications
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 25 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 50 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 100 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
 1 GPU = one-half M60 card.
 
