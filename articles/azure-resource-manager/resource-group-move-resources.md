@@ -175,7 +175,7 @@ Managed disks do not support move. This restriction means that several related r
 * Snapshots created from managed disks
 * Availability sets with virtual machines with managed disks
 
-Virtual machines created from Marketplace resources cannot be moved across subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
+Virtual machines created from Marketplace resources with plans attached cannot be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
 Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 

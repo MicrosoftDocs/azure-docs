@@ -3,7 +3,7 @@ title: How to schedule Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
+ms.author: douglasl
 
 ---
 # How to schedule starting and stopping of an Azure SSIS integration runtime 
@@ -41,8 +41,9 @@ In this section, you perform the following steps:
 ### Create an Azure Automation account
 If you don't have an Azure Automation account, create one by following the instructions in this step. For detailed steps, see [Create an Azure Automation account](../automation/automation-quickstart-create-account.md). As part of this step, you create an **Azure Run As** account (a service principal in your Azure Active Directory), and add it to the **Contributor** role of your Azure subscription. Ensure that it's same as the subscription that contains the data factory that has the Azure SSIS IR. Azure Automation uses this account to authenticate to Azure Resource Manager and operate on your resources. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/).    
-2. Select **New** on the left menu, select **Monitoring + Management**, and select **Automation**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Log in to the [Azure portal](https://portal.azure.com/).    
+3. Select **New** on the left menu, select **Monitoring + Management**, and select **Automation**. 
 
     ![New -> Monitoring + Management -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. In the **Add Automation Account** window, take the following steps: 

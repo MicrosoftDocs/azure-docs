@@ -14,9 +14,9 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 01/31/2018
-ms.reviewer: dmalik;amagarwa;maboja
-ms.author: genemi
+ms.date: 02/05/2018
+ms.reviewer: genemi;amagarwa;maboja
+ms.author: dmalik
 ---
 # PowerShell for DNS Alias to Azure SQL Database
 

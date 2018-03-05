@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -27,6 +27,15 @@ If you’re interested in an Azure Stack integrated system, you should understan
 To deploy Azure Stack, you need to provide planning information to your solution provider before deployment starts to help the process go quickly and smoothly. The information required ranges across networking, security, and identity information with many important decisions that may require knowledge from many different areas and decision makers. Therefore, you might have to pull in people from multiple teams in your organization to ensure that you have all required information ready before deployment begins. It can help to talk to your hardware vendor while collecting this information, as they might have advice helpful to making your decisions.
 
 While researching and collecting the required information, you might need to make some pre-deployment configuration changes to your network environment. This could include reserving IP address spaces for the Azure Stack solution, configuring your routers, switches and firewalls to prepare for the connectivity to the new Azure Stack solution switches. Make sure to have the subject area expert lined up to help you with your planning.
+
+## Capacity planning considerations
+When evaluating an Azure Stack Solution for acquisition, hardware configuration choices must be made which have a direct impact on the overall capacity of their Azure Stack solution. These include the classic choices of CPU, memory density, storage configuration, and overall solution scale (e.g. number of servers). Unlike a traditional virtualization solution, the simple arithmetic of these components to determine usable capacity does not apply. The first reason is that Azure Stack is architected to host the infrastructure or management components within the solution itself. The second reason is that some of the solution’s capacity is reserved in support of resiliency; the updating of the solution’s software in a way that minimizes disruption of tenant workloads. 
+
+The [Azure Stack capacity planner spreadsheet](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) helps you make informed decisions with respect to planning capacity in two ways: either the by selecting a hardware offering and attempting to fit a combination of resources or by defining the workload that Azure Stack is intended to run to view the available hardware SKUs that can support it. Finally, the spreadsheet is intended as a guide to help in making decisions related to Azure Stack planning and configuration. 
+
+The spreadsheet is not intended to serve as a substitute for your own investigation and analysis.  Microsoft makes no representations or warranties, express or implied, with respect to the information provided within the spreadsheet.
+
+
 
 ## Management considerations
 Azure Stack is a sealed system, where the infrastructure is locked down both from a permissions and network perspective. Network access control lists (ACLs) are applied to block all unauthorized incoming traffic and all unnecessary communications between infrastructure components. This makes it difficult for unauthorized users to access the system.
@@ -42,7 +51,7 @@ You'll need to consider which identity provider you want to use for Azure Stack 
 
 Your identity provider choice has no bearing on tenant virtual machines, the identity system, and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
 
-You can learn more about choosing an identity provider in the [deployment decisions for Azure Stack integrated systems article](.\azure-stack-deployment-decisions.md).
+You can learn more about choosing an identity provider in the [Azure Stack integrated systems connection models article](.\azure-stack-connection-models.md).
 
 ### AD FS and Graph integration
 If you choose to deploy Azure Stack using AD FS as the identity provider, you must integrate the AD FS instance on Azure Stack with an existing AD FS instance through a federation trust. This allows identities in an existing Active Directory forest to authenticate with resources in Azure Stack.
@@ -50,18 +59,25 @@ If you choose to deploy Azure Stack using AD FS as the identity provider, you mu
 You can also integrate the Graph service in Azure Stack with the existing Active Directory. This enables you to manage Role-Based Access Control (RBAC) in Azure Stack. When access to a resource is delegated, the Graph component looks up the user account in the existing Active Directory forest using the LDAP protocol.
 
 The following diagram shows integrated AD FS and Graph traffic flow.
-![Diagram showing AD FS and Graph traffic flow](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagram showing AD FS and Graph traffic flow](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## Licensing model
+You must decide which licensing model you want to use. The available options depend on whether or not you deploy Azure Stack connected to the internet:
+- For a [connected deployment](azure-stack-connected-deployment.md), you can choose either pay-as-you-use or capacity-based licensing. Pay-as-you-use requires a connection to Azure to report usage, which is then billed through Azure commerce. 
+- Only capacity-based licensing is supported if you [deploy disconnected](azure-stack-disconnected-deployment.md) from the internet. 
 
-You must decide which licensing model you want to use. For a connected deployment, you can choose either pay-as-you-use or capacity-based licensing. Pay-as-you-use requires a connection to Azure to report usage, which is then billed through Azure commerce. Only capacity-based licensing is supported if you deploy disconnected from the internet. For more information about the licensing models, see [Microsoft Azure Stack packaging and pricing](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+For more information about the licensing models, see [Microsoft Azure Stack packaging and pricing](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## Naming decisions
 
-You’ll need to think about how you want to plan your Azure Stack namespace, especially the region name, and external domain name. The fully qualified domain name (FQDN) of your Azure Stack deployment for public-facing endpoints is the combination of these two names, &lt;*region*&gt;&lt;*external_FQDN*&gt;, for example, *east.cloud.fabrikam.com*. In this example, the Azure Stack portals would be available at the following URLs:
+You’ll need to think about how you want to plan your Azure Stack namespace, especially the region name and external domain name. The external fully qualified domain name (FQDN) of your Azure Stack deployment for public-facing endpoints is the combination of these two names: &lt;*region*&gt;.&lt;*fqdn*&gt;. For example, *east.cloud.fabrikam.com*. In this example, the Azure Stack portals would be available at the following URLs:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> The region name you choose for your Azure Stack deployment must be unique and will appear in the portal addresses. 
 
 The following table summarizes these domain naming decisions.
 
@@ -125,14 +141,14 @@ You can connect Azure Stack to Azure via [ExpressRoute](https://docs.microsoft.c
 
 The following diagram shows ExpressRoute for a single-tenant scenario (where "Customer's connection" is the ExpressRoute circuit).
 
-![Diagram showing single-tenant ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Diagram showing single-tenant ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 The following diagram shows ExpressRoute for a multi-tenant scenario.
 
-![Diagram showing multi-tenant ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Diagram showing multi-tenant ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## External monitoring
-To get a single view of all alerts from your Azure Stack deployment and devices, and to integrate alerts into existing IT service management workflows for ticketing, you can integrate Azure Stack with external datacenter monitoring solutions.
+To get a single view of all alerts from your Azure Stack deployment and devices, and to integrate alerts into existing IT service management workflows for ticketing, you can [integrate Azure Stack with external datacenter monitoring solutions](azure-stack-integrate-monitor.md).
 
 Included with the Azure Stack solution, the hardware lifecycle host is a computer outside Azure Stack that runs OEM vendor-provided management tools for hardware. You can use these tools or other solutions that directly integrate with existing monitoring solutions in your datacenter.
 
@@ -140,15 +156,15 @@ The following table summarizes the list of currently available options.
 
 | Area | External Monitoring Solution |
 | -- | -- |
-| Azure Stack software | - [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>- REST-based API calls | 
-| Physical servers (BMCs via IPMI) | - Operations Manager vendor management pack<br>- OEM hardware vendor-provided solution<br>- Hardware vendor Nagios plug-ins | OEM partner-supported monitoring solution (included) | 
-| Network devices (SNMP) | - Operations Manager network device discovery<br>- OEM hardware vendor-provided solution<br>- Nagios switch plug-in |
-| Tenant subscription health monitoring | - [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure Stack software | [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST-based API calls | 
+| Physical servers (BMCs via IPMI) | OEM hardware - Operations Manager vendor management pack<br>OEM hardware vendor-provided solution<br>Hardware vendor Nagios plug-ins | OEM partner-supported monitoring solution (included) | 
+| Network devices (SNMP) | Operations Manager network device discovery<br>OEM hardware vendor-provided solution<br>Nagios switch plug-in |
+| Tenant subscription health monitoring | [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Note the following requirements:
 - The solution you use must be agentless. You can't install third-party agents inside Azure Stack components. 
-- If you want to use System Center Operations Manager, this requires Operations Manager 2012 R2 or Operations Manager 2016.
+- If you want to use System Center Operations Manager, Operations Manager 2012 R2 or Operations Manager 2016 is required.
 
 ## Backup and disaster recovery
 
@@ -156,7 +172,7 @@ Planning for backup and disaster recovery involves planning for both the underly
 
 ### Protect infrastructure components
 
-Azure Stack backs up infrastructure components to a share that you specify.
+You can [back up Azure Stack](azure-stack-backup-back-up-azure-stack.md) infrastructure components to an SMB share that you specify:
 
 - You’ll need an external SMB file share on an existing Windows-based file server or a third-party device.
 - You should use this same share for the backup of network switches and the hardware lifecycle host. Your OEM hardware vendor will help provide guidance for backup and restore of these components as these are external to Azure Stack. You're responsible for running the backup workflows based on the OEM vendor’s recommendation.

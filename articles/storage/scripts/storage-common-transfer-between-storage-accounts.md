@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 1/3/2018
+ms.date: 02/01/2018
 ms.author: rogarana
 ---
 

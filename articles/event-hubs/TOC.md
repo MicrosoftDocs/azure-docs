@@ -3,7 +3,7 @@
 ## [Event Hubs features](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)

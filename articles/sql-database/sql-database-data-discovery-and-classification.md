@@ -18,11 +18,11 @@ ms.author: giladm
 
 ---
 # Azure SQL Database Data Discovery and Classification
-Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases.
-Discovering and classifying your utmost sensitive data (business/financial, healthcare, PII, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
+Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
+Discovering and classifying your most sensitive data (business, financial, healthcare, PII, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
+* Helping meet data privacy standards and regulatory compliance requirements, such as GDPR.
 * Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 * Controlling access to and hardening the security of databases containing highly sensitive data.
-* Helping meet data privacy standards and regulatory compliance requirements, such as GDPR.
 
 ## <a id="subheading-1"></a>Overview
 Data Discovery & Classification introduces a set of advanced services and new SQL capabilities, forming a new SQL Information Protection paradigm aimed at protecting the data, not just the database:
@@ -89,7 +89,9 @@ The classification includes two metadata attributes:
 
 ## <a id="subheading-3"></a>Auditing access to sensitive data
 
-[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classification (labels) of the actual data that was returned by the query.
+An important aspect of the information protection paradigm is the ability to monitor access to sensitive data.
+
+[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classifications (labels) of the actual data that was returned by the query.
 
 ![Navigation pane][11]
 

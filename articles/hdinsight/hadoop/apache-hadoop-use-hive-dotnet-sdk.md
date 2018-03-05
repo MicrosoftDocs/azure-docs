@@ -37,7 +37,7 @@ Before you begin this article, you must have the following items:
 
 * **Visual Studio 2013/2015/2017**.
 
-## Submit Hive queries using HDInsight .NET SDK
+## Run a Hive Query
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
 **To Submit jobs**
