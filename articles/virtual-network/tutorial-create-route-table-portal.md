@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/02/2018
+ms.date: 03/05/2018
 ms.author: jdial
 ms.custom: 
 ---
@@ -144,7 +144,7 @@ When Azure created the virtual machine, it also created a [network interface](vi
 
 Create two virtual machines in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the network virtual appliance in a later step.
 
-Complete steps 1-5 of [Create a network virtual appliance](#create-a-network-virtual-appliance). Use the same settings in steps 3 and 4, except for the following changes:
+Complete steps 1-6 of [Create a network virtual appliance](#create-a-network-virtual-appliance). Use the same settings in steps 3 and 5, except for the following changes:
 
 |Virtual machine   |Name      |Subnet      | Public IP address     |
 |---------         |--------- | -----------|---------              |
@@ -170,12 +170,12 @@ You can create the *myVmMgmt* virtual machine while Azure creates the *myVmWeb* 
     ```
 
     Though tracert is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
-7. You enabled IP forwarding within Azure for the virtual machine's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the virtual machine, the operating system, or an application running within the virtual machine, must also be able to forward network traffic. When you deploy a network virtual appliance in a production environment, the appliance typically filters, logs, or performs some other function before forwarding traffic. In this article however, the operating system simply forwards all traffic it receives. Enable IP forwarding within the operating system of the *myVmNva* by completing the following steps:
+7. You enabled IP forwarding within Azure for the virtual machine's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the virtual machine, the operating system, or an application running within the virtual machine, must also be able to forward network traffic. When you deploy a network virtual appliance in a production environment, the appliance typically filters, logs, or performs some other function before forwarding traffic. In this article however, the operating system simply forwards all traffic it receives. Enable IP forwarding within the operating system of the *myVmNva* by completing the following steps from the *myVmMgmt* virtual machine:
 
     Remote desktop to the *myVmNva* virtual machine with the following command from a command prompt:
 
     ``` 
-    mstsc /v:myVmNva
+    mstsc /v:myvmnva
     ```
     
     To enable IP forwarding within the operating system, enter the following command in PowerShell:
@@ -185,7 +185,7 @@ You can create the *myVmMgmt* virtual machine while Azure creates the *myVmWeb* 
     ```
     
     Restart the virtual machine, which will also disconnect the remote desktop session.
-8. While still connected to the *myVmMgmt* virtual machine, enable ICMP through the Windows firewall on the *myVmWeb* virtual machine with the following commands:
+8. While still connected to the *myVmMgmt* virtual machine, after the *myVmNva* virtual machine restarts, create a remote desktop session to the  *myVmWeb* virtual machine with the following command:
 
     ``` 
     mstsc /v:myVmWeb
@@ -216,8 +216,8 @@ You can create the *myVmMgmt* virtual machine while Azure creates the *myVmWeb* 
     ```
       
     You can see that the first hop is 10.0.2.4, which is the network virtual appliance's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmMgmt* virtual machine. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
-8.  Close the remote desktop session to the *myVmWeb* virtual machine.
-9. To test routing of network traffic to the *myVmWeb* virtual machine from the *myVmMgmt* virtual machine, enter the following command from a command prompt:
+10.  Close the remote desktop session to the *myVmWeb* virtual machine, which leaves you still connected to the *myVmMgmt* virtual machine.
+11. To test routing of network traffic to the *myVmWeb* virtual machine from the *myVmMgmt* virtual machine, enter the following command from a command prompt:
 
     ```
     tracert myvmweb
@@ -235,7 +235,7 @@ You can create the *myVmMgmt* virtual machine while Azure creates the *myVmWeb* 
     ```
 
     You can see that traffic is routed directly from the *myVmMgmt* virtual machine to the *myVmWeb* virtual machine. By default, Azure routes traffic directly between subnets.
-10. Close the remote desktop session to the *myVmMgmt* virtual machine.
+12. Close the remote desktop session to the *myVmMgmt* virtual machine.
 
 ## Troubleshoot routing
 
@@ -243,7 +243,7 @@ As you learned in previous steps, Azure applies default routes, that you can, op
 
 1. In the *Search* box at the top of the portal, begin typing *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 2. Under **NETWORK DIAGNOSTIC TOOLS**, select **Next hop**.
-3. For example, enter the information shown in the following picture to test traffic routing from the *myVmWeb* (10.0.0.4) virtual machine to the *myVmMgmt* (10.0.1.4) virtual machine and select **Next hop**:
+3. To test traffic routing from the *myVmWeb* (10.0.0.4) virtual machine to the *myVmMgmt* (10.0.1.4) virtual machine, select your subscription, enter the information shown in the following picture (your **Network interface** name is slightly different), and then select **Next hop**:
 
     ![Next hop](./media/tutorial-create-route-table-portal/next-hop.png)  
 
@@ -252,7 +252,7 @@ As you learned in previous steps, Azure applies default routes, that you can, op
 The effective routes for each network interface are a combination of Azure's default routes and any routes you define. To see all routes effective for a network interface in a virtual machine, complete the following steps:
 
 1. In the *Search* box at the top of the portal, begin typing *myVmWeb*. When **myVmWeb** appears in the search results, select it.
-2. Under **SETTINGS**, select **Networking**, and then select **myvmweb241** (the network interface Azure created for your virtual machine has a different number after **myvmweb**).
+2. Under **SETTINGS**, select **Networking**, and then select **myvmweb369** (the network interface Azure created for your virtual machine has a different number after **myvmweb**).
 3. Under **SUPPORT + TROUBLESHOOTING**, Select **Effective routes**, as shown in the following picture:
 
     ![Effective routes](./media/tutorial-create-route-table-portal/effective-routes.png) 

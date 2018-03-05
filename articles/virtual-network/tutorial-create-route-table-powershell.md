@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic:
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/02/2018
+ms.date: 03/05/2018
 ms.author: jdial
 ms.custom:
 ---
@@ -203,14 +203,14 @@ Create two virtual machines in the virtual network so you can validate that traf
 Create a virtual machine in the *Public* subnet with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVmWeb* in the *Public* subnet of the *myVirtualNetwork* virtual network. 
 
 ```azurepowershell-interactive
-$vmWeb = New-AzureRmVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Location "East US" `
-    -VirtualNetworkName "myVirtualNetwork" `
-    -SubnetName "Public" `
-    -ImageName "Win2016Datacenter" `
-    -Name "myVmWeb" `
-    -AsJob
+New-AzureRmVm `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "East US" `
+  -VirtualNetworkName "myVirtualNetwork" `
+  -SubnetName "Public" `
+  -ImageName "Win2016Datacenter" `
+  -Name "myVmWeb" `
+  -AsJob
 ```
 
 Azure assigned 10.0.0.4 as the private IP address of the virtual machine, because 10.0.1.4 is the first available IP address in the *Public* subnet of *myVirtualNetwork*.
@@ -218,13 +218,13 @@ Azure assigned 10.0.0.4 as the private IP address of the virtual machine, becaus
 Create a virtual machine in the *Private* subnet.
 
 ```azurepowershell-interactive
-$vmMgmt = New-AzureRmVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Location "East US" `
-    -VirtualNetworkName "myVirtualNetwork" `
-    -SubnetName "Private" `
-    -ImageName "Win2016Datacenter" `
-    -Name "myVmMgmt"
+New-AzureRmVm `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "East US" `
+  -VirtualNetworkName "myVirtualNetwork" `
+  -SubnetName "Private" `
+  -ImageName "Win2016Datacenter" `
+  -Name "myVmMgmt"
 ```
 
 The virtual machine takes a few minutes to create. Azure assigned 10.0.1.4 as the private IP address of the virtual machine, because 10.0.1.4 is the first available IP address in the *Private* subnet of *myVirtualNetwork*. 
@@ -264,7 +264,8 @@ You connect to a virtual machine's public IP address from the Internet. Use [Get
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
   -Name myVmMgmt `
-  -ResourceGroupName myResourceGroup | Select IpAddress
+  -ResourceGroupName myResourceGroup `
+  | Select IpAddress
 ```
 
 Use the following command to create a remote desktop session with the *myVmMgmt* virtual machine from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
@@ -273,23 +274,23 @@ Use the following command to create a remote desktop session with the *myVmMgmt*
 mstsc /v:<publicIpAddress>
 ```
 
-A Remote Desktop Protocol (.rdp) file is created, downloaded to your computer, and opened. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection. 
+A Remote Desktop Protocol (.rdp) file is created, downloaded to your computer, and opened. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), and then select **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection. 
 
 You enabled IP forwarding within Azure for the virtual machine's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the virtual machine, the operating system, or an application running within the virtual machine, must also be able to forward network traffic. When you deploy a network virtual appliance in a production environment, the appliance typically filters, logs, or performs some other function before forwarding traffic. In this article however, the operating system simply forwards all traffic it receives. Enable IP forwarding within the operating system of the *myVmNva*:
 
-Remote desktop to the *myVmNva* virtual machine with the following command from a command prompt:
+From a command prompt on the *myVmMgmt* virtual machine, remote desktop to the *myVmNva* virtual machine:
 
 ``` 
 mstsc /v:myVmNva
 ```
     
-To enable IP forwarding within the operating system of the *myVmNva* virtual machine, enter the following command in PowerShell:
+To enable IP forwarding within the operating system of the *myVmNva* virtual machine, enter the following command in PowerShell on the *myVmNva* virtual machine:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Restart the virtual machine, which will also disconnect the remote desktop session.
+Restart the *myVmNva* virtual machine, which will also disconnect the remote desktop session, leaving you within the remote desktop session you opened to the *myVmMgmt* virtual machine.
 
 After the *myVmNva* virtual machine restarts, use the following command to test routing for network traffic to the *myVmWeb* virtual machine from the *myVmMgmt* virtual machine.
 
@@ -316,9 +317,9 @@ Use the following command to remote desktop to the *myVmWeb* virtual machine fro
 mstsc /v:myVmWeb
 ```
 
-Use the following command, from a command prompt, to test routing for network traffic to the *myVmMgmt* virtual machine from the *myVmWeb* virtual machine.
+To test routing for network traffic to the *myVmMgmt* virtual machine from the *myVmWeb* virtual machine, enter the following command, from a command prompt:
 
-```bash
+```
 tracert myvmmgmt
 ```
 
@@ -353,10 +354,14 @@ $nw = New-AzureRmNetworkWatcher `
 Use [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) to determine how traffic is routed between two virtual machines. For example, the following command tests traffic routing from the *myVmWeb* (10.0.0.4) virtual machine to the *myVmMgmt* (10.0.1.4) virtual machine:
 
 ```azurepowershell-interactive
+$vmWeb = Get-AzureRmVM `
+  -Name myVmWeb `
+  -ResourceGroupName myResourceGroup
+
 Get-AzureRmNetworkWatcherNextHop `
   -DestinationIPAddress 10.0.1.4 `
-  -NetworkWatcherName NetworkWatcher_eastus `
-  -ResourceGroupName NetworkWatcherRG `
+  -NetworkWatcherName myNetworkWatcher_eastus `
+  -ResourceGroupName myResourceGroup `
   -SourceIPAddress 10.0.0.4 `
   -TargetVirtualMachineId $vmWeb.Id
 ```

@@ -43,7 +43,7 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### User-defined routes
+### Route tables
 #### [Azure portal](tutorial-create-route-table-portal.md)
 #### [Azure PowerShell](tutorial-create-route-table-powershell.md)
 #### [Azure CLI](tutorial-create-route-table-cli.md)
