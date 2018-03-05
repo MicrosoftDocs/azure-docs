@@ -4,7 +4,7 @@ description: Describe Geo AI Data Science VM and the components.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk; bradsev;
+author: gopitk
 manager: cgronlun
 
 
