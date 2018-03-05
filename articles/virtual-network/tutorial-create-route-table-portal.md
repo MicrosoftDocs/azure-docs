@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2018
@@ -91,8 +91,6 @@ Before you can associate a route table to a subnet, you have to create a virtual
 7. Complete steps 5 and 6 again, providing the following information:
     - **Name**: DMZ
     - **Address space**: *10.0.2.0/24*
-
-## Associate a route table to a subnet
 
 You can associate a route table to zero or more subnets. A subnet can have zero or one route table associated to it. Outbound traffic from a subnet is routed based upon Azure's default routes, and any custom routes you've added to a route table you associate to a subnet. Associate the *myRouteTablePublic* route table to the *Public* subnet:
 

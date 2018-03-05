@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
-ms.topic:
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2018
@@ -393,6 +393,8 @@ When no longer needed, use [Remove-AzureRmResourcegroup](/powershell/module/azur
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
+
+## Next steps
 
 In this article, you created a route table and associated it to a subnet. You created a network virtual appliance that routed traffic from a public subnet to a private subnet. While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next article to learn how to restrict network access to Azure PaaS resources.
 
