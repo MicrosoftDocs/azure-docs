@@ -220,6 +220,11 @@ CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 )
 AS
 
+IF @create-type IS NULL
+BEGIN
+    SET @create-type = 1;
+END;
+
 IF @create_type NOT IN (1,2,3)
 BEGIN
     THROW 151000,'Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).',1;
