@@ -67,8 +67,8 @@ All calls must be authenticated with a valid Azure Active Directory (OAuth 2) to
 - The token must have the correct audience set to `https://*.asazure.windows.net`.
 - The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
 
-    > [!NOTE]
-    > Currently, **server admin** role permissions are required. Additional roles may be added in the future
+    > [!IMPORTANT]
+    > Currently, **server admin** role permissions are required.
 
 ## POST /refreshes
 
