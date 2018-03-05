@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
 
 ---
@@ -65,6 +65,8 @@ All calls must be authenticated with a valid Azure Active Directory (OAuth 2) to
 
 - The token must be either a user token or an application service principal.
 - The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
+    > [!NOTE]
+    > Currently, **server admin** role permissions are required. Additional roles may be added in the future
 - The token must have the correct audience set to `https://*.asazure.windows.net`.
 
 ## POST /refreshes
