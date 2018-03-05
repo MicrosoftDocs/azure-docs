@@ -8,7 +8,7 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.technology: translator-speech
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 3/5/2018
 ms.author: v-jaswel
 
 ---
