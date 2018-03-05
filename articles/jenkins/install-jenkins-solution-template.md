@@ -29,7 +29,7 @@ Open the [marketplace image for Jenkins](https://azuremarketplace.microsoft.com/
    
 ![Azure portal dialog](./media/install-jenkins-solution-template/ap-create.png)
 
-In the **Configure basic settings** tab, fill in the following fields:
+In the **Basics** tab, fill in the following fields:
 
 ![Configure basic settings](./media/install-jenkins-solution-template/ap-basic.png)
 
