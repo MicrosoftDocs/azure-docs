@@ -51,7 +51,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * How large is the load of your application in terms of rps? Our current limit is 32k items/sec. Please contact Microsoft Support if your application has higher load then this.
 
 ### Java Agent cannot capture dependency data
-* Have you configured Java agent by following [Configure Java Agent](app-insights-java-agent) ?
+* Have you configured Java agent by following [Configure Java Agent](app-insights-java-agent.md) ?
 * Did you ensured that Java Agent jar and AI-Agent.xml file lie in the same folder?
 * Did you made sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Redis Cache dependency collection.
 * Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.

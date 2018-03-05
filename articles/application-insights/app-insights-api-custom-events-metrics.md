@@ -679,7 +679,7 @@ finally
 
 Remember that the server SDKs include a [dependency module](app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
 
-In Java, certain dependency calls can be automatically tracked using [Java Agent](app-insights-java-agent).
+In Java, certain dependency calls can be automatically tracked using [Java Agent](app-insights-java-agent.md).
 
 You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 
