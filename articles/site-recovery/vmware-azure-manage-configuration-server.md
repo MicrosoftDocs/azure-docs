@@ -5,7 +5,7 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
 ---
 
@@ -26,7 +26,7 @@ Modify settings for the VMware server to which the configuration server connects
 
     * To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, select **Edit**. Enter the new credentials, and then select **OK**.
 
-    ![Modify VMware](./media/site-recovery-vmware-to-azure-manage-configuration-server/modify-vmware-server.png)
+    ![Modify VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
 ## Modify credentials for Mobility Service installation
 
@@ -36,7 +36,7 @@ Modify the credentials used to automatically install Mobility Service on the VMw
 2. Start Site Recovery Configuration Manager from the desktop shortcut. Or, open [this link](https://configuration-server-name/IP:44315).
 3. Select **Manage virtual machine credentials**, and enter the new credentials. Then select **OK** to update the settings.
 
-    ![Modify Mobility Service credentials](./media/site-recovery-vmware-to-azure-manage-configuration-server/modify-mobility-credentials.png)
+    ![Modify Mobility Service credentials](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
 ## Modify proxy settings
 
@@ -48,7 +48,7 @@ Modify the proxy settings used by the configuration server machine for internet 
 
 ## Add a network adapter
 
-The Open Virtualization Format (OVF) template deploys the configuration server VM with a single network adapter. You can [add an additional adapter to the VM)](how-to-deploy-configuration-server.md#add-an-additional-adapter), but you need to add it before you register the configuration server in the vault.
+The Open Virtualization Format (OVF) template deploys the configuration server VM with a single network adapter. You can [add an additional adapter to the VM)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you need to add it before you register the configuration server in the vault.
 
 To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then reregister the server in the vault.
 
@@ -93,12 +93,12 @@ Upgrade the server as follows:
 ## Delete or unregister a configuration server
 
 1. Disable [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
-2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all replication policies from the configuration server.
-3. [Delete](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) all vCenter servers/vSphere hosts that are associated with the configuration server.
+2. [Disassociate](vmware-azure-set-up-replication.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#delete-a-replication-policy) all replication policies from the configuration server.
+3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-in-azure-site-recovery) all vCenter servers/vSphere hosts that are associated with the configuration server.
 4. In the vault, open **Site Recovery Infrastructure** > **Configuration Servers**.
 5. Select the configuration server that you want to remove. Then, on the **Details** page, select **Delete**.
 
-    ![Delete configuration server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.png)
+    ![Delete configuration server](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
    
 
 ### Delete with PowerShell
@@ -151,4 +151,4 @@ For configuration server deployments before May 2016, certificate expiry was set
 
 ## Next steps
 
-Review the tutorials for setting up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) to Azure.
+Review the tutorials for setting up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.

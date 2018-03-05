@@ -1,29 +1,24 @@
 ---
-title: 'Set up the source environment (VMware to Azure) | Microsoft Docs'
-description: This article describes how to set up your on-premises environment to start replicating VMware virtual machines to Azure.
+title: 'Set up the source environment for VMware to Azure replication with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up your on-premises environment to replicate VMware VMs to Azure with Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
 ---
 
-# Set up the source environment (VMware to Azure)
-> [!div class="op_single_selector"]
-> * [VMware to Azure](./site-recovery-set-up-vmware-to-azure.md)
-> * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)
+# Set up the source environment for VMware to Azure replication
 
-This article describes how to set up your source, on-premises environment, to replicate virtual machines running on VMware to Azure. It includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs. 
+This article describes how to set up your source on-premises environment, to replicate VMware VMs to Azure. It includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs. 
 
 ## Prerequisites
 
 The article assumes that you have already:
 - [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](http://portal.azure.com).
-- [Set up on-premises VMware](tutorial-prepare-on-premises-vmware.md), including a dedicated account for automatic discovery.
+- [Set up on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md), including a dedicated account for automatic discovery.
 
 
 
@@ -41,9 +36,10 @@ The article assumes that you have already:
 
 You set up the configuration server as an on-premises VMware VM, use an Open Virtualization Format (OVF) template. [Learn more](concepts-vmware-to-azure-architecture.md) about the components that will be installed on the VMware VM. 
 
-1. Learn about the [prerequisites](how-to-deploy-configuration-server.md#prerequisites) for configuration server deployment. [Check capacity numbers](how-to-deploy-configuration-server.md#capacity-planning) for deployment.
-2. [Download](how-to-deploy-configuration-server.md#download-the-template) and [import](how-to-deploy-configuration-server.md#import-the-template-in-vmware) the OVF template (how-to-deploy-configuration-server.md) to set up an on-premises VMware VM that runs the configuration server.
-3. Turn on the VMware VM, and [register it](how-to-deploy-configuration-server.md#register-the-configuration-server) in the Recovery Services vault.
+1. Learn about the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequisites) for configuration server deployment.
+2. [Check capacity numbers](vmware-azure-deploy-configuration-server.md#capacity-planning) for deployment.
+3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) and [import](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) the OVF template (how-to-deploy-configuration-server.md) to set up an on-premises VMware VM that runs the configuration server.
+4. Turn on the VMware VM, and [register it](vmware-azure-deploy-configuration-server.md#register-the-configuration-server) in the Recovery Services vault.
 
 
 ## Add the VMware account for automatic discovery
@@ -64,4 +60,4 @@ Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSph
 
 
 ## Next steps
-[Set up your target environment](./site-recovery-prepare-target-vmware-to-azure.md) in Azure.
+[Set up your target environment](./vmware-azure-set-up-target.md) in Azure.

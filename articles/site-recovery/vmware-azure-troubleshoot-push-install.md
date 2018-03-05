@@ -7,13 +7,13 @@ manager: gauravd
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
 
 ---
 # Troubleshoot Mobility Service push installation issues
 
-This article describes common problems you might face when you try to install Azure Site Recovery Mobility Service on the source server to enable protection.
+This article describes how to troubleshoot common errors you might face when you try to install Azure Site Recovery Mobility Service on the source server to enable protection.
 
 ## Error 78007 - The requested operation could not be completed
 This error can be thrown by the service for several reasons. Choose the corresponding provider error to troubleshoot further.
@@ -39,20 +39,20 @@ This error can be thrown by the service for several reasons. Choose the correspo
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95107 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0858**. <br> Either the credentials provided to install Mobility Service are incorrect or the user account has insufficient privileges. | User credentials provided to install Mobility Service on the source machine are incorrect. | Ensure that the user credentials provided for the source machine on the configuration server are correct. <br> To add or edit user credentials, go to the configuration server, and select **Cspsconfigtool** > **Manage account**. </br> In addition, check the following [prerequisites](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.
+95107 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0858**. <br> Either the credentials provided to install Mobility Service are incorrect or the user account has insufficient privileges. | User credentials provided to install Mobility Service on the source machine are incorrect. | Ensure that the user credentials provided for the source machine on the configuration server are correct. <br> To add or edit user credentials, go to the configuration server, and select **Cspsconfigtool** > **Manage account**. </br> In addition, check the following [prerequisites](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.
 
 
 ## Error 95117 - Protection could not be enabled (EP0865)
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95117 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0865**. <br> Either the source machine isn't running or there are network connectivity problems between the process server and the source machine. | Network connectivity problems between the process server and the source server. | Check connectivity between the process server and the source server. </br> In addition, check the following [prerequisites](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.|
+95117 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0865**. <br> Either the source machine isn't running or there are network connectivity problems between the process server and the source machine. | Network connectivity problems between the process server and the source server. | Check connectivity between the process server and the source server. </br> In addition, check the following [prerequisites](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.|
 
 ## Error 95103 - Protection could not be enabled (EP0854)
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95103 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0854**. <br> Either Windows Management Instrumentation (WMI) isn't allowed on the source machine or there are network connectivity problems between the process server and the source machine.| WMI is blocked in Windows Firewall. | Allow WMI in Windows Firewall. Under **Windows Firewall** > **Allow an app or feature through Firewall**, select **WMI for all profiles**. </br> In addition, check the following [prerequisites](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.|
+95103 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0854**. <br> Either Windows Management Instrumentation (WMI) isn't allowed on the source machine or there are network connectivity problems between the process server and the source machine.| WMI is blocked in Windows Firewall. | Allow WMI in Windows Firewall. Under **Windows Firewall** > **Allow an app or feature through Firewall**, select **WMI for all profiles**. </br> In addition, check the following [prerequisites](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.|
 
 ## Error 95213 - Protection could not be enabled (EP0874)
 
@@ -93,4 +93,4 @@ This error can be thrown by the service for several reasons. Choose the correspo
 
 ## Next steps
 
-[Learn how](tutorial-vmware-to-azure.md) to set up disaster recovery for VMware VMs.
+[Learn how](vmware-azure-tutorial.md) to set up disaster recovery for VMware VMs.

@@ -6,13 +6,13 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/25/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
 ---
 
 # Deploy a configuration server
 
-You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server when you're replicating VMware VMs to Azure. [Follow this article](site-recovery-set-up-physical-to-azure.md) if you need to set up a configuration server for physical server replication.
+You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server when you're replicating VMware VMs to Azure. [Follow this article](physical-azure-set-up-source.md) if you need to set up a configuration server for physical server replication.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Site Recovery provides a downloadable template to set up the configuration serve
 1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the Deploy OVF Template wizard.
 
-     ![OVF template](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
+     ![OVF template](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
 
 3. In **Select source**, enter the location of the downloaded OVF.
 4. In **Review details**, select **Next**.
@@ -114,4 +114,4 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Next steps
 
-Set up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) to Azure.
+Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.

@@ -1,29 +1,20 @@
 ---
-title: Exclude disks from protection by using Azure Site Recovery | Microsoft Docs
+title: Exclude disks from protection using Azure Site Recovery | Microsoft Docs
 description: Describes why and how to exclude VM disks from replication for VMware to Azure.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor:
-
-ms.assetid:
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 12/12/2017
+ms.topic: article
+ms.date: 03/05/2018
 ms.author: nisoneji
 
 ---
 # Exclude disks from replication for VMware to Azure scenario
-This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. 
 
-## Supported scenarios
-**Feature** | **VMware to Azure** | **Hyper-V to Azure** | **Azure to Azure**| **Hyper-V to Hyper-V** 
---|--|--|--|--
-Exclude disk | Yes | Yes | No | No
+This article describes how to exclude disks when replicating VMware VMs to Azure. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. If you need information about excluding disks for Hyper-V, read [this article](hyper-v-exclude-disk.md)
+
 
 ## Prerequisites
 
@@ -50,9 +41,9 @@ Similarly, you can use the following steps to optimize a disk that has both the 
 
 ## How to exclude disks from replication?
 
-Follow the [Enable replication](site-recovery-vmware-to-azure.md) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
+Follow the [Enable replication](vmware-azure-enable-replication.md) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
 
-![Exclude disks from replication and enable replication for VMware to Azure failback](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
+![Exclude disks from replication and enable replication for VMware to Azure failback](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)
 
 
 >[!NOTE]
@@ -190,7 +181,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Here are the paging file settings on the source virtual machine:
 
-![Paging file settings on source virtual machine](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
+![Paging file settings on source virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-d-drive-source-vm.png)
 
 
 After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
@@ -206,7 +197,7 @@ Because Disk1 (D:) was excluded, D: is the first drive letter from the available
 
 Here are the paging file settings on the Azure virtual machine:
 
-![Paging file settings on Azure virtual machine](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
+![Paging file settings on Azure virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-azurevm-after-failover.png)
 
 ### Case 2: The paging file is configured on another drive (other than D: drive)
 
@@ -221,7 +212,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Here are the paging file settings on the on-premises virtual machine:
 
-![Paging file settings on the on-premises virtual machine](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
+![Paging file settings on the on-premises virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-g-drive-source-vm.png)
 
 After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
 
@@ -236,7 +227,7 @@ Because D: is the first drive letter from available the list, Azure assigns D: t
 
 Here are the paging file settings on the Azure virtual machine:
 
-![Paging file settings on Azure virtual machine](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
+![Paging file settings on Azure virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-azurevm-after-failover-2.png)
 
 ## Next steps
 After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failover.
