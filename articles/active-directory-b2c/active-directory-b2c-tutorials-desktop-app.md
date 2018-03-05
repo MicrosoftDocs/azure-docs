@@ -78,7 +78,7 @@ To sign up users to access then sign in to the desktop app, create a **sign-up o
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiUpIn** in the sample code. | 
+    | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **B2C_1_**. You use the full policy name **B2C_1_SiUpIn** in the sample code. | 
     | **Identity provider** | Email signup | The identity provider used to uniquely identify the user. |
     | **Sign up attributes** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
     | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
@@ -95,7 +95,7 @@ To allow users to reset their user profile information on their own, create a **
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiPe** in the sample code. | 
+    | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **B2C_1_**. You use the full policy name **B2C_1_SiPe** in the sample code. | 
     | **Identity provider** | Local Account SignIn | The identity provider used to uniquely identify the user. |
     | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
     | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
@@ -112,7 +112,7 @@ To enable password reset on your application, you need to create a **password re
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SSPR | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SSPR** in the sample code. | 
+    | **Name** | SSPR | Enter a **Name** for the policy. The policy name is prefixed with **B2C_1_**. You use the full policy name **B2C_1_SSPR** in the sample code. | 
     | **Identity provider** | Reset password using email address | This is the identity provider used to uniquely identify the user. |
     | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful password reset. |
 
@@ -143,10 +143,10 @@ To change the app settings:
     private static string ClientId = "The Application ID for your desktop app registered in your tenant";
     ```
 
-3. Update the **PolicySignUpSignIn** variable with the *sign-up or sign-in policy* name you created in a previous step. Remember to include the *b2c_1_* prefix.
+3. Update the **PolicySignUpSignIn** variable with the *sign-up or sign-in policy* name you created in a previous step. Remember to include the *B2C_1_* prefix.
 
 ```C#
-public static string PolicySignUpSignIn = "b2c_1_SiUpIn";
+public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
 ```
 
 ## Run the sample desktop application
@@ -157,7 +157,7 @@ The sample app supports sign up, sign in, editing a profile, and password reset.
 
 ### Sign up using an email address
 
-1. Click the **Sign In** button to sign up as a user of the desktop app. This uses the **b2c_1_SiUpIn** policy you defined in a previous step.
+1. Click the **Sign In** button to sign up as a user of the desktop app. This uses the **B2C_1_SiUpIn** policy you defined in a previous step.
 
 2. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link. 
 

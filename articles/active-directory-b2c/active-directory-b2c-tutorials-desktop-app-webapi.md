@@ -148,7 +148,7 @@ Run the Node.js web API:
 Run the desktop app:
 
 1. Press **F5** to run the desktop app.
-2. Sign in using the email address and password used in the [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
+2. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
 3. Click the **Call API** button. 
 
 The desktop app makes a request to the web API to and gets a response with the logged-in user's display name. You're protected desktop app is calling the protected web API in your Azure AD B2C tenant.

@@ -107,7 +107,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 Your **My Sample Web App** is registered to call the protected **My Sample Web API**. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the web app. The web app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
-## Update web API code
+## Update code
 
 Now that the web API is registered and you have scopes defined, you need to configure the web API code to use your Azure AD B2C tenant. In this tutorial, you configure a sample web API. 
 
@@ -160,7 +160,7 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 4. Update the policy setting with the name generated when you created your sign up and sign in policy.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configure the scopes setting to match what you created in the portal.
