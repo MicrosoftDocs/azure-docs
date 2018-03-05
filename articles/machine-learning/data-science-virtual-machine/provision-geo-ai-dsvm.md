@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: gokuma; bradsev;
+ms.author: gokuma
 
 ---
 
@@ -72,7 +72,7 @@ Here is the procedure to create an instance of the Geo AI Data Science VM:
 ​Once your VM is created, you are ready to start using the tools that are installed and pre-configured on it. There are start menu tiles and desktop icons for many of the tools. You can remote desktop into it using the Admin account credentials that you configured in the preceding **Basics** section. 
 
 ​
-#### Using ArcGIS Pro installed in the VM
+## Using ArcGIS Pro installed in the VM
 
 The Geo-DSVM already has ArcGIS Pro desktop pre-installed and the environment pre-configured to work with all the tools in the DSVM. When you start ArcGIS it prompts you for a login to your ArcGIS account. If you already have an ArcGIS account and have licenses for the software, you can use your existing credentials.  
 
