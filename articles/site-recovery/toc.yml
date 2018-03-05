@@ -86,7 +86,7 @@
     - name: Disaster recovery for workloads
       href: site-recovery-workload.md
     - name: Migration to Azure
-      href: site-recovery-migrate-to-azure.md
+      href: migrate-overview.md
   - name: Role-based access permissions
     href: site-recovery-role-based-linked-access-control.md
   - name: Azure Traffic Manager with Azure Site Recovery
@@ -150,7 +150,7 @@
       - name: Reprotect from an Azure secondary region to primary
         href: azure-to-azure-how-to-reprotect.md
       - name: Reprotect from Azure to on-premises
-        href: vmware-azure-reprotection.md
+        href: vmware-azure-reprotect.md
     - name: Fail back from Azure
       items:
       - name: Fail back from Azure to VMware
@@ -181,7 +181,7 @@
       - name: Analyze the cost estimation report
         href: site-recovery-vmware-deployment-planner-cost-estimation.md
     - name: Scale out process servers for VMware replication
-      href: vmware-azure-manage-set-up-process-server-scale.md
+      href: vmware-azure-set-up-process-server-scale.md
     - name: Deployment Planner tool for Hyper-V replication to Azure
       href:
       items:
@@ -287,7 +287,7 @@
     - name: Troubleshoot VMware to Azure replication
       href: vmware-azure-troubleshoot-replication.md
     - name: Troubleshoot the Mobility service in VMware and physical server replication
-      href: vmware-azure-mobility-troubleshoot-push-install.md
+      href: vmware-azure-troubleshoot-push-install.md
     - name: Troubleshoot failover to Azure
       href: site-recovery-failover-to-azure-troubleshoot.md
     - name: Troubleshoot reprotection and failback of VMware VMs from Azure
