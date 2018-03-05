@@ -14,9 +14,9 @@ ms.author: carlrab
 manager: Craig.Guyer
 
 ---
-# Create an Azure SQL Database Managed Instance in the Azure portal
+# Create an Azure SQL Database Managed Instance (preview) in the Azure portal
 
-This tutorial demonstrates how to create an Azure SQL Database Managed Instance using the Azure portal in a dedicated subnet of a virtual network (VNet). It then shows you how to connect to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNet and then restore a backup of a database stored in Azure blob storage into the Managed Instance.
+This tutorial demonstrates how to create an Azure SQL Database Managed Instance (preview) using the Azure portal in a dedicated subnet of a virtual network (VNet). It then shows you how to connect to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNet and then restore a backup of a database stored in Azure blob storage into the Managed Instance.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
