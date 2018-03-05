@@ -229,7 +229,7 @@ Upgrade the server as follows:
 > [!WARNING]
 > Ensure the following before you start decommissioning your Configuration Server.
 > 1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all virtual machines under this Configuration Server.
-> 2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-configuration-server-from-a-replication-policy) and [Delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all Replication policies from the Configuration Server.
+> 2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [Delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all Replication policies from the Configuration Server.
 > 3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenters servers/vSphere hosts that are associated to the Configuration Server.
 
 

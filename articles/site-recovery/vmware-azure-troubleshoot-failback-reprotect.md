@@ -58,8 +58,8 @@ To reprotect a failed over VM, the Azure VM must be running. This is so that the
 ### Error code 8061
 
 **The datastore is not accessible from ESXi host.**
-
-Check the [master target prerequisites](vmware-azure-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) and the [supported datastores](vmware-azure-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) for failback.
+ 
+Check the [master target prerequisites and supported data stores](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) for failback.
 
 
 ## Troubleshoot failback errors
