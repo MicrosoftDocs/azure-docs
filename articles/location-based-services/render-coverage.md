@@ -64,7 +64,6 @@ The following table provides coverage information for Azure LBS Render of Rester
 |Brunei|✓ |
 |Guam|✓ |
 |Hong Kong|✓ |
-|India|Ø |
 |Indonesia|✓ |
 |Macau|✓ |
 |Malaysia|✓ |
