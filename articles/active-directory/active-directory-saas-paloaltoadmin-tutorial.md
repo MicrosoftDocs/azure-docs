@@ -75,7 +75,7 @@ To configure the integration of Azure AD with Palo Alto Networks - Admin UI, add
 
 In this section, you configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI, based on a test user called "Britta Simon."
 
-For single sign-on to work, Azure AD needs to identify the Palo Alto Networks - Admin UI user and its counterpart in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Palo Alto Networks - Admin UI must be established.
+For single sign-on to work, Azure AD needs to identify the Palo Alto Networks - Admin UI user and its counterpart in Azure AD. In other words, a link relationship between an Azure AD user and the same user in Palo Alto Networks - Admin UI must be established.
 
 To establish the link relationship, assign as the Palo Alto Networks - Admin UI *Username* the value of the *user name* in Azure AD.
 
