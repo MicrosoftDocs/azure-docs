@@ -93,7 +93,7 @@ Upgrade the server as follows:
 ## Delete or unregister a configuration server
 
 1. Disable [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
-2. [Disassociate](vmware-azure-set-up-replication.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#delete-a-replication-policy) all replication policies from the configuration server.
+2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.
 3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenter servers/vSphere hosts that are associated with the configuration server.
 4. In the vault, open **Site Recovery Infrastructure** > **Configuration Servers**.
 5. Select the configuration server that you want to remove. Then, on the **Details** page, select **Delete**.
