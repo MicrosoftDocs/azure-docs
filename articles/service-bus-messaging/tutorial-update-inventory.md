@@ -97,18 +97,6 @@ Create a subscription to the topic:
 az servicebus entity create --name <subscription_name> -location eastus
 ```
 
-## Create a console application and add Service Bus NuGet package
-
-Use .NET Core.
-
-## Write code to send
-
-Link to download sample code from GitHub.
-
-## Write code to receive
-
-Link to download sample code from GitHub.
-
 ## Clean up resources
 
 Run the following command to remove the resource group, namespace, and all related resources:
