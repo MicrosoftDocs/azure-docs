@@ -14,7 +14,11 @@
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
 ## [SAP HANA on Azure operations guide](hana-vm-operations.md)
-## [SAP HANA High Availability in Azure VMs](sap-hana-high-availability.md)
+## SAP HANA Availability in Azure Virtual Machines
+### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
+### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
+### [SAP HANA on Azure Availability across Azure regions](sap-hana-availability-across-regions.md)
+## [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
 ## [SAP HANA backup overview](sap-hana-backup-guide.md)
 ## [SAP HANA file level backup](sap-hana-backup-file-level.md)
 ## [SAP HANA storage snapshot backups](sap-hana-backup-storage-snapshots.md)
