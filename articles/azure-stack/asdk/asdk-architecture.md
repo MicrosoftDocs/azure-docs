@@ -1,6 +1,6 @@
 ---
-title: Generate Azure Stack Public Key Infrastructure certificates for Azure Stack integrated systems deployment | Microsoft Docs
-description: Describes the Azure Stack PKI certificate deployment processfor Azure Stack integrated systems.
+title: Azure Stack Development Kit Architecture | Microsoft Docs
+description: Describes the Azure Stack Development Kit (ASDK) architecture.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -13,21 +13,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 
 ---
 # Microsoft Azure Stack Development Kit architecture
-The Azure Stack Development Kit is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
+The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
 
 ## Logical architecture diagram
-The following diagram illustrates the logical architecture of the Azure Stack development kit and its components.
+The following diagram illustrates the logical architecture of the ASDK and its components.
 
 ![ASDK architecture](media/asdk-architecture/image1.png)
 
 ## Virtual machine roles
-The Azure Stack development kit offers services using the following VMs on the host:
+The ASDK offers services using the following VMs hosted on the development kit host computer:
 
 | Name | Description |
 | ----- | ----- |
@@ -47,4 +47,4 @@ The Azure Stack development kit offers services using the following VMs on the h
 
 
 ## Next steps
-[Learn about key ASDK features and concepts](asdk-features-concepts.md)
+[Learn about basic ASDK administration tasks](asdk-admin-basics.md)
