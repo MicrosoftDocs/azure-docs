@@ -24,12 +24,12 @@ SQL Database offers three types of databases:
 
 - A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
 - A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of [compute and storage resources for different workloads](sql-database-service-tiers.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
-- An [instance of a SQL server](sql-database-managed-instance.md) created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of compute and storage resources for all databases on that server instance. A managed instance contains both system and user databases.   
+- An [instance of a SQL server](sql-database-managed-instance.md) created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of compute and storage resources for all databases on that server instance. A managed instance contains both system and user databases. Managed Instance is designed to enable database lift-and-shift to a fully-managed PaaS, without re-designing the application. Managed Instance provides high compatibility with the on-premises SQL Server programming model and supports the large majority of SQL Server features and accompanying tools and services.  
 
 Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
 
 > [!IMPORTANT]
-> SQL Database Managed Instance, currently in public preview, offers a single general-purpose service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to SQL Database Managed Instance.
+> SQL Database Managed Instance, currently in public preview, offers a single General Purpose service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to Managed Instance.
 
 ## What is an Azure SQL logical server?
 
