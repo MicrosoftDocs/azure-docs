@@ -1,12 +1,12 @@
 ---
 title: Introduction to the Geo AI Data Science VM - Azure | Microsoft Docs
 description: Describe Geo AI Data Science VM and the components.
-keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
+keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: gopitk; bradsev;
 manager: cgronlun
-editor: bradsev
+
 
 ms.assetid: 
 ms.service: machine-learning
@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
-ms.author: gokuma
+ms.date: 03/05/2018
+ms.author: gokuma; bradsev;
 
 ---
 
@@ -48,4 +48,3 @@ Provision a Geo AI Data Science VM and get started using it with guidance from t
 
 * [Provision a Geo AI Data Science VM](provision-geo-ai-dsvm.md)
 * [Use the Geo AI Data Science VM](use-geo-ai-dsvm.md)
-* [Samples](dsvm-samples-and-walkthroughs.md)

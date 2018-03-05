@@ -7,6 +7,8 @@
     href: overview.md
   - name: What is the Deep Learning VM?
     href: deep-learning-dsvm-overview.md
+  - name: What is the Geo AI Data Science VM?
+    href: geo-ai-dsvm-overview.md
 - name: Get started
   items:
   - name: Create a Windows Data Science VM
@@ -16,7 +18,9 @@
   - name: Create a CentOS Data Science VM
     href: linux-dsvm-intro.md
   - name: Create a Deep Learning VM
-    href: provision-deep-learning-dsvm.md  
+    href: provision-deep-learning-dsvm.md
+  - name: Create a Geo AI Data Science VM
+    href: provision-geo-ai-dsvm.md 
 - name: How to
   items:
   - name: Use a Windows Data Science VM
@@ -25,6 +29,8 @@
     href: linux-dsvm-walkthrough.md
   - name: Use a Deep Learning VM
     href: use-deep-learning-dsvm.md
+  - name: Use a Geo AI Data Science VM
+    href: use-geo-ai-dsvm.md
 - name: Reference
   expanded: true
   items:
