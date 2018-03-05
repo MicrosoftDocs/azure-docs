@@ -1,5 +1,5 @@
 ---
-title: Add an Azure Stack marketplace item | Microsoft Docs
+title: In this tutorial, you add an Azure Stack marketplace item | Microsoft Docs
 description: Describes how to add an Azure-based Windows Server virtual machine image to the Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
@@ -14,14 +14,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/09/2018
+ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Add an Azure Stack marketplace item 
+# Tutorial: add an Azure Stack marketplace item 
 
-By default, no Virtual Machine (VM) images are available in the Azure Stack Marketplace. An Azure Stack operator must add an image to the Marketplace for users to access. You can add the Windows Server 2016 VM image to the Azure Stack Marketplace by following this tutorial.
+By default, no Virtual Machine (VM) images are available in the Azure Stack Marketplace. An Azure Stack operator must add an image to the marketplace for users to access. You can add the Windows Server 2016 VM image to the Azure Stack Marketplace by following this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -30,6 +30,8 @@ In this tutorial, you learn how to:
 > * Verify the VM image is available 
 > * Test the VM image
 
+> [!NOTE]
+> If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 

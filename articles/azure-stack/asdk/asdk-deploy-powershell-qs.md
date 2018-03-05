@@ -13,19 +13,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom:
-ms.date: 02/16/2018
+ms.custom: mvc
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
-# Quickstart: Deploy the ASDK - PowerShell
-In this quickstart you will deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
+# Quickstart: deploy the ASDK - PowerShell
+In this quickstart, you deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
 
-The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you'll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
+The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
 
 ## Prerequisites 
-Prepare the development kit host computer. Plan your hardware, software, and network. The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
+Prepare the development kit host computer. Plan your hardware, software, and network. The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS). Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
 
 Before you deploy the ASDK, make sure your planned development kit host computer's hardware, operating system, account, and network configurations meet the minimum requirements for installing the ASDK.
 
@@ -35,16 +35,16 @@ Before you deploy the ASDK, make sure your planned development kit host computer
 > You can use the [Azure Stack deployment requirements check tool](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) after installing the operating system to confirm that your hardware meets all requirements.
 
 ## Download and extract the deployment package
-After ensuring that your development kit host computer meets the basic requirements for installing the ASDK, the next step is to download and extract the the ASDK deployment package. The deployment package includes the Cloudbuilder.vhdx file which is a virtual hard drive that includes a bootable operating system and the Azure Stack installation files.
+After ensuring that your development kit host computer meets the basic requirements for installing the ASDK, the next step is to download and extract the ASDK deployment package. The deployment package includes the Cloudbuilder.vhdx file, which is a virtual hard drive that includes a bootable operating system and the Azure Stack installation files.
 
-You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+You can download the deployment package to the development kit host or to another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
 
 **[Download and extract the Azure Stack Development Kit (ASDK)](asdk-download.md)**
 
 ## Prepare the development kit host
 Before you can install the ASDK on the host computer, the environment must be prepared and the system configured to boot from VHD. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack installation files).
 
-Use PowerShell to configure the ASDK host computer to boot from CloudBuilder.vhdx. These commands will configure your ASDK host computer to boot from the downloaded and extracted Azure Stack virtual harddisk (CloudBuilder.vhdx). After completing these steps, restart the ASDK host computer.
+Use PowerShell to configure the ASDK host computer to boot from CloudBuilder.vhdx. These commands configure your ASDK host computer to boot from the downloaded and extracted Azure Stack virtual harddisk (CloudBuilder.vhdx). After completing these steps, restart the ASDK host computer.
 
 To configure the ASDK host computer to boot from CloudBuilder.vhdx:
 
@@ -56,10 +56,10 @@ To configure the ASDK host computer to boot from CloudBuilder.vhdx:
   6. Run `bcdedit /set {CLSID} detecthal on` 
   7. Run `bcdedit /default {CLSID}`
   8. To verify boot settings, run `bcdedit`. 
-  9. Ensure that the CloudBuilder.vhdx file has been moved to the root of the C:\ drive (C:\CloudBuilder.vhdx) and restart the development kit host computer. When the ASDK host computer is restarted it should boot from the CloudBuilder.vhdx virtual machine hard drive to begin ASDK deployment. 
+  9. Ensure that the CloudBuilder.vhdx file has been moved to the root of the C:\ drive (C:\CloudBuilder.vhdx) and restart the development kit host computer. When the ASDK host computer is restarted, it should boot from the CloudBuilder.vhdx virtual machine hard drive to begin ASDK deployment. 
 
 > [!IMPORTANT]
-> Ensure that you have direct physical or KVM access to the development kit host computer before restarting it. When the VM first starts, it will prompt you to complete Windows Server Setup. Provide the same administrator credentials you used to log into the development kit host computer. 
+> Ensure that you have direct physical or KVM access to the development kit host computer before restarting it. When the VM first starts, it prompts you to complete Windows Server Setup. Provide the same administrator credentials you used to log into the development kit host computer. 
 
 ### Prepare the development kit host using PowerShell 
 After the development kit host computer successfully boots into the CloudBuilder.vhdx image, log in with the same local administrator credentials you used to log into the development kit host computer (and that you provided as part of finalizing Windows Server Setup when the host computer booted from VHD). 
@@ -75,7 +75,7 @@ Open an elevated PowerShell console and run the commands in this section to depl
 You can deploy Azure Stack with Azure AD or Windows Server AD FS as the identity provider. Azure Stack, resource providers, and other applications work the same way with both.
 
 > [!TIP]
-> If you don't supply any setup parameters (see InstallAzureStackPOC.ps1 optional parameters and examples below), you'll be prompted for the required parameters.
+> If you don't supply any setup parameters (see InstallAzureStackPOC.ps1 optional parameters and examples below), you are prompted for the required parameters.
 
 ### Deploy Azure Stack using Azure AD 
 To deploy Azure Stack **using Azure AD as the identity provider**, you must have internet connectivity either directly or through a transparent proxy. 
@@ -101,7 +101,7 @@ To deploy the development kit **using AD FS as the identity provider**, run the 
 
 In AD FS deployments, the default stamp Directory Service is used as the identity provider. The default account to sign in with is azurestackadmin@azurestack.local, and the password will be set to what you provided as part of the PowerShell setup commands.
 
-The deployment process can take a few hours, during which time the system automatically reboots once. When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**. If the deployment fails, you can try running the script again using the -rerun parameter. Or, you can [redeploy ASDK](.\azure-stack-redeploy.md) from scratch.
+The deployment process can take a few hours, during which time the system automatically reboots once. When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**. If the deployment fails, you can try running the script again using the -rerun parameter. Or, you can [redeploy ASDK](.\asdk-redeploy-qs.md) from scratch.
 
 > [!IMPORTANT]
 > If you want to monitor the deployment progress after the ASDK host reboots, you must sign in as AzureStack\AzureStackAdmin. If you sign in as a local administrator after the host computer is restarted (and joined to the azurestack.local domain), you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack to validate that it's running.
@@ -126,7 +126,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
-If your environment **does not** have DHCP enabled then you must include the following additional parameters to one of the options above (example usage provided): 
+If your environment does not have DHCP enabled, then you must include the following additional parameters to one of the options above (example usage provided): 
 
 ```powershell
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
@@ -161,7 +161,7 @@ You should also reset the password expiration policy to make sure that the passw
 ## Next steps
 Congratulations! After completing these steps, you’ll have a development kit environment with both [administrator](https://adminportal.local.azurestack.external) and [user](https://portal.local.azurestack.external) portals. 
 
-In this quickstart, you deployed the ASDK from the command line. To start evaluating the ASDK, continue on to the tutorial for adding a marketpace item.
+In this quickstart, you deployed the ASDK from the command line. To start evaluating the ASDK, continue on to the tutorial for adding a marketplace item.
 > [!div class="nextstepaction"]
 > [Add an Azure Stack marketplace item](./asdk-marketplace-item.md)
 

@@ -14,12 +14,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/09/2018
+ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Quickstart: Deploy the ASDK
+# Quickstart: deploy the ASDK
 In this quickstart, you deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
 
 The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get started with the ASDK, you need to prepare the host computer hardware and then run some scripts (installation takes several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.

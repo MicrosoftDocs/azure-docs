@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Stack Offer | Microsoft Docs
+title:  In this tutorial, you create an Azure Stack Offer | Microsoft Docs
 description: Learn how to create an Azure Stack offer including plans and quotas. 
 services: azure-stack
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/16/2018
+ms.custom: mvc
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
-# Offer Azure Stack IaaS services
+# Tutorial: offer Azure Stack IaaS services
 As an Azure Stack cloud administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services.
 
 This tutorial shows you how to create an offer to enable users to create virtual machines based on the Azure Stack marketplace Windows Server 2016 Datacenter image you uploaded in the [previous tutorial](asdk-marketplace-item.md).
