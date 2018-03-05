@@ -44,7 +44,9 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Log in to Azure
 
-1. Once CLI is installed, open a command prompt and issue the following command:
+Once CLI is installed, open a command prompt and issue the following commands:
+
+1. Add the Service Bus cli extension using the following command:
 
    ```azurecli-interactive
    az extension add --name servicebus
