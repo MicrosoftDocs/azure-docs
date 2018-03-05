@@ -40,7 +40,9 @@ To complete this tutorial, make sure you have installed:
 
 ## Log in to Azure
 
-Either portal or PowerShell.
+This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create a namespace
 
