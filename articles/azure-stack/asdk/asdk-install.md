@@ -13,29 +13,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
 # Install the Azure Stack Development Kit (ASDK)
-After [preparing the ASDK host computer](asdk-prepare.md), the ASDK can be deployed into the CloudBuilder.vhdx image using the following steps in this article.
+After [preparing the ASDK host computer](asdk-prepare-host.md), the ASDK can be deployed into the CloudBuilder.vhdx image using the following steps in this article.
 
 ## Install the ASDK
 The steps in this article show you how to deploy the ASDK using a graphical user interface (GUI) provided by downloading and running the **asdk-installer.ps1** PowerShell script.
 
 > [!NOTE]
-> The installer user interface for the Azure Stack Development Kit is an open sourced script based on WCF and PowerShell.
+> The installer user interface for the Azure Stack Development Kit is an open-sourced script based on WCF and PowerShell.
 
 
-1. After the host computer successfully boots into the CloudBuilder.vhdx image, log in using the administrator credentials specified when you [prepared the development kit host computer](asdk-prepare.md) for ASDK installation. This should be the same as the development kit host local administrator credentials.
+1. After the host computer successfully boots into the CloudBuilder.vhdx image, log in using the administrator credentials specified when you [prepared the development kit host computer](asdk-prepare-host.md) for ASDK installation. This should be the same as the development kit host local administrator credentials.
 2. Open an elevated PowerShell console and run the **&lt;drive letter>\AzureStack_Installer\asdk-installer.ps1** script (which might now be on a different drive than C:\ in the CloudBuilder.vhdx image). Click **Install**.
 
     ![](media/asdk-install/1.PNG) 
 
 3. In the Identity Provider **Type** drop-down box, select **Azure Cloud** or **AD FS**. Under **Local Administrator Password** type the local administrator password (which must match the current configured local administrator password) in the **Password** box, and then click **Next**.
-    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. To use this option, you will need an internet connection, the full name of an Azure AD directory tenant in the form of *domainname*.onmicrosoft.com or an Azure AD verified custom domain name, and global admin credentials for the specified directory. 
-    - **AD FS**: The default stamp directory service will be used as the identity provider. The default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of setup.
+    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. To use this option, you need an internet connection, the full name of an Azure AD directory tenant in the form of *domainname*.onmicrosoft.com or an Azure AD verified custom domain name, and global admin credentials for the specified directory. 
+    - **AD FS**: The default stamp directory service is used as the identity provider. The default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of setup.
 
     ![](media/asdk-install/2.PNG) 
     
@@ -83,7 +83,7 @@ The steps in this article show you how to deploy the ASDK using a graphical user
 
 Congratulations, you've successfully installed the ASDK!
 
-If the deployment fails for some reason, you can can [redeploy](azure-stack-redeploy.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
+If the deployment fails for some reason, you can [redeploy](asdk-redeploy-qs.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
 
     ```powershell
     cd C:\CloudDeployment\Setup

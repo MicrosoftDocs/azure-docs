@@ -3,9 +3,8 @@ title: Microsoft Azure Stack Development Kit release notes | Microsoft Docs
 description: Improvements, fixes, and known issues for Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: ''
-author: andredm7
+author: jeffgilb
 manager: femila
-editor: ''
 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/16/2018
 ms.author: jeffgilb
+ms.reviewer: misainat
 
 ---
 
 # Azure Stack Development Kit release notes
-These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](azure-stack-updates.md#determine-the-current-version).
-
-> [!TIP]
-> You can subscribe to this [RSS feed](https://docs.microsoft.com/api/search/rss?search=%22Azure+Stack+Development+Kit+release+notes%22&locale=en-us) ![RSS feed](media/asdk-release-notes/feed-icon-14x14.png) to be notified when this page is updated. 
+These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](.\.\azure-stack-updates.md#determine-the-current-version).
 
 ## Build 20180103.2
 
 ### New features and fixes
 
-- See the [new features and fixes](azure-stack-update-1712.md#new-features-and-fixes) section of the Azure Stack 1712 update release notes for Azure Stack integrated systems.
+- See the [new features and fixes](.\.\azure-stack-update-1712.md#new-features-and-fixes) section of the Azure Stack 1712 update release notes for Azure Stack integrated systems.
 
 	> [!IMPORTANT]
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
@@ -97,7 +94,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 ### New features and fixes
 
-- See the [new features and fixes](azure-stack-update-1711.md#new-features-and-fixes) section of the Azure Stack 1711 update release notes for Azure Stack integrated systems.
+- See the [new features and fixes](.\.\azure-stack-update-1711.md#new-features-and-fixes) section of the Azure Stack 1711 update release notes for Azure Stack integrated systems.
 
 	> [!IMPORTANT]
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
@@ -170,7 +167,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 ### Improvements and fixes
 
-To see the list of improvements and fixes in the 20171020.1 build, see the [Improvements and fixes](azure-stack-update-1710.md#improvements-and-fixes) section of the 1710 release notes for Azure Stack integrated systems. Some of the items listed in the "Additional quality improvements and fixes" section are relevant only to integrated systems.
+To see the list of improvements and fixes in the 20171020.1 build, see the [Improvements and fixes](.\.\azure-stack-update-1710.md#improvements-and-fixes) section of the 1710 release notes for Azure Stack integrated systems. Some of the items listed in the "Additional quality improvements and fixes" section are relevant only to integrated systems.
 
 Also, the following fixes were made:
 - Fixed an issue where the Compute resource provider displayed an unknown state.

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit architecture reference | Microsoft Docs
-description: Describes the Azure Stack Development Kit architecture.
+title: Azure Stack Development Kit Architecture | Microsoft Docs
+description: Describes the Azure Stack Development Kit (ASDK) architecture.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -47,4 +47,4 @@ The ASDK offers services using the following VMs hosted on the development kit h
 
 
 ## Next steps
-[Learn about basic administration tasks](asdk-admin-basics.md)
+[Learn about basic ASDK administration tasks](asdk-admin-basics.md)

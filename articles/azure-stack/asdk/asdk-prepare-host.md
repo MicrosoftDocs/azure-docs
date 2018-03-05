@@ -13,9 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 03/09/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
 # Prepare the ASDK host computer
@@ -41,7 +41,7 @@ Before you can install the ASDK on the host computer, the ASDK host computer env
 
     ![](media/asdk-prepare-host/1.PNG) 
 
-5. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the **cloudbuilder.vhdx** file that you downloaded and extracted in [the previous steps](asdk-download.md). On this page you can also, optionally, enable the **Add drivers** check box if you need to add additional drivers to the development kit host computer. Click **Next**.  
+5. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the **cloudbuilder.vhdx** file that you downloaded and extracted in [the previous steps](asdk-download.md). On this page, you can also, optionally, enable the **Add drivers** check box if you need to add additional drivers to the development kit host computer. Click **Next**.  
 
     ![](media/asdk-prepare-host/2.PNG)
 
