@@ -20,29 +20,32 @@ For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-
 
 ## Create an Azure disk
 
-Before using an Azure disk as a Kubernetes volume, you must create the disk. The disk must be created in the same resource group as the AKS nodes. Return a list of resource groups using the [az group list][az-group-list] command.
+Before using an Azure disk as a Kubernetes volume, you must create the disk. The disk must be created in the same resource group as the AKS nodes. 
+
+Return a list of resource groups using the [az group list][az-group-list] command.
 
 ```azurecli-interactiv
 az group list --output table
 ```
 
-You are looking for a resource group with a name similar to `MC_clustername_clustername_locaton`. 
+You are looking for a resource group with a name similar to `MC_clustername_clustername_locaton`, where cluster name is the name of your AKS cluster.
 
 ```console
 Name                                 Location    Status
 -----------------------------------  ----------  ---------
-DefaultResourceGroup-EUS             eastus      Succeeded
 MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Use the [az disk create][az-disk-create] command to create the Azure managed disk.
+Use the [az disk create][az-disk-create] command to create the Azure managed disk. Update the resource group name to the name of your AKS clusters resource group.
 
 ```azurecli-interactive
 az disk create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name myAKSDisk  --size-gb 20
 ```
 
-Finally, you need the disk ID. This can be found using the [az disk list][az-disk-list] command. Replace the resource group name with the name of your AKS clusters resource group and the disk name, `myAKSDisk` in this example with the name of your disk
+Finally, you need the disk ID. This can be found using the [az disk list][az-disk-list] command. 
+
+Replace the resource group name with the name of your AKS clusters resource group and the disk name, `myAKSDisk` in this example with the name of your disk
 
 ```azurecli-interactive
 az disk list --resource-group MC_myAKSCluster_myAKSCluster_eastus --query "[?contains(name, 'myAKSDisk')].[id]" -o tsv
@@ -50,9 +53,9 @@ az disk list --resource-group MC_myAKSCluster_myAKSCluster_eastus --query "[?con
 
 ## Mount file share as volume
 
-You can mount your Azure disk into your pod by configuring the volume in the container spec. 
+Mount the Azure disk into your pod by configuring the volume in the container spec. 
 
-Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the newly created disk and `diskURI` with the disk ID.
+Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the newly created disk and `diskURI` with the disk ID. Also, take note of the `mountPath`, this is the path at which the Azure disk is mounted in the pod.
 
 ```yaml
 apiVersion: v1
