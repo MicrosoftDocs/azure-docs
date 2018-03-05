@@ -299,11 +299,24 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-To create statistics on all columns in the table with this procedure, simply call the procedure.
+To create statistics on all columns in the table using the defaults, simply call the procedure.
 
 ```sql
-prc_sqldw_create_stats;
+EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
+To create statistics on all columns in the table using a fullscan, call this procedure:
+
+```sql
+EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
+```
+To create sampled statistics on all columns in the table, enter 3, and the sample percent.  This procedures uses a 20 percent sample rate.
+
+```sql
+EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
+```
+
+
+To create sampled statistics on all columns 
 
 ## Examples: Update statistics
 To update statistics, you can:
