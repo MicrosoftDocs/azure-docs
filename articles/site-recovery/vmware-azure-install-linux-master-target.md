@@ -353,5 +353,5 @@ You will see that the **Version** field gives the version number of the master t
 ## Next steps
 After the installation and registration of the master target has finished, you can see the master target appear on the **master target** section in **Site Recovery Infrastructure**, under the configuration server overview.
 
-You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), followed by failback.
+You can now proceed with [reprotection](vmware-azure-reprotect.md), followed by failback.
 
