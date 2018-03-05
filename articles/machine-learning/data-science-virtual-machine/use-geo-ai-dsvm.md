@@ -19,7 +19,7 @@ ms.author: gokuma; bradsev;
 ---
 
 
-# Using the Geo AI Data Science VM
+# Using the Geo Artificial Intelligence Data Science Virtual Machine
 
 Use the Geo AI Data Science VM to fetch data for analysis, perform data wrangling, and build models for AI applications that consume geospatial information. Once you have provisioned your Geo AI Data Science VM and signed into ArcGIS Pro with your ArcGIS account, you can start interacting with ArcGIS desktop and ArcGis online. You can also access ArcGIS from Python interfaces and an R language bridge pre-configured on the Geo-Data Science VM. To build rich AI applications, combine it with the machine learning and deep learning frameworks and other data science software available on the Data Science VM.  
 
@@ -34,7 +34,7 @@ The Python library, [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-p
 The R-bridge to ArcGIS is installed as an R library named [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) in the main Microsoft R server standalone instance located at ```C:\Program Files\Microsoft\ML Server\R_SERVER```. Visual Studio, RStudio, and Jupyter are already pre-configured to use this R environment and will have access to the ```arcgisbinding``` R library. 
 
 
-# Geo AI Data Science VM samples
+## Geo AI Data Science VM samples
 
 In addition to the ML and deep learning framework-based samples from the base Data Science VM, a set of geospatial samples is also provided as part of the Geo AI Data Science VM. These samples can help you jump-start your development of AI applications using Geospatial data and the ArcGIS software. 
 
@@ -46,7 +46,7 @@ In addition to the ML and deep learning framework-based samples from the base Da
 3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are "forested" or "water." The model returns such a label for every pixel in the image. The model is built using Microsoft's open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning framework. The example also shows how to scale out the training on [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) and consume the model predictions in ArcGIS Pro software. 
 
 
-## Next Steps
+## Next steps
 
 Additional samples that use the Data Science VM are available here:
 

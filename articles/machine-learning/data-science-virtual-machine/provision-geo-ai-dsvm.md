@@ -1,7 +1,7 @@
 ---
 title: Provision a Geo AI Virtual Machine on Azure  - Azure | Microsoft Docs
 description: How to provision a Geo AI Virtual Machine on Azure.
-keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
+keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -19,7 +19,7 @@ ms.author: gokuma; bradsev;
 
 ---​
 
-# Provision a Geo AI Virtual Machine on Azure 
+# Provision a Geo Artificial Intelligence Virtual Machine on Azure 
 
 The Geo AI Data Science Virtual Machine (Geo-DSVM) is an extension of the popular [Azure Data Science Virtual Machine](http://aka.ms/dsvm) that is specially configured to combine AI and geospatial analytics. The geospatial analytics in the VM are powered by [ArcGIS Pro](https://www.arcgis.com/features/index.html). The Data Science VM enables the rapid training of machine learning models, and even of deep learning models, on data that is enriched with geographic information. It is supported on Windows 2016 DSVM only. ​
 
@@ -37,16 +37,13 @@ Here is the procedure to create an instance of the Geo AI Data Science VM:
 
 
 1. Navigate to the virtual machine listing on [Azure portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
-
 2. Select the **Create** button at the bottom to be taken into a wizard.
-
 ![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
-
 3. The wizard used to create the Geo-DSVM requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
 
-- **Basics**
 
-      
+
+   - **Basics**
 
       1. **Name**: Name of the data science server you are creating.
 
@@ -58,19 +55,16 @@ Here is the procedure to create an instance of the Geo AI Data Science VM:
 
       5. **Resource Group**: You can create a new one or use an **empty** existing Azure resource group in your subscription.
 
-      6. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access. 
-
-      
-
->[AZURE.NOTE]
-> If you need to do deep learning on GPU, you must choose one of the locations in Azure that has the NC-Series GPU VM instances. Currently the locations that have GPU VMs are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/en-us/regions/services/) and look for **NC-Series** under **Compute**. 
+      6. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access. If you need to do deep learning on GPU, you must choose one of the locations in Azure that has the NC-Series GPU VM instances. Currently the locations that have GPU VMs are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) and look for **NC-Series** under **Compute**. 
 
 
-- **Settings**: Select one of the NC-Series GPU virtual machine size if you plan to run deep learning on  GPU on your Geo DSVM. Otherwise, you can choose one of the CPU based instance.  Create a storage account for your VM.     
-- **Summary**: Verify that all information you entered is correct.
-- **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the service. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+   - **Settings**: Select one of the NC-Series GPU virtual machine size if you plan to run deep learning on  GPU on your Geo DSVM. Otherwise, you can choose one of the CPU based instance.  Create a storage account for your VM. 
+   
+   - **Summary**: Verify that all information you entered is correct.
+
+   - **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the service. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 ​
->[AZURE.NOTE]
+>[!NOTE]
 > The provisioning should take about 20-30 minutes. The status of the provisioning is displayed on the Azure portal.
 
 ​
@@ -93,7 +87,7 @@ Once you have signup for a either a paid or a free trial ArcGIS account, you can
 
 After you sign in to ArcGIS Pro desktop with your ArcGIS account, you are ready to begin using the data science tools that are installed and configured on the VM for your Geospatial analytics and machine learning projects.
 
-## Next Steps
+## Next steps
 
 Get started using the Geo AI Data Science VM with guidance from the following topics:
 
