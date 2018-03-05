@@ -18,7 +18,7 @@ The following table provides coverage information for Azure LBS Render of Rester
 |Burundi|✓ |
 |Cameroon|✓ |
 |Congo|✓ |
-|Democratic Republic of Congo|✓ |
+|Democratic Republic of the Congo|✓ |
 |Egypt|✓ |
 |Gabon|✓ |
 |Ghana|✓ |
@@ -140,6 +140,7 @@ The following table provides coverage information for Azure LBS Render of Rester
 
 
 
+
 The following table provides coverage information for Azure LBS Render of Vector Tiles .
 
 |Region|Render - Vector Tiles Unified|
@@ -156,7 +157,7 @@ The following table provides coverage information for Azure LBS Render of Vector
 |Chad|Ø|
 |Comoros|Ø|
 |Congo|✓|
-|Democratic Republic of Congo|✓|
+|Democratic Republic of the Congo|✓|
 |Côte d'Ivoire|Ø|
 |Djibouti|Ø|
 |Egypt|✓|
