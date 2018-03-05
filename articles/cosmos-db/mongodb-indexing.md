@@ -41,6 +41,7 @@ Compound indexes hold references to multiple fields of a document. Logically, th
 [Unique indexes](unique-keys.md) are useful for enforcing that no two or more documents contain the same value for the indexed field(s). 
 >[!important] 
 > Currently, unique indexes can be created only when the collection is empty (contains no documents). 
+
 The following command creates a unique index on the field “student_id”:
 
 ```JavaScript
