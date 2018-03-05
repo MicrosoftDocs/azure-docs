@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
 
 ---
@@ -34,7 +34,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 * **A workstation with Azure PowerShell**.
 
-## <a id="powershell"></a>Run a MapReduce job using Azure PowerShell
+## <a id="powershell"></a>Run a MapReduce job
 
 Azure PowerShell provides *cmdlets* that allow you to remotely run MapReduce jobs on HDInsight. Internally, PowerShell makes REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (formerly called Templeton) running on the HDInsight cluster.
 

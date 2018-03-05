@@ -44,9 +44,9 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 
 ## Supported operating systems
 * **Ubuntu 16.04**: 4.11.0-1013 or greater kernel version
-* **SLES SP3**: 4.4.92-6.18 or greater kernel version
-* **RHEL**: 7.4.2017120423 or greater kernel version
-* **CentOS**: 7.4.20171206 or greater kernel version
+* **SLES 12 SP3**: 4.4.92-6.18 or greater kernel version
+* **RHEL 7.4**: 7.4.2017120423 or greater kernel version
+* **CentOS 7.4**: 7.4.20171206 or greater kernel version
 
 ## Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 4 or more vCPUs. On instances such as D/DSv3 or E/ESv3 that support hyperthreading, Accelerated Networking is supported on VM instances with 8 or more vCPUs.  Supported series are:

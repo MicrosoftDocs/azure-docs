@@ -3,8 +3,8 @@ title: 'App Service overview: Azure Stack | Microsoft Docs'
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 

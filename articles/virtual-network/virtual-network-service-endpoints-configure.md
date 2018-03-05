@@ -58,8 +58,8 @@ During preview, Vnet service endpoints feature is supported for specific regions
 
 1. Open [Azure portal](https://portal.azure.com/).
 Log in to Azure using your Azure account. If you don't have an Azure account, you can sign up for a free trial. The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
-2. Click +New > Networking > Virtual network > +Add.
-3. On "Create virtual network", enter the following values, and then click Create:
+2. Click **Create a resource** > **Networking** > **Virtual network** > **+Add**.
+3. On "Create virtual network", enter the following values, and then click **Create**:
 
 Setting | Value
 ------- | -----

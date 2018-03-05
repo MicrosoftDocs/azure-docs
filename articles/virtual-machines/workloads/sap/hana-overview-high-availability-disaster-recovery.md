@@ -108,7 +108,7 @@ SAP HANA on Azure (Large Instances) offers two backup and restore options:
 The storage infrastructure underlying SAP HANA on Azure (Large Instances) supports storage snapshots of volumes. Both backup and restoration of volumes is supported, with the following considerations:
 
 - Instead of full-database backups, storage volume snapshots are taken on a frequent basis.
-- When triggering a snapshot over /hana/data, hana/log, and /hana/shared (includes /usr/sap) volumes, the storage snapshot initiates an SAP HANA snapshot before it executes the storage snapshot. This SAP HANA snapshot is the setup point for eventual log restorations after recovery of the storage snapshot.
+- When triggering a snapshot over /hana/data and /hana/shared (includes /usr/sap) volumes, the storage snapshot initiates an SAP HANA snapshot before it executes the storage snapshot. This SAP HANA snapshot is the setup point for eventual log restorations after recovery of the storage snapshot.
 - After the point where the storage snapshot has been executed successfully, the SAP HANA snapshot is deleted.
 - Transaction-log backups are taken frequently and are stored in the /hana/logbackups volume or in Azure. You can trigger the /hana/logbackups volume that contains the transaction-log backups to take a snapshot separately. In that case, you do not need to execute a HANA snapshot.
 - If you must restore a database to a certain point in time, request Microsoft Azure Support (for a production outage) or SAP HANA on Azure Service Management to restore to a certain storage snapshot. An example is a planned restoration of a sandbox system to its original state.
@@ -146,7 +146,7 @@ The following sections provide information for performing these snapshots, inclu
 - During larger reorganizations of SAP HANA tables, storage snapshots should be avoided, if possible.
 - Storage snapshots are a prerequisite to taking advantage of the disaster-recovery capabilities of SAP HANA on Azure (Large Instances).
 
-### Pre-requisites for leveraging self-service storage snapshots
+### Prerequisites for leveraging self-service storage snapshots
 
 To ensure that snapshot script executes successfully, make sure that Perl is installed on the Linux operating system on the HANA Large Instances server. Perl comes pre-installed on your HANA Large Instance unit. To check the perl version, use the following command:
 
@@ -288,7 +288,7 @@ HANABackupCustomerDetails.txt
 As of dealing with the perl scripts: 
 
 - Never modify the scripts unless instructed by the Microsoft Operations.
-- When asked to modify the script or a parameter file, always use the linux text editor such as “vi” and not the Windows editors like notepad. Using windows editor may corrupt the file format.
+- When asked to modify the script or a parameter file, always use the Linux text editor such as “vi” and not the Windows editors like notepad. Using windows editor may corrupt the file format.
 - Always use the latest scripts. You can download the latest version from GitHub.
 - Use the same version of scripts across the landscape.
 - Test the scripts and get comfortable with the parameters required and output of the script before directly using in the production system.
@@ -297,7 +297,7 @@ As of dealing with the perl scripts:
 
 The purpose of the different scripts and files is:
 
-- **azure\_hana\_backup.pl**: Schedule this script with cron to execute storage snapshots on either the HANA data/log/shared volumes, the /hana/logbackups volume, or the OS.
+- **azure\_hana\_backup.pl**: Schedule this script with cron to execute storage snapshots on either the HANA data and shared volumes, the /hana/logbackups volume, or the OS.
 - **azure\_hana\_replication\_status.pl**: This script provides the basic details around the replication status from the production site to the disaster-recovery site. The script monitors to ensure that the replication is taking place, and it shows the size of the items that are being replicated. It also provides guidance if a replication is taking too long or if the link is down.
 - **azure\_hana\_snapshot\_details.pl**: This script provides a list of basic details about all the snapshots, per volume, that exist in your environment. This script can be run on the primary server or on a server unit in the disaster-recovery location. The script provides the following information broken down by each volume that contains snapshots:
    * Size of total snapshots in a volume

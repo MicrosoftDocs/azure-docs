@@ -1,12 +1,17 @@
 ---
-title: Make virtual machine scale sets available in Azure Stack
-description: Learn how a cloud administrator can add virtual machine scale to the Azure Stack Marketplace
+title: 'Make virtual machine scale sets available in Azure Stack | Microsoft Docs'
+description: Learn how a cloud operator can add virtual machine scale to the Azure Stack Marketplace
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: ''
+
+ms.assetid:
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: anajod
+ms.date: 02/28/2018
+ms.author: brenduns
+ms.reviewer: anajod
 keywords:
 ---
 
@@ -16,7 +21,7 @@ keywords:
 
 Virtual machine scale sets are an Azure Stack compute resource. You can use them to deploy and manage a set of identical virtual machines. With all virtual machines configured the same, scale sets don’t require pre-provisioning of virtual machines. It's easier to build large-scale services that target big compute, big data, and containerized workloads.
 
-This topic guides you through the process to make scale sets available in the Azure Stack Marketplace. After you complete this procedure, your users can add virtual machine scale sets to their subscriptions.
+This article guides you through the process to make scale sets available in the Azure Stack Marketplace. After you complete this procedure, your users can add virtual machine scale sets to their subscriptions.
 
 Virtual machine scale sets on Azure Stack are like virtual machine scale sets on Azure. For more information, see the following videos:
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -73,7 +78,7 @@ To remove a virtual machine scale set gallery item, run the following PowerShell
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> The gallery item may not be removed immediately. You may need to refresh the portal several times before it is removed from the Marketplace.
+> The gallery item may not be removed immediately. You night need to refresh the portal several times before the item shows as removed from the Marketplace.
 
 
 ## Next steps

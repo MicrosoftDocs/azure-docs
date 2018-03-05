@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
 
 ---
@@ -58,7 +58,7 @@ Assuming that you already have ATA installed, and working properly on-premises, 
 12. Install this agent in the ATA Center. During the installation, make sure to select the option **Connect the agent to Azure Log Analytics (OMS)**, and provide the *workspace ID*, and *primary key* when requested.
 
 
-Once you finish the installation, the integration is completed, and you will be able to see new alerts sent from ATA to Security Center in **Security Alerts** and **Search**. The solution appears in the **Security Solutions** page, under **Connected solutions**. 
+Once you finish the installation, the integration is completed, and you will be able to see new alerts sent from ATA to Security Center in the **Search** result. The solution appears in the **Security Solutions** page, under **Connected solutions**. 
 
 ## Next steps
 In this document, you learned how to connect Microsoft ATA to Security Center. To learn more about Security Center, see the following articles:

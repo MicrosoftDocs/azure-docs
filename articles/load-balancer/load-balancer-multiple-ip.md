@@ -85,7 +85,7 @@ Create your load balancer for the configuration:
 
 1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
 
-2. In the upper left of the screen, select **New** > **Networking** > **Load Balancer**. Next, select **Create**.
+2. In the upper left of the screen, select **Create a resource** > **Networking** > **Load Balancer**. Next, select **Create**.
 
 3. Under **Create load balancer**, type a name for your load balancer. In this scenario, we're using the name **mylb**.
 

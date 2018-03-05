@@ -122,7 +122,7 @@ You cannot set the access tier to archive in the following examples because this
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
+2. On the Hub menu, select **Create a resource** > **Data + Storage** > **Storage account**.
 
 3. Enter a name for your storage account.
 
@@ -156,7 +156,7 @@ You cannot set the access tier to archive in the following examples because this
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. To navigate to your storage account, select All Resources, then select your storage account.
+2. To navigate to your storage account, select **All resources**, then select your storage account.
 
 3. In the Settings section, click **Configuration**.
 
@@ -170,7 +170,7 @@ You cannot set the access tier to archive in the following examples because this
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. To navigate to your storage account, select All Resources, then select your storage account.
+2. To navigate to your storage account, select **All resources**, then select your storage account.
 
 3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
 
@@ -182,7 +182,7 @@ You cannot set the access tier to archive in the following examples because this
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. To navigate to your blob in your storage account, select All Resources, select your storage account, select your container, and then select your blob.
+2. To navigate to your blob in your storage account, select **All resources**, select your storage account, select your container, and then select your blob.
 
 3. In the Blob properties blade, click the **Access Tier** dropdown menu to select the **Hot**, **Cool**, or **Archive** storage tier.
 

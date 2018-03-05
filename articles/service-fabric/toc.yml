@@ -1,10 +1,11 @@
 - name: Service Fabric Documentation
-  href: /azure/service-fabric
+  href: index.yml
 - name: Overview
   items:
   - name: What is Service Fabric?
     href: service-fabric-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
@@ -529,7 +530,11 @@
     - name: Connect to a secure cluster
       href: service-fabric-connect-to-secure-cluster.md
     - name: Patch cluster nodes
-      href: service-fabric-patch-orchestration-application.md
+      items:
+      - name: Windows
+        href: service-fabric-patch-orchestration-application.md
+      - name: Linux
+        href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
     - name: OMS
@@ -599,7 +604,7 @@
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/service-fabric/
   - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator
