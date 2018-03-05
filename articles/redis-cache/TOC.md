@@ -1,9 +1,5 @@
 # Overview
 ## [About Azure Redis Cache](cache-overview.md)
-## Scenarios
-### [Access items in a cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
-### [Connect securely using SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
-### [Patterns & Practices Caching guidance](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 # Quickstarts
 ## [Create a new cache](cache-create-first-cache.md)

@@ -1,4 +1,4 @@
-Caches can be accessed in the [Azure portal](https://portal.azure.com) using the **Browse** blade.
+If you did not pin your cache to the dashboard, find your cache in the [Azure portal](https://portal.azure.com) using the **Browse** blade.
 
 ![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
 
