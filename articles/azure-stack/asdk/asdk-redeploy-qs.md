@@ -20,15 +20,15 @@ ms.reviewer: misainat
 ---
 
 # Quickstart: Redeploy the ASDK
-In this quickstart you will deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
+In this quickstart, you deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
 
 > [IMPORTANT]
-> Because upgrading the ASDK is not supported, you will need to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.
+> Upgrading the ASDK to a new version is not supported. You have to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.
 
 ## Remove Azure registration 
-If you have previously registered your ASDK installation with Azure, you should remove the registration resource before redeploying the ASDK. You will need to re-register the ASDK to enable marketplace syndication when you redeploy the ASDK. 
+If you have previously registered your ASDK installation with Azure, you should remove the registration resource before redeploying the ASDK. Re-register the ASDK to enable marketplace syndication when you redeploy the ASDK. 
 
-To remove the registration resource, use the **Remove-AzsRegistration** cmdlet to unregister Azure Stack. Then, use the **Remove-AzureRMRsourceGroup** cmdlet to delete the Azure Stack resource group from your Azure subscription (you will need to log in to both your Azure subscription and the local ASDK installation):
+To remove the registration resource, use the **Remove-AzsRegistration** cmdlet to unregister Azure Stack. Then, use the **Remove-AzureRMRsourceGroup** cmdlet to delete the Azure Stack resource group from your Azure subscription (you need to log in to both your Azure subscription and the local ASDK installation):
 
 > [!NOTE]
 > These commands must be run from a computer that has access to the privileged endpoint. For the ASDK, that's the development kit host computer.
@@ -56,11 +56,11 @@ To remove the registration resource, use the **Remove-AzsRegistration** cmdlet t
   Remove-AzureRmResourceGroup -Name azurestack -Force
   ```
 
-3. When the script completes, you should see messages similar to the following:
+3. When the script completes, you should see messages similar to the following example:
 
    ![unregister ASDK](media/asdk-redeploy-qs/0.png)
 
-Azure Stack should now successfully be unregistered from your Azure subscription and the azurestack resource group, created when you registered the ASDK with Azure, should also be deleted.
+Azure Stack should now successfully be unregistered from your Azure subscription. Additionally, the azurestack resource group, created when you registered the ASDK with Azure, should also be deleted.
 
 ## Redeploy the ASDK
 To redeploy Azure Stack, you must start over from scratch as described below. The steps are different depending on whether or not you used the Azure Stack installer (asdk-installer.ps1) script to install the ASDK.
@@ -97,7 +97,7 @@ If you did not use the asdk-installer.ps1 script to install the ASDK, you must m
 
 
 ## Next steps
-In this quickstart, you redeployed the ASDK. To start evaluating the ASDK, continue on to the tutorial for adding a marketpace item.
+In this quickstart, you redeployed the ASDK. To start evaluating the ASDK, continue on to the tutorial for adding a marketplace item.
 > [!div class="nextstepaction"]
 > [Add an Azure Stack marketplace item](./asdk-marketplace-item.md)
 
