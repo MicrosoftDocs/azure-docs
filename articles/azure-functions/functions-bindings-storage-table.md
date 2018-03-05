@@ -371,7 +371,7 @@ The Table storage input binding supports the following scenarios:
 > [!NOTE]
 > `IQueryable` does not work in .NET Core, so it doesn't work in the [Functions v2 runtime](functions-versions.md).
 
-  An alternative is to use a `CloudTable paramName` method parameter to read the table by using the Azure Storage SDK.
+  An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK.
 
 * **Read one or more rows in JavaScript**
 
