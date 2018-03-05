@@ -1,5 +1,6 @@
 ---
 title: Speech Translation API Documentation | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Use the Microsoft Translator Speech Translation API to add speech to speech and speech to text translation to your applications.
 services: cognitive-services
 author: Jann-Skotdal
