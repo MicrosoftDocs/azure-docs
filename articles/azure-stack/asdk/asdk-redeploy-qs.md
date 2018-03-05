@@ -13,16 +13,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom:
-ms.date: 02/16/2018
+ms.custom: mvc
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
 # Quickstart: Redeploy the ASDK
 In this quickstart you will deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
 
-Because upgrading the ASDK is not supported, you will need to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.
+> [IMPORTANT]
+> Because upgrading the ASDK is not supported, you will need to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.
 
 ## Remove Azure registration 
 If you have previously registered your ASDK installation with Azure, you should remove the registration resource before redeploying the ASDK. You will need to re-register the ASDK to enable marketplace syndication when you redeploy the ASDK. 
