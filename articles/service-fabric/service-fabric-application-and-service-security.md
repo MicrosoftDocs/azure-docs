@@ -50,6 +50,11 @@ There are four main steps in this flow:
 
 For an example, see [Manage application secrets](service-fabric-application-secret-management.md).
 
+## Secure containers
+Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). This PFX certificate can be used for authenticating the application or service or secure communication with other services. For more information, see [Import a certificate into a container](service-fabric-securing-containers.md).
+
+In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. For more information, see [Set up gMSA for Windows containers](service-fabric-setup-gmsa-for-windows-containers.md).
+
 ## Secure service communication
 Use HTTPS (ASP.NET Core, Java)
 
