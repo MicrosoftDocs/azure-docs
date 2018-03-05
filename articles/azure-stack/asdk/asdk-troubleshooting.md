@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack troubleshooting | Microsoft Docs
-description: Azure Stack Development Kit (ASDK) troubleshooting.
+description: Azure Stack Development Kit (ASDK) troubleshooting information.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/29/2017
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 
 ---
 # Microsoft Azure Stack Development Kit (ASDK) troubleshooting
@@ -30,14 +30,14 @@ The recommendations for troubleshooting issues that are described in this sectio
 If you experience a failure during installation, you can restart the deployment from the failed step by using the -rerun option of the deployment script.  
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
-This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The development kit deployment has actually succeeded but the script was paused when selecting the window. You can verify setup has completed by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
+This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The development kit deployment has succeeded but the script was paused when selecting the window. You can verify setup has completed by looking for the word "select" in the titlebar of the command window. Press the ESC key to unselect it, and the completion message should be shown after it.
 
 ## Virtual machines
 ### Default image and gallery item
 A Windows Server image and gallery item must be added before deploying VMs in Azure Stack.
 
 ### After restarting my Azure Stack host, some VMs may not automatically start.
-After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
+After rebooting your host, you may notice Azure Stack services are not immediately available. This is because Azure Stack [infrastructure VMs](asdk-architecture.md#virtual-machine-roles) and RPs take some time to check consistency, but will eventually start automatically.
 
 You may also notice that tenant VMs don't automatically start after a reboot of the Azure Stack development kit host. This is a known issue, and just requires a few manual steps to bring them online:
 
@@ -54,11 +54,11 @@ Yes, this is behavior expected. It was designed this way because:
 
 If you see "orphan" VHDs, it is important to know if they are part of the folder for a storage account that was deleted. If the storage account was not deleted, it's normal they are still there.
 
-You can read more about configuring the retention threshold and on-demand reclamation in [manage storage accounts](azure-stack-manage-storage-accounts.md).
+You can read more about configuring the retention threshold and on-demand reclamation in [manage storage accounts](.\.\azure-stack-manage-storage-accounts.md).
 
 ## Storage
 ### Storage reclamation
-It may take up to fourteen hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
+It may take up to 14 hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
 
 ## Windows Azure Pack Connector
 * If you change the password of the azurestackadmin account after you deploy Azure Stack development kit, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.
@@ -67,5 +67,6 @@ It may take up to fourteen hours for reclaimed capacity to show up in the portal
     * The dashboard titles may not appear. If this issue occurs, you must manually add them back.
     * Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
 
-
+## Next steps
+[Visit the Azure Stack support forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
 
