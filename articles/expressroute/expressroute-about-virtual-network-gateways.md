@@ -51,5 +51,6 @@ For additional technical resources and specific syntax requirements when using R
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## Next steps
-See [ExpressRoute Overview](expressroute-introduction.md) for more information about available connection configurations. 
+See [ExpressRoute Overview](expressroute-introduction.md) for more information about available connection configurations.
 
+See [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) for more information about creating ExpressRoute gateways.
