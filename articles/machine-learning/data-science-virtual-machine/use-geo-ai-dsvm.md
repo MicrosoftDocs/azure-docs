@@ -1,5 +1,5 @@
 ---
-title: Using the Geo AI Data Science VM  - Azure | Microsoft Docs
+title: Using the Geo Artificial Intelligence Data Science Virtual Machine  - Azure | Microsoft Docs
 description: How to use a Geo AI Virtual Machine on Azure.
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning

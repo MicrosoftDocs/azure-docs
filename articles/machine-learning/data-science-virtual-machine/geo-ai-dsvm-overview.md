@@ -1,5 +1,5 @@
 ---
-title: Introduction to the Geo AI Data Science VM - Azure | Microsoft Docs
+title: Introduction to the Geo Artificial Intelligence Data Science Virtual Machine - Azure | Microsoft Docs
 description: Describe Geo AI Data Science VM and the components.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics
 services: machine-learning
