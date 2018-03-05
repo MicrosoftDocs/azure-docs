@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
+ms.author: raymondl
 
 ---
 # Retrain a New Resource Manager based web service using the Machine Learning Management PowerShell cmdlets

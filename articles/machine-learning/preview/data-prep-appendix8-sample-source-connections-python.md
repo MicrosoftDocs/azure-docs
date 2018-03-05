@@ -5,13 +5,13 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article 
-ms.date: 09/11/2017
+ms.date: 02/01/2018
 ---
 # Sample of custom source connections (Python) 
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
@@ -40,7 +40,7 @@ Now you should be able to import data.world libraries.
 
 #### Load data into data preparation
 
-Create a new script-based data flow. Then use the following script to load the data from data.world.
+Create a Transform Data Flow (Script) transform. Then use the following script to load the data from data.world.
 
 ```python
 #paths = df['Path'].tolist()

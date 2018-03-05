@@ -28,10 +28,10 @@ To quickly scan the sections in this article, use the links to the right, under 
 ## Recovery services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
-Yes. As of September 2016, you can create 25 Recovery Services vaults per subscription. You can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
+Yes. As of January 2018, you can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
 ### Are there limits on the number of servers/machines that can be registered against each vault? <br/>
-Yes, you can register up to 50 machines per vault. For Azure IaaS virtual machines, the limit is 200 VMs per vault. If you need to register more machines, create another vault.
+You can register upto 200 Azure Virtual machines per vault. If you are using MAB Agent you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
 ### If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
 All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
@@ -130,7 +130,8 @@ The following table explains how each data source size is determined.
 | Microsoft Exchange |Sum of all Exchange databases in an Exchange server being backed up |
 | BMR/System State |Each individual copy of BMR or system state of the machine being backed up |
 
-For Azure VM backup, each VM can have up to 16 data disks with each data disk being of size 1023GB or less. 
+For Azure VM backup, each VM can have up to 16 data disks with each data disk being of size 1024GB or less. <br>
+We have a [private preview](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) for supporting disks upto 4TB. 
 
 ## Retention policy and recovery points
 ### Is there a difference between the retention policy for DPM and Windows Server/client (that is, on Windows Server without DPM)?<br/>
@@ -159,6 +160,9 @@ There is no limit on the number of recoveries from Azure Backup.
 
 ### When restoring data, do I pay for the egress traffic from Azure? <br/>
 No. Your recoveries are free and you are not charged for the egress traffic.
+
+### What happens when I change my backup policy?
+When a new policy is applied, schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
 ## Azure Backup encryption
 ### Is the data sent to Azure encrypted? <br/>

@@ -46,18 +46,21 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Deploy the Wingtip Tickets SaaS application
 
-Deploy the app:
+#### Plan the names
 
-1. Choose and remember values you will need for the following parameters:
+In the steps of this section, you provide a *user* value that is used to ensure resource names are globally unique, and a name for the *resource group* which contains all the resources created by a deployment of the app. For a person named *Ann Finley*, we suggest:
+- *User:* **af1**  *(Her initials, plus a digit. Use a different value (e.g. af2) if you deploy the app a second time.)*
+- *Resource group:* **wingtip-dpt-af1** *(wingtip-dpt indicates this is the database-per-tenant app. Appending the user name af1 correlates the resource group name with the names of the resources it contains.)*
 
-    - **User**: Choose a short value, such as your initials followed by a digit. For example, *af1*. The User parameter can contain only letters, digits, and hyphens (no spaces). The first and last character must be a letter or a digit. We recommend that all letters be lowercase.
-    - **Resource group**: Each time you deploy the Wingtip application, you must choose a different unique name for the new resource group. We recommend that you append the User name to a base name for the resource group. An example resource group name could be *wingtip-af1*. Again, we recommend that all letters be lowercase.
+Choose your names now, and write them down. 
 
-2. Open the Wingtip Tickets SaaS Database per Tenant deployment template in the Azure portal, by clicking the blue **Deploy to Azure** button.
+#### Steps
+
+1. Open the Wingtip Tickets SaaS Database per Tenant deployment template in the Azure portal, by clicking the blue **Deploy to Azure** button.
 
    <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-3. Into the template, enter values for the required parameters:
+1. Into the template, enter values for the required parameters:
 
     > [!IMPORTANT]
     > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. We recommend that you *create a new resource group*. Do not use existing resource groups, servers, or pools. Do not use this application, scripts, or any deployed resources for production. Delete this resource group when you are finished with the application to stop related billing.
@@ -66,12 +69,12 @@ Deploy the app:
     - **Location** - Select a **Location** from the drop-down list.
     - **User** - Use the User name value you chose earlier.
 
-4. Deploy the application.
+1. Deploy the application.
 
     - Click to agree to the terms and conditions.
     - Click **Purchase**.
 
-5. Monitor deployment status by clicking **Notifications**, which is the bell icon right of the search box. Deploying the Wingtip Tickets SaaS app takes approximately five minutes.
+1. Monitor deployment status by clicking **Notifications**, which is the bell icon right of the search box. Deploying the Wingtip Tickets SaaS app takes approximately five minutes.
 
    ![deployment succeeded](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -94,10 +97,10 @@ Scripts are located in the *..\\WingtipTicketsSaaS-DbPerTenant-master\\Learning 
 
 ## Update the user configuration file for this deployment
 
-Before running any scripts, update the *resource group* and *user* values in **UserConfig.psm1**. Set these variables to the values you used during deployment.
+Before running any scripts, update the *resource group* and *user* values in the *User Config* file. Set these variables to the values you used during deployment.
 
-1. In the *PowerShell ISE*, open ...\\Learning Modules\\*UserConfig.psm1* 
-2. Update *ResourceGroupName* and *Name* with the specific values for your deployment (on lines 10 and 11 only).
+1. In the **PowerShell ISE**, open ...\\Learning Modules\\**UserConfig.psm1** 
+2. Update **ResourceGroupName** and **Name** with the specific values for your deployment (on lines 10 and 11 only).
 3. Save the changes!
 
 These values are referenced in nearly every script.
@@ -110,7 +113,7 @@ Internally in the app, each tenant gets a SQL database deployed into an SQL elas
 
 A central **Events Hub** page provides a list of links to the tenants in your deployment.
 
-1. Open the *Events Hub* in your web browser: http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net (substitute &lt;USER&gt; with your deployment's user value):
+1. Open the *Events Hub* in your web browser: http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net (substitute &lt;user&gt; with your deployment's user value):
 
     ![events hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -120,27 +123,27 @@ A central **Events Hub** page provides a list of links to the tenants in your de
 
 #### Azure Traffic Manager
 
-The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) to control the distribution of incoming requests. The URL to access the events hub for one tenant must obey the following format:
+The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) to control the distribution of incoming requests. The URL to access the events page for a specific tenant uses the following format:
 
-- http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
 The parts of the preceding format are explained in the following table.
 
-| URL part | Description |
-| :------- | :---------- |
-| http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br />the ***-dpt*** portion distinguishes the *Database Per Tenant* implementation of Wingtip from other slightly different implementations. For example, other documentation articles offer Wingtip for *Standalong* (*-sa*), or for *Multi-tenant DB*. |
-| .*&lt;USER&gt;* | *af1* in our example. |
+| URL part        | Description       |
+| :-------------- | :---------------- |
+| http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database per tenant* implementation of Wingtip Tickets from other implementations. For example, the *standalone* app-per-tenant (*-sa*), or *multi-tenant database* (*-mt*) implementations. |
+| .*&lt;user&gt;* | *af1* in our example. |
 | .trafficmanager.net/ | Azure Traffic Manager, base URL. |
-| fabrikamjazzclub | For the tenant named *Fabrikam Jazz Club*. |
+| fabrikamjazzclub | Identifies the tenant named *Fabrikam Jazz Club*. |
 | &nbsp; | &nbsp; |
 
-1. The tenant name is parsed from the URL, by the events app.
+1. The tenant name is parsed from the URL by the events app.
 2. The tenant name is used to create a key.
 3. The key is used to access the catalog, to obtain the location of the tenant's database.
-    - The catalog is implemented by using *shard map management*.
-4. The *Events Hub* uses extended metadata in the catalog to obtain a list of event URLs.
+    - The catalog is implemented using *shard map management*.
+4. The *Events Hub* uses extended metadata in the catalog to construct the list of events page URLs for each tenant.
 
-In a production environment, typically you create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager profile.
+In a production environment, typically you create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager DNS name.
 
 ## Start generating load on the tenant databases
 
@@ -152,30 +155,18 @@ The bursts occur at randomized intervals.
 It takes several minutes for the load pattern to emerge. So it is best to let the generator run for at least three or four minutes before monitoring the load.
 
 1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
-2. Press **F5** to run the script and start the load generator. (Leave the default parameter values for now.)
+1. Press **F5** to run the script and start the load generator. (Leave the default parameter values for now.)
+1. You will be prompted to log in to your Azure account and, if necessary, to select the subscription you want to use.
 
-Do not reuse the same PowerShell ISE instance for anything, other than perhaps a rerun of *Demo-LoadGenerator.ps1*. If you need to run other PowerShell scripts, start a separate PowerShell ISE.
-
-#### Rerun with different parameters
-
-Follow these steps if you want to rerun the workload test with different parameters:
-
-1. Stop *LoadGenerator.ps1*.
-    - Either use **Ctrl+C**, or click the **Stop** button.
-    - This stoppage does not stop or affect any incomplete background jobs that are still running.
-
-2. Rerun *Demo-LoadGenerator.ps1*.
-    - This rerun first stops any of the background jobs that might still be running *sp_CpuLoadGenerator*.
-
-Or you can terminate the PowerShell ISE instance, which stops any background jobs. Then start a new instance of PowerShell ISE, and rerun *Demo-LoadGenerator.ps1*.
+The load generator script starts a background job for each database in the catalog and then stops.  If you rerun the load generator script, it will first stop any background jobs that are running before starting new ones.
 
 #### Monitor the background jobs
 
 If you want to control and monitor the background jobs, you can use the following cmdlets:
 
-- Get-Job
-- Receive-Job
-- Stop-Job
+- `Get-Job`
+- `Receive-Job`
+- `Stop-Job`
 
 #### Demo-LoadGenerator.ps1 actions
 
@@ -184,17 +175,19 @@ If you want to control and monitor the background jobs, you can use the followin
 1. *Demo-LoadGenerator.ps1* starts *LoadGenerator.ps1* in the foreground.
     - Both of these .ps1 files are stored under the folders *Learning Modules\\Utilities\\*.
 
-2. *LoadGenerator.ps1* loops through all tenant databases that are registered in the catalog.
+1. *LoadGenerator.ps1* loops through all tenant databases in the catalog.
 
-3. For each tenant database, *LoadGenerator.ps1* starts an execution of the Transact-SQL stored procedure named *sp_CpuLoadGenerator*.
-    - The executions are started in the background, by calling the *Invoke-SqlAzureWithRetry* cmdlet.
-    - *sp_CpuLoadGenerator* loops around an SQL SELECT statement for a default duration of 60 seconds. The time interval between issues of the SELECT varies according to parameter values.
+1. *LoadGenerator.ps1* starts a background PowerShell job for each tenant database: 
+    - By default the background jobs run for 120 minutes.
+    - Each job causes a CPU-based load on one tenant database by executing *sp_CpuLoadGenerator*.  The intensity and duration of the load varies depending on `$DemoScenario`. 
+    - *sp_CpuLoadGenerator* loops around a SQL SELECT statement that causes a high CPU load. The time interval between issues of the SELECT varies according to parameter values to create a controllable CPU load. Load levels and intervals are randomized to simulate more realistic loads.
     - This .sql file is stored under *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-4. For each tenant database, *LoadGenerator.ps1* also starts the *Start-Job* cmdlet.
-    - *Start-Job* mimics a workload of ticket sales.
+1. If `$OneTime = $false`, the load generator starts the background jobs and then continues to run, monitoring every 10 seconds for any new tenants that are provisioned. If you set `$OneTime = $true`, the LoadGenerator will start the background jobs and then stop running in the foreground. For this tutorial, leave `$OneTime = $false`.
 
-5. *LoadGenerator.ps1* continues to run, monitoring for any new tenants that are provisioned.
+  Use Ctrl-C or Stop Operation Ctrl-Break if you want to stop  or restart the load generator. 
+
+  If you leave the load generator running in the foreground, use another PowerShell ISE instance to run other PowerShell scripts.
 
 &nbsp;
 
@@ -204,7 +197,8 @@ Before proceeding to the next section, leave the load generator running in the j
 
 The initial deployment creates three sample tenants. Now you create another tenant to see the impact on the deployed application. In the Wingtip app, the workflow to provision new tenants is explained in the [Provision and catalog tutorial](saas-dbpertenant-provision-and-catalog.md). In this phase, you create a new tenant, which takes less than one minute.
 
-1. In the *PowerShell ISE*, open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* .
+1. Open a new *PowerShell ISE*.
+1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* .
 2. Press **F5** to run the script. (Leave the default values for now.)
 
    > [!NOTE]
@@ -227,7 +221,7 @@ Refresh the *Events Hub* to make the new tenant appear in the list.
 Now that you've started running a load against the collection of tenants, let’s look at some of the resources that were deployed:
 
 1. In the [Azure portal](http://portal.azure.com), browse to your list of SQL servers, and then open the **catalog-dpt-&lt;USER&gt;** server.
-    - The catalog server contains two databases, the **tenantcatalog** and the **basetenantdb** (a template database that is copied to create new tenants).
+    - The catalog server contains two databases, **tenantcatalog** and  **basetenantdb** (a template database that is copied to create new tenants).
 
    ![databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
@@ -245,18 +239,18 @@ Now that you've started running a load against the collection of tenants, let’
 
 After *LoadGenerator.ps1* runs for several minutes, enough data should be available to start looking at some monitoring capabilities. These capabilities are built into pools and databases.
 
-Browse to the server **tenants1-dpt-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
+Browse to the server **tenants1-dpt-&lt;user&gt;**, and click **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
 
    ![monitor pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
 - The first chart, labeled **Resource utilization**, shows pool eDTU utilization.
-- The second chart shows eDTU utilization of the top five databases in the pool.
+- The second chart shows eDTU utilization of the five most active databases in the pool.
 
-The two charts illustrate that elastic pools and SQL Database are well suited to SaaS application workloads.
+The two charts illustrate that elastic pools and SQL Database are well suited to unpredictable SaaS application workloads.
 The charts show that 4 databases are each bursting to as much as 40 eDTUs, and yet all the databases are comfortably supported by a 50 eDTU pool. The 50 eDTU pool can support even heavier workloads.
-If they were provisioned as standalone databases, they would each need to be an S2 (50 DTU) to support the bursts.
+If they were provisioned as standalone databases, each database would need to be an S2 (50 DTU) to support the bursts.
 The cost of 4 standalone S2 databases would be nearly 3 times the price of the pool.
-In real-world situations, SQL Database customers are currently running up to 500 databases in 200 eDTU pools.
+In real-world situations, SQL Database customers run up to 500 databases in 200 eDTU pools.
 For more information, see the [performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
 
 ## Additional resources

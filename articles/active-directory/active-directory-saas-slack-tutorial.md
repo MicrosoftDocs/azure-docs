@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
 
 ---
@@ -119,6 +119,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+	> [!NOTE] 
+	> If the user has **email address** assigned using the Office365 then only it will be populated, otherwise the **email address** claim will not appear in the SAML Token.
+
 5. In the **User Attributes** section on the **Single sign-on** dialog, select **user.mail**  as **User Identifier** and for each row shown in the table below, perform the following steps:
     
 	| Attribute Name | Attribute Value |
@@ -135,8 +138,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Name** textbox, type the attribute name shown for that row.
 	
 	b. From the **Value** list, select the attribute value shown for that row.
+
+	c. Leave the **Namespace** blank.
 	
-	c. Click **OK**
+	d. Click **OK**
 
 6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 

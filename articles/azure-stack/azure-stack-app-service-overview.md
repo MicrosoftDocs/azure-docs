@@ -3,8 +3,8 @@ title: 'App Service overview: Azure Stack | Microsoft Docs'
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,12 +13,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: anwestg
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 
 # App Service on Azure Stack overview
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Azure App Service on Azure Stack is a platform-as-a-service (PaaS) offering of Microsoft Azure available to Azure Stack. The service lets your customers - internal or external - create web, API, and Azure Functions applications for any platform or device. They can integrate your apps with on-premises applications and automate their business processes. Azure Stack cloud operators can run customer apps on fully managed virtual machines (VMs), with their choice of shared VM resources or dedicated VMs.
 

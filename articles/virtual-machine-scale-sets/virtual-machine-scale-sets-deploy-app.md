@@ -100,7 +100,7 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/azure/vmss/extension#set). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
+Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```azurecli
 az vmss extension set \
@@ -169,7 +169,7 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 
 For more information, including an example *cloud-init.txt* file, see [Use cloud-init to customize Azure VMs](../virtual-machines/linux/using-cloud-init.md).
 
-To create a scale set and use a cloud-init file, add the `--custom-data` parameter to the [az vmss create](/cli/azure/vmss#create) command and specify the name of a cloud-init file. The following example creates a scale set named *myScaleSet* in *myResourceGroup* and configures VM instances with a file named *cloud-init.txt*. Enter your own names as follows:
+To create a scale set and use a cloud-init file, add the `--custom-data` parameter to the [az vmss create](/cli/azure/vmss#az_vmss_create) command and specify the name of a cloud-init file. The following example creates a scale set named *myScaleSet* in *myResourceGroup* and configures VM instances with a file named *cloud-init.txt*. Enter your own names as follows:
 
 ```azurecli
 az vmss create \

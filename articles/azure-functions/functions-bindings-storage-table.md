@@ -60,7 +60,7 @@ public class TableStorage
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
         TraceWriter log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
@@ -369,9 +369,7 @@ The Table storage input binding supports the following scenarios:
   Access the table data by using a method parameter `IQueryable<T> <paramName>`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` must be a type that implements `ITableEntity` or derives from `TableEntity`. You can use `IQueryable` methods to do any filtering required. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.  
 
 > [!NOTE]
-> `IQueryable` does not work in .NET Core, so it doesn't work in the [Functions v2 runtime](functions-versions.md).
-
-  An alternative is to use a `CloudTable paramName` method parameter to read the table by using the Azure Storage SDK.
+> `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK.
 
 * **Read one or more rows in JavaScript**
 
@@ -630,6 +628,14 @@ The Table storage output binding supports the following scenarios:
 * **Write one or more rows in JavaScript**
 
   In JavaScript functions, access the table output using `context.bindings.<name>`.
+
+## Exceptions and return codes
+
+| Binding | Reference |
+|---|---|
+| Table | [Table Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue | [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## Next steps
 

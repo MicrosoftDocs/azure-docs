@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure Service Fabric with API Management | Microsoft Docs
-description: Learn how to quickly get started with Azure API Management and Service Fabric.
+description: In this tutorial, you learn how to quickly get started with Azure API Management and Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,12 +13,12 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
 
-# Deploy API Management with Service Fabric
+# Tutorial: deploy API Management with Service Fabric
 This tutorial is part four of a series.  Deploying Azure API Management with Service Fabric is an advanced scenario.  API Management is useful when you need to publish APIs with a rich set of routing rules for your back-end Service Fabric services. Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service designed for traffic ingress such as an ASP.NET Core application, Event Hubs, IoT Hub, or Azure API Management. 
 
 This tutorial shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
-> * [Scale a cluster in or out](/service-fabric-tutorial-scale-cluster.md)
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Deploy API Management with Service Fabric
 
@@ -78,8 +78,8 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
 
  1. In Visual Studio, select File -> New Project.
  2. Select the Service Fabric Application template under Cloud and name it **"ApiApplication"**.
- 3. Select the ASP.NET Core service template and name the project **"WebApiService"**.
- 4. Select the Web API ASP.NET Core 1.1 project template.
+ 3. Select the stateless ASP.NET Core service template and name the project **"WebApiService"**.
+ 4. Select the Web API ASP.NET Core 2.0 project template.
  5. Once the project is created, open `PackageRoot\ServiceManifest.xml` and remove the `Port` attribute from the endpoint resource configuration:
  
     ```xml
@@ -141,11 +141,15 @@ For this tutorial deploy a basic web server, which echoes messages back to the u
 
 5. Open a browser and type in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, you should see "[version 1.0]Hello World!!!" displayed.
 
-## Download and understand the Resource Manager template
-Download and save the following Resource Manager template and parameters file:
+## Download and understand the Resource Manager templates
+Download and save the following Resource Manager templates and parameters file:
  
+- [network-apim.json][network-arm]
+- [network-apim.parameters.json][network-parameters-arm]
 - [apim.json][apim-arm]
 - [apim.parameters.json][apim-parameters-arm]
+
+The *network-apim.json* template deploys a new subnet and network security group in the virtual network where the Service Fabric cluster is deployed.
 
 The following sections describe the resources being defined by the *apim.json* template. For more information, follow the links to the template reference documentation within each section. The configurable parameters defined in the *apim.parameters.json* parameters file are set later in this article.
 
@@ -196,7 +200,7 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
  - Replica selection for stateful services.
  - Resolution retry conditions that allow you to specify the conditions for re-resolving a service location and resending a request.
 
-**policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace "service-name" with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.
+**policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.  *backend-id* references a backend resource, in this case the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template. *backend-id* can also reference another backend resource created using the API Management APIs. For this tutorial, set *backend-id* to the value of the *service_fabric_backend_name* parameter.
     
 ```xml
 <policies>
@@ -244,7 +248,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-In *inbound_policy*, replace "service-name" with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.
+In *inbound_policy*, replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service. *backend-id* references a backend resource, in this case the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template. *backend-id* can also reference another backend resource created using the API Management APIs. For this tutorial, set *backend-id* to the value of the *service_fabric_backend_name* parameter.
 
 ```xml
 <policies>
@@ -267,12 +271,19 @@ In *inbound_policy*, replace "service-name" with `fabric:/ApiApplication/WebApiS
 Use the following script to deploy the Resource Manager template and parameter files for API Management:
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"
+$templatepath="C:\clustertemplates"
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
 ```
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
+az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+
 az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
 ```
 
@@ -293,21 +304,12 @@ You can now try sending a request to your back-end service in Service Fabric thr
 
     Vary: Origin
 
-    Access-Control-Allow-Origin: https://apimanagement.hosting.portal.azure.net
+    Ocp-Apim-Trace-Location: https://apimgmtstodhwklpry2xgkdj.blob.core.windows.net/apiinspectorcontainer/PWSQOq_FCDjGcaI1rdMn8w2-2?sv=2015-07-08&sr=b&sig=MhQhzk%2FEKzE5odlLXRjyVsgzltWGF8OkNzAKaf0B1P0%3D&se=2018-01-28T01%3A04%3A44Z&sp=r&traceId=9f8f1892121e445ea1ae4d2bc8449ce4
 
-    Access-Control-Allow-Credentials: true
+    Date: Sat, 27 Jan 2018 01:04:44 GMT
 
-    Access-Control-Expose-Headers: Transfer-Encoding,Date,Server,Vary,Ocp-Apim-Trace-Location
-
-    Ocp-Apim-Trace-Location: https://apimgmtstuvyx3wa3oqhdbwy.blob.core.windows.net/apiinspectorcontainer/RaVVuJBQ9yxtdyH55BAsjQ2-1?sv=2015-07-08&sr=b&sig=Ab6dPyLpTGAU6TdmlEVu32DMfdCXTiKAASUlwSq3jcY%3D&se=2017-09-15T05%3A49%3A53Z&sp=r&traceId=ed9f1f4332e34883a774c34aa899b832
-
-    Date: Thu, 14 Sep 2017 05:49:56 GMT
-
-
-    [
-    "value1",
-    "value2"
-    ]
+    
+    ["value1", "value2"]
     ```
 
 ## Clean up resources
@@ -338,14 +340,11 @@ In this tutorial, you learned how to:
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-[apim-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.json
-[apim-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/apim.parameters.json
+[apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
+[apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json
 
-[network-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[network-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.json
+[network-parameters-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

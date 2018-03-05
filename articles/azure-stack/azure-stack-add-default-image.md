@@ -136,7 +136,7 @@ To ensure that the Windows Server 2016 VM image has the latest cumulative update
 
 ### New-AzsServer2016VMImage 
 
-Creates and uploads a new Server 2016 Core and, or a full image and creates a marketplace item for it.
+Creates and uploads a new Server 2016 Core or a full image and creates a marketplace item for it.
 
 | Parameters | Required | Example | Description |
 |-----|-----|------|---- |

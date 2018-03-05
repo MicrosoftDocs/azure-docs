@@ -29,9 +29,9 @@ This assumes you have created a Power BI Embedded capacity. If you have not, see
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-2. Select **More services** > **Power BI Embedded** to see your capacities.
+2. Select **All services** > **Power BI Embedded** to see your capacities.
 
-    ![More services within Azure portal](media/scale-capacity/azure-portal-more-services.png)
+    ![All services within Azure portal](media/scale-capacity/azure-portal-more-services.png)
 
 3. Select the capacity you want to scale.
 

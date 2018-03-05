@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/03/2018
 ms.author: apimpm
 
 ---
@@ -21,7 +21,7 @@ ms.author: apimpm
 Being able to throttle incoming requests is a key role of Azure API Management. Either by controlling the rate of requests or the total requests/data transferred, API Management allows API providers to protect their APIs from abuse and create value for different API product tiers.
 
 ## Product based throttling
-To date, the rate throttling capabilities have been limited to being scoped to a particular Product subscription (essentially a key), defined in the API Management publisher portal. This is useful for the API provider to apply limits on the developers who have signed up to use their API, however, it does not help, for example, in throttling individual end-users of the API. It is possible that for single user of the developer's application to consume the entire quota and then prevent other customers of the developer from being able to use the application. Also, several customers who might generate a high volume of requests may limit access to occasional users.
+To date, the rate throttling capabilities have been limited to being scoped to a particular Product subscription (essentially a key), defined in the Azure portal. This is useful for the API provider to apply limits on the developers who have signed up to use their API, however, it does not help, for example, in throttling individual end-users of the API. It is possible that for single user of the developer's application to consume the entire quota and then prevent other customers of the developer from being able to use the application. Also, several customers who might generate a high volume of requests may limit access to occasional users.
 
 ## Custom key based throttling
 The new [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) and [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) policies provide a significantly more flexible solution to traffic control. These new policies allow you to define expressions to identify the keys that will be used to track traffic usage. The way this works is easiest illustrated with an example. 

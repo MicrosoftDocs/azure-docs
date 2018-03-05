@@ -13,13 +13,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 02/21/2018
 ms.author: tomfitz
 ---
 
 # Lock resources to prevent unexpected changes 
 
-As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to **CanNotDelete** or **ReadOnly**. 
+As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to **CanNotDelete** or **ReadOnly**. In the portal, the locks are called **Delete** and **Read-only** respectively.
 
 * **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource. 
 * **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role. 
@@ -154,7 +154,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## Azure CLI
 
-You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#create) command.
+You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az_lock_create) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
@@ -168,7 +168,7 @@ To lock a resource group, provide the name of the resource group.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-To get information about a lock, use [az lock list](/cli/azure/lock#list). To get all the locks in your subscription, use:
+To get information about a lock, use [az lock list](/cli/azure/lock#az_lock_list). To get all the locks in your subscription, use:
 
 ```azurecli
 az lock list

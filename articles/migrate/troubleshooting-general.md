@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
 ---
 
@@ -27,7 +27,7 @@ If you are using any URL-based firewall proxy to control outbound connectivity, 
 
 **The collector can't connect to the project using the project ID and key I copied from the portal.**
 
-Make sure you've copied and pasted the right information. To troubleshoot, install the Microsoft Monitoring Agent (MMA) as follows:
+Make sure you've copied and pasted the right information. To troubleshoot, install the Microsoft Monitoring Agent (MMA) and verify if the MMA can connect to the project as follows:
 
 1. On the collector VM, download the [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. To start the installation, double-click the downloaded file.
@@ -65,9 +65,9 @@ To enable collection of disk and network performance data, change the statistics
 
 **Issue** | **Fix**
 --- | ---
-Boot type not supported | Change to BIOS before you run a migration.
+Unsupported boot type | Azure does not support VMs with EFI boot type. It is recommended to convert the boot type to BIOS before you run a migration. <br/><br/>You can use [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) to do the migration of such VMs as it will convert the boot type of the VM to BIOS during the migration.
 Disk count exceeds limit | Remove unused disks from the machine before migration.
-Disk size exceeds limit | Shrink disks to less than 4 TB before migration. 
+Disk size exceeds limit | Azure supports disks with up to size 4 TB. Shrink disks to less than 4 TB before migration. 
 Disk unavailable in the specified location | Make sure the disk is in your target location before you migrate.
 Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
 Could not determine disk suitability due to an internal error | Try creating a new assessment for the group. 
@@ -79,12 +79,15 @@ Could not determine suitability for one or more disks due to an internal error. 
 Could not determine suitability for one or more network adapters due to an internal error. | Try creating a new assessment for the group.
 VM not found for the required storage performance. | The storage performance (IOPS/throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance. | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine. 
-VM not found for the specified pricing tier. | Check the pricing tier settings. 
+VM not found in specified pricing tier. | If the pricing tier is set to Standard, consider downsizing the VM before migrating to Azure. If the sizing tier is Basic, consider changing the pricing tier of the assessment to Standard. 
 VM not found in the specified location. | Use a different target location before migration.
-Linux OS support issues | Make sure you're running 64-bit with these supported [operating systems](../virtual-machines/linux/endorsed-distros.md).
-Windows OS support issues | Make sure you're running a supported operating system. [Learn more](concepts-assessment-calculation.md#azure-suitability-analysis)
-Unknown operating system. | Check that the operating system specified in vCenter is correct and repeat the discovery process.
-Requires Visual Studio subscription. | Windows client operating systems are only supported on Visual Studio (MSDN) subscriptions.
+Unknown operating system | The operating system of the VM was specified as 'Other' in vCenter Server, due to which Azure Migrate cannot identify the Azure readiness of the VM. Ensure that the OS running inside the machine is [supported](https://aka.ms/azureoslist) by Azure before you migrate the machine.
+Conditionally supported Windows OS | The OS has passed its end of support date and needs a Custom Support Agreement (CSA) for [support in Azure](https://aka.ms/WSosstatement), consider upgrading the OS before migrating to Azure.
+Unsupported Windows OS | Azure supports only [selected Windows OS versions](https://aka.ms/WSosstatement), consider upgrading the OS of the machine before migrating to Azure. 
+Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md), consider upgrading the OS of the machine before migrating to Azure.
+Unendorsed Linux OS | The machine may boot in Azure, but no OS support is provided by Azure, consider upgrading the OS to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before migrating to Azure
+Unsupported OS bitness | VMs with 32-bit OS may boot in Azure, but it is recommended to upgrade the OS of the VM from 32-bit to 64-bit before migrating to Azure.
+Requires Visual Studio subscription. | The machines has a Windows client OS running inside it which is supported only in Visual Studio subscription.
 
 
 ## Collect logs
