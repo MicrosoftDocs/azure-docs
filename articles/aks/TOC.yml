@@ -47,9 +47,11 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: Azure Disks
+    - name: Kubernetes Volume - Files
+      href: azure-files-volume.md
+    - name: Persistent Volume - Disks
       href: azure-disks-dynamic-pv.md
-    - name: Azure Files
+    - name: Persistent Volume - Files
       href: azure-files-dynamic-pv.md
   - name: Configure networking
     items:
@@ -73,6 +75,8 @@
       href: integrate-azure.md
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
+    - name: Using OpenFaaS with AKS
+      href: openfaas.md
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard
