@@ -1,10 +1,22 @@
 
 # Azure Location Based Services - Routing Coverage
 
-Check out coverage for **Geocoding** [here](geocoding-coverage.md).       
-Check out coverage for **Traffic** [here](traffic-coverage.md).  
-Check out coverage for **Render** [here](render-coverage.md).
+Check out coverage for [**Geocoding**](geocoding-coverage.md).       
+Check out coverage for [**Traffic**](traffic-coverage.md).  
+Check out coverage for [**Render**](render-coverage.md).
 
+<br>
+
+**Legend**
+
+| Symbol             | Meaning                                |
+|--------------------|----------------------------------------|
+| ✓                  | Country provided with detailed data.   |
+| Ø                  | Country provided with simplified data. |
+| Country is missing | Country data is not provided.          |
+
+<br>
+<br>
 The following table provides coverage information for Azure LBS Routing.
 
 | Region                         | Routing |
@@ -138,14 +150,6 @@ The following table provides coverage information for Azure LBS Routing.
 | United Arab Emirates           |        ✓       |
 | Yemen                          |        ✓       |
 
-
-##### Legend
-
-| Symbol             | Meaning                                |
-|--------------------|----------------------------------------|
-| ✓                  | Country provided with detailed data.   |
-| Ø                  | Country provided with simplified data. |
-| Country is missing | Country data is not provided.          |
 
 
 
