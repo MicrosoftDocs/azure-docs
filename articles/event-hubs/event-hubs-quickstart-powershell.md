@@ -62,7 +62,7 @@ New-AzureRmEventHubNamespace -ResourceGroupName eventhubsResourceGroup -Namespac
 To obtain the connection string, which contains the credentials you need to connect to the event hub, run the following cmdlet:
 
 ```azurepowershell-interactive
-Get-AzureRmServiceBusKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
+Get-AzureRmEventHubKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
 ```
 
 ## Create an event hub
