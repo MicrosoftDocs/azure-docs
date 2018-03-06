@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Development Kit deployment prerequisites | Microsoft Docs
+title: Azure Stack Development Kit deployment (ASDK) prerequisites | Microsoft Docs
 description: Review the environment and hardware requirements for Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---

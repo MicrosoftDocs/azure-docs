@@ -1,5 +1,5 @@
 ---
-title: Advanced ASDK evaluation tasks | Microsoft Docs
+title: Advanced Azure Stack evaluation tasks | Microsoft Docs
 description: This article describes advanced Azure Stack evaluation tasks.
 services: azure-stack
 documentationcenter: ''

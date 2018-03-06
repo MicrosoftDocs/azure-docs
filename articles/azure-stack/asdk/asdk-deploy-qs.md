@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Stack | Microsoft Docs
+title: Deploy the Azure Stack Development Kit | Microsoft Docs
 description: In this quickstart, you install the ASDK.
 services: azure-stack
 documentationcenter: ''
