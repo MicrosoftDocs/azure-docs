@@ -110,8 +110,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Trisotech Digital Enterprise Server Client support team](mailto:support@trisotech.com) to get these values. 
- 
-
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -121,11 +119,54 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
 
-6. On the **Trisotech Digital Enterprise Server Configuration** section, click **Configure Trisotech Digital Enterprise Server** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. To generate the **Metadata** url, perform the following steps:
 
-	![Trisotech Digital Enterprise Server Configuration](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_configure.png) 
+    a. Click **App registrations**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appregistrations.png)
+   
+    b. Click **Endpoints** to open **Endpoints** dialog box.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpointicon.png)
 
-7. To configure single sign-on on **Trisotech Digital Enterprise Server** side, you need to send the downloaded **Metadata XML** to [Trisotech Digital Enterprise Server support team](mailto:support@trisotech.com). They set this setting to have the SAML SSO connection set properly on both sides.
+    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpoint.png)
+     
+    d. Now go to the property page of **Trisotech Digital Enterprise Server** and copy the **Application Id** using **Copy** button and paste it into notepad.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appid.png)
+
+    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+7. On the **Trisotech Digital Enterprise Server Configuration** section, click **Configure Trisotech Digital Enterprise Server** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_configure.png)
+8. In a different web browser window, log in to your Trisotech Digital Enterprise Server Configuration company site as an administrator.
+
+9. Click on the **Menu icon** and then select **Administration**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/user1.png)
+
+10. Select **User Provider**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/user2.png)
+
+11. In the **User Provider Configurations** Section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/user3.png)
+
+	a. Select **WS-Federation (Azure Active Directory, ADFS2.0,...)** from the dropdown in the **Authentication Method**.
+
+	b. In the **Metadata URL** textbox, paste the **Metadata URL** value, which you have copied form the Azure portal.
+
+	c. In the **Application ID** textbox, paste the **SAML Entity ID** value, which you have copied form the Azure portal.
+
+	d. Click **Save**
+
+	e. Enter the domain name in the **Allowed Domains (empty means everyone)** textbox, it automatically assign licenses for users matching the Allowed Domains
+
+	f. Click **Save**
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -210,8 +251,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
