@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: carlrab
 ---
 
@@ -23,7 +23,7 @@ Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL D
  
 The following diagram outlines key features of the Managed Instance:
 
-![key features](./media/sql-database-managed-instance/key-features.png) 
+[key features](./media/sql-database-managed-instance/key-features.png)
 
 Managed Instance is envisioned as preferred platform for the following scenarios: 
 
@@ -36,20 +36,31 @@ The following table outlines key differences and envisioned usage scenarios betw
 
 | | Usage scenario | 
 | --- | --- | 
-|Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNet support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
-|Azure SQL Database |For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><br>• conversion of the business model from selling licenses to selling service subscriptions (for ISVs),  <br>• easy and bullet-proof tenant isolation <br> • a simplified database-centric programming model  <br>• the potential to scale out without hitting a hard ceiling. <br><br>For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are <br><br>• a simplified database-centric programming model  <br>• predictable performance for each database.|
+|Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNET support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
+|Azure SQL Database |For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><ul><li>Conversion of the business model from selling licenses to selling service subscriptions (for ISVs)</li></ul><ul><li>Easy and bullet-proof tenant isolation</li></ul><ul><li>A simplified database-centric programming model</li></ul><ul><li>The potential to scale out without hitting a hard ceiling</li></ul>For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are:<ul><li>A simplified database-centric programming model</li></ul>  <ul><li>Predictable performance for each database</li></ul>|
 |SQL IaaS |For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
-![positioning](./media/sql-database-managed-instance/positioning.png)  
+![positioning](./media/sql-database-managed-instance/positioning.png)
+
+## How to programmatically identify a Managed Instance
+
+Below are several properties, accessible through Transact SQL, you can use to detect that your application is working with Managed Instance and retrieve important properties.
+
+|Property|Value|Comment|
+|---|---|---|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database.|
+|`SERVERPROPERTY ('Edition')`|SQL Azure|This value is same as in SQL Database.|
+|`SERVERPROPERTY('EngineEdition')`|8|This value uniquely identifies Managed Instance.|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:<instanceName>.<dnsPrefix>.database.windows.net, where <instanceName> is name provided by the customer, while <dnsPrefix> is auto-generated part of the name guaranteeing global DNS name uniqueness (“weu1659bceded827”, for example)|Example: gpshared1wus.weu1659bceded827.database.windows.net|
 
 ## Key features and capabilities of a Managed Instance 
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
-|• No hardware purchasing and management <br>• No management overhead for managing underlying infrastructure <br>• Quick provisioning and service scaling <br>• Automated patching and version upgrade <br> • Integration with other PaaS data services (SQL Server Integration Service and SQL Server Analysis Service) |• 99.99% uptime SLA  <br>• Built in high availability <br>• Data protected with automated backups <br>• Customer configurable backup retention period <br>• User-initiated backups <br>• Point in time database restore capability |
+|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in high availability <br>Data protected with automated backups <br>Customer configurable backup retention period (fixed to 7 days in Public Preview) <br>User-initiated backups <br>Point in time database restore capability |
 |**Security and compliance** | **Management**|
-| • Isolated environment (VNet integration, single-tenant service, dedicated compute and storage <br>• Encryption of the data in transit <br>• Azure AD authentication, single sign-on support <br>• Adheres to compliance standards same as Azure SQL database <br>• SQL auditing <br>• Threat detection | • Azure Resource Manager API for automating service provisioning and scaling <br>• Azure portal functionality for manual service provisioning and scaling <br>• Data Migration Service) 
+|Isolated environment (VNet integration, single-tenant service, dedicated compute and storage <br>Encryption of the data in transit <br>Azure AD authentication, single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>SQL auditing <br>Threat detection |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service 
 
 ![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
@@ -69,7 +80,7 @@ The following diagram illustrates the active compute and the redundant nodes in 
  
 ![General Purpose service tier](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-The following outlines key features of the General Purpose service tier:
+The following outlines the key features of the General Purpose service tier:
 
 |Feature | Description|
 |---|---|
@@ -77,22 +88,19 @@ The following outlines key features of the General Purpose service tier:
 | SQL Server version / build | SQL Server (latest available) |
 | Min storage size | 32 GB |
 | Max storage size | 8 TB |
-| Expected storage IOPS | 500-7500 IOPS per data file (depends on data file) |
+| Expected storage IOPS | 500-7500 IOPS per data file (depends on data file). See [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
 | Managed automated backups | Yes |
-| HA | Based on remote storage |
+| HA | Based on remote storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
 | VNet - Azure Resource Manager deployment | Yes |
+| VNet - Classic deployment model | No |
 | Portal support | Yes|
 |||
 
 \* A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.  
-
-## Managed Instance high availability 
-
-Managed Instance offers 99.99% uptime SLA with automatic failover. High availability configuration is automatically provisioned and does not require any additional configuration. Managed Instance deploys a set of virtual machines (“virtual cluster”) whose size is automatically adjusted to ensure the uptime SLA. Managed instances that are deployed in different subnets do not share same virtual cluster.
 
 ## Advanced security and compliance 
 
@@ -106,17 +114,11 @@ Managed Instance provide additional security isolation from other tenants in the
 
 The following diagram outlines isolation design: 
 
-![high availability](./media/sql-database-managed-instance/high-availability.png)  
+![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
 ### Auditing for compliance and security 
 
 Managed Instance [auditing](sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
-
-### Data encryption at rest 
-
-Transparent data encryption helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. All provisioned databases are automatically protected with [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) (TDE). TDE is SQL’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media. In Public Preview customer can use only automatic key management (performed by the PaaS platform). Customer who restore encrypted databases can temporarily use keys stored in master to support migration scenario. Once database is restored, TDE will automatically switch to automatic key management mode
-
-User-controlled key management (based on Azure Key Vault) is planned for GA.
 
 ### Data encryption in motion 
 
@@ -140,8 +142,6 @@ Azure SQL Database [Threat Detection](sql-database-threat-detection.md) compleme
 
 SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) to increase data and application security while supporting a single sign-on process. 
 
-![single sign-on](./media/sql-database-managed-instance/sso.png) 
-
 ### Authentication 
 SQL database authentication refers to how users prove their identity when connecting to the database. SQL Database supports two types of authentication:  
 
@@ -156,11 +156,15 @@ Authorization refers to what a user can do within an Azure SQL Database, and is 
 
 Managed Instance targets user scenarios with mass database migration from on-premises or IaaS database implementations.  Managed Instance supports several database migration options: 
 
+### Data Migration Service
+
+The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime.   This service will streamline the tasks required to move existing 3rd party and SQL Server databases to Azure. Deployment options includes Azure SQL Database, Azure SQL Database Managed Instance and SQL Server in Azure VM at Public Preview. See [How to migrate your on-premises database to Azure SQL Database Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).  
+
 ### Backup and restore  
 
 The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance. 
 
-## SQL Features supported 
+## SQL features supported 
 
 Managed Instance aims to deliver close to 100% surface area compatibility with on-premises SQL Server coming in stages until service general availability. For a features and comparison list, see [SQL common features](sql-database-features.md).
  
@@ -184,7 +188,7 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
  
 ### Managed Instance administration features  
 
-Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, database replication (including system databases), high availability configuration, configuration of health and performance monitoring data streams, etc. Azure SQL Database enables DBAs to put their Tier2/Tier3 databases on auto-pilot even for advanced scenarios such as workload tuning and focus on Tier1 / business critical workloads. 
+Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, database replication (including system databases), high availability configuration, and configuration of health and performance monitoring data streams.  
 
 > [!IMPORTANT]
 > For a list of supported, partially supported, and unsupported features, see [SQL Database features](sql-database-features.md). For a list of T-SQL differences in Managed Instances versus SQL Server, see [Azure SQL Database Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md)

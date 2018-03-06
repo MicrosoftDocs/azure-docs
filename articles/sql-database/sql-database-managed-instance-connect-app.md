@@ -20,16 +20,8 @@ You may choose to host application in the cloud either by using Azure App Servic
  
 Whatever choice you made, you can connect it to Managed Instance.  
 
-![high availability](./media/sql-database-managed-instance/high-availability.png)
+![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-This article provides high-level overview of common connection scenarios: 
-
-<!---- Connecting application that is inside the same VNet as Managed Instance (link to come later)
-- Connecting application that is inside different VNet than Managed Instance <!---(link to come later) 
-- Connecting on-premises application to Managed Instance <!---(link to come later) 
-- Connecting Azure App Service hosted application to Managed Instance <!---(link to come later) 
-- Connecting application that is on the developers box to Managed Instance <!---(link to come later)---> 
- 
 ## Connect an application inside the same VNet 
 
 This scenario is the simplest. Virtual machines inside the VNet can connect to each other directly even if they are inside different subnets. That means that all you need to connect application inside an Azure Application Environment or Virtual Machine is to set the connection string appropriately.  
