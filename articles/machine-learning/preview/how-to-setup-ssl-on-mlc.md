@@ -5,7 +5,7 @@ services: machine-learning
 author: SerinaKaye
 ms.author: serinak
 manager: hjerez
-ms.reviewer: garyericson, j-martens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
