@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: nepeters
 ---
 
@@ -15,13 +15,13 @@ ms.author: nepeters
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-This document details using persistent volumes to dynamically create an Azure disk for used with AKS pods.
+This document details using persistent volumes with Azure disks in an Azure Container Service (AKS) cluster.
 
 ## Built in storage classes
 
-A storage class is used to define how a dynamically created persistent volume is configured. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+A storage class is used to define how a unit of storage is dynamically created with a persistent volumes. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. The `default` storage class provisions a standard Azure disk. The `managed-premium` storage class provisions a premium Azure disk. If the AKS nodes in your cluster use premium storage, select `managed-premium'.
+Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. The `default` storage class provisions a standard Azure disk. The `managed-premium` storage class provisions a premium Azure disk. If the AKS nodes in your cluster use premium storage, select the `managed-premium` class.
 
 Use the [kubectl get sc][kubectl-get] command to see the pre-created storage classes.
 
@@ -33,11 +33,11 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 ## Create persistent volume claim
 
-A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Managed Azure disk.
+A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
 Create a file named `azure-premimum.yaml`, and copy in the following manifest.
 
-Take note that the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access. Also, the pre-created `managed-premium` storgae class is specified in the anotation.
+Take note that the `managed-premium` storgae class is specified in the anotation, and the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access. 
 
 ```yaml
 apiVersion: v1
