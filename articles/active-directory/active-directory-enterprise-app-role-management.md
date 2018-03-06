@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/06/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -159,33 +159,55 @@ If your application expects custom roles to be passed in SAML response, you need
 
 11. To update an existing role, perform following steps -
 
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
 
-	- Open Graph Explorer and find the Service Principal.
+	b. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 
-	- Select **PATCH**.
+	c. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
+		
+	- `https://graph.microsoft.com/beta/servicePrincipals`
+
+	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+
+		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+
+	d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
+
+	- `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+
+	e. Select **PATCH**.
+
+	f. Update the value of role by replacing the **description** and **displayname** with the updated value.
 	
-	- Update the value of role by replacing the **description** and **displayname** with the updated value.
-	
-	- Click **Run Query**. 
+	g. Click **Run Query**. 
 
 12. To delete an  existing role, perform following steps -
 
+	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
+
+	b. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
+
+	c. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
+		
+	- `https://graph.microsoft.com/beta/servicePrincipals`
+
+	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
 
-	- Open Graph Explorer and find the Service Principal.
+	d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
+
+	e. Select **PATCH**.
 	
-	- Select **PATCH**.
+	f. Find the role which you need to delete.
 	
-	- Find the role which you need to delete.
+	g. Set the **IsEnabled** property to **false**.
 	
-	- Set the **IsEnabled** property to **false**.
+	h. Click **Run Query**.
 	
-	- Click **Run Query**.
+	i. Update the appRoles section by removing the specific role.
 	
-	- Update the appRoles section by removing the specific role.
-	
-	- Click **Run Query**.
+	j. Click **Run Query**.
 
 > [!NOTE]
 > The role needs to be disabled first before it can be removed. 
