@@ -17224,6 +17224,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-network/virtual-network-create-peering.md",
+        "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-portal",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/virtual-network/virtual-network-create-udr-arm-cli.md",
         "redirect_url": "/azure/virtual-network/tutorial-create-route-table-cli",
         "redirect_document_id": false
