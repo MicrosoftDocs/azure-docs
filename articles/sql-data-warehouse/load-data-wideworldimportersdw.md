@@ -62,9 +62,9 @@ Follow these steps to create a blank SQL data warehouse.
 
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
-   | **Database name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). | 
+   | **Database name** | SampleDW | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Resource group** | SampleRG | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Select source** | Blank database | Specifies to create a blank database. Note, a data warehouse is one type of database.|
 
     ![create data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -107,19 +107,19 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20171113.database.windows.net**) and provides options for further configuration. 
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **SampleDW** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **sample-svr.database.windows.net**) and provides options for further configuration. 
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
 
-    ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+    ![find server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
 3. Click the server name to open server settings.
 
-    ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+    ![server settings](media/load-data-wideworldimportersdw/server-settings.png) 
 
 5. Click **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
 
-    ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+    ![server firewall rule](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
 4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -127,7 +127,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
 6. Click **OK** and then close the **Firewall settings** page.
 
-You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.  
+You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page and then click **Save** to disable the firewall for all Azure services.
@@ -140,7 +140,7 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20171113.database.windows.net. 
 
-    ![connection information](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
+    ![connection information](media/load-data-wideworldimportersdw/find-server-name.png)  
 
 ## Connect to the server as server admin
 
