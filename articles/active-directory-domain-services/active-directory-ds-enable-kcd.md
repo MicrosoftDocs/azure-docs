@@ -26,7 +26,7 @@ This article shows you how to configure Kerberos constrained delegation on an Az
 ## Kerberos constrained delegation (KCD)
 Kerberos delegation enables an account to impersonate another security principal (such as a user) to access resources. Consider a web application that accesses a back-end web API in the context of a user. In this example, the web application (running in the context of a service account or a computer/machine account) impersonates the user when accessing the resource (back-end web API). Kerberos delegation is insecure since it does not restrict the resources the impersonating account can access in the context of the user.
 
-Kerberos constrained delegation (KCD) restricts the services/resources to which the specified server can act on the behalf of a user. Traditional KCD requires domain administrator privileges to configure a domain account for a service and it restricts the account to a single domain.
+sKerberos constrained delegation (KCD) restricts the services/resources to which the specified server can act on the behalf of a user. Traditional KCD requires domain administrator privileges to configure a domain account for a service and it restricts the account to a single domain.
 
 Traditional KCD also has a few issues associated with it. In earlier operating systems, if the domain administrator configured account-based KCD for the service, the service administrator had no useful way to know which front-end services delegated to the resource services they owned. And any front-end service that could delegate to a resource service represented a potential attack point. If a server that hosted a front-end service was compromised, and it was configured to delegate to resource services, the resource services could also be compromised.
 
@@ -70,7 +70,7 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 ```
 
 > [!NOTE]
-> The computer account for the backend web API and the service account need to be in a custom OU where you have permissions to configure resource-based KCD. You cannot configure resource-based KCD for a computer account in the built-in 'AAD DC Computers' container or for user accounts in the built-in 'AAD DC Users' container. Thus, you cannot use user accounts synchronized from Azure AD to set up resource-based KCD.
+> Both the computer account for the backend web API and the service account need to be in a custom OU where you have permissions to configure resource-based KCD. You cannot configure resource-based KCD for a computer account in the built-in 'AAD DC Computers' container or for user accounts in the built-in 'AAD DC Users' container. Thus, you cannot use user accounts synchronized from Azure AD to set up resource-based KCD.
 >
 
 ## Related Content
