@@ -19,13 +19,13 @@ ms.custom: mvc
 ---
 # Preview: Create a Java web app in App Service on Linux
 
-Java web apps support for App Service on Linux is currently in Preview.  Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Deploying Java web apps to a Linux container in the cloud using the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux) is an alternative approach.
+App Service on Linux currently provides a preview feature to support Java web apps. Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information on previews. [Deploying Java web apps to a Linux container in the cloud using the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux) is an alternative approach.
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux.
+> This article deploys a Java web app to App Service on Linux.
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Java app to App Service on Linux using a built-in image. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Java code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Java app to App Service on Linux using a built-in image. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you deploy the Java code to the web app.
 
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
@@ -39,13 +39,7 @@ To complete this quickstart:
 * You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Install Git](https://git-scm.com/)
 
-## Download the sample
 
-In a terminal window on your machine, run the following command to clone the sample app repository to your local machine. You will deploy this sample app in a later step.
-
-```bash
-git clone https://github.com/Azure-Samples/java-docs-hello-world
-```
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +55,7 @@ git clone https://github.com/Azure-Samples/java-docs-hello-world
 In the Cloud Shell, create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan. You can do it by using the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. In the following example, replace *\<app_name>* with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git --runtime "TOMCAT|8.5-jre8"
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
 ```
 
 When the web app has been created, the Azure CLI shows information similar to the following example:
@@ -82,12 +76,6 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-You’ve created an empty web app, with git deployment enabled.
-
-> [!NOTE]
-> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.
->
-
 Browse to the newly created web app.
 
 ```
@@ -97,6 +85,15 @@ http://<app_name>.azurewebsites.net
 If the web app is up and running, you should get a default screen similar to the following image:
 
 ![Browse to Web App Before Deployment](media/quickstart-java/browse-web-app-not-deployed.png)
+
+
+## Download the sample Java app
+
+In a terminal window on your machine, run the following command to clone the sample app repository to your local machine. You will deploy this sample app in a later step.
+
+```bash
+git clone https://github.com/Azure-Samples/java-docs-hello-world
+```
 
 
 ## Deploying the Java app to App Servic on Linux
@@ -122,7 +119,9 @@ warFilePath='local-path-to-war-file'
 curl -X POST -u $username:$password https://$sitename.scm.azurewebsites.net/api/wardeploy --data-binary @$warFilePath
 ```
 
-After making the required changes, run the script.
+Change the variables in the script to the values for your web app name, deployment credientials, and WAR file path.
+
+After making the required changes, run the script to deploy the WAR file.
 
 ![WarDploy script execution](media/quickstart-java/wardeploy.png)
 
@@ -130,13 +129,23 @@ After making the required changes, run the script.
 
 ### FTP deployment
 
-Alternatively, you can also use FTP to deploy the WAR file. FTP the file to the `/home/site/wwwroot/webapps` directory.
+Alternatively, you can also use FTP to deploy the WAR file. 
 
-The following example uses CURL:
+FTP the file to the `/home/site/wwwroot/webapps` directory of your web app. The following example commandline uses CURL:
 
 ```bash
 curl -T ./helloworld.war -u "webappname\deploymentuser:deploymentpassword" ftp://webappFTPURL/site/wwwroot/webapps/
 ```
+
+Replace the following text in the example commandline:
+
+- *webappname* - Use your app name.
+- *deploymentuser* - Use the deployment username you created earlier.
+- *deploymentpassword* - Use the password for your deployment user.
+- *webappFTPURL* - Use the **FTP hostname** value for your web app. This is listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
+
+
+Run the curl command.
 
 ![CURL deployment](media/quickstart-java/curl-deploy.png)
 
