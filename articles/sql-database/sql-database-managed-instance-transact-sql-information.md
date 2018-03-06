@@ -54,7 +54,7 @@ Managed Instance has automatic backups, and enables users to create full databas
 - Managed Instance can backup a database only on Azure Blob Storage account: 
  - Only `BACKUP TO URL` is supported 
  - `FILE`, `TAPE`, and backup devices are not supported  
-- Most of the general `WITH` <options> are supported 
+- Most of the general `WITH` options are supported 
  - `COPY_ONLY` is mandatory
  - `FILE_SNAPSHOT` not supported  
  - Tape options: `REWIND`, `NOREWIND`, `UNLOAD`, and `NOUNLOAD` are not supported 
@@ -141,7 +141,7 @@ Server collation is `SQL_Latin1_General_CP1_CI_AS` and cannot be changed. See [C
 The following are `CREATE DATABASE` limitations: 
 - Files and file groups cannot be defined.  
 - `CONTAINMENT` option is not supported.  
-- `WITH `<options> are not supported.  
+- `WITH`options are not supported.  
    > [!TIP]
    > As workaround, use `ALTER DATABASE` after `CREATE DATABASE` to set database options to add files or to set containment.  
 
@@ -204,8 +204,8 @@ Undocumented DBCC statements that are enabled in SQL Server are not supported in
 ### Extended Events 
 
 Some Windows-specific targets for XEvents are not supported:
-- `etw_classic_sync target` is not supported. Store xel files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target). 
-- `event_file target`is not supported. Store xel files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `etw_classic_sync target` is not supported. Store `.xel` files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target). 
+- `event_file target`is not supported. Store `.xel` files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
 
 ### External libraries
 
@@ -273,7 +273,7 @@ Replication is not yet supported. For information about Replication, see [SQL Se
  - `FROM URL` (Azure blob storage) is only supported option.
  - `FROM DISK`/`TAPE`/backup device is not supported.
  - Backup sets are not supported. 
-- `WITH` <options> are not supported (No differential, `STATS`, etc.)     
+- `WITH` options are not supported (No differential, `STATS`, etc.)     
 - `ASYNC RESTORE` - Restore continues even if client connection breaks. If you lose a connection, can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
 The following database options that are set/overridden and cannot be changed later:  
@@ -368,7 +368,7 @@ For information about creating tables, see [CREATE TABLE statement](https://docs
 ## <a name="Changes"></a> Behavior changes 
  
 The following variables, functions, and views return different results:  
-- `@@SERVERNAME` returns full DNS 'connectable' name, e.g. testcl.myserver.onebox.xdb.mscds.com2. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
+- `@@SERVERNAME` returns full DNS 'connectable' name, e.g. my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
 - `SERVERPROPERTY('InstanceName')` returns the short instance name, e.g. 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVICENAME` returns NULL, as it makes no sense in Managed Instance environment. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
