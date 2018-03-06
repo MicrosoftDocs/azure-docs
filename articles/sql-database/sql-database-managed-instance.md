@@ -23,7 +23,7 @@ Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL D
  
 The following diagram outlines key features of the Managed Instance:
 
-![key features](./media/sql-database-managed-instance/key-features.png) 
+<--![key features](./media/sql-database-managed-instance/key-features.png) -->
 
 Managed Instance is envisioned as preferred platform for the following scenarios: 
 
@@ -37,11 +37,11 @@ The following table outlines key differences and envisioned usage scenarios betw
 | | Usage scenario | 
 | --- | --- | 
 |Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNET support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
-|Azure SQL Database |For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><br>• conversion of the business model from selling licenses to selling service subscriptions (for ISVs),  <br>• easy and bullet-proof tenant isolation <br> • a simplified database-centric programming model  <br>• the potential to scale out without hitting a hard ceiling. <br><br>For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are <br><br>• a simplified database-centric programming model  <br>• predictable performance for each database.|
+|Azure SQL Database |For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><ul><li>Conversion of the business model from selling licenses to selling service subscriptions (for ISVs)</li></ul><ul><li>Easy and bullet-proof tenant isolation</li></ul><ul><li>A simplified database-centric programming model</li></ul><ul><li>The potential to scale out without hitting a hard ceiling</li></ul>For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are:<ul><li>A simplified database-centric programming model</li></ul>  <ul><li>Predictable performance for each database</li></ul>|
 |SQL IaaS |For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
-![positioning](./media/sql-database-managed-instance/positioning.png)  
+<!--![positioning](./media/sql-database-managed-instance/positioning.png)  -->
 
 ## How to programmatically identify a Managed Instance
 
@@ -49,19 +49,18 @@ Below are several properties, accessible through Transact SQL, you can use to de
 
 |Property|Value|Comment|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8   <actual release date? Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database.|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|This value is same as in SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|This value uniquely identifies Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:<instanceName>.<dnsPrefix>.database.windows.net, where <instanceName> is name provided by the customer, while <dnsPrefix> is auto-generated part of the name guaranteeing global DNS name uniqueness (“weu1659bceded827”, for example)|Example: 
-gpshared1wus. weu1659bceded827.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:<instanceName>.<dnsPrefix>.database.windows.net, where <instanceName> is name provided by the customer, while <dnsPrefix> is auto-generated part of the name guaranteeing global DNS name uniqueness (“weu1659bceded827”, for example)|Example: gpshared1wus.weu1659bceded827.database.windows.net|
 
 ## Key features and capabilities of a Managed Instance 
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
-|• No hardware purchasing and management <br>• No management overhead for managing underlying infrastructure <br>• Quick provisioning and service scaling <br>• Automated patching and version upgrade <br> • Integration with other PaaS data services |• 99.99% uptime SLA  <br>• Built in high availability <br>• Data protected with automated backups <br>• Customer configurable backup retention period (fixed to 7 days in Public Preview) <br>• User-initiated backups <br>• Point in time database restore capability |
+|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in high availability <br>Data protected with automated backups <br>Customer configurable backup retention period (fixed to 7 days in Public Preview) <br>User-initiated backups <br>Point in time database restore capability |
 |**Security and compliance** | **Management**|
-| • Isolated environment (VNet integration, single-tenant service, dedicated compute and storage <br>• Encryption of the data in transit <br>• Azure AD authentication, single sign-on support <br>• Adheres to compliance standards same as Azure SQL database <br>• SQL auditing <br>• Threat detection | • Azure Resource Manager API for automating service provisioning and scaling <br>• Azure portal functionality for manual service provisioning and scaling <br>• Data Migration Service 
+|Isolated environment (VNet integration, single-tenant service, dedicated compute and storage <br>Encryption of the data in transit <br>Azure AD authentication, single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>SQL auditing <br>Threat detection |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service 
 
 ![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
@@ -81,7 +80,7 @@ The following diagram illustrates the active compute and the redundant nodes in 
  
 ![General Purpose service tier](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-The following outlines key features of the General Purpose service tier:
+The following outlines the key features of the General Purpose service tier:
 
 |Feature | Description|
 |---|---|
@@ -165,15 +164,15 @@ The Azure Database Migration Service is a fully managed service designed to enab
 
 The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance. 
 
-## SQL Features supported 
+## SQL features supported 
 
 Managed Instance aims to deliver close to 100% surface area compatibility with on-premises SQL Server coming in stages until service general availability. For a features and comparison list, see [SQL common features](sql-database-features.md).
  
 Managed Instance supports backward compatibility to SQL 2008 databases.  Direct migration from SQL 2005 database servers is supported, compatibility level for migrated SQL 2005 databases are updated to SQL 2008. 
  
-The following diagram outlines surface area compatibility in Managed Instance:  
+<!--The following diagram outlines surface area compatibility in Managed Instance:  
 
-![migration](./media/sql-database-managed-instance/migration.png) 
+![migration](./media/sql-database-managed-instance/migration.png) -->
 
 ### Key differences between SQL Server on-premises and SQL Managed Instance 
 
