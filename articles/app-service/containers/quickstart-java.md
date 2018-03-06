@@ -17,7 +17,9 @@ ms.date: 02/27/2017
 ms.author: msangapu
 ms.custom: mvc
 ---
-# Create a Java web app in Azure App Service on Linux
+# Preview: Create a Java web app in Azure App Service on Linux
+
+The feature described in this article is currently in Preview.  Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!NOTE]
 > This article deploys an app to App Service on Linux.
@@ -31,7 +33,7 @@ ms.custom: mvc
 
 ## Download the sample
 
-In a terminal window on your machine, run the following command to clone the sample app repository to your local machine.
+In a terminal window on your machine, run the following command to clone the sample app repository to your local machine. You will deploy this sample app in a later step.
 
 ```bash
 git clone https://github.com/Azure-Samples/java-docs-hello-world
@@ -84,45 +86,46 @@ Browse to the newly created web app.
 http://<app_name>.azurewebsites.net
 ```
 
-Here is what your new web app should look like at this time:
+If the web app is up and running, you should get a default screen similar to the following image:
 
 ![Browse to Web App Before Deployment](media/quickstart-java/browse-web-app-not-deployed.png)
 
 
-
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
+
 ```bash
-Counting objects: 23, done.
+Counting objects: 54, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
+Compressing objects: 100% (42/42), done.
+Writing objects: 100% (54/54), 11.52 KiB | 0 bytes/s, done.
+Total 54 (delta 13), reused 0 (delta 0)
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
+remote: Preparing deployment for commit id '150adb9e7d'.
 remote: Generating deployment script.
-remote: Generating deployment script for java Web Site
+remote: Generating deployment script for Web Site
 remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling java deployment.
+remote: Handling Basic Web Site deployment.
 remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
 remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
+remote: Copying file: 'CHANGELOG.md'
+remote: Copying file: 'CONTRIBUTING.md'
+remote: Copying file: 'LICENSE.md'
 remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
 remote: Deleting file: 'hostingstart.html'
 remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Java versions available on the platform are: <add something here>.
-remote: Selected Java version <add something here>. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
+remote: Copying file: 'WebContent/index.jsp'
+remote: Copying file: 'WebContent/META-INF/MANIFEST.MF'
+remote: Copying file: 'WebContent/WEB-INF/web.xml'
+remote: Copying file: 'build/classes/com/azurewebsites/example/HelloWorldServlet.class'
+remote: Copying file: 'src/com/azurewebsites/example/HelloWorldServlet.java'
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
+remote: App container will begin restart within 10 seconds.
+To https://<your app name>.scm.azurewebsites.net:443/<your app name>.git
  * [new branch]      master -> master
 ```
 
@@ -131,13 +134,34 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
 Browse to the deployed application using your web browser.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app_name>.azurewebsites.net/helloworld
 ```
 
 The Java sample code is running in a web app with built-in image.
 
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
+Browse to the servlet using your web browser.
+
+```bash
+http://<app_name>.azurewebsites.net/helloworld/HelloWorldServlet
+```
+
+The Java sample code is running in a web app with built-in image.
+
+![Sample app running in Azure](media/quickstart-java/java-hello-world-servlet-in-browser.png)
+
+
+
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+
+## Next Steps
+
+For more information about using Java with Azure, see the following links:
+
+* [Azure for Java Developers](https://docs.microsoft.com/java/azure/)
+* [Deploy a Hello World web app to a Linux container in the cloud using the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux)
+* [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/)
