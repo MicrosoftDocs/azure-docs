@@ -15,31 +15,41 @@
 1. In the **Basics** tab, specify the following values:
 
     - **Name** - Enter `Jenkins`.
-    - **User** - Enter the user name to use when signing into the virtual machine on which Jenkins is running.
+    - **User name** - Enter the user name to use when signing into the virtual machine on which Jenkins is running. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
     - **Authentication type** - Select **Password**.
     - **Password** - Enter the password to use when signing into the virtual machine on which Jenkins is running.
     - **Confirm password** - Reenter the password to use when signing into the virtual machine on which Jenkins is running.
-    - **Jenkins release type** - Select **LTS**.
     - **Subscription** - Select the Azure subscription into which you want to install Jenkins.
     - **Resource group** - Select **Create new**, and enter a name for the resource group that serves as a logical container for the collection of resources that make up your Jenkins installation.
     - **Location** - Select **East US**.
 
     ![Enter authentication and resource group information for Jenkins in the Basic tab.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
 
-1. Select **OK** to proceed to the **Settings** tab. 
+1. Select **OK** to proceed to the **Additional Settings** tab. 
 
-1. In the **Settings** tab, specify the following values:
+1. In the **Additional Settings** tab, specify the following values:
 
     - **Size** - Select the appropriate sizing option for your Jenkins virtual machine.
     - **VM disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) to indicate which storage disk type is allowed for the Jenkins virtual machine.
+    - **Virtual network** - (Optional) Select **Virtual network** to modify the default settings.
+    - **Subnets** - Select **Subnets**, verify the information, and select **OK**.
     - **Public IP address** - The IP address name defaults to the Jenkins name you specified in the previous page with a suffix of -IP. You can select the option to change that default.
     - **Domain name label** - Specify the value for the fully qualified URL to the Jenkins virtual machine.
+    - **Jenkins release type** - Select the desired release type from the options: `LTS`, `Weekly build`, or `Azure Verified`. The `LTS` and `Weekly build` options are explained in the article, [Jenkins LTS Release Line](https://jenkins.io/download/lts/). The `Azure Verified` option refers to a [Jenkins LTS version](https://jenkins.io/download/lts/) that has been verified to run on Azure. 
 
     ![Enter virtual machine settings for Jenkins in the Settings tab.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
 
-1. Select **OK** to proceed to the **Summary** tab.
+1. Select **OK** to proceed to the **Integration Settings** tab.
 
-1. When the **Summary** tab displays, the information entered is validated. Once you see the **Validation passed** message, select **OK**. 
+1. In the **Integration Settings** tab, specify the following values:
+
+    - **Service Principal** - The service principal is added into Jenkins as a credential for authentication with Azure. `Auto` means that the principal will be created by MSI (Managed Service Identity). `Manual` means that the princpal should be created by you.
+    - **Application ID** and **Secret** - If you select the `Manual` option for the **Service Principal** option, you'll need to specify the `Application ID` and `Secret` for your service principal.
+    - **Enable Cloud Agents** - Specify the default cloud template for agents where `ACI` refers to Azure Container Instance, and `VM` refers to virtual machines. You can also specify `No` if you don't wish to enable a cloud agent.
+
+1. elect **OK** to proceed to the **Summary** tab.
+
+1. When the **Summary** tab displays, the information entered is validated. Once you see the **Validation passed** message (at the top of the tab), select **OK**. 
 
     ![The Summary tab displays and validates your selected options.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-summary.png)
 
