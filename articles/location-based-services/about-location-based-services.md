@@ -62,6 +62,16 @@ Azure Location Based Services is built for mobility and can power cross-platform
 
 Azure Location Based Services uses a key-based authentication scheme, so accessing the services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Location Based Services account. Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Location Based Services service.
 
+## Unsupported Regions
+Our API is currently unavailable in below countries. Please check your current IP address and verify that your IP address' location is not in one of the unsupported countries below.
+
+* Argentina
+* China
+* India
+* Morrocco
+* Pakistan
+* South Korea
+
 ## Relationship With Bing Maps
 The Azure Location Based Services described in this document are distinct from those provided by Bing Maps.  Although they share much of the same functionality, the two services are different and not related.  There is no impact to Bing Maps product offering or roadmap with the availability of this new service within Azure, which will be managed separately.
 
