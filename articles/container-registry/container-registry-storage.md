@@ -15,10 +15,6 @@ ms.author: marsma
 
 Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry is backed by an Azure Storage account managed by Azure. This managed storage scheme provides several benefits, including encryption-at-rest for image data security and geo-redundant storage for high availability. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
 
-## Managed storage
-
-Azure Container Registry manages the storage of your container images in Azure Storage accounts that provide encryption at rest and geographic redundancy. Because image storage is managed entirely by Azure, a separate storage account doesn't appear in your subscription. With Azure managing the storage accounts, role-based access control is simplified by requiring you to manage permissions only for the registry, and not storage accounts backing your images.
-
 ## Encryption-at-rest
 
 All container images are encrypted at rest using [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md). Azure automatically encrypts your image data before storing it, and decrypts it on-the-fly when you or your applications and services pull an image. Azure manages the encryption keys for you; you cannot currently use your own encryption keys.
