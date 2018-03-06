@@ -19,7 +19,7 @@ This document details using persistent volumes with Azure disks in an Azure Cont
 
 ## Built in storage classes
 
-A storage class is used to define how a unit of storage is dynamically created with a persistent volumes. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
 Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. The `default` storage class provisions a standard Azure disk. The `managed-premium` storage class provisions a premium Azure disk. If the AKS nodes in your cluster use premium storage, select the `managed-premium` class.
 
@@ -37,7 +37,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 Create a file named `azure-premimum.yaml`, and copy in the following manifest.
 
-Take note that the `managed-premium` storgae class is specified in the anotation, and the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access. 
+Take note that the `managed-premium` storage class is specified in the annotation, and the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access. 
 
 ```yaml
 apiVersion: v1
