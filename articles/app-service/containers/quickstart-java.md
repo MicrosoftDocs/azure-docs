@@ -192,7 +192,7 @@ Replace the following text in the example commandline:
 - *webappname* - Use your app name.
 - *deploymentuser* - Use the deployment username you created earlier.
 - *deploymentpassword* - Use the password for your deployment user.
-- *webappFTPURL* - Use the **FTP hostname** value for your web app. This is listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
+- *webappFTPURL* - Use the **FTP hostname** value for your web app. The FTP hostname is also listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
 
 
 Run the curl command.
