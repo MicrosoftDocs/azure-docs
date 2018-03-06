@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
+ms.author: aelnably;msangapu
 
 ---
 # Continuous deployment with Web App for Containers
@@ -31,14 +31,14 @@ Sign in to the [Azure portal](https://portal.azure.com)
 You can enable the continuous deployment feature using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
 
 Click on the name of your app that you want to configure Docker Hub continuous deployment for.
 
-In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the value `true`.
+In **Docker Container**, select 'On' then press Save to enable Continuous Deployment.
 
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -47,7 +47,7 @@ In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the v
 You can obtain the Webhook URL using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 For the Webhook URL, you need to have the following endpoint:
@@ -87,6 +87,6 @@ When the image gets updated, the web app get updated automatically with the new 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
-* [How to use a custom Docker image for Web App for Containers](quickstart-custom-docker-image.md)
+* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md)
 * [Azure App Service Web App for Containers FAQ](./app-service-linux-faq.md)
 * [Manage Web App for Containers using Azure CLI 2.0](./app-service-linux-cli.md)
