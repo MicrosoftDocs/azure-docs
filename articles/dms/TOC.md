@@ -6,6 +6,7 @@
 
 # Tutorials
 ## [Migrate SQL Server to Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [Migrate SQL Server to Azure SQL DB Managed Instance](tutorial-sql-server-to-managed-instance.md)
 
 # How-to guides
 ## [Use PowerShell to migrate SQL Server](howto-sql-server-to-azure-sql-powershell.md)
