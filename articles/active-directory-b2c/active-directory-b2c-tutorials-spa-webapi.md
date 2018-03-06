@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Create your own [Azure AD B2C Tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started)
+* Complete the [Authenticate users with Azure Active Directory B2C in a single page application tutorial](active-directory-b2c-tutorials-spa.md).
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) or later
 * Install [Node.js](https://nodejs.org/en/download/)
@@ -124,15 +124,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 2. Open the **appsettings.json** file. Update the following values to configure the web api to use your tenant:
 
-```javascript
-"AzureAdB2C": 
-  {
-    "Tenant": "<your tenant name>.onmicrosoft.com", 
-    "ClientId": "<The Application ID for your web API obtained from the Azure portal>",
-    "Policy": "<Your sign up sign in policy e.g. B2C_1_SiUpIn>",
-    "ScopeRead": "demo.read"  
-  },
-```
+    ```javascript
+    "AzureAdB2C": 
+      {
+        "Tenant": "<your tenant name>.onmicrosoft.com", 
+        "ClientId": "<The Application ID for your web API obtained from the Azure portal>",
+        "Policy": "<Your sign up sign in policy e.g. B2C_1_SiUpIn>",
+        "ScopeRead": "demo.read"  
+      },
+    ```
 
 #### Enable CORS
 
@@ -212,4 +212,4 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutor
 This article walked you through protecting a web API by registering and defining scopes in Azure AD B2C. Learn more by browsing the available Azure AD B2C code samples.
 
 > [!div class="nextstepaction"]
-> [Azure AD B2C code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c&sort=0)
+> [Azure AD B2C code samples](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

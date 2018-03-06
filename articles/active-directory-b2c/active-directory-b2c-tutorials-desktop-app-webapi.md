@@ -1,6 +1,6 @@
 ---
-title: Use Azure Active Directory B2C to protect an Node.js web API tutorial
-description: Tutorial on how to use Active Directory B2C to protect an Node.js web api and call it from a .NET desktop app.
+title: Use Azure Active Directory B2C to protect an Node.js web API
+description: Tutorial on how to use Active Directory B2C to protect a Node.js web api and call it from a .NET desktop app.
 services: active-directory-b2c
 author: PatAltimore
 
@@ -157,9 +157,9 @@ The desktop app makes a request to the web API to and gets a response with the l
 
 You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## Next Steps
+## Next steps
 
 This article walked you through protecting a ASP.NET web API by registering and defining scopes in Azure AD B2C. Learn more by browsing the available Azure AD B2C code samples.
 
 > [!div class="nextstepaction"]
-> [Azure AD B2C code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c&sort=0)
+> [Azure AD B2C code samples](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

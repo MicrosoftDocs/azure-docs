@@ -1,5 +1,5 @@
 ---
-title: Use Azure Active Directory B2C to protect an ASP.NET web API tutorial
+title: Use Azure Active Directory B2C to protect an ASP.NET web API
 description: Tutorial on how to use Active Directory B2C to protect an ASP.NET web api and call it from an ASP.NET web app.
 services: active-directory-b2c
 author: PatAltimore
@@ -135,11 +135,11 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
 3. Configure the URI of the API. This is the URI the web app uses to make the API request. Also, configure the requested permissions.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### Configure the web API
 

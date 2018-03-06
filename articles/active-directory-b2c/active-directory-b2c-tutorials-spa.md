@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Create your own [Azure AD B2C Tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started)
+* Create your own [Azure AD B2C Tenant](active-directory-b2c-get-started.md)
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) or later
 * Install [Node.js](https://nodejs.org/en/download/)
@@ -191,7 +191,7 @@ Now, the user can use their email address to sign in and use the SPA app.
 
 You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample single page app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
 

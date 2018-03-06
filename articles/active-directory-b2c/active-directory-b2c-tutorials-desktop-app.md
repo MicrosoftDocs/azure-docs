@@ -145,9 +145,9 @@ To change the app settings:
 
 3. Update the **PolicySignUpSignIn** variable with the *sign-up or sign-in policy* name you created in a previous step. Remember to include the *B2C_1_* prefix.
 
-```C#
-public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
-```
+    ```C#
+    public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
+    ```
 
 ## Run the sample desktop application
 
@@ -178,7 +178,7 @@ Now, the user can use their email address to sign in and use the desktop app.
 
 You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample desktop app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
 
