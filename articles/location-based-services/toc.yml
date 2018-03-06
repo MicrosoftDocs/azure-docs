@@ -27,6 +27,8 @@
     href: traffic-coverage.md
   - name: Render Coverage
     href: render-coverage.md
+  - name: Routing Coverage
+    href: routing-coverage.md
 - name: How-to guides
   items:
   - name: Manage account and keys
