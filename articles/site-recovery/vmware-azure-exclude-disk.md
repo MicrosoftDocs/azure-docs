@@ -181,7 +181,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Here are the paging file settings on the source virtual machine:
 
-![Paging file settings on source virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-d-drive-source-vm.png)
+![Paging file settings on source virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-d-drive-sourcevm.png)
 
 
 After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
@@ -197,7 +197,7 @@ Because Disk1 (D:) was excluded, D: is the first drive letter from the available
 
 Here are the paging file settings on the Azure virtual machine:
 
-![Paging file settings on Azure virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-azurevm-after-failover.png)
+![Paging file settings on Azure virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover.png)
 
 ### Case 2: The paging file is configured on another drive (other than D: drive)
 
@@ -212,7 +212,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Here are the paging file settings on the on-premises virtual machine:
 
-![Paging file settings on the on-premises virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-g-drive-source-vm.png)
+![Paging file settings on the on-premises virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-g-drive-sourcevm.png)
 
 After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
 
@@ -227,7 +227,7 @@ Because D: is the first drive letter from available the list, Azure assigns D: t
 
 Here are the paging file settings on the Azure virtual machine:
 
-![Paging file settings on Azure virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-azurevm-after-failover-2.png)
+![Paging file settings on Azure virtual machine](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover-2.png)
 
 ## Next steps
 After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failover.
