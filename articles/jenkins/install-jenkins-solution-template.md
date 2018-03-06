@@ -33,13 +33,17 @@ In the **Basics** tab, fill in the following fields:
 
 ![Configure basic settings](./media/install-jenkins-solution-template/ap-basic.png)
 
-* Use **Jenkins** for **Name**.
+* Use **jenkins** for **Name**.
 * Enter a **User name**. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
 * Select **Password** as the **Authentication type** and enter a password. The password must have an upper case character, a number, and one special character.
 * Use **myJenkinsResourceGroup** for the **Resource Group**.
 * Choose the **East US** [Azure region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) from the **Location** drop-down.
 
-Select **OK** to proceed to the **Configure additional options** tab. Enter a unique domain name to identify the Jenkins server and select **OK**.
+Select **OK** to proceed to the **Additional Settings** tab. 
+
+Select **Subnets**. On the **Subnets** tab, verify the information, and select **OK**.
+
+When returned to the **Additional Settings** tab, enter a unique domain name to identify the Jenkins server and select **OK**.
 
 ![Set up additional options](./media/install-jenkins-solution-template/ap-addtional.png)  
 
