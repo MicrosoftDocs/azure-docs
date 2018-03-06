@@ -25,7 +25,7 @@ When the input stream of your Stream Analytics job contains malformed messages, 
 
 ![Inputs tile](media/stream-analytics-malformed-events/inputs_tile.png)
 
-You can enable the diagnostics logs to view the details of the warning. For malformatted input events, the execution logs contain an entry with the message that looks like: “Message: Could not deserialize the input event(s) from resource <blob URI> as json). 
+You can enable the diagnostics logs to view the details of the warning. For malformatted input events, the execution logs contain an entry with the message that looks like: “Message: Could not deserialize the input event(s) from resource <blob URI> as json)". 
 
 ### Troubleshooting steps
 
