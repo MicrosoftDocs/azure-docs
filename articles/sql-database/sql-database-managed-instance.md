@@ -19,7 +19,7 @@ ms.author: carlrab
 
 # What is an Azure SQL Database Managed Instance (preview)?
 
-Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNET)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
+Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
  
 The following diagram outlines key features of the Managed Instance:
 
@@ -88,7 +88,7 @@ The following outlines the key features of the General Purpose service tier:
 | SQL Server version / build | SQL Server (latest available) |
 | Min storage size | 32 GB |
 | Max storage size | 8 TB |
-| Expected storage IOPS | 500-7500 IOPS per data file (depends on data file). See [Premium Storage](../virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes.md) |
+| Expected storage IOPS | 500-7500 IOPS per data file (depends on data file). See [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
 | Managed automated backups | Yes |
@@ -141,6 +141,8 @@ Azure SQL Database [Threat Detection](sql-database-threat-detection.md) compleme
 ### Azure Active Directory integration and multi-factor authentication 
 
 SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) to increase data and application security while supporting a single sign-on process. 
+
+![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
 ### Authentication 
 SQL database authentication refers to how users prove their identity when connecting to the database. SQL Database supports two types of authentication:  
