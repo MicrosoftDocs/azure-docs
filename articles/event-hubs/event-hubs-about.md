@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 03/02/2018
 ms.author: shvija;sethm
 
 ---
@@ -39,7 +39,9 @@ Your organization needs data-driven strategies to increase competitive advantage
 
 The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. 
 
-Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios.
+Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. The following figure shows the Event Hubs stream processing architecture:
+
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
 ## Fully managed PaaS 
 
