@@ -18,6 +18,8 @@ Check out coverage for [**Render**](render-coverage.md).
 <br>
 <br>
 The following table provides coverage information for Azure LBS Routing.
+<br>
+
 
 | Region                         | Routing |
 |--------------------------------|:----------------:|
