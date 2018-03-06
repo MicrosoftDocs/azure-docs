@@ -47,7 +47,7 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: Kubernetes Volume - Disk
+    - name: Kubernetes Volume - Disks
       href: azure-disk-volume.md
     - name: Kubernetes Volume - Files
       href: azure-files-volume.md

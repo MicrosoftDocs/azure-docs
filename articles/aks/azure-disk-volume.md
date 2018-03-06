@@ -20,7 +20,7 @@ For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-
 
 ## Create an Azure disk
 
-Before using an Azure disk as a Kubernetes volume, you must create the disk. The disk must be created in the same resource group as the AKS nodes. 
+Before using an Azure disk as a Kubernetes volume, create the disk. The disk must be created in the same resource group as the AKS nodes. 
 
 Return a list of resource groups using the [az group list][az-group-list] command.
 
@@ -43,12 +43,30 @@ Use the [az disk create][az-disk-create] command to create the Azure managed dis
 az disk create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name myAKSDisk  --size-gb 20
 ```
 
-Finally, you need the disk ID. This can be found using the [az disk list][az-disk-list] command. 
+Once the disk has been created, you should see output similar to the following. take note of the disk ID. This value is needed when referencing the disk.
 
-Replace the resource group name with the name of your AKS clusters resource group and the disk name, `myAKSDisk` in this example with the name of your disk
-
-```azurecli-interactive
-az disk list --resource-group MC_myAKSCluster_myAKSCluster_eastus --query "[?contains(name, 'myAKSDisk')].[id]" -o tsv
+```json
+{
+  "additionalProperties": {},
+  "diskSizeGb": 20,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk",
+  "location": "eastus",
+  "managedBy": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-42032720-2",
+  "name": "myAKSDisk",
+  "osType": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "MC_myAKSCluster_myAKSCluster_eastus",
+  "sku": {
+    "additionalProperties": {},
+    "name": "Premium_LRS",
+    "tier": "Premium"
+  },
+  "tags": {},
+  "timeCreated": "2018-03-05T22:56:24.893937+00:00",
+  "type": "Microsoft.Compute/disks",
+  "zones": null
+}
 ```
 
 ## Mount file share as volume
@@ -97,5 +115,6 @@ Learn more about Kubernetes volumes using Azure disks.
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 
 <!-- LINKS - internal -->
-[az-disk-list]: /cli/azure/group#az_disk_list
-[az-disk-create]: /cli/azure/group#az_disk_create
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-group-list]: /cli/azure/group#az_group_list
