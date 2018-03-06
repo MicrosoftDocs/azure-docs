@@ -8,6 +8,8 @@
     href: prerequisites.md
   - name: Installation
     href: installation.md
+  - name: Configuring CycleCloud
+    href: configuring_cyclecloud.md
 - name: Quickstarts
   items:
   - name: Quickstart 1
