@@ -111,7 +111,7 @@ There are several tools that work together to monitor various aspects of your ne
 
 [ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
 
-[DNS Analytics](../log-analytics/log-analytics-dns.md)is a solution that provides security, performance, and operations-related insights, based on your DNS servers.
+[DNS Analytics](../log-analytics/log-analytics-dns.md) is a solution that provides security, performance, and operations-related insights, based on your DNS servers.
 
 [Service Endpoint Monitor](../networking/network-monitoring-overview.md) tests the reachability of applications and detects performance bottlenecks across on-premises, carrier networks, and cloud/private data centers.
 
@@ -154,6 +154,6 @@ After a reported outage, you use Service Map to perform forensics to identify th
 ## Next steps
 Learn more about:
 
-* [Azure Monitor](monitoring-overview-azure-monitor) to get started with core monitoring metrics and alerts.
+* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) to get started with core monitoring metrics and alerts.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you're trying to diagnose problems in your App Service web app.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) for analyzing collected monitoring data and logs.
