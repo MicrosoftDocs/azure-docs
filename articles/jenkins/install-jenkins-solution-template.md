@@ -43,11 +43,13 @@ Select **OK** to proceed to the **Additional Settings** tab.
 
 Select **Subnets**. On the **Subnets** tab, verify the information, and select **OK**.
 
-When returned to the **Additional Settings** tab, enter a unique domain name to identify the Jenkins server and select **OK**.
+On the **Additional Settings** tab, select the **Jenkins release type**. The `Azure Verified` option refers to an LTS version that has been verified to run on Azure. We try to verify each LTS version within a few weeks of the LTS release. For more information, see [Jenkins LTS Release Line](https://jenkins.io/download/lts/).
+
+Enter a unique domain name to identify the Jenkins server, and select **OK**.
 
 ![Set up additional options](./media/install-jenkins-solution-template/ap-addtional.png)  
 
- Once validation passes, select **OK** again from the **Summary** tab. Finally, select **Purchase** to create the Jenkins VM. When your server is ready, you get a notification in the Azure portal:   
+Once validation passes, select **OK** again from the **Summary** tab. Finally, select **Purchase** to create the Jenkins VM. When your server is ready, you get a notification in the Azure portal:   
 
 ![Jenkins is ready notification](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
 
