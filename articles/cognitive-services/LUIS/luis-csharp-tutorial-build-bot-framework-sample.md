@@ -44,11 +44,11 @@ Build a chat bot with integrated language understanding.
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
     * Select the **Language understanding (C#)** template for the **Bot template** field.
+    * Select the **LUIS App Location**. This is the authoring region the app is created in.
+    * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
-    * Select the **LUIS App Location**. This is the authoring region the app is created in. 
-    * Check the box to confirm to the notice. The terms of the notice are below the checkbox.
 
 5. Confirm that the bot service has been deployed.
     * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification changes from **Deployment started** to **Deployment succeeded**.
@@ -59,7 +59,7 @@ Build a chat bot with integrated language understanding.
 
 ## Try the default bot
 
-Confirm that the bot has been deployed by checking the **Notifications**. The notifications changes from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources.
+Confirm that the bot has been deployed by selecting the **Notifications** checkbox. The notifications changes from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources.
 
 Once the bot is deployed, click **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
 
