@@ -2,26 +2,28 @@
 title: Azure Storage security guide | Microsoft Docs
 description: Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/06/2018
 ms.author: tamram
 
 ---
 # Azure Storage security guide
-## Overview
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using [Storage Service Encryption (SSE)](storage-service-encryption.md). OS and Data disks used by virtual machines can be set to be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
 
-This article will provide an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
+## Overview
+
+Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications:
+
+- All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For additional details, see [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. 
+- Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
+- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
+- Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
+
+This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
 
 Here are the topics to be covered in this article:
 
@@ -36,7 +38,7 @@ Here are the topics to be covered in this article:
   This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
 * [Encryption at Rest](#encryption-at-rest)
 
-  We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+  We will talk about Storage Service Encryption (SSE), which is now automatically enabled for new and existing storage accounts. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 * Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
 
   This section discusses how to find information in the storage analytics logs for a request. We'll take a look at real storage analytics log data and see how to discern whether a request is made with the Storage account key, with a Shared Access signature, or anonymously, and whether it succeeded or failed.
@@ -286,7 +288,8 @@ There are three Azure features that provide encryption at rest. Azure Disk Encry
 While you can use Client-side Encryption to encrypt the data in transit (which is also stored in its encrypted form in Storage), you may prefer to simply use HTTPS during the transfer, and have some way for the data to be automatically encrypted when it is stored. There are two ways to do this -- Azure Disk Encryption and SSE. One is used to directly encrypt the data on OS and data disks used by VMs, and the other is used to encrypt data written to Azure Blob Storage.
 
 ### Storage Service Encryption (SSE)
-SSE allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
+
+SSE is enabled for all storage accounts by default. SSE automatically encrypts your data when writing it to Azure Storage. When you read the data from Azure Storage, it is decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
 
 This is a setting that applies to the whole storage account. You can enable and disable this feature by changing the value of the setting. To do this, you can use the Azure portal, PowerShell, the Azure CLI, the Storage Resource Provider REST API, or the .NET Storage Client Library. By default, SSE is turned off.
 
