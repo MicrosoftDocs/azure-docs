@@ -104,9 +104,9 @@ Managed Instance cannot access file shares and Windows folders, so the following
  
 ### Compatibility levels 
  
-- Supported compatibility levels are: 100, 110, 120, 130, 140, 150  
+- Supported compatibility levels are: 100, 110, 120, 130, 140  
 - Compatibility levels below 100 are not supported. 
-- The default compatibility level is 140. 
+- The default compatibility level for new databases is 140. For restored databases, compatibility level will remain unchanged if it was 100 and above.
 
 See [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
  
@@ -129,10 +129,8 @@ Server collation is `SQL_Latin1_General_CP1_CI_AS` and cannot be changed. See [C
 ### Database options 
  
 - Multiple log files are not supported. 
-- In-memory objects are not supported  
-- There is a limit of 280 files per instance implying max 280 files per database.  
-- Every database has one `FILEGROUP` called `XTP` that contains memory optimized data. If original database backup didn't have memory optimized file group, it will be added during restore. 
-- Cannot create general-purpose database with objects in `XTP` filegroups (Memory-optimized tables, natively compiled stored procedures)  
+- In-memory objects are not supported in the General Purpose service tier.  
+- There is a limit of 280 files per instance implying max 280 files per database. Both data and log files are calculated against this limit.  
 - Database cannot contain file groups containing file stream data.  Restore will fail if .bak contains `FILESTREAM` data.  
 - Every file is placed on separate Azure Premium disk. IO and throughput depend on the size of each individual file. See [Azure Premium disk performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
@@ -247,8 +245,8 @@ Operations
 
 - SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax are not supported.
-- Azure Active Directory (AAD) user who created the instance has [unrestricted admin priviledges](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Non-administrator Azure Active Directory (AAD) users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- Azure Active Directory (Azure AD) user who created the instance has [unrestricted admin privileges](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
+- Non-administrator Azure Active Directory (AAD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
  
 ### Polybase
 
@@ -368,14 +366,16 @@ For information about creating tables, see [CREATE TABLE statement](https://docs
 ## <a name="Changes"></a> Behavior changes 
  
 The following variables, functions, and views return different results:  
+- `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies Managed Instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` returns the short instance name, e.g. 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` returns full DNS 'connectable' name, e.g. my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `SERVERPROPERTY('InstanceName')` returns the short instance name, e.g. 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` returns full DNS 'connectable' name, such as `my-managed-instance.wcus17662feb9ce98.database.windows.net`. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
+- `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
 - `@@SERVICENAME` returns NULL, as it makes no sense in Managed Instance environment. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` is supported. Returns NULL if AAD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` is not supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` always returns date in UTC time-zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
-- `SERVERPROPERTY('EngineEdition')` returns value 8. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 
 ## <a name="Issues"></a> Known issues and limitations
 

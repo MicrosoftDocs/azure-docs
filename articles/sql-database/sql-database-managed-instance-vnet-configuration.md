@@ -41,6 +41,8 @@ For SQL Managed Instance creation you need dedicate subnet inside the VNet that 
 4. **No Service endpoint**: The subnet must not have a Service endpoint (Storage or Sql) associated to it. Make sure that Service Endpoints option is Disabled when creating VNet.
 5. **Sufficient IP addresses**: The subnet must have minimum of 16 IP addresses. For more information see [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances)
 
+> [!IMPORTANT]
+> You won’t be able to deploy new Managed Instance if the destination subnet is not compatible with all of the preceding requirements. The destination Vnet and the subnet must always be kept in accordance with these Managed Instance requirements (before and after deployment), as any violation may cause instance to enter faulty state and become unavailable. Recovering from that state will require you to create new instance in a VNet with the compliant networking policies, recreate instance level data, and restore your databases which will introduce significant downtime for your applications.
 
 ##  Determine the size of subnet for Managed Instances
 
