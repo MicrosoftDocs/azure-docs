@@ -102,7 +102,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	c. Note the **Identifier** value for later use in this tutorial.
 	
 	> [!NOTE] 
-	> The preceding values are not real. Update them with the actual sign-on URL and identifier. To obtain the values, contact [E Sales Manager Remix Client support team](mailto:esupport@softbrain.co.jp).
+	> The preceding values are not real. Update them with the actual sign-in URL and identifier. To obtain the values, contact [E Sales Manager Remix Client support team](mailto:esupport@softbrain.co.jp).
 
 4. Under **SAML Signing Certificate**, select **Certificate (Base64)**, and then save the certificate file on your computer.
 
@@ -114,7 +114,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
     The **Edit Attribute** window opens.
 
-6. Copy the **Namespace** and **Name** values. Generate the value in the following pattern: *\<Namespace>/\<Name>* for later use in this tutorial.
+6. Copy the **Namespace** and **Name** values. Generate the value in the pattern *\<Namespace>/\<Name>*, and save it for later use in this tutorial.
 
 	![The Edit Attribute window](./media/active-directory-saas-esalesmanagerremix-tutorial/configure2.png)
 
@@ -196,7 +196,7 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
     b. In the **User name** box, type the email address of user Britta Simon.
 
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select the **Show Password** check box, and then note the value that's displayed in the **Password** box.
 
     d. Select **Create**.
  
@@ -220,11 +220,11 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
 	b. Complete the remaining required fields.
 	
-	c. If you enable SAML, the administrator cannot sign in from the sign-in page. Go grant administrator sign-in privileges to the user by selecting the **Admin Login** check box.
+	c. If you enable SAML, the administrator cannot sign in from the sign-in page. Grant administrator sign-in privileges to the user by selecting the **Admin Login** check box.
 
 	d. Select **Registration**.
 
-5. In the future, to sign in as an administrator, sign in with the user who has administrator permissions and then, at the top right, select **To Administrator Menu**.
+5. In the future, to sign in as an administrator, sign in as the user who has administrator permissions and then, at the top right, select **To Administrator Menu**.
 
 	![The "To Administrator Menu" command](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
 
