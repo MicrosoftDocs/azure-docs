@@ -42,7 +42,7 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
    > 
 
 ## Prerequisites for migrating SQL Server to Azure SQL Database Managed Instance
-- derp
+- Create an instance of Azure SQL Database Managed Instance by following the detail in the article [Create an Azure SQL Database Managed Instance in the Azure portal](https://aka.ms/sqldbmi).
 - Open your firewalls to allow SMB traffic on port 445 for the Azure Database Migration Service IP address or subnet range.
 - Ensure that the logins used to connect the source SQL Server and target Managed Instance are members of the sysadmin server role.
 - Create a network share that the Azure Database Migration Service can use to back up the source database.
