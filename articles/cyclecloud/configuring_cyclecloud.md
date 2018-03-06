@@ -46,7 +46,7 @@ Azure uses a subscription ID and authentication certificate for account validati
     * Select a duration for your key to be valid: 1-year, 2-years, or Never Expires
     * Your key will not be displayed until it has been saved. Click the button at the top of the pane:
 
-[Azure Key Generation screen](~images/azure_key_gen.png)
+[Azure Key Generation screen](~/images/azure_key_gen.png)
 
 > [!WARNING]
 >You can only view this key once! If you leave this page, you will no longer be able to access the key, which is needed to configure CycleCloud as the "Application Secret". Copy it now and save it somewhere secure.
@@ -86,7 +86,7 @@ In the dashboard, click on the name of the Network Security Group you just creat
 5. For each entry, **Allow** the action
 6. Click **OK** to add the rule
 
-[Azure Inbound Rule screen](~images/azure_inbound_rule.png)
+[Azure Inbound Rule screen](~/images/azure_inbound_rule.png)
 
 >[!Note]
 >Should you wish to start a cluster that includes CycleServer (such as the standard Condor cluster), you may want to include the following rule for port 8443. Please note that this will require SSL configured with a valid domain and certificates.
@@ -107,7 +107,7 @@ on **Virtual Network**. If you don't see the option, click on **All Services** a
 5. Select the Resource Group name you created in the previous step
 6. Click **Create**
 
-[Azure Virtual Network](~images/azure_virtual_network.png)
+[Azure Virtual Network](~/images/azure_virtual_network.png)
 
 Your Virtual Network requires a subnet, and your Network Security Group assigned to it:
 
