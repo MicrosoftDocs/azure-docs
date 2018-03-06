@@ -12,7 +12,7 @@ ms.author: carlrab
 manager: cguyer
 ---
 
-# Connecting your application to Azure SQL Database Managed Instance (preview)
+# Connect your application to Azure SQL Database Managed Instance (preview)
 
 Today you have multiple choices when deciding how and where you will host your application. 
  
@@ -22,14 +22,6 @@ Whatever choice you made, you can connect it to Managed Instance.
 
 ![high availability](./media/sql-database-managed-instance/high-availability.png)
 
-This article provides high-level overview of common connection scenarios: 
-
-<!---- Connecting application that is inside the same VNet as Managed Instance (link to come later)
-- Connecting application that is inside different VNet than Managed Instance <!---(link to come later) 
-- Connecting on-premises application to Managed Instance <!---(link to come later) 
-- Connecting Azure App Service hosted application to Managed Instance <!---(link to come later) 
-- Connecting application that is on the developers box to Managed Instance <!---(link to come later)---> 
- 
 ## Connect an application inside the same VNet 
 
 This scenario is the simplest. Virtual machines inside the VNet can connect to each other directly even if they are inside different subnets. That means that all you need to connect application inside an Azure Application Environment or Virtual Machine is to set the connection string appropriately.  
@@ -63,7 +55,7 @@ If you've established on-premises to Azure connection successfully and you can't
 
 Managed Instance can be accessed only through a private IP address so in order to access it from Azure App Service you first need to make a connection between the application and the Managed Instance VNet. See [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
  
-For troubleshooting, see [Troubleshooting VNets and Applications](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). If a connection cannot be established, try synching the networking configuration. 
+For troubleshooting, see [Troubleshooting VNets and Applications](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). If a connection cannot be established, try [synching the networking configuration](sql-database-managed-instance-sync-network-configuration.md). 
  
 A special case of connecting Azure App Service to SQL Managed Instance is when you integrated Azure App Service to a network peered to SQL Managed Instance VNet. That case requires the following configuration to be set up: 
 
