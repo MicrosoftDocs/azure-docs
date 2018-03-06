@@ -20,7 +20,7 @@ ms.author: jdial
 
 # Create, change, or delete a route table
 
-Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](create-user-defined-route-portal.md) tutorial, before completing tasks in this article.
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](tutorial-create-route-table-portal.md) tutorial, before completing tasks in this article.
 
 ## Before you begin
 
