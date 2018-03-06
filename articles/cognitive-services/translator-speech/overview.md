@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.technology: translator
 ms.topic: article
 ms.date: 3/5/2018
-ms.author: Jann-Skotdal
+ms.author: v-jansko
 ---
 
 # Microsoft Translator Speech API
