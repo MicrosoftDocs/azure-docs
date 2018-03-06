@@ -15,11 +15,12 @@ Check out coverage for [**Render**](render-coverage.md).
 | Ø                  | Country provided with simplified data. |
 | Country is missing | Country data is not provided.          |
 
-<br>
-<br>
-The following table provides coverage information for Azure LBS Routing.
-<br>
+<br>  
+<br>  
 
+The following table provides coverage information for Azure LBS Routing.
+
+<br>  
 
 | Region                         | Routing |
 |--------------------------------|:----------------:|
