@@ -10,7 +10,7 @@ ms.workload: "Active"
 ms.tgt_pltfrm: portal
 ms.devlang: 
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: carlrab
 manager: Craig.Guyer
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Log in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## Whitelist your subscription
 
