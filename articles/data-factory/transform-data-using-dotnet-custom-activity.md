@@ -301,11 +301,11 @@ If you would like to consume the content of stdout.txt in downstream activities,
 
   In the Azure Data Factory V2 Custom Activity, you are not required to implement a .Net interface. You can now directly run commands, scripts, and your own custom code, compiled as an executable. To configure this implementation, you specify the `Command` property together with the `folderPath` property. The Custom Activity uploads the executable and its dependencies to `folderpath` and executes the command for you. 
 
-  The Linked Services, Datasets (defined in referenceObjects), and Extended Properties defined in the JSON payload of a Custom Activity can be accessed by your executable as JSON files. You can access the required properties using aJSON serializer as shown in the preceding SampleApp.exe code sample. 
+  The Linked Services, Datasets (defined in referenceObjects), and Extended Properties defined in the JSON payload of a Data Factory v2 Custom Activity can be accessed by your executable as JSON files. You can access the required properties using a JSON serializer as shown in the preceding SampleApp.exe code sample. 
 
-  With the changes introduced in the Azure Data Factory V2 Custom Activity, you can write your custom code logic in your preferred language and execute it on Windows and Linux Operation Systems supported by Azure Batch. 
+  With the changes introduced in the Data Factory V2 Custom Activity, you can write your custom code logic in your preferred language and execute it on Windows and Linux Operation Systems supported by Azure Batch. 
 
-  The following table describes the differences between Data Factory V2 Custom Activity and Data Factory version 1 (Custom) DotNet Activity: 
+  The following table describes the differences between the Data Factory V2 Custom Activity and the Data Factory version 1 (Custom) DotNet Activity: 
 
 
 |Differences      |version 2 Custom Activity      | version 1 (Custom) DotNet Activity      |
@@ -319,11 +319,11 @@ If you would like to consume the content of stdout.txt in downstream activities,
 |Logging      |Writes directly to STDOUT      |Implementing Logger in .Net DLL      |
 
 
-  If you have existing .Net code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with version 2 Custom Activity. Modify your code by following these high-level guidelines:  
+  If you have existing .Net code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with a version 2 Custom Activity. Update your code by following these high-level guidelines:  
 
    - Change the project from a .Net Class Library to a Console App. 
    - Start your application with the `Main` method. The `Execute` method of the `IDotNetActivity` interface is no longer required. 
-   - Read and parse the Linked Services, Datasets and Activity with a JSON serializer, and not as strong typed objects. Pass the values of required properties to your main custom code logic. Refer to the preceding SampleApp.exe code as an example. 
+   - Read and parse the Linked Services, Datasets and Activity with a JSON serializer, and not as strongly-typed objects. Pass the values of required properties to your main custom code logic. Refer to the preceding SampleApp.exe code as an example. 
    - The Logger object is no longer supported. Output from your executable can be printed to the console and is saved to stdout.txt. 
    - The Microsoft.Azure.Management.DataFactories NuGet package is no longer required. 
    - Compile your code, upload the executable and its dependencies to Azure Storage, and define the path in the `folderPath` property. 
