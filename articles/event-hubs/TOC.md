@@ -7,7 +7,6 @@
 ## [Process event streams - Azure PowerShell](event-hubs-quickstart-powershell.md)
 
 # Tutorials
-## [Build real-time telemetry pipelines](tutorial-telemetry-pipelines.md)
 ## [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ## [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ## [Available APIs](event-hubs-api-overview.md)
