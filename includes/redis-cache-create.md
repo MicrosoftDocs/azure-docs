@@ -32,7 +32,7 @@ In **New Redis Cache**, specify the desired configuration for the cache.
     * **Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
     * **Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB. All Standard tier features and more including support for [Redis cluster](../articles/redis-cache/cache-how-to-premium-clustering.md), [Redis persistence](../articles/redis-cache/cache-how-to-premium-persistence.md), and [Azure Virtual Network](../articles/redis-cache/cache-how-to-premium-vnet.md). 99.9% SLA.
 
-    Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details][Cache Pricing Details].
+    Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
 
 * **Redis cluster** allows you to create caches larger than 53 GB and to shard data across multiple Redis nodes. For more information, see [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md).
 * **Redis persistence** offers the ability to persist your cache to an Azure Storage account. For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md).
