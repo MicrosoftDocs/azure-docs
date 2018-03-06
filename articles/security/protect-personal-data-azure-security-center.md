@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data with Azure Security Center | Microsoft Docs
-description: Guidance on how to protect personal data using Azure security center. This information may be used to help you comply with General Data Protection Regulation (GDPR)
+description: use security center to protect personal data. This may be used in efforts to comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
