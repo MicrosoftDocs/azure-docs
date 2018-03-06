@@ -63,7 +63,7 @@ To configure the integration of Azure AD with E Sales Manager Remix, add E Sales
 
 	![The "Enterprise applications" window][2]
 	
-3. To add new application, select **New application** button on the top of dialog.
+3. To add a new application, select **New application** at the top of the window.
 
 	![The New application button][3]
 
@@ -95,9 +95,9 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 	![E Sales Manager Remix Domain and URLs single sign-on information](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. In the **Sign-on URL** box, type a URL that uses the following pattern: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
+    a. In the **Sign-on URL** box, type a URL in the following format: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
-	b. In the **Identifier** box, type a URL that uses the following pattern: *https://\<Server-Based-URL>/\<sub-domain>/*.
+	b. In the **Identifier** box, type a URL in the following format: *https://\<Server-Based-URL>/\<sub-domain>/*.
 
 	c. Note the **Identifier** value for later use in this tutorial.
 	
@@ -124,7 +124,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
     The **Configure sign-on** window opens.
 
-8. In the **Quick Reference section, copy the sign-out URL and the SAML single sign-on service URL.
+8. In the **Quick Reference** section, copy the sign-out URL and the SAML single sign-on service URL.
 
 9. Select **Save**.
 
@@ -158,9 +158,9 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 	e. To upload your downloaded certificate from the Azure portal, select **File selection**.
 
-	f. In the **ID provider login URL** box, paste the SAML single sign-on service URL that you copied earlier from the Azure portal.
+	f. In the **ID provider login URL** box, paste the SAML single sign-on service URL that you copied earlier in the Azure portal.
 
-	g. In **Identity Provider Logout URL** box, paste the sign-out URL value that you copied earlier from the Azure portal.
+	g. In **Identity Provider Logout URL** box, paste the sign-out URL value that you copied earlier in the Azure portal.
 
 	h. Select **Setting complete**.
 
@@ -261,6 +261,7 @@ In this section, you enable user Britta Simon to use Azure single sign-on by gra
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
 When you select the E Sales Manager Remix tile in the Access Panel, you should be signed in automatically to your E Sales Manager Remix application.
+
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
