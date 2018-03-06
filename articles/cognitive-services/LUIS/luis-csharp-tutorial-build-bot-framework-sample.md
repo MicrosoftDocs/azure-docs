@@ -47,6 +47,7 @@ Build a chat bot with integrated language understanding.
 
     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
+    * Select the **LUIS App Location**. This is the authoring region the app is created in. 
     * Check the box to confirm to the notice. The terms of the notice are below the checkbox.
 
 5. Confirm that the bot service has been deployed.
