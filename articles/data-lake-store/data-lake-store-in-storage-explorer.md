@@ -110,7 +110,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
 ### Upload files
 
-1. On the main pane's toolbar, select **Upload**, and then select **Upload Files** from the drop-down menu.
+1. On the main pane's toolbar, select **Upload**, and then select **Upload Files** on the drop-down menu.
 
    !["Upload Files" menu item](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png) 
 
@@ -122,7 +122,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
 ### Upload a folder
 
-1. On the main pane's toolbar, select **Upload**, and then select **Upload Folder** from the drop-down menu.
+1. On the main pane's toolbar, select **Upload**, and then select **Upload Folder** on the drop-down menu.
 
    !["Upload Folder" menu item](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png) 
      
@@ -170,7 +170,7 @@ The file is downloaded and opened through the application that's associated with
 ### Delete folders or files
 
 1. Select the folders or files that you want to delete.
-2. On the main pane's toolbar, select **Delete**. Or right-click the selected folders or files, and then select **Delete** from the shortcut menu.
+2. On the main pane's toolbar, select **Delete**. Or right-click the selected folders or files, and then select **Delete** on the shortcut menu.
 3. Select **Yes** in the confirmation dialog box.
 
 ![Selections for deleting a folder](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
