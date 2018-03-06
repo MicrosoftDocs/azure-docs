@@ -550,6 +550,25 @@ Run the following SQL scripts specify information about the data you wish to loa
 9. Create the sale table. 
 
     ```sql
+    CREATE TABLE [wwi].[dimension_Date]
+    (
+	    [Date] [datetime] NOT NULL,
+	    [Day Number] [int] NOT NULL,
+	    [Day] [nvarchar](10) NOT NULL,
+	    [Month] [nvarchar](10) NOT NULL,
+	    [Short Month] [nvarchar](3) NOT NULL,
+	    [Calendar Month Number] [int] NOT NULL,
+	    [Calendar Month Label] [nvarchar](20) NOT NULL,
+	    [Calendar Year] [int] NOT NULL,
+	    [Calendar Year Label] [nvarchar](10) NOT NULL,
+	    [Fiscal Month Number] [int] NOT NULL,
+	    [Fiscal Month Label] [nvarchar](20) NOT NULL,
+	    [Fiscal Year] [int] NOT NULL,
+	    [Fiscal Year Label] [nvarchar](10) NOT NULL,
+	    [ISO Week Number] [int] NOT NULL
+    )
+    WITH (DISTRIBUTION = ROUND_ROBIN, CLUSTERED INDEX ([Date]));
+   
     CREATE TABLE [wwi].[fact_Sale]
     (
 	    [Sale Key] [bigint] IDENTITY(1,1) NOT NULL,
@@ -617,20 +636,6 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
     SELECT * FROM [ext].[dimension_Customer]
     OPTION (LABEL = 'CTAS : Load [wwi].[dimension_Customer]')
     ;
-
-    
-    /*    
-    CREATE TABLE [wwi].[dimension_Date]
-    WITH
-    ( 
-        DISTRIBUTION = REPLICATE,
-        CLUSTERED COLUMNSTORE INDEX
-    )
-    AS
-    SELECT * FROM [ext].[dimension_Date]
-    OPTION (LABEL = 'CTAS : Load [wwi].[dimension_Date]')
-    ;
-    */
 
     CREATE TABLE [wwi].[dimension_Employee]
     WITH
@@ -780,11 +785,6 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
         r.[label] = 'CTAS : Load [wwi].[fact_Purchase]' OR
         r.[label] = 'CTAS : Load [wwi].[fact_StockHolding]' OR
         r.[label] = 'CTAS : Load [wwi].[fact_Transaction]' OR
-        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
-        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
-        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
-        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
-        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR 
     GROUP BY
         r.command,
         s.request_id,
@@ -839,7 +839,7 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
 3. Create stored procedures for generating data
 
     ```sql
-    CREATE PROCEDURE [Integration].[PopulateDateDimensionForYear] @Year [int] AS
+    CREATE PROCEDURE [wwi].[PopulateDateDimensionForYear] @Year [int] AS
     BEGIN
 	    --drop table #month
 	    IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL 
@@ -996,6 +996,46 @@ Run these commands to create statistics on columns that are likely to be used in
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
     CREATE STATISTICS [dbo.Trip DateID stats] ON dbo.Trip (DateID);
     ```
+
+## Cleanup objects
+
+1. Drop the external tables
+
+    ```sql
+    DROP EXTERNAL TABLE [ext].[dimension_City];
+    DROP EXTERNAL TABLE [ext].[dimension_Customer;]
+    DROP EXTERNAL TABLE [ext].[dimension_Date];
+    DROP EXTERNAL TABLE [ext].[dimension_Employee];
+    DROP EXTERNAL TABLE [ext].[dimension_PaymentMethod];
+    DROP EXTERNAL TABLE [ext].[dimension_StockItem];
+    DROP EXTERNAL TABLE [ext].[dimension_Supplier];
+    DROP EXTERNAL TABLE [ext].[dimension_TransactionType];
+    DROP EXTERNAL TABLE [ext].[fact_Movement];
+    DROP EXTERNAL TABLE [ext].[fact_Order];
+    DROP EXTERNAL TABLE [ext].[fact_Purchase];
+    DROP EXTERNAL TABLE [ext].[fact_Sale];
+    DROP EXTERNAL TABLE [ext].[fact_StockHolding];
+    DROP EXTERNAL TABLE [ext].[fact_Transaction];
+    ```
+
+2. Drop the tables
+
+    ```sql
+    DROP TABLE [wwi].[dimension_City];
+    DROP TABLE [wwi].[dimension_Customer];
+    DROP TABLE [wwi].[dimension_Date];
+    DROP TABLE [wwi].[dimension_Employee];
+    DROP TABLE [wwi].[dimension_PaymentMethod];
+    DROP TABLE [wwi].[dimension_StockItem];
+    DROP TABLE [wwi].[dimension_Supplier];
+    DROP TABLE [wwi].[dimension_TransactionType];
+    DROP TABLE [wwi].[fact_Movement];
+    DROP TABLE [wwi].[fact_Order];
+    DROP TABLE [wwi].[fact_Sale];    
+    DROP TABLE [wwi].[fact_StockHolding];    
+    DROP TABLE [wwi].[fact_Transaction];
+    DROP TABLE [wwi].[seed_Sale];
+
 
 ## Clean up resources
 
