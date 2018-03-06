@@ -23,28 +23,28 @@ To complete this tutorial, you need an active Azure account. If you don't have a
 
 ## Before you start
 
-Before you write any code for your device, you must provision your remote monitoring preconfigured solution and provision a new custom device in that solution.
+Before you write any code for your device, deploy your remote monitoring preconfigured solution and add a new physical device to the solution.
 
-### Provision your remote monitoring preconfigured solution
+### Deploy your remote monitoring preconfigured solution
 
 The **Chiller** device you create in this tutorial sends data to an instance of the [remote monitoring](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, see [Deploy the remote monitoring preconfigured solution](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-When the provisioning process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
+When the deployment process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
 ![The solution dashboard](media/iot-suite-selector-connecting/dashboard.png)
 
-### Provision your device in the remote monitoring solution
+### Add your device to the remote monitoring solution
 
 > [!NOTE]
-> If you have already provisioned a device in your solution, you can skip this step. You need the device connection string, which you can retrieve from the Azure portal, when you create the client application.
+> If you have already added a device in your solution, you can skip this step. However, the next step requires your device connection string. You can retrieve a device's connection string from the [Azure portal](https://portal.azure.com) or using the [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI tool.
 
-For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains the credentials when you add the device the solution. You include the device connection string in your client application later in this tutorial.
+For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains these credentials when you add the device the solution. You include the device connection string in your client application later in this tutorial.
 
 To add a device to your remote monitoring solution, complete the following steps on the **Devices** page in the solution:
 
 1. Choose **+ New device**, and then choose **Physical** as the **Device type**:
 
-    ![Provision a physical device](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Add a physical device](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Enter **Physical-chiller** as the Device ID. Choose the **Symmetric Key** and **Auto generate keys** options:
 
@@ -54,9 +54,7 @@ To add a device to your remote monitoring solution, complete the following steps
 
     ![Retrieve credentials](media/iot-suite-selector-connecting/credentials.png)
 
-To locate the credentials your device must use to connect to the preconfigured solution, navigate to the Azure portal in your browser. Sign in to your subscription.
-
-You have now provisioned a physical device in the remote monitoring preconfigured solution. In the following sections, you implement the client application that uses the device credentials to connect to your solution.
+You've now added a physical device to the remote monitoring preconfigured solution and noted its device connection string. In the following sections, you implement the client application that uses the device connection string to connect to your solution.
 
 The client application implements the built-in **Chiller** device model. A preconfigured solution device model specifies the following about a device:
 

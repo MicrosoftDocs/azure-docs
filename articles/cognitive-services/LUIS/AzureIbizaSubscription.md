@@ -8,15 +8,16 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/08/2017
+ms.date: 03/02/2017
 ms.author: v-geberr
 ---
 
 # Manage Azure subscription keys
 
-For authoring, testing and prototype only, use the programmatic free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. When using the paid tier, LUIS scales to the number of endpoint transactions your application needs.
+For authoring, testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. When using the paid tier, LUIS scales to the number of endpoint transactions your application needs.
 
-## Create LUIS service
+<a name="create-luis-service"></a>
+## Create LUIS endpoint key
 
 1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)** 
 2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
@@ -32,8 +33,8 @@ For authoring, testing and prototype only, use the programmatic free (F0) tier. 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Log into your region's [luis.ai](manage-keys.md#publishing-regions) and add the new LUIS service as part of [publishing your app](PublishApp.md). 
-    > * You need to remember the name of the Azure service you created in order to select it on the region's [luis.ai](manage-keys.md#publishing-regions) publish page.  
+    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](Manage-Keys.md#assign-endpoint-key). 
+    > * You need to remember the name of the Azure service you created in order to select it on the region's [LUIS](luis-reference-regions.md) publish page.  
 
 ## Change LUIS pricing tier
 

@@ -54,7 +54,7 @@ The Edge Agent starts and runs successfully for about a minute, then stops. The 
 
 Example Edge Agent logs:
 
-```
+```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
 2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5) 
 2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP... 
@@ -73,7 +73,7 @@ Ensure that there is a route to the internet for the IP addresses assigned to th
 
 The Edge Hub fails to start, and prints the following message to the logs: 
 
-```
+```output
 One or more errors occurred. 
 (Docker API responded with status code=InternalServerError, response=
 {\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 

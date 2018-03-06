@@ -28,9 +28,9 @@ ms.author: jonbeck
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## RDMA-capable instances
-A subset of the compute-intensive instances (H16r, H16mr, A8, and A9) feature a network interface for remote direct memory access (RDMA) connectivity. This interface is in addition to the standard Azure network interface available to other VM sizes. 
+A subset of the compute-intensive instances (H16r, H16mr, NC24r, A8, and A9) feature a network interface for remote direct memory access (RDMA) connectivity. This interface is in addition to the standard Azure network interface available to other VM sizes. 
   
-This interface allows the RDMA-capable instances to communicate over an InfiniBand network, operating at FDR rates for H16r and H16mr virtual machines, and QDR rates for A8 and A9 virtual machines. These RDMA capabilities can boost the scalability and performance of Message Passing Interface (MPI) applications running under Intel MPI 5.x or a later version.
+This interface allows the RDMA-capable instances to communicate over an InfiniBand network, operating at FDR rates for H16r, H16mr, and NC24r virtual machines, and QDR rates for A8 and A9 virtual machines. These RDMA capabilities can boost the scalability and performance of Message Passing Interface (MPI) applications running under Intel MPI 5.x only. Later versions (2017, 2018) of the Intel MPI runtime library are not compatible with the Azure RDMA drivers.
 
 Deploy the RDMA-capable VMs in the same availability set (when you use the Azure Resource Manager deployment model) or the same cloud service (when you use the classic deployment model). Additional requirements for RDMA-capable Linux VMs to access the Azure RDMA network follow.
 

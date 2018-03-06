@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data with Azure network security features | Microsoft Docs
-description: Protect personal data using Azure network security features
+description: Information on how to protect personal data using Azure network security features. This information may be used to help comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/05/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Protect personal data with network security features: Azure Application Gateway and Network Security Groups
 
-This article provides information and procedures that will help you use Azure Application Gateway and Network Security Groups to protect personal data.
+This article provides information and procedures that will help you use Azure Application Gateway and Network Security Groups to protect personal data. This information may be helpful in your efforts to comply with General Data Protection Regulation (GDPR).
 
 An important element in a multi-layered security strategy to protect the privacy of personal data is a defense against common vulnerability exploits such as SQL injection or cross-site scripting. Keeping unwanted network traffic out of your Azure virtual network helps protect against potential compromise of sensitive data, and Microsoft Azure gives you tools to help protect your data against attackers.
 
@@ -65,19 +65,10 @@ You can create an application gateway with WAF, or add WAF to an existing applic
 
 To create a new application gateway with WAF enabled, do the following:
 
-1. Log in to the Azure portal and in the **Favorites** pane of the portal, click **New**
-
-2. In the **New** blade, click **Networking**.
-
-3. Click **Application Gateway**.
-
-4. Navigate to the Azure portal, **click New \> Networking \> Application Gateway.**
-
-   ![creating application gateways](media/protect-netsec/app-gateway-01.png)
-
+1. Log in to the [Azure portal](https://portal.azure.com).
+2. Select **Create a resource** > **Networking** > **Application Gateway**.
 5. In the **Basics** blade that appears, enter the values for the following fields: Name, Tier (Standard or WAF), SKU size (Small, Medium, or Large),
     Instance count (2 for high availability), Subscription, Resource group, and Location.
-
 6. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This step opens enter the Choose virtual
     network blade.
 
@@ -135,7 +126,7 @@ For more guidance in planning and implementing NSGs, and a sample deployment sce
 
 To create inbound rules in an existing NSG, do the following:
 
-1. Click **Browse**, and then **Network security groups**.
+1. Click **All services**, and then **Network security groups**.
 
 2. In the list of NSGs, click **NSG-FrontEnd**, and then **Inbound security rules.**
 

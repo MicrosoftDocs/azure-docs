@@ -13,13 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
 ---
 # Azure disconnected deployment planning decisions for Azure Stack integrated systems
-After you've decided [how you will integrate Azure Stack into your hybrid cloud environment](azure-stack-deployment-decisions.md), you can then finalize your Azure Stack deployment decisions.
+After you've decided [how you will integrate Azure Stack into your hybrid cloud environment](azure-stack-connection-models.md), you can then finalize your Azure Stack deployment decisions.
 
 With the disconnected from Azure deployment option, you can deploy and use Azure Stack without a connection to the Internet. However, with a disconnected deployment, you are limited to an AD FS identity store and the capacity-based billing model. 
 
