@@ -102,7 +102,7 @@ enablePurgeProtection -Value 'True'
 Set-AzureRmResource -resourceid \$resource.ResourceId -Properties
 \$resource.Properties
 
-![Portal Screenshot showing Encryption Preview](media/f269ba5badebbce868a09222c21bf5f0.png)
+![Portal Screenshot showing Encryption Preview](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
 By default, SSE uses Microsoft-managed keys. To use your own keys, check the
 box. Then you can either specify your key URI, or select a key and Key Vault
@@ -110,15 +110,15 @@ from the picker.
 
 ### Step 3: Select your key
 
-![Portal Screenshot showing Encryptions use your own key option](media/94f12d794fff49056209b1e25ae647b0.png)
+![Portal Screenshot showing Encryptions use your own key option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
-![Portal Screenshot showing Encryption with enter key uri option](media/9303bdf9ae1920280619be50b1a1a4d9.png)
+![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
 If the storage account does not have access to the Key Vault, you can run the
 following command using Azure Powershell to grant access to the storage accounts
 to the required key vault.
 
-![Portal Screenshot showing access denied for key vault](media/35d5e9af977f2c3467ec83cd35aea5ec.png)
+![Portal Screenshot showing access denied for key vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 You can also grant access via the Azure portal by going to the Azure Key Vault
 in the Azure portal and granting access to the storage account.
