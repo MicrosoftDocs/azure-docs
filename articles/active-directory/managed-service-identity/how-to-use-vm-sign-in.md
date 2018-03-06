@@ -18,22 +18,23 @@ ms.author: daveba
 
 # How to use an Azure VM Managed Service Identity (MSI) for sign in 
 
-[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 This article provides PowerShell and CLI script examples for sign-in using an MSI service principal, and guidance on important topics such as error handling.
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
-> - All sample script in this article assumes the command-line client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
-> - To prevent errors during resource access, the VM's MSI must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
+> - All sample script in this article assumes the command-line client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
+> - To prevent errors during resource access, the VM's MSI must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](howto-assign-access-portal.md) for details.
 
 ## Overview
 
-An MSI provides a [service principal](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
+An MSI provides a [service principal object](../develop/active-directory-dev-glossary.md#service-principal-object) 
+, which is [created upon enabling MSI](overview.md#how-does-it-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
    - be registered and consented with Azure AD as a confidential/web client application
    - sign in under its service principal, using the app's credentials (which are likely embedded in the script)
@@ -81,7 +82,7 @@ The following script demonstrates how to:
 
 ## Resource IDs for Azure services
 
-See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
+See [Azure services that support Azure AD authentication](overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
 
 ## Error handling guidance 
 
@@ -95,11 +96,11 @@ If you receive one of these errors, return to the Azure VM in the [Azure portal]
 - Go to the **Configuration** page and ensure "Managed service identity" is set to "Yes."
 - Go to the **Extensions** page and ensure the MSI extension deployed successfully.
 
-If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.
+If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.
 
 ## Related content
 
-- To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md), or [Configure a VM Managed Service Identity (MSI) using Azure CLI](msi-qs-configure-cli-windows-vm.md)
+- To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using PowerShell](qs-configure-powershell-windows-vm.md), or [Configure a VM Managed Service Identity (MSI) using Azure CLI](qs-configure-cli-windows-vm.md)
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

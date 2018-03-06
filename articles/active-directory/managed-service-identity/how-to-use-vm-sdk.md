@@ -18,15 +18,15 @@ ms.author: daveba
 
 # How to use an Azure VM Managed Service Identity (MSI) with Azure SDKs 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 This article provides a list of SDK samples, which demonstrate use of their respective Azure SDK's support for MSI.
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
+> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 
 ## SDK code samples
 
@@ -41,7 +41,7 @@ This article provides a list of SDK samples, which demonstrate use of their resp
 ## Related content
 
 - See [Azure SDKs](https://azure.microsoft.com/downloads/) for the full list of Azure SDK resources, including library downloads, documentation, and more.
-- To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
+- To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

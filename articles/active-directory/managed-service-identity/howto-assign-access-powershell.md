@@ -18,19 +18,19 @@ ms.author: daveba
 
 # Assign a Managed Service Identity (MSI) access to a resource using PowerShell
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine's MSI access to an Azure storage account, using PowerShell.
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) if you haven't already.
 
 ## Use RBAC to assign the MSI access to another resource
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md):
+After you've enabled MSI on an Azure resource, [such as an Azure VM](qs-configure-powershell-windows-vm.md):
 
 1. Sign in to Azure using the `Login-AzureRmAccount` cmdlet. Use an account that is associated with the Azure subscription under which you have configured the MSI:
 
@@ -55,8 +55,8 @@ If either is incorrect, you may need to redeploy the MSI on your resource again,
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
-- To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md).
+- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+- To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using PowerShell](qs-configure-powershell-windows-vm.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
