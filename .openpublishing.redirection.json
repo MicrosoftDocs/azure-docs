@@ -153,6 +153,16 @@
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/mitigate-se",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/mitigate-se",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc",
@@ -17087,6 +17097,11 @@
             "source_path": "articles/python-how-to-install.md",
             "redirect_url": "/python/azure/python-sdk-azure-install",
             "redirect_document_id": false
-    }
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
+        "redirect_document_id": false
+   }
    ]
 }
