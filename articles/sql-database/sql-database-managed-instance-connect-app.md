@@ -4,7 +4,6 @@ description: This article discusses how to connect your application to Azure SQL
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: managed instance
-ms.devlang: 
 ms.topic: article
 ms.workload: "Active"
 ms.date: 03/07/2018
