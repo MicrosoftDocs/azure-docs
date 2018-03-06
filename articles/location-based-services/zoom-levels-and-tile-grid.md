@@ -1,7 +1,7 @@
 # Zoom Levels and Tile Grid
-Azure Location Based Services use the Spherical Mercator projection coordinate system (EPSG:3857).
+Azure Location Based Services use the Spherical Mercator projection coordinate system (EPSG: 3857).
 
-The world is divided into square tiles. Online Maps (Raster) has 19 zoom levels, numbered 0 through 18. Online Maps (Vector) has 21 zoom levels, numbered 0 through 20. At zoom level 0, the entire world fits on a single tile:
+The world is divided into square tiles. Render (Raster) has 19 zoom levels, numbered 0 through 18. Render (Vector) has 21 zoom levels, numbered 0 through 20. At zoom level 0, the entire world fits on a single tile:
 
 ![World tile](./media/zoom-levels-and-tile-grid/world0.png)
 
