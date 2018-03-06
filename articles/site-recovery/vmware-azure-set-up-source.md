@@ -27,10 +27,10 @@ The article assumes that you have already:
 1. In the Azure portal, go to the **Recovery Services** vault blade and select your vault.
 2. On the resource menu of the vault, go to **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
-    ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals.png)
+    ![Choose goals](./media/vmware-azure-set-up-source/choose-goals.png)
 3. In **Protection goal**, select **To Azure**, and choose **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
 
-    ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
+    ![Choose goals](./media/vmware-azure-set-up-source/choose-goals2.png)
 
 ## Set up the configuration server
 
