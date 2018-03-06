@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -71,6 +71,7 @@ From the machine that has internet connectivity, use the following steps to down
 
    ```PowerShell
    # Download the tools archive.
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
      -OutFile master.zip
 
