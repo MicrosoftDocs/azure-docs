@@ -104,7 +104,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
     c. In the **Reply URL** box, type the Assertion Consumer Service (ACS) URL that uses the following pattern: *https://\<Customer Firewall FQDN>:443/SAML20/SP/ACS*.
 	
     > [!NOTE] 
-    > The preceding values are not real. Update them values with the actual Sign-On URL and Identifier. To obtain the values, contact [Palo Alto Networks - Admin UI Client support team](https://support.paloaltonetworks.com/support). 
+    > The preceding values are not real. Update them with the actual sign-on URL and identifier. To obtain the values, contact [Palo Alto Networks - Admin UI Client support team](https://support.paloaltonetworks.com/support). 
  
 4. Because the Palo Alto Networks - Admin UI application expects the SAML assertions in a specific format, configure the claims as shown in the following image. Manage the attribute values in the **User Attributes** section of the **Application Integration** page by doing the following:
 	
