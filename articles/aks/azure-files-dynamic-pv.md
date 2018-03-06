@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Persistent volumes with Azure files
 
-A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure file share as a Kubernetes persistent volume in an AKS cluster. 
+A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure file share as a Kubernetes persistent volume in an AKS cluster. 
 
 For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
@@ -42,16 +42,12 @@ Use the [az storage account create][az-storage-account-create] command to create
 Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
 
 ```azurecli-interactive
-az storage account create \
-  --resource-group  MC_myAKSCluster_myAKSCluster_eastus \
-  --name mystorageaccount \
-  --location eastus \
-  --sku Standard_LRS
+az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## Create storage class
 
-A storage class is used to define how an Azure file share is created. A specific storage account can be specified in the class. When doing so, the file share is created in the specified storage account. If a storage account is not specified, a `skuName` and `location` must be specified, and all storage accounts in the associated resource group are evaluated for a match.
+A storage class is used to define how an Azure file share is created. A specific storage account can be specified in the class. If a storage account is not specified, a `skuName` and `location` must be specified, and all storage accounts in the associated resource group are evaluated for a match.
 
 For more information on Kubernetes storage classes for Azure files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
@@ -64,7 +60,7 @@ metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
 parameters:
-  storageAccount: azure_storage_account_name
+  storageAccount: mystorageaccount
 ```
 
 Create the storage class with the [kubectl create][kubectl-create] command.
@@ -75,7 +71,7 @@ kubectl create -f azure-file-sc.yaml
 
 ## Create persistent volume claim
 
-A persistent volume claim uses the storage class object to dynamically provision an Azure file share. 
+A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share. 
 
 The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access.
 
@@ -97,17 +93,17 @@ spec:
 
 Create the persistent volume claim with the [kubectl create][kubectl-create] command.
 
-Once completed, the file share will be created. A Kubernetes secret is also created that contains connection information and credentials.
-
 ```azurecli-interactive
 kubectl create -f azure-file-sc.yaml
 ```
 
+Once completed, the file share will be created. A Kubernetes secret is also created that contains connection information and credentials.
+
 ## Using the persistent volume
 
-Once the persistent volume claim has been created, and the storage successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azurefile` to mount the Azure file share at the `/mnt/azure` path.
+The following manifest creates a pod that uses the persistent volume claim `azurefile` to mount the Azure file share at the `/mnt/azure` path.
 
-Create a file named `azure-pvc-files.yaml`, and copy in the following manifest.
+Create a file named `azure-pvc-files.yaml`, and copy in the following manifest. Make sure that the `claimName` matches the PVC created in the last step.
 
 ```yaml
 kind: Pod
