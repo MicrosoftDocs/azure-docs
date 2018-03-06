@@ -20,7 +20,7 @@ It might happen that although you [integrated your app with an Azure Virtual Net
 
 2. Click **Networking** and then click **Click here to Manage**.
  
-   ![manage service plan](./media/sql-database-managed-instance-sync-networking/manage-service-plan.png)
+   ![manage service plan](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
 3. Select your **VNet** and click **Sync Network**. 
  
