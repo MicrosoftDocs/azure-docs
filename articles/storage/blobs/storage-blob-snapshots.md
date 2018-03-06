@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 03/06/2018
 ms.author: tamram
 
 ---

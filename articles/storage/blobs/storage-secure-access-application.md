@@ -6,10 +6,8 @@ author: tamram
 manager: jeconnoc
 
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
 ---
