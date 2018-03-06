@@ -97,11 +97,11 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
     !["Palo Alto Networks - Admin UI Domain and URLs" single sign-on information](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
 	
-    a. In the **Sign-on URL** box, type a URL that uses the following pattern: *https://\<Customer Firewall FQDN>/php/login.php*.
+    a. In the **Sign-on URL** box, type a URL in the following format: *https://\<Customer Firewall FQDN>/php/login.php*.
 
-    b. In the **Identifier** box, type a URL that uses the following pattern: *https://\<Customer Firewall FQDN>:443/SAML20/SP*.
+    b. In the **Identifier** box, type a URL in the following format: *https://\<Customer Firewall FQDN>:443/SAML20/SP*.
 	
-    c. In the **Reply URL** box, type the Assertion Consumer Service (ACS) URL that uses the following pattern: *https://\<Customer Firewall FQDN>:443/SAML20/SP/ACS*.
+    c. In the **Reply URL** box, type the Assertion Consumer Service (ACS) URL in the following format: *https://\<Customer Firewall FQDN>:443/SAML20/SP/ACS*.
 	
     > [!NOTE] 
     > The preceding values are not real. Update them with the actual sign-on URL and identifier. To obtain the values, contact [Palo Alto Networks - Admin UI Client support team](https://support.paloaltonetworks.com/support). 
