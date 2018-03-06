@@ -165,6 +165,6 @@ azure_table_service.delete_table("testtable")
 ## Next steps
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Ruby Developer Center](https://azure.microsoft.com/en-us/develop/ruby/)
+* [Ruby Developer Center](https://azure.microsoft.com/develop/ruby/)
 * [Microsoft Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table) 
 
