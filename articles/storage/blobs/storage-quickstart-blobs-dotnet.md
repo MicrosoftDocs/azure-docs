@@ -36,18 +36,18 @@ To complete this quickstart, download and install .NET Core 2.0 for your operati
 
 # [Windows](#tab/windows)
 
-    - Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows/build) 
-    - Optionally install [Visual Studio for Windows](https://www.visualstudio.com/) 
+- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows/build) 
+- Optionally install [Visual Studio for Windows](https://www.visualstudio.com/) 
 
 # [Linux](#tab/linux)
 
-    - Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux/build)
-    - Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux/build)
+- Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
 # [macOS](#tab/macos)
 
-    - Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos/build).
-    - Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos/build).
+- Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ---
 
