@@ -23,7 +23,7 @@ Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL D
  
 The following diagram outlines key features of the Managed Instance:
 
-[key features](./media/sql-database-managed-instance/key-features.png)
+![key features](./media/sql-database-managed-instance/key-features.png)
 
 Managed Instance is envisioned as preferred platform for the following scenarios: 
 
