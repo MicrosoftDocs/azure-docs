@@ -8766,7 +8766,7 @@
         },
 	{
             "source_path": "articles/site-recovery/vmware-walkthrough-architecture.md",
-            "rediect_url": "vmware-azure-architecture",
+            "redirect_url": "vmware-azure-architecture",
             "redirect_document_id": false
         },
         {
@@ -8962,11 +8962,6 @@
         {
             "source_path": "articles/site-recovery/site-recovery-install-mobility-service-using-sccm.md",
             "redirect_url": "vmware-azure-mobility-install-configuration-mgr",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-manage-multi-tenancy-with-csp.md",
-            "redirect_url": "vmware-azure-multi-tenant-overview",
             "redirect_document_id": false
         },
         {
