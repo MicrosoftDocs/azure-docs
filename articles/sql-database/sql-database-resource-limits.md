@@ -21,7 +21,7 @@ ms.author: carlrab
 # Azure SQL Database resource limits
 
 > [!IMPORTANT]
-> For resource limits with SQL Database Managed Instance, see [SQL Database Managed Instance](sql-database-managed-instance.md).
+> For resource limits with Azure SQL Database Managed Instance, see [SQL Database Managed Instance](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## Single database: Storage sizes and performance levels
 
