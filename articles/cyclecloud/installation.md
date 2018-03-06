@@ -33,9 +33,9 @@ from your browser. Copy the link provided into your web browser. Further configu
 
 ### Notes on Security
 
-The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend configuring SSL for all installations. `SSL configuration information <https://docs.cyclecomputing.com/installation-guide-v6.5.6/ssl>`_ can be found in the Installation Guide.
+The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend configuring SSL for all installations.
 
-Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. For Linux installations, anyone with access to the `CycleCloud` group will gain access to unencrypted data. We recommend that non-admin users not be added to this group.
+Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. For Linux installations, anyone with access to the CycleCloud group will gain access to unencrypted data. We recommend that non-admin users not be added to this group.
 
 ## Upgrading CycleCloud
 
@@ -64,19 +64,29 @@ and the ``--installdir`` flag to specify an alternate install directory. For exa
 After the installer finishes, edit ``$CS_HOME/config/cycle_server.properties`` and change the
 following port numbers to an unused port (incrementing each default port number by one usually works well):
 
-  ``commandPort=6400``
+```azurecli-interactive
+# The data center and resource name for your resources
+export resourcegroupname = myResourceGroup
+export location = westeurope
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+export servername = server-$RANDOM
+# Set an admin login and password for your database
+export adminlogin = ServerAdmin
+export password = ChangeYourAdminPassword1
+# The ip address range that you want to allow to access your DB
+export startip = "0.0.0.0"
+export endip = "0.0.0.0"
+# The database name
+export databasename = mySampleDatabase
+```
 
-  ``webServerPort=8080``
-
-  ``webServerSslPort=8443``
-
-  ``tomcat.shutdownPort=8007``
-
-  ``brokerPort=5672``
-
-  ``brokerJmxPort=9099``
-
-  ``url=jdbc:derby://localhost:1527/cycle_server``
+commandPort=6400
+webServerPort=8080
+webServerSslPort=8443
+tomcat.shutdownPort=8007
+brokerPort=5672
+brokerJmxPort=9099
+url=jdbc:derby://localhost:1527/cycle_server
 
 Next, edit ``$CS_HOME/data/derby.properties`` and modify ``derby.drda.portNumber``
 so that it matches the port specified in the ``url=`` line of cycle_server.properties
