@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data with Azure network security features | Microsoft Docs
-description: Information on how to protect personal data using Azure network security features. This information may be used to help comply with General Data Protection Regulation (GDPR)
+description: Protect personal data using Azure network security features. This may be used to comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
