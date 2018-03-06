@@ -29,6 +29,7 @@ The following diagram shows a conceptual view of the components that work togeth
 ![Monitoring overview](media/monitoring-overview/monitoring-products-overview.svg)
 
 
+
 ## Shared Capabilities
 The following Azure tools provide critical functionality to the premium monitoring services. Multiple services share them, so you can take advantage of common functionality and configurations across multiple services.
 
