@@ -90,7 +90,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][9]
 
-9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-azure-stack-app-service-before-you-get-started.md#get-certificates). Click **Next** after entering all the information.
+9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-before-you-get-started.md#get-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
@@ -100,7 +100,7 @@ To deploy App Service resource provider, follow these steps:
 
     If you used a different domain suffix when you created the certificates, your certificate file names don’t use *local.AzureStack.external*. Instead, use your custom domain information.
 
-    ![App Service Installer](media/azure-stack-app-service-deploy/image06.png)    
+    ![App Service Installer][10]
 
 10. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
 
@@ -145,7 +145,7 @@ To deploy App Service resource provider, follow these steps:
     2. If the configurations are correct, select the check box.
     3. To start the deployment, click **Next**.
 
-    ![App Service Installer][16] 
+    ![App Service Installer][16]
 
 15. On the next page:
     1. Track the installation progress. App Service on Azure Stack takes about 60 minutes to deploy based on the default selections.
