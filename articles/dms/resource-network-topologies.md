@@ -14,7 +14,7 @@ ms.date: 03/06/2018
 ---
 
 # Network topologies for Azure SQL DB Managed Instance migrations using the Azure Database Migration Service
-In this article, you'll learn source and Azure target configurations that you can use to set up the Database Migration Service network for your environment.  You will also learn about the recommended network topologies.
+In this article, you will learn about various network topologies that Azure Database Migration Service can work with to provide seamless migration experience to Azure SQL Database Managed Instance from on-premises SQL Servers.
 
 ## Azure SQL Database Managed Instance configured for Hybrid workloads 
 Use this topology if your Azure SQL Database Managed Instance is connected to your on-premises network. This approach provides the most simplified network routing and yields maximum data throughput during the migration.
