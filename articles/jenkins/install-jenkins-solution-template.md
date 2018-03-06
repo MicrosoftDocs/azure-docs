@@ -43,7 +43,7 @@ Select **OK** to proceed to the **Additional Settings** tab.
 
 Select **Subnets**. On the **Subnets** tab, verify the information, and select **OK**.
 
-On the **Additional Settings** tab, select the **Jenkins release type**. The `Azure Verified` option refers to an LTS version that has been verified to run on Azure. We try to verify each LTS version within a few weeks of the LTS release. For more information, see [Jenkins LTS Release Line](https://jenkins.io/download/lts/).
+On the **Additional Settings** tab, select the **Jenkins release type**. The `Azure Verified` option refers to a [Jenkins LTS version](https://jenkins.io/download/lts/) that has been verified to run on Azure. We try to verify each LTS version within a few weeks of the LTS release.
 
 Enter a unique domain name to identify the Jenkins server, and select **OK**.
 
