@@ -20,13 +20,13 @@ For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-
 
 ## Create an Azure disk
 
-Before mounting an Azure managed disk as a Kubernetes volume, the disk must exsist in the same resouce group as the AKS cluster resources. To find this resource group, use the [az group list][az-group-list] command.
+Before mounting an Azure managed disk as a Kubernetes volume, the disk must exist in the same resource group as the AKS cluster resources. To find this resource group, use the [az group list][az-group-list] command.
 
 ```azurecli-interactive
 az group list --output table
 ```
 
-You are looking for a resource group with a name similar to `MC_clustername_clustername_locaton`, where clustername is the name of your AKS cluster, and location is the Azure region were the cluster has been deployed.
+You are looking for a resource group with a name similar to `MC_clustername_clustername_locaton`, where clustername is the name of your AKS cluster, and location is the Azure region wehre the cluster has been deployed.
 
 ```console
 Name                                 Location    Status
@@ -47,7 +47,7 @@ az disk create \
   --query id --output tsv
 ```
 
-Once the disk has been created, you should see output similar to the following. This value is the disk ID which is used when mounting the disk to a Kubernetes pod.
+Once the disk has been created, you should see output similar to the following. This value is the disk ID, which is used when mounting the disk to a Kubernetes pod.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
@@ -85,7 +85,7 @@ Use kubectl to create the pod.
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-You now have a running pod with an Azure disk mounted at the `/mnt/azure`. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-disk-pod`.
+You now have a running pod with an Azure disk mounted at the `/mnt/azure`.
 
 ## Next steps
 
