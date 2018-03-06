@@ -59,13 +59,13 @@ When using Visual Studio 2017 version 15.4 and earlier, you can use the **Enable
 
 With Visual Studio 2017 version 15.5 and later, you can still use the publish wizard with a cloud service project. You can also use the **Enable Remote Desktop for all roles** option if you're working only as a single developer.
 
-If you're working as part of a team, on the other hand, you should instead enable remote desktop on the Azure cloud service by using either the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
+If you're working as part of a team, you should instead enable remote desktop on the Azure cloud service by using either the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
-This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When enabling Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through what's called the "RDP plugin." The plugin forces the VM to run an installer than can potentially hang the computer. Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that doesn't use and installer and thus doesn't risk hanging the VM. This change was also introduced because the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
+This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When enabling Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through what's called the "RDP plugin." The plugin forces the VM to run an installer that can potentially hang the computer. Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that doesn't use and installer and thus doesn't risk hanging the VM. This change was also introduced because the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
 
 The caveat is that when Visual Studio communicates with the RDP extension, it must transmit a plain text password over SSL. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
 
-If you deploy the cloud service project from the same development computer each time, then that local certificate is available. In this case you can still use the **Enable Remote Desktop for all roles** option in the publish wizard.
+If you deploy the cloud service project from the same development computer each time, then that local certificate is available. In this case, you can still use the **Enable Remote Desktop for all roles** option in the publish wizard.
 
 If you or other developers want to deploy the cloud service project from different computers, however, then those other computers won't have the necessary certificate to decrypt the password. As a result, you see the following error message:
 
@@ -74,7 +74,7 @@ Applying remote desktop protocol (RDP) extension.
 Certificate with thumbprint [thumbprint] doesn't exist.
 ```
 
-You can, of course, change the password every time you deploy the cloud service, but that action becomes inconvenient for everyone who needs to use Remote Desktop.
+You could change the password every time you deploy the cloud service, but that action becomes inconvenient for everyone who needs to use Remote Desktop.
 
 If you're sharing the project with a team, then, it's best to clear the option in the publish wizard and instead enable Remote Desktop directly through the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or by using [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
