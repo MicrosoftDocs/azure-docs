@@ -82,7 +82,7 @@ When the virtual networks that are sharing a single Azure ExpressRoute connectio
 
 ## Permissions
 
-Virtual network peering is a privileged operation. It???s a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
+Virtual network peering is a privileged operation. It's a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
 
 A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another virtual network. The minimum level of permission required is Network Contributor. If there is a matching request for peering on the other side, and if other requirements are met, the peering is established.
 
