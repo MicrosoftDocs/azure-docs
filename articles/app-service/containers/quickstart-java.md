@@ -45,7 +45,50 @@ git clone https://github.com/Azure-Samples/java-docs-hello-world
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app.md)]
+
+## Create a web app
+
+In the Cloud Shell, create a [web app](../articles/app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan. You can do it by using the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. In the following example, replace *\<app_name>* with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). 
+
+```azurecli-interactive
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git --runtime "TOMCAT|8.5-jre8"
+```
+
+When the web app has been created, the Azure CLI shows information similar to the following example:
+
+```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
+You’ve created an empty web app, with git deployment enabled.
+
+> [!NOTE]
+> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.
+>
+
+Browse to the newly created web app.
+
+```
+http://<app_name>.azurewebsites.net
+```
+
+Here is what your new web app should look like at this time:
+
+![Browse to Web App Before Deployment](media/quickstart-java/browse-web-app-not-deployed.png)
+
+
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
