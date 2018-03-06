@@ -176,5 +176,5 @@ To perform tasks on virtual networks, your account must be assigned to the [netw
 
 - To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](quick-create-portal.md#create-virtual-machines).
 - To filter network traffic between subnets within a virtual network, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
-- To peer a virtual network to another virtual network, see [Create a virtual network peering](tutorial-connect-virtual-networks-portal.md#portal).
+- To peer a virtual network to another virtual network, see [Create a virtual network peering](tutorial-connect-virtual-networks-portal.md).
 - To learn about options for connecting a virtual network to an on-premises network, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
