@@ -49,6 +49,8 @@ To complete this quickstart, download and install .NET Core 2.0 for your operati
     - Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos/build).
     - Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
+---
+
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## Download the sample application
