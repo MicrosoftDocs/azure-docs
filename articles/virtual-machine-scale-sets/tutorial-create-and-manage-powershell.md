@@ -122,7 +122,7 @@ The *Name* of the rule aligns with the name of the VM instance as shown in a pre
 View the public IP address of the load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name "myPublicIPAddress" | Select IpAddress
 ```
 
 Example output:
@@ -175,19 +175,20 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-When you created a scale set at the start of the tutorial, a default VM image of *Windows Server 2016 DataCenter* was provided for the VM instances. You can specify a different VM image based on the output from [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). The following example would create a scale set with the `-ImageName` parameter to specify a VM iamge of *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
+When you created a scale set at the start of the tutorial, a default VM image of *Windows Server 2016 DataCenter* was provided for the VM instances. You can specify a different VM image based on the output from [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). The following example would create a scale set with the `-ImageName` parameter to specify a VM image of *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
-  -ResourceGroupName "myResourceGroup" `
+  -ResourceGroupName "myResourceGroup2" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet2" `
-  -VirtualNetworkName "myVnet" `
+  -VirtualNetworkName "myVnet2" `
   -SubnetName "mySubnet2" `
   -PublicIpAddressName "myPublicIPAddress2" `
   -LoadBalancerName "myLoadBalancer2" `
   -UpgradePolicy "Automatic" `
-  -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest"
+  -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" `
+  -Credential $cred
 ```
 
 
@@ -235,15 +236,16 @@ When you created a scale set at the start of the tutorial, a default VM SKU of *
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
-  -ResourceGroupName "myResourceGroup" `
+  -ResourceGroupName "myResourceGroup3" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet3" `
-  -VirtualNetworkName "myVnet" `
+  -VirtualNetworkName "myVnet3" `
   -SubnetName "mySubnet3" `
   -PublicIpAddressName "myPublicIPAddress3" `
   -LoadBalancerName "myLoadBalancer3" `
   -UpgradePolicy "Automatic" `
-  -VmSize "Standard_F1"
+  -VmSize "Standard_F1" `
+  -Credential $cred
 ```
 
 ## Change the capacity of a scale set

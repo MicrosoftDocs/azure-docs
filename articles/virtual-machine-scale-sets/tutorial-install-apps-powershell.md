@@ -132,11 +132,6 @@ $customConfigv2 = @{
 Apply the Custom Script Extension configuration to the VM instances in your scale set again with [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension). The *customConfigv2* definition is used to apply the updated version of the application:
 
 ```azurepowershell-interactive
-# Get information about the scale set
-$vmss = Get-AzureRmVmss `
-          -ResourceGroupName "myResourceGroup" `
-          -VMScaleSetName "myScaleSet"
-
 # Reapply the Custom Script Extension to install the updated website
 $vmss = Add-AzureRmVmssExtension `
   -VirtualMachineScaleSet $vmss `
