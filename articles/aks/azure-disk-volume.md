@@ -37,43 +37,29 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Use the [az disk create][az-disk-create] command to create the Azure managed disk. Update the resource group name to the name of your AKS clusters resource group.
+Use the [az disk create][az-disk-create] command to create the Azure managed disk. Update the resource group name to the name of your AKS clusters resource group and the name to a disk name of your choice.
 
 ```azurecli-interactive
-az disk create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name myAKSDisk  --size-gb 20
+az disk create \
+  --resource-group MC_myAKSCluster_myAKSCluster_eastus \
+  --name myAKSDisk3  \
+  --size-gb 20 \
+  --query id --output tsv
 ```
 
-Once the disk has been created, you should see output similar to the following. take note of the disk ID. This value is needed when referencing the disk.
+Once the disk has been created, you should see output similar to the following. This value is needed when referencing the disk.
 
-```json
-{
-  "additionalProperties": {},
-  "diskSizeGb": 20,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk",
-  "location": "eastus",
-  "managedBy": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-42032720-2",
-  "name": "myAKSDisk",
-  "osType": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "MC_myAKSCluster_myAKSCluster_eastus",
-  "sku": {
-    "additionalProperties": {},
-    "name": "Premium_LRS",
-    "tier": "Premium"
-  },
-  "tags": {},
-  "timeCreated": "2018-03-05T22:56:24.893937+00:00",
-  "type": "Microsoft.Compute/disks",
-  "zones": null
-}
+```console
+/subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk3
 ```
 
 ## Mount file share as volume
 
 Mount the Azure disk into your pod by configuring the volume in the container spec. 
 
-Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the newly created disk and `diskURI` with the disk ID. Also, take note of the `mountPath`, this is the path at which the Azure disk is mounted in the pod.
+Create a new file named `azure-disk-pod.yaml` with the following contents. 
+
+Update `diskName` with the name of the newly created disk and `diskURI` with the disk ID. Also, take note of the `mountPath`, this is the path at which the Azure disk is mounted in the pod.
 
 ```yaml
 apiVersion: v1
