@@ -28,7 +28,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable the continuous deployment feature
 
-You can enable the continuous deployment feature by using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
+Enable the continuous deployment feature by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
 
 ```azurecli-interactive
 az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
@@ -44,7 +44,7 @@ On the **Docker Container** page, select **On**, and then select **Save** to ena
 
 ## Prepare the webhook URL
 
-You can obtain the webhook URL by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
+Obtain the webhook URL by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
 
 ```azurecli-interactive
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
@@ -63,9 +63,9 @@ You can obtain your `publishingusername` and `publishingpwd` by downloading the 
 
 1. On your registry portal page, select **Webhooks**.
 2. To create a new webhook, select **Add**. 
-3. In the **Create webhook** pane, give your webhook a name. For the webhook URI, provide the URL obtained from **Step 3**.
+3. In the **Create webhook** pane, give your webhook a name. For the webhook URI, provide the URL obtained in the preceding section.
 
-Make sure that you define the scope as the repo that contains your container image.
+Make sure you define the scope as the repo that contains your container image.
 
 ![Screenshot of webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
 
@@ -77,7 +77,7 @@ On your Docker Hub page, select **Webhooks**, and then **CREATE A WEBHOOK**.
 
 ![Screenshot of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-For the webhook URL, provide the URL obtained from **Step 3**.
+For the webhook URL, provide the URL obtained in [Prepare the webhook URL](#Prepare-the-webhook-URL).
 
 ![Screenshot of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
 
