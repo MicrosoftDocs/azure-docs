@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/21/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -21,6 +21,14 @@ This document walks through a sample deployment of the [NGINX ingress controller
 ## Install an ingress controller
 
 Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information. 
+
+Update the chart repository.
+
+```console
+helm repo update
+```
+
+Install the NGINX ingress controller.
 
 ```
 helm install stable/nginx-ingress
@@ -125,7 +133,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:
