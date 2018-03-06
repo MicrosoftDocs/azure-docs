@@ -87,7 +87,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1. To create a user account, enter the user name, and then select **Continue**.
 
-      ![Create a user account](./media/vmware-azure-install-linux-master-targett/image9.png)
+      ![Create a user account](./media/vmware-azure-install-linux-master-target/image9.png)
 
 1. Enter the password for the new user account, and then select **Continue**.
 
@@ -130,7 +130,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1. Select **Continue**, and then select **Enter** to finish the installation.
 
-    ![Finish the installation](./media/vmware-azure-install-linux-master-targett/image22.png)
+    ![Finish the installation](./media/vmware-azure-install-linux-master-target/image22.png)
 
 1. After the installation has finished, sign in to the VM with the new user credentials. (Refer to **Step 10** for more information.)
 
@@ -249,7 +249,7 @@ Use the following steps to create a retention disk:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-	![Mounting the retention disk](./media/vmware-azure-install-linux-master-target/media/image24.png)
+	![Mounting the retention disk](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Create the **fstab** entry to mount the retention drive every time the system starts.
 	
