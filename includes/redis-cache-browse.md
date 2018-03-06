@@ -12,3 +12,4 @@ You can view and configure your cache from the **Redis Cache** blade.
 
 ![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
 
+
