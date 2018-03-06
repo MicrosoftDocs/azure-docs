@@ -48,7 +48,7 @@
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
       - name: Protect VMs
-        href: azure-stack-manage-vm-backup.md
+        href: azure-stack-manage-vm-protect.md
     - name: Storage
       items:
       - name: Overview
