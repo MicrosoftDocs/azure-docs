@@ -1,6 +1,6 @@
 ---
 title: In this tutorial, you learn how to update Azure Stack offers and plans | Microsoft Docs
-description: This article describes how to view and modify existing offers and plans. 
+description: This article describes how to view and modify existing Azure Stack offers and plans. 
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb

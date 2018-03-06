@@ -20,7 +20,7 @@ ms.reviewer: misainat
 ---
 
 # Quickstart: redeploy the ASDK
-In this quickstart, you deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
+In this quickstart, you redeploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
 
 > [!IMPORTANT]
 > Upgrading the ASDK to a new version is not supported. You have to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.

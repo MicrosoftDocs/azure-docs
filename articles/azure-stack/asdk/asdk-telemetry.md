@@ -12,10 +12,10 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
-ms.date: 02/29/2018
+ms.topic: article
+ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer: chjoy
+ms.reviewer: misainat
 ---
 
 # Azure Stack telemetry

@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack - PowerShell | Microsoft Docs
-description: In this quickstart, you install the ASDK.
+description: In this quickstart, you install the ASDK from the command line.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
