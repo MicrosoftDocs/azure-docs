@@ -213,7 +213,7 @@ You have now successfully published and uploaded your DSC configuration to Autom
 1. Ensure that your Windows machines are updated with the latest version of WMF. You can download and install the correct version for your platform from the [Download Center](https://www.microsoft.com/download/details.aspx?id=50395).
 2. Create a metaconfig for DSC that you will apply to your nodes. To succeed with this, you need to retrieve the endpoint URL and the primary key for your selected Automation account in Azure. You can find these values under **Keys** on the **All settings** blade for the Automation account.
 
-    ![Key values](./media/svmware-azure-mobility-deploy-automation-dsc/key-values.png)
+    ![Key values](./media/vmware-azure-mobility-deploy-automation-dsc/key-values.png)
 
 In this example, you have a Windows Server 2012 R2 physical server that you want to protect by using Site Recovery.
 
