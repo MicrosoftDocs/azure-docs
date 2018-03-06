@@ -70,7 +70,7 @@
 ### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
-##  [Azure CDN rules engine reference](cdn-rules-engine-reference.md)
+##  [Rules engine reference](cdn-rules-engine-reference.md)
 ### [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
 ### [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
 ### [Rules engine features](cdn-rules-engine-reference-features.md)
