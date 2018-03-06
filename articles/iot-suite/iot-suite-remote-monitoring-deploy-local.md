@@ -97,7 +97,7 @@ These commands download the source code for all the microservices. Although you 
 
 ## Run the microservices in Docker
 
-To run the microservices in Docker, first edit the **scripts\local\.env** file in your local copy of the repository. Replace the entire contents of the file with the environment variable definitions you made a note of when you ran the `pcs` command previously. These environment variables enable the microservices in the Docker container to connect to the Azure services created by the `pcs` tool.
+To run the microservices in Docker, first edit the **scripts\\local\\.env** file in your local copy of the repository. Replace the entire contents of the file with the environment variable definitions you made a note of when you ran the `pcs` command previously. These environment variables enable the microservices in the Docker container to connect to the Azure services created by the `pcs` tool.
 
 To run the preconfigured solution, navigate to the **scripts\local** folder in your command-line environment and run the following command:
 
