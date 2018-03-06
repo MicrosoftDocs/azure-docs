@@ -46,7 +46,7 @@ First, let's clone the "Stream a file" app from GitHub.  In this sample, we used
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/media-services-dotnet-stream-files-basic-app.git
+    git clone https://github.com/Azure-Samples/media-services-v3-dotnet-stream-files-basic-app.git
     ```
 3. Open the solution file in Visual Studio. 
 4. To run the app and acess the Media Services APIs, you need to specify the correct values in App.config. 
@@ -138,44 +138,44 @@ The job takes some time to complete and when it does you want to be notified. Th
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you will get the **Error** state. If the job is in the process of being canceled, you will get **Canceling** and **Canceled** when it is done.
 
-    ```csharp
-    private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string transformName, string jobName)
+```csharp
+private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string transformName, string jobName)
+{
+    double TimeoutSeconds = 10 * 60;
+    int SleepInterval = 15 * 1000;
+
+    Job job = null;
+    bool exit = false;
+    DateTime timeout = DateTime.Now.AddSeconds(TimeoutSeconds);
+
+    do
     {
-        double TimeoutSeconds = 10 * 60;
-        int SleepInterval = 15 * 1000;
+        job = client.Jobs.Get(transformName, jobName);
 
-        Job job = null;
-        bool exit = false;
-        DateTime timeout = DateTime.Now.AddSeconds(TimeoutSeconds);
-
-        do
+        if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
         {
-            job = client.Jobs.Get(transformName, jobName);
-
-            if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
-            {
-                exit = true;
-            }
-            else if (DateTime.Now >= timeout)
-            {
-                Console.WriteLine($"Job {job.Name} timed out.");
-            }
-            else
-            {
-                System.Threading.Thread.Sleep(SleepInterval);
-            }
-
-            Console.WriteLine("Job state: {0}", job.State);
+            exit = true;
         }
-        while (!exit);
+        else if (DateTime.Now >= timeout)
+        {
+            Console.WriteLine($"Job {job.Name} timed out.");
+        }
+        else
+        {
+            System.Threading.Thread.Sleep(SleepInterval);
+        }
 
-        return job;
+        Console.WriteLine("Job state: {0}", job.State);
     }
-    ```
+    while (!exit);
 
-## Run the app and get the streaming URLs
+    return job;
+}
+```
 
-When you run the app, you get "Streaming URLs" for both DASH and HLS. You also get a URL that you can use for progressive download of your video. 
+### Get the streaming URLs
+
+The following code shows how to get the streaming URLs for both DASH and HLS. You also get a URL that you can use for progressive download of your video. 
 
 ```csharp
 String GetDASHStreamingURL()
@@ -193,6 +193,13 @@ String GetProgressiveDownloadURL()
 
 }
 ```
+
+
+## Run the app and get the streaming URLs
+
+Run the app, copy one of the URLs you want to test.  
+
+*Add screenshot of the console with URLs.*
 
 ## Test with Azure Media Player
 

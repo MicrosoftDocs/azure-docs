@@ -67,12 +67,12 @@ az storage account create -n <storageaccountforams> -g <myresourcegroup>
 
 Below you can find the Azure CLI commands that creates a new Media Services account. You just need to replace the following highlighted values:
 
-* <myamsaccountfrom>
-* <myresourcegroup>
-* <storageaccountforams>
+* myamsaccount
+* myresourcegroup
+* storageaccountforams
 
 ```azurecli-interactive
-az ams create -n <myamsaccountfrom> -g <myresourcegroup> --storage-account <storageaccountforams>
+az ams create -n <myamsaccount> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
 ## <a id="access_api" />Get necessary values to access Media Services API
