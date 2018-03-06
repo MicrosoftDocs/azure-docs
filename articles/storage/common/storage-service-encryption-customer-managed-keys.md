@@ -13,9 +13,9 @@ ms.author: lakasa
 ---
 # Storage Service Encryption using customer-managed keys in Azure Key Vault
 
-Microsoft Azure is committed to helping you protect and safeguard your data to meet your organizational security and compliance commitments. One way you can protect your data at rest is to use Storage Service Encryption (SSE), which automatically encrypts your data when writing it to storage, and decrypts your data when retrieving it. The encryption and decryption is automatic, transparent, and uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
+Microsoft Azure is committed to helping you protect and safeguard your data to meet your organizational security and compliance commitments. One way you can protect your data at rest is to use Storage Service Encryption (SSE), which automatically encrypts your data when writing it to storage, and decrypts your data when retrieving it. The encryption and decryption is automatic, transparent, and uses 256-bit [AES encryption](https://wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
-You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. This article discusses the latter. For more information about using Microsoft-managed keys, or about SSE in general, see [Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. This article discusses the latter. For more information about using Microsoft-managed keys, or about SSE in general, see [Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
 To provide the ability to use your own encryption keys, SSE for Blob and File storage is integrated with Azure Key Vault (AKV). You can create your own encryption keys and store them in AKV, or you can use AKV’s APIs to generate encryption keys. Not only does AKV allow you to manage and control your keys, it also enables you to audit your key usage.
 
@@ -36,7 +36,7 @@ To learn more, refer to the [FAQ](#frequently-asked-questions-about-storage-serv
 
 ### Step 1: Create a new storage account
 
-[Create a new storage account](../storage-create-storage-account.md)
+[Create a new storage account](storage-quickstart-create-account.md)
 
 ### Step 2: Enable encryption
 
@@ -49,7 +49,7 @@ You can enable SSE using Customer Managed Keys for the storage account using the
 
 To enable Storage Service Encryption using Customer Managed Keys, key protection features – Soft Delete and Do Not Purge must be enabled. These settings ensure the keys cannot be accidently/intentionally deleted. The maximum retention period of the keys is set to 90 days protecting users against malicious and ransomware attacks.
 
-If you want to programmatically enable the Storage Service Encryption on a storage account, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), or the [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+If you want to programmatically enable the Storage Service Encryption on a storage account, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or the [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 The identity of the storage account needs to be set to use SSE with Customer Managed Keys. This can be set by executing the following PowerShell command:
 
@@ -94,11 +94,11 @@ You can also grant access via the Azure portal by going to the Azure Key Vault i
 
 ### Step 4: Copy data to storage account
 
-If you would like to transfer data into your new storage account so that it’s encrypted, refer to [Step 3 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+If you would like to transfer data into your new storage account so that it’s encrypted, refer to Step 3 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-3-copy-data-to-storage-account).
 
 ### Step 5: Query the status of the encrypted data
 
-To query the status of the encrypted data, refer to [Step 4 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+To query the status of the encrypted data, refer to Step 4 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
 
 ## Frequently asked questions about Storage Service Encryption for Data at Rest
 
@@ -112,11 +112,11 @@ A: Yes.
 
 **Q: How much more does Azure Storage cost if SSE with customer-managed keys is enabled?**
 
-A: There is a cost associated for using Azure Key Vault. For more details, visit [Key Vault Pricing](https://azure.microsoft.com/en-us/pricing/details/key-vault/). There is no additional cost for using SSE.
+A: There is a cost associated for using Azure Key Vault. For more details, visit [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). There is no additional cost for using SSE.
 
 **Q: Can I revoke access to the encryption keys?**
 
-A: Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Refer to [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the Account Encryption Key is inaccessible by Azure Storage.
+A: Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Refer to [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the Account Encryption Key is inaccessible by Azure Storage.
 
 **Q: Can I create a storage account and key in different region?**
 
@@ -152,8 +152,8 @@ A: Contact <ssediscussions@microsoft.com> for any issues related to Storage Serv
 
 ## Next steps
 
--   For more information on the comprehensive set of security capabilities that help developers build secure applications, see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
+-   For more information on the comprehensive set of security capabilities that help developers build secure applications, see the [Storage Security Guide](storage-security-guide.md).
 
 -   For overview information about Azure Key Vault, see [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 
--   For getting started on Azure Key Vault, see [Getting Started with Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started).
+-   For getting started on Azure Key Vault, see [Getting Started with Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
