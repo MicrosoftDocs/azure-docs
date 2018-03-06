@@ -162,6 +162,10 @@ featureFlags:
                                                             <img src="media/index/logo_nodejs.svg" alt="">
                                                             Node.js</a>
                                                     </li>
+                                                    <li>
+                                                        <a class="barLink" href="/go/azure/">
+                                                            Go</a>
+                                                    </li>
                                                 </ul></td></tr></table>
                                                <h4>App Models</h4>
                                                 <ul class="noBullet">
@@ -3986,6 +3990,29 @@ featureFlags:
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/ruby/">Learn more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Get the Go SDK</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Get started</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
