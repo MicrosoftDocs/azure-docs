@@ -38,7 +38,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual network**.
-3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, **myResourceGroup** for **Resource group**, *Public* for Subnet **Name**, 10.0.0.0/24 for Subnet **Address range**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**:
+3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, **myResourceGroup** for **Resource group**, *10.0.0.0/16* for **Address space**, *Public* for Subnet **Name**, 10.0.0.0/24 for Subnet **Address range**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**:
 
     ![Create a virtual network](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
