@@ -14,7 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/05/2018ms.author: sujie
+ms.date: 03/05/2018
+ms.author: sujie
 
 ---
 # Use Azure Stream Analytics tools for Visual Studio
