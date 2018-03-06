@@ -104,16 +104,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![CylancePROTECT Domain and URLs single sign-on information](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://login-apne1.cylance.com`
+    a. In the **Identifier** textbox, type the URL:
+	
+	| Region | URL Value |
+	|----------|---------|
+	| Asia-Pacific Northeast (APNE1)| ` https://login-apne1.cylance.com`|
+	| Asia-Pacific Southeast (AU) | `https://login-au.cylance.com` |
+	| Europe Central (EUC1)|`https://login-euc1.cylance.com`|
+	| North America|`https://login.cylance.com`|
+	| South America (SAE1)|`https://login-sae1.cylance.com`|
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://login-apne1.cylance.com`
+
+	b. In the **Reply URL** textbox, type the URL:
+
+	| Region | URL Value |
+	|----------|---------|
+	| Asia-Pacific Northeast (APNE1)|`https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| Asia-Pacific Southeast (AU)|`https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| Europe Central (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| North America|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| South America (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com) to get these values.
- 
 
-
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_certificate.png) 
 
@@ -125,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![CylancePROTECT Configuration](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Metadata XML** and **SAML Entity ID** to [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -164,7 +179,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a CylancePROTECT test user
 
-In this section, you create a user called Britta Simon in CylancePROTECT. Work with [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com) to add the users in the CylancePROTECT platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in CylancePROTECT. Work with [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com) to add the users in the CylancePROTECT platform. The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
 
 ### Assign the Azure AD test user
 
@@ -207,8 +222,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
