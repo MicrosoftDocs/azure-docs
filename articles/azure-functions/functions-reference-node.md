@@ -270,11 +270,7 @@ The following table shows the Node version used by each major verrsion of the Fu
 | 1.x | 6.11.2, can't be changed. |
 | 2.x  | Selectable by setting the WEBSITE_DEFAULT_NODE_VERSION app setting, with official support for 8.4.0 or later. We recommend the LTS version, currently 8.9.4.   |
 
-For the Functions runtime version 1.x, the node version is locked at `6.11.2` as of the date this article was last updated. 
-
-For Functions 2.x, you can select the node version by setting the WEBSITE_DEFAULT_NODE_VERSION app setting.
-
-You can see the current version by printing `process.version` from any function. We're investigating adding support for more versions and making it configurable.
+You can see the current version that the runtime is using by printing `process.version` from any function.
 
 The following steps let you include packages in your function app: 
 
