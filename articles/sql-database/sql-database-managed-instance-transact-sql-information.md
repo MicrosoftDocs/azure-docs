@@ -374,7 +374,6 @@ The following variables, functions, and views return different results:
 - `SUSER_ID` is supported. Returns NULL if AAD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` is not supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` always returns date in UTC time-zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
-- `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies Managed Instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 
 ## <a name="Issues"></a> Known issues and limitations
 
