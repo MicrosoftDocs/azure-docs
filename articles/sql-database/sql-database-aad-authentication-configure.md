@@ -1,21 +1,17 @@
 ---
 title: Configure Azure Active Directory authentication - SQL | Microsoft Docs
-description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication - after configuring Azure AD.
+description: Learn how to connect to SQL Database, Managed Instance, and SQL Data Warehouse by using Azure Active Directory Authentication - after configuring Azure AD.
 services: sql-database
 author: GithubMirek
 manager: johammer
-ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: "Active"
 ms.date: 01/09/2018
 ms.author: mireks
 
 ---
-# Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse
+# Configure and manage Azure Active Directory authentication with SQL Database, Managed Instance, or SQL Data Warehouse
 
 This article shows you how to create and populate Azure AD, and then use Azure AD with Azure SQL Database and SQL Data Warehouse. For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
@@ -43,7 +39,28 @@ When using Azure Active Directory with geo-replication, the Azure Active Directo
 > Users that are not based on an Azure AD account (including the Azure SQL server administrator account), cannot create Azure AD-based users, because they do not have permission to validate proposed database users with the Azure AD.
 > 
 
-## Provision an Azure Active Directory administrator for your Azure SQL server
+## Provision an Azure Active Directory administrator for your Azure SQL Managed Instance
+
+> [!IMPORTANT]
+> Only follow these steps if you are provisioning a Managed Instance. This operation can only be executed by Global/Company administrator in Azure AD. Following steps describe the process of granting permissions for users with different privileges in directory.
+
+At this moment,  you can provision Azure Active Directory admin only by using Azure Portal.
+1. In the Azure portal, in the upper-right corner, click your connection to drop down a list of possible Active Directories. 
+2. Choose the correct Active Directory as the default Azure AD. 
+
+   This step links the subscription associated with Active Directory with Managed Instance making sure that the same subscription is used for both Azure AD and the Managed Instance.
+3. Navigate to Managed Instance and select one that you want to use for Azure AD integration.
+
+   ![aad](./media/sql-database-aad-authentication/aad.png)
+
+4.	Your Managed Instance needs permissions to read Azure AD to successfully accomplish tasks such as authentication of users through security group membership or creation of new users. 
+	
+    If you are logged in as Global/Company administrator in Azure AD, you can do it from the Azure portal or execute a PowerShell script.
+
+## Provision an Azure Active Directory administrator for your Azure SQL Database server
+
+> [!IMPORTANT]
+> Only follow these steps if you are provisioning an Azure SQL Database server or Data Warehouse.
 
 The following two procedures show you how to provision an Azure Active Directory administrator for your Azure SQL server in the Azure portal and by using PowerShell.
 
