@@ -70,7 +70,7 @@ DNS configuration on an Azure VNet requires that you enter IP addresses, so conf
    ![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Not setting Azure’s recursive resolver in DNS list will cause the Managed Instance to enter faulty state. Recovering from that state may require you to create new instance in a VNet with the compliant networking policies, create instance level data, and restore your databases. See [VNet Configuration](sql-database-managed-instance-vnet-configuration).
+   > Not setting Azure’s recursive resolver in DNS list will cause the Managed Instance to enter faulty state. Recovering from that state may require you to create new instance in a VNet with the compliant networking policies, create instance level data, and restore your databases. See [VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 
 ## Next steps
 
