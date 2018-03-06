@@ -60,6 +60,8 @@ The following limitations exist when using this capability:
 
 ## Create a virtual network
 
+Though this article provides step to create a virtual machine with accelerated networking using Azure PowerShell, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine with a supported operating system and VM size in the portal, under **Settings**, select **Enabled** under **Accelerated networking**. After the virtual machine is created, you need to complete the instructions in [Confirm the driver is installed in the operating system](confirm-the-driver-is-installed-in-the-operating-system).
+
 Install [Azure PowerShell](/powershell/azure/install-azurerm-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVM*.
