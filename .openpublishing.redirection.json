@@ -153,6 +153,16 @@
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/mitigate-se",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/mitigate-se",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc",
@@ -1571,6 +1581,21 @@
         {
             "source_path": "articles/logic-apps/logic-apps-create-a-logic-app.md",
             "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-use-logic-app-features.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-switch-case.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-switch-statement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-loops-and-scopes.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-loops",
             "redirect_document_id": false
         },
         {
@@ -17053,10 +17078,30 @@
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
     },
-   {
+    {
+        "source_path": "articles/virtual-network/create-user-defined-route-portal.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-ps.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-cli.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-cli",
+        "redirect_document_id": false
+    },
+    {
             "source_path": "articles/python-how-to-install.md",
             "redirect_url": "/python/azure/python-sdk-azure-install",
             "redirect_document_id": false
-     }
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
+        "redirect_document_id": false
+   }
    ]
 }

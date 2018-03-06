@@ -52,10 +52,13 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 ### Sample text to scan
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
+> [!NOTE]
+> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
+
 ```
 	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
 	These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.
-	Also, 544-56-7788 looks like a social security number (SSN).
+	Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
 ### Text classification feature (preview)
@@ -119,10 +122,10 @@ The following response shows the various insights from the API. It contains pote
       			"Index": 89
     		}],
     		"SSN": [{
-      			"Text": "665778988",
+      			"Text": "999999999",
       			"Index": 56
     		}, {
-      			"Text": "544-56-7788",
+      			"Text": "999-99-9999",
       			"Index": 266
     		}]
   		},
