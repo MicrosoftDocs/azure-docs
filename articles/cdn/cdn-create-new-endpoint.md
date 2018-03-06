@@ -69,8 +69,9 @@ After you've created a CDN profile, you can use it to create an endpoint.
 ## Clean up resources
 In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:
 
-1) From the left-hand menu in the Azure portal, select **Resource groups** and then select **my-resource-group-123**.
-2) On the **Resource group** page, select **Delete resource group**, enter *my-resource-group-123* in the text box, then select **Delete**.
+1. From the left-hand menu in the Azure portal, select **Resource groups** and then select **my-resource-group-123**.
+
+2. On the **Resource group** page, select **Delete resource group**, enter *my-resource-group-123* in the text box, then select **Delete**.
 
     This action will delete the resource group, profile, and endpoint that you created in this quickstart.
 
