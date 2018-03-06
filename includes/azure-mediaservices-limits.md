@@ -4,7 +4,7 @@
 | Resource | Default Limit | 
 | --- | --- | 
 | Azure Media Services (AMS) accounts in a single subscription | 25 (fixed) |
-| Media Reserved Units (RUs) per AMS account |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Media Reserved Units (RUs) per AMS account |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | Jobs per AMS account | 50,000<sup>(2)</sup> |
 | Chained tasks per job | 30 (fixed) |
 | Assets per AMS account | 1,000,000|
@@ -20,7 +20,7 @@
 | Policies | 1,000,000<sup>(6)</sup> |
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
   
-<sup>1</sup> S3 RUs are not available in India West. If you change the type (for example, from S2 to S1,) the max RU limits are reset.
+<sup>1</sup> If you change the type (for example, from S2 to S1,) the max RU limits are reset.
 
 <sup>2</sup> This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs. You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request.
 
