@@ -8764,8 +8764,9 @@
             "redirect_url": "physical-azure-set-up-target",
             "redirect_document_id": false
         },
+	{
             "source_path": "articles/site-recovery/vmware-walkthrough-architecture.md",
-            "redirect_url": "vmware-azure-architecture",
+            "rediect_url": "vmware-azure-architecture",
             "redirect_document_id": false
         },
         {
