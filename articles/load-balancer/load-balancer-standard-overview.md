@@ -463,6 +463,7 @@ The following limitations apply at the time of preview and are subject to change
 - In the context of Availability Zones, a zonal Public IP address cannot be moved from one zone to another.
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - Portal does not yet support the expanded preview regions.  Please use client tools like templates, Azure CLI 2.0 or PowerShell as a workaround.
+- Move subscription operations are not supported.
 
 
 ## Next steps

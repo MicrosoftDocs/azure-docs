@@ -1,237 +1,161 @@
 ---
-title: Create an Azure virtual network with multiple subnets | Microsoft Docs
-description: Learn how to create a virtual network with multiple subnets in Azure.
+title: Create an Azure Virtual Network with multiple subnets - Portal | Microsoft Docs
+description: Learn how to create a virtual network with multiple subnets using the Azure portal.
 services: virtual-network
-documentationcenter: ''
+documentationcenter:
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
+ms.assetid: 
 ms.service: virtual-network
-ms.devlang: NA
-ms.topic: article
+ms.devlang: na
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-
 ---
-# Create a virtual network with multiple subnets
 
-In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. Resources in virtual networks can communicate with each other, and with resources in other networks connected to a virtual network. You can create Azure resources, like Virtual machines, App Service environments, Virtual machine scale sets, Azure HDInsight, and Cloud services in the same, or different subnets within a virtual network. Creating resources in different subnets enables you to filter network traffic in and out of subnets independently with [network security groups](virtual-networks-create-nsg-arm-pportal.md), and to [route traffic between subnets](virtual-network-create-udr-arm-ps.md) through network virtual appliances, such as a firewall, if you choose to. 
+# Create a virtual network with multiple subnets using the Azure portal
 
-The following sections include steps that you can take to create a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#resource-manager-template). The result is the same, regardless of which tool you use to create the virtual network. Click a tool link to go to that section of the tutorial. Learn more about all [virtual network](virtual-network-manage-network.md) and [subnet](virtual-network-manage-subnet.md) settings.
+A virtual network enables several types of Azure resources to communicate with the Internet and privately with each other. Creating multiple subnets in a virtual network enables you to segment your network so that you can filter or control the flow of traffic between subnets. In this article you learn how to:
 
-This article provides steps to create a virtual network through the Resource Manager deployment model, which is the deployment model we recommend using when creating new virtual networks. If you need to create a virtual network (classic), see [Create a virtual network (classic)](create-virtual-network-classic.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> [!div class="checklist"]
+> * Create a virtual network
+> * Create a subnet
+> * Test network communication between virtual machines
 
-## <a name="portal"></a>Azure portal
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. In an Internet browser, go to the [Azure portal](https://portal.azure.com). Log in using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. In the portal, click **+New** > **Networking** > **Virtual network**.
-3. On the **Create virtual network** blade, enter the following values, and then click **Create**:
+## Log in to Azure 
 
-    |Setting|Value|
-    |---|---|
-    |Name|myVnet|
-    |Address space|10.0.0.0/16|
-    |Subnet name|Public|
-    |Subnet address range|10.0.0.0/24|
-    |Resource group|Leave **Create new** selected, and then enter **myResourceGroup**.|
-    |Subscription and location|Select your subscription and location.
+Log in to the Azure portal at http://portal.azure.com.
 
-    If you're new to Azure, learn more about [resource groups](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), and [locations](https://azure.microsoft.com/regions) (also referred to as *regions*).
-4. In the portal, you can create only one subnet when you create a virtual network. In this tutorial, you create a second subnet after you create the virtual network. You might later create Internet-accessible resources in the **Public** subnet. You also might create resources that aren't accessible from the Internet in the **Private** subnet. 
-To create the second subnet, in the **Search resources** box at the top of the page, enter **myVnet**. In the search results, click **myVnet**. If you have multiple virtual networks with the same name in your subscription, check the resource groups that are listed under each virtual network. Ensure that you click the **myVnet** search result that has the resource group **myResourceGroup**.
-5. On the **myVnet** blade, under **SETTINGS**, click **Subnets**.
-6. On the **myVnet - Subnets** blade, click **+Subnet**.
-7. On the **Add subnet** blade, for **Name**, enter **Private**. For **Address range**, enter **10.0.1.0/24**.  Click **OK**.
-8. On the **myVnet - Subnets** blade, review the subnets. You can see the **Public** and **Private** subnets that you created.
-9. **Optional:** Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
-10. **Optional:** Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-portal).
+## Create a virtual network
 
-## Azure CLI
+1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+2. Select **Networking**, and then select **Virtual network**.
+3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, **myResourceGroup** for **Resource group**, *Public* for Subnet **Name**, 10.0.0.0/24 for Subnet **Address range**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**:
 
-Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The script in the following steps executes in a Bash shell. 
+    ![Create a virtual network](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
-1. [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. Rather than installing the CLI and its pre-requisites, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Cloud Shell has the Azure CLI preinstalled and configured to use with your account. To use the Cloud Shell, click the Cloud Shell (**>_**) button at the top of the [portal](https://portal.azure.com) or just click the *Try it* button in the steps that follow. 
-2. If running the CLI locally, log in to Azure with the `az login` command. If using the Cloud Shell, you're already logged in.
-3. Review the following script and its comments. In your browser, copy the script and paste it into your CLI session:
+    The **Address space** and **Address range** are specified in CIDR notation. The specified **Address space** includes the IP addresses 10.0.0.0-10.0.255.254. The **Address Range** specified for a subnet, must be within the **Address space** defined for the virtual network. Azure DHCP assigns IP addresses from a subnet address range to resources  deployed in a subnet. Azure only assigns the addresses 10.0.0.4-10.0.0.254 to resources deployed within the **Public** subnet, because Azure reserves the first four addresses (10.0.0.0-10.0.0.3 for the subnet, in this example) and the last address (10.0.0.255 for the subnet, in this example) in each subnet.
 
-    ```azurecli-interactive
-    #!/bin/bash
+## Create a subnet
+
+1. In the **Search resources, services, and docs** box at the top of the portal, begin typing *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
+2. Select **Subnets** and then select **+ Subnet**, as shown in the following picture:
+
+     ![Add a subnet](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
+     
+3. In the **Add subnet** box that appears, enter *Private* for **Name**, enter *10.0.1.0/24* for **Address range**, and then select **OK**.  A subnet address range cannot overlap with the address ranges of other subnets within a virtual network. 
+
+Before deploying Azure virtual networks and subnets for production use, we recommend that you thoroughly familiarize yourself with address space [considerations](virtual-network-manage-network.md#create-a-virtual-network) and [virtual network limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Once resources are deployed into subnets, some virtual network and subnet changes, such as changing address ranges, can require redeployment of existing Azure resources deployed within subnets.
+
+## Test network communication
+
+A virtual network enables several types of Azure resources to communicate with the Internet and privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can test network communication between them and the Internet in a later step.
+
+### Create virtual machines
+
+1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. You can select a different operating system, but the remaining steps assume you selected **Windows Server 2016 Datacenter**. 
+3. Select or enter the following information for **Basics**, then select **OK**:
+    - **Name**: *myVmWeb*
+    - **Resource group**: Select **Use existing** and then select *myResourceGroup*.
+    - **Location**: Select *East US*.
+
+    The **User name** and **Password** you enter are used in a later step. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). The **Location** and **Subscription** selected must be the same as the location and subscription the virtual network is in. It's not required that you select the same resource group that the virtual network was created in, but the same resource group is selected for this tutorial.
+4. Select a VM size under **Choose a size**.
+5. Select or enter the following information for **Settings**, then select **OK**:
+    - **Virtual network**: Ensure that **myVirtualNetwork** is selected. If not, select **Virtual network** and then select **myVirtualNetwork** under **Choose virtual network**.
+    - **Subnet**: Ensure that **Public** is selected. If not, select **Subnet** and then select **Public** under **Choose subnet**, as shown in the following picture:
     
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
-    
-    # Create a virtual network with one subnet named Public.
-    az network vnet create \
-      --name myVnet \
-      --resource-group myResourceGroup \
-      --subnet-name Public
-    
-    # Create an additional subnet named Private in the virtual network.
-    az network vnet subnet create \
-      --name Private \
-      --address-prefix 10.0.1.0/24 \
-      --vnet-name myVnet \
-      --resource-group myResourceGroup
+        ![Virtual machine settings](./media/virtual-networks-create-vnet-arm-pportal/virtual-machine-settings.png)
+ 
+6. Under **Create** in the **Summary**, select **Create** to start the virtual machine deployment.
+7. Complete steps 1-6 again, but enter *myVmMgmt* for the **Name** of the virtual machine and select **Private** for the **Subnet**.
+
+The virtual machines take a few minutes to create. Do not continue with the remaining steps until both virtual machines are created.
+
+The virtual machines created in this article have one [network interface](virtual-network-network-interface.md) with one IP address that is dynamically assigned to the network interface. After you've deployed the VM, you can [add multiple public and private IP addresses, or change the IP address assignment method to static](virtual-network-network-interface-addresses.md#add-ip-addresses). You can [add network interfaces](virtual-network-network-interface-vm.md#vm-add-nic), up to the limit supported by the [VM size](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that you select when you create a virtual machine. You can also [enable single root I/O virtualization (SR-IOV)](create-vm-accelerated-networking-powershell.md) for a VM, but only when you create a VM with a VM size that supports the capability.
+
+### Communicate between virtual machines and with the internet
+
+1. In the *Search* box at the top of the portal, begin typing *myVmMgmt*. When **myVmMgmt** appears in the search results, select it.
+2. Create a remote desktop connection to the *myVmMgmt* virtual machine by selecting **Connect**, as shown in the following picture:
+
+    ![Connect to virtual machine](./media/virtual-networks-create-vnet-arm-pportal/connect-to-virtual-machine.png)  
+
+3. To connect to the VM, open the downloaded RDP file. If prompted, select **Connect**.
+4. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select **OK**.
+5. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
+6. In a later step, ping is used to communicate with the *myVmMgmt* virtual machine from the *myVmWeb* virtual machine. Ping uses ICMP, which is denied through the Windows Firewall, by default. Enable ICMP through the Windows firewall by entering the following command from a command prompt:
+
     ```
-    
-4. When the script is finished running, review the subnets for the virtual network. Copy the following command, and then paste it into your CLI session:
-
-    ```azurecli
-    az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
     ```
 
-5. **Optional:** Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
-6. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
+    Though ping is used in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
+7. For security reasons, it's common to limit the number of virtual machines that can be remotely connected to in a virtual network. In this tutorial, the *myVmMgmt* virtual machine is used to manage the *myVmWeb* virtual machine in the virtual network. To remote desktop to the *myVmWeb* virtual machine from the *myVmMgmt* virtual machine, enter the following command from a command prompt:
 
-## PowerShell
+    ``` 
+    mstsc /v:myVmWeb
+    ```
+8. To communicate to the *myVmMgmt* virtual machine from the *myVmWeb* virtual machine, enter the following command from a command prompt:
 
-1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. In a PowerShell session, log in to Azure with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) using the `login-azurermaccount` command.
+    ```
+    ping myvmmgmt
+    ```
 
-3. Review the following script and its comments. In your browser, copy the script and paste it into your PowerShell session:
+    You receive output similar to the following example output:
+    
+    ```
+    Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+    Ping statistics for 10.0.1.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    ```
+      
+    You can see that the address of the *myVmMgmt* virtual machine is 10.0.1.4. 10.0.1.4 was the first available IP address in the address range of the *Private* subnet that you deployed the *myVmMgmt* virtual machine to in a previous step.  You see that the fully qualified domain name of the virtual machine is *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Though the *dar5p44cif3ulfq00wxznl3i3f* portion of the domain name is different for your virtual machine, the remaining portions of the domain name are the same. 
+
+    By default, all Azure virtual machines use the default Azure DNS service. All virtual machines within a virtual network can resolve the names of all other virtual machines in the same virtual network using Azure's default DNS service. Instead of using Azure's default DNS service, you can use your own DNS server or the private domain capability of the Azure DNS service. For details, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) or [Using Azure DNS for private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+9. To install Internet Information Services (IIS) for Windows Server on the *myVmWeb* virtual machine, enter the following command from a PowerShell session:
 
     ```powershell
-    # Create a resource group.
-    New-AzureRmResourceGroup `
-      -Name myResourceGroup `
-      -Location eastus
-    
-    # Create the public and private subnets.
-    $Subnet1 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Public `
-      -AddressPrefix 10.0.0.0/24
-    $Subnet2 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Private `
-      -AddressPrefix 10.0.1.0/24
-    
-    # Create a virtual network.
-    $Vnet=New-AzureRmVirtualNetwork `
-      -ResourceGroupName myResourceGroup `
-      -Location eastus `
-      -Name myVnet `
-      -AddressPrefix 10.0.0.0/16 `
-      -Subnet $Subnet1,$Subnet2
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
 
-4. To review the subnets for the virtual network, copy the following command, and then paste it into your PowerShell session:
+10. After the installation of IIS is complete, disconnect the *myVmWeb* remote desktop session, which leaves you in the *myVmMgmt* remote desktop session. Open a web browser and browse to http://myvmweb. You see the IIS welcome page.
+11. Disconnect the *myVmMgmt* remote desktop session.
+12. Find the public IP address of the *myVmWeb* virtual machine. When Azure created the *myVmWeb* virtual machine, a public IP address resource named *myVmWeb* was also created and assigned to the virtual machine. You can see that 52.170.5.92 was assigned for **Public IP address** to the *myVmMgmt* virtual machine in the picture in step 2. To find the public IP address assigned to the *myVmWeb* virtual machine, search for *myVmWeb* in the portal's search box, then select it when it appears in the search results.
 
-    ```powershell
-    $Vnet.subnets | Format-Table Name, AddressPrefix
-    ```
+    Though a virtual machine isn't required to have a public IP address assigned to it, Azure assigns a public IP address to each virtual machine you create, by default. To communicate from the Internet to a virtual machine, a public IP address must be assigned to the virtual machine. All virtual machines can communicate outbound with the Internet, whether or not a public IP address is assigned to the virtual machine. To learn more about outbound Internet connections in Azure, see [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+13. On your own computer, browse to the public IP address of the *myVmWeb* virtual machine. The attempt to view the IIS welcome page from your own computer fails. The attempt fails because when the virtual machines were deployed, Azure created a network security group for each virtual machine, by default. 
 
-5. **Optional:** Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
-6. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-powershell).
+     A network security group contains security rules that allow or deny inbound and outbound network traffic by port and IP address. The default network security group Azure created allows communication over all ports between resources in the same virtual network. For Windows virtual machines, the default network security group denies all inbound traffic from the Internet over all ports, accept TCP port 3389 (RDP). As a result, by default, you can also RDP directly to the *myVmWeb* virtual machine from the Internet, even though you might not want port 3389 open to a web server. Since web browsing communicates over port 80, communication fails from the Internet because there is no rule in the default network security group allowing traffic over port 80.
 
-## Resource Manager template
+## Clean up resources
 
-You can deploy a virtual network by using an Azure Resource Manager template. To learn more about templates, see [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). To access the template and to learn about its parameters, see the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template. You can deploy the template by using the [portal](#template-portal), [Azure CLI](#template-cli), or [PowerShell](#template-powershell).
+When no longer needed, delete the resource group and all resources it contains: 
 
-Optional steps after you deploy the template:
-
-1. Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
-2. Delete the resources that you create in this tutorial by completing the steps in any subsections of [Delete resources](#delete).
-
-### <a name="template-portal"></a>Azure portal
-
-1. In your browser, open the [template page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Click the **Deploy to Azure** button. If you're not already logged in to Azure, log in on the Azure portal login screen that appears.
-3. Sign in to the portal by using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-4. Enter the following values for the parameters:
-
-    |Parameter|Value|
-    |---|---|
-    |Subscription|Select your subscription|
-    |Resource group|myResourceGroup|
-    |Location|Select a location|
-    |Vnet Name|myVnet|
-    |Vnet Address Prefix|10.0.0.0/16|
-    |Subnet1Prefix|10.0.0.0/24|
-    |Subnet1Name|Public|
-    |Subnet2Prefix|10.0.1.0/24|
-    |Subnet2Name|Private|
-
-5. Agree to the terms and conditions, and then click **Purchase** to deploy the virtual network.
-
-### <a name="template-cli"></a>Azure CLI
-
-1. [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. Rather than installing the CLI and its pre-requisites, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Cloud Shell has the Azure CLI preinstalled and configured to use with your account. To use the Cloud Shell, click the Cloud Shell **>_** button at the top of the [portal](https://portal.azure.com), or just click the **Try it** button in the steps that follow. 
-2. If running the CLI locally, log in to Azure with the `az login` command. If using the Cloud Shell, you're already logged in.
-3. To create a resource group for the virtual network, copy the following command and paste it into your CLI session:
-
-    ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
-    ```
-    
-4. You can deploy the template by using one of the following parameters options:
-    - **Default parameter values**. Enter the following command:
-    
-        ```azurecli-interactive
-        az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
-        ```
-    - **Custom parameter values**. Download and modify the template before you deploy the template. You also can deploy the template by using parameters at the command line, or deploy the template with a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json** or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
-
-    To learn more about how to deploy templates by using these methods, type `az group deployment create --help`.
-
-### <a name="template-powershell"></a>PowerShell
-
-1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. In a PowerShell session, to sign in with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), enter `login-azurermaccount`.
-3. To create a resource group for the virtual network, enter the following command:
-
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
-    ```
-    
-4. You can deploy the template by using one of the following parameters options:
-    - **Default parameter values**. Enter the following command:
-    
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
-        ```
-        
-    - **Custom parameter values**. Download and modify the template before you deploy it. You also can deploy the template by using parameters at the command line, or deploy the template with a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
-
-    To learn more about how to deploy templates by using these methods, type `Get-Help New-AzureRmResourceGroupDeployment`. 
-
-## <a name="delete"></a>Delete resources
-
-When you finish this tutorial, you might want to delete the resources that you created, so that you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group.
-
-### <a name="delete-portal"></a>Azure portal
-
-1. In the portal search box, enter **myResourceGroup**. In the search results, click **myResourceGroup**.
-2. On the **myResourceGroup** blade, click the **Delete** icon.
-3. To confirm the deletion, in the **TYPE THE RESOURCE GROUP NAME** box, enter **myResourceGroup**, and then click **Delete**.
-
-### <a name="delete-cli"></a>Azure CLI
-
-In a CLI session, enter the following command:
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes
-```
-
-### <a name="delete-powershell"></a>PowerShell
-
-In a PowerShell session, enter the following command:
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+2. Select **Delete resource group**.
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
 
-- To learn about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md#view-vnet) and [Manage virtual network subnets](virtual-network-manage-subnet.md#create-subnet). You have various options for using virtual networks and subnets in a production environment to meet different requirements.
-- Filter inbound and outbound subnet traffic by creating and applying [network security groups](virtual-networks-nsg.md) to subnets.
-- Route traffic between subnets through a network virtual appliance, by creating [user-defined routes](virtual-network-create-udr-arm-ps.md) and apply the routes to each subnet.
-- Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine in an existing virtual network.
-- Connect two virtual networks by creating a [virtual network peering](virtual-network-peering-overview.md) between the virtual networks.
-- Connect the virtual network to an on-premises network by using a [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.
+In this tutorial, you learned how to deploy a virtual network with multiple subnets. You also learned that when you create a Windows virtual machine, Azure creates a network interface that it attaches to the virtual machine, and creates a network security group that only allows traffic over port 3389, from the Internet. Advance to the next tutorial to learn how to filter network traffic to subnets, rather than to individual virtual machines.
+
+> [!div class="nextstepaction"]
+> [Filter network traffic to subnets](./virtual-networks-create-nsg-arm-pportal.md)
