@@ -99,7 +99,7 @@ Search Microsoft Azure  Backup
 
 Open it and click on Action > Change Properties. Under Proxy Configuration tab, you should see the proxy address, which should be same as shown by the registry settings. If not, please change it to the same address.
 
-![Enable replication](./media/vmware-azure-troubleshoot-replications/mabproxy.png)
+![Enable replication](./media/vmware-azure-troubleshoot-replication/mabproxy.png)
 
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
 
