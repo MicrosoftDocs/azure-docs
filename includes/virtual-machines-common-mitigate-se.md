@@ -8,7 +8,7 @@ The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msr
 The infrastructure that runs Azure and isolates customer workloads from each other is protected.  This means that other customers running on Azure can't attack your application using these vulnerabilities.
 
 > [!NOTE] 
-> In late February 2018, Intel Corporation published updated [Microcode Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) on the status of their microcode releases, which improve stability and mitigate against the recent vulnerabilities disclosed by [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). The mitigations put in place by Azure on [January 3rd, 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) are not affected by Intel’s microcode update. Microsoft already put strong mitigations in place to protect Azure customers from other Azure tenants.  
+> In late February 2018, Intel Corporation published updated [Microcode Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) on the status of their microcode releases, which improve stability and mitigate against the recent vulnerabilities disclosed by [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). The mitigations put in place by Azure on [January 3, 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) are not affected by Intel’s microcode update. Microsoft already put strong mitigations in place to protect Azure customers from other Azure tenants.  
 >
 > Intel’s microcode addresses variant 2 Spectre - [CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)- to protect against attacks which would only be applicable where you run shared or untrusted workloads inside your VMs on Azure. Our engineers are testing the stability to minimize performance impacts of the microcode prior to making it available to Azure customers.  As very few customers run untrusted workloads within their VMs, most customers will not need to enable this capability once released. 
 >
@@ -50,7 +50,7 @@ No additional customer action is needed unless you are running untrusted code. I
 
 ### Windows 
 If you are using Windows and hosting untrusted code, you should also enable a Windows feature called Kernel Virtual Address (KVA) Shadowing which provides additional protection against speculative execution side-channel vulnerabilities. This feature is turned off by default and may impact performance if enabled. 
-Follow [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructions for Enabling Protections on the Server. If you are running Azure Cloud Services, verify that you are running WA-GUEST-OS-5.15_201801-01 or WA-GUEST-OS-4.50_201801-01 (available starting on January 10th) and enable the registry key via a startup task.
+Follow [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructions for Enabling Protections on the Server. If you are running Azure Cloud Services, verify that you are running WA-GUEST-OS-5.15_201801-01 or WA-GUEST-OS-4.50_201801-01 (available starting on January 10, 2018) and enable the registry key via a startup task.
 
 
 ### Linux
