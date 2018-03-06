@@ -163,7 +163,7 @@ The file is downloaded and opened through the application that's associated with
 ![Selections for copying a folder](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
 > [!NOTE] 
-> Copy/paste operations across storage types is not supported. You can copy Data Lake Store folders or files and paste them in another Data Lake Store account. But you *cannot* copy Data Lake Store folders or files and paste them to Azure Blob storage or the other way around.
+> Copy/paste operations across storage types are not supported. You can copy Data Lake Store folders or files and paste them in another Data Lake Store account. But you *cannot* copy Data Lake Store folders or files and paste them to Azure Blob storage or the other way around.
 > 
 > The copy/paste operation works by downloading the folders or files to the local computer and then uploading them to the destination. The tool *does not* perform the action in the back end. The copy/paste operation on large files is slow. The optimization of high-performance file copy/move is underway.
 
