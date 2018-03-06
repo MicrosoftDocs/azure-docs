@@ -8,7 +8,7 @@ manager: Craig.Guyer
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: carlrab
 
 ---
@@ -56,6 +56,9 @@ You can select compute and storage resources at deployment time and then change 
 
 To learn how to create the VNet infrastructure and Managed Instance - and restore a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
 
+> [!IMPORTANT]
+> It’s very important to keep your destination VNet and subnet always in accordance with Managed Instance requirements (link to “Requirements” section above) . Any incompatibility can prevent you from creating new instances or using those that you already created.
+
 ## Select migration method and migrate
 
 Managed Instance targets user scenarios requiring mass database migration from on-premises or IaaS database implementations. They are optimal choice when you need to lift and shift the back end of the applications that regularly use instance level and / or cross-database functionalities. If this is your scenario, you can move an entire instance to a corresponding environment in Azure without the need to rearchitecture your applications. 
@@ -90,7 +93,7 @@ The following table provides more details regarding the method you can use depen
 |Step|SQL Engine and version|Backup / Restore method|
 |---|---|---|
 |Put backup to Azure Storage|Prior SQL 2012 SP1 CU2|Upload .bak file directly to Azure storage|
-||2012 SP1 CU2 - 2016|Direct backup using [WITH CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
+||2012 SP1 CU2 - 2016|Direct backup using deprecated WITH CREDENTIAL syntax documented [WITH CREDENTIAL](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql|
 ||2016 and above|Direct backup using [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Restore from Azure Storage	SQL Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
 
