@@ -106,7 +106,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][10]
 
-11. For each of the three certificate file boxes, click **Browse** and then navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-azure-stack-app-service-before-you-get-started.md#get-certificates). Click **Next** after entering all the information.
+11. For each of the three certificate file boxes, click **Browse** and then navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-before-you-get-started.md#get-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
