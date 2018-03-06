@@ -43,8 +43,7 @@ To fully enable Profiler, you must change the configuration in three locations:
 
    ![Location of the instrumentation key](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. To finish setting up the Application Insights instance for Profiler, complete the procedure that's described in [Enable Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    You don't need to link the web apps, because the steps are specific to the app services resource. Ensure that Profiler is enabled in the **Configure Profiler** pane.
+3. To finish setting up the Application Insights instance for Profiler, complete the procedure that's described in [Enable Profiler. You don't need to link the web apps, because the steps are specific to the app services resource. Ensure that Profiler is enabled in the **Configure Profiler** pane.
 
 
 ## Set up the application source code
@@ -155,6 +154,8 @@ To set up your environment, do the following:
 
       For information about adding the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> For Virtual Machines an alternative to the json based steps above is to navigate in the Azure portal to  **Virtual Machines** > **Diagnostic Settings** > **Sinks** > Set send diagnostic data to Application Insights to **Enabled** and either select an Application Insights account or a specific ikey.
 
 ### Azure Cloud Services
 
@@ -194,7 +195,7 @@ To set up your environment, do the following:
 
 1. Deploy the modified environment deployment definition.  
 
-   To apply the modifications, you usually involve a full template deployment or a cloud services publish through PowerShell cmdlets or Visual Studio.  
+   To apply the modifications, usually involves a full template deployment or a cloud services based publish through PowerShell cmdlets or Visual Studio.  
 
    The following is an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension:  
 
