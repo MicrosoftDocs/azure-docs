@@ -56,7 +56,7 @@ Follow these steps to create a blank SQL data warehouse.
 
 2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
 
-    ![create data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![create data warehouse](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
 3. Fill out the SQL Data Warehouse form with the following information:   
 
@@ -67,7 +67,7 @@ Follow these steps to create a blank SQL data warehouse.
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Select source** | Blank database | Specifies to create a blank database. Note, a data warehouse is one type of database.|
 
-    ![create data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![create data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
@@ -78,7 +78,7 @@ Follow these steps to create a blank SQL data warehouse.
     | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
-    ![create database server](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
+    ![create database server](media/load-data-wideworldimportersdw/create-database-server.png)
 
 5. Click **Select**.
 
@@ -86,18 +86,18 @@ Follow these steps to create a blank SQL data warehouse.
 
 7. For this tutorial, select the **Optimized for Elasticity** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
 
-    ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
+    ![configure performance](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. Click **Apply**.
 9. In the SQL Data Warehouse page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations.md)
 
 11. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
-    ![click create](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
+    ![click create](media/load-data-wideworldimportersdw/click-create.png)
 
 12. On the toolbar, click **Notifications** to monitor the deployment process.
     
-     ![notification](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![notification](media/load-data-wideworldimportersdw/notification.png)
 
 ## Create a server-level firewall rule
 
