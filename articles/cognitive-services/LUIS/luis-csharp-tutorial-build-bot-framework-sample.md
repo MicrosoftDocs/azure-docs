@@ -106,15 +106,15 @@ Remove the three intent attributes and methods for **Greeting**, **Cancel**, and
 
 3. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff`:
 
-   [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=59-69&dedent=8 "Add Intents")]
+   [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
 4. Add the code to get any entities found by LUIS:
 
-   [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-51&dedent=8 "Collect entities")]
+   [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
 5. Change **ShowLuisResult** method to round the score, collect the entities, and display the response message in the chat bot:
 
-   [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=71-81&dedent=8 "Display message in chat bot")]
+   [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chat bot")]
 
 ## Build the bot
 In the code editor, right-click on `build.cmd` and select **Run from Console**.
