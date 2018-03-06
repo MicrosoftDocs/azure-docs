@@ -64,22 +64,7 @@ and the ``--installdir`` flag to specify an alternate install directory. For exa
 After the installer finishes, edit ``$CS_HOME/config/cycle_server.properties`` and change the
 following port numbers to an unused port (incrementing each default port number by one usually works well):
 
-```azurecli-interactive
-# The data center and resource name for your resources
-export resourcegroupname = myResourceGroup
-export location = westeurope
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
-export servername = server-$RANDOM
-# Set an admin login and password for your database
-export adminlogin = ServerAdmin
-export password = ChangeYourAdminPassword1
-# The ip address range that you want to allow to access your DB
-export startip = "0.0.0.0"
-export endip = "0.0.0.0"
-# The database name
-export databasename = mySampleDatabase
-```
-
+```cyclecloud-interactive
 commandPort=6400
 webServerPort=8080
 webServerSslPort=8443
@@ -87,6 +72,7 @@ tomcat.shutdownPort=8007
 brokerPort=5672
 brokerJmxPort=9099
 url=jdbc:derby://localhost:1527/cycle_server
+```
 
 Next, edit ``$CS_HOME/data/derby.properties`` and modify ``derby.drda.portNumber``
 so that it matches the port specified in the ``url=`` line of cycle_server.properties
