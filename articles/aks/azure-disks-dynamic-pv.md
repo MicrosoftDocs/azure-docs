@@ -67,6 +67,8 @@ kubectl create -f azure-premimum.yaml
 
 Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/var/www/html` path. 
 
+Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest.
+
 ```yaml
 kind: Pod
 apiVersion: v1
@@ -77,13 +79,21 @@ spec:
     - name: myfrontend
       image: nginx
       volumeMounts:
-      - mountPath: "/var/www/html"
+      - mountPath: "/mnt/azure"
         name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
+
+Create the pod with the [kubectl create][kubectl-create] command.
+
+```azurecli-interactive
+kubectl create -f azure-pvc-disk.yaml
+```
+
+You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod mypod`.
 
 ## Next steps
 
