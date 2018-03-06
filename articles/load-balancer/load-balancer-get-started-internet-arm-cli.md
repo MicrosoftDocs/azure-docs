@@ -18,7 +18,7 @@ ms.author: kumud
 ---
 # Create a public load balancer to load balance VMS using Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to create network resources, backend servers, and a load balancer that helps load balance a web app between two VMs running Ubuntu server.
+This quickstart shows you how to create an Azure Load Balancer. To test the load balancer, you deploy two VMs running Ubuntu server and load balance a web app between.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -60,7 +60,7 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
   az network lb create \
   --resource-group myResourceGroupLB \
   --name myLoadBalancer \
-  --public-ip-address myPublicIP \ 
+  --public-ip-address myPublicIP \
   --frontend-ip-name myFrontEndPool \
   --backend-pool-name myBackEndPool
        
@@ -73,9 +73,10 @@ A health probe checks all virtual machine instances to make sure they can send n
 ```azurecli-interactive
   az network lb probe create \
   --resource-group myResourceGroupLB \
-  --lb-name myLoadBalancer \ 
+  --lb-name myLoadBalancer \
   --name myHealthProbe \
-  --protocol tcp --port 80     
+  --protocol tcp \
+  --port 80   
 ```
 
 ### Create the load balancer rule
@@ -90,7 +91,7 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
   --protocol tcp \
   --frontend-port 80 \
   --backend-port 80 \
-  --frontend-ip-name myFrontEndPool \ 
+  --frontend-ip-name myFrontEndPool \
   --backend-pool-name myBackEndPool \
   --probe-name myHealthProbe   
   
@@ -98,7 +99,7 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
 
 ## Configure virtual network
 
-Before you deploy some VMs and can test your balancer, create the supporting virtual network resources.
+Before you deploy some VMs and can test your load balancer, create the supporting virtual network resources.
 
 ### Create a virtual network
 
@@ -106,7 +107,7 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
 
 ```azurecli-interactive
 az network vnet create \
---resource-group myResourceGroupLB\
+--resource-group myResourceGroupLB \
 --location eastus \
 --name myVnet \
 --subnet-name mySubnet
@@ -150,7 +151,7 @@ az network nic create \
 --subnet mySubnet \
 --network-security-group myNetworkSecurityGroup \
 --lb-name myLoadBalancer \
---lb-address-pools myBackEndPool \
+--lb-address-pools myBackEndPool
 done
 ```
 
@@ -228,15 +229,16 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
   --nics myNic$i \
   --image UbuntuLTS \
   --generate-ssh-keys \
-  --custom-data cloud-init.txt \
+  --custom-data cloud-init.txt
   done
 ```
+It may take a few minutes for the VMs to get deployed.
 
 ## Test the load balancer
 
 To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupLB \
   --name myPublicIP \
