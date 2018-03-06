@@ -25,6 +25,8 @@ When the input stream of your Stream Analytics job contains malformed messages, 
 
 ![Inputs tile](media/stream-analytics-malformed-events/inputs_tile.png)
 
+You can enable the diagnostics logs to view the details of the warning. For malformatted input events, the execution logs contain an entry with the message that looks like: “Message: Could not deserialize the input event(s) from resource <blob URI> as json)". 
+
 ### Troubleshooting steps
 
 1. Navigate to the input tile and click to view warnings.
@@ -34,7 +36,7 @@ When the input stream of your Stream Analytics job contains malformed messages, 
 
 3. To get the JSON data that has incorrect format, run the CheckMalformedEvents.cs code, you can get the it from the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition Id, offset, and prints the data that's located in that offset. 
 
-4. Once you read the data, you can analyze and correct the serialization format.
+4. Once you read the data, you can analyze and correct the serialization format. 
 
 ## Handling duplicate records when using Azure SQL Database as output for a Stream Analytics job
 
