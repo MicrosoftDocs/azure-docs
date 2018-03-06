@@ -115,7 +115,7 @@ Managed Instance provide additional security isolation from other tenants in the
 
 The following diagram outlines isolation design: 
 
-![high availability](./media/sql-database-managed-instance/high-availability.png)  
+![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
 ### Auditing for compliance and security 
 
