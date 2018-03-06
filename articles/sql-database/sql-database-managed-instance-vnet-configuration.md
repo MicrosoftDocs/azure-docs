@@ -3,9 +3,7 @@ title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
 description: This topic describes configuration options for a virtual network (VNet) with an Azure SQL Database Managed Instance.
 services: sql-database
 author: CarlRabeler
-manager: Craig.Guyer
-editor: ''
-ms.assetid: 
+manager: cguyer
 ms.service: sql-database
 ms.custom: managed instance
 ms.devlang: na
@@ -38,10 +36,10 @@ Use your answers to the following questions to plan how you deploy a Managed Ins
 For SQL Managed Instance creation you need dedicate subnet inside the VNet that conforms to the following requirements:
 - **Be empty**: The subnet must not contain any other cloud service associated to it, and it must not be Gateway subnet. You won’t be able to create SQL Managed Instance in subnet that contains resources other than managed instance or add other resources inside the subnet later.
 - **No NSG**: The subnet must not have a Network Security Group associated with it.
-- **Have special route table**: the subnet must have a User Route Table (UDR) with 0.0.0.0/0 Next Hop Internet as the only route assigned to it. For more information see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
+- **Have specific route table**: The subnet must have a User Route Table (UDR) with 0.0.0.0/0 Next Hop Internet as the only route assigned to it. For more information see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
 3. **Optional custom DNS**: If custom DNS is specified on the VNet, Azure's recursive resolvers IP address (such as 168.63.129.16) must be added to the list. For more information see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md).
 4. **No Service endpoint**: The subnet must not have a Service endpoint (Storage or Sql) associated to it. Make sure that Service Endpoints option is Disabled when creating VNet.
-5. **Sufficient IP addresses**: tThe subnet must have minimum of 16 IP addresses. For more information see [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances)
+5. **Sufficient IP addresses**: The subnet must have minimum of 16 IP addresses. For more information see [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
 > You won’t be able to deploy new Managed Instance if the destination subnet is not compatible with all of the preceding requirements. The destination Vnet and the subnet must always be kept in accordance with these Managed Instance requirements (before and after deployment), as any violation may cause instance to enter faulty state and become unavailable. Recovering from that state will require you to create new instance in a VNet with the compliant networking policies, recreate instance level data, and restore your databases which will introduce significant downtime for your applications.
