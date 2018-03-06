@@ -64,13 +64,19 @@ and the ``--installdir`` flag to specify an alternate install directory. For exa
 After the installer finishes, edit ``$CS_HOME/config/cycle_server.properties`` and change the
 following port numbers to an unused port (incrementing each default port number by one usually works well):
 
-```cyclecloud-interactive
+```cyclecloud_installation-interactive
 commandPort=6400
+
 webServerPort=8080
+
 webServerSslPort=8443
+
 tomcat.shutdownPort=8007
+
 brokerPort=5672
+
 brokerJmxPort=9099
+
 url=jdbc:derby://localhost:1527/cycle_server
 ```
 
