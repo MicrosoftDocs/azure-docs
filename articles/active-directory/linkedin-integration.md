@@ -62,7 +62,7 @@ This group policy affects only Office 2016 apps for a local computer. Users can 
 ### Learn more 
 * [LinkedIn information and features in your Microsoft apps](https://go.microsoft.com/fwlink/?linkid=850740)
 
-* [LinkedIn help center](https://www.linkedin.com/help/linkedin)
+* [LinkedIn help center](https://www.linkedin.com/help/linkedin/answer/84077)
 
 ## Next steps
 Use the following link to see your current LinkedIn integration setting in the Azure portal:
