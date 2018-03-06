@@ -4035,7 +4035,7 @@ featureFlags:
                                                     Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Get Started</a>
+                                                    <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
