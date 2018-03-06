@@ -49,13 +49,13 @@ To enable your app to authenticate users and get tokens, you first need to regis
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts and create a new web application and/or web API:
   * **Name** describes your application to users.
-  * **Redirect Uri** is the location to which Azure AD will return tokens. The default location for this sample is `https://localhost:44326/`.
+  * **Sign-on URL** is the location to which Azure AD will return tokens. The default location for this sample is `https://localhost:44326/`.
 6. After you finish registration, Azure AD assigns a unique application ID to your app.  You'll need this value in the next sections, so copy it from the application tab.
 7. Adal.js uses the OAuth implicit flow to communicate with Azure AD. You must enable the implicit flow for your application:
   1. Click the application and select **Manifest** to open the inline manifest editor.
   2. Locate the `oauth2AllowImplicitFlow` property. Set its value to `true`.
   3. Click **Save** to save the manifest.
-8. Grant permissions across your tenant for your application. Go to **Settings** > **Properties** > **Required Permissions**, and click the **Grant Permissions** button on the top bar. Click **Yes** to confirm.
+8. Grant permissions across your tenant for your application. Go to **Settings** > **Required Permissions**, and click the **Grant Permissions** button on the top bar. Click **Yes** to confirm.
 
 ## Step 2: Install ADAL and configure the single-page app
 Now that you have an application in Azure AD, you can install adal.js and write your identity-related code.
