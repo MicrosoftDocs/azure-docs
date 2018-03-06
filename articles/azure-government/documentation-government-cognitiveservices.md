@@ -178,7 +178,7 @@ namespace VisionApp1
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
                 // Request parameters. A third optional parameter is "details".
-                string requestParameters = "visualFeatures=Categories,Description,Color&language=en";
+                string requestParameters = "returnfaceId=true&returnfaceLandmarks=false&returnfaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion";
 
                 // Assemble the URI for the REST API Call.
                 string uri = uriBase + "?" + requestParameters;
