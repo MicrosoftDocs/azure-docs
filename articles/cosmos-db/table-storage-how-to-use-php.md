@@ -22,7 +22,7 @@ ms.author: mimig
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios using the Azure Storage Table service and Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
+This guide shows you how to perform common scenarios using the Azure Storage Table service and Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 

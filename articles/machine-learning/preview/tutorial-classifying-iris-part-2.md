@@ -1,22 +1,22 @@
 ---
-title: Build a model for Azure Machine Learning services (preview) | Microsoft Docs
+title: Build a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part two and discusses experimentation.
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
+ms.date: 02/28/2018
 ---
 
-# Classify Iris part 2: Build a model
+# Tutorial: Classify Iris part 2 - Build a model
 Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
-This tutorial is part two of a three-part series. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
+This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
 
 > [!div class="checklist"]
 > * Use Azure Machine Learning Workbench.
@@ -29,6 +29,8 @@ This tutorial is part two of a three-part series. In this part of the tutorial, 
 > * Execute scripts in a cloud Azure HDInsight environment.
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 Finish the first part of this tutorial series. Follow the [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application prior to beginning the steps in this tutorial.
@@ -371,6 +373,10 @@ You can also run this script in an HDInsight Spark cluster. Learn [how to create
    >When you execute against a remote HDInsight cluster, you can also view the Yet Another Resource Negotiator (YARN) job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` by using the `admin` user account.
 
 
+## Clean up resources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Next steps
 In this second part of the three-part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
@@ -386,4 +392,4 @@ In this second part of the three-part tutorial series, you have learned how to u
 You are ready to move on to the third part in the series. Now that you have created the logistic regression model, let's deploy it as a real-time web service.
 
 > [!div class="nextstepaction"]
-> [Deploy a model](tutorial-classifying-iris-part-3.md)
+> [Tutorial 3 - Classifying Iris: Deploy models](tutorial-classifying-iris-part-3.md)

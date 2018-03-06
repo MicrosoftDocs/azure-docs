@@ -1,3 +1,5 @@
+# [Azure Active Directory Documentation](index.md)
+
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [About Azure identity management](identity-fundamentals.md)
@@ -111,6 +113,7 @@
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
 #### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
@@ -248,6 +251,13 @@
 ##### [Configuration](active-directory-application-config-content-map.md)
 ##### [Sign-in](active-directory-application-sign-in-content-map.md)
 ##### [Provisioning](active-directory-application-provisioning-content-map.md)
+###### [Verifying a user is provisioned](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [Provisioning taking a long time](application-provisioning-when-will-provisioning-finish.md)
+###### [How to configure user provisioning](application-provisioning-config-how-to.md)
+###### [Problem configuring provisioning](application-provisioning-config-problem.md)
+###### [Problem saving administrator credentials](application-provisioning-config-problem-storage-limit.md)
+###### [No users are being provisioned](application-provisioning-config-problem-no-users-provisioned.md)
+###### [Wrong users are being provisioned](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Managing Access](active-directory-application-access-content-map.md)
 ##### [Access Panel](active-directory-application-access-panel-content-map.md)
 ##### [Application Proxy](active-directory-application-proxy-content-map.md)
