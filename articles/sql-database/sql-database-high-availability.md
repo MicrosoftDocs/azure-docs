@@ -48,7 +48,7 @@ Key benefits:
 
 ## Data redundancy
 
-The high availability solution in SQL Database is based on [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, AlwaysON is used for persistence while in RS is it used for availability (low RTO). 
+The high availability solution in SQL Database is based on the [Always Om Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) (AG) feature in SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, an AG is used for persistence while in RS is it used for availability (low RTO). 
 
 ## Local storage
 
@@ -71,10 +71,10 @@ With the primary replica, it is immediately evident if and when the primary repl
 
 When a secondary replica fails, the database is down to a minimal quorum-set, with no spares. Service fabric initiates the reconfiguration process similar to the process that follows failure of the primary replica, so after a short wait to determine whether the failure is permanent, another secondary replica is created. In cases of temporary out-of-service state, such as an operating system failure or an upgrade, a new replica is not built immediately to allow the failed node to restart instead. 
 
-For the remote storage configurations, SQL Database uses AlwaysON functionality to failover databases during the upgrades. To do that, a new SQL instance is spun off in advance as part of the planned upgrade event, and it attaches and recovers the database file from remote storage. In case of process crashes or other unplanned events, Windows Fabric manages the instance availability and, as a last step of recovery, attaches the remote database file.
+For the remote storage configurations, SQL Database uses AGs to failover databases during the upgrades. To do that, a new SQL instance is spun off in advance as part of the planned upgrade event, and it attaches and recovers the database file from remote storage. In case of process crashes or other unplanned events, Windows Fabric manages the instance availability and, as a last step of recovery, attaches the remote database file.
 
 ## Conclusion
-Azure SQL DB is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery and on Azure Storage Blobs for data protection. At the same time, Azure SQL database uses the AlwaysOn technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
+Azure SQL DB is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery and on Azure Storage Blobs for data protection. At the same time, Azure SQL database uses the AG feature from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
 
 ## Next steps
 
