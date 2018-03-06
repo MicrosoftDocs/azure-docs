@@ -65,7 +65,7 @@ kubectl create -f azure-premimum.yaml
 
 ## Using the persistent volume
 
-Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/var/www/html` path. 
+Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/mnt/azure` path. 
 
 Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest.
 
