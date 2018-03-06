@@ -43,6 +43,10 @@ Resource-based KCD is configured using PowerShell. You use the `Set-ADComputer` 
 ### Configure resource-based KCD for a computer account on a managed domain
 Assume you have a web app running on the computer 'contoso100-webapp.contoso100.com'. It needs to access the resource (a web API running on 'contoso100-api.contoso100.com') in the context of domain users. Here's how you would set up resource-based KCD for this scenario.
 
+> [!NOTE]
+> The computer account for the web app needs to be in a custom OU where you have permissions to configure resource-based KCD. You cannot configure resource-based KCD for a computer account in the built-in 'AAD DC Computers' container.
+>
+
 ```powershell
 $ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
 Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
