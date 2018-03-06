@@ -122,7 +122,7 @@ This is because conditional access policies take effect immediately. When this h
 A: A user accepting the terms of use is written to the audit log. You can search the Azure AD audit log to see the results.  
 
 **Q: If you change the terms of use terms does it require users to accept again?**</br>
-A: Yes, an admin can change the terms of use terms and it requires reaccepting the new terms.
+A: Yes, an administrator can change the terms of use terms and it requires re-accepting the new terms.
 
 **Q: Can a terms of use support multiple languages?**</br>
 A: Yes.  Currently there are 18 different languages an administrator can configure for a single terms of use. 
