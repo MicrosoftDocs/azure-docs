@@ -21,9 +21,9 @@ ms.author: carlrab
 
 Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
  
-<!---The following diagram outlines key features of the Managed Instance:
+The following diagram outlines key features of the Managed Instance:
 
-[key features](./media/sql-database-managed-instance/key-features.png) --->
+[key features](./media/sql-database-managed-instance/key-features.png)
 
 Managed Instance is envisioned as preferred platform for the following scenarios: 
 
@@ -41,7 +41,7 @@ The following table outlines key differences and envisioned usage scenarios betw
 |SQL IaaS |For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
-<!--![positioning](./media/sql-database-managed-instance/positioning.png)  -->
+![positioning](./media/sql-database-managed-instance/positioning.png)
 
 ## How to programmatically identify a Managed Instance
 
@@ -170,9 +170,9 @@ Managed Instance aims to deliver close to 100% surface area compatibility with o
  
 Managed Instance supports backward compatibility to SQL 2008 databases.  Direct migration from SQL 2005 database servers is supported, compatibility level for migrated SQL 2005 databases are updated to SQL 2008. 
  
-<!--The following diagram outlines surface area compatibility in Managed Instance:  
+The following diagram outlines surface area compatibility in Managed Instance:  
 
-![migration](./media/sql-database-managed-instance/migration.png) -->
+![migration](./media/sql-database-managed-instance/migration.png) 
 
 ### Key differences between SQL Server on-premises and SQL Managed Instance 
 
