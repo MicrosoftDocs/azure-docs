@@ -8684,11 +8684,12 @@
             "redirect_url": "migrate-overview",
             "redirect_document_id": false
         },
+	{	     
             "source_path": "articles/site-recovery/site-recovery-physical-servers-to-azure.md",
             "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
-		{
+	{
             "source_path": "articles/site-recovery/tutorial-physical-to-azure.md",
             "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
@@ -8862,7 +8863,7 @@
             "redirect_url": "vmware-azure-failback",
             "redirect_document_id": false
         },
-		{
+	{
             "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic.md",
             "redirect_url": "vmware-azure-failback",
             "redirect_document_id": false
