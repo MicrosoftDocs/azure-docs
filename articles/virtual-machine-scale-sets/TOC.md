@@ -1,3 +1,5 @@
+# [Virtual Machines Scale Sets Documentation](index.md)
+
 # Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
@@ -12,6 +14,7 @@
 # How To
 ## Plan and design
 ### [Design considerations](virtual-machine-scale-sets-design-overview.md)
+### [Understand instance IDs](virtual-machine-scale-sets-instance-ids.md)
 
 ## Create a template
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
@@ -42,7 +45,7 @@
 #### [Use Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Automatic OS upgrades](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Modify a scale set](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
 ### [Networking for scale sets](virtual-machine-scale-sets-networking.md)
 ### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)

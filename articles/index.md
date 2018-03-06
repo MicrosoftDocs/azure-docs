@@ -5,6 +5,7 @@ experimental: true
 experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
+ms.topic: hub-page
 featureFlags:
 - clicktale
 ---
@@ -605,7 +606,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>AI + Cognitive Services</h3>
+                                    <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
@@ -861,7 +862,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Data + Analytics</h3>
+                                    <h3>Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1172,7 +1173,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Monitoring + Management</h3>
+                                    <h3>Management Tools</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -2320,7 +2321,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Data + Analytics</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2553,8 +2554,8 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">AI + Cognitive Services</a>
-                        <ul id="cognitive" class="cardsA">
+                        <a href="#ai">AI + Machine Learning</a>
+                        <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>Artificial Intelligence</h2>
                             </li>
@@ -3498,7 +3499,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Monitoring + Management</a>
+                        <a href="#mgmt">Management Tools</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/azure-policy/">
@@ -4034,7 +4035,7 @@ featureFlags:
                                                     Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Get Started</a>
+                                                    <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>

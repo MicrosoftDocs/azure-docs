@@ -1,3 +1,5 @@
+# [Virtual Network Documentation](index.md)
+
 # Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [Routing](virtual-networks-udr-overview.md)
@@ -25,7 +27,8 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
-### [Virtual networks](virtual-networks-create-vnet-arm-pportal.md)
+### Virtual networks
+#### [Azure portal](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Template](virtual-networks-create-vnet-arm-template-click.md)
@@ -40,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### User-defined routes
-#### [Azure portal](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+### Route tables
+#### [Azure portal](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [Azure CLI](tutorial-create-route-table-cli.md)
 #### [Template](virtual-network-create-udr-arm-template.md)
 #### Classic
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Virtual network peering
-#### [Same deployment model - same subscription](virtual-network-create-peering.md)
+#### Same deployment model - same subscription
+##### [Azure portal](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)

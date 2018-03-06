@@ -105,28 +105,28 @@ If the sizing criterion is *as on-premises sizing*, Azure Migrate does not consi
  
 ### Confidence rating
 
-Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 stars (1 star being lowest and 5 stars being highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. It helps you estimate the reliability of the size recommendations provided by Azure Migrate. 
+Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 star (1 star being the lowest and 5 star being the highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate. 
 
-Confidence rating is useful when you are doing *performance-based sizing* as not all data points may be available. For *as on-premises sizing*, the confidence rating is always 5-star as Azure Migrate has all the data it needs to size the VM. 
+Confidence rating is useful when you are doing *performance-based sizing* as Azure Migrate may not have sufficient data points to do utilization-based sizing. For *as on-premises sizing*, the confidence rating is always 5-star as Azure Migrate has all the data points it needs to size the VM. 
 
-For performance-based sizing, Azure Migrate needs the utilization data for CPU and memory. For each disk attached to the VM, it needs the read/write IOPS and throughput to do performance-based sizing. Similarly for each network adapter attached to the VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided:
+For performance-based sizing of the VM, Azure Migrate needs the utilization data for CPU and memory. Also, for each disk attached to the VM, it needs the read/write IOPS and throughput. Similarly for each network adapter attached to the VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided:
 
    **Availability of data points** | **Confidence rating**
    --- | ---
    0%-20% | 1 Star
-   21%-40% | 2 Stars
-   41%-60% | 3 Stars
-   61%-80% | 4 Stars
-   81%-100% | 5 Stars
+   21%-40% | 2 Star
+   41%-60% | 3 Star
+   61%-80% | 4 Star
+   81%-100% | 5 Star
 
 An assessment may not have all the data points available due to one of the following reasons:
-- The statistics setting in vCenter Server is not set to level 3 and the assessment has performance-based sizing as the sizing criterion. If the statistics setting in vCenter Server is lower than level 3, performance data for disk and network is not collected from vCenter Server. In this case, the recommendation provided by Azure Migrate for disk and network is only based on what was allocated on-premises. For storage, Azure Migrate recommends standard disks as there is no way to identify if the disk has high IOPS/throughput and needs premium disks.
-- The statistics setting in vCenter Server was set to level 3 for a short duration, before kicking off the discovery. For example, if you change the statistics setting level to 3 today and kick off the discovery using the collector appliance tomorrow (after 24 hours), if you are creating an assessment for one day, you have all the data points. But if you are changing the performance duration in the assessment properties to one month, the confidence rating goes down as the disk and network performance data for the last one month is not available. If you would like to consider the performance data of last one month, it is recommended that you keep the vCenter Server statistics setting to level 3 for one month before you kick off the discovery. 
+- The statistics setting in vCenter Server is not set to level 3 and the assessment has performance-based sizing as the sizing criterion. If the statistics setting in vCenter Server is lower than level 3, performance data for disk and network is not collected from vCenter Server. In this case, the recommendation provided by Azure Migrate for disk and network is not utilization-based. For storage, Azure Migrate recommends standard disks as without considering the IOPS/throughput of the disk, Azure Migrate cannot identify if the disk will need a premium disk in Azure.
+- The statistics setting in vCenter Server was set to level 3 for a shorter duration, before kicking off the discovery. For example, let's consider the scenario where you change the statistics setting level to 3 today and kick off the discovery using the collector appliance tomorrow (after 24 hours). If you are creating an assessment for one day, you have all the data points and the confidence rating of the assessment would be 5 star. But if you are changing the performance duration in the assessment properties to one month, the confidence rating goes down as the disk and network performance data for the last one month would not be available. If you would like to consider the performance data of last one month, it is recommended that you keep the vCenter Server statistics setting to level 3 for one month before you kick off the discovery. 
 - Few VMs were shut down during the period for which the assessment is calculated. If any VMs were powered off for some duration, vCenter Server will not have the performance data for that period. 
 - Few VMs were created in between the period for which the assessment is calculated. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In such cases, the performance history of the new VMs will not be there for the entire duration.
 
 > [!NOTE]
-> If the confidence rating of any assessment is below 3 Stars, we recommend you to change the vCenter Server statistics settings level to 3, wait for the duration that you want to consider for assessment (1 day/1 week/1 month) and then do discovery and assessment. If the preceding cannot be done, performance-based sizing may not be reliable and it is recommended to switch to *as on-premises sizing* by changing the assessment properties.
+> If the confidence rating of any assessment is below 4 Stars, we recommend you to change the vCenter Server statistics settings level to 3, wait for the duration that you want to consider for assessment (1 day/1 week/1 month) and then do discovery and assessment. If the preceding cannot be done, performance-based sizing may not be reliable and it is recommended to switch to *as on-premises sizing* by changing the assessment properties.
 
 ## Monthly cost estimation
 

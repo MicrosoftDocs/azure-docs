@@ -13,7 +13,7 @@ ms.date: 02/08/2018
 ms.author: v-geberr;
 ---
 # LUIS boundaries
-LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS endpoint APIs. 
+LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
 
 
 ## Model boundaries
@@ -39,7 +39,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
-|Authoring/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
+|Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 
