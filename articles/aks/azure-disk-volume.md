@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Volumes with Azure disks
 
-Container-based applications often need to access and persist data in an external data volume. Azure disks can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Container Service.
+Container-based applications often need to access and persist data in an external data volume. Azure disks can be used as this external data store. This article details using Azure disks as a Kubernetes volume in Azure Container Service.
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
@@ -76,16 +76,16 @@ spec:
         azureDisk:
           kind: Managed
           diskName: myAKSDisk
-          diskURI: /subscriptions/3762d87c-ddb8-425f-b2fc-29e5e859edaf/resourceGroups/test007/providers/Microsoft.Compute/disks/myAKSDisk
+          diskURI: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-Use kubectl to create a pod.
+Use kubectl to create the pod.
 
 ```azurecli-interactive
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-You now have a running container with your Azure file share mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
+You now have a running pod with your Azure file share mounted at the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-disk-pod`.
 
 ## Next steps
 
