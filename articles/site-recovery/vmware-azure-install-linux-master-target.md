@@ -63,22 +63,22 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
     
-    ![Select a language](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
+    ![Select a language](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Select **Install Ubuntu Server**, and then select **Enter**.
 
-    ![Select Install Ubuntu Server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
+    ![Select Install Ubuntu Server](./media/vmware-azure-install-linux-master-target/image2.png)
 
 1.  Select **English** as your preferred language, and then select **Enter**.
 
-    ![Select English as your preferred language](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
+    ![Select English as your preferred language](./media/vmware-azure-install-linux-master-target/image3.png)
 
 1. Select the appropriate option from the **Time Zone** options list, and then select **Enter**.
 
-    ![Select the correct time zone](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
+    ![Select the correct time zone](./media/vmware-azure-install-linux-master-target/image4.png)
 
 1. Select **No** (the default option), and then select **Enter**.
 
-     ![Configure the keyboard](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
+     ![Configure the keyboard](./media/vmware-azure-install-linux-master-target/image5.png)
 1. Select **English (US)** as the country of origin for the keyboard, and then select **Enter**.
 
 1. Select **English (US)** as the keyboard layout, and then select **Enter**.
@@ -87,13 +87,13 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1. To create a user account, enter the user name, and then select **Continue**.
 
-      ![Create a user account](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
+      ![Create a user account](./media/vmware-azure-install-linux-master-targett/image9.png)
 
 1. Enter the password for the new user account, and then select **Continue**.
 
 1.  Confirm the password for the new user, and then select **Continue**.
 
-    ![Confirm the passwords](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
+    ![Confirm the passwords](./media/vmware-azure-install-linux-master-target/image11.png)
 
 1.  In the next selection for encrypting your home directory, select **No** (the default option), and then select **Enter**.
 
@@ -101,28 +101,28 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1. From the partitioning method options, select **Guided - use entire disk**, and then select **Enter**.
 
-     ![Select the partitioning method option](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
+     ![Select the partitioning method option](./media/vmware-azure-install-linux-master-target/image14.png)
 
 1.  Select the appropriate disk from the **Select disk to partition** options, and then select **Enter**.
 
-    ![Select the disk](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
+    ![Select the disk](./media/vmware-azure-install-linux-master-target/image15.png)
 
 1.  Select **Yes** to write the changes to disk, and then select **Enter**.
 
 1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
 
-     ![Select the default option](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
+     ![Select the default option](./media/vmware-azure-install-linux-master-target/image17.png)
 
 1.  Select **No automatic updates** option in the selection for managing upgrades on your system, and then select **Enter**.
 
-     ![Select how to manage upgrades](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
+     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image18.png)
 
     > [!WARNING]
     > Because the Azure Site Recovery master target server requires a very specific version of the Ubuntu, you need to ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades cause the master target server to malfunction. Make sure you select the **No automatic updates** option.
 
 1.  Select default options. If you want openSSH for SSH connect, select the **OpenSSH server** option, and then select **Continue**.
 
-    ![Select software](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
+    ![Select software](./media/vmware-azure-install-linux-master-target/image19.png)
 
 1. In the selction for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
 
@@ -130,13 +130,13 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1. Select **Continue**, and then select **Enter** to finish the installation.
 
-    ![Finish the installation](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
+    ![Finish the installation](./media/vmware-azure-install-linux-master-targett/image22.png)
 
 1. After the installation has finished, sign in to the VM with the new user credentials. (Refer to **Step 10** for more information.)
 
 1. Use the steps that are described in the following screenshot to set the ROOT user password. Then sign in as ROOT user.
 
-    ![Set the ROOT user password](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
+    ![Set the ROOT user password](./media/vmware-azure-install-linux-master-target/image23.png)
 
 
 ### Configure the machine as a master target server
@@ -151,7 +151,7 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 4. In the left pane, select **Advanced** > **General**, and then select the **Configuration Parameters** button on the lower-right part of the screen.
 
-	![Options tab](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
+	![Options tab](./media/vmware-azure-install-linux-master-target/image20.png)
 
 	The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
 
@@ -165,7 +165,7 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 	- In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
 
-	![Checking whether disk.EnableUUID already exists](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+	![Checking whether disk.EnableUUID already exists](./media/vmware-azure-install-linux-master-target/image21.png)
 
 #### Disable kernel upgrades
 
@@ -210,7 +210,7 @@ To apply custom configuration changes, use the following steps:
 
 	`tar -zxvf latestlinuxmobsvc.tar.gz`
 
-    ![Screenshot of the command to run](./media/site-recovery-how-to-install-linux-master-target/image16.png)
+    ![Screenshot of the command to run](./media/vmware-azure-install-linux-master-target/image16.png)
 
 2. Run the following command to give permission.
 
@@ -234,14 +234,14 @@ Use the following steps to create a retention disk:
 	
   	 `multipath -ll`
 
-		![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+		![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
 
 3. Format the drive, and then create a file system on the new drive.
 
 	
 	`mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
 	
-	![Creating a file system on the drive](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
+	![Creating a file system on the drive](./media/vmware-azure-install-linux-master-target/media/image23.png)
 
 4. After you create the file system, mount the retention disk.
 
@@ -249,7 +249,7 @@ Use the following steps to create a retention disk:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-	![Mounting the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
+	![Mounting the retention disk](./media/vmware-azure-install-linux-master-target/media/image24.png)
 
 5. Create the **fstab** entry to mount the retention drive every time the system starts.
 	
@@ -305,7 +305,7 @@ Wait until the script finishes. If the master target registers successfully, the
 
 2. Choose the default location for installation, and then select **Enter** to continue.
 
-	![Choosing a default location for installation of master target](./media/site-recovery-how-to-install-linux-master-target/image17.png)
+	![Choosing a default location for installation of master target](./media/vmware-azure-install-linux-master-target/image17.png)
 
 After the installation has finished, register the configuration server by using the command line.
 
