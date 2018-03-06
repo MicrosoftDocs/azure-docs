@@ -89,7 +89,7 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 | Reparse points | Skipped | |
 | NTFS compression | Fully supported | |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
-| Alternate Data Streams (ADS) | Preserved, but not synced | |
+| Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tagged by the File Classification Infrastructure are not synced, but existing tags on the server endpoints are not overwritten. |
 
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
@@ -139,7 +139,7 @@ Like antivirus solutions, backup solutions might cause the recall of tiered file
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
 
 - BitLocker encryption
-- Azure Rights Management Services (Azure RMS) (and legacy Active Directory RMS)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS), and Active Directory RMS
 
 Azure File Sync is known not to work with:
 
