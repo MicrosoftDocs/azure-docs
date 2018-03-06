@@ -1,2 +1,0 @@
->[!NOTE]
->Some of the features mentioned in this article require a Standard IoT hub. For more information about the difference between Basic and Standard IoT hubs, see [Scale your IoT Hub solution](../articles/iot-hub/iot-hub-scaling.md).
