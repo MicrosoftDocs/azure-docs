@@ -12,6 +12,8 @@ Check out coverage for [**Routing**](routing-coverage.md).
 | Ø                  | Country provided with simplified data. |
 | Country is missing | Country data is not provided.          |
 
+<br>  
+
 ## Render Coverage of Raster Tiles
 
 The following table provides coverage information for Azure LBS Render of Raster Tiles.
@@ -146,8 +148,7 @@ The following table provides coverage information for Azure LBS Render of Raster
 |Yemen|✓ |
 
   
-<br>
-<br>
+<br>  
 
 
 ## Render Coverage of Vector Tiles 
