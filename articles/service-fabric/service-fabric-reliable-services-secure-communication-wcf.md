@@ -17,7 +17,9 @@ ms.date: 04/20/2017
 ms.author: suchiagicha
 
 ---
-# Secure a service using a WCF-based communications
+# Secure WCF-based communications for a service
+Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article talks about how to improve security when you're using service remoting.
+
 We are using an existing [example](service-fabric-reliable-services-communication-wcf.md) that explains how to set up a WCF-based communication stack for reliable services. To help secure a service when you're using a WCF-based communication stack, follow these steps:
 
 1. For the service, you need to help secure the WCF communication listener (`WcfCommunicationListener`) that you create. To do this, modify the `CreateServiceReplicaListeners` method.
