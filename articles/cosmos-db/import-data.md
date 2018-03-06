@@ -505,7 +505,7 @@ Using the Indexing Policy advanced option, you can select an indexing policy fil
 The policy templates the tool provides are:
 
 * Default. This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers. This policy has a lower index storage overhead than Range.
-* Range. This policy is best you’re using ORDER BY, range, and equality queries on both numbers and strings. This policy has a higher index storage overhead than Default or Hash.
+* Range. This policy is best when you’re using ORDER BY, range, and equality queries on both numbers and strings. This policy has a higher index storage overhead than Default or Hash.
 
 ![Screenshot of Azure Cosmos DB Indexing Policy advanced options](./media/import-data/indexingpolicy2.png)
 
