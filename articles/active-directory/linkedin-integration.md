@@ -17,7 +17,7 @@ ms.custom: it-pro
 ---
 
 # LinkedIn integration for Microsoft apps and services
-In this article, you can learn how to enable LinkedIn integration with other Microsodt apps and services in Azure Active Directory (Azure AD). LinkedIn integration allows users to access public LinkedIn data within some of their Microsoft apps. LinkedIn integration is enabled by default when it is added to your tenant. Each user can independently choose to connect their work or school account to their LinkedIn account.
+In this article, you can learn how to manage LinkedIn integration for your tenant in the Azure Active Directory (Azure AD) admin center. 
 
 > [!IMPORTANT]
 > LinkedIn integration is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, the LinkedIn integration is enabled by default. The LinkedIn integration is not available for go-local, sovereign, and government tenants. For an up-to-date view of rollout information, see the [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) page.
