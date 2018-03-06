@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2018
+ms.date: 03/5/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP HANA Availability within one Azure Region
+# SAP HANA Availability within one Azure region
 In this section several scenarios, which describe availability scenarios within one Azure Region are presented. Azure has many regions, which are spread all over the world. For the list of Azure regions, consult the [Azure Regions](https://azure.microsoft.com/regions/) article. Deploying SAP HANA on VMs within one Azure Region, Microsoft offers the deployment of a single VM with a HANA instance. Or for increased availability you can deploy two VMs with two HANA instances within an [Azure Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) that are using HANA System Replication for availability purposes. Azure has a public preview of [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). These Availability Zones are not going to be discussed in detail yet. Except some general thoughts around the usage of Availability Sets versus Availability Zones.
 
 What is the difference between Azure Availability Sets and Availability Zones? For Azure Regions where Availability Zones are going to be offered, the regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across tow or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. 
@@ -105,4 +105,8 @@ If you need step by step guidance on how to set up such a configuration in Azure
 
 - [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
 - [Your SAP on Azure – Part 4 – High Availability for SAP HANA using System Replication](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
+
+If you need more information on SAP HANA availability across Azure regions, read:
+
+- [SAP HANA Availability across Azure regions](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
 
