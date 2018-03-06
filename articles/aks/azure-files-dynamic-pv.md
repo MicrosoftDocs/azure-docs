@@ -41,17 +41,21 @@ Use the [az storage account create][az-storage-account-create] command to create
 
 Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
 
-
 ```azurecli-interactive
 az storage account create \
   --resource-group  MC_myAKSCluster_myAKSCluster_eastus \
-  --name mystorageaccount --location eastus \
+  --name mystorageaccount \
+  --location eastus \
   --sku Standard_LRS
 ```
 
 ## Create storage class
 
-A storage class is used to define how a dynamically created persistent volume is configured. Items such as the Azure storage account name, SKU, and region are defined in the storage class object. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+A storage class is used to define how an Azure file share is created. A specific storage account can be specified in the class. When doing so, the file share is created in the specified storage account. If a storage account is not specified, a `skuName` and `location` must be specified, and all storage accounts in the associated resource group are evaluated for a match.
+
+For more information on Kubernetes storage classes for Azure files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+
+Create a file named `azure-file-sc.yaml` and copy in the following manifest. Update the `storageAccount` with the name of your target storage account.
 
 ```yaml
 kind: StorageClass
@@ -63,11 +67,19 @@ parameters:
   storageAccount: azure_storage_account_name
 ```
 
+Create the storage class with the [kubectl create][kubectl-create] command.
+
+```azurecli-interactive
+kubectl create -f azure-file-sc.yaml
+```
+
 ## Create persistent volume claim
 
-A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure Files, an Azure file share is created in the storage account selected or specified in the storage class object.
+A persistent volume claim uses the storage class object to dynamically provision an Azure file share. 
 
-The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
+The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access.
+
+Create a file named `azure-file-pvc.yaml` and copy in the following manifest. Make sure that the `storageClassName` matches the storage class created in the last step.
 
 ```yaml
 apiVersion: v1
@@ -83,9 +95,19 @@ spec:
       storage: 5Gi
 ```
 
+Create the persistent volume claim with the [kubectl create][kubectl-create] command.
+
+Once completed, the file share will be created. A Kubernetes secret is also created that contains connection information and credentials.
+
+```azurecli-interactive
+kubectl create -f azure-file-sc.yaml
+```
+
 ## Using the persistent volume
 
-Once the persistent volume claim has been created, and the storage successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azurefile` to mount the Azure file share at the `/var/www/html` path. 
+Once the persistent volume claim has been created, and the storage successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azurefile` to mount the Azure file share at the `/mnt/azure` path.
+
+Create a file named `azure-pvc-files.yaml`, and copy in the following manifest.
 
 ```yaml
 kind: Pod
@@ -97,13 +119,21 @@ spec:
     - name: myfrontend
       image: nginx
       volumeMounts:
-      - mountPath: "/var/www/html"
+      - mountPath: "/mnt/azure"
         name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azurefile
 ```
+
+Create the pod with the [kubectl create][kubectl-create] command.
+
+```azurecli-interactive
+kubectl create -f azure-pvc-files.yaml
+```
+
+You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod mypod`.
 
 ## Next steps
 
@@ -119,7 +149,7 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
+[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
