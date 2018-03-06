@@ -1,3 +1,5 @@
+# [Azure Active Directory Documentation](index.md)
+
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [About Azure identity management](identity-fundamentals.md)
@@ -111,6 +113,7 @@
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
 #### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)

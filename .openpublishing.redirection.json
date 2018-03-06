@@ -153,6 +153,16 @@
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/mitigate-se",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/mitigate-se",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc",
@@ -1574,6 +1584,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-use-logic-app-features.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-switch-case.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-switch-statement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-loops-and-scopes.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-loops",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates",
             "redirect_document_id": false
@@ -1716,6 +1741,11 @@
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-vm-change-tracking.md",
+            "redirect_url": "/azure/automation/automation-change-tracking",
             "redirect_document_id": false
         },
         {
@@ -4819,6 +4849,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-change-tracking.md",
+            "redirect_url": "/azure/automation/automation-change-tracking",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
             "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
             "redirect_document_id": false
@@ -4850,7 +4885,12 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
-            "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
+            "redirect_url": "/azure/automation/automation-update-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-solution-update-management.md",
+            "redirect_url": "/azure/automation/automation-update-management",
             "redirect_document_id": false
         },
         {
@@ -5831,6 +5871,11 @@
         {
             "source_path": "articles/mysql/reference-azure-cli.md",
             "redirect_url": "/cli/azure/mysql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
+            "redirect_url": "/azure/mysql/reference-data-in-store-procedures",
             "redirect_document_id": false
         },
         {
@@ -12550,6 +12595,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-government/documentation-government-services-intelligenceandanalytics.md",
             "redirect_url": "/azure/azure-government/documentation-government-services-dataandanalytics",
             "redirect_document_id": false
@@ -13952,11 +14007,6 @@
         {
             "source_path": "articles/storage/storage-require-secure-transfer.md",
             "redirect_url": "/azure/storage/common/storage-require-secure-transfer",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
-            "redirect_url": "/azure/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": true
         },
         {
@@ -16949,6 +16999,26 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/mysql/concepts-service-tiers.md",
+        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/mysql/concepts-compute-unit-and-storage.md",
+        "redirect_url": "/azure/mysql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/postgresql/concepts-service-tiers.md",
+        "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/postgresql/concepts-compute-unit-and-storage.md",
+        "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
             "source_path": "articles/active-directory/active-directory-saas-adpetime-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
@@ -17007,6 +17077,31 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
-    }
+    },
+    {
+        "source_path": "articles/virtual-network/create-user-defined-route-portal.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-ps.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-cli.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-cli",
+        "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/python-how-to-install.md",
+            "redirect_url": "/python/azure/python-sdk-azure-install",
+            "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
+        "redirect_document_id": false
+   }
    ]
 }

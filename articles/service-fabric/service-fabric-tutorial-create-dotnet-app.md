@@ -1,4 +1,4 @@
---
+---
 title: Create a .NET application for Service Fabric | Microsoft Docs
 description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
 services: service-fabric

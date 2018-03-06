@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/4/2018
+ms.date: 2/27/2018
 ms.author: raiye
 
 ---
@@ -140,7 +140,7 @@ June Guest OS rollout is starting June 16 and has a projected release of July 11
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.57_2017801-01 |January 29, 2018 |Post 3.59 |TBD |
+| WA-GUEST-OS-3.57_201801-01 |January 29, 2018 |Post 3.59 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |January 4, 2018 |Post 3.58 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
