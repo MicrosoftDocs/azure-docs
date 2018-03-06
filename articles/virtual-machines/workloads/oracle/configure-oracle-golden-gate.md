@@ -240,7 +240,7 @@ Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=gg1; export ORACLE_SID
+$ ORACLE_SID=cdb1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
@@ -250,7 +250,7 @@ Optionally, you can add ORACLE_HOME and ORACLE_SID to the .bashrc file, so that 
 # add oracle home
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 # add oracle sid
-export ORACLE_SID=gg1
+export ORACLE_SID=cdb1
 # add Oracle library path
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
