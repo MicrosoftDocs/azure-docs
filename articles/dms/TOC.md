@@ -20,4 +20,4 @@
 ## [Overview of prerequisites](pre-reqs.md)
 ## [FAQ](faq.md)
 ## [Service updates](https://azure.microsoft.com/en-us/updates/?product=database-migration)
-
+## [Network topologies for Azure SQL DB Managed Instance migrations](resource-network-topologies.md)
