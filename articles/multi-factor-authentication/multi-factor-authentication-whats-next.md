@@ -111,6 +111,19 @@ Before you begin, be aware of the following restrictions:
 * The file size limit is 5 MB.
 * Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. The user might not respond before the message finishes and the verification times out.
 
+## Custom message language behavior
+
+When a custom voice message is played to the user, the language of the message depends on these factors:
+* The language of the current user 
+  * Usually, this is the language detected by the user's browser
+  * Other authentication scenarios may behave differently
+* The language of any available custom messages
+  * This is chosen by the administrator when a custom message is added
+
+For example, if there is only one custom message, with a language of German:
+* A user who authenticates in the German language will hear the custom German message.
+* A user who authenticates in English will hear the standard English message.
+
 ### Set up a custom message
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
@@ -119,9 +132,10 @@ Before you begin, be aware of the following restrictions:
    ![Record custom phone messages](./media/multi-factor-authentication-whats-next/phonecallsettings.png)
 
 3. Select **Add greeting**.
-4. Choose the type of greeting. Choose the language.
-5. Select an .mp3 or .wav sound file to upload.
-6. Select **Add**.
+4. Choose the type of greeting. 
+5. Choose the language.
+6. Select an .mp3 or .wav sound file to upload.
+7. Select **Add**.
 
 ## Caching in Azure Multi-Factor Authentication
 
