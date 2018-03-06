@@ -22,16 +22,16 @@ ms.author: nitinme
 
 # Stream events into Azure Databricks using Event Hubs
 
-Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. In this tutorial, you learn how to stream tweets from your Twitter account into Azure Databricks using Azure Event Hubs.
+Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. In this tutorial, you learn how to stream real-time data into Azure Databricks using Azure Event Hubs and data from public Twitter API.
 
 This tutorial covers the following tasks: 
 
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create a Twitter app to generate streaming data
-> * Create a notebook in Azure Databricks
-> * Add libraries for Event Hubs and Twitter
+> * Create a Twitter app to access real-time data
+> * Create notebooks in Azure Databricks
+> * Add and attach libraries for Event Hubs and Twitter
 > * Send tweets to Event Hubs
 > * Receive messages from Event Hubs
 
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 Before you start with this tutorial, make sure you have the following:
 - An Azure Event Hubs namespace.
 - Policy name and policy key to access the Event Hubs namespace.
-- Connection string to access the Event Hubs namespace.
+- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
 - An Event Hub within the namespace.
 - Consumer group. For this tutorial, you can use the **$Default** consumer group, which is available by default.
 - Partition count. You can use the default partition count, which is **2**. 
