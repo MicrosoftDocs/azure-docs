@@ -42,7 +42,7 @@ Use the [az disk create][az-disk-create] command to create the Azure managed dis
 ```azurecli-interactive
 az disk create \
   --resource-group MC_myAKSCluster_myAKSCluster_eastus \
-  --name myAKSDisk3  \
+  --name myAKSDisk  \
   --size-gb 20 \
   --query id --output tsv
 ```
@@ -50,16 +50,14 @@ az disk create \
 Once the disk has been created, you should see output similar to the following. This value is needed when referencing the disk.
 
 ```console
-/subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk3
+/subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
 ## Mount file share as volume
 
 Mount the Azure disk into your pod by configuring the volume in the container spec. 
 
-Create a new file named `azure-disk-pod.yaml` with the following contents. 
-
-Update `diskName` with the name of the newly created disk and `diskURI` with the disk ID. Also, take note of the `mountPath`, this is the path at which the Azure disk is mounted in the pod.
+Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the newly created disk and `diskURI` with the disk ID. Also, take note of the `mountPath`, this is the path at which the Azure disk is mounted in the pod.
 
 ```yaml
 apiVersion: v1
