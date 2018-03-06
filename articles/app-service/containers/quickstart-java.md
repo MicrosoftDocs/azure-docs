@@ -4,7 +4,7 @@ description: Deploy your first Java Hello World in Azure App Service on Linux in
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: syntaxc4
+manager: cfowler
 editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -45,10 +45,7 @@ git clone https://github.com/Azure-Samples/java-docs-hello-world
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a web app
-
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app.md)]
-
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
