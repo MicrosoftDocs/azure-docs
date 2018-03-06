@@ -25,6 +25,8 @@
     href: geocoding-coverage.md
   - name: Traffic Coverage
     href: traffic-coverage.md
+  - name: Render Coverage
+    href: render-coverage.md
 - name: How-to guides
   items:
   - name: Manage account and keys
