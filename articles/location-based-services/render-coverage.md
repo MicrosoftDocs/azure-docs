@@ -1,11 +1,20 @@
 # Azure Location Based Services - Render Coverage
 
-Check out coverage for **Geocoding** [here](geocoding-coverage.md).  
-Check out coverage for **Traffic** [here](traffic-coverage.md).  
-Check out coverage for **Routing** [here](routing-coverage.md).
+Check out coverage for [**Geocoding**](geocoding-coverage.md).  
+Check out coverage for [**Traffic**](traffic-coverage.md).  
+Check out coverage for [**Routing**](routing-coverage.md).
 
+**Legend**
 
-The following table provides coverage information for Azure LBS Render of Rester Tiles.
+| Symbol             | Meaning                                |
+|--------------------|----------------------------------------|
+| ✓                  | Country provided with detailed data.   |
+| Ø                  | Country provided with simplified data. |
+| Country is missing | Country data is not provided.          |
+
+## Render Coverage of Raster Tiles
+
+The following table provides coverage information for Azure LBS Render of Raster Tiles.
 
 |Region|Render - Raster Tiles Unified|
 |--- |:---: |
@@ -141,6 +150,7 @@ The following table provides coverage information for Azure LBS Render of Rester
 <br>
 
 
+## Render Coverage of Vector Tiles 
 
 The following table provides coverage information for Azure LBS Render of Vector Tiles .
 
@@ -404,10 +414,4 @@ The following table provides coverage information for Azure LBS Render of Vector
 
 
 
-##### Legend
 
-| Symbol             | Meaning                                |
-|--------------------|----------------------------------------|
-| ✓                  | Country provided with detailed data.   |
-| Ø                  | Country provided with simplified data. |
-| Country is missing | Country data is not provided.          |
