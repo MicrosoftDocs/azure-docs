@@ -26,7 +26,7 @@ Before mounting an Azure managed disk as a Kubernetes volume, the disk must exis
 az group list --output table
 ```
 
-You are looking for a resource group with a name similar to `MC_clustername_clustername_locaton`, where clustername is the name of your AKS cluster, and location is the Azure region wehre the cluster has been deployed.
+You are looking for a resource group with a name similar to `MC_clustername_clustername_locaton`, where clustername is the name of your AKS cluster, and location is the Azure region where the cluster has been deployed.
 
 ```console
 Name                                 Location    Status
@@ -35,7 +35,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Use the [az disk create][az-disk-create] command to create the Azure managed disk. 
+Use the [az disk create][az-disk-create] command to create the Azure disk. 
 
 Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
 
