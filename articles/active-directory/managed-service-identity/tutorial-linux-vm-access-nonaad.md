@@ -138,7 +138,7 @@ Once you’ve retrieved the secret from the Key Vault, you can use it to authent
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](overview.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
