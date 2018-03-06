@@ -220,6 +220,11 @@ CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 )
 AS
 
+IF @create_type IS NULL
+BEGIN
+    SET @create_type = 1;
+END;
+
 IF @create_type NOT IN (1,2,3)
 BEGIN
     THROW 151000,'Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).',1;
@@ -294,11 +299,24 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-To create statistics on all columns in the table with this procedure, simply call the procedure.
+To create statistics on all columns in the table using the defaults, simply call the procedure.
 
 ```sql
-prc_sqldw_create_stats;
+EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
+To create statistics on all columns in the table using a fullscan, call this procedure:
+
+```sql
+EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
+```
+To create sampled statistics on all columns in the table, enter 3, and the sample percent.  This procedures uses a 20 percent sample rate.
+
+```sql
+EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
+```
+
+
+To create sampled statistics on all columns 
 
 ## Examples: Update statistics
 To update statistics, you can:
