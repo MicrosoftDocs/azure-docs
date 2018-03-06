@@ -95,25 +95,27 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
    [!code-csharp[Default BasicLuisDialog.cs](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/Default_BasicLuisDialog.cs "Default BasicLuisDialog.cs")]
 
 ## Change code to HomeAutomation intents
-Remove the three intent attributes and methods for **Greeting**, **Cancel**, and **Help**. These intents are not used in the HomeAutomation prebuilt domain. Make sure to keep the **None** intent attribute and method. 
 
-1. Add dependencies:
+
+1. Remove the three intent attributes and methods for **Greeting**, **Cancel**, and **Help**. These intents are not used in the HomeAutomation prebuilt domain. Make sure to keep the **None** intent attribute and method. 
+
+2. Add dependencies to the top of the file, with the other dependencies:
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-2. Add constants to manage strings:
+3. Add constants to manage strings at the top of the `BasicLuisDialog ` class:
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-3. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff`:
+4. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` inside the `BasicLuisDialog ` class:
 
    [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
-4. Add the code to get any entities found by LUIS:
+5. Add the code to get any entities found by LUIS inside the `BasicLuisDialog ` class:
 
    [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
-5. Change **ShowLuisResult** method to round the score, collect the entities, and display the response message in the chat bot:
+6. Change **ShowLuisResult** method in the `BasicLuisDialog ` class to round the score, collect the entities, and display the response message in the chat bot:
 
    [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chat bot")]
 
