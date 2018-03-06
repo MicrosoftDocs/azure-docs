@@ -32,7 +32,7 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 After you've created a CDN profile, you can use it to create an endpoint.
 
-1. In the [Azure portal](https://portal.azure.com), select in your dashboard the CDN profile that you just created. If you can't find it, select **All services**, then select **CDN profiles**. In the **CDN profiles** page, select the profile that you want to use. 
+1. In the Azure portal, select in your dashboard the CDN profile that you just created. If you can't find it, select **All services**, then select **CDN profiles**. In the **CDN profiles** page, select the profile that you want to use. 
    
     The CDN profile page appears.
 
@@ -47,10 +47,10 @@ After you've created a CDN profile, you can use it to create an endpoint.
     ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
     | Setting | Value |
-    | ------- | --------------- |
-    | **Name** | Enter *my-endpoint-123* for your endpoint name. This name must be globally unique; if it is already in use, you may use a different one. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.|
+    | ------- | ----- |
+    | **Name** | Enter *my-endpoint-123* for your endpoint name. This name must be globally unique; if it is already in use, you may enter a different one. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.|
     | **Origin type** | Select **Custom origin**. | 
-    | **Origin hostname** | Enter *my-hostname-123.net* for your hostname. This name must be globally unique; if it is already in use, you may use a different one |
+    | **Origin hostname** | Enter *my-hostname-123.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different one |
     | **Origin path** | Leave blank. |
     | **Origin host header** | Leave the default generated value. |  
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
@@ -67,10 +67,15 @@ After you've created a CDN profile, you can use it to create an endpoint.
 
 
 ## Clean up resources
-To delete a profile or endpoint when it is no longer needed, select it and then select **Delete**. 
+In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:
+
+1) From the left-hand menu in the Azure portal, select **Resource groups** and then select **my-resource-group-123**.
+2) On the **Resource group** page, select **Delete resource group**, enter *my-resource-group-123* in the text box, then select **Delete**.
+
+    This action will delete the resource group, profile, and endpoint that you created in this quickstart.
 
 ## Next steps
-In this quickstart, you’ve created a CDN profile and an endpoint. To learn about custom domains, continue to the tutorial for adding a custom domain to your CDN endpoint.
+To learn about adding a custom domain to your CDN endpoint, see the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Add a custom domain](cdn-map-content-to-custom-domain.md)
