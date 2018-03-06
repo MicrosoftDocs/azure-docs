@@ -32,7 +32,7 @@ You can enable a Remote Desktop connection in your role during development by in
 
 The Azure portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Remote Desktop** blade for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date.
 
-1. Click **Cloud Services**, click the name of the cloud service, and then click **Remote Desktop**.
+1. Click **Cloud Services**, select the name of the cloud service, and then select **Remote Desktop**.
 
     ![Cloud services remote desktop](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
@@ -43,11 +43,11 @@ The Azure portal uses the Remote Desktop Extension approach so you can enable Re
     ![Cloud services remote desktop](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) and then return to this dialog.
+   > All role instances will be restarted when you first enable Remote Desktop and select **OK** (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) and then return to this dialog.
 
 4. In **Roles**, select the role you want to update or select **All** for all roles.
 
-5. When you finish your configuration updates, click **Save**. It will take a few moments before your role instances are ready to receive connections.
+5. When you finish your configuration updates, select **Save**. It will take a few moments before your role instances are ready to receive connections.
 
 ## Remote into role instances
 
