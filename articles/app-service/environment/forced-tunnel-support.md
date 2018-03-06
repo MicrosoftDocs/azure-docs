@@ -19,9 +19,9 @@ ms.custom: mvc
 
 # Configure your App Service Environment with forced tunneling
 
-The App Service Environment is a deployment of Azure App Service in a customer's instance of Azure Virtual Network. Many customers configure their virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on-premises before it can go out to the internet. Changing the routing of the virtual network so that the outbound traffic from the virtual network flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling. 
+The App Service Environment (ASE) is a deployment of Azure App Service in a customer's instance of Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all virtual network outbound traffic to go on-premises before it can go out to the internet. Changing the routing of the virtual network so that the outbound traffic from the virtual network flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling. 
 
-Forced tunneling can cause problems for an App Service Environment. The App Service Environment has a number of external dependencies, which are enumerated in the [App Service Environment network architecture][network] document. The App Service Environment, by default, requires that all outbound communication goes through the VIP that is provisioned with the App Service Environment.
+Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies, which are enumerated in the [App Service Environment network architecture][network] document. The ASE, by default, requires that all outbound communication goes through the VIP that is provisioned with the ASE.
 
 Routes are a critical aspect of what forced tunneling is and how to deal with it. In an Azure virtual network, routing is done based on the longest prefix match (LPM). If there is more than one route with the same LPM match, a route is selected based on its origin in the following order:
 
@@ -31,10 +31,11 @@ Routes are a critical aspect of what forced tunneling is and how to deal with it
 
 To learn more about routing in a virtual network, read [User-defined routes and IP forwarding][routes]. 
 
-If you want your App Service Environment to operate in a forced tunnel virtual network, you have two choices:
+If you want your ASE to operate in a forced tunnel virtual network, you have the following choices:
 
-* Enable your App Service Environment to have direct internet access.
-* Change the egress endpoint for your App Service Environment.
+* Enable your ASE to have direct internet access
+* Configure your ASE subnet to use Service Endpoints to Azure SQL and Azure Storage
+* Add your own IPs to the ASE Azure SQL firewall
 
 ## Enable your App Service Environment to have direct internet access
 
@@ -50,7 +51,23 @@ If you make these two changes, internet-destined traffic that originates from th
 >
 > App Service Environments aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the App Service Environment's subnet are force tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported by default with App Service Environments. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path. Another solution is to enable your App Service Environment to work in a forced tunnel configuration.
 
-## Change the egress endpoint for your App Service Environment ##
+## Configure your ASE with Service Endpoints
+
+Service Endpoints enable you to restrict access to some multi-tenant services such that the requests are only allowed from a customer selection of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. Two services that have Service Endpoint support are Azure SQL and Azure Storage. Both of these services are ASE dependencies.
+
+When you enable Service Endpoints on a resource, there are routes created with higher priority than BGP routes but less than UDRs. If you then used Service Endpoints with a force tunneled ASE, the Azure SQL and Azure Storage management traffic would not be force tunneled. The other ASE dependency traffic that would be force tunneled and, that traffic could not be lost or the ASE would not function properly.
+
+An App Service Environment not only has external dependencies, but also must listen for inbound traffic and respond to such traffic. The replies can't be sent back from another address because that breaks TCP. There are three steps required to change the egress endpoint for the App Service Environment:
+
+1. Set a route table to ensure that inbound management traffic can go back out from the same IP address.
+
+2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet
+
+The implementation for Azure SQL is that when Service Endpoints is enabled on a subnet, then all of the traffic that comes from that subnet to Azure SQL must have Service Endpoints enabled. You cannot enable it on one Azure SQL server and not on another if you want to access both from the same subnet. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  This is not true with Azure Storage.  When you enable Service Endpoints with Azure Storage you lock access to that resource from your subnet but can still access other Azure Storage accounts.  
+
+## Add your own IPs to the ASE Azure SQL firewall ##
+
+In the event that you want to send as much ASE traffic as you can through a filtering device or if you simply don't want to use Service Endpoints with Azure SQL, you can add your own IP addresses to the Azure SQL firewall. You still need to set Service Endpoints 
 
 This section describes how to enable an App Service Environment to operate in a forced tunnel configuration by changing the egress endpoint used by the App Service Environment. If the outbound traffic from the App Service Environment is force tunneled to an on-premises network, you need to allow that traffic to source from IP addresses other than the App Service Environment VIP address.
 
@@ -108,3 +125,4 @@ If this section is configured properly, the App Service Environment should start
 [network]: ./network-info.md
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
