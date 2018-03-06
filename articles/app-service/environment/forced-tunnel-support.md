@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/10/2017
+ms.date: 3/6/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
@@ -53,68 +53,62 @@ If you make these two changes, internet-destined traffic that originates from th
 
 ## Configure your ASE with Service Endpoints
 
-Service Endpoints enable you to restrict access to some multi-tenant services such that the requests are only allowed from a customer selection of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. Two services that have Service Endpoint support are Azure SQL and Azure Storage. Both of these services are ASE dependencies.
+To force tunnel all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, do the following:
 
-When you enable Service Endpoints on a resource, there are routes created with higher priority than BGP routes but less than UDRs. If you then used Service Endpoints with a force tunneled ASE, the Azure SQL and Azure Storage management traffic would not be force tunneled. The other ASE dependency traffic that would be force tunneled and, that traffic could not be lost or the ASE would not function properly.
-
-An App Service Environment not only has external dependencies, but also must listen for inbound traffic and respond to such traffic. The replies can't be sent back from another address because that breaks TCP. There are three steps required to change the egress endpoint for the App Service Environment:
-
-1. Set a route table to ensure that inbound management traffic can go back out from the same IP address.
+1. Create or edit a route table. Populate the rules to send the management addresses that map to your App Service Environment location with a next hop of Internet. To find the management addresses, see [App Service Environment management addresses][management]. An App Service Environment inbound management traffic can't be force tunneled and sent back from another address because that breaks TCP. 
 
 2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet
 
-The implementation for Azure SQL is that when Service Endpoints is enabled on a subnet, then all of the traffic that comes from that subnet to Azure SQL must have Service Endpoints enabled. You cannot enable it on one Azure SQL server and not on another if you want to access both from the same subnet. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  This is not true with Azure Storage.  When you enable Service Endpoints with Azure Storage you lock access to that resource from your subnet but can still access other Azure Storage accounts.  
+Service Endpoints enable you to restrict access to some multi-tenant services such that the requests are only allowed from a customer selection of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
+
+When you enable Service Endpoints on a resource, there are routes created with higher priority than BGP routes but less than UDRs. If you use Service Endpoints with a force tunneled ASE, the Azure SQL and Azure Storage management traffic is not force tunneled. The other ASE dependency traffic is force tunneled and can't be lost or the ASE would not function properly.
+
+The implementation for Azure SQL is that when Service Endpoints is enabled on a subnet, all of the traffic that comes from that subnet to Azure SQL must have Service Endpoints enabled. You cannot enable it on one Azure SQL server and not on another if you want to access both from the same subnet. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  This is not true with Azure Storage.  When you enable Service Endpoints with Azure Storage you lock access to that resource from your subnet but can still access other Azure Storage accounts.  
 
 ## Add your own IPs to the ASE Azure SQL firewall ##
 
-In the event that you want to send as much ASE traffic as you can through a filtering device or if you simply don't want to use Service Endpoints with Azure SQL, you can add your own IP addresses to the Azure SQL firewall. You still need to set Service Endpoints 
+To force tunnel all outbound traffic from your ASE, except that which goes to Azure Storage, do the following:
 
-This section describes how to enable an App Service Environment to operate in a forced tunnel configuration by changing the egress endpoint used by the App Service Environment. If the outbound traffic from the App Service Environment is force tunneled to an on-premises network, you need to allow that traffic to source from IP addresses other than the App Service Environment VIP address.
+1. Create or edit a route table. Populate the rules to send the management addresses that map to your App Service Environment location with a next hop of Internet. To find the management addresses, see [App Service Environment management addresses][management]. An App Service Environment inbound management traffic can't be force tunneled and sent back from another address because that breaks TCP. 
 
-An App Service Environment not only has external dependencies, but also must listen for inbound traffic and respond to such traffic. The replies can't be sent back from another address because that breaks TCP. There are three steps required to change the egress endpoint for the App Service Environment:
+2. Enable Service Endpoints with Azure Storage with your ASE subnet
 
-1. Set a route table to ensure that inbound management traffic can go back out from the same IP address.
+3. Get the IP addresses that will be used for all outbound traffic from your App Service Environment to the internet. If you're doing forced tunneling, these addresses come from your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA.
 
-2. Add your IP addresses that are to be used for egress to the App Service Environment firewall.
-
-3. Set the routes to outbound traffic from the App Service Environment to be tunneled.
-
-   ![Forced tunnel network flow][1]
-
-You can configure the App Service Environment with different egress addresses after the App Service Environment is already up and operational, or they can be set during App Service Environment deployment.
-
-### Change the egress address after the App Service Environment is operational ###
-1. Get the IP addresses that you want to use as egress IPs for your App Service Environment. If you're doing forced tunneling, these addresses come from your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA.
-
-2. Set the egress addresses in your App Service Environment configuration information. Go to resource.azure.com, and go to Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says **read/write** at the top. Select **Edit**. Scroll down to the bottom, and change the **userWhitelistedIpRanges** value from **null** to something like the following. Use the addresses you want to set as the egress address range. 
+4. _To set the egress addresses in an existing App Service Environment:_ Go to resource.azure.com, and go to Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says **read/write** at the top. Select **Edit**. Scroll down to the bottom. Change the **userWhitelistedIpRanges** value from **null** to something like the following. Use the addresses you want to set as the egress address range. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Select **PUT** at the top. This option triggers a scale operation on your App Service Environment and adjusts the firewall.
- 
-3. Create or edit a route table, and populate the rules to allow access to/from the management addresses that map to your App Service Environment location. To find the management addresses, see [App Service Environment management addresses][management].
 
-4. Adjust the routes applied to the App Service Environment subnet with a route table or BGP routes. 
+_To create your ASE with the egress addresses_: Follow the directions in [Create an App Service Environment with a template][template] and pull down the appropriate template.  Edit the "resources" section in the azuredeploy.json file, but not in the "properties" block and include a line for **userWhitelistedIpRanges** with your values like this:
 
-If the App Service Environment goes unresponsive from the portal, there is a problem with your changes. The problem might be that your list of egress addresses was incomplete, the traffic was lost, or the traffic was blocked. 
+    "resources": [
+      {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/hostingEnvironments",
+        "name": "[parameters('aseName')]",
+        "kind": "ASEV2",
+        "location": "[parameters('aseLocation')]",
+        "properties": {
+          "name": "[parameters('aseName')]",
+          "location": "[parameters('aseLocation')]",
+          "ipSslAddressCount": 0,
+          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+          "dnsSuffix" : "[parameters('dnsSuffix')]",
+          "virtualNetwork": {
+            "Id": "[parameters('existingVnetResourceId')]",
+            "Subnet": "[parameters('subnetName')]"
+          },
+        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+        }
+      }
+    ]
 
-### Create a new App Service Environment with a different egress address ###
 
-If your virtual network is already configured to force tunnel all the traffic, you need to take extra steps to create your App Service Environment so that it can come up successfully. You need to enable the use of another egress endpoint during the App Service Environment creation. To do this, you need to create the App Service Environment with a template that specifies the permitted egress addresses.
+   ![Forced tunnel network flow][1]
 
-1. Get the IP addresses to be used as the egress addresses for your App Service Environment.
-
-2. Pre-create the subnet to be used by the App Service Environment. You need it so that you can set routes, and also because the template requires it.
-
-3. Create a route table with the management IPs that map to your App Service Environment location. Assign it to your App Service Environment.
-
-4. Follow the directions in [Create an App Service Environment with a template][template]. Pull down the appropriate template.
-
-5. Edit the "resources" section in the azuredeploy.json file. Include a line for **userWhitelistedIpRanges** with your values like this:
-
-       "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
-
-If this section is configured properly, the App Service Environment should start with no problems. 
+These changes send traffic to Azure Storage directly from the ASE and allow access to the Azure SQL from additional addresses other than the VIP of the ASE.  
 
 
 <!--IMAGES-->
