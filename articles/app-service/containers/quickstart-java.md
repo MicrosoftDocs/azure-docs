@@ -31,6 +31,14 @@ The feature described in this article is currently in Preview.  Please review th
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+
+## Prerequisites
+
+To complete this quickstart: 
+
+* You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* [Install Git](https://git-scm.com/)
+
 ## Download the sample
 
 In a terminal window on your machine, run the following command to clone the sample app repository to your local machine. You will deploy this sample app in a later step.
