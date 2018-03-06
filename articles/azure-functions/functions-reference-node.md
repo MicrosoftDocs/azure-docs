@@ -263,7 +263,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
 
 ## Node version and package management
 
-The following table shows the Node version used by each major verrsion of the Functions runtime:
+The following table shows the Node.js version used by each major version of the Functions runtime:
 
 | Functions version | Node.js version | 
 |---|---|
