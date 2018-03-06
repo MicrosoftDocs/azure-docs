@@ -43,9 +43,8 @@ To learn more, refer to the [FAQ](#frequently-asked-questions-about-storage-serv
 You can enable SSE using Customer Managed Keys for the storage account using the [Azure portal](https://portal.azure.com/). On the **Settings** blade for the storage account, as shown in the following figure, click **Encryption**.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
-<br/>
 
-*Enable SSE for Blob Service*
+#### Enable SSE for Blob Service
 
 To enable Storage Service Encryption using Customer Managed Keys, key protection features – Soft Delete and Do Not Purge must be enabled. These settings ensure the keys cannot be accidently/intentionally deleted. The maximum retention period of the keys is set to 90 days protecting users against malicious and ransomware attacks.
 
@@ -148,7 +147,7 @@ A: SSE is available in all regions for Blob and File storage.
 
 **Q: How do I contact someone if I have any issues or want to provide feedback?**
 
-A: Contact <ssediscussions@microsoft.com> for any issues related to Storage Service Encryption.
+A: Contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) for any issues related to Storage Service Encryption.
 
 ## Next steps
 
