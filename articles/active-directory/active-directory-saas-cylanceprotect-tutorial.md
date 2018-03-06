@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: jeedes
 
 ---
@@ -113,10 +113,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Europe Central (EUC1)|`https://login-euc1.cylance.com`|
 	| North America|`https://login.cylance.com`|
 	| South America (SAE1)|`https://login-sae1.cylance.com`|
-
-
+	
 	b. In the **Reply URL** textbox, type the URL:
-
+	
 	| Region | URL Value |
 	|----------|---------|
 	| Asia-Pacific Northeast (APNE1)|`https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
@@ -125,10 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| North America|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
 	| South America (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com) to get these values.
-
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the cerificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_certificate.png) 
 
