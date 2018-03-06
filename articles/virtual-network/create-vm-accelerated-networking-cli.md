@@ -22,7 +22,7 @@ ms.custom:
 # Create a Linux virtual machine with Accelerated Networking
 
 > [!IMPORTANT] 
-> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. You can follow the steps below to enable Accelerated Networking:
+> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. Complete the following steps to enable Accelerated Networking:
 >   1. Delete the virtual machine.
 >   2. Re-create the virtual machine with Accelerated Networking enabled.
 >
