@@ -282,7 +282,7 @@ If possible, use the following configuration:
 - 
 The combined effect of these steps is that the subnet-level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure-SSIS IR.
 
-If you're concerned about losing the ability to inspec outbound Internet traffic from that subnet, you can also add an NSG rule on the subnet to restrict outbound destinations to [Azure data center IP addresses](https://www.microsoft.com/download/details.aspx?id=41653).
+If you're concerned about losing the ability to inspect outbound Internet traffic from that subnet, you can also add an NSG rule on the subnet to restrict outbound destinations to [Azure data center IP addresses](https://www.microsoft.com/download/details.aspx?id=41653).
 
 See [this PowerShell script](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) for an example. You have to run the script weekly to keep the Azure data center IP address list up-to-date.
 
