@@ -93,7 +93,7 @@ The following table provides more details regarding the method you can use depen
 |Step|SQL Engine and version|Backup / Restore method|
 |---|---|---|
 |Put backup to Azure Storage|Prior SQL 2012 SP1 CU2|Upload .bak file directly to Azure storage|
-||2012 SP1 CU2 - 2016|Direct backup using deprecated WITH CREDENTIAL syntax documented [WITH CREDENTIAL](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql|
+||2012 SP1 CU2 - 2016|Direct backup using deprecated WITH CREDENTIAL syntax documented [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)|
 ||2016 and above|Direct backup using [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Restore from Azure Storage	SQL Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
 
