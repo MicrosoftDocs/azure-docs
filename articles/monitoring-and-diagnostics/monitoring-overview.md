@@ -108,12 +108,12 @@ There are several tools that work together to monitor various aspects of your ne
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure. It stores data in Azure metrics and diagnostics for further analysis. It works with the following solutions for monitoring various aspects of your network. 
 
 [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
+
 [ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
 
-[DNS Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns): A solution that provides security, performance, and operations-related insights, based on your DNS servers.
+[DNS Analytics](../log-analytics/log-analytics-dns.md)is a solution that provides security, performance, and operations-related insights, based on your DNS servers.
 
-Traffic Analytics is a cloud-based solution that provides visibility into user and application activity on your cloud network.
-
+[Service Endpoint Monitor](../networking/network-monitoring-overview.md) tests the reachability of applications and detects performance bottlenecks across on-premises, carrier networks, and cloud/private data centers.
 
 ### Management solutions
 [Management solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service. They rely on Log Analytics to store and analyze the monitoring data that they collect. 
