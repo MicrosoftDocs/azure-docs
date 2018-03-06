@@ -1,5 +1,5 @@
 ---
-title: Azure App Service-sync network configuration | Microsoft Docs
+title: Azure App Service - sync network configuration | Microsoft Docs
 description: This article discusses how to sync your network configuration for Azure App Service hosting plan.
 author: CarlRabeler
 ms.service: sql-database
@@ -12,7 +12,11 @@ manager: cguyer
 
 # Sync networking configuration for Azure App Service hosting plan
 
-It might happen that although you [integrated your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), you can't establish connection to Managed Instance. One thing you can try is to refresh networking configuration for your service plan. To do that, follow these steps:  
+It might happen that although you [integrated your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), you can't establish connection to Managed Instance. One thing you can try is to refresh networking configuration for your service plan. 
+
+## Sync network configuration for App Service hosting plan
+
+To do that, follow these steps:  
 
 1. Go to your web apps App Service plan.
  

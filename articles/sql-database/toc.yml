@@ -279,6 +279,8 @@
       href: sql-database-managed-instance-custom-dns.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
+    - name: Sync network configuration
+      href: sql-database-managed-instance-sync-network-configuration.md
   - name: Security
     items:
     - name: Configure Azure AD auth
