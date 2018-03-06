@@ -17,9 +17,9 @@ ms.date: 02/27/2018
 ms.author: msangapu
 ms.custom: mvc
 ---
-# Preview: Create a Java web app in Azure App Service on Linux
+# Preview: Create a Java web app in App Service on Linux
 
-The feature described in this article is currently in Preview.  Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+Java web apps support for App Service on Linux is currently in Preview.  Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Deploying Java web apps to a Linux container in the cloud using the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux) is an alternative approach.
 
 > [!NOTE]
 > This article deploys an app to App Service on Linux.
@@ -99,43 +99,48 @@ If the web app is up and running, you should get a default screen similar to the
 ![Browse to Web App Before Deployment](media/quickstart-java/browse-web-app-not-deployed.png)
 
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
+## Deploying the Java app to App Servic on Linux
 
+Export your java app to a [Web Archive (WAR) file](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.wst.webtools.doc.user%2Ftopics%2Ftwcrewar.html).
+
+To deploy your Java app WAR file, you can use WarDeploy (currently in [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)), or FTP.
+
+### WarDeploy 
+
+Create a new bash script using the following example script:
 
 ```bash
-Counting objects: 54, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (42/42), done.
-Writing objects: 100% (54/54), 11.52 KiB | 0 bytes/s, done.
-Total 54 (delta 13), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '150adb9e7d'.
-remote: Generating deployment script.
-remote: Generating deployment script for Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'CHANGELOG.md'
-remote: Copying file: 'CONTRIBUTING.md'
-remote: Copying file: 'LICENSE.md'
-remote: Copying file: 'README.md'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Copying file: 'WebContent/index.jsp'
-remote: Copying file: 'WebContent/META-INF/MANIFEST.MF'
-remote: Copying file: 'WebContent/WEB-INF/web.xml'
-remote: Copying file: 'build/classes/com/azurewebsites/example/HelloWorldServlet.class'
-remote: Copying file: 'src/com/azurewebsites/example/HelloWorldServlet.java'
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://<your app name>.scm.azurewebsites.net:443/<your app name>.git
- * [new branch]      master -> master
+#!/bin/bash 
+
+# change the following variables to use your web app name, App Service deployment credentials, and local war file path.
+sitename='your web app name'
+username='your deployment username'
+password='your deployment user password'
+warFilePath='local-path-to-war-file' 
+
+# deploy to App Service on Linux
+curl -X POST -u $username:$password https://$sitename.scm.azurewebsites.net/api/wardeploy --data-binary @$warFilePath
 ```
+
+After making the required changes, run the script.
+
+![WarDploy script execution](media/quickstart-java/wardeploy.png)
+
+
+
+### FTP deployment
+
+Alternatively, you can also use FTP to deploy the WAR file. FTP the file to the `/home/site/wwwroot/webapps` directory.
+
+The following example uses CURL:
+
+```bash
+curl -T ./helloworld.war -u "webappname\deploymentuser:deploymentpassword" ftp://webappFTPURL/site/wwwroot/webapps/
+```
+
+![CURL deployment](media/quickstart-java/curl-deploy.png)
+
+
 
 ## Browse to the app
 
