@@ -37,7 +37,8 @@ App Service on Linux currently provides preview feature to support Java web apps
 To complete this quickstart: 
 
 * You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Install Git](https://git-scm.com/)
+* [Install Git](https://git-scm.com/).
+* Install [Eclipse](https://www.eclipse.org/downloads/).
 
 
 
@@ -45,7 +46,19 @@ To complete this quickstart:
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+
+## Create a resource group
+
+In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *West Europe* location. To see all supported locations for App Service, run the [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location "West US"
+```
+
+You generally create your resource group and the resources in a region near you. 
+
+When the command finishes, a JSON output shows you the resource group properties.
+
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
@@ -58,23 +71,34 @@ In the Cloud Shell, create a [web app](../app-service-web-overview.md) in the `m
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
 ```
 
+For the **runtime** parameter, use one of the following runtimes:
+ * TOMCAT|8.5-jre8
+ * TOMCAT|9.0-jre8
+
+
 When the web app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
+  "additionalProperties": {},
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
   "clientCertEnabled": false,
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
+  "defaultHostName": "<your web app name>.azurewebsites.net",
   "enabled": true,
+  "enabledHostNames": [
+    "<your web app name>.azurewebsites.net",
+    "<your web app name>.scm.azurewebsites.net"
+  ],
+  "ftpPublishingUrl": "ftp://<your ftp URL>",  
   < JSON data removed for brevity. >
 }
 ```
+
+Copy the value for **ftpPublishingUrl**. You will use this later, if you choose FTP deployment.
 
 Browse to the newly created web app.
 
@@ -98,13 +122,15 @@ git clone https://github.com/Azure-Samples/java-docs-hello-world
 
 ## Deploying the Java app to App Servic on Linux
 
-Open the sample project in [Eclipse](https://www.eclipse.org/downloads/), and export the java app to a [Web Archive (WAR) file](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.wst.webtools.doc.user%2Ftopics%2Ftwcrewar.html) named `helloworld.war`.
+Open the sample project in [Eclipse](https://www.eclipse.org/downloads/), and [export the java app to a Web Archive (WAR) file](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.wst.webtools.doc.user%2Ftopics%2Ftwcrewar.html) named `helloworld.war`.
 
 To deploy your Java app WAR file, you can use WarDeploy (currently in [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)), or FTP.
 
-### WarDeploy 
+Depending on which method of deployment you use, the relative path to browse to your Java web app will be slightly different.
 
-Create a new bash script using the following example script:
+### Deploy with WarDeploy 
+
+To deploy your WAR file with WarDeploy, create a new bash script using the following example script:
 
 ```bash
 #!/bin/bash 
@@ -124,6 +150,30 @@ Change the variables in the script to the values for your web app name, deployme
 After making the required changes, run the script to deploy the WAR file.
 
 ![WarDploy script execution](media/quickstart-java/wardeploy.png)
+
+Browse to the deployed application using the following URL in your web browser.
+
+```bash
+http://<app_name>.azurewebsites.net
+```
+
+The Java sample code is running in a web app with built-in image.
+
+![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
+
+Browse to the servlet using your web browser.
+
+```bash
+http://<app_name>.azurewebsites.net/HelloWorldServlet
+```
+
+The servlet is running in a web app with built-in image.
+
+![Sample app running in Azure](media/quickstart-java/java-hello-world-servlet-in-browser.png)
+
+
+
+**Congratulations!** You've deployed your first Java app to App Service on Linux.
 
 
 
@@ -149,11 +199,7 @@ Run the curl command.
 
 ![CURL deployment](media/quickstart-java/curl-deploy.png)
 
-
-
-## Browse to the app
-
-Browse to the deployed application using your web browser.
+Browse to the deployed application using the following URL in your web browser.
 
 ```bash
 http://<app_name>.azurewebsites.net/helloworld
@@ -161,7 +207,7 @@ http://<app_name>.azurewebsites.net/helloworld
 
 The Java sample code is running in a web app with built-in image.
 
-![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
+![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
 
 Browse to the servlet using your web browser.
 
@@ -171,11 +217,13 @@ http://<app_name>.azurewebsites.net/helloworld/HelloWorldServlet
 
 The Java sample code is running in a web app with built-in image.
 
-![Sample app running in Azure](media/quickstart-java/java-hello-world-servlet-in-browser.png)
+![Sample app running in Azure](media/quickstart-java/java-hello-world-servlet-in-browser-curl.png)
 
 
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
+
+
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
