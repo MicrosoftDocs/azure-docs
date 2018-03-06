@@ -19,17 +19,17 @@ ms.date: 02/05/2018
 ms.author: jejiang
 
 ---
-# Manage Azure Data Lake Store resources by using Storage Explorer (preview)
+# Manage Azure Data Lake Store resources by using Storage Explorer
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. You can get access to the data from anywhere via HTTP or HTTPS. Data Lake Store in Azure Storage Explorer enables you to access and manage Data Lake Store data and resources along with other Azure entities like blobs and queues. Now you can use the same tool to manage your different Azure entities in one place.
+[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. You can get access to the data from anywhere via HTTP or HTTPS. Data Lake Store in Azure Storage Explorer enables you to access and manage Data Lake Store data and resources, along with other Azure entities like blobs and queues. Now you can use the same tool to manage your different Azure entities in one place.
 
-Another advantage is that you don't need to have subscription permission to manage Data Lake Store data. In Storage Explorer, you can attach the Data Lake Store path to the **Local and Attached** node as long as others grant the permission.
+Another advantage is that you don't need to have subscription permission to manage Data Lake Store data. In Storage Explorer, you can attach the Data Lake Store path to the **Local and Attached** node as long as someone grants the permission.
 
 ## Prerequisites
 To complete the steps in this article, you need the following prerequisites:
 
 *	An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial).
-*	An Azure Data Lake Store account. For instructions on how to create one, see [Get Started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
+*	An Azure Data Lake Store account. For instructions on how to create one, see [Get started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## Install Storage Explorer
 
@@ -37,21 +37,21 @@ Install the newest Azure Storage Explorer bits from the [product webpage](https:
 
 ## Connect to an Azure subscription
 
-1. In Storage Explorer, select the **plug-in** icon on the left.
+1. In Storage Explorer, select the plug-in icon on the left.
        
    ![Plug-in icon](./media/data-lake-store-in-storage-explorer/plug-in-icon.png)
  
 2. Select **Add an Azure Account**, and then select **Sign-in**.
 
-   ![Connect to Azure subscription](./media/data-lake-store-in-storage-explorer/connect-to-azure-subscription.png)
+   !["Connect to Azure Storage" dialog box](./media/data-lake-store-in-storage-explorer/connect-to-azure-subscription.png)
 
-2. In the **Azure Sign in** dialog box, select **Sign in**, and then enter your Azure credentials.
+2. In the **Sign in to your account** dialog box, enter your Azure credentials.
 
     ![Dialog box for Azure sign-in](./media/data-lake-store-in-storage-explorer/sign-in.png)
 
 3. Select your subscription from the list, and then select **Apply**.
 
-    !["Apply" button](./media/data-lake-store-in-storage-explorer/apply-subscription.png)
+    ![Subscription information and "Apply" button](./media/data-lake-store-in-storage-explorer/apply-subscription.png)
 
     The **EXPLORER** pane is updated and displays the accounts in the selected subscription.
 
@@ -60,25 +60,25 @@ Install the newest Azure Storage Explorer bits from the [product webpage](https:
 You have successfully connected Azure Data Lake Store to your Azure subscription.
 
 ## Connect to Data Lake Store
-You can access resources that don't exist in your subscription if others give you the URI for the resources. You can then connect to Data Lake Store by using the URI after you sign in.
-1. Open Storage Explorer (Preview).
+You can access resources that don't exist in your subscription if someone gives you the URI for the resources. You can then connect to Data Lake Store by using the URI after you sign in.
+1. Open Storage Explorer.
 2. In the left pane, expand **Local and Attached**.
 3. Right-click **Data Lake Store**, and then select **Connect to Data Lake Store**.
 
-      !["Connect to Data Lake Store" shortcut menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach.png)
+      !["Connect to Data Lake Store" on the shortcut menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach.png)
 
 4. Enter the URI. The tool browses to the location of the URL that you just entered.
 
-      !["Connect to Data Lake Store" dialog box](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+      !["Connect to Data Lake Store" dialog box, with the text box for entering the URI](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
       ![Result of connecting to Data Lake Store](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## View an Azure Data Lake Store account's contents
 An Azure Data Lake Store account's resources contain folders and files.
 
-The following steps illustrate how to view the contents of a Data Lake Store account within Storage Explorer (Preview):
+The following steps illustrate how to view the contents of a Data Lake Store account within Storage Explorer:
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the subscription that contains the Azure Data Lake Store account that you want to view.
 3. Expand **Data Lake Store**.
 4. Right-click the Azure Data Lake Store account node that you want to view, and then select **Open**. You can also double-click the Data Lake Store account to open it. 
@@ -93,16 +93,20 @@ You can manage Azure Data Lake Store resources by doing following operations:
 *	Browse through Data Lake Store resources across multiple Azure Data Lake accounts.  
 *	Use a connection string to connect to and manage Data Lake Store directly. 
 *	View Data Lake Store resources shared by others through an ACL under **Local and Attached**.
-*	Perform file/folder CRUD operations: support recursive folder and multi-selected files. 
+*	Perform file and folder CRUD operations: support recursive folders and multi-selected files. 
 *	Drag, drop, and add a folder to quickly access recent locations. This operation mirrors the desktop File Explorer experience. 
 *	Copy and open an Azure Data Lake hyperlink in Storage Explorer with one click. 
-*	Display Activity Log in the lower- right pane to view activity status.
+*	Display Activity Log in the lower-right pane to view activity status.
 *	Display folder statistics and file properties.
 
 ## Manage resources in Azure Storage Explorer
-After you create an Azure Data Lake Store account, you can upload folders and files, download, and open resources on your local computer.
+After you create an Azure Data Lake Store account, you can:
 
-The following items illustrate how to manage resources within an Azure Data Lake Store account. Follow these steps for the task that you want to perform.
+* Upload folders and files, download folders and files, and open resources on your local computer.
+* Pin to **Quick Access**, create a new folder, copy a URL, and select all.
+* Copy and paste, rename, delete, get folder statistics, and refresh.
+
+The following items illustrate how to manage resources within an Azure Data Lake Store account. Follow the steps for the task that you want to perform.
 
 ### Upload files
 
@@ -131,13 +135,13 @@ The following items illustrate how to manage resources within an Azure Data Lake
    ![Dialog box with the upload in progress](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
 > [!NOTE] 
-> You can directly drag the folders and files on a local computer to implement uploading. 
+> You can directly drag the folders and files on a local computer to start uploading. 
        
 ### Download folders or files to your local computer
 
 1. Select the folders or files that you want to download.
 2. On the main pane's toolbar, select **Download**.
-3. In the **Select a folder to save the downloaded files into** dialog box, specify the location. And specify the name you want to give it.
+3. In the **Select a folder to save the downloaded files into** dialog box, specify the location and the name.
 4. Select **Save**.
 
 ### Open a folder or file from your local computer
@@ -145,7 +149,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 1. Select the folder or file that you want to open.
 2. On the main pane's toolbar, select **Open**. Or right-click the selected folder or file, and then select **Open** on the shortcut menu.
 
-The file is downloaded and opened through the application associated with the underlying file type. Or the folder is opened in the main pane.
+The file is downloaded and opened through the application that's associated with the underlying file type. Or the folder is opened in the main pane.
 
 ![Opened file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open.png) 
 
@@ -171,7 +175,7 @@ The file is downloaded and opened through the application associated with the un
 
 ![Selections for deleting a folder](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
 
-### Pin to Quick access
+### Pin to Quick Access
 
 1. Select the folder that you want to pin.
 2. On the main pane's toolbar, select **Pin to Quick access**.
@@ -189,8 +193,8 @@ If you have a URL, you can enter the URL into the address path in File Explorer 
 
 
 ## Next steps
-* View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com).
-* Learn how to [manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer)
-* [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com).
+* Learn how to [manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
+* [Get started with Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 * [Get started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
 * Watch a [YouTube video about how to use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
