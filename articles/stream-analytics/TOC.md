@@ -58,13 +58,14 @@
 
 ## Troubleshoot
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
+### [Common troubleshooting issues](stream-analytics-common-troubleshooting-issues.md)
 ### [Resource health blade](stream-analytics-resource-health.md)
 ### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO debugging](stream-analytics-select-into.md)
 ### [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 ### [Event hub reader limits](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)
-### [Get malformed events](stream-analytics-malformed-events.md)
+
 
 ## Automate
 ### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
