@@ -4,9 +4,7 @@
 Check out coverage for [**Geocoding**](geocoding-coverage.md).       
 Check out coverage for [**Traffic**](traffic-coverage.md).  
 Check out coverage for [**Render**](render-coverage.md).
-
-<br>
-
+<br>  
 **Legend**
 
 | Symbol             | Meaning                                |
@@ -15,7 +13,6 @@ Check out coverage for [**Render**](render-coverage.md).
 | Ø                  | Country provided with simplified data. |
 | Country is missing | Country data is not provided.          |
 
-<br>  
 <br>  
 
 The following table provides coverage information for Azure LBS Routing.
