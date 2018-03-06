@@ -8751,7 +8751,7 @@
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-source-target.md",
-            "redirect_url": "physical-azure-disaster-recovery"											   
+            "redirect_url": "physical-azure-disaster-recovery",											   
             "redirect_document_id": false
         },
         {
