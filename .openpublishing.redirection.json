@@ -8884,6 +8884,7 @@
             "redirect_url": "vmware-azure-set-up-process-server-azure",
             "redirect_document_id": false
         },
+	{	     
             "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
             "redirect_url": "vmware-azure-architecture",
             "redirect_document_id": false
@@ -9013,6 +9014,7 @@
             "redirect_url": "vmware-azure-tenant-subscription-csp",
             "redirect_document_id": false
         },
+	{
             "source_path": "articles/site-recovery/site-recovery-runbook-automation-classic.md",
             "redirect_url": "site-recovery-runbook-automation",
             "redirect_document_id": false
@@ -9047,6 +9049,7 @@
             "redirect_url": "tutorial-dr-drill-azure",
             "redirect_document_id": false
         },
+	{
             "source_path": "articles/site-recovery/site-recovery-best-practices.md",
             "redirect_url": "site-recovery-support-matrix-to-azure",
             "redirect_document_id": false
