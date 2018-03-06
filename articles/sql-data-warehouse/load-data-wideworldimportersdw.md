@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 11/17/2017
+ms.date: 03/06/2018
 ms.author: cakarst
 ms.reviewer: barbkess
 
 ---
 
-# Tutorial: Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
+# Tutorial: Load data to Azure SQL Data Warehouse
 
 PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
 
@@ -217,7 +217,7 @@ The first step toward loading data is to login as LoaderRC20.
 
     ![Connection is successful](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
-## Create external tables for the sample data
+## Create external tables and objects
 
 You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use [Polybase](/sql/relational-databases/polybase/polybase-guide.md) to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
@@ -238,7 +238,7 @@ Run the following SQL scripts specify information about the data you wish to loa
 4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE NYTPublic
+    CREATE EXTERNAL DATA SOURCE WWIStorage
     WITH
     (
         TYPE = Hadoop,
@@ -265,6 +265,7 @@ Run the following SQL scripts specify information about the data you wish to loa
 
     ```sql
     CREATE SCHEMA ext;
+    CREATE SCHEMA [wwi];
     ```
 
 7. Create the external tables. The table definitions are stored in SQL Data Warehouse, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
@@ -546,6 +547,40 @@ Run the following SQL scripts specify information about the data you wish to loa
 
     ![View external tables](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
 
+9. Create the sale table. 
+
+    ```sql
+    CREATE TABLE [wwi].[fact_Sale]
+    (
+	    [Sale Key] [bigint] IDENTITY(1,1) NOT NULL,
+	    [City Key] [int] NOT NULL,
+	    [Customer Key] [int] NOT NULL,
+	    [Bill To Customer Key] [int] NOT NULL,
+	    [Stock Item Key] [int] NOT NULL,
+	    [Invoice Date Key] [date] NOT NULL,
+	    [Delivery Date Key] [date] NULL,
+	    [Salesperson Key] [int] NOT NULL,
+	    [WWI Invoice ID] [int] NOT NULL,
+	    [Description] [nvarchar](100) NOT NULL,
+	    [Package] [nvarchar](50) NOT NULL,
+	    [Quantity] [int] NOT NULL,
+	    [Unit Price] [decimal](18, 2) NOT NULL,
+	    [Tax Rate] [decimal](18, 3) NOT NULL,
+	    [Total Excluding Tax] [decimal](18, 2) NOT NULL,
+	    [Tax Amount] [decimal](18, 2) NOT NULL,
+	    [Profit] [decimal](18, 2) NOT NULL,
+	    [Total Including Tax] [decimal](18, 2) NOT NULL,
+	    [Total Dry Items] [int] NOT NULL,
+	    [Total Chiller Items] [int] NOT NULL,
+	    [Lineage Key] [int] NOT NULL
+    )
+    WITH
+    (
+	    DISTRIBUTION = HASH ( [WWI Invoice ID] ),
+	    CLUSTERED COLUMNSTORE INDEX
+    )
+    ```
+
 ## Load the data into your data warehouse
 
 This section uses the external tables you just defined to load the sample data from Azure Storage Blob to SQL Data Warehouse.  
@@ -555,6 +590,8 @@ This section uses the external tables you just defined to load the sample data f
 > 
 
 The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
+
+This script does not load data into the wwi.dimension_Date and wwi.fact_Sales tables. These tables are generated in a later step in order to make the tables have a sizeable number of rows.
 
 1. Run the following script to load the data into new tables in your data warehouse.
 
@@ -581,6 +618,8 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     OPTION (LABEL = 'CTAS : Load [wwi].[dimension_Customer]')
     ;
 
+    
+    /*    
     CREATE TABLE [wwi].[dimension_Date]
     WITH
     ( 
@@ -591,7 +630,7 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     SELECT * FROM [ext].[dimension_Date]
     OPTION (LABEL = 'CTAS : Load [wwi].[dimension_Date]')
     ;
-
+    */
 
     CREATE TABLE [wwi].[dimension_Employee]
     WITH
@@ -729,13 +768,23 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
         INNER JOIN sys.dm_pdw_dms_external_work s
         ON r.request_id = s.request_id
     WHERE
-        r.[label] = 'CTAS : Load [dbo].[Date]' OR
-        r.[label] = 'CTAS : Load [dbo].[Geography]' OR
-        r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
-        r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
-        r.[label] = 'CTAS : Load [dbo].[Time]' OR
-        r.[label] = 'CTAS : Load [dbo].[Weather]' OR
-        r.[label] = 'CTAS : Load [dbo].[Trip]'
+        r.[label] = 'CTAS : Load [wwi].[dimension_City]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_Customer]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_Employee]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_PaymentMethod]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_StockItem]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_Supplier]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
+        r.[label] = 'CTAS : Load [wwi].[fact_Movement]' OR
+        r.[label] = 'CTAS : Load [wwi].[fact_Order]' OR
+        r.[label] = 'CTAS : Load [wwi].[fact_Purchase]' OR
+        r.[label] = 'CTAS : Load [wwi].[fact_StockHolding]' OR
+        r.[label] = 'CTAS : Load [wwi].[fact_Transaction]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR
+        r.[label] = 'CTAS : Load [wwi].[dimension_TransactionType]' OR 
     GROUP BY
         r.command,
         s.request_id,
@@ -754,6 +803,188 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
 4. Enjoy seeing your data nicely loaded into your data warehouse.
 
     ![View loaded tables](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
+
+## Create stored procedures for generating data 
+
+The table [wwi].[seed_Sale] contains the data loaded from blob. This section expands the number of rows. 
+
+1. Create the following procedure that will increase the number of rows in [wwi].[seed_Sale] by a factor of 8. 
+
+    ```sql
+    CREATE PROCEDURE [wwi].[InitialSalesDataPopulation] AS
+    BEGIN
+        INSERT INTO [wwi].[seed_Sale] (
+            [Sale Key], [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], [Invoice Date Key], [Delivery Date Key], [Salesperson Key], [WWI Invoice ID], [Description], [Package], [Quantity], [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], [Profit], [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+        )
+        SELECT
+            [Sale Key], [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], [Invoice Date Key], [Delivery Date Key], [Salesperson Key], [WWI Invoice ID], [Description], [Package], [Quantity], [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], [Profit], [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+        FROM [wwi].[seed_Sale]
+
+        INSERT INTO [wwi].[seed_Sale] (
+            [Sale Key], [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], [Invoice Date Key], [Delivery Date Key], [Salesperson Key], [WWI Invoice ID], [Description], [Package], [Quantity], [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], [Profit], [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+        )
+        SELECT
+            [Sale Key], [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], [Invoice Date Key], [Delivery Date Key], [Salesperson Key], [WWI Invoice ID], [Description], [Package], [Quantity], [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], [Profit], [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+        FROM [wwi].[seed_Sale]
+
+        INSERT INTO [wwi].[seed_Sale] (
+            [Sale Key], [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], [Invoice Date Key], [Delivery Date Key], [Salesperson Key], [WWI Invoice ID], [Description], [Package], [Quantity], [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], [Profit], [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+        )
+        SELECT
+            [Sale Key], [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], [Invoice Date Key], [Delivery Date Key], [Salesperson Key], [WWI Invoice ID], [Description], [Package], [Quantity], [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], [Profit], [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+        FROM [wwi].[seed_Sale]
+    END
+    ```
+
+3. Create stored procedures for generating data
+
+    ```sql
+    CREATE PROCEDURE [Integration].[PopulateDateDimensionForYear] @Year [int] AS
+    BEGIN
+	    --drop table #month
+	    IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL 
+		    DROP TABLE #month
+	    CREATE TABLE #month (
+	        monthnum int,
+		    numofdays int
+        )
+	    WITH ( DISTRIBUTION = ROUND_ROBIN, heap )
+	    INSERT INTO #month
+	        SELECT 1, 31 UNION SELECT 2, CASE WHEN (@YEAR % 4 = 0 AND @YEAR % 100 <> 0) OR @YEAR % 400 = 0 THEN 29 ELSE 28 END UNION SELECT 3,31 UNION SELECT 4,30 UNION SELECT 5,31 UNION SELECT 6,30 UNION SELECT 7,31 UNION SELECT 8,31 UNION SELECT 9,30 UNION SELECT 10,31 UNION SELECT 11,30 UNION SELECT 12,31
+
+	    --drop table #days
+	    IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL 
+		    DROP TABLE #days
+	    CREATE TABLE #days (days int)
+	    WITH (DISTRIBUTION = ROUND_ROBIN, HEAP)
+
+	    INSERT INTO #days
+	        SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION SELECT 20	UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION SELECT 30 UNION SELECT 31
+
+        INSERT [wwi].[dimension_Date] (
+            [Date], [Day Number], [Day], [Month], [Short Month], [Calendar Month Number], [Calendar Month Label], [Calendar Year], [Calendar Year Label], [Fiscal Month Number], [Fiscal Month Label], [Fiscal Year], [Fiscal Year Label], [ISO Week Number] 
+        )
+	    SELECT
+            CAST(CAST(monthnum AS VARCHAR(2)) + '/' + CAST([days] AS VARCHAR(3)) + '/' + CAST(@year AS CHAR(4)) AS DATE) AS [Date]
+            ,DAY(CAST(CAST(monthnum AS VARCHAR(2)) + '/' + CAST([days] AS VARCHAR(3)) + '/' + CAST(@year AS CHAR(4)) AS DATE)) AS [Day Number]
+            ,CAST(DATENAME(day, CAST(CAST(monthnum AS VARCHAR(2)) + '/' + CAST([days] AS VARCHAR(3)) + '/' + CAST(@year AS CHAR(4)) AS DATE)) AS NVARCHAR(10)) AS [Day]
+		    ,CAST(DATENAME(month, CAST(CAST(monthnum AS VARCHAR(2)) + '/' + CAST([days] AS VARCHAR(3)) + '/' + CAST(@year as char(4)) AS DATE)) AS nvarchar(10)) AS [Month]
+		    ,CAST(SUBSTRING(DATENAME(month, CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)), 1, 3) AS nvarchar(3)) AS [Short Month]
+		    ,MONTH(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) AS [Calendar Month Number]
+		    ,CAST(N'CY' + CAST(YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) AS nvarchar(4)) + N'-' + SUBSTRING(DATENAME(month, CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)), 1, 3) AS nvarchar(10)) AS [Calendar Month Label]
+		    ,YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) AS [Calendar Year]
+		    ,CAST(N'CY' + CAST(YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) AS nvarchar(4)) AS nvarchar(10)) AS [Calendar Year Label]
+		    ,CASE WHEN MONTH(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) IN (11, 12)
+			THEN MONTH(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) - 10
+			ELSE MONTH(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) + 2 END AS [Fiscal Month Number]
+		    ,CAST(N'FY' + CAST(CASE WHEN MONTH(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) IN (11, 12)
+			THEN YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) + 1
+			ELSE YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) END AS nvarchar(4)) + N'-' + SUBSTRING(DATENAME(month, CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)), 1, 3) AS nvarchar(20)) AS [Fiscal Month Label]
+		    ,CASE WHEN MONTH(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) IN (11, 12)
+			THEN YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) + 1
+			ELSE YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) END AS [Fiscal Year]
+		    ,CAST(N'FY' + CAST(CASE WHEN MONTH(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) IN (11, 12)
+			THEN YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) + 1
+			ELSE YEAR(CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE))END AS nvarchar(4)) AS nvarchar(10)) AS [Fiscal Year Label]
+		    , DATEPART(ISO_WEEK, CAST(CAST(monthnum as varchar(2)) + '/' + CAST([days] as varchar(3)) + '/' + CAST(@year as char(4)) AS DATE)) AS [ISO Week Number]
+	FROM #month m
+		CROSS JOIN #days d
+	WHERE d.days <= m.numofdays
+
+	DROP table #month;
+	DROP table #days;
+    END;
+    ```
+
+
+3. Create this procedure that populates the date table and the sales table
+
+    ```sql
+    CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
+    BEGIN
+        SET NOCOUNT ON;
+        SET XACT_ABORT ON;
+
+	    EXEC [wwi].[PopulateDateDimensionForYear] @Year;
+
+	-- DECLARE @LineageKey int 
+	-- SET @LineageKey = (select isnull(max([Lineage Key]),0) + 1 from Integration.Lineage)
+
+	/*
+	    INSERT Integration.Lineage
+		    ([Lineage Key], [Data Load Started], [Table Name], [Data Load Completed], [Was Successful], [Source System Cutoff Time])
+	    SELECT @LineageKey, SYSDATETIME(), N'Sale', NULL, 0, CAST(@year as CHAR(4)) + '1231'
+	*/
+
+	    DECLARE @OrderCounter bigint = 0;
+	    DECLARE @NumberOfSalesPerDay bigint = @EstimatedRowsPerDay;
+	    DECLARE @DateCounter date; 
+	    DECLARE @StartingSaleKey bigint;
+	    DECLARE @MaximumSaleKey bigint = (SELECT MAX([Sale Key]) FROM wwi.seed_Sale);
+	    DECLARE @MaxDate date;
+	    SET @MaxDate = (SELECT MAX([Invoice Date Key]) FROM wwi.fact_Sale)
+	    IF ( @MaxDate < CAST(@YEAR AS CHAR(4)) + '1231') AND (@MaxDate > CAST(@YEAR AS CHAR(4)) + '0101')
+		    SET @DateCounter = @MaxDate
+	    ELSE
+		    SET @DateCounter= CAST(@Year as char(4)) + '0101';
+
+	    PRINT 'Targeting ' + CAST(@NumberOfSalesPerDay AS varchar(20)) + ' sales per day.';
+
+    	/* REMOVED MAX LIMIT BELOW FOR DW EXPANSION */
+	    --IF @NumberOfSalesPerDay > 10000000
+	    --BEGIN
+	    --	PRINT 'WARNING: Limiting sales to 10000000 per day';
+	    --	SET @NumberOfSalesPerDay = 10000000;
+	    --END;
+
+	    DECLARE @OutputCounter varchar(20);
+	    DECLARE @variance DECIMAL(18,10);
+	    DECLARE @VariantNumberOfSalesPerDay BIGINT;
+
+	    WHILE @DateCounter < CAST(@YEAR AS CHAR(4)) + '1231'
+	    BEGIN
+		    SET @OutputCounter = CONVERT(varchar(20), @DateCounter, 112);
+		    RAISERROR(@OutputCounter, 0, 1);
+		    SET @variance = (SELECT RAND() * 10)*.01 + .95
+		    SET @VariantNumberOfSalesPerDay = FLOOR(@NumberOfSalesPerDay * @variance)
+
+		    SET @StartingSaleKey = @MaximumSaleKey - @VariantNumberOfSalesPerDay - FLOOR(RAND() * 20000);
+		    SET @OrderCounter = 0;
+
+		    INSERT [wwi].[fact_Sale] (
+                [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], [Invoice Date Key], [Delivery Date Key], [Salesperson Key], [WWI Invoice ID], [Description], Package, Quantity, [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], Profit, [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+            )
+		    SELECT TOP(@VariantNumberOfSalesPerDay)
+		        [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], @DateCounter, DATEADD(day, 1, @DateCounter), [Salesperson Key], [WWI Invoice ID], [Description], Package, Quantity, [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], Profit, [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
+		    FROM [wwi].[seed_Sale]
+		    WHERE 
+                 --[Sale Key] > @StartingSaleKey and /* IDENTITY DOES NOT WORK THE SAME IN SQLDW AND CAN'T USE THIS METHOD FOR VARIANT */
+			    [Invoice Date Key] >=cast(@YEAR AS CHAR(4)) + '-01-01'
+		    ORDER BY [Sale Key];
+
+		    SET @DateCounter = DATEADD(day, 1, @DateCounter);
+	    END;
+
+	    /*
+	    UPDATE Integration.Lineage
+		    SET [Data Load Completed] = SYSDATETIME(),
+		        [Was Successful] = 1;
+	    */
+        END;
+
+## Generate sales and date tables
+
+1. Run the procedure to seed the [wwi].[seed_Sale] with more rows.
+
+    ```sql    
+    EXEC [wwi].[InitialSalesDataPopulation]
+    ```
+
+2. Run this procedure to populate 100,000 rows per day for each day in the year 2000.
+
+    ```sql
+    EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
+    ```
 
 ## Create statistics on newly loaded data
 
