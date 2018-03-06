@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
 
 ---
@@ -64,8 +64,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token in the Authorization header and must meet the following requirements:
 
 - The token must be either a user token or an application service principal.
-- The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
 - The token must have the correct audience set to `https://*.asazure.windows.net`.
+- The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
+
+    > [!IMPORTANT]
+    > Currently, **server admin** role permissions are required.
 
 ## POST /refreshes
 
