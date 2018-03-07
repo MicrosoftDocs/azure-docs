@@ -84,7 +84,7 @@ To specify your key from a URI, follow these steps:
 
 ![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
-#### Specify a key from a key vault. 
+#### Specify a key from a key vault 
 
 To specify your key from a key vault, follow these steps:
 
