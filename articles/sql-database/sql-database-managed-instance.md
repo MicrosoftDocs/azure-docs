@@ -52,7 +52,7 @@ Below are several properties, accessible through Transact SQL, you can use to de
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|This value is same as in SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|This value is same as in SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|This value uniquely identifies Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:<instanceName>.<dnsPrefix>.database.windows.net, where <instanceName> is name provided by the customer, while <dnsPrefix> is auto-generated part of the name guaranteeing global DNS name uniqueness (“weu1659bceded827”, for example)|Example: gpshared1wus.weu1659bceded827.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:<instanceName>.<dnsPrefix>.database.windows.net, where <instanceName> is name provided by the customer, while <dnsPrefix> is auto-generated part of the name guaranteeing global DNS name uniqueness (“wcus17662feb9ce98”, for example)|Example: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## Key features and capabilities of a Managed Instance 
 
@@ -182,8 +182,6 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
 - Automated backups and point in time restore. Customer can initiate `copy-only` backups that do not interfere with automatic backup chain. 
 - Managed Instance does not allow specifying full physical paths so all corresponding scenarios have to be supported differently: RESTORE DB does not support WITH MOVE, CREATE DB doesn’t allow physical paths, BULK INSERT works with Azure Blobs only, etc. 
 - Managed Instance supports [Azure AD authentication](sql-database-aad-authentication.md) as cloud alternative to Windows authentication. 
-- Managed Instance fully supports integration with Business Intelligence PaaS services in Azure (SSIS, SSRS, SSAS) to enable migration from IaaS BI services. 
-- Related features (such as Maintenance Plans) have to be supported differently (through integration with SSIS PaaS). 
 - Managed Instance automatically manages XTP filegroup and files for databases containing In-Memory OLTP objects
  
 ### Managed Instance administration features  
