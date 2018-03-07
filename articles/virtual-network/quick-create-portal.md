@@ -36,28 +36,28 @@ Log in to the Azure portal at http://portal.azure.com.
 3. Enter, or select, the following information and then select **Create**:
     - **Name**: *myVirtualNetwork*
     - **Address space**: Accept default. The address space is specified in CIDR notation.
-    - **Subscription**: Select your subscription
-    - **Resource group**: Select **Create new** and enter *myResourceGroup*
-    - **Location**: Select *East US**
-    - **Subnet, Name**: Accept default
-    - **Subnet, Address range**: Accept default
-    - **Service endpoints**: Accept default
+    - **Subscription**: Select your subscription.
+    - **Resource group**: Select **Create new** and enter *myResourceGroup*.
+    - **Location**: Select *East US**.
+    - **Subnet, Name**: Accept the default.
+    - **Subnet, Address range**: Accept the default.
+    - **Service endpoints**: Accept the default.
 
     ![Enter basic information about your virtual network](./media/quick-create-portal/virtual-network.png)
 
 ## Create virtual machines
 
-A virtual network enables several types of Azure resources to communicate privately with each other, and with the Internet. One type of resource you can deploy into a virtual network is a virtual machine.
+A virtual network enables several types of Azure resources to communicate privately with each other, and with the internet. One type of resource you can deploy into a virtual network is a virtual machine.
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
 3. Enter, or select, the following information, and then select **OK**:
     - **Name**: *myVm1*
-    - **User name**: A user name of your choosing.
-    - **Password**: A password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
-    - **Subscription**: Select your subscription
-    - **Resource group**: Select **Use existing** and select **myResourceGroup**
-    - **Location**: Select *East US*
+    - **User name**: Enter a user name of your choosing.
+    - **Password**: Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+    - **Subscription**: Select your subscription.
+    - **Resource group**: Select **Use existing** and select **myResourceGroup**.
+    - **Location**: Select *East US*.
 
     ![Enter basic information about a virtual machine](./media/quick-create-portal/virtual-machine-basics.png)
 4. Select a size for the virtual machine and then select **Select**.
