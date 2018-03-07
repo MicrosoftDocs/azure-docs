@@ -120,4 +120,4 @@ When no longer needed, delete the resource group and all resources it contains:
 In this article, you deployed a default virtual network and two virtual machines. To change the default traffic that Azure allows or denies between virtual machines and the internet, continue to the tutorial for filtering network traffic.
 
 > [!div class="nextstepaction"]
-> [Filter network traffic](virtual-networks-create-nsg-arm-pportal)
+> [Filter network traffic](virtual-networks-create-nsg-arm-pportal.md)
