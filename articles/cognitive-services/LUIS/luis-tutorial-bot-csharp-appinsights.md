@@ -90,7 +90,9 @@ Visual Studio 2017 is the tool to add Application Insights NuGet package to the 
 
 1. Build the solution. Select **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
 
-2. If the build fails with `CS0104` errors, in fix the ambiguous usage of `Activity` type by prefixing the Activity type with the 
+2. If the build fails with `CS0104` errors, in the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. The full source of that file follows:
+
+    [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/MessagesController.cs "MessagesController.cs file")]
 
 
 ### Publish project back to Azure
