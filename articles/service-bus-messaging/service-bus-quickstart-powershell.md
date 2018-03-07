@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
+ms.date: 03/07/2018
 ms.author: chwolf;sethm
 
 ---
@@ -24,7 +24,7 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 ![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages to and from a Service Bus queue using PowerShell to first create a messaging namespace and a queue within that namespace. The procedure also obtains the authorization credentials on that namespace. Then the .NET Standard client is used to send and receive messages from this queue.
+This quickstart describes how to send and receive messages to and from a Service Bus queue. You use PowerShell to first create a messaging namespace and a queue within that namespace. The procedure also obtains the authorization credentials on that namespace. Then the .NET Standard client is used to send and receive messages from this queue.
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
