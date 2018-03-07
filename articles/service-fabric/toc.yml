@@ -406,7 +406,7 @@
       - name: Run a service as an AD user or group
         href: service-fabric-run-service-as-ad-user-or-group.md
       - name: Run a service as a group Managed Service Account
-        href: service-fabric/service-fabric-run-service-as-gmsa.md
+        href: service-fabric-run-service-as-gmsa.md
       - name: Assign a security access policy for endpoints
         href: service-fabric-assign-policy-to-endpoint.md
   - name: Work in a Windows/VS dev environment
