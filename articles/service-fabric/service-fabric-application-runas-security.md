@@ -1,6 +1,6 @@
 ---
-title: Learn about Azure microservices security policies | Microsoft Docs
-description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
+title: Run an Azure Service Fabric service under system and local security accounts | Microsoft Docs
+description: Learn how to run a Service Fabric application under system and local security accounts.  Create security principals and apply the RunAs policy to securely run your services.
 services: service-fabric
 documentationcenter: .net
 author: msfussell

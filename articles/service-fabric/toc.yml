@@ -369,6 +369,8 @@
           href: service-fabric-reliable-services-secure-communication.md
         - name: Secure communications - Java
           href: service-fabric-reliable-services-secure-communication-java.md
+        - name: Secure WCF communications
+          href: service-fabric-reliable-services-secure-communication-wcf.md
       - name: Configure
         href: service-fabric-reliable-services-configuration.md
       - name: Send notifications

@@ -1,6 +1,6 @@
 ---
 title: Managing secrets in Service Fabric applications | Microsoft Docs
-description: This article describes how to secure secret values in a Service Fabric application.
+description: Learn how to secure secret values in a Service Fabric application.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -17,7 +17,7 @@ ms.date: 11/02/2017
 ms.author: vturecek
 
 ---
-# Managing secrets in Service Fabric applications
+# Manage secrets in Service Fabric applications
 This guide walks you through the steps of managing secrets in a Service Fabric application. Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text.
 
 [Azure Key Vault][key-vault-get-started] is used here as a safe storage location for certificates and as a way to get certificates installed on Service Fabric clusters in Azure. If you are not deploying to Azure, you do not need to use Key Vault to manage secrets in Service Fabric applications. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere. 
