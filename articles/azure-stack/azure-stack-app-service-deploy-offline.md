@@ -116,7 +116,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     If you used a different domain suffix when you created the certificates, your certificate file names don’t use *local.AzureStack.external*. Instead, use your custom domain information.
 
-    ![App Service Installer][11]]
+    ![App Service Installer][11]
 
 12. Enter the SQL Server details for the server instance used to host the App Service resource provider databases, and then click **Next**. The installer validates the SQL connection properties.
 
