@@ -141,7 +141,7 @@
       - name: Manage network interfaces for on-premises to Azure replication
         href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
       - name: Set up IP addressing after failover to Azure
-    href: concepts-on-premises-to-azure-networking.md
+        href: concepts-on-premises-to-azure-networking.md
     - name: Capacity planning
     - items:
       - name: Capacity planning for VMware replication to Azure
