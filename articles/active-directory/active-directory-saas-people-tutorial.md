@@ -108,11 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern:  `https://stewartwelsh.peoplehr.com/`
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern:  `https://<company name>.peoplehr.net`
 
     b. In the **Identifier** textbox, type the URL: `https://www.peoplehr.com`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern:  `https://stewartwelsh.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+	c. In the **Reply URL** textbox, type a URL using the following pattern:  `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
 	
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [People Client support team](mailto:customerservices@peoplehr.com) to get these values. 
