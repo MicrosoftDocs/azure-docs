@@ -41,10 +41,10 @@ This tutorial assumes you have code that looks like the following or that you ha
 ## Add Application Insights library to web app bot
 Currently, the Application Insights service, added as part of the web app bot service creation, collects general state telemetry for the bot. It does not collect LUIS response information. In order to analyze and improve LUIS, you need the LUIS response information.  
 
-In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet package installed and configured in the `BasicLuisDialog.cs` file. Then the `BasicLuisDialog.cs` file sends the LUIS response information to Application Insights. 
+In order to capture the LUIS response, the web app bot needs **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** installed and configured for the project. 
 
 ### Download web app bot
-Visual Studio 2017 is the tool to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, use the following to download the web app bot code.
+Use [Visual Studio 2017](http://www.microsoft.com/Visual_Studio/2017) to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, download the web app bot code.
 
 1. In the Azure portal, for the web app bot, select **Build**.
 
@@ -66,16 +66,16 @@ Visual Studio 2017 is the tool to add and configure Application Insights for the
 
     ![Open solution in Visual Studio 2017](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-security-warning.png)
 
-3. Visual Studio needs to add dependencies to the solution if they don't already exist. In the **Solution Explorer**, right-click on **References**, and select **Manage NuGet Packages...**. 
+3. Visual Studio needs to add dependencies to the solution. In the **Solution Explorer**, right-click on **References**, and select **Manage NuGet Packages...**. 
 
     ![Manage NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
 
-4. The NuGet Package manager shows a list of installed packages. Select **Restore** in the yellow bar. Wait for restore process to finish.
+4. The NuGet Package manager shows a list of installed packages. Select **Restore** in the yellow bar. Wait for the Restore process to finish.
 
     ![Restore NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-restore-packages.png)
 
-### Add ApplicationInsights to project
-Configure the Visual Studio solution to know about Application Insights. 
+### Add ApplicationInsights to the project
+Install and configure Application Insights in Visual Studio. 
 
 1. In Visual Studio 2017, on the top menu, select **Project**, then select **Add Application Insights Telemetry...**.
 
@@ -97,9 +97,9 @@ Configure the Visual Studio solution to know about Application Insights.
 
 ### Build and resolve errors
 
-1. Build the solution. Select the **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
+1. Build the solution by selecting the **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
 
-2. If the build fails with `CS0104` errors, in the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. Change the name `Activity` on lines 22 and 36 from `Activity` to `Connector.Activity`. Build the solution again. There should be no more build errors.
+2. If the build fails with `CS0104` errors, you need to fix them. In the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. Change the name `Activity` on lines 22 and 36 from `Activity` to `Connector.Activity`. Build the solution again. There should be no more build errors.
 
     The full source of that file follows:
 
@@ -114,7 +114,11 @@ The **ApplicationInsights** package is now in the project and configured correct
 
 2. In the **Publish** window, select **Create new profile**.
 
+    ![Publish project to portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
+
 3. Select **Import profile**, and select **OK**.
+
+    ![Publish project to portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
 4. In the **Import Publish Settings File** windows, navigate to your project folder, navigate to the `PostDeployScripts` folder, select the file that ends in `.PublishSettings`, and select `Open`. You have now configured publishing for this project. 
 
@@ -131,23 +135,19 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
 ## Modify BasicLuisDialog.cs code
 
-1. In the **App Service Editor** browser tab, open the **BasicLuisDialog.cs** file.
+1. In the **App Service Editor** browser tab, open the `BasicLuisDialog.cs` file.
 
 2. Add the following NuGet dependency under the existing `using` lines:
 
    [!code-csharp[Add using statement](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=12 "Add using statement")]
 
-3. Create the Application Insights object and use the web app bot application setting **BotDevInsightsKey**: 
-
-   [!code-csharp[Create the Application Insights object](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=64-65 "Create the Application Insights object")]
-
-4. Add the **LogToApplicationInsights** function:
+3. Add the `LogToApplicationInsights` function:
 
    [!code-csharp[Add the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=61-92 "Add the LogToApplicationInsights function")]
 
-    The last line of the function is where the data is added to Application Insights. The trace's name is `LUIS`, a unique name apart from any other telemetry data collected by this web app bot. All the properties are also prefixed with `LUIS_` so you can see what this tutorial added compared to information that is given by Application Insights.
+    The Application Insights instrumentation key is already in the web app bot's appliction setting named `BotDevInsightsKey`. The last line of the function is where the data is added to Application Insights. The trace's name is `LUIS`, a unique name apart from any other telemetry data collected by this web app bot. All the properties are also prefixed with `LUIS_` so you can see what this tutorial added compared to information that is given by Application Insights.
 
-5. Use the **LogToApplicationInsights** function. You add it to every intent dialog:
+4. Call the `LogToApplicationInsights` function in the `ShowLuisResult` function:
 
    [!code-csharp[Use the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=114-115 "Use the LogToApplicationInsights function")]
 
