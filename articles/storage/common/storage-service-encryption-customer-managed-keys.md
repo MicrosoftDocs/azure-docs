@@ -21,17 +21,13 @@ SSE for Blob and File storage is integrated with Azure Key Vault, so that you ca
 
 Why create your own keys? Custom keys give you more flexibility, so that you can create, rotate, disable, and define access controls. Custom keys also enable you to audit the encryption keys used to protect your data.
 
-## SSE with customer-managed keys
+## Get started with customer-managed keys
 
-To use this feature, you can enable it for either new or existing storage account. You can either create a new key vault and key or you can use an existing key vault and key. The storage account and the key vault must be in the same region, but they can be in different subscriptions. 
+To use customer-managed keys with SSE, you can either create a new key vault and key or you can use an existing key vault and key. The storage account and the key vault must be in the same region, but they can be in different subscriptions. 
 
-To learn more, refer to the [FAQ](#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+### Step 1: Create a storage account
 
-## Getting Started
-
-### Step 1: Create a new storage account
-
-[Create a new storage account](storage-quickstart-create-account.md)
+First, create a storage account if you don't have one already. For more information, see [Create a new storage account](storage-quickstart-create-account.md).
 
 ### Step 2: Enable SSE for Blob and File storage
 
@@ -106,7 +102,7 @@ To transfer data into your new storage account so that it’s encrypted, refer t
 
 To query the status of the encrypted data, refer to Step 4 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
 
-## Frequently asked questions about Storage Service Encryption for Data at Rest
+## FAQ for SSE with customer-managed-keys
 
 **Q: I'm using Premium storage; can I use customer-managed keys with SSE?**
 
