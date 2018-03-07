@@ -28,6 +28,8 @@ To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
 > [!NOTE]
+> There needs to be a space between the country code and the phone number.
+>
 > Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
 
 ## Fields populated
@@ -39,6 +41,11 @@ If you use the default settings in Azure AD Connect, the following mappings are 
 | telephoneNumber | Office phone | Alternate phone |
 | mobile | Mobile phone | Phone |
 
+These fields may appear empty until a user confirms their authentication data.
+
+A Global Administrator can manually set the Authentication contact info for the user as displayed in the following screenshot.
+
+![Contact][Contact]
 
 ## Security questions and answers
 
@@ -149,3 +156,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Global administrators can modify a user's authentication contact info"

@@ -481,6 +481,12 @@ In C# and other .NET languages, you can use an imperative binding pattern, as op
 
 The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
+## Handling binding errors
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+For links to all relevant error topics for the various services supported by Functions, see the [Binding error codes](functions-bindings-error-pages.md#binding-error-codes) section of the [Azure Functions error handling](functions-bindings-error-pages.md) overview topic.  
+
 ## Next steps
 
 For more information on a specific binding, see the following articles:

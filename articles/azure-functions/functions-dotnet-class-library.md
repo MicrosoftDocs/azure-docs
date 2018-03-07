@@ -38,6 +38,9 @@ In Visual Studio, the **Azure Functions** project template creates a C# class li
 * [host.json](functions-host-json.md) - stores configuration settings that affect all functions in the project when running locally or in Azure.
 * [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally.
 
+> [!IMPORTANT]
+> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To disable a function, use the [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute. For example, add a Boolean app setting MY_TIMER_DISABLED, and apply `[Disable("MY_TIMER_DISABLED")]` to your function. You can then enable and disable it by changing the app setting.
+
 ### FunctionName and trigger attributes
 
 In a class library, a function is a static method with a `FunctionName` and a trigger attribute, as shown in the following example:
@@ -80,7 +83,7 @@ public static class SimpleExampleWithOutput
 
 ### Conversion to function.json
 
-The build process creates a *function.json* file in a function folder in the build folder. This file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. 
+The build process creates a *function.json* file in a function folder in the build folder. As noted earlier, this file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. 
 
 The purpose of this file is to provide information to the scale controller to use for [scaling decisions on the consumption plan](functions-scale.md#how-the-consumption-plan-works). For this reason, the file only has trigger info, not input or output bindings.
 

@@ -6,6 +6,7 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
+ms.custom: mvc
 ---
 
 
@@ -39,7 +40,7 @@ Azure Migrate helps you to:
 
 ## What do I need to pay for?
 
-Azure Migrate is available at no additional charge. However, during public preview, additional charges will apply for use of dependency visualization capabilities. To support [dependency visualization](concepts-dependency-visualization.md), Azure Migrate creates a Log Analytics workspace by default. If you use dependency visualization, or use the workspace outside Azure Migrate, you're charged for the workspace usage. [Learn more](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) about the charges. When the service becomes generally available, there will be no charge for use of dependency visualization capabilities.
+Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## What's in an assessment?

@@ -38,10 +38,10 @@ After registering, you are now ready to create a Kubernetes cluster with AKS.
 
 ## Create Kubernetes cluster
 
-The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial][aks-tutorial-prepare-acr].
+The following example creates a cluster named `myAKSCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial][aks-tutorial-prepare-acr].
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 After several minutes, the deployment completes, and returns json formatted information about the AKS deployment.
@@ -61,7 +61,7 @@ az aks install-cli
 To configure kubectl to connect to your Kubernetes cluster, run the following command:
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
 ```
 
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.
@@ -74,7 +74,7 @@ Output:
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
 ```
 
 At tutorial completion, you have an AKS cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.

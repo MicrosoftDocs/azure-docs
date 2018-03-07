@@ -1,5 +1,6 @@
 ﻿---
 title: Add entities in LUIS apps | Microsoft Docs
+titleSuffix: Azure
 description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
 services: cognitive-services
 author: v-geberr
@@ -8,7 +9,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/23/2018
 ms.author: v-geberr
 ---
 
@@ -88,19 +89,29 @@ You can also define relationships between entities by creating composite entitie
 A list entity is an entity that is defined by a list of all its values. 
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
+
 2. On the **Entities** page, click **Create new entity**.
+
 3. In the **Add Entity** dialog box, type "Menu" in the **Entity name** box and select **List** as the **Entity type**.
  
     ![Add a list entity](./media/add-entities/menu-list-dialog.png)
   
-4. Click **Done**. The list entity "Menu" is added and the details page where you add exact text matches is displayed. 
+4. Click **Done**. The list entity "Menu" is added and the details page where you add exact text matches is displayed. In the **Values** textbox, enter an item for the list, such as `Vegetarian` for the menu list, and click **Enter**. The menu item is added to the list. 
 
-    ![List entity details page](./media/add-entities/menu-list-dialog-after.png)
+    ![List entity details page](./media/add-entities/entity-list-normalized-name.png)
 
-5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, EgyptAir with exact matches of "Hindu", "Hot Diabetic". After typing each matching text, press Enter.
+5. Once a list item is added, LUIS recommends additional list items. Click the **recommend** button to see recommended list items. 
 
-    ![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
- 
+    ![List entity recommended items](./media/add-entities/entity-list-recommended-list.png)
+
+6. Click on any item in the recommended list to add it the entity list. 
+
+    ![List entity items](./media/add-entities/entity-list-recommended-list-0.png)
+
+7. Click on "Type a synonym and press Enter" to add additional text values for a normalized value.
+
+    ![List item synonyms](./media/add-entities/entity-list-synonyms-list.png)
+
 ## Import list entity values
 
  1. On the "Menu" list entity page, click **Import Lists**.
@@ -152,11 +163,7 @@ On the **Entities** list page, select the entity in the list. This action takes 
     >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 ## Search utterances
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed. [Fuzzy search](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#fuzzy-search) is on by default. 
-
-![Labeled Utterances for an entity](./media/add-entities/entity-search-utterance.png)
-
-
+You can [search and filter](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#search-in-utterances) utterances. 
 
 ## Next steps
 Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [add features](Add-Features.md) to improve the app.

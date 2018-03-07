@@ -1,6 +1,6 @@
 ---
-title: Create an Internet-facing load balancer - Azure CLI | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in Resource Manager using the Azure CLI
+title: Create a public load balancer - Azure CLI | Microsoft Docs
+description: Learn how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,7 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ---
-# Creating an internet load balancer using the Azure CLI
+# Creating a public load balancer using the Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -30,13 +30,13 @@ ms.author: kumud
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
+This article covers the Resource Manager deployment model. You can also [Learn how to create a public load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Deploying the solution using the Azure CLI
 
-The following steps show how to create an Internet facing load balancer using Azure Resource Manager with CLI. With Azure Resource Manager each resource is created and configured individually, then put together to create a resource.
+The following steps show how to create a public load balancer using Azure Resource Manager with CLI. With Azure Resource Manager each resource is created and configured individually, then put together to create a resource.
 
 You must create and configure the following objects to deploy a load balancer:
 

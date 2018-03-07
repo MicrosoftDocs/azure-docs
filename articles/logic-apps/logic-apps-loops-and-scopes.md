@@ -3,7 +3,7 @@ title: Create loops and scopes, or debatch data in workflows - Azure Logic Apps 
 description: Create loops to iterate through data, group actions into scopes, or debatch data to start more workflows in Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: ecfan
 manager: anneta
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-ms.author: LADocs; jehollan
+ms.author: LADocs; estfan
 
 ---
 # Logic Apps Loops, Scopes, and Debatching

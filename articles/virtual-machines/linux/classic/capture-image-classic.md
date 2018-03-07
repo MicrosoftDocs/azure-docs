@@ -108,6 +108,6 @@ Alternatively, use the [Azure portal](http://portal.azure.com) to create a custo
 **See also:** [Azure Linux Agent User Guide](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
-[How to Create a Custom Virtual Machine]:create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
-[How to Create a Linux Virtual Machine]:create-custom.md
+[How to Create a Custom Virtual Machine]:create-custom-classic.md
+[How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
+[How to Create a Linux Virtual Machine]:create-custom-classic.md

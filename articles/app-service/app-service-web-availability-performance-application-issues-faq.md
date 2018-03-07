@@ -94,7 +94,7 @@ By default, web apps are unloaded if they are idle for a set period of time. Thi
 2. Select **Application settings**.
 3. For **Always On**, select **On**.
 
-## How do I turned on failed request tracing?
+## How do I turn on failed request tracing?
 
 To turn on failed request tracing:
 

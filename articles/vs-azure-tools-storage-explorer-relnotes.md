@@ -19,17 +19,17 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer (Preview) release notes
 
-This article contains the release notes for Azure Storage Explorer 0.9.3 (Preview) release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.9.4 (Preview) release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 0.9.3
-12/08/2017
+## Version 0.9.4 / 0.9.3
+01/21/2018
 
-### Download Azure Storage Explorer 0.9.3 (Preview)
-- [Azure Storage Explorer 0.9.3 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.3 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.3 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 0.9.4 (Preview)
+- [Azure Storage Explorer 0.9.4 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.4 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.4 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 * Your existing Storage Explorer window will be re-used when:
@@ -41,6 +41,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 	* For Mac, there is a 'New Window' option under App Menu.
 
 ### Fixes
+* Fixed a security issue. Please upgrade to 0.9.4 at you earliest convenience.
 * Old activities were not appropriately being cleaned up. This affected the performance of long running jobs. They are now being cleaned up correctly.
 * Actions involving large numbers of files and directories would occasionally cause Storage Explorer to freeze. Requests to Azure for File Shares are now trottled to limit system resource use.
 
@@ -91,7 +92,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+	* [Online Documentation](./cosmos-db/storage-explorer.md)
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents
@@ -171,7 +172,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.3 (Previe
 10/20/2017
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+	* [Online Documentation](./cosmos-db/storage-explorer.md)
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents

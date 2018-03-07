@@ -1,6 +1,6 @@
 ---
-title: Tile reference for View Designer in OMS Log Analytics | Microsoft Docs
-description: View Designer in Log Analytics allows you to create custom Views in the OMS console that contain different visualizations of data in the OMS repository. This article provides a reference of the settings for each of the tiles available to use in your custom views.
+title: Tile reference for View Designer in Azure Log Analytics | Microsoft Docs
+description: View Designer in Log Analytics allows you to create custom Views in the Azure portal that contain different visualizations of data in your Log Analytics workspace. This article provides a reference of the settings for each of the tiles available to use in your custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
 
 ---
 # Log Analytics View Designer tile reference
-The View Designer in Log Analytics allows you to create custom Views in the OMS console that contain different visualizations of data in the OMS repository. This article provides a reference of the settings for each of the tiles available to use in your custom views.
+The View Designer in Log Analytics allows you to create custom Views in the Azure portal that contain different visualizations of data in your Log Analytics workspace. This article provides a reference of the settings for each of the tiles available to use in your custom views.
 
 Other articles available for View Designer are:
 

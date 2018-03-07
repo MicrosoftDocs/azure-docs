@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
+ms.date: 01/31/2018
+ms.author: pareshmu
 
 ---
 # Configure Network Performance Monitor for ExpressRoute (Preview)
@@ -40,9 +40,11 @@ You can:
 
 You can monitor ExpressRoute circuits in any part of the world by using a workspace that is hosted in one of the following regions:
 
-* West Europe 
+* West Europe
+* West Central US
 * East US 
 * South East Asia 
+* South East Australia
 
 ## <a name="workflow"></a>Workflow
 
@@ -53,14 +55,13 @@ Monitoring agents are installed on multiple servers, both on-premises and in Azu
     * Install monitoring agents on the on-premises servers and the Azure VMs.
     * Configure settings on the monitoring agent servers to allow the monitoring agents to communicate. (Open firewall ports, etc.)
 3. Configure network security group (NSG) rules to allow the monitoring agent installed on Azure VMs to communicate with on-premises monitoring agents.
-4. Request to whitelist your NPM Workspace.
-5. Set up monitoring: Auto-Discover and manage which networks are visible in NPM.
+4. Set up monitoring: Auto-Discover and manage which networks are visible in NPM.
 
 If you are already using Network Performance Monitor to monitor other objects or services, and you already have Workspace in one of the supported regions, you can skip Step 1 and Step 2, and begin your configuration with Step 3.
 
-## <a name="configure"></a>Step 1: Create a Workspace
+## <a name="configure"></a>Step 1: Create a Workspace (in the subscription that has the VNETs linked to the ExpressRoute Circuit(s))
 
-1. In the [Azure portal](https://portal.azure.com), search the list of services in the **Marketplace** for 'Network Performance Monitor'. In the return, click to open the **Network Performance Monitor** page.
+1. In the [Azure portal](https://portal.azure.com), select the Subscription that has the VNETs peered to your ExpressRoute circuit. Then search the list of services in the **Marketplace** for 'Network Performance Monitor'. In the return, click to open the **Network Performance Monitor** page.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. At the bottom of the main **Network Performance Monitor** page, click **Create** to open **Network Performance Monitor - Create new solution** page. Click **OMS Workspace - select a workspace** to open the Workspaces page. Click **+ Create New Workspace** to open the Workspace page.
@@ -102,7 +103,7 @@ If you are already using Network Performance Monitor to monitor other objects or
 
   ![PowerShell script](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server
+### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server (on each VNET that you want to monitor)
 
 We recommend that you install at least two agents on each side of the ExpressRoute connection (i.e., on-premises, Azure VNETs) for redundancy. Use the following steps to install agents:
 
@@ -124,6 +125,8 @@ We recommend that you install at least two agents on each side of the ExpressRou
 6. On the **Ready to Install** page, review your choices, and then click **Install**.
 7. On the **Configuration completed successfully** page, click **Finish**.
 8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Operational Insights (OMS). When connected to OMS, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
+
+9. Please repeat this for each VNET that you need to be monitored.
 
 ### <a name="proxy"></a>2.3: Configure proxy settings (optional)
 
@@ -162,7 +165,7 @@ Port 8084 is opened by default. You can use a custom port by providing the param
 >
 >
 
-On the agent servers, open a PowerShell window with administrative privileges. Run the [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell script (which you downloaded earlier). Don't use any parameters.
+On the agent servers, open a PowerShell window with administrative privileges. Run the [EnableRules](https://aka.ms/npmpowershellscript) PowerShell script (which you downloaded earlier). Don't use any parameters.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -172,23 +175,15 @@ For monitoring agent servers that are in Azure, you must configure network secur
 
 For more information about NSG, see [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Step 4: Request to whitelist Workspace
-
 >[!NOTE]
 >Make sure that you have installed the agents (both the on-premises server agent and the Azure server agent) and have run the PowerShell script before proceeding with this step.
 >
 >
 
-Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to go to the page and fill out the request form](https://aka.ms/npmcohort). (Hint: You may want to open this link in a new window or tab). The whitelisting process may take a business day or more. Once the whitelisting is complete, you will receive an email.
 
-## <a name="setupmonitor"></a>Step 5: Configure NPM for ExpressRoute monitoring
+## <a name="setupmonitor"></a>Step 4: Configure NPM for ExpressRoute monitoring
 
->[!WARNING]
->Do not proceed further until your Workspace has been whitelisted and you receive a confirmation email.
->
->
-
-After you complete the previous sections and verify that you have been whitelisted, you can set up monitoring.
+After you complete the previous sections, you can set up monitoring.
 
 1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, and clicking on the whitelisted NPM Workspace.
 
@@ -206,7 +201,7 @@ After you complete the previous sections and verify that you have been whitelist
 
   ![monitoring tiles](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Step 6: View monitoring tiles
+## <a name="explore"></a>Step 5: View monitoring tiles
 
 ### <a name="dashboard"></a>Network Performance Monitor page
 

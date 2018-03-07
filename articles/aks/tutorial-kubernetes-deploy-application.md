@@ -54,7 +54,7 @@ Replace `microsoft` with the ACR login server name. This value is found on line 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 Save and close the file.

@@ -40,7 +40,7 @@ Microsoft Graph bindings are available through _binding extensions_. Binding ext
 
 Binding extensions are available only for Azure Functions 2.0 preview. 
 
-For information about how to set a function app to use the preview 2.0 version of the Functions runtime, see [Target the version 2.0 runtime](functions-versions.md#target-the-version-20-runtime).
+For information about how to set a function app to use the preview 2.0 version of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ### Installing the extension
 

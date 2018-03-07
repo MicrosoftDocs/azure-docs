@@ -121,7 +121,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Using a shared *.csx* file is a common pattern when you want to strongly type thet data passed between functions by using a POCO object. In the following simplified example, an HTTP trigger and queue trigger share a POCO object named `Order` to strongly type the order data:
+Using a shared *.csx* file is a common pattern when you want to strongly type the data passed between functions by using a POCO object. In the following simplified example, an HTTP trigger and queue trigger share a POCO object named `Order` to strongly type the order data:
 
 Example *run.csx* for HTTP trigger:
 
@@ -255,7 +255,7 @@ public async static Task ProcessQueueMessageAsync(
         Stream blobInput,
         Stream blobOutput)
 {
-    await blobInput.CopyToAsync(blobOutput, 4096, token);
+    await blobInput.CopyToAsync(blobOutput, 4096);
 }
 ```
 

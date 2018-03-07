@@ -36,7 +36,7 @@ Create `add-utterances.html` and add the following code:
 
 2. Add your LUIS programmatic ID, your LUIS application ID, and change the version if it is not `0.1`
 
-3. Modify the utterances to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
+3. Modify the **array of utterances** to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
 
     ```json
     // example batch utterances
@@ -61,11 +61,11 @@ Create `add-utterances.html` and add the following code:
     ];
     ```
 
-4. Click the `Upload utterance` button. The LUIS results are displayed below the buttons.
+4. Select the `Upload utterance` button. The LUIS results are displayed below the buttons.
 
-5. Click the `Train model` button to train your application with these new utterances.
+5. Select the `Train model` button to train your application with these new utterances.
 
-6. Click the `Train Status` button to see the training status. 
+6. Select the `Train Status` button to see the training status. 
 
 ![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
 

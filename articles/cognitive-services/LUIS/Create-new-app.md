@@ -24,7 +24,7 @@ The app contains [versions](luis-how-to-manage-versions.md) of your model as wel
 
 The default version of a new app is "0.1." 
 
-You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My apps** on the top navigation bar of [LUIS.ai](https://www.luis.ai) web page. 
+You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My apps** on the top navigation bar of the [LUIS](luis-reference-regions.md) website. 
 
 ![List of apps](./media/luis-create-new-app/apps-list.png)
 

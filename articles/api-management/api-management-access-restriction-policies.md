@@ -346,7 +346,7 @@ This topic provides a reference for the following API Management policies. For i
  The `validate-jwt` policy enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.  
   
 > [!IMPORTANT]
->  The `validate-jwt` policy requires that the `exp` registered claim is inlcuded in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.  
+>  The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.  
 > The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key has to be provide via an Open ID configuration endpoint.  
   
 ### Policy statement  
@@ -493,7 +493,7 @@ This topic provides a reference for the following API Management policies. For i
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|Timespan. Provides some small leeway in case the token's expiration claim is present in the token and is past the current date / time.|No|0 seconds|  
+|clock-skew|Timespan. Use to specify maximum expected time difference between the system clocks of the token issuer and the API Management instance.|No|0 seconds|  
 |failed-validation-error-message|Error message to return in the HTTP response body if the JWT does not pass validation. This message must have any special characters properly escaped.|No|Default error message depends on validation issue, for example "JWT not present."|  
 |failed-validation-httpcode|HTTP Status code to return if the JWT doesn't pass validation.|No|401|  
 |header-name|The name of the HTTP header holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  

@@ -1,11 +1,17 @@
 
 
 
-**Last document update**: January 12, 3:00 PM PST.
+**Last document update**: January 22, 3:00 PM PST.
 
 The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
 The infrastructure that runs Azure and isolates customer workloads from each other is protected.  This means that other customers running on Azure cannot attack your application using these vulnerabilities.
+
+> [!NOTE] 
+> Azure mitigations previously announced on Jan 3, 2018 are unaffected by the recent [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
+>
+> We will continue to update these best practices as we receive microcode updates from hardware vendors. Please check back for updated guidance.
+>
 
 ## Keeping your Operating Systems up-to-date
 
@@ -44,9 +50,6 @@ Follow [Windows Server KB4072698](https://support.microsoft.com/help/4072698/win
 ### Linux
 If you are using Linux and hosting untrusted code, you should also update Linux to a more recent version that implements kernel page-table isolation (KPTI) which separates the page tables used by the kernel from those belonging to user space. These mitigations require a Linux OS update and can be obtained from your distribution provider when available. Your OS provider can tell you whether protections are enabled or disabled by default.
 
-
-
-We will continue to update these best practices as we receive microcode updates from hardware vendors. Please check back for updated guidance.
 
 
 ## Next steps

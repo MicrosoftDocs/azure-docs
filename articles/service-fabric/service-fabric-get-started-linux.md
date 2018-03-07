@@ -141,10 +141,12 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 
 1. Install nodejs and NPM on your machine
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
@@ -167,7 +169,7 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
-  ```bash
+ ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```

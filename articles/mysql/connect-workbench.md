@@ -6,10 +6,10 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 01/24/2018
 ---
 
 # Azure Database for MySQL: Use MySQL Workbench to connect and query data
@@ -65,7 +65,9 @@ To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
         A new SQL tab opens with a blank editor where you can type your queries.
     
         > [!NOTE]
-        > By default, SSL connection security is required and enforced on your Azure Database for MySQL server. Although typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. For more information on how to download and bind the certification, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you need to disable SSL, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
+        > By default, SSL connection security is required and enforced on your Azure Database for MySQL server. Although typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. For more information on how to download and bind the certification, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  
+        > If you need to disable SSL, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button. 
+        > To disable the SSL option in MySQL workbench, edit the connection (wrench icon) on the home dashboard page, and on the SSL tab of the connection select **Use SSL** to **No**. If this SSL setting is misconfigured, you may receive an error message, "Lost connection to MySQL server at 'reading final connect information', system error: 0".
 
 ## Create a table, insert data, read data, update data, delete data
 1. Copy and paste the sample SQL code into a blank SQL tab to illustrate some sample data.

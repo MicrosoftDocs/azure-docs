@@ -3,7 +3,7 @@ title: Use a Linux VM MSI to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: daveba
 manager: mtillman
 editor: bryanla
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Use a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager

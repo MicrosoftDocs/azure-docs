@@ -160,6 +160,8 @@
   
   - name: Azure log integration
     href: security-center-integrating-alerts-with-log-integration.md
+  - name: Data export to SIEM
+    href: security-center-export-data-to-siem.md
   
   - name: Scenarios
     items:

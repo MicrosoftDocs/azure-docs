@@ -3,7 +3,7 @@ title: View Azure Application Insights app data | Microsoft Docs
 description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when monitored with Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 
-# Application Insights Connector solution (Preview) in Operations Management Suite (OMS)
+# Application Insights Connector management solution (Preview)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in OMS. However, when you integrate your Application Insights apps with OMS, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
+The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
 When you use the solution, you can:
 
 - View all your Application Insights apps in a one place, even when they are in different Azure subscriptions
 - Correlate infrastructure data with application data
 - Visualize application data with perspectives in log search
-- Pivot from Log Analytics data to your Application Insights app in the OMS and Azure portals
+- Pivot from Log Analytics data to your Application Insights app in the Azure portal
 
 ## Connected sources
 
@@ -60,8 +60,8 @@ In approximately 30 minutes, data becomes available and the Application Insights
 
 Other points to keep in mind:
 
-- You can only link Application Insights apps to one OMS workspace.
-- You can only link [Standard or Premium Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to OMS Log Analytics. However, you can use the Free tier of Log Analytics.
+- You can only link Application Insights apps to one Log Analytics workspace.
+- You can only link [Standard or Premium Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to Log Analytics. However, you can use the Free tier of Log Analytics.
 
 ## Management packs
 
@@ -81,7 +81,7 @@ Click the **Application Insights** tile to open the **Application Insights** das
 
 The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Column** | **Description** |
 | --- | --- |
@@ -126,7 +126,7 @@ Perspective components are updated depending on the search query. This means tha
 
 ### Pivot to an app in the Azure portal
 
-Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the OMS portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in OMS search or you can pivot directly to the Application Insights app.
+Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the OMS portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
 
 To pivot, click the ellipses (**…**) that appears at the end of each line, and select **Open in Application Insights**.
 
@@ -137,7 +137,7 @@ To pivot, click the ellipses (**…**) that appears at the end of each line, and
 
 ### Sample-corrected data
 
-Application Insights provides *[sampling correction](../application-insights/app-insights-sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in OMS. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
+Application Insights provides *[sampling correction](../application-insights/app-insights-sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in Log Analytics. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
 
 Here is an example of sampling correction in a log search query:
 
@@ -159,7 +159,7 @@ The solution receives the following telemetry types of data from your connected 
 - Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Data is received by OMS from Application Insights as it becomes available.
+Data is received by Log Analytics from Application Insights as it becomes available.
 
 ## Output data
 

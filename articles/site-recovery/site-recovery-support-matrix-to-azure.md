@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 
 ---
@@ -163,7 +163,7 @@ Multi-path (MPIO)<br></br>Tested with: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC
 VMDK | Yes | N/A
 VHD/VHDX | N/A | Yes
 Gen 2 VM | N/A | Yes
-EFI/UEFI| No | Yes
+EFI/UEFI| Migration to Azure for Windows Server 2012 and later only. </br></br> ** See note at the end of the table.  | Yes
 Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | No | N/A
@@ -177,6 +177,12 @@ Storage Spaces | No | Yes
 Hot add/remove disk | No | No
 Exclude disk | Yes | Yes
 Multi-path (MPIO) | N/A | Yes
+
+> [!NOTE]
+> ** UEFI boot VMware virtual machines or Physical servers running Windows Server 2012 or later, can be migrated to Azure. Following restrictions apply.
+> - Migration to Azure only. Failback to on-premises VMware site not supported.
+> - No more than 4 partitions are supported on the OS disk of the server.
+> - Requires Azure Site Recovery Mobility service version 9.13 or later.
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
 --- | --- | ---

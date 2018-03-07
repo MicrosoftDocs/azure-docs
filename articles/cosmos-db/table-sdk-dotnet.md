@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/31/2018
 ms.author: mimig
 
 ---
@@ -37,6 +37,10 @@ ms.author: mimig
 >
 
 ## Release notes
+
+### <a name="1.1.0"/>1.1.0
+* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism and TableQueryContinuationTokenLimitInKb to TableRequestOptions
+* Bug Fixes
 
 ### <a name="1.0.0"/>1.0.0
 * General availability release

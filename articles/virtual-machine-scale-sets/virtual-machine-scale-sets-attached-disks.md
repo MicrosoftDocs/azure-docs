@@ -25,14 +25,14 @@ Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now suppo
 >  When you create a scale set with attached data disks defined, you still need to mount and format the disks from within a VM to use them (just like for standalone Azure VMs). A convenient way to complete this process is to use a custom script extension that calls a standard script to partition and format all the data disks on a VM.
 
 ## Create a scale set with attached data disks
-A simple way to create a scale set with attached disks is to use the [az vmss create](/cli/azure/vmss#create) command. The following example creates an Azure resource group, and a virtual machine scale set of 10 Ubuntu VMs, each with 2 attached data disks, of 50 GB and 100 GB respectively.
+A simple way to create a scale set with attached disks is to use the [az vmss create](/cli/azure/vmss#az_vmss_create) command. The following example creates an Azure resource group, and a virtual machine scale set of 10 Ubuntu VMs, each with 2 attached data disks, of 50 GB and 100 GB respectively.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-The [az vmss create](/cli/azure/vmss#create) command defaults certain configuration values if you do not specify them. To see the available options that you can override try:
+The [az vmss create](/cli/azure/vmss#az_vmss_create) command defaults certain configuration values if you do not specify them. To see the available options that you can override try:
 
 ```bash
 az vmss create --help

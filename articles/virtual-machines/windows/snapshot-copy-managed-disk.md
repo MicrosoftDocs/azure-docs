@@ -39,7 +39,7 @@ The following steps show you how to get the VHD disk to be copied, create the sn
 Make sure that you have the latest version of the AzureRM.Compute PowerShell module installed. Run the following command to install it.
 
 ```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 

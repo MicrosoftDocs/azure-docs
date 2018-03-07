@@ -27,7 +27,9 @@ ms.custom: mvc
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine.
+You can follow the steps in this tutorial using a Mac, Windows, or Linux machine.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -35,8 +37,6 @@ To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 * <a href="https://nodejs.org/" target="_blank">Install Node.js and NPM</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -87,6 +87,8 @@ Browse to your newly created web app. Replace _&lt;app name>_ with your web app 
 ```bash
 http://<app name>.azurewebsites.net
 ```
+
+Here is what your new web app should look like:
 
 ![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
 

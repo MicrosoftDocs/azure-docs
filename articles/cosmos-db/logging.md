@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/29/2018
 ms.author: mimig
 
 ---
@@ -27,7 +27,7 @@ Use this tutorial to get started with Azure Cosmos DB logging via the Azure port
 
 ## What is logged?
 
-* All authenticated REST SQL API requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests. Support for MongoDB, Graph, and Table APIs is not currently available.
+* All authenticated backend requests (TCP/REST), across all APIs, are logged, which includes failed requests as a result of access permissions, system errors, or bad requests. Support for user initiated Graph, Cassandra, and Table API requests are not currently available.
 * Operations on the database itself, which includes CRUD operations on all documents, containers, and databases.
 * Operations on account keys, which include creating, modifying, or deleting these keys.
 * Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.
@@ -51,8 +51,8 @@ To complete this tutorial, you must have the following resources:
     * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow instructions to create a Resource Manager, general-purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
     * **Send to Log Analytics**.     To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
-    * **Log DataPlaneRequests**. Select this option to log diagnostics for SQL, Graph, and Table API accounts. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
-    * **Log MongoRequests**. Select this option to log diagnostics for MongoDB API accounts. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
+    * **Log DataPlaneRequests**. Select this option to log backend requests from Azure Cosmos DB’s underlying distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
+    * **Log MongoRequests**. Select this option to log user initiated requests from Azure Cosmos DB’s front end for serving MongoDB API accounts.  If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
     * **Metric Requests**. Select this option to store verbose data in [Azure Metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md). If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
 
 3. Click **Save**.

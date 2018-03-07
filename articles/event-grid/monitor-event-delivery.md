@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
 ---
 

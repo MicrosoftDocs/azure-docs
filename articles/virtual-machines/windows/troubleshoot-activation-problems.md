@@ -16,11 +16,20 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ---
+
 # Troubleshoot Azure Windows virtual machine activation problems
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 If you have trouble when activating Azure Windows virtual machine (VM) that is created from a custom image, you can use the information provided in this document to troubleshoot the issue. 
+
+## Understanding Azure KMS endpoints for Windows product activation of Azure Virtual Machines
+Azure uses different endpoints for KMS activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
+
+* Azure public cloud regions: kms.core.windows.net:1688
+* Azure China national cloud regions: kms.core.chinacloudapi.cn:1688
+* Azure Germany national cloud regions: kms.core.cloudapi.de:1688
+* Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
 ## Symptom
 

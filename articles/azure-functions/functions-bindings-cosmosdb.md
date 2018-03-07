@@ -382,7 +382,7 @@ Here's the binding data in the *function.json* file:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -421,7 +421,7 @@ Here's the binding data in the *function.json* file:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -744,6 +744,12 @@ By default, when you write to the output parameter in your function, a document 
 
 > [!Note]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document. 
+
+## Exceptions and return codes
+
+| Binding | Reference |
+|---|---|
+| DocumentDB | [DocumentDB Error Codes](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## Next steps
 

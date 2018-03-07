@@ -62,6 +62,8 @@ At the bottom of the output, you will see the container's provisioning state and
         }
       ]
     },
+    "location:": "eastus",
+    "name": "mycontainer",
     "osType": "Linux",
     "provisioningState": "Succeeded"
 ...

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;fashah;garye
+ms.author: bradsev;garye
 
 ---
 # Create features for data in SQL Server using SQL and Python

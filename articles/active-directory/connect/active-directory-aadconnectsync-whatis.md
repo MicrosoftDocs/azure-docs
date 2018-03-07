@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Understand and customize synchronization | Micros
 description: Explains how Azure AD Connect sync works and how to customize.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -22,7 +22,7 @@ The Azure Active Directory Connect synchronization services (Azure AD Connect sy
 
 This topic is the home for **Azure AD Connect sync** (also called **sync engine**) and lists links to all other topics related to it. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**. 
+The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**.
 
 ## Azure AD Connect sync topics
 | Topic | What it covers and when to read |
@@ -46,6 +46,7 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 | [Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) |Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
 | [Device writeback](active-directory-aadconnect-feature-device-writeback.md) |Describes how device writeback works in Azure AD Connect. |
 | [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |Describes how to extend the Azure AD schema with your own custom attributes. |
+| [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Describes how to put the user's Office 365 resources in the same region as the user. |
 | **Sync Service** | |
 | [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md) |Describes the sync service side and how to change sync settings in Azure AD. |
 | [Duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Describes how to enable and use **userPrincipalName** and **proxyAddresses** duplicate attribute values resiliency. |
@@ -61,4 +62,3 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 
 ## Additional Resources
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

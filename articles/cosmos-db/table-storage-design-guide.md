@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: storage
+ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
 

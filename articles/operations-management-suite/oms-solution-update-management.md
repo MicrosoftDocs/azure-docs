@@ -1,5 +1,5 @@
 ---
-title: Update Management solution in OMS | Microsoft Docs
+title: Update Management solution in Azure | Microsoft Docs
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: operations-management-suite
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.date: 12/01/2017
 ms.author: magoedte;eslesar
 
 ---
-# Update Management solution in OMS
+# Update Management solution in Azure
 
 ![Update Management symbol](./media/oms-solution-update-management/update-management-symbol.png)
 
-The Update Management solution in OMS allows you to manage operating system security updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers.  You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+The Update Management solution in Azure allows you to manage operating system security updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers.  You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 ## Update management in Azure Automation
 
@@ -46,13 +46,13 @@ The following diagrams shows a conceptual view of the behavior and data flow wit
 #### Linux
 ![Linux update management process flow](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-After the computer performs a scan for update compliance, the OMS agent forwards the information in bulk to OMS. On a Window computer, the compliance scan is performed every 12 hours by default.  In addition to the scan schedule, the scan for update compliance is  initiated within 15 minutes if the Microsoft Monitoring Agent (MMA) is restarted, prior to update installation, and after update installation.  With a Linux computer, the compliance scan is performed every 3 hours by default, and a compliance scan is initiated within 15 minutes if the MMA agent is restarted.  
+After the computer performs a scan for update compliance, the OMS agent forwards the information in bulk to Log Analytics. On a Window computer, the compliance scan is performed every 12 hours by default.  In addition to the scan schedule, the scan for update compliance is  initiated within 15 minutes if the Microsoft Monitoring Agent (MMA) is restarted, prior to update installation, and after update installation.  With a Linux computer, the compliance scan is performed every 3 hours by default, and a compliance scan is initiated within 15 minutes if the MMA agent is restarted.  
 
 The compliance information is then processed and summarized in the dashboards included in the solution or searchable using user-defined or pre-defiend queries.  The solution reports how up-to-date the computer is based on what source you are configured to synchronize with.  If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows.  The same for Linux computers that are configured to report to a local repo versus a public repo.   
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment.  Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates.  The scheduled deployment defines what target computers will receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers.  You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within.  Updates are installed by runbooks in Azure Automation.  You cannot view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each agent that performs installation of required updates.       
 
-At the date and time specified in the update deployment, the target computers executes the deployment in parallel.  A scan is first performed to verify the updates are still required and installs them.  It is important to note for WSUS client computers, if the updates are not approved in WSUS, the update deployment will fail.  The results of the applied updates are forwarded to OMS to be processed and summarized in the dashboards or by the searching the events.     
+At the date and time specified in the update deployment, the target computers executes the deployment in parallel.  A scan is first performed to verify the updates are still required and installs them.  It is important to note for WSUS client computers, if the updates are not approved in WSUS, the update deployment will fail.  The results of the applied updates are forwarded to Log Analytics to be processed and summarized in the dashboards or by the searching the events.     
 
 ## Prerequisites
 * The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2008 R2 SP1 and higher.  Nano Server is not supported.
@@ -76,7 +76,7 @@ At the date and time specified in the update deployment, the target computers ex
 * Linux agents must have access to an update repository.  
 
     > [!NOTE]
-    > An OMS Agent for Linux configured to report to multiple OMS workspaces is not supported with this solution.  
+    > An OMS Agent for Linux configured to report to multiple Log Analytics workspaces is not supported with this solution.  
     >
 
 For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux).  For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).  
@@ -88,7 +88,7 @@ In order to create update deployments, you need to be granted the contributor ro
 This solution consists of the following resources that are added to your Automation account and directly connected agents or Operations Manager connected management group.
 
 ### Management packs
-If your System Center Operations Manager management group is connected to an OMS workspace,  the following management packs are installed in Operations Manager.  These management packs are also installed on directly connected Windows computers after adding this solution. There is nothing to configure or manage with these management packs.
+If your System Center Operations Manager management group is connected to a Log Analytics workspace,  the following management packs are installed in Operations Manager.  These management packs are also installed on directly connected Windows computers after adding this solution. There is nothing to configure or manage with these management packs.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -97,34 +97,31 @@ If your System Center Operations Manager management group is connected to an OMS
 For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ### Hybrid Worker groups
-After you enable this solution, any Windows computer directly connected to your OMS workspace is automatically configured as a Hybrid Runbook Worker to support the runbooks included in this solution.  For each Windows computer managed by the solution, it will be listed under the Hybrid Runbook Worker Groups blade of the Automation account following the naming convention *Hostname FQDN_GUID*.  You cannot target these groups with runbooks in your account, otherwise they will fail. These groups are only intended to support the management solution.   
+After you enable this solution, any Windows computer directly connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker to support the runbooks included in this solution.  For each Windows computer managed by the solution, it will be listed under the Hybrid Runbook Worker Groups blade of the Automation account following the naming convention *Hostname FQDN_GUID*.  You cannot target these groups with runbooks in your account, otherwise they will fail. These groups are only intended to support the management solution.   
 
 You can however, add the Windows computers to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.  
 
 ## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and confirm agents are reporting. Windows agents already connected to your workspace are added automatically with no additional configuration.
+Perform the following steps to add the Update Management solution to your Log Analytics workspace and confirm agents are reporting. Windows agents already connected to your workspace are added automatically with no additional configuration.
 
-You can deploy the solution using the following methods:
+You can deploy the solution from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution
 
-* From Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution
-* From the OMS Solutions Gallery in your OMS workspace
+If you already have an Automation account and Log Analytics workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your Log Analytics workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md).  
 
-If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
+### Confirm OMS agents and Operations Manager management group connected to Log Analytics
 
-### Confirm OMS agents and Operations Manager management group connected to OMS
-
-To confirm directly connected OMS Agent for Linux and Windows are communicating with OMS, after a few minutes you can run the following log search:
+To confirm directly connected OMS Agent for Linux and Windows are communicating with Log Analytics, after a few minutes you can run the following log search:
 
 * Linux - `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
 
 * Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-On a Windows computer, you can review the following to verify agent connectivity with OMS:
+On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
 1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
-2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector.  These events indicate the computer has registered with the OMS workspace and is receiving configuration.  
+2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector.  These events indicate the computer has registered with the Log Analytics workspace and is receiving configuration.  
 
-If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agent.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
+If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agent.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > If your Linux systems are configured to communicate with a proxy or OMS Gateway and you are onboarding this solution, please update the *proxy.conf* permissions to grant the omiuser group read permission on the file by performing the following commands:  
@@ -134,7 +131,7 @@ If the agent is not able to communicate with the OMS service and it is configure
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed.  This process can take up to 6 hours.
 
-To confirm an Operations Manager management group is communicating with OMS, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Data collection
 ### Supported agents
@@ -144,7 +141,7 @@ The following table describes the connected sources that are supported by this s
 | --- | --- | --- |
 | Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
 | Linux agents |Yes |The solution collects information about system updates from Linux agents and initiates installation of required updates on supported distros. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository. |
+| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
 | Azure storage account |No |Azure storage does not include information about system updates. |
 
 ### Collection frequency
@@ -153,7 +150,7 @@ For each managed Windows computer, a scan is performed twice per day. Every 15 m
 It can take anywhere from 30 minutes up to 6 hours for the dashboard to display updated data from managed computers.   
 
 ## Using the solution
-When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
+When you add the Update Management solution to your Log Analytics workspace, the **Update Management** tile will be added to your Log Analytics dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
 ![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
@@ -218,7 +215,7 @@ By default, the scope of the data analyzed in the Update Management solution is 
 To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.
 
 ## Log Analytics records
-The Update Management solution creates two types of records in the OMS repository.
+The Update Management solution creates two types of records in the Log Analytics workspace.
 
 ### Update records
 A record with a type of **Update** is created for each update that is either installed or needed on each computer. Update records have the properties in the following table.
@@ -315,7 +312,7 @@ The following table provides sample log searches for update records collected by
 
 Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on it's strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
-To learn how to integrate the OMS Update Management solution with Sytem Center Configuration Manager, see [Integrate System Center Configuration Manager with OMS Update Management](../automation/oms-solution-updatemgmt-sccmintegration.md).
+To learn how to integrate the OMS Update Management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with OMS Update Management](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## Troubleshooting
 
@@ -333,7 +330,7 @@ If you encounter issues while attempting to onboard the solution or a virtual ma
 | Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has<br>read access to folder:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### How do I troubleshoot update deployments?
-You can view the results of the runbook responsible for deploying the updates included in the scheduled update deployment from the Jobs blade of your Automation account that is linked with the OMS workspace supporting this solution.  The runbook **Patch-MicrosoftOMSComputer** is a child runbook that targets a specific managed computer, and reviewing the verbose Stream will present detailed information for that deployment.  The output will display which required updates are applicable, download status, installation status, and additional details.<br><br> ![Update Deployment job status](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+You can view the results of the runbook responsible for deploying the updates included in the scheduled update deployment from the Jobs blade of your Automation account that is linked with the Log Analytics workspace supporting this solution.  The runbook **Patch-MicrosoftOMSComputer** is a child runbook that targets a specific managed computer, and reviewing the verbose Stream will present detailed information for that deployment.  The output will display which required updates are applicable, download status, installation status, and additional details.<br><br> ![Update Deployment job status](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 For further information, see [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md).   
 

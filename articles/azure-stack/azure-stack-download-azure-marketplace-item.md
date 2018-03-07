@@ -3,29 +3,30 @@ title: Download marketplace items from Azure | Microsoft Docs
 description: I can download marketplace items from Azure to my Azure Stack deployment.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns  
+manager: femila
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
+ms.date: 01/30/2018
+ms.author: brenduns
 
 ---
 # Download marketplace items from Azure to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
+
 As you decide what content to include in your Azure Stack marketplace, you should consider the content available from the Azure marketplace. You can download from a curated list of Azure marketplace items that have been pre-tested to run on Azure Stack. New items are frequently added to this list, so make sure to check back for new content.
 
 ## Download marketplace items in a connected scenario (with internet connectivity)
 
-1. To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md). 
+1. To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md).
 2. Sign in to the Azure Stack administrator portal (https://portal.local.azurestack.external).
 3. Some marketplace items can be large. Check to make sure you have enough space on your system by clicking **Resource Providers** > **Storage**.
 
@@ -48,7 +49,7 @@ As you decide what content to include in your Azure Stack marketplace, you shoul
 
 ## Download marketplace items in a disconnected or a partially connected scenario (with limited internet connectivity)
 
-When you deploy Azure Stack in a disconnected mode (without any internet connectivity), you can’t download marketplace items by using the Azure Stack portal. However, you can use the marketplace syndication tool to download the marketplace items to a machine that has internet connectivity and then transfer them to your Azure Stack environment. 
+When you deploy Azure Stack in a disconnected mode (without any internet connectivity), you can’t download marketplace items by using the Azure Stack portal. However, you can use the marketplace syndication tool to download the marketplace items to a machine that has internet connectivity and then transfer them to your Azure Stack environment.
 
 ### Prerequisites
 Before you can use the marketplace syndication tool, make sure that you have [registered Azure Stack with your Azure Subscription](azure-stack-register.md).  
@@ -129,12 +130,12 @@ From the machine that has internet connectivity, use the following steps to down
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. Use portal to upload your Marketplace item (.Azpkg) to Azure Stack Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible and note the URI.  
 
-5. Publish the marketplace item to Azure Stack by using the **Add-AzureRMGalleryItem**. For example:
+5. Publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem**. For example:
 
    ```powershell
    Add-AzsGalleryItem `
