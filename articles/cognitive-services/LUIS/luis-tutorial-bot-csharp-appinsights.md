@@ -121,8 +121,16 @@ The ApplicationInsights package is now in the project and configured correctly f
 
     The rest of the tutorial is completed in the Azure portal. Close Visual Studio 2017. 
 
-## Capture and send LUIS query results to Application Insights
-1. In the App Service Editor browser tab, open the **BasicLuisDialog.cs** file.
+## Open three browser tabs
+In the Azure portal, find the web app bot and open it. The following steps use three different views of the web app bot. It may be easier to have three separate tabs open in the browser: 
+  
+>  * Test in Web Chat
+>  * Build/Open online code editor -> App Service Editor
+>  * App Service Editor/Open Kudu console -> Diagnostic Console
+
+## Modify BasicLuisDialog.cs code
+
+1. In the **App Service Editor** browser tab, open the **BasicLuisDialog.cs** file.
 
 2. Add the following NuGet dependency under the existing `using` lines:
 
@@ -136,13 +144,36 @@ The ApplicationInsights package is now in the project and configured correctly f
 
    [!code-csharp[Add the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=61-92 "Add the LogToApplicationInsights function")]
 
-    The last line of the function is where the data is added to Application Insights. The event's name is **LUIS-results**, a unique name apart from any other telemetry data collected by this web app bot. 
+    The last line of the function is where the data is added to Application Insights. The trace's name is `LUIS`, a unique name apart from any other telemetry data collected by this web app bot. All the properties are also prefixed with `LUIS_` so you can see what this tutorial added compared to information that is given by Application Insights.
 
 5. Use the **appInsightsLog** function. You add it to every intent dialog:
 
    [!code-csharp[Use the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=114-115 "Use the appInsightsLog function")]
 
-6. To test your web app bot, use the **Test in Web Chat** feature. You should see no difference because all the work is in Application Insights, not in the bot responses.
+## Build web app bot
+1. Build the web app bot in one of two way. Method one is to right-click on build.cmd in the **App Service Editor**, then select **Run from Console**. The output of the console displays and should complete with `Finished successfully.`
+
+2. If this doesn't happen, you need to open the console, navigate to the build.cmd script and run it. In the **App Service Editor**, on the top blue bar, select the name of your bot, then select **Open Kudu Console** in the drop-down list.
+
+    ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/open-kudu-console.png)
+
+3. In the console window enter the following command.
+
+    ```
+    cd site\wwwroot && build.cmd
+    ```
+
+    Wait for the build to complete with `Finished successfully.`
+
+## Test web app bot in Azure Portal
+
+1. To test your web app bot, open the **Test in Web Chat** feature in the portal. 
+
+2. Enter the phrase `Coffee bar on please`. This phrase has a couple of entities. 
+
+    ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/test-in-web-chat.png)
+
+3. You should see no difference because all the work is in Application Insights, not in the bot responses.
 
 ## View LUIS entries in Application Insights
 Open Application Insights to see the LUIS entries. 
