@@ -23,14 +23,14 @@ This feature is currently in preview
 Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Profiler is now available for ASP.NET core web apps hosted in Linux on App Services. This guide provides step-by-step instruction on how profiler traces can be collected for ASP.NET core Linux web apps.
 
 ## Pre-requisites
-Instructions below applied to all of Windows, Linux and Mac environments:
+Instructions below applied to all of Windows, Linux, and Mac environments:
 
 * Install [.NET core SDK 2.1.2 or later](https://www.microsoft.com/net/download/windows/build)
 * Install Git following instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ## Setup project locally
 
-1. Open command prompt on your machine. The instructions below works for all of Windows, Linux and Mac environments.
+1. Open commands prompt on your machine. The instructions below works for all of Windows, Linux, and Mac environments.
 
 2. Create an ASP.NET core MVC web application
 ```
@@ -42,7 +42,7 @@ dotnet new mvc -n ServiceProfilerE2E
 ```
 dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -s https://saarsnuget.azurewebsites.net/nuget -v 1.1.0-beta1
 ```
-5. Add a line of code to delay 5 seconds in HomeController.cs
+5. Add a line of code to randomly delay a few seconds in HomeController.cs
 
 ```csharp
     public IActionResult Index()
@@ -64,7 +64,7 @@ dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -s https://
 
     ![Create deployment credentials](./media/app-insights-profiler-aspnetcore-linux/create-deployment-credentials.png)
 
-3. Choose deployment option. Setup a local Git repository in the web app following instructions on Azure portal. A Git repository will automatically be created.
+3. Choose deployment option. Set up a local Git repository in the web app following instructions on Azure portal. A Git repository will automatically be created.
 
     ![Setup Git repository](./media/app-insights-profiler-aspnetcore-linux/setup-git-repo.png)
 
@@ -77,8 +77,8 @@ More deployment options are available [here](https://docs.microsoft.com/en-us/az
 ```
 git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 ```
-* Use the 'username' from the step of "create deployment credential".
-* Use the 'app name' from the step of "create app service".
+* Use the 'username' from the step of "create deployment credential."
+* Use the 'app name' from the step of "create app service."
 
 2. Deploy the project by pushing the changes to Azure
 
@@ -114,10 +114,10 @@ remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
 
     ![Set app settings](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
 
-3. Generate some load to your HomeController method. You can run a load test, or simply refresh the site home page for a few times.
+3. Generate some load to your HomeController method. You can run a load test, or refresh the site home page for a few times.
 
 4. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
 
-5. Navigate to Performance blade in Application Insights portal. You will see profiler traces available in the bottom right corner.
+5. Navigate to Performance pane in Application Insights portal. You will see profiler traces available in the bottom right corner.
 
     ![View traces](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
