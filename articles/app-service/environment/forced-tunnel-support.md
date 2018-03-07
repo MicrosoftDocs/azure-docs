@@ -105,10 +105,11 @@ _To create your ASE with the egress addresses_: Follow the directions in [Create
       }
     ]
 
+These changes send traffic to Azure Storage directly from the ASE and allow access to the Azure SQL from additional addresses other than the VIP of the ASE.  
 
    ![Forced tunnel network flow][1]
 
-These changes send traffic to Azure Storage directly from the ASE and allow access to the Azure SQL from additional addresses other than the VIP of the ASE.  
+
 
 
 <!--IMAGES-->
