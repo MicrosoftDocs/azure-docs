@@ -80,4 +80,4 @@ storvsc, vmbus, storflt, intelide, atapi.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a failover and failback for on-premises VMware VMs](tutorial-vmware-to-azure-failover-failback.md).
+> [Run a failover and failback for on-premises VMware VMs](vmware-azure-tutorial-failover-failback.md).
