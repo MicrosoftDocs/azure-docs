@@ -174,7 +174,7 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchApplicationId = “ddbf3205-c6bd-46ae-8127-60eb93363864”
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
