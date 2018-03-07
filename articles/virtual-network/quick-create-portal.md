@@ -33,7 +33,15 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual network**.
-3. Enter or select the information show in the following picture, and then select **Create**. 
+3. Enter, or select, the following information and then select **Create**:
+    - **Name**: *myVirtualNetwork*
+    - **Address space**: Accept default. The address space is specified in CIDR notation.
+    - **Subscription**: Select your subscription
+    - **Resource group**: Select **Create new** and enter *myResourceGroup*
+    - **Location**: Select *East US**
+    - **Subnet, Name**: Accept default
+    - **Subnet, Address range**: Accept default
+    - **Service endpoints**: Accept default
 
     ![Enter basic information about your virtual network](./media/quick-create-portal/virtual-network.png)
 
@@ -43,21 +51,25 @@ A virtual network enables several types of Azure resources to communicate privat
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
-3. Enter virtual machine information shown in the picture that follows, and then select **OK**. The **User name** and **Password** you enter are used to log in to the virtual machine in a later step. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+3. Enter, or select, the following information, and then select **OK**:
+    - **Name**: *myVm1*
+    - **User name**: A user name of your choosing.
+    - **Password**: A password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+    - **Subscription**: Select your subscription
+    - **Resource group**: Select **Use existing** and select **myResourceGroup**
+    - **Location**: Select *East US**
 
     ![Enter basic information about a virtual machine](./media/quick-create-portal/virtual-machine-basics.png)
-4. Select a size for the virtual machine and then select **Select**. The sizes that appear for you may be different than the following example: 
-
-    ![Select a size for a virtual machine](./media/quick-create-portal/virtual-machine-size.png)
+4. Select a size for the virtual machine and then select **Select**.
 5. Under **Settings**, *myVirtualNetwork* should already be selected for **Virtual network**, but if it's not, select **Virtual network**, then select *myVirtualNetwork*. Leave *default* selected for **Subnet**, and then select **OK**.
 
     ![Select a virtual network](./media/quick-create-portal/virtual-machine-network-settings.png)
-6. On the **Summary** page, select **Create** to start the virtual machine deployment. 
+6. On the **Summary** page, select **Create** to start the virtual machine deployment. The virtual machine takes a few minutes to deploy. 
 7. Complete steps 1-6 again, but in step 3, name the virtual machine *myVm2*.
 
 ## Connect to a virtual machine
 
-1. Remotely connect to the *myVm1* virtual machine. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, select it. Select the **Connect** button.
+1. After *myVm1* is created, remotely connect to it. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, select it. Select the **Connect** button.
 
     ![Virtual machine overview](./media/quick-create-portal/virtual-machine-overview.png)
 
