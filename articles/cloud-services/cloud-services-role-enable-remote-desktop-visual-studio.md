@@ -87,7 +87,8 @@ To use the RDP extension from Visual Studio Team Services, include the following
 1. Include `/p:ForceRDPExtensionOverPlugin=true` in your MSBuild arguments to make sure the deployment works with the RDP extension rather than the RDP plugin. For example:
 
     ```
-    msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None /p:SkipInvalidConfigurations=true /p:ForceRDPExtensionOverPlugin=true
+    msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
+        /p:SkipInvalidConfigurations=true /p:ForceRDPExtensionOverPlugin=true
     ```
 
 1. After your build steps, add the **Azure Cloud Service Deployment** step and set its properties.
@@ -96,7 +97,7 @@ To use the RDP extension from Visual Studio Team Services, include the following
 
 1. Set **Script Type** to "Inline" and paste the code below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
 
-    ```ps
+    ```ps1
     Param(
         [Parameter(Mandatory=$True)]
         [string]$username,
