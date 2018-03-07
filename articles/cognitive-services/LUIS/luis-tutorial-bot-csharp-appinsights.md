@@ -82,11 +82,9 @@ Configure the Visual Studio solution to know about Application Insights.
 
     ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
 
-3. Register your app with Application Insights. You may have to use your Azure portal credentials. 
+3. Register your app with Application Insights. You may have to enter your Azure portal credentials. 
 
-    ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
-
-    Visual Studio adds Application Insights to the project, displaying status as it does this. 
+4. Visual Studio adds Application Insights to the project, displaying status as it does this. 
 
     ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-adding-application-insights-to-project.png)
 
@@ -94,30 +92,32 @@ Configure the Visual Studio solution to know about Application Insights.
 
     ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configured-application-insights-to-project.png)
 
-    The **Enable trace collection** is red, meaning it is not enabled. This tutorial doesn't use this feature. 
+    The **Enable trace collection** is red, meaning it is not enabled. This tutorial doesn't use the feature. 
 
 ### Build and resolve errors
 
-1. Build the solution. Select **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
+1. Build the solution. Select the **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
 
-2. If the build fails with `CS0104` errors, in the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. 
-
-    Change the name Activity on lines 22 and 36 from `Activity` to `Connector.Activity`. Build the solution again. There should be no more build errors.
+2. If the build fails with `CS0104` errors, in the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. Change the name `Activity` on lines 22 and 36 from `Activity` to `Connector.Activity`. Build the solution again. There should be no more build errors.
 
     The full source of that file follows:
 
     [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
 
-### Publish project back to Azure
-The ApplicationInsights package is now in the project and configured correctly for your credentials in the Azure portal. The changes for the project need to be published back to Azure.
+### Publish project to Azure
+The **ApplicationInsights** package is now in the project and configured correctly for your credentials in the Azure portal. The changes for the project need to be published back to Azure.
 
 1. In the **Solution Explorer**, right-click the project name, then select **Publish**.
 
     ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish.png)
 
 2. In the **Publish** window, select **Create new profile**.
+
 3. Select **Import profile**, and select **OK**.
-4. In the **Import Publish Settings File** windows, navigate to your project folder, navigate to the `PostDeployScripts` folder, select the file that ends in `.PublishSettings`, and select `Open`.You have now configured publishing for this project. 5. Publish your local source code to Bot Service: select the **Publish** button. The **Output** window shows status. 
+
+4. In the **Import Publish Settings File** windows, navigate to your project folder, navigate to the `PostDeployScripts` folder, select the file that ends in `.PublishSettings`, and select `Open`. You have now configured publishing for this project. 
+
+5. Publish your local source code to Bot Service: select the **Publish** button. The **Output** window shows status. 
 
     The rest of the tutorial is completed in the Azure portal. Close Visual Studio 2017. 
 
@@ -151,9 +151,9 @@ In the Azure portal, find the web app bot and open it. The following steps use t
    [!code-csharp[Use the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=114-115 "Use the appInsightsLog function")]
 
 ## Build web app bot
-1. Build the web app bot in one of two way. Method one is to right-click on build.cmd in the **App Service Editor**, then select **Run from Console**. The output of the console displays and should complete with `Finished successfully.`
+1. Build the web app bot in one of two ways. The first method is to right-click on `build.cmd` in the **App Service Editor**, then select **Run from Console**. The output of the console displays and completes with `Finished successfully.`
 
-2. If this doesn't happen, you need to open the console, navigate to the build.cmd script and run it. In the **App Service Editor**, on the top blue bar, select the name of your bot, then select **Open Kudu Console** in the drop-down list.
+2. If this doesn't complete successfully, you need to open the console, navigate to the `build.cmd` script and run it using the following steps. In the **App Service Editor**, on the top blue bar, select the name of your bot, then select **Open Kudu Console** in the drop-down list.
 
     ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/open-kudu-console.png)
 
@@ -173,24 +173,30 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
     ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/test-in-web-chat.png)
 
-3. You should see no difference because all the work is in Application Insights, not in the bot responses.
+3. You see no difference because all the work is in Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
+
+```
+Please deliver a pizza
+Turn off all the lights
+Turn on the hall light
+```
 
 ## View LUIS entries in Application Insights
 Open Application Insights to see the LUIS entries. 
 
 1. In the portal, select **All resources** then filter by the web app bot name. Click on the resource with the type **Application Insights**. The icon for Application Insights is a light bulb. 
 
-    ![Search for app insights](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ![Search for app insights](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 
 
-2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. Search for `LUIS-results` and hit enter on the keyboard. The list is narrowed to just LUIS query results added with this tutorial.
+2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. Search for `LUIS` and hit enter on the keyboard. The list is narrowed to just LUIS query results added with this tutorial.
 
-    ![Filter to dependencies](./media/luis-tutorial-appinsights/app-insights-filter.png)
+    ![Filter to dependencies](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace.png)
 
 3. Select the top entry. A new window displays more detailed data including the custom data for the LUIS query at the far-right. The data includes the top intent, and its score.
 
-    ![Dependency details](./media/luis-tutorial-appinsights/app-insights-detail.png)
+    ![Dependency details](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace-item.png)
 
     When you are done, select the far-right top **X** to return to the list of dependency items. 
 
@@ -203,23 +209,23 @@ Application Insights gives you the power to query the data with the [Kusto](http
 
 1. Click on **Analytics** at the top of the dependency listing, above the filter box. 
 
-    ![Analytics button](./media/luis-tutorial-appinsights/analytics-button.png)
+    ![Dependency details](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-analytics-button.png)
 
-2. A new window opens with a query window at the top and a data table window below that. If you have used databases before, this arrangement is familiar. The query includes all items from the last 24 hours beginning with the name `LUIS-results`. The **CustomDimensions** column has the LUIS query results as name/value pairs.
+2. A new window opens with a query window at the top and a data table window below that. If you have used databases before, this arrangement is familiar. The query includes all items from the last 24 hours beginning with the name `LUIS`. The **CustomDimensions** column has the LUIS query results as name/value pairs.
 
-    ![Analytics query window](./media/luis-tutorial-appinsights/analytics-query-window.png)
+    ![Dependency details](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-1.png)
 
 3. To pull out the top intent, score, and utterance, add the following just above the last line in the query window:
 
     ```SQL
-    | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
-    | extend score = todouble(customDimensions.LUIS_intent_score)
-    | extend utterance = tostring(customDimensions.LUIS_text)
+    | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
+    | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
+    | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
 4. Run the query. Scroll to the far right in the data table. The new columns of topIntent, score, and utterance are available. Click on the topIntent column to sort.
 
-    ![Analytics top intent](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
+    ![Dependency details](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
 
 Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
