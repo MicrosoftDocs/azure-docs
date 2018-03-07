@@ -47,18 +47,52 @@ Visual Studio 2017 is the tool to add Application Insights NuGet package to the 
 
 1. In the Azure portal, for the web app bot, select **Build**.
 
-    ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-build-menu.png)
+    ![Select Build in portal](./media/luis-tutorial-bot-csharp-appinsights/download-build-menu.png)
 
 2. Select **Download zip file** and wait until the file is prepared.
 
-    ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-link.png)
+    ![Download zip file](./media/luis-tutorial-bot-csharp-appinsights/download-link.png)
 
-3. Select **Download zip file** in the pop up window.
+3. Select **Download zip file** in the pop up window. Remember the location on your computer, you will need it in the next section.
 
     ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-popup.png)
 
 ### Open solution in Visual Studio 2017
+
+1. Extract the file into a folder. 
+
+2. Open Visual Studio 2017 and open the solution file, `Microsoft.Bot.Sample.LuisBot.sln`. If the security warning pops up, select "OK".
+
+    ![Open solution in Visual Studio 2017](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-security-warning.png)
+
+3. Visual Studio needs to add dependencies to the solution if they don't already exist. In the **Solution Explorer**, right-click on **References**, and select **Manage NuGet Packages...**. 
+
+    ![Manage NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
+
+4. The NuGet Package manager shows a list of installed packages. Select **Restore** in the yellow bar. Wait for restore process to finish.
+
+    ![Restore NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
+
 ### Add ApplicationInsights to project
+1. While the NuGet Package manager is still available, select **Browse**. Search for `Microsoft.ApplicationInsights`.
+
+    ![Browser NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages-application-insights.png)
+
+2. Install the `Microsoft.ApplicationInsights` package.
+
+    ![Browser NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages-application-insights-install.png)
+
+3. Select `OK` for **Preview Changes**.
+
+    ![Browser NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages-application-insights-install-preview-changes.png)
+
+### Build and resolve errors
+
+1. Build the solution. Select **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
+
+2. If the build fails with `CS0104` errors, in fix the ambiguous usage of `Activity` type by prefixing the Activity type with the 
+
+
 ### Publish project back to Azure
 
 
