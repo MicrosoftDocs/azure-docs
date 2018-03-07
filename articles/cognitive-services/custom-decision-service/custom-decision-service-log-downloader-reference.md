@@ -61,7 +61,7 @@ For a dry run of downloading all the data in your Azure Storage Blob container, 
 python LogDownloader.py -a your_app_id -l d:\data --dry_run
 ```
 
-To download only logs from January 1, 2018 and use `owerwrite_mode=4`, use the following code:
+To download only logs from January 1, 2018, and use `owerwrite_mode=4`, use the following code:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4
 ```
