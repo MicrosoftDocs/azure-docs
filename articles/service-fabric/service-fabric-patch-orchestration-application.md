@@ -135,6 +135,7 @@ Automatic Windows updates might lead to availability loss because multiple clust
 ## Download the app package
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
+
 Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=869567). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
