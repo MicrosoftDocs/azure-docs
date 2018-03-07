@@ -17,22 +17,17 @@ ms.date: 06/30/2017
 ms.author: mfussell
 
 ---
-# Configure security policies for your application
-By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
+# Run a service as a local user account or local system account
+By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is done by specifying a **RunAsPolicy** within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
-By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
+You can also define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
- When you're running Service Fabric on Windows Server in your datacenter by using the standalone installer, you can use Active Directory domain accounts, including group managed service accounts.
+> [!NOTE] 
+> If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy**.  For more information, see [Assign a security access policy for HTTP and HTTPS endpoints](service-fabric-assign-policy-to-endpoint.md). 
+>
 
-You can define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
-
-
-
-## Configure a policy for service code packages
-In the preceding steps, you saw how to apply a RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
-
-### Create local user groups
-You can define and create user groups that allow one or more users to be added to a group. This is useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following example shows a local group called **LocalAdminGroup** that has administrator privileges. Two users, Customer1 and Customer2, are made members of this local group.
+## Create local user groups
+You can define and create user groups that allow one or more users to be added to a group. This is useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following example shows a local group called **LocalAdminGroup** that has administrator privileges. Two users, Customer1 and Customer2, are made members of this local group in this application manifest example:
 
 ```xml
 <Principals>
@@ -58,8 +53,8 @@ You can define and create user groups that allow one or more users to be added t
 </Principals>
 ```
 
-### Create local users
-You can create a local user that can be used to help secure a service within the application. When a **LocalUser** account type is specified in the principals section of the application manifest, Service Fabric creates local user accounts on machines where the application is deployed. By default, these accounts do not have the same names as those specified in the application manifest (for example, Customer3 in the following sample). Instead, they are dynamically generated and have random passwords.
+## Create local users
+You can create a local user that can be used to help secure a service within the application. When a **LocalUser** account type is specified in the principals section of the application manifest, Service Fabric creates local user accounts on machines where the application is deployed. By default, these accounts do not have the same names as those specified in the application manifest (for example, Customer3 in the following application manifest example). Instead, they are dynamically generated and have random passwords.
 
 ```xml
 <Principals>
@@ -69,7 +64,7 @@ You can create a local user that can be used to help secure a service within the
 </Principals>
 ```
 
-If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true. The cluster manifest must also specify an NTLMAuthenticationPasswordSecret that is used to generate the same password across all machines.
+If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set **NTLMAuthenticationEnabled** to true. The cluster manifest must also specify an **NTLMAuthenticationPasswordSecret** that is used to generate the same password across all machines.
 
 ```xml
 <Section Name="Hosting">
@@ -79,7 +74,7 @@ If an application requires that the user account and password be same on all mac
  </Section>
 ```
 
-### Assign policies to the service code packages
+## Assign policies to the service code packages
 The **RunAsPolicy** section for a **ServiceManifestImport** specifies the account from the principals section that should be used to run a code package. It also associates code packages from the service manifest with user accounts in the principals section. You can specify this for the setup or main entry points, or you can specify `All` to apply it to both. The following example shows different policies being applied:
 
 ```xml
@@ -89,9 +84,9 @@ The **RunAsPolicy** section for a **ServiceManifestImport** specifies the accoun
 </Policies>
 ```
 
-If **EntryPointType** is not specified, the default is set to EntryPointType=”Main”. Specifying **SetupEntryPoint** is especially useful when you want to run certain high-privilege setup operations under a system account. The actual service code can run under a lower-privilege account.
+If **EntryPointType** is not specified, the default is set to `EntryPointType=”Main”`. Specifying **SetupEntryPoint** is especially useful when you want to run certain high-privilege setup operations under a system account. For more information, see [Run a service startup script as a local user or system account](service-fabric-run-script-at-service-startup.md). The actual service code can run under a lower-privilege account.
 
-### Apply a default policy to all service code packages
+## Apply a default policy to all service code packages
 You use the **DefaultRunAsPolicy** section to specify a default user account for all code packages that don’t have a specific **RunAsPolicy** defined. If most of the code packages that are specified in the service manifest used by an application need to run under the same user, the application can just define a default RunAs policy with that user account. The following example specifies that if a code package does not have a **RunAsPolicy** specified, the code package should run under the **MyDefaultAccount** specified in the principals section.
 
 ```xml
@@ -106,63 +101,6 @@ You need to be careful not to use the **same port** for different instances of t
 Hence Service Fabric does not support upgrading two different services using **the same port** in different application instances. In other words, you cannot use the same certificate on different services on the same port. If you need to have a shared certificate on the same port, you need to ensure that the services are placed on different machines with placement constraints. Or consider using Service Fabric dynamic ports if possible for each service in each application instance. 
 
 If you see an upgrade fail with https, an error warning saying "The Windows HTTP Server API does not support multiple certificates for applications that share a port.”
-
-## A complete application manifest example
-The following application manifest shows many of the different settings:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application3Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <Parameters>
-      <Parameter Name="Stateless1_InstanceCount" DefaultValue="-1" />
-   </Parameters>
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
-      <ConfigOverrides />
-      <Policies>
-         <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
-         <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup" />
-        <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
-         <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
-        <!--EndpointBindingPolicy is needed the EndpointName is secured with https -->
-        <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
-     </Policies>
-   </ServiceManifestImport>
-   <DefaultServices>
-      <Service Name="Stateless1">
-         <StatelessService ServiceTypeName="Stateless1Type" InstanceCount="[Stateless1_InstanceCount]">
-            <SingletonPartition />
-         </StatelessService>
-      </Service>
-   </DefaultServices>
-   <Principals>
-      <Groups>
-         <Group Name="LocalAdminGroup">
-            <Membership>
-               <SystemGroup Name="Administrators" />
-            </Membership>
-         </Group>
-      </Groups>
-      <Users>
-         <User Name="LocalAdmin">
-            <MemberOf>
-               <Group NameRef="LocalAdminGroup" />
-            </MemberOf>
-         </User>
-         <!--Customer1 below create a local account that this service runs under -->
-         <User Name="Customer1" />
-         <User Name="MyDefaultAccount" AccountType="NetworkService" />
-      </Users>
-   </Principals>
-   <Policies>
-      <DefaultRunAsPolicy UserRef="LocalAdmin" />
-   </Policies>
-   <Certificates>
-     <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
-  </Certificates>
-</ApplicationManifest>
-```
-
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps

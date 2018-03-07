@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.author: mfussell
 
 ---
@@ -24,11 +24,11 @@ By using Azure Service Fabric, you can secure applications that are running in t
 
 By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
- When you're running Service Fabric on Windows Server in your datacenter by using the standalone installer, you can use Active Directory domain accounts, including group managed service accounts.
+When you're running Service Fabric on a Windows standalone cluser, you can run a service under [Active Directory domain accounts](service-fabric-run-service-as-ad-user-or-group) or [group managed service accounts](service-fabric-run-service-as-gmsa.md).
 
 You can define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
-For an example, see [Run setup scripts at service startup](service-fabric-run-script-at-service-startup.md).
+For an example, see [Run a service startup script as a local user or system account](service-fabric-run-script-at-service-startup.md).
 
 ## Manage secrets
 Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. This article uses Azure Key Vault to manage keys and secrets. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere.
