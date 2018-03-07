@@ -1,5 +1,25 @@
+---
+title: Routing Coverage in Azure Location Based Services | Microsoft Docs
+description: Learn about Routing Coverage in Azure Location Based Services
+services: location-based-services
+keywords: 
+author: jinzh-azureiot
+ms.author: jinzh
+ms.date: 3/6/2018
+ms.topic: article
+ms.service: location-based-services
+
+documentationcenter: ''
+manager: cpendle
+ms.devlang: na
+ms.custom: mvc
+---
+
+
 
 # Azure Location Based Services - Routing Coverage
+
+This article provides coverage information for Azure Location Based Services Routing. 
 
 Check out coverage for [**Geocoding**](geocoding-coverage.md).       
 Check out coverage for [**Traffic**](traffic-coverage.md).  
@@ -15,7 +35,7 @@ Check out coverage for [**Render**](render-coverage.md).
 
 <br>  
 
-The following table provides coverage information for Azure LBS Routing.
+The following table provides coverage information for Azure Location Based Services Routing.
 <br>  
 
 | Region                         | Routing |
