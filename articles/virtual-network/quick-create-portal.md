@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a virtual network using the Azure portal
 
-In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them, and with the Internet.
+In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them, and with the internet.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -57,7 +57,7 @@ A virtual network enables several types of Azure resources to communicate privat
     - **Password**: A password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
     - **Subscription**: Select your subscription
     - **Resource group**: Select **Use existing** and select **myResourceGroup**
-    - **Location**: Select *East US**
+    - **Location**: Select *East US*
 
     ![Enter basic information about a virtual machine](./media/quick-create-portal/virtual-machine-basics.png)
 4. Select a size for the virtual machine and then select **Select**.
@@ -76,35 +76,36 @@ A virtual network enables several types of Azure resources to communicate privat
 2. After selecting the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
 3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select OK. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to proceed with the connection.
 
-## Test network communication
+## Test communication between VMs
 
-Attempting to ping a Windows virtual machine fails, because ping is not allowed through the Windows firewall, by default. To allow ping to *myVm1*, enter the following command from a command prompt:
+Ping, which uses ICMP is used to communicate between virtual machines. ICMP is not allowed through the Windows firewall, by default. To allow *myVm2* to ping *myVm1* in a later step, enter the following command from a command prompt:
 
 ```
 netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
 ```
 
-To validate communication with *myVm2*, enter the following command from a command prompt on the *myVm1* virtual machine. Provide the credentials you used when you created the virtual machine, and then complete the connection:
+Close the remote desktop connection to *myVm1*. Complete the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine), but connect to *myVm2*. From a command prompt enter `ping myvm1`.
 
-```
-mstsc /v:myVm2
-```
+You are able to successfully ping the *myVm1* virtual machine from the *myVm2* virtual machine because:
 
-The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet and because remote desktop is open through the Windows firewall, by default. From a command prompt, ping *myVm1*, from *myVm2*.
+- You allowed it through the Windows firewall on the *myVm1* virtual machine in a previous step
+- By default, Azure allows all network traffic between resources in the same virtual network 
 
-```
-ping myvm1
-```
+## Test communication to the internet
 
-Ping is successful because you allowed it through the Windows firewall on the *myVm1* virtual machine in a previous step. To confirm outbound communication to the Internet, enter the following command:
+While still connected to the *myVm2* virtual machine, enter `ping bing.com` from a command prompt.
 
-```
-ping bing.com
-```
+You receive four replies from bing.com. 
 
-You receive four replies from bing.com. By default, any virtual machine in a virtual network can communicate outbound to the Internet. 
+You are able to successfully ping an internet resource from the *myVm2* virtual machine, because any virtual machine can communicate outbound to the internet, by default.
 
 Exit the remote desktop session.
+
+## Test communication from the internet
+
+In the picture shown under step 1 in [Connect to a virtual machine](#connect-to-a-virtual-machine), you see a public IP address. In the picture, the address is *13.90.241.247*. The address for your virtual machine is different. Ping the public IP address of your *myVm1* virtual machine from your computer. Ping fails, even though ICMP is open through the Windows firewall.
+
+Ping fails because all traffic to Windows virtual machines, except remote desktop connections over port 3389, is denied by Azure, by default. 
 
 ## Clean up resources
 
@@ -116,7 +117,7 @@ When no longer needed, delete the resource group and all resources it contains:
 
 ## Next steps
 
-In this article, you deployed a default virtual network with one subnet and then deployed two virtual machines into the subnet. To learn how to create a custom virtual network with multiple subnets, continue to the tutorial for creating a virtual network with multiple subnets.
+In this article, you deployed a default virtual network and two virtual machines. To change the default traffic that Azure allows or denies between virtual machines and the internet, continue to the tutorial for filtering network traffic.
 
 > [!div class="nextstepaction"]
-> [Create a virtual network with multiple subnets](virtual-networks-create-vnet-arm-pportal.md)
+> [Filter network traffic](virtual-networks-create-nsg-arm-pportal)
