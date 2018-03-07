@@ -10,6 +10,8 @@
     href: installation.md
   - name: Configuring CycleCloud
     href: configuring_cyclecloud.md
+  - name: Installing CycleCloud CLI
+    href: install_cli.md
 - name: Quickstarts
   items:
   - name: Quickstart 1
