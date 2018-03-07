@@ -7,7 +7,7 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
 
 ---
@@ -69,7 +69,7 @@ To avoid impact on production workloads, test failover occurs in a network that'
 
 Most applications require the presence of a domain controller or a DNS server. Therefore, before the application fails over, you must create a domain controller in the isolated network to be used for test failover. The easiest way to do this is to use Site Recovery to replicate a virtual machine that hosts a domain controller or DNS. Then, run a test failover of the domain controller virtual machine before you run a test failover of the recovery plan for the application. Here's how you do that:
 
-1. Use Site Recovery to [replicate](site-recovery-replicate-vmware-to-azure.md) the virtual machine that hosts the domain controller or DNS.
+1. Use Site Recovery to [replicate](vmware-azure-tutorial.md) the virtual machine that hosts the domain controller or DNS.
 2. Create an isolated network. Any virtual network that you create in Azure is isolated from other networks by default. We recommend that you use the same IP address range for this network that you use in your production network. Don't enable site-to-site connectivity on this network.
 3. Provide a DNS IP address in the isolated network. Use the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, provide the IP address for the virtual machine that's used on failover. To enter the IP address, in the replicated virtual machine, in the **Compute and Network** settings, select the **Target IP** settings.
 

@@ -48,7 +48,7 @@ Managed Instance is being released initially as a gated public preview that requ
 
 ## Configure a virtual network (VNet)
 
-The following steps show you how to create a new [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNet) for use by your Managed Instance.
+The following steps show you how to create a new [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNet) for use by your Managed Instance. For more details about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Virtual Network**, verify the **Resource Manager** is selected as the deployment mode, and then click **Create**.
@@ -423,4 +423,6 @@ WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
 ## Next steps
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
-- For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS]../dms/tutorial-sql-server-to-managed-instance.md).
+- - For more details about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
+- For information about connecting apps, see [Connect applications](sql-database-managed-instance-connect-app.md).
+- For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
