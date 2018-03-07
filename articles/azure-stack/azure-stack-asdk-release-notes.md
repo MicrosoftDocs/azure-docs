@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: brenduns
 ms.reviewer: chjoy
 
@@ -25,7 +25,7 @@ ms.reviewer: chjoy
 
 These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](azure-stack-updates.md#determine-the-current-version).
 
-## Build 20180227.1
+## Build 20180302.1
 
 ### New features and fixes
 See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fixes) section of the Azure Stack 1802 update release notes for Azure Stack integrated systems.
@@ -57,7 +57,10 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 
     This alert can be safely ignored. 
 
- 
+#### Health and monitoring
+In the Azure Stack admin portal, you might see a critical alert with the name **Pending external certificate expiration**.  This alert can be safely ignored and does affect operations of the Azure Stack Development Kit. 
+
+
 #### Marketplace
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
  

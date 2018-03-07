@@ -283,7 +283,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 > [!NOTE]
-> When compilation is complete you may receive an error stating: `'The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.'` This warning can safely be ignored.
+> When compilation is complete you may receive an error stating: **The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.** This warning can safely be ignored.
 
 ## Importing node configurations
 

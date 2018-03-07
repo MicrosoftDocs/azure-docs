@@ -26,7 +26,7 @@ The steps to create a virtual network peering are different, depending on whethe
 
 |Azure deployment model  | Azure subscription  |
 |--------- |---------|
-|[Both Resource Manager](virtual-network-create-peering.md) |Same|
+|[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Same|
 |[One Resource Manager, one classic](create-peering-different-deployment-models.md) |Same|
 |[One Resource Manager, one classic](create-peering-different-deployment-models-subscriptions.md) |Different|
 
