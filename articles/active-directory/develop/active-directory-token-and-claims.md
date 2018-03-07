@@ -148,15 +148,15 @@ For a full list of claim validations your app should perform for ID Tokens, refe
 
 Refresh tokens can be invalidated or revoked at any time, for a variety of reasons.  These fall into two main categories: timeouts and revocations. 
 * Token Timeouts
-** MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
-** MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses.  
-** Examples:
-*** The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days.  The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
-*** A sesnsitive application has a MaxAgeSessionSingleFactor of 1 day.  If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate.  
+  * MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
+  * MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses.  
+  * Examples:
+    * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days.  The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
+    * A sesnsitive application has a MaxAgeSessionSingleFactor of 1 day.  If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate.  
 * Revocation
-** Voluntary Password Change: If a user changes their password, they may have to re-authenticate across some of their applications.  See notes below for exceptions. 
-** Involuntary Password Change: If an administrator forces a user to change their password or resets it, then the user's tokens are invalidated if they were attained using their password.  See notes below for exceptions. 
-** Security Breach: In the event of a security breach (e.g. the on-premises store of passwords is breached) the admin can revoke all of the refresh tokens currently issued.  This will force all users to re-authenticate. 
+  * Voluntary Password Change: If a user changes their password, they may have to re-authenticate across some of their applications.  See notes below for exceptions. 
+  * Involuntary Password Change: If an administrator forces a user to change their password or resets it, then the user's tokens are invalidated if they were attained using their password.  See notes below for exceptions. 
+  * Security Breach: In the event of a security breach (e.g. the on-premises store of passwords is breached) the admin can revoke all of the refresh tokens currently issued.  This will force all users to re-authenticate. 
 
 Notes: 
 * When the user changes their password voluntarily, they may have the option to choose a reason for the change - e.g. "I forgot my password" or "I think someone stole my credentials".  If they indicate that they simply forgot their password, they won't be forced to log-in everywhere again.  If they indicate a security risk, their tokens will be revoked. 
