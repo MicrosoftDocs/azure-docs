@@ -28,6 +28,8 @@ At the end of this tutorial, you will have these .NET console apps:
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
+> 
+> 
 
 To complete this tutorial you need the following:
 
