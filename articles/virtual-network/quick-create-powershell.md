@@ -166,4 +166,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 In this article, you deployed a default virtual network with one subnet. To learn how to create a custom virtual network with multiple subnets, continue to the tutorial for creating a custom virtual network.
 
 > [!div class="nextstepaction"]
-> [Create a custom virtual network](virtual-networks-create-vnet-arm-pportal.md#powershell)
+> [Create a custom virtual network](virtual-networks-create-vnet-arm-ps.md)

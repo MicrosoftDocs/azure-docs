@@ -144,7 +144,7 @@ To deploy the Azure VM Extension via PowerShell, you can use the following examp
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.3"
+$version = "9.4"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -177,7 +177,7 @@ An even easier way to ensure the the Dependency Agent is on each of your VMs is 
 "properties": {
 	"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
 	"type": "DependencyAgentWindows",
-	"typeHandlerVersion": "9.3",
+	"typeHandlerVersion": "9.4",
 	"autoUpgradeMinorVersion": true
 }
 
