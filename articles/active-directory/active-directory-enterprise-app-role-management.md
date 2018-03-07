@@ -59,15 +59,15 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	b. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
 	
-	1. `https://graph.microsoft.com/beta/servicePrincipals`
+	- `https://graph.microsoft.com/beta/servicePrincipals`
 		
-	2. If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
-	  
-	  ![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+	
+		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
 	
 	c. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
 	
-	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+	- `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
 	d. Extract the appRoles property from the service principal object.
 
@@ -79,11 +79,11 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
 	
-	1. Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
+	- Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
 		
-	2. After you have added all the required roles, click **Generate**
+	- After you have added all the required roles, click **Generate**
 		
-	3. Copy the content by clicking **Copy Content**
+	- Copy the content by clicking **Copy Content**
 
 	> [!NOTE] 
 	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
@@ -171,15 +171,15 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	c. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
 	
-	1. `https://graph.microsoft.com/beta/servicePrincipals`
+	- `https://graph.microsoft.com/beta/servicePrincipals`
 		
-	2. If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
-	  
-	  ![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+	
+		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
 	
 	d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
 	
-	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+	- `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 	
 	e. Extract the appRoles property from the service principal object.
 	
@@ -191,11 +191,11 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	g. If you want to add new roles, perform the following steps:
 	
-	1. Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
+	- Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
 	
-	2. After you have added all the required roles, click **Generate**
+	- After you have added all the required roles, click **Generate**
 	
-	3. Copy the content by clicking **Copy Content**
+	- Copy the content by clicking **Copy Content**
 	
 	> [!NOTE] 
 	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
@@ -206,9 +206,9 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	i. If you want to update the existing role, please follow below steps:
 
-	1. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y)
+	- Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y)
 	
-	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
+		![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
 	
 	2. Update the value of role by replacing the **Role description**, **Role value**, and **Role displayname** as per your organization requirement.
 	
@@ -228,15 +228,15 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	c. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
 	
-	1. `https://graph.microsoft.com/beta/servicePrincipals`
+	- `https://graph.microsoft.com/beta/servicePrincipals`
 	
-	2. If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
-	  
-	  ![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+	
+		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
 	
 	d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
 	 
-	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+	- `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 	
 	e. Extract the appRoles property from the service principal object.
 	
@@ -246,13 +246,13 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
 	
-	1. Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
+	- Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
 	
-	2. After you have added all the required roles, click **Generate**
+	- After you have added all the required roles, click **Generate**
 	
-	3. Set the **IsEnabled** value to **false** for the role which you want to delete
+	- Set the **IsEnabled** value to **false** for the role which you want to delete
 	
-	4. Copy the content by clicking **Copy Content**
+	- Copy the content by clicking **Copy Content**
 	
 	> [!NOTE] 
 	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
