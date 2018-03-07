@@ -1,6 +1,6 @@
 ---
 title: Sentiment analysis on streaming data using Azure Databricks | Microsoft Docs
-description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to perform sentiment analysis on data being streamed from Twitter. 
+description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to perform sentiment analysis on real-time streaming data. 
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -22,7 +22,7 @@ ms.author: nitinme
 
 # Sentiment analysis on streaming data using Azure Databricks
 
-In this tutorial, you learn how to perform sentiment analysis on a stream of tweets using Azure Databricks, Azure Events Hub, and Cognitive Services API.
+In this tutorial, In this tutorial, you learn how to perform sentiment analysis on a real-time stream of data using Azure Databricks, Azure Event Hubs, and Cognitive Services API.
 
 This tutorial covers the following tasks: 
 
@@ -32,8 +32,10 @@ This tutorial covers the following tasks:
 > * Create a Twitter app to generate streaming data
 > * Create a notebook in Azure Databricks
 > * Add libraries for Event Hubs and Twitter
+> * Create an Azure Cognitive Services account and retrieve access key
 > * Send tweets to Event Hubs
 > * Receive messages from Event Hubs
+> * Run sentiment analysis on received messages
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -113,6 +115,42 @@ Save the values that you retrieved for the Twitter application. You need this la
 ## Add libraries to the cluster
 
 < TBD >
+
+## Get an Azure Cognitive Services access key
+
+In this tutorial, we use the Cognitive Services Text Analytics APIs to perform sentiment analysis on a real-time stream of tweets. Before you use the APIs, you must create an Azure Cognitive Services account and retrieve an access key to use the Text Analytics APIs.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Click **+ Create a resource**.
+ 
+3. Under Azure Marketplace, click **AI + Cognitive Services**, and then click **Text Analytics API**.
+
+    ![Create cognitive services account](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Create cognitive services account")
+
+4. In the **Create** dialog box, provide the following values.
+
+    ![Create cognitive services account](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Create cognitive services account")
+
+    - Enter a name for the Cognitive Services account.
+    - Select the Azure subscription under which the account is created.
+    - Select an Azure location.
+    - Select a pricing tier for the service. For more information about Cognitive Services pricing, see [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    - Specifiy whether you want to create a new resource group or select an existing one.
+
+    Click **Create**.
+
+5. After the accout is created, from the **Overview** tab, click **Show access keys**.
+
+    ![Show access keys](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Show access keys")
+
+    Also, copy a part of the endpoint URL, as shown in the screenshot. You will need this later i the tutorial.
+
+6. Under **Manage keys**, click the copy icon against the key you want to use.
+
+    ![Copy access keys](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-copy-access-keys.png "Copy access keys")
+
+7. Save the values for the endpoint URL and the access key, you retrieved in this step. You need it later in this tutorial.
 
 ## Create notebooks in Databricks
 
