@@ -14,18 +14,19 @@ ms.author: v-geberr
 ---
 
 # Add LUIS results to Application Insights from a web app bot
-This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
+This tutorial adds LUIS response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Add Application Insights library to a web app bot
+* Add Application Insights to a web app bot
 * Capture and send LUIS query results to Application Insights
 * Query Application Insights for top intent, score, and utterance
 
 ## Prerequisites
 
 * Your LUIS web app bot from the **[previous tutorial](luis-csharp-tutorial-build-bot-framework-sample.md)** with Application Insights turned on. 
+* Visual Studio 2017 installed locally on  your computer.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -38,12 +39,12 @@ This tutorial assumes you have code that looks like the following or that you ha
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 
 ## Add Application Insights library to web app bot
-Currently, the Application Insights service, used in this web app bot, collects general state telemetry for the bot. It does not collect LUIS request and response information. In order to analyze and improve LUIS, you need the LUIS response information.  
+Currently, the Application Insights service, added as part of the web app bot service creation, collects general state telemetry for the bot. It does not collect LUIS response information. In order to analyze and improve LUIS, you need the LUIS response information.  
 
-In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet package installed and configured in the **BasicLuisDialog.cs** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights. 
+In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet package installed and configured in the `BasicLuisDialog.cs` file. Then the `BasicLuisDialog.cs` file need to send the LUIS response information to Application Insights. 
 
 ### Download web app bot
-Visual Studio 2017 is the tool to add Application Insights NuGet package to the web app bot. In order to use the web app bot in Visual Studio, use the following steps to download the web app bot code.
+Visual Studio 2017 is the tool to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, use the following steps to download the web app bot code.
 
 1. In the Azure portal, for the web app bot, select **Build**.
 
@@ -71,7 +72,7 @@ Visual Studio 2017 is the tool to add Application Insights NuGet package to the 
 
 4. The NuGet Package manager shows a list of installed packages. Select **Restore** in the yellow bar. Wait for restore process to finish.
 
-    ![Restore NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
+    ![Restore NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-restore-packages.png)
 
 ### Add ApplicationInsights to project
 Configure the Visual Studio solution to know about Application Insights. 
