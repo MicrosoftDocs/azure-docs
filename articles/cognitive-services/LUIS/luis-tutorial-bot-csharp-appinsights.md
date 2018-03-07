@@ -38,15 +38,20 @@ This tutorial assumes you have code that looks like the following or that you ha
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 
 ## Add Application Insights library to web app bot
-Currently, the Application Insights service, used in this web app bot, collects general state telemetry for the bot. It does not collect LUIS request and response information that you need to check and fix your intents and entities. 
+Currently, the Application Insights service, used in this web app bot, collects general state telemetry for the bot. It does not collect LUIS request and response information. In order to analyze and improve LUIS, you need the LUIS response information.  
 
 In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet package installed and configured in the **BasicLuisDialog.cs** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights. 
 
-
 ### Download web app bot
+Visual Studio 2017 is the tool to add Application Insights NuGet package to the web app bot. In order to use the web app bot in Visual Studio, use the following steps to download the web app bot code.
+
 1. In the Azure portal, for the web app bot, select **Build**.
 
+    ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-build-menu.png)
+
 2. Select **Download zip file** and wait until the file is prepared.
+
+    ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-link.png)
 
 3. Select **Download zip file** in the pop up window.
 
