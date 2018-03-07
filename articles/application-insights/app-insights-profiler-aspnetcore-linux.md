@@ -18,108 +18,106 @@ ms.author: mbullwin
 
 # Profiler ASP.NET Core Azure Linux Web Apps with Application Insights Profiler
 
-*This feature is currently in preview
+This feature is currently in preview
 
-Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Profiler is now available for ASP.NET core web apps hosted in Linux on App Services. This guide provides step-by-step instruction on how profiler traces can be collected when the app runs locally and on Azure.
+Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Profiler is now available for ASP.NET core web apps hosted in Linux on App Services. This guide provides step-by-step instruction on how profiler traces can be collected for ASP.NET core Linux web apps.
 
 ## Pre-requisites
+Instructions below applied to all of Windows, Linux and Mac environments:
 
-* Make sure you have a Linux development environment. [Create a Linux virtual machine with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal)
-* Install .NET core SDK 2.1.2 or later following instruction at [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/linuxubuntu)
-* Install Git in your Linux development machines
+* Install [.NET core SDK 2.1.2 or later](https://www.microsoft.com/net/download/windows/build)
+* Install Git following instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-    ```
-    sudo apt-get install git
-    ```
+## Setup project locally
 
-## Setup development environment and run the app locally for collecting profiler traces
+1. Open command prompt on your machine. The instructions below works for all of Windows, Linux and Mac environments.
 
-1. Clone the following project repository that contains an ASP.NET core 2.0 MVC web app with Application Insights enabled
+2. Create an ASP.NET core MVC web application
+```
+dotnet new mvc -n ServiceProfilerE2E
+```
+3. Change directory in command prompt to the project root folder
 
-    ```
-    TODO: give link
-    ```
+4. Add Nuget package for collecting profiler traces
+```
+dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -s https://saarsnuget.azurewebsites.net/nuget -v 1.1.0-beta1
+```
+5. Add a line of code to delay 5 seconds in HomeController.cs
 
-2. Create an Application Insights resource in Azure. [Create an Application Insights resource](./app-insights-create-new-resource.md)
+```csharp
+    public IActionResult Index()
+        {
+            Random r = new Random();
+            int delay = r.Next(5000, 10000);
+            Thread.Sleep(delay);
+            return View();
+        }
+```
+6. Save and commit your changes to the local repository
 
-3. Replace the iKey in appsettings.json
+## Create Azure App Service for hosting your project
+1. Create an App Services Linux environment
 
-    ```
-    TODO: line of code
-    ```
+    ![Create Linux App Services](./media/app-insights-profiler-aspnetcore-linux/create-linux-appservice.png)
 
-4. Add Profiler Nuget package in the project
-    * Navigate to the project folder that contains the project file. ```.csproj```
-    * Add package by the following command:
+2. Create deployment credential. Take a note of your password as you will need this later when deploy your app.
 
-        ```
-        TODO: command to add NuGet package
-        ```
+    ![Create deployment credentials](./media/app-insights-profiler-aspnetcore-linux/create-deployment-credentials.png)
 
-5. To enable service profiler, set the following environment variables in your command prompt. This setting will make the project to run for 2 minutes after the first request is hit.
+3. Choose deployment option. Setup a local Git repository in the web app following instructions on Azure portal. A Git repository will automatically be created.
 
-    ```
-    export ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=ServiceProfiler.EventPipe.AspNetCore
-    ```
+    ![Setup Git repository](./media/app-insights-profiler-aspnetcore-linux/setup-git-repo.png)
 
-Alternatively, you can change the profiling running time interval by using the following code in IServiceCollection:
+More deployment options are available [here](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-ftp)
 
-    ```csharp
-    services.AddServiceProfiler(TimeSpan.FromSeconds(45), TimeSpan.FromMinutes(30), TimeSpan.FromSeconds(10));
-    ```
+## Deploy your project
 
-6. Run the app using the following command:
+1. In your Command prompt, navigate to your project root folder. Add Git remote repository to point to the one on App Services:
 
-    ```
-    dotnet run
-    ```
+```
+git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
+```
+* Use the 'username' from the step of "create deployment credential".
+* Use the 'app name' from the step of "create app service".
 
-7. Access the website from your browser to generate some requests. To view traces, navigate to your Application Insights resource, Performance Blade, click on the "Profiler traces" button at the bottom right corner.
+2. Deploy the project by pushing the changes to Azure
 
-    TODO: screenshot
+```
+git push azure master
+```
+You will see output similar to the following:
 
-## Deploy your app to a container hosted on Azure App Services
+```
+Counting objects: 9, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'd7369a99d7'.
+remote: Generating deployment script.
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote: ......
+remote:   Restoring packages for /home/site/repository/EventPipeExampleLinux.csproj...
+remote: .
+remote:   Installing Newtonsoft.Json 10.0.3.
+remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
+…
 
-1. Stop running your site locally
+```
 
-2. Create a ```.dockerfile``` to build your image
+## Add Application Insights to monitor your web apps
+1. [Create an Application Insights resource](./app-insights-create-new-resource.md)
+2. Copy the iKey of the Application Insights resource and set the following settings in your App services
 
-    ```
-    FROM microsoft/aspnetcore-build:2.0.5-2.1.4 AS build-env
-    WORKDIR /app
+    ![Set app settings](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
 
-    # Copy csproj and restore as distinct layers
-    COPY *.csproj ./
-    COPY Nuget.Config ./
-    RUN dotnet restore --configfile ./Nuget.Config
+3. Generate some load to your HomeController method. You can run a load test, or simply refresh the site home page for a few times.
 
-    # Copy everything else and build
-    COPY . ./
-    RUN dotnet publish -c Release -o out
+4. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
 
-    # Build runtime image
-    FROM microsoft/aspnetcore:2.0.5
-    WORKDIR /app
-    COPY --from=build-env /app/out .
+5. Navigate to Performance blade in Application Insights portal. You will see profiler traces available in the bottom right corner.
 
-    # Inject ServiceProfiler
-    ENV ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=ServiceProfiler.EventPipe.AspNetCore
-
-    # Start the service
-    ENTRYPOINT ["dotnet", "ServiceProfilerE2EBase.dll"]
-    ```
-
-3. Create a ```.dockerignore``` file to exclude the following folders
-    ```
-    bin\
-    obj\
-    ```
-4. Test the docker image locally:
-    ```
-    docker run -p 80:8080 saars/netcore-sp-docker:0.2.0
-    ```
-5. Publish the docker container to Azure app services by following instructions at [Use a custom Docker image for Web App for Containers](../app-service/containers/tutorial-custom-docker-image.md)
-
-6. Access your site in a browser to generate some traffic
-
-7. Navigate to your Application Insights resource and view your Profiler traces
+    ![View traces](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
