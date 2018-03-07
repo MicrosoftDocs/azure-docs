@@ -33,13 +33,7 @@ To learn more, refer to the [FAQ](#frequently-asked-questions-about-storage-serv
 
 [Create a new storage account](storage-quickstart-create-account.md)
 
-### Step 2: Enable encryption with customer-managed keys
-
-You can enable SSE with customer-managed keys for the storage account using the [Azure portal](https://portal.azure.com/). On the **Settings** blade for the storage account, click **Encryption**. Select the **Use your own key** option, as shown in the following figure.
-
-![Portal Screenshot showing Encryption option](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
-
-#### Enable SSE for Blob and File storage
+### Step 2: Enable SSE for Blob and File storage
 
 To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
 
@@ -69,27 +63,48 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
-![Portal Screenshot showing Encryption Preview](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
-
 By default, SSE uses Microsoft-managed keys. To use your own keys, check the box. Then you can either specify your key URI, or select a key and an Azure Key Vault.
 
-### Step 3: Select your key
+### Step 3: Enable encryption with customer-managed keys
 
-![Portal Screenshot showing Encryptions use your own key option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+You can enable SSE with customer-managed keys for the storage account using the [Azure portal](https://portal.azure.com/). On the **Settings** blade for the storage account, click **Encryption**. Select the **Use your own key** option, as shown in the following figure.
 
-![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+![Portal Screenshot showing Encryption option](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
-If the storage account does not have access to the key vault, you can run the following command using Azure Powershell to grant access.
+### Step 4: Select your key
+
+You can specify your key either as a URI, or by selecting the key from a key vault.
+
+#### Specify a key as a URI
+
+To specify your key from a URI, follow these steps:
+
+1. Choose the **Enter key URI** option.  
+2. In the **Key URI** field, specify the URI.
+
+![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+
+#### Specify a key from a key vault. 
+
+To specify your key from a key vault, follow these steps:
+
+1. Choose the **Select from Key Vault** option.  
+2. Choose the key vault containing the key you want to use.
+3. Choose the key from the key vault.
+
+![Portal Screenshot showing Encryptions use your own key option](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+
+If the storage account does not have access to the key vault, you can run the Azure PowerShell command shown in the following image to grant access.
 
 ![Portal Screenshot showing access denied for key vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 You can also grant access via the Azure portal by navigating to the Azure Key Vault in the Azure portal and granting access to the storage account.
 
-### Step 4: Copy data to storage account
+### Step 5: Copy data to storage account
 
-If you would like to transfer data into your new storage account so that it’s encrypted, refer to Step 3 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+To transfer data into your new storage account so that it’s encrypted, refer to Step 3 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-3-copy-data-to-storage-account).
 
-### Step 5: Query the status of the encrypted data
+### Step 6: Query the status of the encrypted data
 
 To query the status of the encrypted data, refer to Step 4 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
 
