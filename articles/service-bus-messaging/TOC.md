@@ -1,4 +1,4 @@
-# [Service Bus Messaging Documentation](index.md)
+# [Service Bus Messaging Documentation](index.yaml)
 
 # Overview
 ## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
