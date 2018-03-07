@@ -134,7 +134,7 @@ Cmdlets used to provision and manage Azure AD admin:
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
 | [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
 
-Use PowerShell command get-help to see more details for each of these commands, for example ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
+Use PowerShell command get-help to see more information for each of these commands, for example ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
 The following script provisions an Azure AD administrator group named **DBA_Group** (object id `40b79501-b343-44ed-9ce7-da4c8cc7353f`) for the **demo_server** server in a resource group named **Group-23**:
 

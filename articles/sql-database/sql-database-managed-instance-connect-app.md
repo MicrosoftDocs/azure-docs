@@ -14,7 +14,7 @@ ms.reviewer: bonova, carlrab
 
 # Connect your application to Azure SQL Database Managed Instance
 
-Today you have multiple choices when deciding how and where you will host your application. 
+Today you have multiple choices when deciding how and where you host your application. 
  
 You may choose to host application in the cloud either by using Azure App Service or some of Azure's virtual network (VNet) integrated options like Azure App Service Environment, Virtual Machine, Virtual Machine Scale Set. You could also take hybrid cloud approach and keep your applications on-premises. 
  

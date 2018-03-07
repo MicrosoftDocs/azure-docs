@@ -50,7 +50,7 @@ For a script example, see [Configure auditing and threat detection using PowerSh
    The email provides information on the suspicious security event including the nature of the anomalous activities, database name, server name, application name, and the event time. In addition, the email provides information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.<br/>
      
     ![Navigation pane][4]
-2. The email alert includes a direct link to the SQL Audit log. Clicking on this link launches the Azure portal and opens the SQL Audit records around the time of the suspicious event. Click on an audit record to view more details on the suspicious database activities, making it easier to find the SQL statements that were executed (who accessed, what they did and when) and determine if the event was legitimate or malicious (e.g. application vulnerability to SQL injection was exploited, someone breached sensitive data, etc.).<br/>
+2. The email alert includes a direct link to the SQL Audit log. Clicking on this link launches the Azure portal and opens the SQL Audit records around the time of the suspicious event. Click on an audit record to view more information on the suspicious database activities, making it easier to find the SQL statements that were executed (who accessed, what they did and when) and determine if the event was legitimate or malicious (e.g. application vulnerability to SQL injection was exploited, someone breached sensitive data, etc.).<br/>
    ![Navigation pane][5]
 
 
@@ -74,7 +74,7 @@ SQL Database Threat Detection integrates its alerts with [Azure Security Center]
 * Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* For more details on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* For more information on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
 * For a PowerShell script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

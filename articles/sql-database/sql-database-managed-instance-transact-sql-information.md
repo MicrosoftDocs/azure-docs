@@ -52,7 +52,7 @@ For more information, see:
 ### Backup 
 
 Managed Instance has automatic backups, and enables users to create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups are not supported.  
-- Managed Instance can backup a database only on Azure Blob Storage account: 
+- Managed Instance can back up a database only on Azure Blob Storage account: 
  - Only `BACKUP TO URL` is supported 
  - `FILE`, `TAPE`, and backup devices are not supported  
 - Most of the general `WITH` options are supported 
@@ -62,8 +62,8 @@ Managed Instance has automatic backups, and enables users to create full databas
  - Log-specific options: `NORECOVERY`, `STANDBY`, and `NO_TRUNCATE` are not supported 
  
 Limitations:  
-- Managed Instance can backup a database to a backup with up to 32 stripes, which is enough for the databases up to 4TB.
-- Max backup stripe size is 195GB (PAGE blob size). Increase the number of stripes in the backup command to distribute stripe sizes. 
+- Managed Instance can back up a database to a backup with up to 32 stripes, which is enough for the databases up to 4 TB.
+- Max backup stripe size is 195 GB (PAGE blob size). Increase the number of stripes in the backup command to distribute stripe sizes. 
 
 > [!TIP]
 > To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore support bigger files because a different blob type is used.  
@@ -335,7 +335,7 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
   - Merge is not supported.  
   - Queue Reader is not supported.  
  - Command shell is not yet supported. 
-  - Managed Instance cannot access external resources (e.g. network shares via robocopy).  
+  - Managed Instance cannot access external resources (for example, network shares via robocopy).  
  - PowerShell is not yet supported.
  - Analysis Services are not supported.  
 - Notifications are partially supported.
@@ -368,8 +368,8 @@ For information about creating tables, see [CREATE TABLE statement](https://docs
  
 The following variables, functions, and views return different results:  
 - `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies Managed Instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` returns the short instance name, e.g. 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME` returns full DNS 'connectable' name, e.g. my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
+- `SERVERPROPERTY('InstanceName')` returns the short instance name, for example, 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` returns full DNS 'connectable' name, for example, my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
 - `@@SERVERNAME` returns full DNS 'connectable' name, such as `my-managed-instance.wcus17662feb9ce98.database.windows.net`. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
@@ -382,15 +382,15 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-`tempdb` is split into 12 files each with max size 14GB per file. This maximum size per file cannot be changed and new files cannot be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if `tempdb` needs more than 168GB.
+`tempdb` is split into 12 files each with max size 14 GB per file. This maximum size per file cannot be changed and new files cannot be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if `tempdb` needs more than 168 GB.
 
 ### Exceeding storage space with small database files
 
-Each Managed Instance has up to 35TB reserved storage space, and every database file is placed on 128GB storage allocation unit. Databases with many small files might be placed on 128GB units that in total exceed 35TB limit. in this case, new databases cannot be created or restored, even if total size of databases don't reach the instance size limit. The error that is returned might not be clear.
+Each Managed Instance has up to 35 TB reserved storage space, and every database file is placed on 128 GB storage allocation unit. Databases with many small files might be placed on 128 GB units that in total exceed 35 TB limit. In this case, new databases cannot be created or restored, even if the total size of all databases do not reach the instance size limit. The error that is returned might not be clear.
 
 ### Incorrect configuration of SAS key during database restore
 
-`RESTORE DATABASE` that reads .bak file might be constantly re-try to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
+`RESTORE DATABASE` that reads .bak file might be constantly retry to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
 Make sure that you remove leading `?` from the SAS key generated using Azure portal.
 
 ### Tooling

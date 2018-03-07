@@ -14,7 +14,7 @@ ms.reviewer: bonova, carlrab
 
 # Configuring a Custom DNS for Azure SQL Database Managed Instance
 
-An Azure SQL Database Managed Instance (preview) must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). There are a few scenarios, linked servers themto other SQL instances in your cloud or hybrid environment, that require private host names to be resolved from the Managed Instance. In this case, you need to configure a custom DNS inside Azure. Since Managed Instance uses the same DNS for its inner workings, the virtual network DNS configuration needs to be compatible with Managed Instance. 
+An Azure SQL Database Managed Instance (preview) must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). There are a few scenarios, linked servers to other SQL instances in your cloud or hybrid environment, that require private host names to be resolved from the Managed Instance. In this case, you need to configure a custom DNS inside Azure. Since Managed Instance uses the same DNS for its inner workings, the virtual network DNS configuration needs to be compatible with Managed Instance. 
 
 To make a custom DNS configuration compatible with Managed Instance, you need to complete the following steps: 
 - Configure Custom DNS to forward requests to Azure DNS 
@@ -70,7 +70,7 @@ DNS configuration on an Azure VNet requires that you enter IP addresses, so conf
    ![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Not setting Azure’s recursive resolver in DNS list will cause the Managed Instance to enter faulty state. Recovering from that state may require you to create new instance in a VNet with the compliant networking policies, create instance level data, and restore your databases. See [VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
+   > Not setting Azure’s recursive resolver in DNS list causes the Managed Instance to enter faulty state. Recovering from that state may require you to create new instance in a VNet with the compliant networking policies, create instance level data, and restore your databases. See [VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 
 ## Next steps
 

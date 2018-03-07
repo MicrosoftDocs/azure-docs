@@ -109,7 +109,7 @@ There are a wide variety of compatibility issues that you might encounter, depen
 In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](http://stackoverflow.com/).
 
 > [!IMPORTANT]
-> SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibilty issues. See [What is an Managed Instance](sql-database-managed-instance.md).
+> SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Managed Instance](sql-database-managed-instance.md).
 
 
 ## Next steps
