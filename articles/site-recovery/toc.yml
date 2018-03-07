@@ -103,7 +103,7 @@
       href: azure-to-azure-network-mapping.md
     - name: Set up IP addressing after Azure VM failover
       href: site-recovery-retain-ip-azure-vm-failover.md
-    - name: Manage network interfaces for on-premises to Azure disaster recovery
+    - name: Manage network interfaces for on-premises to Azure replication
       href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Prepare network mapping for Hyper-V VM disaster recovery
       href: hyper-v-vmm-network-mapping.md
