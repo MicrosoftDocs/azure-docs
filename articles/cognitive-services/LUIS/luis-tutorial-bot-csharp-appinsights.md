@@ -74,26 +74,39 @@ Visual Studio 2017 is the tool to add Application Insights NuGet package to the 
     ![Restore NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
 
 ### Add ApplicationInsights to project
-1. While the NuGet Package manager is still available, select **Browse**. Search for `Microsoft.ApplicationInsights`.
+Configure the Visual Studio solution to know about Application Insights. 
 
-    ![Browser NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages-application-insights.png)
+1. In Visual Studio 2017, on the top menu, select **Project**, then select **Add Application Insights Telemetry...**.
 
-2. Install the `Microsoft.ApplicationInsights` package.
+2. In the **Application Insights Configuration** window, select **Start Free**
 
-    ![Browser NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages-application-insights-install.png)
+    ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
 
-3. Select `OK` for **Preview Changes**.
+3. Register your app with Application Insights. You may have to use your Azure portal credentials. 
 
-    ![Browser NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages-application-insights-install-preview-changes.png)
+    ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
+
+    Visual Studio adds Application Insights to the project, displaying status as it does this. 
+
+    ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-adding-application-insights-to-project.png)
+
+    When the process completes, the **Application Insights Configuration** shows the progress status. 
+
+    ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configured-application-insights-to-project.png)
+
+    The **Enable trace collection** is red, meaning it is not enabled. This tutorial doesn't use this feature. 
 
 ### Build and resolve errors
 
 1. Build the solution. Select **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
 
-2. If the build fails with `CS0104` errors, in the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. The full source of that file follows:
+2. If the build fails with `CS0104` errors, in the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. 
 
-    [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/MessagesController.cs "MessagesController.cs file")]
+    Change the name Activity on lines 22 and 36 from `Activity` to `Connector.Activity`. Build the solution again. There should be no more build errors.
 
+    The full source of that file follows:
+
+    [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
 
 ### Publish project back to Azure
 
