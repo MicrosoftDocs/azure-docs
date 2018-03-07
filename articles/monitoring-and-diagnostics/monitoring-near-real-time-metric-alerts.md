@@ -35,7 +35,7 @@ Near real-time metric alerts differ from regular metric alerts in a few ways:
 >
 
 ## Metrics and Dimensions Supported
-Near real-time metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from *Azure Monitor - **Metrics (Preview)***.
+Near real-time metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [*Azure Monitor - **Metrics (Preview)***](monitoring-metric-charts.md).
 
 Here's the full list of Azure monitor based metric sources that are supported for near real-time metric alerts:
 
