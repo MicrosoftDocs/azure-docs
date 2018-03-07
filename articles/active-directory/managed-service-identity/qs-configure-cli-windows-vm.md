@@ -18,7 +18,7 @@ ms.author: daveba
 
 # Configure a VM Managed Service Identity (MSI) using Azure CLI
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
@@ -26,15 +26,15 @@ In this article, you will learn how to enable and remove MSI for an Azure VM, us
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 To run the CLI script examples, you have three options:
 
-- Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal (see next section).
+- Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
 - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Enable MSI during creation of an Azure VM
 
@@ -46,7 +46,7 @@ To create an MSI-enabled VM:
    az login
    ```
 
-2. Create a [resource group](../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
+2. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -92,11 +92,11 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 ## Related content
 
-- [Managed Service Identity overview](msi-overview.md)
+- [Managed Service Identity overview](overview.md)
 - For the full Azure VM creation Quickstarts, see: 
 
-  - [Create a Windows virtual machine with CLI](../virtual-machines/windows/quick-create-cli.md)  
-  - [Create a Linux virtual machine with CLI](../virtual-machines/linux/quick-create-cli.md) 
+  - [Create a Windows virtual machine with CLI](../../virtual-machines/windows/quick-create-cli.md)  
+  - [Create a Linux virtual machine with CLI](../../virtual-machines/linux/quick-create-cli.md) 
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
