@@ -8921,7 +8921,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-push-install-error-codes.md",
-            "redirect_url": "vmware-azure-troubleshoot-mobility-push-installation",
+            "redirect_url": "vmware-azure-troubleshoot-push-install",
             "redirect_document_id": false
         },
         {
@@ -9006,7 +9006,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-manage-multi-tenancy-with-csp.md",
-            "redirect_url": "vmware-azure-tenant-subscription-csp",
+            "redirect_url": "vmware-azure-multi-tenant-csp-disaster-recovery",
             "redirect_document_id": false
         },
 	{
