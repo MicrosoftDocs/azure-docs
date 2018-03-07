@@ -561,7 +561,7 @@ In case you don't want to delete the storage account when you delete the resourc
 ## Next steps
 In this article, you have learned how to use Azure Data Factory to create on-demand HDInsight cluster to process Hive jobs. To read more:
 
-* [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight documentation](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Data factory documentation](https://azure.microsoft.com/documentation/services/data-factory/)

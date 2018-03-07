@@ -4,7 +4,7 @@ description: Learn how to use advanced certificate signing options in the SAML t
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ''

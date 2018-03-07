@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/27/2017
 ms.author: johnkem
 
 ---
@@ -34,12 +34,12 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 * View autoscale settings.
 * View alert activity and settings.
 * Access Application Insights data and view data in AI Analytics.
-* Search Log Analytics (OMS) workspace data including usage data for the workspace.
-* View Log Analytics (OMS) management groups.
-* Retrieve the Log Analytics (OMS) search schema.
-* List Log Analytics (OMS) intelligence packs.
-* Retrieve and execute Log Analytics (OMS) saved searches.
-* Retrieve the Log Analytics (OMS) storage configuration.
+* Search Log Analytics workspace data including usage data for the workspace.
+* View Log Analytics management groups.
+* Retrieve the Log Analytics search schema.
+* List Log Analytics intelligence packs.
+* Retrieve and execute Log Analytics saved searches.
+* Retrieve the Log Analytics storage configuration.
 
 > [!NOTE]
 > This role does not give read access to log data that has been streamed to an event hub or stored in a storage account. [See below](#security-considerations-for-monitoring-data) for information on configuring access to these resources.
@@ -54,10 +54,10 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 * Set the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.*
 * Set alert activity and settings.
 * Create Application Insights web tests and components.
-* List Log Analytics (OMS) workspace shared keys.
-* Enable or disable Log Analytics (OMS) intelligence packs.
-* Create and delete and execute Log Analytics (OMS) saved searches.
-* Create and delete the Log Analytics (OMS) storage configuration.
+* List Log Analytics workspace shared keys.
+* Enable or disable Log Analytics intelligence packs.
+* Create and delete and execute Log Analytics saved searches.
+* Create and delete the Log Analytics storage configuration.
 
 *user must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace) to set a log profile or diagnostic setting.
 

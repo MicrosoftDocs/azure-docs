@@ -14,10 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/12/2017
+ms.date: 02/26/2018
 ms.author: larryfr
 ---
-# Use Apache Kafka (preview) with Storm on HDInsight
+# Use Apache Kafka with Storm on HDInsight
 
 Learn how to use Apache Storm to read from and write to Apache Kafka. This example also demonstrates how to save data from a Storm topology to the HDFS-compatible file system used by HDInsight.
 
@@ -32,7 +32,7 @@ The code for the example used in this document is available at [https://github.c
 
 To compile this project, you need the following configuration for your development environment:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher. HDInsight 3.5 or higher require Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -64,7 +64,7 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**. It creates the following resources:
+    The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**. It creates the following resources:
     
     * Azure resource group
     * Azure Virtual Network
@@ -117,7 +117,7 @@ This project contains two topologies:
     This topology uses the Storm HdfsBolt to write data to default storage for the Storm cluster.
 ### Flux
 
-The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
+The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
 
 The following parameters are set at run time for these topologies:
 
@@ -127,7 +127,7 @@ The following parameters are set at run time for these topologies:
 
 * `${kafka.zookeeper.hosts}`: The hosts that Zookeeper runs on in the Kafka cluster.
 
-For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## Download and compile the project
 
@@ -168,7 +168,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
     ```
 
     > [!IMPORTANT]
-    > The Bash example assumes that `$CLUSTERNAME` contains the name of the HDInsight cluster. It also assumes that [jq](https://stedolan.github.io/jq/) is installed. When prompted, enter the password for the cluster login account.
+    > The Bash example assumes that `$CLUSTERNAME` contains the name of the HDInsight cluster. It also assumes that [jq](https://stedolan.github.io/jq/) version 1.5 or greater is installed. When prompted, enter the password for the cluster login account.
 
     The value returned is similar to the following text:
 
@@ -214,7 +214,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 4. Save the `dev.properties` file and then use the following command to upload it to the Storm cluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Replace **USERNAME** with the SSH user name for the cluster. Replace **BASENAME** with the base name you used when creating the cluster.
@@ -284,6 +284,9 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
 ## Start the reader
 
+> [!NOTE]
+> When viewing the reader in the Storm UI, you may see a __Topology spouts lag error__ section. For this example, you can ignore this error.
+
 1. From the SSH session to the Storm cluster, use the following command to start the reader topology:
 
   ```bash
@@ -337,6 +340,6 @@ Since the steps in this document create both clusters in the same Azure resource
 
 ## Next steps
 
-For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](hdinsight-storm-example-topology.md).
+For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](storm/apache-storm-example-topology.md).
 
-For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

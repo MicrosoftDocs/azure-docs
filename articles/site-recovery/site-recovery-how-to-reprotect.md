@@ -3,7 +3,7 @@ title: Reprotect from Azure to an on-premises site | Microsoft Docs
 description: After failover of VMs to Azure, you can initiate a failback to bring VMs back to on-premises. Learn how to reprotect before a failback.
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
-ms.author: ruturajd
+ms.date: 02/06/2018
+ms.author: rajanaki
 
 ---
 # Reprotect from Azure to an on-premises site
@@ -25,7 +25,7 @@ ms.author: ruturajd
 This article describes how to reprotect Azure virtual machines from Azure to an on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure (as described in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback.
+> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback. If the virtual machine was first created in Azure (born in the cloud) then you cannot reprotect it back to on-premises. The machine should have been initially protected on-premises and failed over to Azure before reprotect.
 
 
 After reprotection finishes and the protected virtual machines are replicating, you can initiate a failback on the virtual machines to bring them to the on-premises site.
@@ -59,13 +59,20 @@ When you prepare to reprotect virtual machines, take or consider the following p
   * **Master target server**: The master target server receives failback data. The on-premises management server that you created has a master target server installed by default. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback.
     * [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
     * A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
+    * The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> All virtual machines of a replication group should be of the same operating system type (either all Windows or all Linux). A replication group with mixed operating systems is currently not supported for reprotect and failback to on-premises. This is because the master target should be of the same operating system as the virtual machine and all the virtual machines of a replication group should have the same master target. 
+
+    
 
 * A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. 
 
 > [!IMPORTANT]
 > Make sure that you take regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works.
+
+> [!WARNING]
+> A Replication Group should only have either Windows VMs or Linux VMs, and not  a mix of both because all VMs in a replictaion group uses the same Master Target server, and Linux VM requires a Linux Master Target server and like wise for Windows VM.
 
 * Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 
@@ -168,6 +175,8 @@ Currently, Azure Site Recovery supports failing back only to a virtual machine f
 
 * The master target cannot have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails.
 
+* At any given instance, the master target can have atmst 60 disks attached to it. If the number of virtual machines being reprotected to the on-premises master target have a sum total number of disks more than 60, then reprotects to the master target will start failing. Ensure that you have enough master target disk slots or deploy additional master target servers.
+
 <!--
 ### Failback policy
 To replicate back to on-premises, you will need a failback policy. This policy get automatically created when you create a forward direction policy. Note that
@@ -209,13 +218,7 @@ You can also reprotect at the level of a recovery plan. A replication group can 
 
 After the reprotection succeeds, the virtual machine will enter a protected state.
 
-## Next steps
-
-After the virtual machine has entered a protected state, you can [initiate a failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-The failback will shut down the virtual machine in Azure and boot the on-premises virtual machine. Expect some downtime for the application. Choose a time for failback when the application can tolerate downtime.
-
-## Common problems
+## Common issues
 
 * If you used a template to create your virtual machines, ensure that each virtual machine has its own UUID for the disks. If the on-premises virtual machine's UUID clashes with that of the master target because both were created from the same template, reprotection fails. Deploy another master target that has not been created from the same template.
 
@@ -233,38 +236,9 @@ The failback will shut down the virtual machine in Azure and boot the on-premise
 
 * A Windows Server 2008 R2 SP1 server that is protected as a physical on-premises server cannot be failed back from Azure to an on-premises site.
 
-### Common Error codes
 
-#### Error code 95226
+## Next steps
 
-*Reprotect failed as the Azure virtual machine was not able to reach the on-premises configuration server.*
+After the virtual machine has entered a protected state, you can [initiate a failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-This happens when 
-1. The Azure virtual machine could not reach the on-premises configuration server and hence could not be discovered and registered to the configuration server. 
-2. The InMage Scout Application service on the Azure virtual machine that needs to be running to communicate to the on-premises configuration server might not be running post failover.
-
-To resolve this issue
-1. You need to ensure that the network of the Azure virtual machine is configured such that the virtual machine can communicate with the on-premises configuration server. To do this, either set up a Site to Site VPN back to your on-premises datacenter or configure an ExpressRoute connection with private peering on the virtual network of the Azure virtual machine. 
-2. If you already have a network configured such that the Azure virtual machine can communicate with the on-premises configuration server, then log into the virtual machine and check the 'InMage Scout Application Service'. If you observe that the InMage Scout Application Service is not running then start the service manually and ensure that the service start type is set to Automatic.
-
-### Error code 78052
-Reprotect fails with the error message: *Protection couldn't be completed for the virtual machine.*
-
-This can happen due to two reasons
-1. The virtual machine you are reprotecting is a Windows Server 2016. Curently this operating system is not supported for failback, but will be supported very soon.
-2. There already exists a virtual machine with the same name on the Master target server you are failing back to.
-
-To resolve this issue you can select a different master target server on a different host, so that the reprotect will create the machine on a different host, where the names do not collide. You can also vMotion the master target to a different host where the name collision will not happen. If the existing virtual machine is a stray machine, you can just rename it so that the new virtual machine can get created on the same ESXi host.
-
-### Error code 78093
-
-*The VM is not running, in a hung state or not accessible.*
-
-To reprotect a failed over virtual machine back to on-premises, you need the Azure virtual machine running. This is so that the mobility service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or in not running (hung state or shutdown), then the configuration server cannot reach the mobility service in the virtual machine to begin the reprotect. You can restart the virtual machine so that it can start communicating back on-premises. Restart the reprotect job after starting the Azure virtual machine
-
-### Error code 8061
-
-*The datastore is not accessible from ESXi host.*
-
-Refer to the [master target pre-requisites](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) and the [support datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) for failback
-
+The failback will shut down the virtual machine in Azure and boot the on-premises virtual machine. Expect some downtime for the application. Choose a time for failback when the application can tolerate downtime.

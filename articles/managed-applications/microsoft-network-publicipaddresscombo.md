@@ -81,6 +81,7 @@ If the user selects a new or existing IP address, the following output is expect
   "name": "ip01",
   "resourceGroup": "rg01",
   "domainNameLabel": "foobar",
+  "publicIPAllocationMethod": "Dynamic",
   "newOrExistingOrNone": "new"
 }
 ```

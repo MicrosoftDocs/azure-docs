@@ -65,7 +65,7 @@ Dave has the following requirements for managing resources in the subscription:
 * He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.  
 * Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
-He creates the following [Resource Manager policies](resource-manager-policy.md):
+He creates the following [Azure policies](../azure-policy/azure-policy-introduction.md):
 
 | Field | Effect | Description |
 | --- | --- | --- |

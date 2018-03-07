@@ -5,7 +5,7 @@ services: machine-learning
 author: raymondl
 ms.author: raymondl
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
@@ -51,7 +51,7 @@ The following command sets the count of agent nodes in the cluster:
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-This will take a few minutes to complete. For more information on scaling the number of nodes in the cluster, see [Scale agent nodes in a Container Service cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+This will take a few minutes to complete. For more information on scaling the number of nodes in the cluster, see [Scale agent nodes in a Container Service cluster](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### Scaling the number of Kubernetes pod replicas in a cluster
  
@@ -155,6 +155,6 @@ Once you have started the dashboard server, open a browser and enter the followi
 
 From the dashboard main screen, click **Deployments** on the left navigation bar. If the navigation pane does not display, select this icon ![Menu consisting of three short horizontal lines](media/how-to-scale-clusters/icon-hamburger.png) on the upper left.
 
-Locate the deployment to modify and click this icon ![Menu icon consisting of three vertical dots](media/how-to-scale-clusters/icon-kebab.png) on the right and then click **View/edi YAML**.
+Locate the deployment to modify and click this icon ![Menu icon consisting of three vertical dots](media/how-to-scale-clusters/icon-kebab.png) on the right and then click **View/Edit YAML**.
 
 On the Edit deployment screen, locate the *spec* node, modify the *replicas* value, and click **Update**.

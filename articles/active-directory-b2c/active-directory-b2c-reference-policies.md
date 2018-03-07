@@ -4,7 +4,7 @@ description: A topic on the extensible policy framework of Azure Active Director
 services: active-directory-b2c
 documentationcenter: ''
 author: sama
-manager: mbaldwin
+manager: mtillman
 editor: PatAltimore
 
 ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9

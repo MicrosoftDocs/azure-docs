@@ -291,7 +291,7 @@ consulting the domain experts when building predictive models.
 
 Some examples of above data elements from use cases are:
 
-Failure history: fight delay dates, aircraft component failure dates and
+Failure history: Flight delay dates, aircraft component failure dates and
 types, ATM cash withdrawal transaction failures, train/elevator door
 failures, brake disk replacement order dates, wind turbine failure dates
 and circuit breaker command failures.

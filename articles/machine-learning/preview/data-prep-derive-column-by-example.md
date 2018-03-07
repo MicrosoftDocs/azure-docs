@@ -5,7 +5,7 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
@@ -64,6 +64,10 @@ Advanced Mode provides a richer experience for Deriving columns by example. All 
 In the advanced mode, you can add any row as an example row by double-clicking on the row in the grid. One a row is copied as an example row, you can also edit the data in the source columns to make a synthetic example. By doing so, you can add cases that are not currently present in the sample data.
 
 User can switch between the **Basic Mode** and the **Advanced Mode** by clicking the links in the Transform Editor.
+
+### Transform editor: Send Feedback
+
+Clicking on the **Send feedback** link opens the **Feedback** dialog with the comments box prepopulated with the examples user has provided. User should review the content of the comments box and provide more details to help us understand the issue. If the user does not want to share data with Microsoft, user should delete the prepopulated example data before clicking the **Send Feedback** button. 
 
 ### Editing existing transformation
 

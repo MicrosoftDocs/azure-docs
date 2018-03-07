@@ -4,7 +4,7 @@ description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain 
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
@@ -66,7 +66,7 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-r
 Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 
@@ -79,13 +79,13 @@ Now that the required packages are installed on the Linux virtual machine, the n
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Troubleshooting:**
-      > If *realm discover* is unable to find your managed domain:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+     > [!NOTE] 
+     > **Troubleshooting:**
+     > If *realm discover* is unable to find your managed domain:
+     * Ensure that the domain is reachable from the virtual machine (try ping).
+     * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+     * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+     >
 
 2. Initialize Kerberos. In your SSH terminal, type the following command: 
 

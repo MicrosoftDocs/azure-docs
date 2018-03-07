@@ -134,7 +134,7 @@ In this section, you will
             {
                 Console.WriteLine("Rebooting!");
 
-                // Update device twim with reboot time. 
+                // Update device twin with reboot time. 
                 TwinCollection reportedProperties, reboot, lastReboot;
                 lastReboot = new TwinCollection();
                 reboot = new TwinCollection();

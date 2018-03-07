@@ -8,6 +8,7 @@ manager: kristin.tolle
 editor: miprasad
 
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -89,8 +90,8 @@ The order of Hands-on Labs to carry out the solution is as follows:
 The main file related to Data Preparation in the data folder is `CATelcoCustomerChurnTrainingSample.csv`
 2. Modeling and Evaluation:
 The main file related to modeling and evaluation in the root folder is `CATelcoCustomerChurnModeling.py`
-3. Modeling and Evaluation in Docker:
-The main file for this task in the root folder is `CATelcoCustomerChurnModelingDocker.py`
+3. Modeling and Evaluation without .dprep:
+The main file for this task in the root folder is `CATelcoCustomerChurnModelingWithoutDprep.py`
 4. Operationalization:
 The main files for deloyment are the model (`model.pkl`) and `churn_schema_gen.py`
 
@@ -98,7 +99,7 @@ The main files for deloyment are the model (`model.pkl`) and `churn_schema_gen.p
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 3 | [`ModelingAndEvaluationWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationWithoutDprep.md) | 'CATelcoCustomerChurnModelingWithoutDprep.py' |
 | 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 Follow the Labs in the sequential manner described above.

@@ -13,21 +13,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/09/2017
 ms.author: juliako
 
 ---
 # Media Services development with .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-This topic discusses how to start developing Media Services applications using .NET.
+This article discusses how to start developing Media Services applications using .NET.
 
 The **Azure Media Services .NET SDK** library enables you to program against Media Services using .NET. To make it even easier to develop with .NET, the **Azure Media Services .NET SDK Extensions** library is provided. This library contains a set of extension methods and helper functions that simplify your .NET code. Both libraries are available through **NuGet** and **GitHub**.
 
 ## Prerequisites
-* A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md).
+* A Media Services account in a new or existing Azure subscription. See the article [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Operating Systems: Windows 10, Windows 7, Windows 2008 R2, or Windows 8.
-* .NET Framework 4.5.
+* .NET Framework 4.5 or later.
 * Visual Studio.
 
 ## Create and configure a Visual Studio project
@@ -57,63 +57,75 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
    
     2. The Manage References dialog appears.
     3. Under .NET framework assemblies, find and select the System.Configuration assembly and press **OK**.
-6. Open the App.config file and add an **appSettings** section to the file.     
-   
-	Set the values that are needed to connect to the Media Services API. For more information, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+6. Open the App.config file and add an **appSettings** section to the file. Set the values that are needed to connect to the Media Services API. For more information, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-	If you are using [user authentication](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) your config file will probably have values for your Azure AD tenant domain and the AMS REST API endpoint.
-	
-	>[!Important]
-	>Most code samples in the Azure Media Services documentation set, use a user (interactive) type of authentication to connect to the AMS API. This authentication method will work well for management or monitoring native apps: mobile apps, Windows apps, and Console applications. This authentication method is not suitable for server, web services, APIs type of applications.  For more information, see [Access the AMS API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+    Set the values that are needed to connect using the **Service principal** authentication method.
 
-        <configuration>
-        ...
-            <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
-            </appSettings>
+        ```csharp
+                <configuration>
+                ...
+                    <appSettings>
+                        <add key="AMSAADTenantDomain" value="tenant"/>
+                        <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                        <add key="AMSClientId" value="id"/>
+                        <add key="AMSClientSecret" value="secret"/>
+                    </appSettings>
+                </configuration>
+        ```
 
-        </configuration>
+7. Add the **System.Configuration** reference to your project.
+8. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code:
 
-7. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
-		   
-		using System;
-		using System.Configuration;
-		using System.IO;
-		using Microsoft.WindowsAzure.MediaServices.Client;
-		using System.Threading;
-		using System.Collections.Generic;
-		using System.Linq;
+    ```csharp	   
+            using System;
+            using System.Configuration;
+            using System.IO;
+            using Microsoft.WindowsAzure.MediaServices.Client;
+            using System.Threading;
+            using System.Collections.Generic;
+            using System.Linq;
+    ```
 
-At this point, you are ready to start developing a Media Services application.    
+    At this point, you are ready to start developing a Media Services application.    
 
 ## Example
 
 Here is a small example that connects to the AMS API and lists all available Media Processors.
-	
-	class Program
-	{
-	    // Read values from the App.config file.
-	    private static readonly string _AADTenantDomain =
-	        ConfigurationManager.AppSettings["AADTenantDomain"];
-	    private static readonly string _RESTAPIEndpoint =
-	        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
-	
-	    private static CloudMediaContext _context = null;
-	    static void Main(string[] args)
-	    {
-	        var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-	        var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-	
-	        _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-	
-	        // List all available Media Processors
-	        foreach (var mp in _context.MediaProcessors)
-	        {
-	            Console.WriteLine(mp.Name);
-	        }
-	
-	    }
+
+```csharp
+        class Program
+        {
+            // Read values from the App.config file.
+
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
+        
+            private static CloudMediaContext _context = null;
+            static void Main(string[] args)
+            {
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        
+                // List all available Media Processors
+                foreach (var mp in _context.MediaProcessors)
+                {
+                    Console.WriteLine(mp.Name);
+                }
+        
+            }
+ ```
 
 ##Next steps
 

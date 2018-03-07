@@ -22,6 +22,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 	* Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
 
 6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
+7. Configure Windows to use the private IP address of the primary IP configuration in Azure as the primary IP address for Windows. See [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) for details. 
 
 
 ### Validation (Windows)

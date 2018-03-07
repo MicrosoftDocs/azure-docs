@@ -12,7 +12,7 @@ ms.date: 9/18/2017
 ms.author: v-jerkin
 
 ---
-# Call and response: your first Bing Image Search query in C#
+# Call and response: your first Bing Web Search query in C#
 
 The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
@@ -35,7 +35,7 @@ To run this application, follow these steps.
 3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

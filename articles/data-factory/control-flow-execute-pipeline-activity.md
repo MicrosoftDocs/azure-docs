@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
 
 ---
@@ -177,7 +177,7 @@ This scenario has two pipelines:
 }
 ```
 
-**Source dataset:**
+**Source dataset**
 ```json
 {
     "name": "SourceBlobDataset",
@@ -198,7 +198,7 @@ This scenario has two pipelines:
 }
 ```
 
-**Sink dataset:**
+**Sink dataset**
 ```json
 {
     "name": "sinkBlobDataset",

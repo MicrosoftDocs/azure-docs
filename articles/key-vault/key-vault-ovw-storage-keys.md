@@ -5,8 +5,8 @@ description: Storage account keys provide a seemless integration between Azure K
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
 ---
@@ -129,15 +129,15 @@ The output of the preceding command will include your  ServicePrincipal, which 
 
 ### Set permissions
 
-Make sure you have your storage permissions set to *all*. You can get yourKeyVaultServicePrincipalId and set permissions on the vault using the following commands.
+Make sure you have your storage permissions set to *all*. You can get youruserPrincipalId and set permissions on the vault using the following commands.
 
 ```powershell
-Get-AzureRmADUser -SearchString "your name"
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
 ```
 Now search for your name and get the related ObjectId, which you will use in setting permissions on the vault.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### Allow access

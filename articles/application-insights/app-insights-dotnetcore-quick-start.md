@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -28,7 +28,7 @@ To complete this quickstart:
 - [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - You will need an Azure subscription and an existing .NET Core web application.
 
-If you don't have a ASP.NET Core web application, you can create one by following the [Create an ASP.NET Core Web App Guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+If you don't have a ASP.NET Core web application, you can create one by following the [Create an ASP.NET Core Web App Guide](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -40,11 +40,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **New** > **Monitoring + Management** > **Application Insights**.
+1. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-dotnetcore-quick-start/0001-dc.png)
 
-    A configuration box will appear, use the table below to fill out the input fields.
+    A configuration box appears; use the following table to fill out the input fields.
 
     | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
@@ -122,4 +122,4 @@ If you plan to continue on to work with subsequent quickstarts or with the tutor
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose run-time exceptions](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Find and diagnose run-time exceptions](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

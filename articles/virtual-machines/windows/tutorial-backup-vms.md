@@ -74,7 +74,7 @@ In this example, we show how to recover the image file that is used in the defau
 	![Default IIS web page](./media/tutorial-backup-vms/iis-broken.png)
 
 5. On your local computer, open a new tab and go the the [Azure portal](https://portal.azure.com).
-6. In the menu on the left, select **Virtual machines** and select the VM form the list.
+6. In the menu on the left, select **Virtual machines** and select the VM from the list.
 8. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
 9. In the menu at the top of the blade, select **File Recovery**. The **File Recovery** blade opens.
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
@@ -100,7 +100,7 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)
+> [Govern virtual machines](tutorial-govern-resources.md)
 
 
 

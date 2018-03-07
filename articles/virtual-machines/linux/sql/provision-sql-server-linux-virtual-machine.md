@@ -37,9 +37,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the left pane, click **New**.
+1. In the left pane, click **Create a resource**.
 
-1. In the **New** pane, click **Compute**.
+1. In the **Create a resource** pane, click **Compute**.
 
 1. Click **See all** next to the **Featured** heading.
 
@@ -167,7 +167,7 @@ This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If yo
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd –-reload
+   sudo firewall-cmd --reload
    ```
 
 ## Next steps

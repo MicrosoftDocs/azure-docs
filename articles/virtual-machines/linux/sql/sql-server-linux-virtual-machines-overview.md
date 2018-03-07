@@ -32,7 +32,7 @@ There are many reasons that you might choose to host your data in Azure. If you 
 
 SQL Server running on Azure VMs is one option for storing your relational data in Azure. You also have the option of using Azure SQL Database service. For more information about choosing between SQL Server on Virtual Machines versus Azure SQL Database, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## Create a new SQL VM
+## <a id="create"></a> Create a new SQL VM
 
 Find step-by-step guidance for creating a new SQL VM in the tutorial, [Provision a Linux SQL Server VM in Azure](provision-sql-server-linux-virtual-machine.md).
 

@@ -19,7 +19,7 @@ ms.author: jonbeck
 
 ---
 
-# B-series burstable virtual machine sizes (preview)
+# B-series burstable virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-b-series-burstable](../../../includes/virtual-machines-common-b-series-burstable.md)]
 

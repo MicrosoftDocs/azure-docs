@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 
 ---
@@ -83,22 +83,22 @@ If you want to perform data integration securely in a private network environmen
 ### Compute resource and scaling
 Self-hosted IR needs to be installed on an on-premises machine or a virtual machine inside a private network. Currently, we only support running the self-hosted IR on a Windows operating system.  
 
-For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see how to create and configure self-hosted IR topic under how to guides for details.
+For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see how to create and configure self-hosted IR article under how to guides for details.
 
 ## Azure-SSIS Integration Runtime
 To lift and shift existing SSIS workload, you can create an Azure-SSIS IR to natively execute SSIS packages.
 
 ### Network environment
-Azure-SSIS IR can be provisioned in either public network or private network.  On-premises data access is supported by joining Azure-SSIS IR to a Virtual Network (VNet) that is connected to your on-premises network. Currently, only classic VNet is supported. 
+Azure-SSIS IR can be provisioned in either public network or private network.  On-premises data access is supported by joining Azure-SSIS IR to a Virtual Network (VNet) that is connected to your on-premises network.  
 
 ### Compute resource and scaling
 Azure-SSIS IR is a fully managed cluster of Azure VMs dedicated to run your SSIS packages. You can bring your own Azure SQL Database or Managed Instance (private preview) server to host the catalog of SSIS projects/packages (SSISDB) that is going to be attached to it. You can scale up the power of the compute by specifying node size and scale it out by specifying the number of nodes in the cluster. You can manage the cost of running your Azure-SSIS Integration Runtime by stopping and starting it as you see fit.
 
-For more information, see how to create and configure Azure-SSIS IR topic under how to guides.  Once created, you can deploy and manage your existing SSIS packages with little to no change using familiar tools such as SQL Server Data Tools (SSDT) and SQL Server Management Studio (SSMS), just like using SSIS on premises.
+For more information, see how to create and configure Azure-SSIS IR article under how to guides.  Once created, you can deploy and manage your existing SSIS packages with little to no change using familiar tools such as SQL Server Data Tools (SSDT) and SQL Server Management Studio (SSMS), just like using SSIS on premises.
 
 For more information about Azure-SSIS runtime, see the following articles: 
 
-- [Tutorial: deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
+- [Tutorial: deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
 - [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Managed Instance (private preview) and joining the IR to a VNet. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve information about an Azure-SSIS IR and descriptions of statuses in the returned information. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes to the IR. 
@@ -121,7 +121,7 @@ The following diagram shows two copy activity samples:
 ![Which IR to use](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## Integration runtime location
-The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Currently, the supported Data Factory locations are: East US, East US 2. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the IR available globally in multiple regions to ensure data compliance, efficiency, and reduced network egress costs.
+The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Currently, the supported Data Factory locations are: East US, East US 2, and West Europe. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the IR available globally in multiple regions to ensure data compliance, efficiency, and reduced network egress costs.
 
 The IR Location defines the location of its back-end compute, and essentially the location where the data movement,  activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the data factory it belongs to. The following diagram shows location settings of Data Factory and its integration run times:
 
@@ -139,7 +139,7 @@ United States | East US | East US
 &nbsp; | South Central US | South Central US
 &nbsp; | West Central US | West Central US
 &nbsp; | West US | West US
-&nbsp; | West US 2 | West US
+&nbsp; | West US 2 | West US 2
 Canada | Canada East | Canada Central
 &nbsp; | Canada Central | Canada Central
 Brazil | Brazil South | Brazil South
@@ -153,8 +153,8 @@ Australia | Australia East | Australia East
 &nbsp; | Australia Southeast | Australia Southeast
 Japan | Japan East | Japan East
 &nbsp; | Japan West | Japan East
-Korea | Korea Central | Korea South
-&nbsp; | Korea South | Korea South
+Korea | Korea Central | Korea Central
+&nbsp; | Korea South | Korea Central
 India | Central India | Central India
 &nbsp; | West India | Central India
 &nbsp; | South India | Central India

@@ -3,8 +3,8 @@ title: Monitor your ASP.NET Web App  with Azure Application Insights | Microsoft
 description: Provides instructions to quickly setup a ASP.NET Web App for monitoring with Application Insights
 services: application-insights
 keywords:
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/14/2017
 ms.service: application-insights
 ms.custom: mvc

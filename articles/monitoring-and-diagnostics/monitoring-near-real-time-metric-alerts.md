@@ -1,6 +1,6 @@
 ---
-title: Near Real-Time Metric Alerts in Azure Monitor | Microsoft Docs
-description: Near real-time metric alerts enable you to monitor Azure resource metrics as frequently as 1 min.
+title: Near real-time metric alerts in Azure Monitor | Microsoft Docs
+description: Learn how to use near real-time metric alerts to monitor Azure resource metrics with a frequency as small as 1 minute.
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -13,29 +13,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
 
 ---
 
-# Near Real-Time Metric Alerts (Preview)
-Azure Monitor now supports a new type of metric alerts called Near Real-Time Metric Alerts (Preview). This feature is currently in public preview.
-These alerts differ from regular metric alerts in few ways
+# Near real-time metric alerts (preview)
+Azure Monitor supports a new alert type called near real-time metric alerts (preview). This feature currently is in public preview.
 
-- **Improved Latency** - Near real-time metric alerts can monitor changes in metric values as soon as 1 min.
-- **More control over metric conditions** - Near real-time metric alerts allow users to define richer alert rules. The alerts now support monitoring the maximum, minimum, average, and total values of the metrics.
-- **Combined monitoring of multiple metrics** - Near real-time metric alerts can monitor multiple metrics(currently two) with a single rule. Alert gets triggered if both the metrics breach their respective thresholds for the specified time period.
-- **Modular notification system** - Near real-time metric alerts use [action groups](monitoring-action-groups.md). This functionality allows users to create actions in a modular fashion and reuse them for many alert rules.
+Near real-time metric alerts differ from regular metric alerts in a few ways:
+
+- **Improved latency**: Near real-time metric alerts can monitor changes in metric values with a frequency as small as 1 minute.
+- **More control over metric conditions**: You can define richer alert rules in near real-time metric alerts. The alerts support monitoring the maximum, minimum, average, and total values of metrics.
+- **Combined monitoring of multiple metrics**: Near real-time metric alerts can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time period.
+- **Modular notification system**: Near real-time metric alerts use [action groups](monitoring-action-groups.md). You can use action groups to create modular actions. You can reuse action groups for multiple alert rules.
 
 > [!NOTE]
-> Near real-time metric alerts feature is currently in public preview. The functionality and user experience is subject to change.
+> The near real-time metric alert feature currently is in public preview. The functionality and user experience is subject to change.
 >
 
-## What resources can I create near real-time metric alerts for?
-Full list of resource types that are supported by near real-time metric alerts:
+## Resources you can use with near real-time metric alerts
+Here's the full list of resource types that are supported for near real-time metric alerts:
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -49,49 +51,76 @@ Full list of resource types that are supported by near real-time metric alerts:
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
 
+## Near real-time metric alerts for metrics that use dimensions
+Near real-time metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. Near real-time metric alerts for metrics that use dimensions are supported for the following resource types:
 
-## Create a Near Real-Time Metric Alert
-Currently, near real-time metric alerts can only be created through the Azure portal. Support for configuring near real-time metric alerts through PowerShell, command-line interface (CLI), and Azure Monitor REST API is coming soon.
+* Microsoft.ApiManagement/service
+* Microsoft.Storage/storageAccounts (supported only for storage accounts in US regions)
+* Microsoft.Storage/storageAccounts/services (supported only for storage accounts in US regions)
 
-1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it. This resource should be of one of the resource types listed in the [previous section](#what-resources-can-i-create-near-real-time-metric-alerts-for). You can also do the same for all supported resources types centrally from Monitor>Alerts.
+## Create a near real-time metric alert
+Currently, you can create near real-time metric alerts only in the Azure portal. Support for configuring near real-time metric alerts by using PowerShell, the Azure command-line interface (Azure CLI), and Azure Monitor REST APIs is coming soon.
 
-2. Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.
-   ![Monitoring](./media/insights-alerts-portal/AlertRulesButton.png)
+The experience for creating a near real-time metric alert has moved to the new **Alerts (Preview)** page. Even if the current alerts page displays **Add Near Real-Time Metric alert**, you are redirected to the **Alerts (Preview)** page.
 
-3. Click the **Add near real time metrics alert (preview)** command. If the command is grayed out, ensure the resource is selected in the filter.
+To learn how to create a near real-time metric alert, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
-    ![Add Near Real-Time Metrics Alert Button](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
+## Manage near real-time metric alerts
+After you create a near real-time metric alert, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
-5. Select the **Metric** you want to monitor, then choose a **Condition**, **Time Aggregation**, and **Threshold** value for the metric. Optionally select another **Metric** you want to monitor, then choose a **Condition**, **Time Aggregation**, and **Threshold** value for the second metric. 
+## Payload schema
 
-    ![Add Near Real-Time Metrics Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png)
-    ![Add Near Real-Time Metrics Alert2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. Choose the **Period** of time that the metric rules must be satisfied before the alert triggers. So for example, if you use the period "Over the last 5 minutes" and your alert looks for CPU above 80% (and NetworkIn above 500 MB), the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The alert is evaluated according to the **Evaluation Frequency**
+The POST operation contains the following JSON payload and schema for all near real-time metric alerts:
 
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
 
-6. Pick an appropriate **Severity** from the drop down.
+## Next steps
 
-7. Specify if you want to use a New or Existing **Action Group**.
-
-8. If you choose to create **New** Action Group,  give the action group a name and a short name, specify actions(SMS, Email, Webhook) and fill respective details.
-
-
-8. Select **OK** when done to create the alert.   
-
-Within a few minutes, the alert is active and triggers as previously described.
-
-## Managing near real-time metric alerts
-Once you have created an alert, you can select it and:
-
-* View a graph showing the metric threshold and the actual values from the previous day.
-* Edit or delete it.
-* **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert.
-
-
-
+* Learn more about the new [Alerts (Preview) experience](monitoring-overview-unified-alerts.md).
+* Learn about [log alerts in Azure Alerts (Preview)](monitor-alerts-unified-log.md).
+* Learn about [alerts in Azure](monitoring-overview-alerts.md).

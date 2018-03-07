@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Bing video search
 
-The [Bing Video Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) returns video results from the Bing search engine.
+The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns video results from the Bing search engine.
 
 1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment.
 2. Create a new PHP project in your favorite IDE or editor.

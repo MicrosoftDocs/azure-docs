@@ -11,7 +11,7 @@ editor: cgronlun
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -45,7 +45,7 @@ For this tutorial, you'll need:
 
 ## Create a blank SQL database
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **New** > **Data + Storage** > **SQL Database**.
+2. Click **Create a resource** > **Data + Storage** > **SQL Database**.
 3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL database](sql-database-get-started-portal.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)

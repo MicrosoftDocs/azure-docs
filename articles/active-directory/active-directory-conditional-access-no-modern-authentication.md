@@ -4,7 +4,7 @@ description: Learn how to set up SharePoint Online and Exchange Online for Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -178,7 +178,7 @@ By applying the following three rules:
 
 ## Next steps
 
-For more information, see [Conditional access in Azure Active Directory](active-directory-conditional-access.md)
+For more information, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 
 

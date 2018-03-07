@@ -4,7 +4,7 @@ description: How to build a Node.js web API that accepts tokens from a B2C tenan
 services: active-directory-b2c
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
@@ -45,8 +45,6 @@ Next, you need to create an app in your B2C directory that gives Azure AD some i
 * Enter `http://localhost/TodoListService` as a **Reply URL**. It is the default URL for this code sample.
 * Create an **Application secret** for your application and copy it. You need this data later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 * Copy the **Application ID** that is assigned to your app. You need this data later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains two identity experiences: sign up and sign in. You need to create one policy of each type, as described in the

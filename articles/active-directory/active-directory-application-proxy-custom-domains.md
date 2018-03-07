@@ -3,8 +3,8 @@ title: Custom domains in Azure AD Application Proxy | Microsoft Docs
 description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MarkusVi
+manager: mtillman
 
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -12,10 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
-ms.author: billmath
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
+
 ---
 
 # Working with custom domains in Azure AD Application Proxy
@@ -79,7 +80,7 @@ Currently all certificate management is through individual application pages so 
 
 ## Next steps
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md) to your published apps.
+* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md) to your published apps.
 * [Add your custom domain name to Azure AD](active-directory-domains-add-azure-portal.md)
 
 

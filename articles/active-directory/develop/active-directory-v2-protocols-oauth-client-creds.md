@@ -5,7 +5,7 @@ description: Build web applications by using the Azure AD implementation of the 
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07

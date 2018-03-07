@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
 
 ---
@@ -90,9 +90,29 @@ Virtual Machines                             0 10000 Count
 
 ### Solution 3
 
-If you need to increase a quota limit, go to the portal and file a support issue to raise your quota for the region into which you want to deploy.
+To request a quota increase, go to the portal and file a support issue. In the support issue, request an increase in your quota for the region into which you want to deploy.
 
 > [!NOTE]
 > Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 Resource Manager cores in all regions.
 >
 >
+
+1. Select **Subscriptions**.
+
+   ![Subscriptions](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Select the subscription that needs an increased quota.
+
+   ![Select subscription](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Select **Usage + quotas**
+
+   ![Select usage and quotas](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. In the upper right corner, select **Request increase**.
+
+   ![Request increase](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Fill in the forms for the type of quota you need to increase.
+
+   ![Fill in form](./media/resource-manager-quota-errors/forms.png)

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Features Overview | Microsoft Docs
-description: This page provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature.
+title: Azure SQL Database feature comparison | Microsoft Docs
+description: This article compares the features of SQL Server and Azure SQL Database and shows their differences.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -13,12 +13,12 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 10/25/2017
+ms.workload: "Active"
+ms.date: 02/08/2018
 ms.author: carlrab
 ---
 
-# Azure SQL Database features
+# Feature comparison: Azure SQL Database versus SQL Server 
 
 Azure SQL Database shares a common code base with SQL Server and, at the database level, supports most of the same features. The major feature differences between Azure SQL Database and SQL Server are at the instance level. 
 
@@ -35,7 +35,7 @@ The following table lists the major features of SQL Server and provides informat
 | **SQL Server Feature** | **Supported in Azure SQL Database** | 
 | --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
-| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | High availability is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
+| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | High availability is included with every database. See [High-availability and Azure SQL Database](sql-database-high-availability.md). Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-geo-replication-overview.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No |
 | [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes |
 |[Auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Yes](sql-database-auditing.md)|
@@ -66,7 +66,7 @@ The following table lists the major features of SQL Server and provides informat
 | [DDL triggers](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Database only |
 | [Distributed transactions - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](sql-database-elastic-transactions-overview.md) |
 | [DML statements](https://docs.microsoft.com/sql/t-sql/queries/queries) | Yes |
-| [DML triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements | 
+| [DML triggers](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements | 
 | [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Some - see individual DMVs |
 |[Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking)|[Yes](sql-database-dynamic-data-masking-get-started.md)|
 | [Event notifications](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](sql-database-insights-alerts-portal.md) |
@@ -106,7 +106,7 @@ The following table lists the major features of SQL Server and provides informat
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs](sql-database-elastic-jobs-getting-started.md) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | See [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | See [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Yes - see [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) |
 | [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate.md) |

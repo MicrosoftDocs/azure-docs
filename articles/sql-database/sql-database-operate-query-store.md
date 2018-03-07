@@ -14,7 +14,7 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
-ms.workload: data-management
+ms.workload: "Inactive"
 ms.date: 11/08/2016
 ms.author: bonova
 

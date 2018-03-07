@@ -78,8 +78,6 @@ Resource health is available in across all Azure geos except the following regio
 - US DoD Central
 - Germany Central
 - Germany Northeast
-- China East
-- China North
 
 ## How is Resource Health different from the Service Health Dashboard or the Azure portal service notifications?
 The information provided by Resource Health is more specific than what is provided by the Azure Service Health Dashboard.

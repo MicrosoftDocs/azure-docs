@@ -177,7 +177,7 @@ This article builds on the template you created in [Create and deploy your first
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(variables('storageName'))]"
+         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
        }
    }
    ```
@@ -245,7 +245,7 @@ The final template is:
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(variables('storageName'))]"
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
     }
   }
 }

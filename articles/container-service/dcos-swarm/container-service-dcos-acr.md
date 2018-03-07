@@ -1,20 +1,12 @@
 ---
-title: Using ACR with an Azure DC/OS cluster | Microsoft Docs
+title: Using ACR with an Azure DC/OS cluster
 description: Use an Azure Container Registry with a DC/OS cluster in Azure Container Service
 services: container-service
-documentationcenter: ''
 author: julienstroheker
 manager: dcaro
-editor: ''
-tags: acs, azure-container-service, acr, azure-container-registry
-keywords: Docker, Containers, Micro-services, Mesos, Azure, FileShare, cifs
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
@@ -38,12 +30,12 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Deploy Azure Container Registry
 
-If needed, create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. 
+If needed, create an Azure Container registry with the [az acr create](/cli/azure/acr#az_acr_create) command. 
 
 The following example creates a registry with a randomly generate name. The registry is also configured with an admin account using the `--admin-enabled` argument.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
 Once the registry has been created, the Azure CLI outputs data similar to the following. Take note of the `name` and `loginServer`, these are used in later steps.

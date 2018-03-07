@@ -1,3 +1,5 @@
+# [Multi-factor Authentication Documentation](index.md)
+
 # Overview
 ## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [How it works](multi-factor-authentication-how-it-works.md)
@@ -13,7 +15,6 @@
 # How to
 ## Deploy and use
 ### [Configure settings](multi-factor-authentication-whats-next.md)
-#### [Use the phonefactor portal](multi-factor-authentication-whats-next-pfweb.md)
 ### [Reports in MFA](multi-factor-authentication-manage-reports.md)
 ### [Use existing network policy servers](multi-factor-authentication-nps-extension.md)
 #### [Advanced configuration for NPS extension](nps-extension-advanced-configuration.md)

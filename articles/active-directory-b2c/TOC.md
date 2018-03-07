@@ -1,6 +1,11 @@
+# [Azure AD B2C Documentation](index.md)
+
 # [Overview](active-directory-b2c-overview.md)
 
 # Get started
+## [Test drive an Azure AD B2C web app](active-directory-b2c-quickstarts-web-app.md)
+## [Test drive an Azure AD B2C desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+## [Test drive an Azure AD B2C single-page app](active-directory-b2c-quickstarts-spa.md)
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
 ## [Built-In policies](active-directory-b2c-reference-policies.md)
@@ -16,6 +21,7 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web apps
 ### [Overview](active-directory-b2c-reference-oidc.md)
+### [Authenticate users in ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
@@ -24,6 +30,7 @@
 ### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web APIs
+### [Protect an ASP.NET API](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
@@ -37,6 +44,7 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
@@ -87,6 +95,7 @@
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
 ### [SSO session providers](active-directory-b2c-reference-sso-custom.md)
+### [Language customization](active-directory-b2c-language-customization-custom.md)
 ### [Trust Framework definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Reference

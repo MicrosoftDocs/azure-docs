@@ -5,7 +5,7 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
@@ -48,6 +48,11 @@ User can **Delete Column** or **Insert new Columns** by Right-clicking on the he
 User can Copy and Paste values from one Cell to another in order to provide an example of split.
 
 User can switch between the **Basic Mode** and the **Advanced Mode** by clicking the links in the Transform Editor.
+
+### Transform editor: Send Feedback
+
+Clicking on the **Send feedback** link opens the **Feedback** dialog with the comments box prepopulated with the parameter selections and the examples user has provided. User should review the content of the comments box and provide more details to help us understand the issue. If the user does not want to share data with Microsoft, user should delete the prepopulated example data before clicking the **Send Feedback** button. 
+
 
 ### Editing an existing transformation
 

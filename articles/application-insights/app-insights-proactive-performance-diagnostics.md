@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Smart Detection - Performance Anomalies
@@ -64,7 +64,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
 ## FAQ
 
-* *So, you guys look at my data?*
+* *So, Microsoft staff look at my data?*
   * No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
 * *Do you analyze all the data collected by Application Insights?*
   * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is on our backlog looking forward.
@@ -154,7 +154,7 @@ Notice that it tells you:
 
 ## Smart Detection of slow performing patterns 
 
-Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, notification about pages load is slowler on one type of browser than on other types of browsers, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
+Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, notification about pages load is slower on one type of browser than on other types of browsers, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
 
 Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it’s too late: the affected users are already switching to your competitors!
 

@@ -4,7 +4,7 @@ description: Explains how to sign up for Azure Active Directory Premium edition
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory

@@ -26,9 +26,6 @@ The following Cognitive Services APIs are currently in Public Preview in Azure G
 - Translator Speech API
 - Translator Text API
 
-Email AzureGovFeedback@microsoft.com if you run into any issues using these APIs.
- 
-
 ### Variations
 - Provisioning and management for the following APIs are available through PowerShell and CLI only (**no Portal Support**).
 

@@ -3,7 +3,7 @@ title: 'Azure Machine Learning Web Services: Deployment and consumption | Micros
 description: Resources for deploying and consuming web services.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
+ms.author: raymondl
 
 ---
 # Azure Machine Learning Web Services: Deployment and consumption
@@ -23,6 +23,7 @@ You can use Azure Machine Learning to deploy machine-learning workflows and mode
 The next sections provide links to walkthroughs, code, and documentation to help get you started.
 
 ## Deploy a web service
+
 ### With Azure Machine Learning Studio
 Machine Learning Studio and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
 
@@ -56,7 +57,7 @@ Running the application creates a web service JSON template. To use the template
 
 * Storage account name and key
 
-    You can get the storage account name and key from either the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](http://manage.windowsazure.com/).
+    You can get the storage account name and key from the [Azure portal](https://portal.azure.com/).
 * Commitment plan ID
 
     You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by signing in and clicking a plan name.

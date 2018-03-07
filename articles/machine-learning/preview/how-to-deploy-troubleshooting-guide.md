@@ -5,34 +5,32 @@ services: machine-learning
 author: raymondl
 ms.author: raymondl
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 11/16/2017
 ---
 
 # Troubleshooting service deployment and environment setup
 The following information can help determine the cause of errors when setting up the model management environment.
 
 ## Model management environment
-### Owner permission required
-You must have owner permission on the Azure subscription to register the Machine Learning Compute.
-
-You also need owner permission to set up a cluster for deployment of your web services.
+### Contributor permission required
+You need contributor access to the subscription or the resource group to set up a cluster for deployment of your web services.
 
 ### Resource availability
 You need to have enough resources available in your subscription so you can provision the environment resources.
 
 ### Subscription Caps
-Your subscription may have a cap on billing which could prevent you from provisioning the environment resources. Removet that cap to enable provisioning.
+Your subscription may have a cap on billing which could prevent you from provisioning the environment resources. Remove that cap to enable provisioning.
 
 ### Enable debug and verbose options
 Use the `--debug` and  `--verbose` flags in the setup command to show debug and trace information as the environment is being provisioned.
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## Service deployment
@@ -85,7 +83,10 @@ Python example:
 ```
 
 ## Other common problems
-- If the `env setup` command fails, make sure you have enough cores available in your subscription.
-- Do not use the underscore ( _ ) in the web service name (as in *my_webservice*).
-- Retry if you get a **502 Bad Gateway** error when calling the web service. It normally means the container hasn't been deployed to the cluster yet.
-- If you get **CrashLoopBackOff** error when creating a service, check your logs. It typically is the result of missing dependencies in the **init** function.
+- If pip install of azure-cli-ml fails with the error `cannot find the path specified` on a Windows machine, you need to enable long path support. See https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
+- If the `env setup` command fails with `LocationNotAvailableForResourceType`, you are probably using the wrong location (region) for the machine learning resources. Make sure your location specified with the `-l` parameter is `eastus2`, `westcentralus`, or `australiaeast`.
+- If the `env setup` command fails with `Resource quota limit exceeded`, make sure you have enough cores available in your subscription and that your resources are not being used up in other processes.
+- If the `env setup` command fails with `Invalid environment name. Name must only contain lowercase alphanumeric characters`, make sure the service name does not contain upper-case letters, symbols, or the underscore ( _ ) (as in *my_environment*).
+- If the `service create` command fails with `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)`, make sure the service name is between 3 and 32 characters in length; starts and ends with lower-case alphanumeric characters; and does not contain upper-case letters, symbols other than hyphen ( - ) and period ( . ), or the underscore ( _ ) (as in *my_webservice*).
+- Retry if you get a `502 Bad Gateway` error when calling the web service. It normally means the container hasn't been deployed to the cluster yet.
+- If you get `CrashLoopBackOff` error when creating a service, check your logs. It typically is the result of missing dependencies in the **init** function.

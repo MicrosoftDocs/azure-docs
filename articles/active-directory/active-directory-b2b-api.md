@@ -3,8 +3,8 @@ title: Azure Active Directory B2B collaboration API and customization | Microsof
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 
@@ -75,7 +76,7 @@ The API can be run in the following authorization modes:
 In this mode, whoever is using the API needs to have the permissions to be create B2B invitations.
 
 ### App only mode
-In app only context, the app needs the User.ReadWrite.All or Directory.ReadWrite.All scopes for the invitation to succeed.
+In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
 For more information, refer to: https://graph.microsoft.io/docs/authorization/permission_scopes
 

@@ -1,6 +1,6 @@
 ﻿---
 title: Discover, identify, and classify personal data in Microsoft Azure | Microsoft Docs
-description: Learn about searching, classifying, discovering, and identifying data
+description: searching, classifying, discovering, and identifying data in Azure may help you comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Discover, identify, and classify personal data in Microsoft Azure
 
-This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB.
+This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB. These tools and processes can be used to comply with General Data Protection Regulation (GDPR)
 
 ## Scenario, problem statement, and goal
 
@@ -56,22 +56,22 @@ This is particularly helpful if you want to find or change personal data for a s
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![how do I locate user profile and work information](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. On the **Users and groups** blade, select **Users**.
 
-  ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. On the **Users and groups - Users** blade, select a user from the list, and then, on the blade for the selected user, select **Profile** to view user profile information that might contain personal data.
 
-  ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. If you need to add or change user profile information, you can do so, and then, in the command bar, select **Save.**
 6. On the blade for the selected user, select **Work Info** to view user work information that may contain personal data.
 
- ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. If you need to add or change user work information, you can do so, and then, in the command bar, select **Save.**
 
@@ -113,7 +113,7 @@ To learn how to create your database this way, visit the [Create a single Azure 
 >[!Note]
 Windows admins tend to use PowerShell, but some of them prefer Azure CLI.
 
-### How do I search for personal data in SQL database in the Azure portal?**
+### How do I search for personal data in SQL database in the Azure portal?
 
 You can use the built-in query editor tool inside the Azure portal to search for personal data. You’ll log in to the tool using your SQL server admin login and password, and then enter a query.
 
@@ -149,13 +149,13 @@ Personal data associated with Hadoop clusters in Azure HDInsight can be imported
 
 #### How do I use Excel Power Query to import Hadoop clusters in Azure HDInsight into Excel?
 
-An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated with your cluster.
+An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated with your cluster.
 
   ![Query in Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-To learn how to do this, visit the [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-connect-excel-power-query.md) tutorial.
+To learn how to do this, visit the [Connect Excel to Hadoop by using Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) tutorial.
 
-Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
+Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## Azure Information Protection: personal data classification for documents and email
 
@@ -183,9 +183,9 @@ blog post. And check the Learn more links listed below for more on Azure Informa
 To begin with the basics, visit the [Azure CosmosD DB: How to query using SQL](../cosmos-db/tutorial-query-documentdb.md)
 tutorial. The tutorial provides a sample document and two sample SQL queries and results.
 
-For more in-depth guidance on building SQL queries, visit [SQL queries for Azure Cosmos DB Document DB API.](../cosmos-db/documentdb-sql-query.md)
+For more in-depth guidance on building SQL queries, visit [SQL queries for Azure Cosmos DB Document DB API.](../cosmos-db/sql-api-sql-query.md)
 
-If you’re new to Azure Cosmos DB and would like to learn how to create a database, add a collection, and add data, visit the [Azure Cosmos DB: Build a DocumentDB API web app](../cosmos-db/create-documentdb-dotnet.md)
+If you’re new to Azure Cosmos DB and would like to learn how to create a database, add a collection, and add data, visit the [Azure Cosmos DB: Build a SQL API web app](../cosmos-db/create-sql-api-dotnet.md)
 Quickstart tutorial. If you’d like to do this in a language other than .NET, such as Java or Python, just choose your preferred language once you get to the site.
 
 ## Next steps

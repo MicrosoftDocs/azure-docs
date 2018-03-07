@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 01/30/2018
 ms.author: nitinme
 
 ---
@@ -30,6 +30,7 @@ Before you begin, you must have the following:
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Preparing the data
+
 Before using the Import/Export service, break the data file to be transferred **into copies that are less than 200 GB** in size. The import tool does not work with files greater than 200 GB. In this tutorial, we split the file into chunks of 100 GB each. You can do this by using [Cygwin](https://cygwin.com/install.html). Cygwin supports Linux commands. In this case, use the following command:
 
     split -b 100m 319GB.tsv
@@ -55,7 +56,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/co
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     See [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) for more sample snippets.
-4. The preceding command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure classic portal](https://manage.windowsazure.com).
+4. The preceding command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure portal](https://portal.azure.com).
 
 ## Create an import job
 You can now create an import job by using the instructions in [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) (under the **Create the Import job** section). For this import job, with other details, also provide the journal file created while preparing the disk drives.

@@ -4,7 +4,7 @@ description: Sample using Microsoft as identity provider using OpenID Connect (O
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

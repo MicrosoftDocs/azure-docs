@@ -54,7 +54,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | Supported DSVM Editions      | Windows, Linux     |
 | How is it configured / installed on the DSVM?  | Keras is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Links to Samples      | https://github.com/fchollet/keras/tree/master/examples      |
-| Related Tools on the DSVM      | Microsoft Cognitive Toolkit, TensorLlow, Theano      |
+| Related Tools on the DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
 | How to use / run it?    | Download the samples from the Github location, copy it to a directory under ~/notebooks and open it in Jupyter   |
 
 
@@ -65,7 +65,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Linux     |
+| Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Caffe is installed in `/opt/caffe`.    |
 | Links to Samples      | Samples are included in `/opt/caffe/examples`.      |
 | Related Tools on the DSVM      | Caffe2      |
@@ -85,7 +85,7 @@ A new browser window opens with sample notebooks.
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Linux     |
+| Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Caffe2 is installed in `/opt/caffe2`. It is also available for Python 2.7(_root_) conda environment.     |
 | Links to Samples      | Sample Jupyter notebooks are included     |
 | Related Tools on the DSVM      | Caffe      |
@@ -112,10 +112,10 @@ At a terminal, activate the Python version you want (_root_ or _py35_), run _pyt
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Deep learning framework for H2O      |
-| Supported DSVM Editions      | Linux     |
+| Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Deep Water is installed in `/dsvm/tools/deep_water`.   |
 | Links to Samples      | Samples are available through the Deep Water server.      |
-| Related Tools on the DSVM      | H2o, Sparkling Water      |
+| Related Tools on the DSVM      | H2O, Sparkling Water      |
 
 ### How to use / run it?  
 
@@ -143,7 +143,7 @@ Then open a browser and connect to `http://localhost:54321`.
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Deep learning system from NVIDIA for rapidly training deep learning models      |
-| Supported DSVM Editions      | Linux     |
+| Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | DIGITS is installed in `/dsvm/tools/DIGITS` and is available a service called _digits_.   |
 ### How to use / run it?  
 
@@ -171,7 +171,7 @@ The service takes about one minute to start. Start a web browser and navigate to
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Linux     |
+| Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Theano is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Related Tools on the DSVM      | Keras      |
 | How to use / run it?    | At a terminal, activate the Python version you want (root or py35), run python, then import theano. In Jupyter, select the Python 2.7 or 3.5 kernel, then import theano.  |
@@ -183,7 +183,42 @@ The service takes about one minute to start. Start a web browser and navigate to
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Linux     |
+| Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Torch is installed in `/dsvm/tools/torch`. PyTorch is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Links to Samples      | Torch samples are located at `/dsvm/samples/torch`. PyTorch samples are located at `/dsvm/samples/pytorch`.      |
 
+
+## PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Deep learning framework      |
+| Supported DSVM Editions      | Linux     |
+| How is it configured / installed on the DSVM?  | PyTorch is installed in the Python 3.5 (_py35_) environment.   |
+| Links to Samples      | Sample Jupyter notebooks are included, and samples can also be found in /dsvm/samples/pytorch.      |
+| Related Tools on the DSVM      | Torch      |
+
+### How to use / run it?  
+
+At a terminal, run _python_, then import torch. In Jupyter, select the Python 3.5 kernel, then import torch.
+
+
+## MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | A server to create HTTP endpoints for MXNet and ONNX models      |
+| Supported DSVM Editions      | Linux     |
+| How is it configured / installed on the DSVM?  | _mxnet-model-server_ is available on at the terminal.   |
+| Links to Samples      | Look for up-to-date samples on the [MXNet Model Server page](https://github.com/awslabs/mxnet-model-server).    |
+| Related Tools on the DSVM      | MXNet      |
+
+## TensorFlow Serving
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | A server to run inferencing on a TensorFlow model      |
+| Supported DSVM Editions      | Linux     |
+| How is it configured / installed on the DSVM?  | _tensorflow_model_server_ is available at the terminal.   |
+| Links to Samples      | Samples are available [online](https://www.tensorflow.org/serving/).      |
+| Related Tools on the DSVM      | TensorFlow      |

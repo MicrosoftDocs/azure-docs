@@ -3,7 +3,7 @@ title: How to generate and transfer HSM-protected keys for Azure Key Vault | Mic
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
 documentationcenter: ''
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
-ms.author: ambapat
+ms.date: 12/05/2017
+ms.author: barclayn
 
 ---
 # How to generate and transfer HSM-protected keys for Azure Key Vault
@@ -79,10 +79,14 @@ For installation instructions, see [How to install and configure Azure PowerShel
 ### Step 1.2: Get your Azure subscription ID
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 From the output, locate the ID for the subscription you will use for Azure Key Vault. You will need this subscription ID later.
 
 Do not close the Azure PowerShell window.
@@ -95,97 +99,99 @@ Go to the Microsoft Download Center and [download the Azure Key Vault BYOK tools
 
 KeyVault-BYOK-Tools-UnitedStates.zip
 
-760EE9BD6445C87CFF0E8B032577118704B3BEAA045AA55977C10EF68BC67E2B
+2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
 - - -
 **Europe:**
 
 KeyVault-BYOK-Tools-Europe.zip
 
-7A64B94225F59B847C5C27C2200BAD7D16C901E1687767EDBBB8B09BB285011D
+9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
 - - -
 **Asia:**
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
-813DC94B23079CF7A5CEA71D5B444E86B292F463C53EE47AED25D4F7CD58E7D8
+4BC14059BF0FEC562CA927AF621DF665328F8A13616F44C977388EC7121EF6B5
 
 - - -
 **Latin America:**
 
 KeyVault-BYOK-Tools-LatinAmerica.zip
 
-3F29069E3500F95C0E156F4B8914E1DC60C20FB64B464306A299EA5145D755C0
+E7DFAFF579AFE1B9732C30D6FD80C4D03756642F25A538922DD1B01A4FACB619
 
 - - -
 **Japan:**
 
 KeyVault-BYOK-Tools-Japan.zip
 
-453FFEA2F8F410720B68B8BAC4CF79135A7F37F4E491FF840BE9E69E88A98C90
+3933C13CC6DC06651295ADC482B027AF923A76F1F6BF98B4D4B8E94632DEC7DF
 
 - - -
 **Korea:**
 
 KeyVault-BYOK-Tools-Korea.zip
 
-C17B7E93224DA80F5668E09CF7DAE2F92527E8226179995BBE2E43DA4323595A
+71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
 
 - - -
 **Australia:**
 
 KeyVault-BYOK-Tools-Australia.zip
 
-4AD893396E86F2D2A71682876A6A8EA59E3C7895BEAD2F7E7C8516682582C34B
+CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
 [**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
-3AAE1A96B9D15B899B8126CFC0380719EB54FDF2EA94489B43FAD21ECC745F64
+F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
 - - -
 **US Government DOD:**
 
 KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
-A61E78297B0732DF2682FDE63D7B572CE4D23B0BC27CC48AFF620BD060BB9E9D
+A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
 - - -
 **Canada:**
 
 KeyVault-BYOK-Tools-Canada.zip
 
-30B87A0BA8208F6B7241C30C794FED1C370D7445ACA179685816E4E156CD2AF7
+61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
 - - -
 **Germany:**
 
 KeyVault-BYOK-Tools-Germany.zip
 
-5E3E4AA54715E4F93C3C145035B18275B7C6815A06D7ABB212E7FADBF2929261
+5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
 - - -
 **India:**
 
 KeyVault-BYOK-Tools-India.zip
 
-136733A6C6A71D75571BB80819B3D55A9B83CCAD5C996C686BC5682A3F369BF7
+49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
 - - -
 **United Kingdom:**
 
 KeyVault-BYOK-Tools-UnitedKingdom.zip
 
-ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
+432746BD0D3176B708672CCFF19D6144FCAA9E5EB29BB056489D3782B3B80849
 
 - - -
 
 To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 The toolset includes the following:
 
@@ -205,7 +211,9 @@ Install the nCipher (Thales) support software on a Windows computer, and then at
 
 Ensure that the Thales tools are in your path (**%nfast_home%\bin**). For example, type the following:
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 For more information, see the user guide included with the Thales HSM.
 
@@ -226,7 +234,9 @@ If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button
 ### Step 3.2: Create a security world
 Start a command prompt and run the Thales new-world program.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards give full access to the security world. These cards become the **Administrator Card Set** for the new security world.
 
@@ -290,6 +300,10 @@ To validate the downloaded package:
    * For India:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * For United Kingdom:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > The Thales software includes python at %NFAST_HOME%\python\bin
      >
@@ -368,6 +382,9 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 * For India:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* For United Kingdom:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
@@ -424,6 +441,9 @@ Run one of the following commands, depending on your geographic region or instan
 * For India:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For United Kingdom:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 When you run this command, use these instructions:
 
@@ -439,7 +459,9 @@ Use a USB drive or other portable storage to copy the output file from the previ
 ## Step 5: Transfer your key to Azure Key Vault
 For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 If the upload is successful, you see displayed the properties of the key that you just added.
 

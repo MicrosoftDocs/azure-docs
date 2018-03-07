@@ -4,7 +4,7 @@ description: If you know how to deploy AD Domain Services and AD Federation Serv
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
@@ -430,7 +430,7 @@ Do not use SYSPREP to deploy or clone DCs. The ability to clone DCs is only avai
 Select where to locate the Windows Server AD DS database, logs, and SYSVOL. They must be deployed on Azure Data disks.
 
 > [!NOTE]
-> Azure Data disks are constrained to 1 TB.
+> Azure data disks are limited to 4 TB.
 > 
 > 
 

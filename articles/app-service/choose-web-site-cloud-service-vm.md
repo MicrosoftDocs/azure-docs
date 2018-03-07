@@ -44,8 +44,8 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Access to services like Service Bus, Storage, SQL Database |X |X |X |X | |
 | Host web or web services tier of a multi-tier architecture |X |X |X |X | |
 | Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. |
-| Integrated MySQL-as-a-service support |X |X |X | |Cloud Services can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Azure Portal workflow. |
-| Support for ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric supports the creation of a web front-end using [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Integrated MySQL-as-a-service support |X |X | | | |
+| Support for ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric supports the creation of a web front-end using [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Scale out to multiple instances without redeploy |X |X |X |X |Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures. |
 | Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md). |
 | Visual Studio integration |X |X |X |X | |
@@ -93,7 +93,7 @@ Azure App Service is a great solution for hosting corporate websites. It enables
 * Integrate with Active Directory
 
 ### <a id="iis6"></a> I have an IIS6 application running on Windows Server 2003.
-Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Microsoft has created [easy to use migration tools and detailed migration guidance](https://www.movemetowebsites.net/) that enable you to check compatibility and identify any changes that need to be made. Integration with Visual Studio, TFS, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azure Portal provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
+Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Microsoft has created [easy to use migration tools and detailed migration guidance](https://www.migratetoazure.net/) that enable you to check compatibility and identify any changes that need to be made. Integration with Visual Studio, TFS, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azure Portal provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
 
 * Quickly and easily migrate your legacy Windows Server 2003 web application to the cloud.
 * Opt to leave your attached SQL database on-premises to create a hybrid application.
@@ -106,6 +106,8 @@ Azure App Service is a great solution for this scenario, because you can start u
 * Use the Application Gallery to quickly set up popular web applications, such as WordPress.
 * Add additional Azure services and features to your application as needed.
 * Secure your web app with HTTPS.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a> I'm a web or graphic designer, and I want to design and build websites for my customers
 For web developers and designers, Azure App Service integrates easily with a variety of frameworks and tools, includes deployment support for Git and FTP, and offers tight integration with tools and services such as Visual Studio and SQL Database. With App Service, you can:
@@ -170,7 +172,6 @@ To get started with the chosen options for your application, see the following r
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

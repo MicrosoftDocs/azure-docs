@@ -3,18 +3,18 @@ title: Install and configure PowerShell for Azure Stack quickstart  | Microsoft 
 description: Learn about installing and configuring PowerShell for Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
-ms.author: sngun
+ms.date: 02/27/2018
+ms.author: mabrigg
 
 ---
 
@@ -47,8 +47,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
-Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -67,7 +66,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -84,7 +83,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 
 # Register an AzureRM environment that targets your Azure Stack instance
@@ -94,7 +93,7 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+    -AADTenantName $TenantName `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
@@ -103,9 +102,9 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
     -TenantId $TenantID 
 ```
 
-## Set up PowerShell for AD FS-based deployments 
+## Set up PowerShell for AD FS-based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
+You can use the following script if you are operating Azure Stack when connected to internet. However if you are operating Azure Stack without internet connectivity, use the [disconnected way of installing PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) and the cmdlets to configure PowerShell will remain same as shown in this script. Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
 
 ```powershell
 
@@ -118,8 +117,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
-Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -138,6 +136,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -154,7 +153,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
