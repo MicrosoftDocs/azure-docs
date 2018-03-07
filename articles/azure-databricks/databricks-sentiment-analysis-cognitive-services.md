@@ -61,13 +61,13 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 1. In the Azure portal, click **Create a resource**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. 
 
-    ![Databricks on Azure portal](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Databricks on Azure portal](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks on Azure portal")
 
 2. Under **Azure Databricks (Preview)**, click **Create**.
 
 3. Under **Azure Databricks Service**, provide the following values:
 
-    ![Create an Azure Databricks workspace](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Create an Azure Databricks workspace")
+    ![Create an Azure Databricks workspace](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     * For **Workspace name**, provide a name for your Databricks workspace.
     * For **Subscription**, from the drop-down, select your Azure subscription.
@@ -82,11 +82,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
 
-    ![Databricks on Azure](./media/databricks-stream-from-eventhubs/databricks-on-azure.png "Databricks on Azure")
+    ![Databricks on Azure](./media/databricks-sentiment-analysis-cognitive-services/databricks-on-azure.png "Databricks on Azure")
 
 3. In the **New cluster** page, provide the values to create a cluster.
 
-    ![Create Databricks Spark cluster on Azure](./media/databricks-stream-from-eventhubs/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+    ![Create Databricks Spark cluster on Azure](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0 (beta)** runtime. 
@@ -100,15 +100,15 @@ To receive a real-time stream of tweets, you must create an application in Twitt
 
 1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and click **Create New App**.
 
-    ![Create Twitter application](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "Create Twitter application")
+    ![Create Twitter application](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Create Twitter application")
 
 2. In the **Create an application** page, provide the details for the new app, and then click **Create your Twitter application**.
 
-    ![Twitter application details](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Twitter application details")
+    ![Twitter application details](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter application details")
 
 3. In the application page, click the **Keys and Access Tokens** tab and copy the values for **Consume Key** and **Consumer Secret**. Also, click **Create my access token** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
-    ![Twitter application details](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Twitter application details")
+    ![Twitter application details](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter application details")
 
 Save the values that you retrieved for the Twitter application. You need this later in the tutorial.
 
@@ -161,11 +161,11 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
 
-    ![Create notebook in Databricks](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Create notebook in Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Create notebook in Databricks")
 
 2. In the **Create Notebook** dialog box, enter **SendTweetsToEventHub**, select **Scala** as the language, and select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "Create notebook in Databricks")
+    ![Create notebook in Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Create notebook in Databricks")
 
     Click **Create**.
 
