@@ -3,7 +3,7 @@ title: Overview of Azure Location Based Services | Microsoft Docs
 description: An introduction to Azure Location Based Services (preview)
 services: location-based-services
 keywords: 
-author: jinzh-azureiot
+author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
 ms.topic: overview
