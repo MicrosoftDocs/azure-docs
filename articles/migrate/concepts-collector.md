@@ -27,6 +27,17 @@ You can create the Collector by following the steps here - [How to create the Co
 
 ![Collector communication diagram](./media/tutorial-assessment-vmware/portdiagram.png)
 
+
+| Component      | To communicate with   | Port required                            | Reason                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Collector      | Azure Migrate service | TCP 443                                  | Collector should be able to communicate with the service over the SSL port 443 |
+| Collector      | vCenter Server        | Default 443                             | Collector should be able to communicate with the vCenter server. It connects to vCenter on 443 by default. If the vCenter listens on a different port, that port should be available as outgoing port on the collector |
+| Collector		 | RDP|   | TCP 3389 | For you to be able to RDP into the Collector machine |
+
+
+
+
+
 ## Collector pre-requisites
 
 The Collector needs to pass a few pre-requisite checks to ensure it can connect to the Azure Migrate service and upload the discovered data. This article looks at each of the prerequisites and understand why it is required.
