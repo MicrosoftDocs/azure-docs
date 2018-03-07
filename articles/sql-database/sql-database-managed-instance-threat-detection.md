@@ -22,7 +22,7 @@ Threat Detection detects anomalous database activities indicating potential secu
 
 Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous database activities. Threat Detection makes it simple to address potential threats to the Managed Instance without the need to be a security expert or manage advanced security monitoring systems. For a full investigation experience, it is recommended to enable Azure Managed Instance Auditing, which writes database events to an audit log in your Azure storage account. 
 
-SQL Threat Detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), and, each protected Managed Instance is billed at the same price as Azure Security Center Standard tier, at $15/node/month, where each protected Managed Instance is counted as one node.  
+SQL Threat Detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and, each protected Managed Instance is billed at the same price as Azure Security Center Standard tier, at $15/node/month, where each protected Managed Instance is counted as one node.  
 
 ## Set up Threat Detection for your Managed Instance in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -68,5 +68,5 @@ Threat Detection for Managed Instance detects anomalous activities indicating un
 
 ## Next steps
 
-* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
