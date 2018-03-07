@@ -6,3 +6,4 @@ articles/virtual-machines/linux/  @iainfoulds @cynthn
 articles/virtual-machines/windows/  @iainfoulds @cynthn
 articles/application-insights/  @SergeyKanzhelev
 articles/cosmos-db/ @mimig1
+articles/service-fabric/ @tysonn @Thraka
