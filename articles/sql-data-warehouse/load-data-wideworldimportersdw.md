@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs'
-description: A tutorial that uses the Azure portal and SQL Server Management Studio to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. 
+title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
+description: A tutorial that uses the Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from Azure blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
 author: ckarst
@@ -207,7 +207,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 1. In Object Explorer, click the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
-    ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
+    ![Connect with new login](media/load-data-wideworldimportersdw/connect-as-loading-user.png)
 
 2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
 
@@ -215,7 +215,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
 
-    ![Connection is successful](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
+    ![Connection is successful](media/load-data-wideworldimportersdw/connected-as-new-login.png)
 
 ## Create external tables and objects
 
@@ -225,7 +225,7 @@ Run the following SQL scripts specify information about the data you wish to loa
 
 1. In the previous section, you logged into your data warehouse as LoaderRC20. In SSMS, right-click your LoaderRC20 connection and select **New Query**.  A new query window appears. 
 
-    ![New loading query window](media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
+    ![New loading query window](media/load-data-wideworldimportersdw/new-loading-query.png)
 
 2. Compare your query window to the previous image.  Verify your new query window is running as LoaderRC20 and performing queries on your MySampleDataWarehouse database. Use this query window to perform all of the loading steps.
 
@@ -265,7 +265,7 @@ Run the following SQL scripts specify information about the data you wish to loa
 
     ```sql
     CREATE SCHEMA ext;
-    CREATE SCHEMA [wwi];
+    CREATE SCHEMA wwi;
     ```
 
 7. Create the external tables. The table definitions are stored in SQL Data Warehouse, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
@@ -543,11 +543,11 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-8. In Object Explorer, expand mySampleDataWarehouse to see the list of external tables you just created.
+8. In Object Explorer, expand SampleDW to see the list of external tables you just created.
 
-    ![View external tables](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
+    ![View external tables](media/load-data-wideworldimportersdw/view-external-tables.png)
 
-9. Create the sale table. 
+9. Create the date dimension table. 
 
     ```sql
     CREATE TABLE [wwi].[dimension_Date]
@@ -568,7 +568,11 @@ Run the following SQL scripts specify information about the data you wish to loa
 	    [ISO Week Number] [int] NOT NULL
     )
     WITH (DISTRIBUTION = ROUND_ROBIN, CLUSTERED INDEX ([Date]));
+    ```
+
+10. Create the Sale fact table.
    
+    ```sql
     CREATE TABLE [wwi].[fact_Sale]
     (
 	    [Sale Key] [bigint] IDENTITY(1,1) NOT NULL,
@@ -784,7 +788,7 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
         r.[label] = 'CTAS : Load [wwi].[fact_Order]' OR
         r.[label] = 'CTAS : Load [wwi].[fact_Purchase]' OR
         r.[label] = 'CTAS : Load [wwi].[fact_StockHolding]' OR
-        r.[label] = 'CTAS : Load [wwi].[fact_Transaction]' OR
+        r.[label] = 'CTAS : Load [wwi].[fact_Transaction]'
     GROUP BY
         r.command,
         s.request_id,
@@ -802,7 +806,7 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
 
 4. Enjoy seeing your data nicely loaded into your data warehouse.
 
-    ![View loaded tables](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
+    ![View loaded tables](media/load-data-wideworldimportersdw/view-loaded-tables.png)
 
 ## Create stored procedures for generating data 
 
@@ -836,7 +840,7 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
     END
     ```
 
-3. Create stored procedures for generating data
+3. Create stored procedures for generating data.
 
     ```sql
     CREATE PROCEDURE [wwi].[PopulateDateDimensionForYear] @Year [int] AS
@@ -985,6 +989,17 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
     ```
+3. This might take a while as it progresses through the year.  To see which day the current process is on, run this SQL command:
+
+    ```sql
+    SELECT MAX([Invoice Date Key]) FROM wwi.fact_Sale;
+    ```
+
+4. Run the following command to see the space used.
+
+    ```sql
+    EXEC sp_spaceused N'wwi.fact_Sale';
+    ```
 
 ## Create statistics on newly loaded data
 
@@ -1054,9 +1069,9 @@ Follow these steps to clean up resources as you desire.
 
 3. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 
-4. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+4. To remove the SQL server you created, click **sample-svr.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
-5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
+5. To remove the resource group, click **SampleRG**, and then click **Delete resource group**.
 
 ## Next steps 
 In this tutorial, you learned how to create a data warehouse and create a user for loading data. You created external tables to define the structure for data stored in Azure Storage Blob, and then used the PolyBase CREATE TABLE AS SELECT statement to load data into your data warehouse. 
