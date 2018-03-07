@@ -17,8 +17,8 @@ In this tutorial, you learn how to use the device twin's *desired properties* al
 
 At a high level, using device twins enables the solution back end to specify the desired configuration for the managed devices, instead of sending specific commands. This puts the device in charge of setting up the best way to update its configuration (important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the solution back end the current state and potential error conditions of the update process. This pattern is instrumental to the management of large sets of devices, as it enables the solution back end to have full visibility of the state of the configuration process across all devices.
 
-> [!NOTE]
-> In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [direct methods][lnk-methods].
+> [!TIP]
+> In scenarios where devices are controlled in a more interactive fashion (for example, turning on a fan from a user-controlled app), consider using [direct methods][lnk-methods].
 
 In this tutorial, the solution back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (for example, requiring a software module restart, which this tutorial simulates with a simple delay).
 
@@ -39,10 +39,8 @@ The solution back end stores the configuration in the device twin's desired prop
             ...
         }
 
-> [!NOTE]
-> Since configurations can be complex objects, they are assigned unique IDs (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
-> 
-> 
+Since configurations can be complex objects, they are assigned unique IDs (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
+
 
 The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
 
