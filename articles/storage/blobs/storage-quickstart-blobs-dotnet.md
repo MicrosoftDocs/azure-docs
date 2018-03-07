@@ -20,7 +20,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-To complete this quickstart, you first need to download and install .NET Core 2.0 for your operating system, and optionally install an editor:
+To complete this quickstart, first create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](storage-quickstart-create-account.md).
+
+Next, download and install .NET Core 2.0 for your operating system. You can also choose to install an editor to use with your operating system.
 
 # [Windows](#tab/windows)
 
@@ -39,8 +41,6 @@ To complete this quickstart, you first need to download and install .NET Core 2.
 
 ---
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
 ## Download the sample application
 
 The sample application used in this quickstart is a basic console application. You can explore the sample application on [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
@@ -57,16 +57,29 @@ This command clones the repository to your local git folder. To open the Visual 
 
 To run the application, you must provide the connection string for your storage account. You can store this connection string within an environment variable on the local machine running the application. Create the environment variable using one of the following commands, depending on your operating system. Replace `<yourconnectionstring>` with the actual connection string.
 
-### Linux
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-### Windows
+# [Windows](#tab/windows)
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
 ```
+
+# [Linux](#tab/linux)
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+# [macOS](#tab/macos)
+
+Edit your .bash_profile, and add the environment variable:
+
+```
+export STORAGE_CONNECTION_STRING=
+```
+
+After you add the environment variable, log out and back in to make the changes effective. Alternately, you can type "source .bash_profile" from your terminal.
+
+---
 
 ## Run the sample
 
