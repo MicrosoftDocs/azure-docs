@@ -18,9 +18,12 @@ ms.custom: mvc
 
 # Azure Location Based Services - Render Coverage
 
+This article provides coverage information for Azure LBS Render. 
+
 Check out coverage for [**Geocoding**](geocoding-coverage.md).  
 Check out coverage for [**Traffic**](traffic-coverage.md).  
 Check out coverage for [**Routing**](routing-coverage.md).
+
 
 **Legend**
 
@@ -34,7 +37,7 @@ Check out coverage for [**Routing**](routing-coverage.md).
 
 ## Render Coverage of Raster Tiles
 
-The following table provides coverage information for Azure LBS Render of Raster Tiles.
+The following table provides coverage information for Azure Location Based Services Render of Raster Tiles.
 
 |Region|Render - Raster Tiles Unified|
 |--- |:---: |
@@ -171,7 +174,7 @@ The following table provides coverage information for Azure LBS Render of Raster
 
 ## Render Coverage of Vector Tiles 
 
-The following table provides coverage information for Azure LBS Render of Vector Tiles .
+The following table provides coverage information for Azure Azure Location Based Services Render of Vector Tiles.
 
 |Region|Render - Vector Tiles Unified|
 |--- |:---: |
