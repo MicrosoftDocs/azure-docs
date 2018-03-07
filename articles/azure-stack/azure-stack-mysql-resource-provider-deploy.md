@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -72,7 +72,7 @@ The system account must have the following privileges:
 
     | Azure Stack build | MySQL RP installer |
     | --- | --- |
-    | 1802: 1.0.180227.1 | [MySQL RP version 1.1.16.0](https://aka.ms/azurestackmysqlrp1802) |
+    | 1802: 1.0.180302.1 | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
     | 1712: 1.0.180102.3 or 1.0.180106.1 (multi-node) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
     | 1711: 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
