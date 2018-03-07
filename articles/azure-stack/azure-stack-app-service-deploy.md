@@ -74,10 +74,10 @@ To deploy App Service resource provider, follow these steps:
 
 7. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
-> [!NOTE]
-> The installer attempts to test connectivity to the fileshare before proceeding.  However if you have chosen to deploy in an existing Virtual Network, the installer might not be able to connect to the fileshare and a warning is presented asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
->
->
+   > [!NOTE]
+   > The installer attempts to test connectivity to the fileshare before proceeding.  However if you have chosen to deploy in an existing Virtual Network, the installer might not be able to connect to the fileshare and a warning is presented asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
+   >
+   >
 
    ![App Service Installer][7]
 
@@ -104,12 +104,12 @@ To deploy App Service resource provider, follow these steps:
 
 10. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
 
-> [!NOTE]
-> The installer attempts to test connectivity to the SQl Server before proceeding.  However if you have chosen to deploy in an existing Virtual Network, the installer might not be able to connect to the SQL Server and a warning is presented asking whether you want to continue.  Verify the SQL Server information and continue if they are correct.
->
->
+    > [!NOTE]
+    > The installer attempts to test connectivity to the SQl Server before proceeding.  However if you have chosen to deploy in an existing Virtual Network, the installer might not be able to connect to the SQL Server and a warning is presented asking whether you want to continue.  Verify the SQL Server information and continue if they are correct.
+    >
+    >
 
-   ![App Service Installer][11]
+    ![App Service Installer][11]
 
 11. Review the role instance and SKU options. The defaults populate with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
