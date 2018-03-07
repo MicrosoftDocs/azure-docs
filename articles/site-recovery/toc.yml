@@ -136,7 +136,7 @@
         href: azure-to-azure-troubleshoot-errors.md
   - name: VMware/physical to Azure
     items:
-    - Networking
+    - name: Networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
         href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
