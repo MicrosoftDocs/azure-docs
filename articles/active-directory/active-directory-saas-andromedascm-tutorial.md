@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
 
 ---
@@ -104,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Andromeda Domain and URLs single sign-on information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantURL>`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<tenantURL>`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -127,13 +127,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
-	| role 		  | DEMO |
-	| type 		  | DEFAULT |
-	| company       | COMP02    |
+	| -------------- | -------------------- |    
+	| role 		  | App specific role |
+	| type 		  | App Type |
+	| company       | CompanyName    |
 
 	> [!NOTE]
-	> There are not real values. These values are only for demo purpose, please use your organisation roles.
+	> There are not real values. These values are only for demo purpose, please use your organization roles.
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -189,7 +189,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
 	
-	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType** and **Role** are required. In this section we define attributes mapping (name and values) which correlate to those defined within Azure portal
+	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal
 
 	![Andromeda attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
