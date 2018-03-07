@@ -5,6 +5,7 @@ experimental: true
 experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
+ms.topic: hub-page
 featureFlags:
 - clicktale
 ---
@@ -160,6 +161,10 @@ featureFlags:
                                                         <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt="">
                                                             Node.js</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/go/azure/">
+                                                            Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
                                                <h4>App Models</h4>
@@ -3997,6 +4002,29 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Get the Go SDK</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Get started</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Reference</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -4034,7 +4062,7 @@ featureFlags:
                                                     Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Get Started</a>
+                                                    <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>

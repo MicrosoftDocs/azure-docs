@@ -5,7 +5,7 @@ services: machine-learning
 author: raymondl
 ms.author: raymondl
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
