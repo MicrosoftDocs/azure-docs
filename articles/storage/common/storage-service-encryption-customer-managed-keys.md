@@ -17,7 +17,7 @@ Microsoft Azure is committed to helping you protect and safeguard your data to m
 
 You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. This article describes how to use your own encryption keys. For more information about using Microsoft-managed keys, or about SSE in general, see [Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
-SSE for Blob and File storage is integrated with Azure Key Vault (AKV), so that you can use AKV to manage your encryption keys. You can create your own encryption keys and store them in AKV, or you can use AKV’s APIs to generate encryption keys. With AKV, you can manage and control your keys and also audit your key usage.
+SSE for Blob and File storage is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault’s APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage.
 
 Why create your own keys? Custom keys give you more flexibility, so that you can create, rotate, disable, and define access controls. Custom keys also enable you to audit the encryption keys used to protect your data.
 
@@ -79,7 +79,7 @@ By default, SSE uses Microsoft-managed keys. To use your own keys, check the box
 
 ![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
-If the storage account does not have access to the Key Vault, you can run the following command using Azure Powershell to grant access to the storage accounts to the required key vault.
+If the storage account does not have access to the key vault, you can run the following command using Azure Powershell to grant access.
 
 ![Portal Screenshot showing access denied for key vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
