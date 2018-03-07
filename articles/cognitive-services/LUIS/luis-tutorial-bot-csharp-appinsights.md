@@ -109,7 +109,7 @@ Configure the Visual Studio solution to know about Application Insights.
     [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
 
 ### Publish project back to Azure
-The ApplicationInsights package is now in the project and configured correctly for your credentials in the Azure portal. The changes for the project need to be send back to Azure.
+The ApplicationInsights package is now in the project and configured correctly for your credentials in the Azure portal. The changes for the project need to be published back to Azure.
 
 1. In the **Solution Explorer**, right-click the project name, then select **Publish**.
 
@@ -119,7 +119,7 @@ The ApplicationInsights package is now in the project and configured correctly f
 3. Select **Import profile**, and select **OK**.
 4. In the **Import Publish Settings File** windows, navigate to your project folder, navigate to the `PostDeployScripts` folder, select the file that ends in `.PublishSettings`, and select `Open`.You have now configured publishing for this project. 5. Publish your local source code to Bot Service: select the **Publish** button. The **Output** window shows status. 
 
-    The rest of the work is done in the Azure portal. You can close Visual Studio 2017. 
+    The rest of the tutorial is completed in the Azure portal. Close Visual Studio 2017. 
 
 ## Capture and send LUIS query results to Application Insights
 1. In the App Service Editor browser tab, open the **BasicLuisDialog.cs** file.
