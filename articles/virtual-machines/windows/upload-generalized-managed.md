@@ -161,6 +161,23 @@ You can also upload a VHD to your storage account using one of the following:
 -	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
+> [!IMPORTANT]
+> If you are using AzCopy uploading your VHD to Azure, make sure you have set ["/BlobType:page"](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running upload script. 
+> If the destination is a blob and this option is not specified, by default, AzCopy creates a block blob.
+> 
+> 
+
+```powershell
+$sourceDir = "D:\VHD" # Local Source Dir
+$storageContainer = "https://mscsssales.blob.core.windows.net/newpagev" # https://yourstorageaccount.blob.core.windows.net/containername
+$destKey = "AJmYfrltsLlyJq982NtugAlcpz5sB/PIYj27o8EUPsG8arZ7n0t3xdwHaSDUuK45VBMepJshxo9PU/mrf2YQ9g=="
+$fileName = "vm2016.vhd" # If you want to upload all VHD in source Dir, please enter "*.vhd"
+AzCopy.exe /Source:$sourceDir /Dest:$storageContainer /DestKey:$destKey /Pattern:$fileName /BlobType:page
+```
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"myVM.vhd" /BlobType:page
+```
 
 ## Create a managed image from the uploaded VHD 
 
