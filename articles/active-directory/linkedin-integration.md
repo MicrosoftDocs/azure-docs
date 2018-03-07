@@ -48,8 +48,9 @@ LinkedIn integration is enabled by default for your entire tenant. You can choos
   * Select **Yes** to enable LinkedIn integration for all users in your tenant
   * Select **Selected** to enable LinkedIn integration for only selected tenant users
   * Select **No** to disable LinkedIn integration for all users
+  ![Enabling LinkedIn integration](./media/linkedin-integration/LinkedIn-integration.png)
 5. Save your settings when you're done by selecting **Save**.
-   ![Enabling LinkedIn integration](./media/linkedin-integration/LinkedIn-integration.png)
+   
 
 
 ### Enable or disable LinkedIn integration for your organization's Office 2016 apps using Group Policy
