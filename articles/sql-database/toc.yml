@@ -145,9 +145,9 @@
       href: sql-database-cloud-migrate.md
     - name: Migrate to Managed Instance
       href: sql-database-managed-instance-migrate.md
-    - name: SQL Database T-SQL behavior
+    - name: SQL Database T-SQL details
       href: sql-database-transact-sql-information.md
-    - name: Managed Instance T-SQL behavior
+    - name: Managed Instance T-SQL details
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Manage SQL Database after migration
       href: sql-database-manage-after-migration.md
