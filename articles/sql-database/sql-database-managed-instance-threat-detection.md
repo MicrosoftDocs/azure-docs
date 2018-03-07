@@ -12,9 +12,9 @@ ms.date: 03/07/2018
 ms.author: ronmat
 
 ---
-# SQL Database Managed Instance Threat Detection
+# Azure SQL Database Managed Instance Threat Detection
 
-SQL Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+SQL Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases in an Azure SQL Database Managed Instance (preview).
 
 ## Overview
 
@@ -27,10 +27,10 @@ SQL Threat Detection integrates alerts with [Azure Security Center](https://azur
 ## Set up Threat Detection for your Managed Instance in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Navigate to the configuration page of the Managed Instance you want to protect. In the **Settings** page, select **Threat Detection**. 
-3. In the Threat Detection configuration blade 
+3. In the Threat Detection configuration page 
    - Turn **ON** Threat detection.
    - Configure the **list of emails** that will receive security alerts upon detection of anomalous database activities.
-•	Select the **Azure storage account** where anomalous threat audit records will be saved. 
+   - Select the **Azure storage account** where anomalous threat audit records will be saved. 
 4.	Click **Save** to save the new or updated threat detection policy.
 
    ![threat detection](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
@@ -43,7 +43,7 @@ SQL Threat Detection integrates alerts with [Azure Security Center](https://azur
 
    ![threat detection-email](./media/sql-database-managed-instance-threat-detection/threat-detection-email.png)
 
-2. Click the **View recent SQL alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts blade, which provides an overview of active SQL threats detected on the Managed Instance’s database.
+2. Click the **View recent SQL alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active SQL threats detected on the Managed Instance’s database.
 
    ![active threats](./media/sql-database-managed-instance-threat-detection/active-threats.png)
 
@@ -69,5 +69,5 @@ Threat Detection for Managed Instance detects anomalous activities indicating un
 ## Next steps
 
 - Learn about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md)
-- Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+- Learn more about [Managed Instance Auditing](https://go.microsoft.com/fwlink/?linkid=869430) 
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

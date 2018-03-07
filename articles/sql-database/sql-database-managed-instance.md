@@ -17,7 +17,7 @@ ms.date: 03/07/2018
 ms.author: carlrab
 ---
 
-# What is an Azure SQL Database Managed Instance (preview)?
+# What is a Managed Instance (preview)?
 
 Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
  
@@ -158,7 +158,7 @@ Managed Instance targets user scenarios with mass database migration from on-pre
 
 ### Data Migration Service
 
-The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime.   This service will streamline the tasks required to move existing 3rd party and SQL Server databases to Azure. Deployment options includes Azure SQL Database, Azure SQL Database Managed Instance and SQL Server in Azure VM at Public Preview. See [How to migrate your on-premises database to Azure SQL Database Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).  
+The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime.   This service will streamline the tasks required to move existing 3rd party and SQL Server databases to Azure. Deployment options includes Azure SQL Database, Managed Instance and SQL Server in Azure VM at Public Preview. See [How to migrate your on-premises database to Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).  
 
 ### Backup and restore  
 
@@ -174,7 +174,7 @@ The following diagram outlines surface area compatibility in Managed Instance:
 
 ![migration](./media/sql-database-managed-instance/migration.png) 
 
-### Key differences between SQL Server on-premises and SQL Managed Instance 
+### Key differences between SQL Server on-premises and Managed Instance 
 
 Managed Instance benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives.  There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that service is not running in an environment you do not fully control: 
 
@@ -189,7 +189,7 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
 Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, database replication (including system databases), high availability configuration, and configuration of health and performance monitoring data streams.  
 
 > [!IMPORTANT]
-> For a list of supported, partially supported, and unsupported features, see [SQL Database features](sql-database-features.md). For a list of T-SQL differences in Managed Instances versus SQL Server, see [Azure SQL Database Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md)
+> For a list of supported, partially supported, and unsupported features, see [SQL Database features](sql-database-features.md). For a list of T-SQL differences in Managed Instances versus SQL Server, see [Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md)
  
 ## Next steps
 

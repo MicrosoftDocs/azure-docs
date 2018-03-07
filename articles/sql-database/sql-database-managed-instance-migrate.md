@@ -12,7 +12,7 @@ ms.date: 03/07/2018
 ms.author: carlrab
 
 ---
-# SQL Server instance migration to Azure SQL Database Managed Instance (preview)
+# SQL Server instance migration to Azure SQL Database Managed Instance
 
 In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to Azure SQL Database Managed Instance (preview). 
 
@@ -74,11 +74,11 @@ Managed Instance supports the following several database migration options:
 
 ### Azure Database Migration Service
 
-The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Azure SQL Database Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
+The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
 
 ![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
-To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
 
 ### Native RESTORE from URL
 
@@ -95,7 +95,7 @@ The following table provides more details regarding the method you can use depen
 |Put backup to Azure Storage|Prior SQL 2012 SP1 CU2|Upload .bak file directly to Azure storage|
 ||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntax|
 ||2016 and above|Direct backup using [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restore from Azure Storage	SQL Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
+|Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
 
 > [!IMPORTANT]
 > PRestore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
@@ -124,4 +124,4 @@ To strengthen security, consider using some of the features that are available:
 
 - For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a tutorial that includes a restore from backup, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
-- For tutorial showing migration using DMS, see [Migrate your on-premises database to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+- For tutorial showing migration using DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
