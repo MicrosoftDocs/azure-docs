@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 03/05/2018
 ms.author: raynew
 
 ---
@@ -38,6 +38,6 @@ In addition to using Site Recovery for disaster recovery of on-premises and Azur
 
 ## Next steps
 
-- [Migrate on-premises machines to Azure](tutorial-migrate-on-premises-to-azure.md)
-- [Migrate VMs from one Azure region to another](tutorial-migrate-azure-to-azure.md)
-- [Migrate AWS to Azure](tutorial-migrate-aws-to-azure.md)
+- [Migrate on-premises machines to Azure](migrate-tutorial-on-premises-azure.md)
+- [Migrate VMs from one Azure region to another](azure-to-azure-tutorial-migrate.md)
+- [Migrate AWS to Azure](migrate-tutorial-aws-azure.md)

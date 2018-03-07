@@ -1,24 +1,18 @@
 ---
-title: Replicate and failover VMware virtual machines to Azure using Azure Site Recovery PowerShell | Microsoft Docs
-description: Replicate and failover VMware virtual machines to Azure using Azure Site Recovery PowerShell
+title: Replicate and fail over VMware VMs to Azure using PowerShell in Azure Site Recovery | Microsoft Docs
+description: Learn how to set up replication and failover to Azure for VMware VMs using PowerShell in Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: bsiva
 manager: abhemraj
 editor: raynew
-
-ms.assetid:
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 1/02/2018
+ms.date: 03/05/2018
 ms.author: bsiva
 
 
 ---
-# Replicate and failover VMware virtual machines to Azure using Azure Site Recovery PowerShell
+# Replicate and fail over VMware VMs to Azure with PowerShell
 
 In this article, you see how to replicate and failover VMware virtual machines to Azure using Azure PowerShell. 
 
@@ -39,7 +33,7 @@ You learn how to:
 ## Prerequisites
 
 Before you start:
-- Make sure that you understand the [scenario architecture and components](concepts-vmware-to-azure-architecture.md).
+- Make sure that you understand the [scenario architecture and components](vmware-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
 - You have version 5.0.1 or greater of the AzureRm PowerShell module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
@@ -101,8 +95,8 @@ C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
 ```
 
 Use the downloaded vault registration key and follow the steps in the articles given below to complete installation and registration of the Configuration Server.
-* [Choose your protection goals](site-recovery-set-up-vmware-to-azure.md#choose-your-protection-goals)
-* [Set up the source environment](site-recovery-set-up-vmware-to-azure.md#set-up-the-source-environment) 
+* [Choose your protection goals](vmware-azure-set-up-source.md#choose-your-protection-goals)
+* [Set up the source environment](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ## Set the vault context
 
@@ -266,7 +260,7 @@ $Job_AssociateFailbackPolicy.State
 
 ```
 
-## Add a vCenter server and discover VMware virtual machines
+## Add a vCenter server and discover VMs
 
 Add a vCenter Server by IP address or hostname. The **-port** parameter specifies the port on the vCenter server to connect to, **-Name** parameter specifies a friendly name to use for the vCenter server, and the  **-Account** parameter specifies the account handle on the Configuration server to use to discover virtual machines managed by the vCenter server.
 

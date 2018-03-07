@@ -1,25 +1,25 @@
 ---
 title: Install Mobility Service (VMware or physical to Azure) | Microsoft Docs
-description: Learn how to install the Mobility Service agent to protect your on-premises computers.
+description: Learn how to install the Mobility Service agent to protect your on-premises VMware VMs and physical servers with Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
 ---
 
-# Install Mobility Service (VMware or physical to Azure)
-Azure Site Recovery Mobility Service captures data writes on a computer and then forwards them to the process server. Deploy Mobility Service to every computer (VMware VM or physical server) that you want to replicate to Azure. You can deploy Mobility Service to the servers that you want to protect by using the following methods:
+# Install the Mobility service 
+
+Azure Site Recovery Mobility Service is installed on VMware VMs and physical servers that you want to replicate to Azure. The service captures data writes on a computer and then forwards them to the process server. Deploy Mobility Service to every computer (VMware VM or physical server) that you want to replicate to Azure. You can deploy the Mobility Service on the servers and VMware VMs you want to protect using the following methods:
 
 
-* [Install Mobility Service by using software deployment tools like System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
-* [Install Mobility Service by using Azure Automation and Desired State Configuration (Automation DSC)](site-recovery-automate-mobility-service-install.md)
-* [Install Mobility Service manually by using the graphical user interface (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
-* [Install Mobility Service manually at a command prompt](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
-* [Install Mobility Service by push installation from Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+* [Install using software deployment tools like System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+* [Install with Azure Automation and Desired State Configuration (Automation DSC)](vmware-azure-mobility-deploy-automation-dsc.md)
+* [Install manually from the UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui)
+* [Install manually from a command prompt](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)
+* [Install using the Site Recovery push installation](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
@@ -88,16 +88,16 @@ After Mobility Service is installed, in the Azure portal, select **+ Replicate**
 1. On the Azure portal, browse to the *name of your vault* > **Replicated items** view.
 2. If the configuration server was already updated to the latest version, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
 
-     ![Replicated items window](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
+     ![Replicated items window](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
 3. Select the notification to open the virtual machine selection page.
 4. Select the virtual machines you want to upgrade mobility service on, and select **OK**.
 
-     ![Replicated items VM list](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
+     ![Replicated items VM list](.\media\vmware-azure-install-mobility-service\update-okpng.png)
 
 The Update Mobility Service job starts for each of the selected virtual machines.
 
 > [!NOTE]
-> [Read more](site-recovery-vmware-to-azure-manage-configuration-server.md) on how to update the password for the account used to install Mobility Service.
+> [Read more](vmware-azure-manage-configuration-server.md) on how to update the password for the account used to install Mobility Service.
 
 ## Uninstall Mobility Service on a Windows Server computer
 Use one of the following methods to uninstall Mobility Service on a Windows Server computer.
