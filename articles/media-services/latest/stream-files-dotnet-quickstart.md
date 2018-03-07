@@ -21,14 +21,14 @@ ms.author: juliako
 > [!NOTE]
 > The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3.
 
-Content creators want to reach larger audiences on today’s most popular mobile devices and browsers. To achieve that, the video needs to be encoded and packaged appropriately for delivery to various clients (for example, TV, PC, and mobile devices). As a developer, you can use Media Services [REST API](https://docs.microsoft.com/rest/api/media/) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. 
+Content creators want to reach larger audiences on today’s most popular mobile devices and browsers. To achieve that, their video needs to be encoded and packaged appropriately for delivery to various clients (for example, TV, PC, and mobile devices). As a developer, you can use Media Services [REST API](https://docs.microsoft.com/rest/api/media/) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain such a media workflow. 
 
 This quickstart examines and explains the code that uses .NET client library to perform most common Media Services tasks related to streaming your files: 
 
 1. Create the **AzureMediaServicesClient** object to access Media Services operations.
 2. Create a job to encode a file hosted on an HTTPS URI.
 3. Poll for encoding status. 
-4. Get the streaming URL for the encoded video.
+4. Get the URL that players on mobile devices and browsers can use to stream the encoded video.
 
 When you run the application discussed in this article, it prints out streaming URLs that you can use to stream your video with Azure Media Player. 
 
@@ -74,9 +74,9 @@ return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
 
 ### Create a Job to encode a file hosted on an HTTPS URI
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe that repeated jobs can be submitted to and achieve the same result. An example of that would be encoding the video to deliver to an iPhone at a specific quality and bitrate. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a job to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. One example of a recipe would be to encode the video in order to stream it to a variety of iOS and Android devices. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). 
 
-When creating a **Transform** instance, you need to specify what you want for the transform's output to contain. You must set what preset you want to use. A preset describes the Media Processor operation that will be used to generate the output. In this case, AdaptiveStreaming is used. This preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate. The auto-generated preset will never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output will remain 720p at best, and will start at rates lower than 3 Mbps. The output will have video and audio in separate files, which is optimal for adaptive streaming.
+When creating a **Transform** instance, you need to specify what it should produce as an output, i.e. the TransformOutput. A Preset is the step-by-step instructions in a recipe - the set of video and/or audio processing operations that are to be used to generate the desired TransformOutput. Each TransformOutput will therefore contain a Preset. In this example, we will use a built-in Preset called AdaptiveStreaming. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. The output files will never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output will remain 720p at best, and will start at rates lower than 3 Mbps. TODO: link to page on auto-generated bitrate ladder.
 
 ```csharp
 var output = new[]
@@ -93,16 +93,16 @@ var output = new[]
 };
 ```
 
-When creating the transform, you need to specify a name. If you want to use the same transform in the future, you can find it by this name. Otherwise you can delete it once you are done.  
+When creating a Transform, you need to specify a unique name. If you intend to use the same Transform in the future, you can find it by that name. Otherwise you can delete it once you are done.  
 
 ```csharp
 Transform transform = new Transform(output, location: location);
-transform = client.Transforms.CreateOrUpdate("BuiltInStandardEncoderPreset", transform);
+transform = client.Transforms.CreateOrUpdate("MyTransformWithAdaptiveStreamingPreset", transform);
 ```
 
-As mentioned above, the **Transform** object is the recipe, and the **Job** is the actual definition of the work that will be done with that Transform. The job points to the "instance" information for the recipe. The job specifies information like the location of the input video and the location for the output. In this case, the input video is coming from the specified HTTPS URL. You can also specify an Azure Blob SAS URL, or S3 tokenized URL. Media Services also allows you to ingest from any existing content in Azure Storage or directly from your machine using the Storage APIs and an Asset. For more information, see [Tutorial: upload, encode, stream files](stream-files-tutorial.md).
+As mentioned above, the **Transform** object is the recipe, and a **Job** is the actual request to Media Services to apply that Transform to a given input video or audio content. The Job specifies information like the location of the input video, and the location for the output. In this example, the input video is coming from the specified HTTPS URL. You can also specify an Azure Blob SAS URL, or S3 tokenized URL. Media Services also allows you to ingest from any existing content in Azure Storage or directly from your machine using the Storage APIs and an Asset. For more information, see [Tutorial: upload, encode, stream files](stream-files-tutorial.md).
 
-The following function creates and submits a job that encodes a file that is based on an HTTPS URL. 
+The following function creates and submits a Job that encodes a file that is based on an HTTPS URL. TODO: show how to retrieve the transformName. For this example, the string is not just "MyTransformWithAdaptiveStreamingPreset"!!
 
 ```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName)
