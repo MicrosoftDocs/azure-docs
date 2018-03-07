@@ -172,7 +172,7 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 }
 ```
 
-As you can see, these properties describe the configuration of the VM itself, not the configuration of the scale set as a whole. For instance, the scale set model has `overprovision` as a property, whereas the model for a VM in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VMs in the scale set. (For more information about overprovisioning, see [Design considerations for scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning).)
+As you can see, these properties describe the configuration of the VM itself, not the configuration of the scale set as a whole. For instance, the scale set model has `overprovision` as a property, whereas the model for a VM in a scale set does not. The reason for this difference is that overprovisioning is a property for the scale set as a whole, not individual VMs in the scale set. (For more information about overprovisioning, see [Design considerations for scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning).)
 
 
 
@@ -302,9 +302,9 @@ After the scale set model is updated, the new configuration applies to any new V
 
 Scale sets have an *upgrade policy* that determines how VMs are brought up to date with the latest scale set model. The three modes for the upgrade policy are:
 
-- Automatic: In this mode, the scale set makes no guarantees about the order of VMs that are brought down. The scale set might take down all VMs at the same time. 
-- Rolling: In this mode, the scale set rolls out the update in batches, with an optional pause time between batches.
-- Manual: In this mode, when you update the scale set model, nothing happens to existing VMs. To update existing VMs, you must manually upgrade each one. You can do this manual upgrade via:
+- **Automatic**: In this mode, the scale set makes no guarantees about the order of VMs that are brought down. The scale set might take down all VMs at the same time. 
+- **Rolling**: In this mode, the scale set rolls out the update in batches, with an optional pause time between batches.
+- **Manual**: In this mode, when you update the scale set model, nothing happens to existing VMs. To update existing VMs, you must manually upgrade each one. You can do this manual upgrade via:
 
   - REST API: 
   
@@ -373,7 +373,7 @@ Some properties can be changed, with exceptions, depending on the current value.
 
 ### Properties that require deallocation to change
 
-Some properties can be changed only to certain values if the VMs in the scale set are deallocated. These properties include:
+Some properties can be changed to certain values only if the VMs in the scale set are deallocated. These properties include:
 
 - `sku name`: If the new VM SKU is not supported on the hardware that the scale set is currently on, you need to deallocate the VMs in the scale set before you modify `sku name`. For more information on resizing VMs, see [this Azure blog post](https://azure.microsoft.com/blog/resize-virtual-machines/).
 
@@ -420,7 +420,7 @@ Let's say you have a scale set running an old version of Ubuntu LTS 16.04. You w
 
 ### Update the load balancer for your scale set
 
-Let's say you have a scale set with an Azure load balancer, and you want to replace the load balancer with an Azure application gateway. The load balancer and application gateway properties for a scale set are part of a list. So, you can use the commands for removing and adding list elements instead of modifying the properties directly:
+Let's say you have a scale set with an Azure load balancer, and you want to replace the load balancer with an Azure application gateway. The load balancer and application gateway properties for a scale set are part of a list. So, you can use the commands for removing and adding list elements instead of modifying the properties directly.
 
 PowerShell:
 ```
