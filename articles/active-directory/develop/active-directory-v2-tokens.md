@@ -3,7 +3,7 @@ title: Azure Active Directory v2.0 tokens reference | Microsoft Docs
 description: The types of tokens and claims emitted by the Azure AD v2.0 endpoint
 services: active-directory
 documentationcenter: ''
-author: hirsin
+author: hpsin
 manager: mtillman
 editor: ''
 
