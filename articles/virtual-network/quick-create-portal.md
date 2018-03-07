@@ -76,7 +76,7 @@ A virtual network enables several types of Azure resources to communicate privat
 2. After selecting the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
 3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select OK. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to proceed with the connection.
 
-## Test communication between VMs
+## Communicate between VMs
 
 Ping, which uses ICMP is used to communicate between virtual machines. ICMP is not allowed through the Windows firewall, by default. To allow *myVm2* to ping *myVm1* in a later step, enter the following command from a command prompt:
 
@@ -91,7 +91,7 @@ You are able to successfully ping the *myVm1* virtual machine from the *myVm2* v
 - You allowed it through the Windows firewall on the *myVm1* virtual machine in a previous step
 - By default, Azure allows all network traffic between resources in the same virtual network 
 
-## Test communication to the internet
+## Communicate to the internet
 
 While still connected to the *myVm2* virtual machine, enter `ping bing.com` from a command prompt.
 
@@ -101,7 +101,7 @@ You are able to successfully ping an internet resource from the *myVm2* virtual 
 
 Exit the remote desktop session.
 
-## Test communication from the internet
+## Communicate from the internet
 
 In the picture shown under step 1 in [Connect to a virtual machine](#connect-to-a-virtual-machine), you see a public IP address. In the picture, the address is *13.90.241.247*. The address for your virtual machine is different. Ping the public IP address of your *myVm1* virtual machine from your computer. Ping fails, even though ICMP is open through the Windows firewall.
 
