@@ -18,7 +18,7 @@ ms.author: daveba
 
 # Configure a VM Managed Service Identity (MSI) using PowerShell
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
@@ -26,7 +26,7 @@ In this article, you learn how to enable and remove MSI for an Azure VM, using P
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Also, install [the latest version of Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) (version 4.3.1 or later) if you haven't already.
 
@@ -41,8 +41,8 @@ To create an MSI-enabled VM:
    >  
    > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
-   - [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
-   - [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+   - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+   - [Create a Linux virtual machine using PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 
 
@@ -95,11 +95,11 @@ If you have a Virtual Machine that no longer needs an MSI, you can use the `Remo
 
 ## Related content
 
-- [Managed Service Identity overview](msi-overview.md)
+- [Managed Service Identity overview](overview.md)
 - For the full Azure VM creation Quickstarts, see:
   
-  - [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md) 
-  - [Create a Linux virtual machine with PowerShell](../virtual-machines/linux/quick-create-powershell.md) 
+  - [Create a Windows virtual machine with PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
+  - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

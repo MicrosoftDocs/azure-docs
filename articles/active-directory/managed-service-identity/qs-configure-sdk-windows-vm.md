@@ -18,7 +18,7 @@ ms.author: daveba
 
 # Configure a VM Managed Service Identity (MSI) using an Azure SDK
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory (AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
@@ -26,7 +26,7 @@ In this article, you learn how to enable and remove MSI for an Azure VM, using a
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 ## Azure SDKs with MSI support 
 

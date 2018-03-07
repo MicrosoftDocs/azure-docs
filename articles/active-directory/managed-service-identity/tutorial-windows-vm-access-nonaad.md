@@ -18,7 +18,7 @@ ms.author: daveba
 
 # Use a Windows VM Managed Service Identity (MSI) to access Azure Key Vault 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use that identity to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 
@@ -32,9 +32,9 @@ You learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## Sign in to Azure
 
@@ -51,7 +51,7 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
 
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt image text](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## Enable MSI on your VM 
 
@@ -62,11 +62,11 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4.	Ensure you click **Save** to save the configuration.  
 
-    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
 
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+    ![Alt image text](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## Grant your VM access to a Secret stored in a Key Vault 
  
@@ -83,7 +83,7 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 7. Click **OK** to finishing adding the new access policy, and **OK** to finish access policy selection. 
 8. Click **Create** to finish creating the Key Vault. 
 
-    ![Alt image text](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Alt image text](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
@@ -140,6 +140,6 @@ Once you’ve retrieved the secret from the Key Vault, you can use it to authent
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](overview.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
