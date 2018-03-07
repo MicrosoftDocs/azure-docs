@@ -38,7 +38,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual network**.
-3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, **myResourceGroup** for **Resource group**, *Public* for Subnet **Name**, 10.0.0.0/24 for Subnet **Address range**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**:
+3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, *10.0.0.0/16* for **Address space**, **myResourceGroup** for **Resource group**, *Public* for Subnet **Name**, 10.0.0.0/24 for Subnet **Address range**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**:
 
     ![Create a virtual network](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
@@ -143,7 +143,7 @@ The virtual machines created in this article have one [network interface](virtua
     Though a virtual machine isn't required to have a public IP address assigned to it, Azure assigns a public IP address to each virtual machine you create, by default. To communicate from the Internet to a virtual machine, a public IP address must be assigned to the virtual machine. All virtual machines can communicate outbound with the Internet, whether or not a public IP address is assigned to the virtual machine. To learn more about outbound Internet connections in Azure, see [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 13. On your own computer, browse to the public IP address of the *myVmWeb* virtual machine. The attempt to view the IIS welcome page from your own computer fails. The attempt fails because when the virtual machines were deployed, Azure created a network security group for each virtual machine, by default. 
 
-     A network security group contains security rules that allow or deny inbound and outbound network traffic by port and IP address. The default network security group Azure created allows communication over all ports between resources in the same virtual network. For Windows virtual machines, the default network security group denies all inbound traffic from the Internet over all ports, accept TCP port 3389 (RDP). As a result, by default, you can also RDP directly to the *myVmWeb* virtual machine from the Internet, even though you might not want port 3389 open to a web server. Since web browsing communicates over port 80, communication fails from the Internet because there is no rule in the default network security group allowing traffic over port 80.
+     A network security group contains security rules that allow or deny inbound and outbound network traffic by port and IP address. The default network security group Azure created allows communication over all ports between resources in the same virtual network. For Windows virtual machines, the default network security group denies all inbound traffic from the Internet over all ports, except TCP port 3389 (RDP). As a result, by default, you can also RDP directly to the *myVmWeb* virtual machine from the Internet, even though you might not want port 3389 open to a web server. Since web browsing communicates over port 80, communication fails from the Internet because there is no rule in the default network security group allowing traffic over port 80.
 
 ## Clean up resources
 
