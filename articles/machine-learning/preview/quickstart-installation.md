@@ -30,7 +30,7 @@ As part of the Microsoft Azure portfolio, Azure Machine Learning services requir
 Additionally, you must have adequate permissions to create assets such as Resource Groups, Virtual Machines, and so on. 
 
 <a name="prerequisites"></a>You can install the Azure Machine Learning Workbench application on the following operating systems:
-- Windows 10 or Windows Server 2016<F7>
+- Windows 10 or Windows Server 2016
 - macOS Sierra or High Sierra
 
 ## Create Azure Machine Learning services accounts
