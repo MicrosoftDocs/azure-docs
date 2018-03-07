@@ -331,8 +331,10 @@
         href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
       items:
-      - name: Container security
+      - name: Use a certificate in a container
         href: service-fabric-securing-containers.md
+      - name: Set up gMSA for Windows containers 
+        href: service-fabric-setup-gmsa-for-windows-containers.md
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
       - name: Resource governance for containers and services
@@ -395,8 +397,16 @@
       items:
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
-      - name: Configure security policies for your application
+      - name: Run a service startup script as a local user or system account
+        href: service-fabric-run-script-at-service-startup.md
+      - name: Run a service as a local user or system account
         href: service-fabric-application-runas-security.md
+      - name: Run a service as an AD user or group
+        href: service-fabric-run-service-as-ad-user-or-group.md
+      - name: Run a service as a group Managed Service Account
+        href: service-fabric/service-fabric-run-service-as-gmsa.md
+      - name: Assign a security access policy for endpoints
+        href: service-fabric-assign-policy-to-endpoint.md
   - name: Work in a Windows/VS dev environment
     items:
     - name: Manage applications in Visual Studio
