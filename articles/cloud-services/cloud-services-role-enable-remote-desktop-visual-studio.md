@@ -97,7 +97,7 @@ To use the RDP extension from Visual Studio Team Services, include the following
 
 1. Set **Script Type** to "Inline" and paste the code below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
 
-    ```ps1
+    ```ps
     Param(
         [Parameter(Mandatory=$True)]
         [string]$username,
