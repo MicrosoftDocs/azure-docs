@@ -269,7 +269,7 @@ To update of the resource provider you use the *UpdateMySQLProvider.ps1* script.
 
 The *UpdateMySQLProvider.ps1* script creates a new VM with the latest resource provider code and migrates the settings from the old VM to the new VM. The settings that migrate include database and hosting server information, and the necessary DNS record.
 
-The script requires use of the same arguments that are described for the DeployMySqlProvder.ps1 script. Provide the certificate here as well. 
+The script requires use of the same arguments that are described for the DeployMySqlProvider.ps1 script. Provide the certificate here as well. 
 
 Following is an example of the *UpdateMySQLProvider.ps1* script that you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed: 
 
