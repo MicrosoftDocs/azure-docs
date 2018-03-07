@@ -655,12 +655,6 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/recommendations/overview">
-                                                <img src="media/index/API_Recommendations.svg" alt="" />
-                                                <p>Recommendations</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
                                                 <img src="media/index/API_Know_Academic.svg" alt="" />
                                                 <p>Academic Knowledge</p>
