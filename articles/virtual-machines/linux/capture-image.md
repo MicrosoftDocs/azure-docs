@@ -34,7 +34,7 @@ Ensure that you meet the following prerequisites:
 
 * You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
-* You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/#az_login).
+* You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 ## Quick commands
 
@@ -140,4 +140,4 @@ You can create multiple VMs from your source VM image. If you need to make chang
 - Follow the steps again to deprovision, deallocate, generalize, and create an image.
 - Use this new image for future deployments. If desired, delete the original image.
 
-For more information on managing your VMs with the CLI, see [Azure CLI 2.0](/cli/azure/overview).
+For more information on managing your VMs with the CLI, see [Azure CLI 2.0](/cli/azure).
