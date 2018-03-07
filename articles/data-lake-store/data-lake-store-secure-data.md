@@ -74,27 +74,27 @@ When you assign users or security groups to Azure Data Lake Store accounts, you 
 
 6. Your user/security group now has access to the Azure Data Lake Store account. If you want to provide access to specific users, you can add them to the security group. Similarly, if you want to revoke access for a user, you can remove them from the security group. You can also assign multiple security groups to an account. 
 
-## <a name="filepermissions"></a>Assign users or security group as ACLs to the Azure Data Lake Store file system
+## <a name="filepermissions"></a>Assign users or security groups as ACLs to the Azure Data Lake Store file system
 By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store.
 
 1. In your Data Lake Store account blade, click **Data Explorer**.
    
-    ![Create directories in Data Lake Store account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
-2. In the **Data Explorer** blade, click the file or folder for which you want to configure the ACL, and then click **Access**. To assign ACL to a file, you must click **Access** from the **File Preview** blade.
+    ![View data via Data Explorer](./media/data-lake-store-secure-data/adl.start.data.explorer.png "View data via Data Explorer")
+2. In the **Data Explorer** blade, click the file or folder for which you want to configure the ACL, and then click **Access**. To assign ACLs to a file, you must first preview the file and then click **Access** from the **File Preview** blade.
    
     ![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
-3. The **Access** blade lists the standard access and custom access already assigned to the root. Click the **Add** icon to add custom-level ACLs.
+3. The **Access** blade lists the owners and assigned permissions already assigned to the root. Click the **Add** icon to add additional Access ACLs.
    
     ![List standard and custom access](./media/data-lake-store-secure-data/adl.acl.2.png "List standard and custom access")
    
-   * **Standard access** is the UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
-   * **Custom access** corresponds to the POSIX ACLs that enables you to set permissions for specific named users or groups, and not only the file's owner or group. 
+   * The **Owners** and **Everyone else** provide UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
+   * **Assigned permissions** corresponds to the POSIX ACLs that enable you to set permissions for specific named users or groups beyond the file's owner or group. 
      
      For more information, see [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). For more information on how ACLs are implemented in Data Lake Store, see [Access Control in Data Lake Store](data-lake-store-access-control.md).
-4. Click the **Add** icon to open the **Add Custom Access** blade. In this blade, click **Select User or Group**, and then in **Select User or Group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
+4. Click the **Add** icon to open the **Assign permissions** blade. In this blade, click **Select user or group**, and then in **Select user or group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
    
     ![Add a group](./media/data-lake-store-secure-data/adl.acl.3.png "Add a group")
-5. Click **Select Permissions**, select the permissions and whether you want to assign the permissions as a default ACL, access ACL, or both. Click **OK**.
+5. Click **Select permissions**, select the permissions, whether the permissions should be applied to recursively, and whether you want to assign the permissions as an access ACL, default ACL, or both. Click **OK**.
    
     ![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.4.png "Assign permissions to group")
    
