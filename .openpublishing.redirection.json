@@ -9100,7 +9100,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-azure",
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-azure.md",
             "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
