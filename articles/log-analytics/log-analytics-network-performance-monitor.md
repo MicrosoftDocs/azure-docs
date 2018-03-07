@@ -56,7 +56,7 @@ To monitor a network link, you must install agents on both endpoints of that lin
 
 NPM uses synthetic transactions to monitor network performance between source and destination agents. The solution offers a choice between TCP and ICMP as the protocol for monitoring in  Performance Monitor and Service Endpoint Monitor capabilities, whereas TCP is used for ExpressRoute Monitor. Ensure that the firewall allows communication between the OMS agents being used for monitoring on the protocol you’ve chosen for monitoring.  
 
-**TCP protocol:**  If you’ve chosen TCP as the protocol for monitoring, open the Firewall port on the agents being used for Performance Monitor and ExpressRoute Monitor capabilities, to ensure that the agents can connect to each other. To do this, run the EnableRules.ps1 PowerShell script without any parameters in a power shell window with administrative privileges.  
+**TCP protocol:**  If you’ve chosen TCP as the protocol for monitoring, open the Firewall port on the agents being used for Performance Monitor and ExpressRoute Monitor capabilities, to ensure that the agents can connect to each other. To do this, run the [EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell script without any parameters in a power shell window with administrative privileges.  
 
 The script creates registry keys required by the solution and it creates Windows firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script also specify whether to log the debug logs and the path for the logs file. It also defines the agent TCP port used for communication. The values for these keys are automatically set by the script, so you should not manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. However, the same port should be used on all the computers where the script is run. 
 
@@ -64,7 +64,7 @@ The script creates registry keys required by the solution and it creates Windows
 > The script configures only windows firewall locally. If you have a network firewall, you should make sure that it is allowing traffic destined for the TCP port being used by NPM 
 
 >[!NOTE]
-> You do not need to run the EnableRules.ps1 PowerShell script for Service Endpoint Monitor 
+> You do not need to run the [EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell script for Service Endpoint Monitor 
 
  
 
