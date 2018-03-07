@@ -63,11 +63,9 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
-By default, SSE uses Microsoft-managed keys. To use your own keys, check the box. Then you can either specify your key URI, or select a key and an Azure Key Vault.
-
 ### Step 3: Enable encryption with customer-managed keys
 
-You can enable SSE with customer-managed keys for the storage account using the [Azure portal](https://portal.azure.com/). On the **Settings** blade for the storage account, click **Encryption**. Select the **Use your own key** option, as shown in the following figure.
+By default, SSE uses Microsoft-managed keys. You can enable SSE with customer-managed keys for the storage account using the [Azure portal](https://portal.azure.com/). On the **Settings** blade for the storage account, click **Encryption**. Select the **Use your own key** option, as shown in the following figure.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
