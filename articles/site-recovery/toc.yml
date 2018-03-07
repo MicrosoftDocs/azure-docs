@@ -77,7 +77,7 @@
         href: vmware-azure-multi-tenant-overview.md
       - name: About the Mobility service
         href: vmware-azure-install-mobility-service.md
-    items
+    items:
     - name: Replication to a secondary site
       items:
       - name: VMware/physical to secondary site support matrix
