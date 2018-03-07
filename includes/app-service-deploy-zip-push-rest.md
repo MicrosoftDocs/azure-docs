@@ -33,7 +33,7 @@ $userAgent = "powershell/1.0"
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
 
-This request triggers push deployment from the uploaded .zip file. To review the current and past deployments, run the following commands:. Again, replace the `<app_name>` placeholder.
+This request triggers push deployment from the uploaded .zip file. To review the current and past deployments, run the following commands. Again, replace the `<app_name>` placeholder.
 
 ```bash
 $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/deployments"
