@@ -6,6 +6,8 @@
     href: cyclecloud-overview.md
   - name: Prerequisites
     href: prerequisites.md
+- name: CycleCloud Tools and Software
+  items:
   - name: Installation
     href: installation.md
   - name: Configuring CycleCloud

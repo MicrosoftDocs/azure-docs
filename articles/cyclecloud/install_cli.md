@@ -109,7 +109,7 @@ If the ``ACCESS_KEY`` and ``SECRET_KEY`` environment variables are defined,
 the CLI tools will ask to use them. If not, you must provide them. You will also
 asked to provide a default region to use when starting clusters.
 
-Finally, on first configuration you will be asked to give the name you wish to use for a container. This container will be used to store run-time configuration for your compute clusters. The container will be named 'az://<account>/<container>' where <container> is the value you specify. CycleCloud will only access this container, so if you need to limit access for security reasons this container is the only one that needs read/write permission.
+Finally, on first configuration you will be asked to give the name you wish to use for a container. This container will be used to store run-time configuration for your compute clusters. The container will be named 'az://[account]/[container]' where [container] is the value you specify. CycleCloud will only access this container, so if you need to limit access for security reasons this container is the only one that needs read/write permission.
 
 Your configuration information is saved in your home directory at ``~/.cycle/config.ini``. If you need to reconfigure your account, you can edit or remove this file and re-run the initialize command. Alternately, you can rerun ``cyclecloud initialize`` with the ``--force`` option.
 
