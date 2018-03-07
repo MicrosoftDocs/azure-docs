@@ -22,7 +22,7 @@ ms.author: kraigb
 After you develop a web application in Visual Studio, you can publish that application to an Azure cloud service by using the **Publish Azure Application** wizard.
 
 > [!Note]
-> This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [How to Deploy an Azure Web Site](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+> This article is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [How to Deploy an Azure Web Site](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## Accessing the Publish Azure Application wizard
 
@@ -72,7 +72,7 @@ You can access the Publish Azure Application wizard in two ways depending on the
 
 **Deployment label** - Either accept the default name, or enter a name of your choosing. To append the date to the deployment label, leave the check box selected. 
 
-**Storage account** - Select the storage account to use for this deployment, **&lt;Create New> to create a storage account. The data center displays in parentheses for each storage account. It is recommended that the data center location for the storage account be the same as the data center location for the cloud service (Common Settings).
+**Storage account** - Select the storage account to use for this deployment, **&lt;Create New> to create a storage account. The data center displays in parentheses for each storage account. It is recommended that the data center location for the storage account is the same as the data center location for the cloud service (Common Settings).
 
 The Azure storage account stores the package for the application deployment. After the application is deployed, the package is removed from the storage account.
 

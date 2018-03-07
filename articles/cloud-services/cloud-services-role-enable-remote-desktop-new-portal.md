@@ -30,7 +30,7 @@ You can enable a Remote Desktop connection in your role during development by in
 
 ## Configure Remote Desktop from the Azure portal
 
-The Azure portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Remote Desktop** blade for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date.
+The Azure portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Remote Desktop** settings for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date.
 
 1. Click **Cloud Services**, select the name of the cloud service, and then select **Remote Desktop**.
 
@@ -51,9 +51,9 @@ The Azure portal uses the Remote Desktop Extension approach so you can enable Re
 
 ## Remote into role instances
 
-Once Remote Desktop is enabled on the roles, you can initiate a connection directly from the Azure Portal:
+Once Remote Desktop is enabled on the roles, you can initiate a connection directly from the Azure portal:
 
-1. Click **Instances** to open the **Instances** blade.
+1. Click **Instances** to open the **Instances** settings.
 2. Select a role instance that has Remote Desktop configured.
 3. Click **Connect** to download an RDP file for the role instance.
 
@@ -62,9 +62,8 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 4. Click **Open** and then **Connect** to start the Remote Desktop connection.
 
 >[!NOTE]
-> If your cloud service is sitting behind an NSG, you may need to create rules that allow traffic on ports **3389** and **20000**.  Remote Desktop uses port **3389**.  Cloud Service instances are load balanced, so you can't directly control which instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents manage RDP traffic and allow the client to send an RDP cookie and specify an individual instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents require that port **20000*** be opened, which may be blocked if you have an NSG.
+> If your cloud service is sitting behind an NSG, you may need to create rules that allow traffic on ports **3389** and **20000**.  Remote Desktop uses port **3389**.  Cloud Service instances are load balanced, so you can't directly control which instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents manage RDP traffic and allow the client to send an RDP cookie and specify an individual instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents require that port **20000*** is open, which may be blocked if you have an NSG.
 
 ## Additional resources
 
 [How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
-[Cloud services FAQ - Remote Desktop](cloud-services-faq.md)

@@ -45,7 +45,7 @@ The emulator simulates the Azure Compute service and runs in your local environm
 
 To debug a cloud service from a remote machine, you must enable that functionality explicitly when you deploy your cloud service so that required services (msvsmon.exe, for example) are installed on the virtual machines that run your role instances. If you didn't enable remote debugging when you published the service, you have to republish the service with remote debugging enabled.
 
-If you enable remote debugging for a cloud service, it doesn't exhibit degraded performance or incur additional charges. You shouldn't use remote debugging on a production service, because clients who use the service might be adversely affected.
+If you enable remote debugging for a cloud service, it doesn't exhibit degraded performance or incur additional charges. Don't use remote debugging on a production service, because clients who use the service might be adversely affected.
 
 > [!NOTE]
 > When you publish a cloud service from Visual Studio, you can enable **IntelliTrace** for any roles in that service that target the .NET Framework 4 or the .NET Framework 4.5. By using **IntelliTrace**, you can examine events that occurred in a role instance in the past and reproduce the context from that time. See [Debugging a published cloud service with IntelliTrace and Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) and [Using IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
@@ -78,7 +78,7 @@ If you enable remote debugging for a cloud service, it doesn't exhibit degraded 
 
     ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-4. To identify the processes to which the debugger is attached, open the Processes dialog box by, on the menu bar, choosing Debug, Windows, Processes. (Keyboard: Ctrl+Alt+Z)To detach a specific process, open its shortcut menu, and then select **Detach Process**. Or, locate the instance node in Server Explorer, find the process, open its shortcut menu, and then select **Detach Process**.
+4. To identify the processes to which the debugger is attached, open the Processes dialog box by, on the menu bar, choosing Debug, Windows, Processes. (Keyboard: Ctrl+Alt+Z) To detach a specific process, open its shortcut menu, and then select **Detach Process**. Or, locate the instance node in Server Explorer, find the process, open its shortcut menu, and then select **Detach Process**.
 
     ![Debug Processes](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
@@ -89,7 +89,7 @@ To detach the debugger from all processes in your instance or role, open the sho
 
 ## Limitations of remote debugging in Azure
 
-From Azure SDK 2.3, remote debugging has the following limitations.
+From Azure SDK 2.3, remote debugging has the following limitations:
 
 * With remote debugging enabled, you can't publish a cloud service in which any role has more than 25 instances.
 * The debugger uses ports 30400 to 30424, 31400 to 31424 and 32400 to 32424. If you try to use any of these ports, you won't be able to publish your service, and one of the following error messages will appear in the activity log for Azure:
@@ -123,7 +123,7 @@ You can debug programs that run on Azure virtual machines by using Server Explor
 
     ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-4. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
+4. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32-bit or 64-bit managed code, native code, or both.
 
     ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
@@ -131,9 +131,9 @@ You can debug programs that run on Azure virtual machines by using Server Explor
 
 ## Create a web project and a virtual machine for debugging
 
-Before publishing your Azure project, you might find it useful to test it in a contained environment that supports debugging and testing scenarios, and where you can install testing and monitoring programs. One way to do this is to remotely debug your app on a virtual machine.
+Before publishing your Azure project, you might find it useful to test it in a contained environment that supports debugging and testing scenarios, and where you can install testing and monitoring programs. One way to run such tests is to remotely debug your app on a virtual machine.
 
-Visual Studio ASP.NET projects offer an option to create a handy virtual machine that you can use for app testing. The virtual machine includes commonly-needed endpoints such as PowerShell, Remote Desktop, and WebDeploy.
+Visual Studio ASP.NET projects offer an option to create a handy virtual machine that you can use for app testing. The virtual machine includes commonly needed endpoints such as PowerShell, Remote Desktop, and WebDeploy.
 
 ### To create a web project and a virtual machine for debugging
 
@@ -177,7 +177,7 @@ Visual Studio ASP.NET projects offer an option to create a handy virtual machine
 
     ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-9. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
+9. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32-bit or 64-bit managed code, native code, or both.
 
     ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
