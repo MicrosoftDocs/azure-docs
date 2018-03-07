@@ -50,7 +50,7 @@ sections:
   - type: paragraph
     text: Learn how to create, manage, and send and receive messages, using Azure Service Bus
   - type: list
-    style: ordered
+    style: bullet
     items:
     - html: <a href="/azure/service-bus-messaging/tutorial-update-inventory">Use topics and subscriptions to update an inventory assortment</a> 
     - html: Learn how to control the message lifecycle
