@@ -24,13 +24,13 @@
     - name: Prepare Azure
       href: tutorial-prepare-azure.md
     - name: Prepare on-premises VMware
-      href: tutorial-prepare-on-premises-vmware.md
+      href: vmware-azure-tutorial-prepare-on-premises.md
     - name: Set up disaster recovery
-      href: tutorial-vmware-to-azure.md
+      href: vmware-azure-tutorial.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
     - name: Run failover and failback
-      href: tutorial-vmware-to-azure-failover-failback.md
+      href: vmware-azure-tutorial-failover-failback.md
   - name: Hyper-V VMs
     items:
     - name: Prepare Azure
@@ -50,9 +50,9 @@
     - name: Prepare Azure for on-premises replication
       href: tutorial-prepare-azure.md
     - name: Migrate on-premises machines to Azure
-      href: tutorial-migrate-on-premises-to-azure.md
+      href: migrate-tutorial-on-premises-azure.md
     - name: Migrate AWS instances to Azure
-      href: tutorial-migrate-aws-to-azure.md
+      href: migrate-tutorial-aws-azure.md
     - name: Migrate Azure VMs to another region
       href: azure-to-azure-tutorial-migrate.md
 - name: Concepts
@@ -62,13 +62,15 @@
     - name: Azure to Azure architecture
       href: azure-to-azure-architecture.md
     - name: VMware to Azure architecture
-      href: concepts-vmware-to-azure-architecture.md
+      href: vmware-azure-architecture.md
     - name: Hyper-V to Azure architecture
       href: hyper-v-azure-architecture.md
     - name: Physical to Azure architecture
-      href: concepts-physical-to-azure-architecture.md
+      href: physical-azure-architecture.md
     - name: Hyper-V to secondary site architecture
       href: hyper-v-vmm-architecture.md
+    - name: Overview of multi-tenant support for VMware disaster recovery
+      href: vmware-azure-multi-tenant-overview.md
   - name: Support requirements matrix
     items:
     - name: Azure to Azure support matrix
@@ -84,7 +86,7 @@
     - name: Disaster recovery for workloads
       href: site-recovery-workload.md
     - name: Migration to Azure
-      href: site-recovery-migrate-to-azure.md
+      href: migrate-overview.md
   - name: Role-based access permissions
     href: site-recovery-role-based-linked-access-control.md
   - name: Azure Traffic Manager with Azure Site Recovery
@@ -101,7 +103,7 @@
       href: azure-to-azure-network-mapping.md
     - name: Set up IP addressing after Azure VM failover
       href: site-recovery-retain-ip-azure-vm-failover.md
-    - name: Manage network interfaces for on-premises to Azure disaster recovery
+    - name: Manage network interfaces for on-premises to Azure replication
       href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Prepare network mapping for Hyper-V VM disaster recovery
       href: hyper-v-vmm-network-mapping.md
@@ -114,17 +116,17 @@
     - name: Disaster recovery of Azure VMs after migration to Azure
       href: azure-to-azure-replicate-after-migration.md
     - name: Disaster recovery of physical servers to Azure
-      href: tutorial-physical-to-azure.md
+      href: physical-azure-disaster-recovery.md
     - name: Disaster recovery of Hyper-V VMs to a secondary site
       href: hyper-v-vmm-disaster-recovery.md
     - name: Disaster recovery of VMware VMs and physical servers to a secondary site
-      href: tutorial-vmware-to-vmware.md
+      href: vmware-physical-secondary-disaster-recovery.md
     - name: Run a disaster recovery drill to Azure
       href: site-recovery-test-failover-to-azure.md
     - name: Run a disaster recovery drill for Hyper-V VMs to a secondary site
       href: hyper-v-vmm-test-failover.md
-    - name: Disaster recovery of VMware VMs with multi-tenant support to Azure
-      href: site-recovery-multi-tenant-support-vmware-using-csp.md
+    - name: Disaster recovery of VMware VMs with multi-tenant support and cSP
+      href: vmware-azure-multi-tenant-csp-disaster-recovery.md
   - name: Fail over and fail back
     items:
     - name: Set up recovery plans
@@ -133,6 +135,8 @@
       href: site-recovery-runbook-automation.md
     - name: Add VMM scripts to recovery plans
       href: hyper-v-vmm-recovery-script.md
+    - name: Set up and manage a process servers in Azure for failback
+      href: vmware-azure-set-up-process-server-azure.md
     - name: Fail over
       items:
       - name: About failover
@@ -146,19 +150,19 @@
       - name: Reprotect from an Azure secondary region to primary
         href: azure-to-azure-how-to-reprotect.md
       - name: Reprotect from Azure to on-premises
-        href: site-recovery-how-to-reprotect.md
+        href: vmware-azure-reprotect.md
     - name: Fail back from Azure
       items:
       - name: Fail back from Azure to VMware
-        href: site-recovery-how-to-failback-azure-to-vmware.md
+        href: vmware-azure-failback.md
       - name: Fail back from Azure to Hyper-V
         href: hyper-v-azure-failback.md
     - name: Set up a Linux master target server for failback
-      href: site-recovery-how-to-install-linux-master-target.md
+      href: vmware-azure-install-linux-master-target.md
   - name: Migrate
     items:
     - name: About migration
-      href: site-recovery-migrate-to-azure.md
+      href: migrate-overview.md
     - name: Replicate Azure VMs after migration to another region
       href: azure-to-azure-replicate-after-migration.md
   - name: Capacity and scaling
@@ -177,7 +181,7 @@
       - name: Analyze the cost estimation report
         href: site-recovery-vmware-deployment-planner-cost-estimation.md
     - name: Scale out process servers for VMware replication
-      href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+      href: vmware-azure-set-up-process-server-scale.md
     - name: Deployment Planner tool for Hyper-V replication to Azure
       href:
       items:
@@ -196,23 +200,23 @@
     - name: Set up the source environment
       items:
       - name: Source environment for VMware to Azure
-        href: site-recovery-set-up-vmware-to-azure.md
+        href: vmware-azure-set-up-source.md
       - name: Deploy the configuration server for VMware disaster recovery
-        href: how-to-deploy-configuration-server.md
+        href: vmware-azure-deploy-configuration-server.md
       - name: Source environment for physical to Azure
-        href: site-recovery-set-up-physical-to-azure.md
+        href: physical-azure-set-up-source.md
     - name: Set up the target environment
       items:
       - name: Target environment for VMware to Azure
-        href: site-recovery-prepare-target-vmware-to-azure.md
+        href: vmware-azure-set-up-target.md
       - name: Target environment for physical to Azure
-        href: site-recovery-prepare-target-physical-to-azure.md
+        href: physical-azure-set-up-target.md
     - name: Configure replication settings
       items:
       - name: Configure replication settings for VMware to Azure
-        href: site-recovery-setup-replication-settings-vmware.md
+        href: vmware-azure-set-up-replication.md
       - name: Exclude disks from replication for VMware to Azure
-        href: site-recovery-exclude-disk.md
+        href: vmware-azure-exclude-disk.md
       - name: Exclude disks from replication for Hyper-V to Azure
         href: hyper-v-exclude-disk.md
     - name: Enable replication
@@ -220,23 +224,23 @@
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
       - name: Enable VMware to Azure replication
-        href: site-recovery-replicate-vmware-to-azure.md
+        href: vmware-azure-enable-replication.md
     - name: Deploy the Mobility service for VMware
       items:
       - name: About the Mobility service
-        href: site-recovery-vmware-to-azure-install-mob-svc.md
+        href: vmware-azure-install-mobility-service.md
       - name: Deploy the Mobility service with System Center Configuration Manager
-        href: site-recovery-install-mobility-service-using-sccm.md
+        href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Deploy the Mobility service with Azure Automation DSC
-        href: site-recovery-automate-mobility-service-install.md
+        href: vmware-azure-mobility-deploy-automation-dsc.md
   - name: Automate
     items:
     - name: Replicate VMware virtual machines to Azure using PowerShell
-      href: site-recovery-vmware-to-azure-powershell.md
+      href: vmware-azure-disaster-recovery-powershell.md
     - name: Set up Hyper-V replication to Azure (no VMM) using PowerShell
       href: hyper-v-azure-powershell-resource-manager.md
     - name: Set up Hyper-V replication to Azure (with VMM) using PowerShell
-      href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+      href: hyper-v-vmm-powershell-resource-manager.md
     - name: Set up Hyper-V replication to a secondary VMM site using PowerShell
       href: hyper-v-vmm-powershell-resource-manager.md
   - name: Workloads
@@ -265,32 +269,30 @@
       href: site-recovery-workload.md#workload-summary
   - name: Manage
     items:
-    - name: Manage process servers in Azure
-      href: site-recovery-vmware-setup-azure-ps-resource-manager.md
     - name: Manage the configuration server for VMware disaster recovery
-      href: site-recovery-vmware-to-azure-manage-configuration-server.md
+      href: vmware-azure-manage-configuration-server.md
     - name: Manage the configuration server for physical machine disaster recovery
       href: physical-manage-configuration-server.md
     - name: Manage vCenter servers
-      href: site-recovery-vmware-to-azure-manage-vCenter.md
-    - name: Manage multi-tenancy with CSP
-      href: site-recovery-manage-multi-tenancy-with-csp.md
+      href: vmware-azure-manage-vcenter.md
+    - name: Manage process servers
+      href: vmware-azure-manage-process-server.md
     - name: Remove servers and disable protection
       href: site-recovery-manage-registration-and-protection.md
     - name: Delete a vault
       href: delete-vault.md
   - name: Monitor and Troubleshoot
     items:
-    - name: Azure to Azure replication issues
+    - name: Troubleshoot Azure to Azure replication
       href: azure-to-azure-troubleshoot-errors.md
-    - name: On-premises to Azure replication issues
-      href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-    - name: Mobility service issues
-      href: site-recovery-vmware-to-azure-push-install-error-codes.md
-    - name: Failover to Azure issues
+    - name: Troubleshoot VMware to Azure replication
+      href: vmware-azure-troubleshoot-replication.md
+    - name: Troubleshoot the Mobility service in VMware and physical server replication
+      href: vmware-azure-troubleshoot-push-install.md
+    - name: Troubleshoot failover to Azure
       href: site-recovery-failover-to-azure-troubleshoot.md
-    - name: Reprotect and failback issues
-      href: troubleshoot-failback-reprotect.md
+    - name: Troubleshoot reprotection and failback of VMware VMs from Azure
+      href: vmware-azure-troubleshoot-failback-reprotect.md
     - name: Monitor Azure Site Recovery
       href: site-recovery-monitor-and-troubleshoot.md
 - name: Reference

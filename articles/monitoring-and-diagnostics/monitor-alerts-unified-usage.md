@@ -68,7 +68,7 @@ Detailed next is step-by-step guide to using Azure Alerts (Preview).
 
     > [!NOTE]
 
-    > New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
+    >  All [near real time alerts](monitoring-near-real-time-metric-alerts.md) capable resources are listed with monitor service **Platform** and signal type as **Metric**
 
 6. *Metric Alerts*: Once signal is selected, logic for alerting can be stated. For reference, historic data of signal is shown with option to tweak the time window using **Show History**, varying from last six hours to last week. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have triggered. Finally specify for what time duration, Alert should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**.
 

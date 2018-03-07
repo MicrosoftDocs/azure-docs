@@ -85,7 +85,7 @@ Below is example code, which adds the "wikipediaId" to the response by using Ent
  private async void button_Click(object sender, RoutedEventArgs e)
 {
     var text = this.inputBox.Text;
-    var client = new EntityLinkingServiceClient("Your subscription key");
+    var client = new EntityLinkingServiceClient("Your subscription key","https://api.labs.cognitive.microsoft.com");
     var linkResponse = await client.LinkAsync(text);
     var result = string.Join(", ", linkResponse.Select(i => i.WikipediaID).ToList());
     this.outputBlock.Text = result;
