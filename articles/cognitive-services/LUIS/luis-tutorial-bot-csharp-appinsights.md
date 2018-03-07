@@ -44,6 +44,10 @@ In order to capture the LUIS request and response, the web app bot needs the **[
 
 
 ### Download web app bot
+1. In the Azure portal, for the web app bot, select **Build**.
+2. Select **Download zip file** and wait until the file is prepared.
+3. Select **Download zip file** in the pop up window.
+    ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/(download-popup.png)
 ### Open solution in Visual Studio 2017
 ### Add ApplicationInsights to project
 ### Publish project back to Azure
@@ -58,7 +62,7 @@ In order to capture the LUIS request and response, the web app bot needs the **[
 
 3. Create the Application Insights object and use the web app bot application setting **BotDevInsightsKey**: 
 
-   [!code-csharp[Create the Application Insights object](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=12?range=64-65 "Create the Application Insights object")]
+   [!code-csharp[Create the Application Insights object](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=64-65 "Create the Application Insights object")]
 
 4. Add the **LogToApplicationInsights** function:
 
