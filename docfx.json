@@ -195,7 +195,7 @@
         "articles/cognitive-services/Custom-Speech-Service/**/*.md": "https://cognitive.uservoice.com/forums/555934-custom-speech-service",
         "articles/cognitive-services/Custom-Vision-Service/**/*.md": "https://cognitive.uservoice.com/forums/598141-custom-vision-service",
         "articles/cognitive-services/Emotion/**/*.md": "https://cognitive.uservoice.com/forums/430312-emotion",
-        "articles/cognitive-services/Entity-Linking/**/*.md": "https://cognitive.uservoice.com/forums/555937-entity-linking-intelligent-service",
+        "articles/cognitive-services/EntityLinking/**/*.md": "https://cognitive.uservoice.com/forums/555937-entity-linking-intelligent-service",
         "articles/cognitive-services/Face/**/*.md": "https://cognitive.uservoice.com/forums/430315-face",
         "articles/cognitive-services/*.md": "https://cognitive.uservoice.com/forums/356325-general-feedback",
         "articles/cognitive-services/KES/**/*.md": "https://cognitive.uservoice.com/forums/555946-knowledge-exploration",
