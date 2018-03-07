@@ -146,10 +146,10 @@ namespace VisionApp1
             // Replace the subscriptionKey string value with your valid subscription key.
             const string subscriptionKey = "<subscription key>";
 
-            //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string "/analyze" at the end. 
-            //Example: https://virginia.api.cognitive.microsoft.us/vision/v1.0/analyze
+            //Copy and paste the "Endpoint" attribute that you saved before into the uriBase string "/detect" at the end. 
+            //Example: https://virginia.api.cognitive.microsoft.us/vision/v1.0/detect
   
-            const string uriBase = "<endpoint>/analyze";
+            const string uriBase = "<endpoint>/detect";
             
             static void Main()
             {
@@ -178,7 +178,7 @@ namespace VisionApp1
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
                 // Request parameters. A third optional parameter is "details".
-                string requestParameters = "visualFeatures=Categories,Description,Color&language=en";
+                string requestParameters = "returnfaceId=true&returnfaceLandmarks=false&returnfaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion";
 
                 // Assemble the URI for the REST API Call.
                 string uri = uriBase + "?" + requestParameters;
