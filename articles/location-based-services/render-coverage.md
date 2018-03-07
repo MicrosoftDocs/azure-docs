@@ -174,7 +174,7 @@ The following table provides coverage information for Azure Location Based Servi
 
 ## Render Coverage of Vector Tiles 
 
-The following table provides coverage information for Azure Azure Location Based Services Render of Vector Tiles.
+The following table provides coverage information for Azure Location Based Services Render of Vector Tiles.
 
 |Region|Render - Vector Tiles Unified|
 |--- |:---: |
