@@ -68,5 +68,6 @@ Threat Detection for Managed Instance detects anomalous activities indicating un
 
 ## Next steps
 
-* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Learn about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md)
+- Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
