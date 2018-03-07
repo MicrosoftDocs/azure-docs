@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services - MS-SSTR Ammendment for HEVC | Microsoft Docs
+title: Azure Media Services - Smooth Streaming Protocol (MS-SSTR) Ammendment for HEVC | Microsoft Docs
 description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. This is an ammendment to the Smooth Streaming protocol documentaiton (MS-SSTR) to include support for HEVC ingest and streaming. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,9 @@ ms.date: 03/7/18
 ms.author: cenkd;johndeu
 
 ---
-# 1 Introduction 
+# Smooth Streaming Protocol (MS-SSTR) Ammendment for HEVC
+
+## 1 Introduction 
 
 This article provides detailed amendments to be applied to the Smooth Streaming Protocol
 specification [MS-SSTR] to enable Smooth Streaming of HEVC encoded video. In this specification, we

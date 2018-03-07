@@ -234,9 +234,9 @@
 ## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
-## [Specifications]
+## Specifications
 ### [Live Ingest - Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
-### [Smooth Streaming Protocol (MS-SSTR) Ammendment - Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # Resources
 ## [Azure Media Services community](media-services-community.md)
