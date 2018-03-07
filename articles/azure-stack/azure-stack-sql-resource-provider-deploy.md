@@ -174,11 +174,11 @@ You can specify these parameters in the command line. If you do not, or if any p
 ## Update the SQL resource provider adapter (multi-node only, builds 1710 and later)
 A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions (see the table in step 3 of [Deploy the resource provider](#deploy-the-resource-provider)).
 
-To update of the resource provider you use the *UpdateSQLProvider.ps1* script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](#deploy-the-resource-provder) section of this article. The script is included with the download of the resource provider.
+To update of the resource provider you use the *UpdateSQLProvider.ps1* script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](#deploy-the-resource-provider) section of this article. The script is included with the download of the resource provider.
 
 The *UpdateSQLProvider.ps1* script creates a new VM with the latest resource provider code and migrates the settings from the old VM to the new VM. The settings that migrate include database and hosting server information, and the necessary DNS record.
 
-The script requires use of the same arguments that are described for the DeploySqlProvder.ps1 script. Provide the certificate here as well. 
+The script requires use of the same arguments that are described for the DeploySqlProvider.ps1 script. Provide the certificate here as well. 
 
 We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, the script will fail.
 
