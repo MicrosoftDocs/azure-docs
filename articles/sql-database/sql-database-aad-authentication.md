@@ -17,7 +17,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 * It provides an alternative to SQL Server authentication.
 * Helps stop the proliferation of user identities across database servers.
 * Allows password rotation in a single place
-* Customers can manage database permissions using external (AAD) groups.
+* Customers can manage database permissions using external (Azure AD) groups.
 * It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Azure AD authentication uses contained database users to authenticate identities at the database level.
 * Azure AD supports token-based authentication for applications connecting to SQL Database.
