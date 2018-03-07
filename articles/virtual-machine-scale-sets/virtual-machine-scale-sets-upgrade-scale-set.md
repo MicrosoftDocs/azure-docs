@@ -19,7 +19,7 @@ ms.author: negat
 
 ---
 # Modify a virtual machine scale set
-This article describes how to modify an existing virtual machine scale set. Modifications include how to change the configuration of the scale set, how to change the configuration of the applications running on the scale set, how to manage availability, and more.
+This article describes how to modify an existing virtual machine scale set. Tasks include how to change the configuration of the scale set, how to change the configuration of the applications running on the scale set, how to manage availability, and more.
 
 ## Fundamental concepts
 
@@ -302,9 +302,9 @@ After the scale set model is updated, the new configuration applies to any new V
 
 Scale sets have an *upgrade policy* that determines how VMs are brought up to date with the latest scale set model. The three modes for the upgrade policy are:
 
-- Automatic: In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time. 
-- Rolling: In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
-- Manual: In this mode, when you update the scale set model, nothing happens to existing VMs. To update existing VMs, you must do a manual upgrade of each existing VM. You can do this manual upgrade via:
+- Automatic: In this mode, the scale set makes no guarantees about the order of VMs that are brought down. The scale set might take down all VMs at the same time. 
+- Rolling: In this mode, the scale set rolls out the update in batches, with an optional pause time between batches.
+- Manual: In this mode, when you update the scale set model, nothing happens to existing VMs. To update existing VMs, you must manually upgrade each one. You can do this manual upgrade via:
 
   - REST API: 
   
@@ -324,12 +324,12 @@ Scale sets have an *upgrade policy* that determines how VMs are brought up to da
     
     For more information, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances).
 
-  You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to do a manual upgrade on a VM in a scale set.
+  You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to manually upgrade a VM in a scale set.
 
 >[!NOTE]
-> Azure Service Fabric clusters can only use Automatic mode, but the update is handled differently. For more information on Service Fabric updates, see [the Service Fabric documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
+> Azure Service Fabric clusters can use only Automatic mode, but the update is handled differently. For more information on Service Fabric updates, see the [Service Fabric documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
-One type of modification to global scale set properties does not follow the upgrade policy: changes to the scale set OS profile (for example, admin username and password). These properties can be changed only in API version 2017-12-01 or later. These changes apply only to VMs created after the change in the scale set model. To bring existing VMs up to date, you must reimage each existing VM. You reimage a VM via:
+One type of modification to global scale set properties does not follow the upgrade policy: changes to the scale set OS profile. (Examples are admin username and password.) These properties can be changed only in API version 2017-12-01 or later. These changes apply only to VMs created after the change in the scale set model. To bring existing VMs up to date, you must reimage each existing VM. You reimage a VM via:
 
 * REST API: 
 
@@ -358,24 +358,24 @@ You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to rei
 
 ### Create-time properties
 
-Some properties can only be set while initially creating the scale set. These properties include:
+Some properties can be set only when you're initially creating the scale set. These properties include:
 
-- zones
-- image reference publisher
-- image reference offer
+- Zones
+- Image reference publisher
+- Image reference offer
 
-### Properties that can only be changed based on the current value
+### Properties that can be changed based on the current value only
 
-Some properties can be changed, with exceptions depending on the current value. These properties include:
+Some properties can be changed, with exceptions, depending on the current value. These properties include:
 
-- singlePlacementGroup: if singlePlacementGroup is true, it can be modified to false. However, if singlePlacementGroup is false, it *cannot* be modified to true.
-- subnet: the subnet of a scale set can be modified as long as the original subnet and the new subnet are in the same virtual network.
+- `singlePlacementGroup`: If `singlePlacementGroup` is true, it can be modified to false. However, if `singlePlacementGroup` is false, it *cannot* be modified to true.
+- `subnet`: The subnet of a scale set can be modified as long as the original subnet and the new subnet are in the same virtual network.
 
 ### Properties that require deallocation to change
 
 Some properties can be changed only to certain values if the VMs in the scale set are deallocated. These properties include:
 
-- sku name: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before modifying the sku name. For more information on resizing VMs, see [this Azure blog post](https://azure.microsoft.com/blog/resize-virtual-machines/).
+- `sku name`: If the new VM SKU is not supported on the hardware that the scale set is currently on, you need to deallocate the VMs in the scale set before you modify `sku name`. For more information on resizing VMs, see [this Azure blog post](https://azure.microsoft.com/blog/resize-virtual-machines/).
 
 
 ## VM-specific updates
@@ -386,9 +386,9 @@ Certain modifications can be applied to specific VMs instead of the global scale
 
 ### Application updates
 
-If an application is deployed to a scale set through extensions, updating the extension configuration causes the application to update in accordance with the upgrade policy. For instance, if you have a new version of a script to run in a custom script extension, you might update the fileUris property to point to the new script. 
+If an application is deployed to a scale set through extensions, updating the extension configuration causes the application to be updated in accordance with the upgrade policy. For instance, if you have a new version of a script to run in a custom script extension, you might update the `fileUris` property to point to the new script. 
 
-In some cases, however, you might want to force an update even though the extension configuration is unchanged (for example, you updated the script without changing the URI of the script). In these cases, you can modify `forceUpdateTag` to force an update. The Azure platform does not interpret this property, so changing its value has no effect on how the extension runs. Modifying it simply forces the extension to rerun. 
+In some cases, you might want to force an update even though the extension configuration is unchanged. (For example, you updated the script without changing the URI of the script.) In these cases, you can modify `forceUpdateTag` to force an update. The Azure platform does not interpret this property, so changing its value has no effect on how the extension runs. Modifying it simply forces the extension to rerun. 
 
 For more information on `forceUpdateTag`, see the [REST API documentation for extensions](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate).
 
@@ -396,18 +396,18 @@ It's also common for applications to be deployed through a custom image. This sc
 
 ### OS updates
 
-If you are using platform images, you can update the image by modifying `imageReference` For more information, see the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+If you're using platform images, you can update the images by modifying `imageReference`. For more information, see the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 >[!NOTE]
-> With platform images, it's common to specify "latest" for the image reference version. This means that during scale set create, scale out, and reimage, the VMs are created with the latest available version. However, it *does not* mean that the OS image will be automatically updated over time as new image versions are released. This is a separate feature, currently in preview. For more information, see the [Automatic OS Upgrades documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+> With platform images, it's common to specify "latest" for the image reference version. This means that when scale sets are created, scaled out, and reimaged, the VMs are created with the latest available version. However, it *does not* mean that the OS image will be automatically updated over time as new image versions are released. This is a separate feature, currently in preview. For more information, see [Automatic OS upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
 
-If you are using custom images, you can update the image by updating the `imageReference` ID. For more information, see the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+If you're using custom images, you can update the images by updating the `imageReference` ID. For more information, see the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## Examples
 
 ### Update the OS image for your scale set
 
-Let's say you have a scale set running an old version of Ubuntu LTS 16.04, and you want to update to a newer version of Ubuntu LTS 16.04 (for example, version 16.04.201801090). The image reference version property is not part of a list, so you can directly modify these properties by using these commands:
+Let's say you have a scale set running an old version of Ubuntu LTS 16.04. You want to update to a newer version of Ubuntu LTS 16.04 (for example, version 16.04.201801090). The image reference version property is not part of a list, so you can directly modify these properties by using these commands:
 
 * PowerShell: 
 
@@ -420,17 +420,17 @@ Let's say you have a scale set running an old version of Ubuntu LTS 16.04, and y
 
 ### Update the load balancer for your scale set
 
-Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and application gateway properties for a scale set are part of a list, so you can use the commands for removing and adding list elements instead of modifying the properties directly:
+Let's say you have a scale set with an Azure load balancer, and you want to replace the load balancer with an Azure application gateway. The load balancer and application gateway properties for a scale set are part of a list. So, you can use the commands for removing and adding list elements instead of modifying the properties directly:
 
 PowerShell:
 ```
 # Get the current model of the scale set and store it in a local PowerShell object named $vmss
 > $vmss=Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName}
 
-# Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
+# Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
 > $ipconf = New-AzureRmVmssIPConfig myNic -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
 
-# Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+# Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure load balancer) with the new IP configuration
 > $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
 
 # Update the model of the scale set with the new configuration in the local PowerShell object
@@ -442,7 +442,7 @@ Azure CLI:
 ```
 az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0 # Remove the load balancer back-end pool from the scale set model
 az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0 # Remove the load balancer back-end pool from the scale set model; only necessary if you have NAT pools configured on the scale set
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # add the application gateway back-end pool to the scale set model
+az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # Add the application gateway back-end pool to the scale set model
 ```
 
 >[!NOTE]
