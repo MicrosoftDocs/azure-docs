@@ -153,18 +153,18 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
     | Setting      | Suggested value | Description | 
     | ------------ | --------------- | ----------- | 
     | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | The name should be something like this: **mynewserver-20171113.database.windows.net**. |
+    | Server name | The fully qualified server name | The name should be something like this: **sample-svr.database.windows.net**. |
     | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
     | Login | The server admin account | This is the account that you specified when you created the server. |
     | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
-    ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![connect to server](media/load-data-wideworldimportersdw/connect-to-server.png)
 
 4. Click **Connect**. The Object Explorer window opens in SSMS. 
 
 5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **mySampleDatabase** to view the objects in your new database.
 
-    ![database objects](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
+    ![database objects](media/load-data-wideworldimportersdw/connected.png) 
 
 ## Create a user for loading data
 
@@ -176,7 +176,7 @@ Since you are currently connected as the server admin, you can create logins and
 
 1.  In SSMS, right-click **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
-    ![New query in master](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
+    ![New query in master](media/load-data-wideworldimportersdw/create-loader-login.png)
 
 2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC20, substituting your own password for 'a123STRONGpassword!'. 
 
@@ -189,14 +189,14 @@ Since you are currently connected as the server admin, you can create logins and
 
 4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.  
 
-    ![New query on sample data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
+    ![New query on sample data warehouse](media/load-data-wideworldimportersdw/create-loading-user.png)
  
 5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+    CREATE USER LoaderRC20 FOR LOGIN LoaderRC60;
+    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC60;
+    EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
 
 6. Click **Execute**.
