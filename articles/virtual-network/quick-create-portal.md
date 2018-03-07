@@ -78,34 +78,38 @@ A virtual network enables several types of Azure resources to communicate privat
 
 ## Communicate between VMs
 
-Ping, which uses ICMP is used to communicate between virtual machines. ICMP is not allowed through the Windows firewall, by default. To allow *myVm2* to ping *myVm1* in a later step, enter the following command from a command prompt:
+1. From a command prompt, enter `ping myvm2`. Ping fails because ping uses ICMP, and ICMP is not allowed through the Windows firewall, by default. To allow *myVm2* to ping *myVm1* in a later step, enter the following command from a command prompt:
 
-```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
+    ```
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+    ```
 
-Close the remote desktop connection to *myVm1*. Complete the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine), but connect to *myVm2*. From a command prompt, enter `ping myvm1`.
+2. Close the remote desktop connection to *myVm1*. 
 
-You are able to successfully ping the *myVm1* virtual machine from the *myVm2* virtual machine because:
+3. Complete the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine), but connect to *myVm2*. From a command prompt, enter `ping myvm1`.
 
-- You allowed it through the Windows firewall on the *myVm1* virtual machine in a previous step
-- By default, Azure allows all network traffic between resources in the same virtual network 
+    You are able to successfully ping the *myVm1* virtual machine from the *myVm2* virtual machine because:
+
+    - you allowed ICMP through the Windows firewall on the *myVm1* virtual machine in the previous step.
+    - by default, Azure allows all network traffic between resources in the same virtual network.
 
 ## Communicate to the internet
 
-While still connected to the *myVm2* virtual machine, enter `ping bing.com` from a command prompt.
+1. While still connected to the *myVm2* virtual machine, from a command prompt, enter `ping bing.com`.
 
-You receive four replies from bing.com. 
+    You receive four replies from bing.com. 
 
-You are able to successfully ping an internet resource from the *myVm2* virtual machine, because any virtual machine can communicate outbound to the internet, by default.
+    You are able to successfully ping an internet resource from the *myVm2* virtual machine, because any virtual machine can communicate outbound to the internet, by default.
 
-Exit the remote desktop session.
+2. Exit the remote desktop session.
 
 ## Communicate from the internet
 
-In the picture shown under step 1 in [Connect to a virtual machine](#connect-to-a-virtual-machine), you see a public IP address. In the picture, the address is *13.90.241.247*. The address for your virtual machine is different. Ping the public IP address of your *myVm1* virtual machine from your computer. Ping fails, even though ICMP is open through the Windows firewall.
+1. Get the public IP address of the *myVm1* virtual machine. In the picture shown under step 1 in [Connect to a virtual machine](#connect-to-a-virtual-machine), you see a public IP address. In the picture, the address is *13.90.241.247*. The address for your virtual machine is different. 
 
-Ping fails because all traffic to Windows virtual machines, except remote desktop connections over port 3389, is denied by Azure, by default. 
+2. From your computer, ping the public IP address of your *myVm1* virtual machine. Ping fails, even though ICMP is open through the Windows firewall.
+
+    Ping fails because all traffic to Windows virtual machines, except remote desktop connections over port 3389, is denied by Azure, by default. 
 
 ## Clean up resources
 
