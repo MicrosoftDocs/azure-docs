@@ -1,3 +1,21 @@
+---
+title: Render Coverage in Azure Location Based Services | Microsoft Docs
+description: Learn about Render Coverage in Azure Location Based Services
+services: location-based-services
+keywords: 
+author: jinzh-azureiot
+ms.author: jinzh
+ms.date: 3/6/2018
+ms.topic: article
+ms.service: location-based-services
+
+documentationcenter: ''
+manager: cpendle
+ms.devlang: na
+ms.custom: mvc
+---
+
+
 # Azure Location Based Services - Render Coverage
 
 Check out coverage for [**Geocoding**](geocoding-coverage.md).  
