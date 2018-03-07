@@ -51,6 +51,8 @@ If you make these two changes, internet-destined traffic that originates from th
 >
 > App Service Environments aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the App Service Environment's subnet are force tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported by default with App Service Environments. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path. Another solution is to enable your App Service Environment to work in a forced tunnel configuration.
 
+![Direct internet access][1]
+
 ## Configure your ASE with Service Endpoints
 
 To force tunnel all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, do the following:
@@ -64,6 +66,8 @@ Service Endpoints enable you to restrict access to some multi-tenant services su
 When you enable Service Endpoints on a resource, there are routes created with higher priority than BGP routes but less than UDRs. If you use Service Endpoints with a force tunneled ASE, the Azure SQL and Azure Storage management traffic is not force tunneled. The other ASE dependency traffic is force tunneled and can't be lost or the ASE would not function properly.
 
 The implementation for Azure SQL is that when Service Endpoints is enabled on a subnet, all of the traffic that comes from that subnet to Azure SQL must have Service Endpoints enabled. You cannot enable it on one Azure SQL server and not on another if you want to access both from the same subnet. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  This is not true with Azure Storage.  When you enable Service Endpoints with Azure Storage you lock access to that resource from your subnet but can still access other Azure Storage accounts.  
+
+![Forced tunnel with service endpoints][2]
 
 ## Add your own IPs to the ASE Azure SQL firewall ##
 
@@ -107,13 +111,15 @@ _To create your ASE with the egress addresses_: Follow the directions in [Create
 
 These changes send traffic to Azure Storage directly from the ASE and allow access to the Azure SQL from additional addresses other than the VIP of the ASE.  
 
-   ![Forced tunnel network flow][1]
+   ![Forced tunnel with SQL whitelist][3]
 
 
 
 
 <!--IMAGES-->
-[1]: ./media/forced-tunnel-support/forced-tunnel-flow.png
+[1]: ./media/forced-tunnel-support/asedependencies.png
+[2]: ./media/forced-tunnel-support/forcedtunnelserviceendpoint.png
+[3]: ./media/forced-tunnel-support/forcedtunnelexceptstorage.png
 
 <!--Links-->
 [management]: ./management-addresses.md
