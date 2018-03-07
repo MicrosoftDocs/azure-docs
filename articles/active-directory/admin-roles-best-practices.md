@@ -6,7 +6,7 @@ services: active-directory
 keywords: 
 author: curtand
 ms.author: curtand
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
