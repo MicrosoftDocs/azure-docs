@@ -169,7 +169,7 @@ You can use these alert-based queries to alert on specific thresholds for both A
 4. Run one of the example queries.
 5. In Log Search, click **Alert**.  
 ![create alert in search](./media/log-analytics-azure-sql/create-alert01.png)
-6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**.
+6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**. 
 ![add alert rule](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## Next steps
