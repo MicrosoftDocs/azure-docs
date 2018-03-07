@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2018
+ms.date: 03/07/2018
 ms.author: rajanaki
 
 ---
@@ -93,9 +93,8 @@ The following table summarizes replicated operating system support in various de
 ## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
 
 The following file systems and storage configuration software are supported on Linux servers running on VMware or Physical servers:
-* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
+* File systems: ext3, ext40, XFS
 * Volume manager: LVM2
-* Multipath software: Device Mapper
 
 Paravirtualized storage devices (devices exported by paravirtualized drivers) are not supported.<br/>
 Multi-queue block IO devices are not supported.<br/>
