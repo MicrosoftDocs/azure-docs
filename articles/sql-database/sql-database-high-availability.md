@@ -3,16 +3,13 @@ title: High availability - Azure SQL Database service | Microsoft Docs
 description: Learn about the Azure SQL Database service high availability capabilities and features
 keywords: 
 services: sql-database
-documentationcenter: ''
 author: anosov1960
 manager: jhubbard
-ms.assetid: 
 ms.service: sql-database
 ms.custom: 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: "Active"
 ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
@@ -73,13 +70,14 @@ When a secondary replica fails, the database is down to a minimal quorum-set, wi
 
 For the remote storage configurations, SQL Database uses Always ON functionality to failover databases during upgrades. To do that, a new SQL instance is spun off in advance as part of the planned upgrade event, and it attaches and recovers the database file from remote storage. In case of process crashes or other unplanned events, Windows Fabric manages the instance availability and, as a last step of recovery, attaches the remote database file.
 
-## Availability Zones
+## Zone redundant configuration (preview)
+
 By default, the quorum-set replicas for the local storage configurations are created in the same datacenter. With the introduction of [Azure Availability Zones](/azure/availability-zones/az-overview.md), you have the ability to place the different replicas in the quorum-sets to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). Because the zone redundant configuration does not create additional database redundancy, the use of Availability Zones in the Premium service tier is available at no extra cost. By selecting a zone redundant database, you can make your Premium databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic. You can also convert any existing Premium database or pool to the zone redundant configuration.
 
 Because the zone redundant quorum-set has replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is a size of data operation and is similar to the regular service level objective (SLO) update. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
 
-> [!NOTE]
-> In public preview of Availability Zones, only LS configurations (the Premium databases and pools) are supported.
+> [!IMPORTANT]
+> Zone redundant databases and elastic pools are only supported in the Premium service tier. During public preview, backups and audit records are stored in RA-GRS storage and therefore may not be automatically available in case of a zone-wide outage. 
 
 The zone redundant version of the high availability architecture is illustrated by the following diagram:
  
