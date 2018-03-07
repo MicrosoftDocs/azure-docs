@@ -65,9 +65,9 @@
     href: luis-tutorial-bing-spellcheck.md
     - name: Gain Application Insights with a bot
       items:
-      - name:  Node.js
+      - name: Node.js
         href: luis-tutorial-function-appinsights.md
-      - name:  C#
+      - name: C#
         href: luis-tutorial-bot-csharp-appinsights.md
 - name: Samples
   items:
