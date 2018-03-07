@@ -4,6 +4,7 @@ description: Create an Azure SQL Database Managed Instance in a VNet and use SSM
 keywords: sql database tutorial, create a sql database managed instance
 services: sql-database
 author: CarlRabeler
+ms.reviewer: bonova, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.workload: "Active"
@@ -12,7 +13,7 @@ ms.devlang:
 ms.topic: tutorial
 ms.date: 03/07/2018
 ms.author: carlrab
-manager: Craig.Guyer
+manager: cguyer
 
 ---
 # Create an Azure SQL Database Managed Instance in the Azure portal

@@ -2,12 +2,13 @@
 title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs 
 description: This article discusses the T-SQL differences between Azure SQL Database Managed Instance and SQL Server. 
 services: sql-database 
-author: CarlRabeler 
+author: jovanpop-msft
+ms.reviewer: carlrab, bonova 
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: article 
 ms.date: 03/07/2018 
-ms.author: carlrab 
+ms.author: jovanpop 
 manager: cguyer 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
