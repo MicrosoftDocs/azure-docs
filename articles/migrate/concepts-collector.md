@@ -25,7 +25,7 @@ You can create the Collector by following the steps here - [How to create the Co
 
 ## Collector communication diagram
 
-![Collector communication diagram](./media/tutorial-assessment-vmware/portdiagram.png)
+![Collector communication diagram](./media/tutorial-assessment-vmware/portdiagram.PNG)
 
 
 | Component      | To communicate with   | Port required                            | Reason                                   |
