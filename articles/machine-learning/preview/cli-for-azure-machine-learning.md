@@ -22,14 +22,14 @@ Azure Machine Learning services is an integrated, end-to-end data science and ad
 To get this CLI, download and install Azure Machine Learning Workbench:​
 
 + For Windows: https://aka.ms/azureml-wb-msi ​
++ For Mac: https://aka.ms/azureml-wb-dmg ​​
 
-+ For Mac: https://aka.ms/azureml-wb-dmg ​
-​
+
 ## Start the CLI
 
 From Azure Machine Learning Workbench, launch the CLI from the menu **File -> Open Command Prompt.**​
 
-## Get help for the CLI
+## Get command help on the CLI
 
 Add `--debug` or `--help` to get extra info​ on the CLI commands.
 
@@ -41,9 +41,11 @@ az ml <xyz> --debug ​
 az ml <xyz> --help
 ```
 
-## Common Machine Learning CLI tasks
+## Common machine learning CLI tasks
 
-## Set up a compute target​
+Here are some of the most common tasks you can perform with the CLI.
+
+### Set up a compute target​
 
 You can compute your ML model in local mode, in a Data Science VM (DSVM) or in a HDInsight cluster.​
 
