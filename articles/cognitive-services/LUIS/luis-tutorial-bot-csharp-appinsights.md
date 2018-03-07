@@ -47,7 +47,7 @@ In order to capture the LUIS request and response, the web app bot needs the **[
 1. In the Azure portal, for the web app bot, select **Build**.
 2. Select **Download zip file** and wait until the file is prepared.
 3. Select **Download zip file** in the pop up window.
-    ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/(download-popup.png)
+    ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-popup.png)
 ### Open solution in Visual Studio 2017
 ### Add ApplicationInsights to project
 ### Publish project back to Azure
