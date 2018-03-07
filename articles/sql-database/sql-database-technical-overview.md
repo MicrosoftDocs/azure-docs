@@ -7,6 +7,7 @@ documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
 editor: 
+
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
@@ -15,6 +16,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 02/12/2018
 ms.workload: "Active"
+ms.date: 03/07/2018
 ms.author: carlrab
 ms.reviewer: carlrab
 ---
@@ -78,6 +80,7 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 - **[Point-in-time restores](sql-database-recovery-using-backups.md)**: SQL Database supports recovery to any point in time within the automatic backup retention period.
 - **[Active geo-replication](sql-database-geo-replication-overview.md)**: SQL Database allows you to configure up to four readable secondary databases in either the same or globally distributed Azure data centers.  For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, use active geo-replication to enable global read scale and remove bottlenecks on the primary that are due to read workloads. 
 - **[Failover groups](sql-database-geo-replication-overview.md)**: SQL Database allows you to enable high availability and load balancing at global scale, including transparent geo-replication and failover of large sets of databases and elastic pools. Failover groups and active geo-replication enables creation of globally distributed SaaS applications with minimal administration overhead leaving all the complex monitoring, routing, and failover orchestration to SQL Database.
+- **[Zone-redundant databases](sql-database-high-availability.md)**: SQL Database allows you to provision Premium databases or Premium elastic pools across multiple availability zones. Because Premium databases and Premium elastic pools have multiple redundant replicas for high availability, placing these replicas into multiple availability zones provides higher resilience, including the ability to recover automatically from the datacenter scale failures without data loss. This feature is currently in preview. 
 
 ## Built-in intelligence
 
@@ -132,7 +135,7 @@ SQL Database is the only database system to offer protection of sensitive data i
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplified permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](sql-database-aad-authentication.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) (MFA) to increase data and application security while supporting a single sign-in process.
 
 ### Compliance certification
 
