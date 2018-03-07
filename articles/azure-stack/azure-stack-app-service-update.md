@@ -14,7 +14,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: anwestg
 
 ---
@@ -48,21 +48,23 @@ During this process, the upgrade will:
 
 To upgrade your deployment of App Service on Azure Stack, follow these steps:
 
-1. Run appservice.exe as an administrator
+1. Download the [App Service Installer](https://aka.ms/appsvcupdate1installer)
+
+2. Run appservice.exe as an administrator
 
     ![App Service Installer][1]
 
-2. Click **Deploy App Service or upgrade to the latest version.**
+3. Click **Deploy App Service or upgrade to the latest version.**
 
-3. Review and accept the Microsoft Software License Terms and then click **Next**.
+4. Review and accept the Microsoft Software License Terms and then click **Next**.
 
-4. Review and accept the third-party license terms and then click **Next**.
+5. Review and accept the third-party license terms and then click **Next**.
 
-5. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
+6. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
 
     ![Azure Stack Cloud Information][2]
 
-6. On the next page:
+7. On the next page:
 
    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         * If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click  **Sign In**.
@@ -74,14 +76,14 @@ To upgrade your deployment of App Service on Azure Stack, follow these steps:
 
     ![App Service Installation Detected][3]
 
-7. On the summary page:
+8. On the summary page:
    1. Verify the selections you made. To make changes, use the **Previous** buttons to visit previous pages.
    2. If the configurations are correct, select the check box.
    3. To start the upgrade, click **Next**.
 
        ![App Service Upgrade Summary][4]
 
-8. Upgrade progress page:
+9. Upgrade progress page:
     1. Track the upgrade progress. The duration of the upgrade of App Service on Azure Stack varies dependent on number of role instances deployed.
     2. After the upgrade successfully completes, click **Exit**.
 
