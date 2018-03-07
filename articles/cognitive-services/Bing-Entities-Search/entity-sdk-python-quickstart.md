@@ -44,7 +44,7 @@ client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
 Search for a single entity (Gibralter) and print out a short description:
 ```
-entity_data = client.entities.search(query="tom cruise")
+entity_data = client.entities.search(query="satya nadella")
 
 if entity_data.entities.value:
     # find the entity that represents the dominant one
@@ -56,20 +56,20 @@ if entity_data.entities.value:
         print('Searched for "Gibralter" and found a dominant entity with this description:')
         print(main_entities[0].description)
     else:
-        print("Couldn't find main entity tom cruise!")
+        print("Couldn't find main entity satya nadella!")
 
 else:
     print("Didn't see any data..")
 
 ```
-Search and handle disambiguation results for an ambiguous query (Harry Potter).
+Search and handle disambiguation results for an ambiguous query (William Gates).
 ```
 def handling_disambiguation(subscription_key):
 
     client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 
     try:
-        entity_data = client.entities.search(query="harry potter")
+        entity_data = client.entities.search(query="william gates")
 
         if entity_data.entities.value:
             # find the entity that represents the dominant one
@@ -84,11 +84,11 @@ def handling_disambiguation(subscription_key):
                 main_entity = main_entities[0]
                 type_hint = main_entity.entity_presentation_info.entity_type_display_hint
                 
-                print('Searched for "harry potter" and found a dominant entity {}with this description:'.format(
+                print('Searched for "William Gates" and found a dominant entity {}with this description:'.format(
                     '"with type hint "{}" '.format(type_hint) if type_hint else ''))
                 print(main_entity.description)
             else:
-                print("Couldn't find a reliable dominant entity for harry potter!")
+                print("Couldn't find a reliable dominant entity for William Gates!")
         
             if disambig_entities:
                 print("\nThis query is pretty ambiguous and can be referring to multiple things. Did you mean one of these:")
@@ -97,7 +97,7 @@ def handling_disambiguation(subscription_key):
                     suggestions.append("{} the {}".format(disambig_entity.name, disambig_entity.entity_presentation_info.entity_type_display_hint))
                 print(", or ".join(suggestions))
             else:
-                print("We didn't find any disambiguation items for harry potter, so we must be certain what you're talking about!")
+                print("We didn't find any disambiguation items for William Gates, so we must be certain what you're talking about!")
 
         else:
             print("Didn't see any data..")
@@ -193,7 +193,7 @@ def error(subscription_key):
     client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 
     try:
-        entity_data = client.entities.search(query="tom cruise", market="no-ty")
+        entity_data = client.entities.search(query="satya nadella", market="no-ty")
     except ErrorResponseException as err:
         # The status code of the error should be a good indication of what occurred. However, if you'd like more details, you can dig into the response.
         # Please note that depending on the type of error, the response schema might be different, so you aren't guaranteed a specific error response schema.
