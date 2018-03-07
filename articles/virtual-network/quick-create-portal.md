@@ -37,8 +37,8 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Enter basic information about your virtual network](./media/quick-create-portal/virtual-network.png)
 
-
 ## Create virtual machines
+
 A virtual network enables several types of Azure resources to communicate privately with each other, and with the Internet. One type of resource you can deploy into a virtual network is a virtual machine.
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
@@ -55,15 +55,16 @@ A virtual network enables several types of Azure resources to communicate privat
 6. On the **Summary** page, select **Create** to start the virtual machine deployment. 
 7. Complete steps 1-6 again, but in step 3, name the virtual machine *myVm2*.
 
-### Connect to a virtual machine
+## Connect to a virtual machine
 
 1. Remotely connect to the *myVm1* virtual machine. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, select it. Select the **Connect** button.
 
     ![Virtual machine overview](./media/quick-create-portal/virtual-machine-overview.png)
+
 2. After selecting the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
 3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select OK. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to proceed with the connection.
 
-### Validate communication
+## Test network communication
 
 Attempting to ping a Windows virtual machine fails, because ping is not allowed through the Windows firewall, by default. To allow ping to *myVm1*, enter the following command from a command prompt:
 
@@ -103,7 +104,7 @@ When no longer needed, delete the resource group and all resources it contains:
 
 ## Next steps
 
-In this article, you deployed a default virtual network with one subnet. To learn how to create a custom virtual network with multiple subnets, continue to the tutorial for creating a custom virtual network.
+In this article, you deployed a default virtual network with one subnet and then deployed two virtual machines into the subnet. To learn how to create a custom virtual network with multiple subnets, continue to the tutorial for creating a virtual network with multiple subnets.
 
 > [!div class="nextstepaction"]
-> [Create a custom virtual network](virtual-networks-create-vnet-arm-pportal.md)
+> [Create a virtual network with multiple subnets](virtual-networks-create-vnet-arm-pportal.md)
