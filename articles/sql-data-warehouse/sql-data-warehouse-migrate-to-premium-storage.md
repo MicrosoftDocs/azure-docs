@@ -28,13 +28,13 @@ If you created a data warehouse before the following dates, you are currently us
 
 | **Region** | **Data warehouse created before this date** |
 |:--- |:--- |
-| Australia East |Premium storage not yet available |
+| Australia East |March 20, 2018 |
 | China East |November 1, 2016 |
 | China North |November 1, 2016 |
 | Germany Central |November 1, 2016 |
 | Germany Northeast |November 1, 2016 |
-| India West |Premium storage not yet available |
-| Japan West |Premium storage not yet available |
+| India West |March 20, 2018 |
+| Japan West |March 20, 2018 |
 | North Central US |November 10, 2016 |
 
 ## Automatic migration details
@@ -66,14 +66,14 @@ Automatic migrations occur between 6:00 PM and 6:00 AM (local time per region) d
 
 | **Region** | **Estimated start date** | **Estimated end date** |
 |:--- |:--- |:--- |
-| Australia East |Not determined yet |Not determined yet |
-| China East |January 9, 2017 |January 13, 2017 |
-| China North |January 9, 2017 |January 13, 2017 |
-| Germany Central |January 9, 2017 |January 13, 2017 |
-| Germany Northeast |January 9, 2017 |January 13, 2017 |
-| India West |Not determined yet |Not determined yet |
-| Japan West |Not determined yet |Not determined yet |
-| North Central US |January 9, 2017 |January 13, 2017 |
+| Australia East |March 19, 2018 |March 20, 2018 |
+| China East |Already migrated |Already migrated |
+| China North |Already migrated |Already migrated |
+| Germany Central |Already migrated |Already migrated |
+| Germany Northeast |Already migrated |Already migrated |
+| India West |March 19, 2018 |March 20, 2018 |
+| Japan West |March 19, 2018 |March 20, 2018 |
+| North Central US |Already migrated |Already migrated |
 
 ## Self-migration to premium storage
 If you want to control when your downtime will occur, you can use the following steps to migrate an existing data warehouse on standard storage to premium storage. If you choose this option, you must complete the self-migration before the automatic migration begins in that region. This ensures that you avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][automatic migration schedule]).
