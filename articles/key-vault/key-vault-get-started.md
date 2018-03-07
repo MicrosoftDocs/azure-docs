@@ -220,23 +220,24 @@ The application must present both these values to Azure Active Directory, to get
 To register the application in Azure Active Directory:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, click **App registrations**. If you don't see app registrations you click on **more services** and find it there.  
->[!NOTE]
+2. Navigate to Azure Active Directory.
+3. On the left, click **App registrations**. If you don't see app registrations you click on **more services** and find it there.  
+> [!NOTE]
 You must select the same directory that contains the Azure subscription with which you created your key vault. 
-3. Click **New application registration**.
-4. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
+4. Click **New application registration**.
+5. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
 
     ![New application registration](./media/key-vault-get-started/new-application-registration.png)
     >[!WARNING]
     Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
 
-5. Click the **Create** button.
-6. When the app registration is completed you can see the list of registered apps. Find the app that you just registered and click on it.
-7. Click on the **Registered app** blade copy the **Application ID**
-8. Click on **All settings**
-9. On the **Settings** blade click on **keys**
-9. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. 
-10. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
+6. Click the **Create** button.
+7. When the app registration is completed you can see the list of registered apps. Find the app that you just registered and click on it.
+8. Click on the **Registered app** blade copy the **Application ID**
+9. Click on **All settings**
+10. On the **Settings** blade click on **keys**
+11. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. 
+12. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
 
 ## <a id="authorize"></a>Authorize the application to use the key or secret
 To authorize the application to access the key or secret in the vault, use the
