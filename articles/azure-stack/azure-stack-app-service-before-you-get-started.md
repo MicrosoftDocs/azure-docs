@@ -45,6 +45,15 @@ To prepare Azure App Service on Azure Stack for high availability, deploy the re
 
 ## Get certificates
 
+### Azure Resource Manager root certificate for Azure Stack
+
+In a PowerShell session running as azurestack\CloudAdmin on a machine which can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host, run the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script create a root certificate in the same folder as the script that App Service needs for creating certificates.
+
+| Get-AzureStackRootCert.ps1 parameter | Required or optional | Default value | Description |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | Required | AzS-ERCS01 | Privileged endpoint |
+| CloudAdminCredential | Required | AzureStack\CloudAdmin | Domain account credential for Azure Stack cloud admins |
+
 ### Certificates required for the Azure Stack Development Kit
 
 The first script works with the Azure Stack certificate authority to create four certificates that App Service needs:
@@ -52,9 +61,9 @@ The first script works with the Azure Stack certificate authority to create four
 | File name | Use |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | App Service default SSL certificate |
-| Api.appservice.local.azurestack.external.pfx | App Service API SSL certificate |
+| api.appservice.local.azurestack.external.pfx | App Service API SSL certificate |
 | ftp.appservice.local.azurestack.external.pfx | App Service publisher SSL certificate |
-| Sso.appservice.local.azurestack.external.pfx | App Service identity application certificate |
+| sso.appservice.local.azurestack.external.pfx | App Service identity application certificate |
 
 Run the script on the Azure Stack Development Kit host and ensure that you're running PowerShell as azurestack\CloudAdmin:
 
@@ -98,7 +107,7 @@ The certificate for the Publisher role secures the FTPS traffic for application 
 
 | Format | Example |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### Identity certificate
 
@@ -112,15 +121,6 @@ The certificate for identity must contain a subject that matches the following f
 | Format | Example |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
-
-### Azure Resource Manager root certificate for Azure Stack
-
-In a PowerShell session running as azurestack\CloudAdmin, run the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script creates four certificates in the same folder as the script that App Service needs for creating certificates.
-
-| Get-AzureStackRootCert.ps1 parameter | Required or optional | Default value | Description |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | Required | AzS-ERCS01 | Privileged endpoint |
-| CloudAdminCredential | Required | AzureStack\CloudAdmin | Domain account credential for Azure Stack cloud admins |
 
 ## Virtual Network
 
@@ -141,6 +141,10 @@ WorkersSubnet /21
 Azure App Service requires the use of a file server. For production deployments, the file server must be configured to be highly available and capable of handling failures.
 
 For Azure Stack Development Kit deployments only, you can use the [example Azure Resource Manager deployment template](https://aka.ms/appsvconmasdkfstemplate) to deploy a configured single-node file server. The single-node file server will be in a workgroup.
+
+>[!IMPORTANT]
+> If you choose to deploy App Service in an existing Virtual Network the File Server should be deployed into a separate Subnet from App Service.
+>
 
 ### Provision groups and accounts in Active Directory
 
@@ -262,6 +266,10 @@ The SQL Server instance for Azure App Service on Azure Stack must be accessible 
 
 For any of the SQL Server roles, you can use a default instance or a named instance. If you use a named instance, be sure to manually start the SQL Server Browser service and open port 1434.
 
+>[!IMPORTANT]
+> If you choose to deploy App Service in an existing Virtual Network the SQL Server should be deployed into a separate Subnet from App Service and the File Server.
+>
+
 ## Create an Azure Active Directory application
 
 Configure an Azure AD service principal to support the following:
@@ -290,7 +298,8 @@ Follow these steps:
 10. Select **App Registrations**.
 11. Search for the application ID returned as part of step 7. An App Service application is listed.
 12. Select **Application** in the list.
-13. Select **Required Permissions** > **Grant Permissions** > **Yes**.
+13. Click **Settings**.
+14. Select **Required Permissions** > **Grant Permissions** > **Yes**.
 
 | Create-AADIdentityApp.ps1  parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
