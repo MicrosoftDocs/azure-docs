@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -24,6 +24,7 @@ ms.custom: H1Hack27Feb2017
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -55,6 +56,18 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 > [!NOTE] 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="1.8.2"/>1.8.2
+
+* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+
+### <a name="1.8.1"/>1.8.1
+
+* Fixed regression where FeedOptions.MaxItemCount = -1 threw an System.ArithmeticException: page size is negative.
+* Added a new ToString() function to QueryMetrics.
+* Exposed partition statistics on reading collections.
+* Added PartitionKey property to ChangeFeedOptions.
+* Minor bug fixes.
 
 ### <a name="1.7.1"/>1.7.1
  
@@ -154,6 +167,8 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |February 21, 2018 |--- |
+| [1.8.1](#1.8.1) |February 05, 2018 |--- |
 | [1.7.1](#1.7.1) |November 16, 2017 |--- |
 | [1.7.0](#1.7.0) |November 10, 2017 |--- |
 | [1.6.0](#1.6.0) |October 17, 2017 |--- |

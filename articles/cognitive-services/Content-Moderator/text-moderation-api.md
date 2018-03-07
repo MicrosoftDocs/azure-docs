@@ -1,6 +1,6 @@
 ---
-title: Text Moderation with Azure Content Moderator | Microsoft Docs
-description: Use text moderation for possible unwanted, PII, and custom lists of terms.
+title: Azure Content Moderator - Text Moderation | Microsoft Docs
+description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -128,10 +128,10 @@ The following example shows a sample response:
       		"Index": 89
     		}],
     	"SSN": [{
-      		"Text": "665778988",
+      		"Text": "999999999",
       		"Index": 56
     		}, {
-      		"Text": "544-56-7788",
+      		"Text": "999-99-9999",
       		"Index": 267
     		}]
 		}
@@ -149,6 +149,10 @@ If you ask for auto-correction, the response contains the corrected version of t
 ## Creating and managing your custom lists of terms
 
 While the default, global list of terms works great for most cases, you may want to screen against terms that are specific to your business needs. For example, you may want to filter out any competitive brand names from posts by users. Your threshold of permitted text content may be different from the default list.
+
+> [!NOTE]
+> There is a maximum limit of **5 term lists** with each list to **not exceed 10,000 terms**.
+>
 
 The following example shows the matching List ID:
 

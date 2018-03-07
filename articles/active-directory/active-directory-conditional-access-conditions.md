@@ -97,7 +97,7 @@ For more information, see [Risky sign-ins](active-directory-identityprotection.m
 The device platform is characterized by the operating system that is running on your device. Azure AD identifies the platform by using information provided by the device, such as user agent. Because this information is unverified, it is recommended that all platforms have a policy applied to them, either by blocking access, requiring compliance with Intune policies or requiring the device be domain joined. The default is to apply policy to all device platforms. 
 
 
-![Conditions](./media/active-directory-conditional-access-conditions/02.png)
+![Conditions](./media/active-directory-conditional-access-conditions/24.png)
 
 For a complete list of the supported device platforms, see [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -109,7 +109,7 @@ A common use case for this condition is a policy that restricts access to your c
 
 With locations, you have the option to define conditions that are based on where a connection attempt was initiated from. 
      
-![Conditions](./media/active-directory-conditional-access-conditions/03.png)
+![Conditions](./media/active-directory-conditional-access-conditions/25.png)
 
 Common use cases for this condition are policies that:
 

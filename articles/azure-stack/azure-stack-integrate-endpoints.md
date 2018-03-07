@@ -3,30 +3,28 @@ title: Azure Stack datacenter integration - Publish endpoints
 description: Learn how to publish Azure Stack endpoints in your datacenter
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords:
 ---
 
 # Azure Stack datacenter integration - Publish endpoints
-
-*Applies to: Azure Stack integrated systems*
-
-Azure Stack sets up various endpoints (VIPs - virtual IP addresses) for its infrastructure roles. These VIPs are allocated from the public IP address pool. Each VIP is secured with an access control list (ACL) in the software-defined network layer. ACLs are also used across the physical switches (TORs and BMC) to further harden the solution. A DNS entry is created for each endpoint in the external DNS zone that was specified at deployment time.
+Azure Stack sets up virtual IP addresses (VIPs) for its infrastructure roles. These VIPs are allocated from the public IP address pool. Each VIP is secured with an access control list (ACL) in the software-defined network layer. ACLs are also used across the physical switches (TORs and BMC) to further harden the solution. A DNS entry is created for each endpoint in the external DNS zone that specified at deployment time.
 
 
 The following architectural diagram shows the different network layers and ACLs:
 
-![Architectural diagram](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Structural picture](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## Ports and protocols (inbound)
 
-The infrastructure VIPs that are required for publishing Azure Stack endpoints to external networks are listed in the following table. The list shows each endpoint, the required port, and protocol. Endpoints required for additional resource providers, like the SQL resource provider and others, are covered in the specific resource provider deployment documentation.
+A set of infrastructure VIPs are required for publishing Azure Stack endpoints to external networks. The *Endpoint (VIP)* table shows each endpoint, the required port, and protocol. Refer to the specific resource provider deployment documentation for endpoints that require additional resource providers, such as the SQL resource provider.
 
-Internal infrastructure VIPs are not listed because they’re not required for publishing Azure Stack.
+Internal infrastructure VIPs aren't listed because they’re not required for publishing Azure Stack.
 
 > [!NOTE]
 > User VIPs are dynamic, defined by the users themselves with no control by the Azure Stack operator.
@@ -48,7 +46,11 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 |Storage Table|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL Resource Provider|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL Resource Provider|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|MySQL Resource Provider|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## Ports and URLs (outbound)
 
@@ -65,4 +67,5 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 
 
 ## Next steps
+
 [Azure Stack PKI requirements](azure-stack-pki-certs.md)

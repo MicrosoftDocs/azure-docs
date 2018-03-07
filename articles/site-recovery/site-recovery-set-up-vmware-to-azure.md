@@ -2,18 +2,13 @@
 title: 'Set up the source environment (VMware to Azure) | Microsoft Docs'
 description: This article describes how to set up your on-premises environment to start replicating VMware virtual machines to Azure.
 services: site-recovery
-documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
-editor: ''
-
-ms.assetid:
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: anoopkv
 ---
 
@@ -22,25 +17,15 @@ ms.author: anoopkv
 > * [VMware to Azure](./site-recovery-set-up-vmware-to-azure.md)
 > * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)
 
-This article describes how to set up your on-premises environment to start replicating virtual machines running on VMware to Azure.
+This article describes how to set up your source, on-premises environment, to replicate virtual machines running on VMware to Azure. It includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs. 
 
 ## Prerequisites
 
-The article assumes that you have already created:
-- A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal").
-- A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md).
-- A virtual machine on which to install the configuration server.
+The article assumes that you have already:
+- [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](http://portal.azure.com).
+- [Set up on-premises VMware](tutorial-prepare-on-premises-vmware.md), including a dedicated account for automatic discovery.
 
-## Configuration server minimum requirements
-The following table lists the minimum hardware, software, and network requirements for a configuration server.
 
-> [!IMPORTANT]
-> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Available (HA)** virtual machine.
-
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-> [!NOTE]
-> HTTPS-based proxy servers are not supported by the configuration server.
 
 ## Choose your protection goals
 
@@ -52,39 +37,21 @@ The following table lists the minimum hardware, software, and network requiremen
 
     ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
-## Set up the source environment
-Setting up the source environment involves two main activities:
+## Set up the configuration server
 
-- Install and register a configuration server with Site Recovery.
-- Discover your on-premises virtual machines by connecting Site Recovery to your on-premises VMware vCenter or vSphere EXSi hosts.
+You set up the configuration server as an on-premises VMware VM, use an Open Virtualization Format (OVF) template. [Learn more](concepts-vmware-to-azure-architecture.md) about the components that will be installed on the VMware VM. 
 
-### Step 1: Install and register a configuration server
+1. Learn about the [prerequisites](how-to-deploy-configuration-server.md#prerequisites) for configuration server deployment. [Check capacity numbers](how-to-deploy-configuration-server.md#capacity-planning) for deployment.
+2. [Download](how-to-deploy-configuration-server.md#download-the-template) and [import](how-to-deploy-configuration-server.md#import-the-template-in-vmware) the OVF template (how-to-deploy-configuration-server.md) to set up an on-premises VMware VM that runs the configuration server.
+3. Turn on the VMware VM, and [register it](how-to-deploy-configuration-server.md#register-the-configuration-server) in the Recovery Services vault.
 
-1. Click **Step 1: Prepare Infrastructure** > **Source**. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
-    ![Set up source](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. On the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
-4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
-
-	![Set up source](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
-6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
-
-#### Run Azure Site Recovery Unified Setup
-
-> [!TIP]
-> Configuration server registration fails if the time on your computer's system clock differs from local time by more than five minutes. Synchronize your system clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-> [!NOTE]
-> The configuration server can be installed via command line. For more information, see [Installing the configuration server using Command-line tools](http://aka.ms/installconfigsrv).
-
-#### Add the VMware account for automatic discovery
+## Add the VMware account for automatic discovery
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### Step 2: Add a vCenter
+## Connect to the VMware server
+
 To allow Azure Site Recovery to discover virtual machines running in your on-premises environment, you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery.
 
 Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSphere ESXi host.

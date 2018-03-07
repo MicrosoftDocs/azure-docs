@@ -35,11 +35,11 @@ Azure AD supports four main application types that you can add using the **Add**
 
 -   **Custom-developed Applications** – An application that your organization wishes to develop on the Azure AD Application Development Platform, but that may not exist yet.
 
--   **Non-Gallery Applications** – Bring your own applications! Any web link you want, or any application which renders a username and password field, supports SAML or OpenID Connect protocols, or supports SCIM which you wish to integrate for single sign-on with Azure AD.
+-   **Non-Gallery Applications** – Bring your own applications! Any web link you want, or any application that renders a username and password field, supports SAML or OpenID Connect protocols, or supports SCIM that you wish to integrate for single sign-on with Azure AD.
 
-## Features and capabilities supported by all the above application types
+## Features and capabilities supported by all the preceding application types
 
-The following features are supported by any of the above 4 application types in Azure AD:
+The following features are supported by any of the preceding four application types in Azure AD:
 
 -   **Quick start** – get going with an application quickly by following [simple deployment steps](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
@@ -59,13 +59,13 @@ The following features are supported by any of the above 4 application types in 
 
 ## Single sign-on and provisioning modes supported by specific application types
 
-The table below describes the different single sign-on and provisioning modes supported by each of the above application types. You can use this table to help you to understand which application you need to add to support a specific goal.
+The following table describes the different single sign-on and provisioning modes supported by each of the preceding application types. You can use this table to help you to understand which application you need to add to support a specific goal.
 
   ![App types table](./media/application-tables/table1.png)
 
 ## How to choose a single sign-on mode
 
-The supported **single sign-on** modes for Azure AD applications are listed below.
+Following are the supported **single sign-on** modes for Azure AD applications.
 
 -   **Azure AD single sign-on disabled** – choose Azure AD single sign-on disabled **single sign-on mode** if you are not yet ready to integrate this application with single sign-on with Azure AD, or are simply testing it out
 
@@ -80,7 +80,7 @@ The supported **single sign-on** modes for Azure AD applications are listed belo
    >
    >
 
--   **Header-based Sign-on** – choose this [Header-based Sign-on](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) single sign-on mode if you have an application using PingAccess that supports HTTP-header based authentication that you wish to perform single-sign on to 
+-   **Header-based Sign-on** – choose this [Header-based Sign-on](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) single sign-on mode if you have an application using PingAccess that supports HTTP-header-based authentication that you wish to perform single-sign on to 
 
    >[!NOTE]
    >This option is only available when the application proxy and PingAccess is configured for an application.
@@ -96,7 +96,7 @@ The supported **single sign-on** modes for Azure AD applications are listed belo
 
 ## Single sign-on modes for custom-developed applications
 
-Applications you have custom developed through the [Custom-developed application](#_Custom-Developed_Applications) experience also support additional single sign-on modes not listed above. These include:
+Applications you have custom developed through the [Custom-developed application](#_Custom-Developed_Applications) experience also support additional single sign-on modes not previously listed, which include:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) based sign-on
 
@@ -106,19 +106,19 @@ Applications you have custom developed through the [Custom-developed application
 
 -   [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference) based sign-on
 
-Read the [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) to learn more about how to create a custom-developed application which supports these single sign-on modes.
+Read the [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) to learn more about how to create a custom-developed application that supports these single sign-on modes.
 
 ## How to set an application’s single sign-on mode
 
-To set an application’s **single sign-on** mode, follow the instructions below:
+To set an application’s **single sign-on** mode, follow these instructions:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -126,7 +126,7 @@ To set an application’s **single sign-on** mode, follow the instructions below
 
 6.  Select the application for which you want to configure single sign-on.
 
-7.  Once the application loads, click **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click **Single sign-on** from the application’s left-hand navigation menu.
 
 ## How to choose a provisioning mode
 
@@ -148,17 +148,17 @@ To set an application’s **single sign-on** mode, follow the instructions below
 
 ## How to set an application’s provisioning mode
 
-To set an application’s **provisioning** mode, follow the instructions below:
+To set an application’s **provisioning** mode, follow these instructions:
 
-To set an application’s **single sign-on** mode, follow the instructions below:
+To set an application’s **single sign-on** mode, follow these instructions:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -166,7 +166,7 @@ To set an application’s **single sign-on** mode, follow the instructions below
 
 6.  Select the application for which you want to configure provisioning.
 
-7.  Once the application loads, click **Provisioning** from the application’s left hand navigation menu.
+7.  Once the application loads, click **Provisioning** from the application’s left-hand navigation menu.
 
 ## Next steps
 [Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)

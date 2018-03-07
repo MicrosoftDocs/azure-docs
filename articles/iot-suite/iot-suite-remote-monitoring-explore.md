@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -27,6 +27,7 @@ In this tutorial, you learn how to:
 > * Respond to an alarm
 > * Update the firmware in your devices
 > * Organize your assets
+> * Stop and start the simulated devices
 
 The following video shows a walkthrough of the remote monitoring solution:
 
@@ -109,7 +110,7 @@ On the **Maintenance** page, you can view the details of the rule that triggered
 
     ![Maintenance page shows list of alarms that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. The first alarm in the list is the most recent one. Click the **Chiller Pressure** alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
+1. The first alarm in the list is the most recent one. Click the **Chiller Pressure Too High** alarm to view the associated devices and telemetry. The telemetry shows pressure spikes for the chiller:
 
     ![Maintenance page shows telemetry for selected alarm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -154,12 +155,12 @@ To perform the necessary device management tasks, use the **Devices** page. Star
 
     ![Select a device on the devices page](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Click the **Schedule** button and then choose **Firmware update**. Enter values for **Job name** and **Firmware URI**. Choose **Apply** to schedule the job to run now:
+1. Click the **Schedule** button and then choose **Firmware update**. Enter values for **Job name**, **Firmware Version**, and **Firmware URI**. Choose **Apply** to schedule the job to run now:
 
     ![Schedule firmware update on device](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > With the simulated devices you can use any URL you like as the **Firmware URI** value. The simulated devices do not access the URL.
+    > With the simulated devices you can use any URL you like as the **Firmware URI** value and any value you like for the **Firmware Version**. The simulated devices do not access the URL.
 
 1. Note how many devices the job affects and choose **Apply**:
 
@@ -226,6 +227,16 @@ You can use the tag values to create filters.
 
 Now the Contoso operator can query devices based on the operating team without the need to change anything on the devices.
 
+## Stop simulated devices
+
+You can use the settings menu to stop the simulated devices. This helps to reduce the costs of testing and exploring the solution. To start or stop the simulated devices:
+
+1. Choose the **Settings** icon.
+
+1. Then toggle **Running** on or off:
+
+    ![Settings menu](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## Next steps
 
 In this tutorial, you learned to:
@@ -235,6 +246,7 @@ In this tutorial, you learned to:
 > * Respond to an alarm
 > * Update the firmware in your devices
 > * Organize your assets
+> * Stop and start the simulated devices
 
 Now that you have explored the remote monitoring solution, the suggested next steps are to learn about the advanced features of the remote monitoring solution:
 

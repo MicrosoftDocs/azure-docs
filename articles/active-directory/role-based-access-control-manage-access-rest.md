@@ -23,7 +23,7 @@ ms.author: rolyon
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API helps you manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+With Role-Based Access Control (RBAC), you define access for users, groups, and service principals by assigning roles at a particular scope. This article describes how to manage access using the REST API.
 
 ## List all role assignments
 Lists all the role assignments at the specified scope and subscopes.
