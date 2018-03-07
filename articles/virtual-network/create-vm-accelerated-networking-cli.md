@@ -22,7 +22,7 @@ ms.custom:
 # Create a Linux virtual machine with Accelerated Networking
 
 > [!IMPORTANT] 
-> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. You can follow the steps below to enable Accelerated Networking:
+> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. Complete the following steps to enable Accelerated Networking:
 >   1. Delete the virtual machine.
 >   2. Re-create the virtual machine with Accelerated Networking enabled.
 >
@@ -63,6 +63,8 @@ The following limitations exist when using this capability:
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
 * **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
+
+Though this article provides steps to create a virtual machine with accelerated networking using the Azure CLI, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine with a supported operating system and VM size in the portal, under **Settings**, select **Enabled** under **Accelerated networking**. After the virtual machine is created, you need to complete the instructions in [Confirm that accelerated networking is enabled](#confirm-that-accelerated-networking-is-enabled).
 
 ## Create a virtual network
 
