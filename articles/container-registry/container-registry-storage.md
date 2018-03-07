@@ -35,7 +35,9 @@ Periodically delete unused repositories, tags, and images by using the [Azure CL
 
 ## Storage cost
 
-The Basic, Standard, and Premium service tiers are priced according to their intended usage and feature set, but do not differ in the cost of image storage. For details about pricing, see [Azure Container Registry pricing][pricing].
+The Basic, Standard, and Premium service tiers are priced at a daily rate that aligns with their performance capabilities and feature set, up to a certain storage threshold. The Standard and Premium tiers enable storage above these thresholds, and the overage (the amount above the threshold) is charged at the same per-day rate for both tiers.
+
+For full details about pricing, see [Azure Container Registry pricing][pricing].
 
 ## Backup
 
