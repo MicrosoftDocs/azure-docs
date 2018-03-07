@@ -13,7 +13,7 @@ ms.author: marsma
 
 # Container image storage in Azure Container Registry
 
-Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry is backed by an Azure Storage account managed by Azure. This managed storage scheme provides several benefits, including encryption-at-rest for image data security and geo-redundant storage for high availability. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
+Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry is backed by storage accounts managed by Azure. This managed storage scheme provides several benefits, including encryption-at-rest for image data security and geo-redundant storage for high availability. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
 
 ## Encryption-at-rest
 
@@ -21,7 +21,7 @@ All container images are encrypted at rest using [Storage Service Encryption (SS
 
 ## Geo-redundant storage
 
-Container images are stored in [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) storage accounts. Your images are automatically replicated to a secondary data center that is geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to this secondary region for continued access to your images. For even more redundancy, consider using ACR's [geo-replication feature](container-registry-geo-replication.md).
+Container images are stored using [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Your images are automatically replicated to data centers that are geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to a healthy region for continued access to your images. For even more redundancy, consider using ACR's [geo-replication feature](container-registry-geo-replication.md).
 
 ## Capacity limits
 
@@ -39,7 +39,7 @@ The Basic, Standard, and Premium service tiers are priced according to their int
 
 ## Backup
 
-With GRS-backed storage, Azure Container Registry distributes images across multiple regional data centers for high availability. As such, ACR doesn't provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
+With GRS-backed storage, Azure Container Registry distributes images across multiple regional data centers for high availability. ACR doesn't currently provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
 
 ## Next steps
 
