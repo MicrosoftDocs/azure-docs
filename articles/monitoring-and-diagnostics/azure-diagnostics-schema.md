@@ -1,5 +1,5 @@
 ---
-title: Azure Diagnostics extention configuration schema versions and history | Microsoft Docs
+title: Azure Diagnostics extension configuration schema versions and history | Microsoft Docs
 description: Relevant to collecting perf counters in Azure Virtual Machines, VM Scale Sets, Service Fabric, and Cloud Services.
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -17,7 +17,7 @@ ms.date: 05/16/2017
 ms.author: robb
 
 ---
-# Azure Diagnostics extention configuration schema versions and history
+# Azure Diagnostics extension configuration schema versions and history
 This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
 
 > [!NOTE]
