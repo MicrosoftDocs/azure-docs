@@ -186,7 +186,7 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
 	
-	f. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y) and perform following steps -
+	f. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y)
 	
 	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
 	
@@ -200,15 +200,26 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	> [!NOTE] 
 	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
+
+	h. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
+
+	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
+
 	
-	h. If you want to update the value of existing role, go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
+	i. If you want to update the existing role, please follow below steps:
+
+	- Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y)
+	
+	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
+	
+	- Update the value of role by replacing the **description** and **displayname** with the updated value.
+	
+	- After you have updated all the required roles, copy the content by clicking **Copy Content**
+	
+	- go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
 	
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 	
-	i. Update the value of role by replacing the **description** and **displayname** with the updated value.
-	
-	j. Click **Run Query**. 
-
 ## Delete existing role
 
 1. To delete an  existing role, perform following steps -
@@ -251,14 +262,14 @@ If your application expects custom roles to be passed in SAML response, you need
 	g. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
 	
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
+
+	h. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y) and copy the remaing roles by clicking the **Copy Content**.
 	
-	h. Select **PATCH**.
+	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator_delete.png)
+
+	i. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
 	
-	i. Click **Run Query**.
-	
-	j. Update the appRoles section by removing the specific role.
-	
-	k. Click **Run Query**.
+	j. After the running the query the role will be deleted.	
 
 > [!NOTE]
 > The role needs to be disabled first before it can be removed. 
