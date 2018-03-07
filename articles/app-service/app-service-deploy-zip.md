@@ -82,7 +82,7 @@ This command deploys the files and directories from the ZIP file to your default
 
 To deploy a WAR file to App Service, send a POST request to https://<app_name>.scm.azurewebsites.net/api/wardeploy. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. 
 
-For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](../articles/app-service/app-service-deployment-credentials.md#userscope).
+For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](app-service-deployment-credentials.md#userscope).
 
 ### With cURL
 
