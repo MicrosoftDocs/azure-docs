@@ -113,7 +113,11 @@ These changes send traffic to Azure Storage directly from the ASE and allow acce
 
    ![Forced tunnel with SQL whitelist][3]
 
+## Preventing issues ##
 
+If communication between the ASE and its dependencies is broken, the ASE will go unhealthy.  If it remains unhealthy too long then the ASE will become suspended. To unsuspend the ASE, follow the instructions in your ASE portal.  
+
+In addition to simply breaking communication, you can adversely affect your ASE by introducing too much latency. That can happen if your ASE is, for example, in West Europe and your on premises network you are forced tunneling to is in the western US.  
 
 
 <!--IMAGES-->
