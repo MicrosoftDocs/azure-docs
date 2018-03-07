@@ -41,10 +41,10 @@ This tutorial assumes you have code that looks like the following or that you ha
 ## Add Application Insights library to web app bot
 Currently, the Application Insights service, added as part of the web app bot service creation, collects general state telemetry for the bot. It does not collect LUIS response information. In order to analyze and improve LUIS, you need the LUIS response information.  
 
-In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet package installed and configured in the `BasicLuisDialog.cs` file. Then the `BasicLuisDialog.cs` file need to send the LUIS response information to Application Insights. 
+In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet package installed and configured in the `BasicLuisDialog.cs` file. Then the `BasicLuisDialog.cs` file sends the LUIS response information to Application Insights. 
 
 ### Download web app bot
-Visual Studio 2017 is the tool to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, use the following steps to download the web app bot code.
+Visual Studio 2017 is the tool to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, use the following to download the web app bot code.
 
 1. In the Azure portal, for the web app bot, select **Build**.
 
@@ -54,7 +54,7 @@ Visual Studio 2017 is the tool to add and configure Application Insights for the
 
     ![Download zip file](./media/luis-tutorial-bot-csharp-appinsights/download-link.png)
 
-3. Select **Download zip file** in the pop up window. Remember the location on your computer, you will need it in the next section.
+3. Select **Download zip file** in the pop-up window. Remember the location on your computer, you will need it in the next section.
 
     ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-popup.png)
 
@@ -154,11 +154,11 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 ## Build web app bot
 1. Build the web app bot in one of two ways. The first method is to right-click on `build.cmd` in the **App Service Editor**, then select **Run from Console**. The output of the console displays and completes with `Finished successfully.`
 
-2. If this doesn't complete successfully, you need to open the console, navigate to the `build.cmd` script and run it using the following steps. In the **App Service Editor**, on the top blue bar, select the name of your bot, then select **Open Kudu Console** in the drop-down list.
+2. If this doesn't complete successfully, you need to open the console, navigate to the  script, and run it using the following steps: In the **App Service Editor**, on the top blue bar, select the name of your bot, then select **Open Kudu Console** in the drop-down list.
 
     ![Configure Application Insights](./media/luis-tutorial-bot-csharp-appinsights/open-kudu-console.png)
 
-3. In the console window enter the following command.
+3. In the console window, enter the following command:
 
     ```
     cd site\wwwroot && build.cmd

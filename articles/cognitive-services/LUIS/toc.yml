@@ -64,11 +64,11 @@
   - name: Correct spelling with Bing Spell Check API v7
     href: luis-tutorial-bing-spellcheck.md
     - name: Gain Application Insights with a bot
-    items:
-    - name:  Node.js
-      href: luis-tutorial-function-appinsights.md
-    - name:  C#
-      href: luis-tutorial-bot-csharp-appinsights.md
+      items:
+      - name:  Node.js
+        href: luis-tutorial-function-appinsights.md
+      - name:  C#
+        href: luis-tutorial-bot-csharp-appinsights.md
 - name: Samples
   items:
   - name: Code samples
