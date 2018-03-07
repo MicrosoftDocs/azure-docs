@@ -1,20 +1,18 @@
 ---
-title: Azure Site Recovery support matrix for replicating VMware VMs and physical servers to Azure | Microsoft Docs
-description: Summarizes the supported operating systems and components for replicating VMware VMs to Azure by using Azure Site Recovery.
+title: Support matrix for replicating VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
+description: Summarizes the supported operating systems and components for replicating VMware VMs and physical server to Azure using Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/06/2018
 ms.author: raynew
 
 ---
 # Support matrix for VMware and physical server replication to Azure
 
-
 This article summarizes supported components and settings for disaster recovery of VMware VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
-
 
 ## Supported scenarios
 
@@ -23,7 +21,7 @@ This article summarizes supported components and settings for disaster recovery 
 **VMware VMs** | You can perform disaster recovery to Azure for on-premises VMware VMs. You can deploy this scenario in the Azure portal or by using PowerShell.
 **Physical servers** | You can perform disaster recovery to Azure for on-premises Windows/Linux physical servers. You can deploy this scenario in the Azure portal.
 
-## On-premises virtualization servers
+## On-premises virtualization/host servers
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
@@ -33,19 +31,19 @@ This article summarizes supported components and settings for disaster recovery 
 
 ## Replicated machines
 
-The following table summarizes replication support for machines. Site Recovery supports replication of any workload running on a machine with a supported operating system.
+The following table summarizes replication support for VMware VMs and physical servers. Site Recovery supports replication of any workload running on a machine with a supported operating system.
 
 **Component** | **Details**
 --- | ---
-Machine configuration | Machines that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
-Machine operating system (Windows) | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1
-Machine operating system (Linux) | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 isn't supported. If a replicated machine is upgraded from SLES 11SP3 to SLES 11 SP4, you need to disable replication and protect the machine again post the upgrade.)
+Machine settings | Machines that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
+Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. Windows 2016 Nano Server isn't supported.
+Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7/Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Upgrading replicated machines from SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.
 
 >[!NOTE]
 >
-> - On Linux distributions, only the stock kernels that are part of the minor version release/update of the distribution are supported.
+> - On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.
 >
-> - Upgrades across major versions of a Linux distribution on a Site Recovery-protected VMware virtual machine or physical server aren't supported. When you upgrade the operating system across major versions (for example, CentOS 6.* to CentOS 7.*), disable replication for the machine, upgrade the operating system on the machine, and then enable replication again.
+> - Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.
 >
 
 ### Ubuntu kernel versions
@@ -62,18 +60,19 @@ Machine operating system (Linux) | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to
 16.04 LTS | 9.12 | 4.4.0-21-generic to 4.4.0-96-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic to 4.4.0-104-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic |
 
-## Linux file systems/guest storage configurations
+## Linux file systems/guest storage
 
 **Component** | **Supported**
 --- | ---
-File systems | ext3, ext4, XFS
+File systems | ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
 Volume manager | LVM2
+Multipath software | Device Mapper
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
-Directories | These directories (if set up as separate partitions/file-systems) must all be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc. </br></br> If / (root) volume is an LVM volume, then /boot must reside on a separate partition on the same disk and not be an LVM volume.<br/><br/>
-|Free Space Requirements| 2 GB on the /root partition <br/>250 MB on the installation folder
-XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from version 9.10 of Mobility Service and later. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
+Directories | These directories (if set up as separate partitions/file-systems) must all be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br></br> /boot should be on a disk partition and not be an LVM volume<br/><br/>
+Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
+XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from Mobility service version 9.10 onwards. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
 
 
 
@@ -121,7 +120,7 @@ Guest/server NFS | No
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB
-Guest/server disk with 4K logical and 4k physical sector size | Yes
+Guest/server disk with 4K logical and 4k physical sector size | Yes<
 Guest/server disk with 4K logical and 512 bytes physical sector size | Yes
 Guest/server volume with striped disk > 4 TB <br><br/>LVM-Logical Volume Management | Yes
 Guest/server - Storage Spaces | No
@@ -163,23 +162,24 @@ Managed disks | Yes
 
 ## Azure VM requirements
 
-On-premises VMs that you replicate to Azure must meet the Azure VM requirements summarized in this table.
+On-premises VMs that you replicate to Azure must meet the Azure VM requirements summarized in this table. When Site Recovery runs a prerequisites check, it will fail if some of the requirements aren't met.
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-**Guest operating system** | Verify [supported operating systems](#replicated machines). | Prerequisites check fails if unsupported.
-**Guest operating system architecture** | 64-bit | Prerequisites check fails if unsupported.
-**Operating system disk size** | Up to 2,048 GB | Prerequisites check fails if unsupported.
-**Operating system disk count** | 1 | Prerequisites check fails if unsupported.
-**Data disk count** | Count is 64 or less if you're replicating *VMware VMs to Azure*. Count is 16 or less if you're replicating *Hyper-V VMs to Azure*. | Prerequisites check fails if unsupported.
-**Data disk VHD size** | Up to 4,095 GB | Prerequisites check fails if unsupported.
-**Network adapters** | Multiple adapters are supported. |
-**Shared VHD** | Not supported. | Prerequisites check fails if unsupported.
-**FC disk** | Not supported. | Prerequisites check fails if unsupported.
-**Hard disk format** | VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises, the virtual machines continue to use the VHDX format.
-**BitLocker** | Not supported. | BitLocker must be disabled before you enable replication for a machine.
-**VM name** | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. | Update the value in the machine properties in Site Recovery.
-**VM type** | Generation 1.<br/><br/> Generation 2--Windows. | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. To learn more, see [Disaster recovery to Azure enhanced](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+**Guest operating system** | Verify [supported operating systems](#replicated machines). | Check fails if unsupported. 
+**Guest operating system architecture** | 64-bit | Check fails if unsupported. 
+**Operating system disk size** | Up to 2,048 GB | Check fails if unsupported. 
+**Operating system disk count** | 1 | Check fails if unsupported.  
+**Data disk count** | 64 or less | Check fails if unsupported.  
+**Data disk VHD size** | Up to 4,095 GB | Check fails if unsupported. 
+**Network adapters** | Multiple adapters are supported. | 
+**Shared VHD** | Not supported. | Check fails if unsupported. 
+**FC disk** | Not supported. | Check fails if unsupported. 
+**Hard disk format** | VHD <br/><br/> VHDX | VHDX isn't currently supported in Azure, but Site Recovery automatically converts VHDX to VHD after failover. When you fail back to on-premises, the VMs continue to use the VHDX format.
+**BitLocker** | Not supported | BitLocker must be disabled before you enable replication for a machine. | 
+**VM name** | From 1 to 63 characters<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
+**VM type** | Generation 1, Generation 2 (Windows only) |  Generation 2 VMs must have a basic OS disk (including or two data volumes formatted as VHDX), and less than 300 GB of disk space 
+Linux Generation 2 VMs aren't supported. 
 
 ## Vault tasks
 
