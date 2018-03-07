@@ -423,4 +423,4 @@ WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
 ## Next steps
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
-- For a tutorial using the Data Migration Service (DMS) for migration, see [Managed Instance migration using DMS]../dms/tutorial-sql-server-to-managed-instance.md).
+- For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS]../dms/tutorial-sql-server-to-managed-instance.md).
