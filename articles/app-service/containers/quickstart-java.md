@@ -130,7 +130,7 @@ Depending on which method of deployment you use, the relative path to browse to 
 
 ### Deploy with WarDeploy 
 
-To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to https://<your app name>.scm.azurewebsites.net/api/wardeploy. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip#deploy-war-file).
+To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to https://<your app name>.scm.azurewebsites.net/api/wardeploy. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip.md).
 
 ```bash
 curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
