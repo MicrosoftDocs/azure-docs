@@ -1,42 +1,31 @@
 # [Azure AD B2C Documentation](index.md)
 
-# [Overview](active-directory-b2c-overview.md)
+# Overview
+## [About Azure AD B2C](active-directory-b2c-overview.md)
 
-# Get started
-## [Test drive an Azure AD B2C web app](active-directory-b2c-quickstarts-web-app.md)
-## [Test drive an Azure AD B2C desktop app](active-directory-b2c-quickstarts-desktop-app.md)
-## [Test drive an Azure AD B2C single-page app](active-directory-b2c-quickstarts-spa.md)
+# Quickstarts
+## [Try an Azure AD B2C web app](active-directory-b2c-quickstarts-web-app.md)
+## [Try an Azure AD B2C desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+## [Try an Azure AD B2C single-page app](active-directory-b2c-quickstarts-spa.md)
+
+# Tutorials
+## [ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
+## [Single-page app](active-directory-b2c-tutorials-spa.md)
+## [.NET WPF desktop app](active-directory-b2c-tutorials-desktop-app.md)
+## [ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
+## [ASP.NET Core web API](active-directory-b2c-tutorials-spa-webapi.md)
+## [Node.js web API](active-directory-b2c-tutorials-desktop-app-webapi.md)
+
+# Concepts
+## [OAuth 2.0 authorization](active-directory-b2c-reference-oauth-code.md)
+## [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
+## [Sign-in for single-page apps](active-directory-b2c-reference-spa.md)
+
+# How-To guides
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
 ## [Built-In policies](active-directory-b2c-reference-policies.md)
-## Mobile & desktop apps
-### [Overview](active-directory-b2c-reference-oauth-code.md)
-### iOS
-#### [iOS Swift using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [iOS ObjC using AppAuth](active-directory-b2c-devquickstarts-ios.md)
-### Android
-#### [Android using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [Android using AppAuth](active-directory-b2c-devquickstarts-android.md)
-### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
-### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
-## Web apps
-### [Overview](active-directory-b2c-reference-oidc.md)
-### [Authenticate users in ASP.NET](active-directory-b2c-tutorials-web-app.md)
-### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
-## Single page apps
-### [Overview](active-directory-b2c-reference-spa.md)
-### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-## Web APIs
-### [Protect an ASP.NET API](active-directory-b2c-tutorials-web-api.md)
-### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
-### [Call a .NET Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
-# Guides
 ## Configure identity providers
 ### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
 ### [Facebook](active-directory-b2c-setup-fb-app.md)
@@ -61,6 +50,31 @@
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
 ## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migrate users](active-directory-b2c-user-migration.md)
+
+# Code samples
+## Mobile and desktop apps
+### [iOS app using AppAuth](active-directory-b2c-devquickstarts-ios.md)
+### [Android app using AppAuth](active-directory-b2c-devquickstarts-android.md)
+### [.NET desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
+### More samples
+#### [iOS Swift app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
+#### [Android app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
+#### [Xamarin forms app](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
+## Web apps
+### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md) 
+### [Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
+### More samples
+#### [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+## Single page app code samples
+### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
+## Web APIs
+### [.NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Call .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
+### More samples
+#### [.NET Core web API](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
+#### [Node.js web API](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 
 # Identity Experience Framework
 ## [Custom policies](active-directory-b2c-overview-custom.md)
