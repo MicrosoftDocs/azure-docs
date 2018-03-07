@@ -40,15 +40,15 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 
 ## Set the Azure subscription
 
-In the following command, substitute a <mySubscriptionIdWithMediaServiceResourceProvider> placeholder.
+In the following command, provide the Azure subscription ID that you want to use for the Media Services account. TODO: link that shows where to get subscription ID from Portal
 
 ```azurecli-interactive
-az account set --subscription <mySubscriptionIdWithMediaServiceResourceProvider>
+az account set --subscription <mySubscriptionId>
 ```
 
 ## Create an Azure Resource Group
 
-The following command creates a resource group in which you want to have the Storage and Media Services account. Substitute the <myresourcegroup> placeholder.
+The following command creates a resource group in which you want to have the Storage and Media Services account. Substitute the myresourcegroup placeholder with the name you want to use for your resource group.
 
 ```azurecli-interactive
 az group create -n <myresourcegroup> -l westus2
@@ -56,7 +56,7 @@ az group create -n <myresourcegroup> -l westus2
 
 ## Create an Azure Storage account
 
-The following command creates the Storage account that is going to be associated with the Media Services Account (primary). Substitute the <storageaccountforams> placeholder.
+The following command creates the Storage account that is going to be associated with the Media Services Account (primary). Substitute the storageaccountforams placeholder. TODO: what type of Storage account is this? Classic? v2?
 
 ```azurecli-interactive
 az storage account create -n <storageaccountforams> -g <myresourcegroup>
@@ -67,12 +67,12 @@ az storage account create -n <storageaccountforams> -g <myresourcegroup>
 
 Below you can find the Azure CLI commands that creates a new Media Services account. You just need to replace the following highlighted values:
 
-* myamsaccount
+* myamsaccountname
 * myresourcegroup
 * storageaccountforams
 
 ```azurecli-interactive
-az ams create -n <myamsaccount> -g <myresourcegroup> --storage-account <storageaccountforams>
+az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
 ## <a id="access_api" />Get necessary values to access Media Services API
