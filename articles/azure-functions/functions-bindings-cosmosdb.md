@@ -316,7 +316,7 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-    "name": "inputDocument",
+    "name": "inputDocumentIn",
     "type": "documentDB",
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
@@ -324,6 +324,16 @@ Here's the binding data in the *function.json* file:
     "partitionKey": "{queueTrigger_payload_property}",
     "connection": "MyAccount_COSMOSDB",     
     "direction": "in"
+},
+{
+    "name": "inputDocumentOut",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": false,
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connection": "MyAccount_COSMOSDB",
+    "direction": "out"
 }
 ```
 The [configuration](#input---configuration) section explains these properties.
