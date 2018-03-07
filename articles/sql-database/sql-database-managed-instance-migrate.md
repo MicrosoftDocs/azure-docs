@@ -124,3 +124,4 @@ To strengthen security, consider using some of the features that are available:
 
 - For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a tutorial that includes a restore from backup, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- For tutorial showing migration using DMS, see [Migrate your on-premises database to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
