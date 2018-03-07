@@ -148,8 +148,6 @@ The [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-ma
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
   
-    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
-  
     In addition to the above, it is recommended to *remove* the following parameters if they exist:
   
         rhgb quiet crashkernel=auto
