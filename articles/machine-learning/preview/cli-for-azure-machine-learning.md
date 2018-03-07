@@ -1,5 +1,5 @@
 ---
-title: Install and use the model management CLI for top tasks in Azure Machine Learning
+title: Install and use the model management CLI for top Azure Machine Learning tasks
 description: Learn how to install and use the model management CLI for the most common machine learning tasks in Azure Machine Learning.
 services: machine-learning
 author: Miguel.GonzalezFierro
