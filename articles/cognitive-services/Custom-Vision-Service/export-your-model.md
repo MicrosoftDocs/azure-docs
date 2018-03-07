@@ -2,7 +2,7 @@
 title: Export your model to mobile  | Microsoft Docs
 description: Export your model to mobile 
 services: cognitive-services
-author: anrothMSFTMSFT
+author: anrothMSFT
 manager: CorneliaKara
 
 ms.service: cognitive-services
