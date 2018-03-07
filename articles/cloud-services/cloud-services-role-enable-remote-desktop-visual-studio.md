@@ -61,9 +61,9 @@ With Visual Studio 2017 version 15.5 and later, you can still use the publish wi
 
 If you're working as part of a team, you should instead enable remote desktop on the Azure cloud service by using either the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
-This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When enabling Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through what's called the "RDP plugin." The plugin forces the VM to run an installer that can potentially hang the computer. Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that doesn't use and installer and thus doesn't risk hanging the VM. This change was also introduced because the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
+This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When enabling Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through what's called the "RDP plugin." Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that is more secure and more flexible. This change also aligns with the fact that the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
 
-The caveat is that when Visual Studio communicates with the RDP extension, it must transmit a plain text password over SSL. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
+When Visual Studio communicates with the RDP extension, it transmit a plain text password over SSL. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
 
 If you deploy the cloud service project from the same development computer each time, then that local certificate is available. In this case, you can still use the **Enable Remote Desktop for all roles** option in the publish wizard.
 
@@ -78,8 +78,60 @@ You could change the password every time you deploy the cloud service, but that 
 
 If you're sharing the project with a team, then, it's best to clear the option in the publish wizard and instead enable Remote Desktop directly through the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or by using [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
-> [!Tip]
-> When deploying the cloud service through a release definition (as with on Visual Studio Team Services), set the `ForceRDPExtensionOverPlugin` variable to `true` to make sure the deployment works with the RDP extension rather than the RDP plugin.
+### Deploying from a build server with Visual Studio 2017 version 15.5 and later
+
+You can deploy a cloud service project from a build server (for example, with Visual Studio Team Services) on which Visual Studio 2017 version 15.5 or later is installed in the build agent. With this arrangement, deployment happens from the same computer on which the encryption certificate is available.
+
+To use the RDP extension from Visual Studio Team Services, include the following details in your build definition:
+
+1. Include `/p:ForceRDPExtensionOverPlugin=true` in your MSBuild arguments to make sure the deployment works with the RDP extension rather than the RDP plugin. For example:
+
+    ```
+    msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None /p:SkipInvalidConfigurations=true /p:ForceRDPExtensionOverPlugin=true
+    ```
+
+1. After your build steps, add the **Azure Cloud Service Deployment** step and set its properties.
+
+1. After the deployment step, add an **Azure Powershell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
+
+1. Set **Script Type** to "Inline" and paste the code below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
+
+    ```ps
+    Param(
+        [Parameter(Mandatory=$True)]
+        [string]$username,
+
+        [Parameter(Mandatory=$True)]
+        [string]$password,
+
+        [Parameter(Mandatory=$True)]
+        [string]$serviceName,
+
+        [Datetime]$expiry = ($(Get-Date).AddYears(1))
+    )
+
+    Write-Host "Service Name: $serviceName"
+    Write-Host "User Name: $username"
+    Write-Host "Expiry: $expiry"
+
+    $securepassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+    $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
+
+    # Try to remote existing RDP Extensions
+    try
+    {
+        $existingRDPExtension = Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
+        if ($existingRDPExtension -ne $null)
+        {
+            Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
+        }
+    }
+    catch
+    {
+    }
+
+    Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry -Verbose
+    ```
 
 ## Connect to an Azure Role by using Remote Desktop
 
