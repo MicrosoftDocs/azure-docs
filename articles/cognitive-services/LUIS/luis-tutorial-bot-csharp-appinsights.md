@@ -33,17 +33,17 @@ In this tutorial, you learn how to:
 
 All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) and each line associated with this tutorial is commented with `//LUIS Tutorial:`. 
 
-## Web app bot with LUIS
+## Review LUIS web app bot
 This tutorial assumes you have code that looks like the following or that you have completed the [other tutorial](luis-csharp-tutorial-build-bot-framework-sample.md): 
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 
-## Add Application Insights library to web app bot
+## Application Insights in web app bot
 Currently, the Application Insights service, added as part of the web app bot service creation, collects general state telemetry for the bot. It does not collect LUIS response information. In order to analyze and improve LUIS, you need the LUIS response information.  
 
 In order to capture the LUIS response, the web app bot needs **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** installed and configured for the project. 
 
-### Download web app bot
+## Download web app bot
 Use [Visual Studio 2017](http://www.microsoft.com/Visual_Studio/2017) to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, download the web app bot code.
 
 1. In the Azure portal, for the web app bot, select **Build**.
@@ -58,7 +58,7 @@ Use [Visual Studio 2017](http://www.microsoft.com/Visual_Studio/2017) to add and
 
     ![Download zip file popup](./media/luis-tutorial-bot-csharp-appinsights/download-popup.png)
 
-### Open solution in Visual Studio 2017
+## Open solution in Visual Studio 2017
 
 1. Extract the file into a folder. 
 
@@ -74,7 +74,7 @@ Use [Visual Studio 2017](http://www.microsoft.com/Visual_Studio/2017) to add and
 
     ![Restore NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-restore-packages.png)
 
-### Add ApplicationInsights to the project
+## Add Application Insights to the project
 Install and configure Application Insights in Visual Studio. 
 
 1. In Visual Studio 2017, on the top menu, select **Project**, then select **Add Application Insights Telemetry...**.
@@ -95,7 +95,7 @@ Install and configure Application Insights in Visual Studio.
 
     The **Enable trace collection** is red, meaning it is not enabled. This tutorial doesn't use the feature. 
 
-### Build and resolve errors
+## Build and resolve errors
 
 1. Build the solution by selecting the **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
 
@@ -105,7 +105,7 @@ Install and configure Application Insights in Visual Studio.
 
     [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
 
-### Publish project to Azure
+## Publish project to Azure
 The **ApplicationInsights** package is now in the project and configured correctly for your credentials in the Azure portal. The changes for the project need to be published back to Azure.
 
 1. In the **Solution Explorer**, right-click the project name, then select **Publish**.
