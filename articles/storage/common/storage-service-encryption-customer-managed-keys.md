@@ -76,7 +76,7 @@ To specify your key from a URI, follow these steps:
 1. Choose the **Enter key URI** option.  
 2. In the **Key URI** field, specify the URI.
 
-![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+    ![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
 #### Specify a key from a key vault 
 
@@ -86,7 +86,7 @@ To specify your key from a key vault, follow these steps:
 2. Choose the key vault containing the key you want to use.
 3. Choose the key from the key vault.
 
-![Portal Screenshot showing Encryptions use your own key option](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+    ![Portal Screenshot showing Encryptions use your own key option](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
 If the storage account does not have access to the key vault, you can run the Azure PowerShell command shown in the following image to grant access.
 
