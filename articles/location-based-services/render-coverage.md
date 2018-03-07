@@ -18,7 +18,7 @@ ms.custom: mvc
 
 # Azure Location Based Services - Render Coverage
 
-This article provides coverage information for Azure LBS Render. 
+This article provides coverage information for Azure Location Based Services Render. 
 
 Check out coverage for [**Geocoding**](geocoding-coverage.md).  
 Check out coverage for [**Traffic**](traffic-coverage.md).  
