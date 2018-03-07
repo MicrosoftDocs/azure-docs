@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Your LUIS web app bot from the **[previous tutorial](luis-csharp-tutorial-build-bot-framework-sample.md)** with Application Insights turned on. 
-* Visual Studio 2017 installed locally on  your computer.
+* [Visual Studio 2017](http://www.microsoft.com/Visual_Studio/2017) installed locally on  your computer.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -139,7 +139,7 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
 2. Add the following NuGet dependency under the existing `using` lines:
 
-   [!code-csharp[Add using statement](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=12 "Add using statement")]
+   [!code-csharp[Add using statement](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=11-12 "Add using statement")]
 
 3. Add the `LogToApplicationInsights` function:
 
