@@ -84,7 +84,7 @@ Ping, which uses ICMP is used to communicate between virtual machines. ICMP is n
 netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
 ```
 
-Close the remote desktop connection to *myVm1*. Complete the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine), but connect to *myVm2*. From a command prompt enter `ping myvm1`.
+Close the remote desktop connection to *myVm1*. Complete the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine), but connect to *myVm2*. From a command prompt, enter `ping myvm1`.
 
 You are able to successfully ping the *myVm1* virtual machine from the *myVm2* virtual machine because:
 
