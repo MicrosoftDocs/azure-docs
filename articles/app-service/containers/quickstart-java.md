@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Preview: Create a Java web app in App Service on Linux
 
-App Service on Linux currently provides preview feature to support Java web apps. Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information on previews. [Deploying Java web apps to a Linux container in the cloud using the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux) is an alternative approach to deploy your Java app to your own container.
+App Service on Linux currently provides a preview feature to support Java web apps. Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information on previews. [Deploying Java web apps to a Linux container in the cloud using the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux) is an alternative approach to deploy your Java app to your own container.
 
 > [!NOTE]
 > This article deploys a Java web app to App Service on Linux.
@@ -120,7 +120,7 @@ git clone https://github.com/Azure-Samples/java-docs-hello-world
 ```
 
 
-## Deploying the Java app to App Servic on Linux
+## Deploying the Java app to App Service on Linux
 
 Open the sample project in [Eclipse](https://www.eclipse.org/downloads/), and [export the java app to a Web Archive (WAR) file](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.wst.webtools.doc.user%2Ftopics%2Ftwcrewar.html) named `helloworld.war`.
 
@@ -219,7 +219,7 @@ The Java sample code is running in a web app with built-in image.
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 
-## Next Steps
+## Next steps
 
 For more information about using Java with Azure, see the following links:
 

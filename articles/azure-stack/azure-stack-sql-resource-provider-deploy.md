@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -62,7 +62,7 @@ You must create one (or more) instances of SQL Server and/or provide access to e
 
     | Azure Stack build | SQL resource provider installer |
     | --- | --- |
-    | 1802: 1.0.180227.1 | [SQL RP version 1.1.16.0](https://aka.ms/azurestacksqlrp1802) |
+    | 1802: 1.0.180302.1 | [SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802) |
     | 1712: 1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (multi-node) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
     | 1711: 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
     | 1710: 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |

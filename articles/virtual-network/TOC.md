@@ -53,7 +53,10 @@
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Virtual network peering
-#### [Same deployment model - same subscription](virtual-network-create-peering.md)
+#### Same deployment model - same subscription
+##### [Azure portal](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
