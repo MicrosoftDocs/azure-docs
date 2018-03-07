@@ -18,11 +18,9 @@ ms.author: mfussell
 
 ---
 # Run a service startup script as a local user or system account
-Before a Service Fabric service executable starts up it may be necessary to run some configuration or setup work.  For example, configuring environment variables. You can specify a script to run before the service executable starts up in the service manifest for the service.
+Before a Service Fabric service executable starts up it may be necessary to run some configuration or setup work.  For example, configuring environment variables. You can specify a script to run before the service executable starts up in the service manifest for the service. By configuring a RunAs policy for the service setup entry point you can change which account the setup executable runs under.  A separate setup entry point allows you to run high-privilged configuration for a short period of time so the service host executable doesn't need to run with high privileges for extended periods of time.
 
 The setup entry point (**SetupEntryPoint** in the [service manifest](service-fabric-application-and-service-manifests.md)) is a privileged entry point that by default runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable that is specified by **EntryPoint** is typically the long-running service host. The **EntryPoint** executable is run after the **SetupEntryPoint** executable exits successfully. The resulting process is monitored and restarted, and begins again with **SetupEntryPoint** if it ever terminates or crashes. 
-
-By configuring a policy for the service setup entry point you can change which account the setup executable runs under.  A separate setup entry point allows you to run high-privilged configuration for a short period of time so the service host executable doesn't need to run with high privileges for extended periods of time.
 
 ## Configure the service setup entry point
 The following is a simple service manifest example for a stateless service that specifies a setup script *MySetup.bat* in the service **SetupEntryPoint**.  **Arguments** is used to pass arguments to the script when it runs.
