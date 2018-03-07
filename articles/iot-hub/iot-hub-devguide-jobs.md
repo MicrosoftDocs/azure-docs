@@ -21,6 +21,8 @@ ms.author: dobett
 
 Azure IoT Hub enables a number of building blocks like [device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods].  Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs execute device twin updates and direct methods against a set of devices at a scheduled time.  For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Consider using jobs when you need to schedule and track progress any of the following activities on a set of devices:
 
 * Update desired properties
