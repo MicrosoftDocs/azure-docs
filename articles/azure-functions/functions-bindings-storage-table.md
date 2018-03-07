@@ -85,7 +85,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
