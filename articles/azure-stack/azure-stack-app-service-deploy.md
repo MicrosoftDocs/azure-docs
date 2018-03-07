@@ -109,7 +109,7 @@ To deploy App Service resource provider, follow these steps:
 >
 >
 
-![App Service Installer][11]
+   ![App Service Installer][11]
 
 11. Review the role instance and SKU options. The defaults populate with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
