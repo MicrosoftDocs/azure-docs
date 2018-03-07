@@ -18,17 +18,17 @@ ms.author: daveba
 
 # Assign a Managed Service Identity access to a resource by using the Azure portal
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 After you've configured an Azure resource with a Managed Service Identity (MSI), you can give the MSI access to another resource, just like any security principal. This article shows you how to give an Azure virtual machine or virtual machine scale set's MSI access to an Azure storage account, by using the Azure portal.
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 ## Use RBAC to assign the MSI access to another resource
 
-After you've enabled MSI on an Azure resource, such as an [Azure VM](msi-qs-configure-portal-windows-vm.md) or [Azure VMSS](msi-qs-configure-portal-windows-vmss.md):
+After you've enabled MSI on an Azure resource, such as an [Azure VM](qs-configure-portal-windows-vm.md) or [Azure VMSS](qs-configure-portal-windows-vmss.md):
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you have configured the MSI.
 
@@ -36,20 +36,20 @@ After you've enabled MSI on an Azure resource, such as an [Azure VM](msi-qs-conf
 
 3. For an Azure virtual machine, select the **Access control (IAM)** page of the resource, and select **+ Add**. Then specify the **Role**, **Assign access to Virtual Machine**, and specify the corresponding **Subscription** and **Resource Group** where the resource resides. Under the search criteria area, you should see the resource. Select the resource, and select **Save**. 
 
-   ![Access control (IAM) screenshot](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Access control (IAM) screenshot](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
    For an Azure virtual machine scale set, select the **Access control (IAM)** page of the resource, and select **+ Add**. Then specify the **Role**, **Assign access to**. Under the search criteria area, search for  your virtual machine scale set. Select the resource, and select **Save**.
    
-   ![Access control (IAM) screenshot](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Access control (IAM) screenshot](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. You are returned to the main **Access control (IAM)** page, where you see a new entry for the resource's MSI.
 
     Azure virtual machine:
 
-   ![Access control (IAM) screenshot](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Access control (IAM) screenshot](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Azure virtual machine scale set:
 
-    ![Access control (IAM) screenshot](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![Access control (IAM) screenshot](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## Troubleshooting
 
@@ -62,8 +62,8 @@ If either is incorrect, you might need to redeploy the MSI on your resource agai
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
-- To enable MSI on an Azure virtual machine, see [Configure an Azure VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
-- To enable MSI on an Azure virtual machine scale set, see [Configure an Azure Virtual Machine Scale Set Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vmss.md)
+- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+- To enable MSI on an Azure virtual machine, see [Configure an Azure VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md).
+- To enable MSI on an Azure virtual machine scale set, see [Configure an Azure Virtual Machine Scale Set Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vmss.md)
 
 

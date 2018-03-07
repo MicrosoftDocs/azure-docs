@@ -18,7 +18,7 @@ ms.author: skwan
 
 # Use Managed Service Identity for a Linux VM to access Azure Data Lake Store
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use Managed Service Identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Azure automatically manages identities that you create through MSI. You can use MSI to authenticate to services that support Azure Active Directory (Azure AD) authentication, without needing to insert credentials into your code. 
 
@@ -31,9 +31,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## Sign in to Azure
 
@@ -47,7 +47,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
-   !["Basics" pane for creating a virtual machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   !["Basics" pane for creating a virtual machine](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. In the **Subscription** list, select a subscription for the virtual machine.
 5. To select a new resource group that you want the virtual machine to be created in, select **Resource group** > **Create new**. When you finish, select **OK**.
@@ -60,11 +60,11 @@ You can use MSI for a virtual machine to get access tokens from Azure AD without
 1. For **Virtual Machine**, select the virtual machine that you want to enable MSI on.
 2. In the left pane, select **Configuration**.
 3. You see **Managed service identity**. To register and enable MSI, select **Yes**. If you want to disable it, select **No**.
-   !["Register with Azure Active Directory" selection](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   !["Register with Azure Active Directory" selection](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Select **Save**.
 5. If you want to check which extensions are on this Linux VM, select **Extensions**. If MSI is enabled, **ManagedIdentityExtensionforLinux** appears in the list.
 
-   ![List of extensions](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+   ![List of extensions](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Grant your VM access to Azure Data Lake Store
 
@@ -95,7 +95,7 @@ In this tutorial, you authenticate to the REST API for the Data Lake Store file 
 > [!NOTE]
 > The client SDKs for the Data Lake Store file system do not yet support Managed Service Identity.
 
-To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md) or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md) or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the portal, browse to your Linux VM. In **Overview**, select **Connect**.  
 2. Connect to the VM by using the SSH client of your choice. 
@@ -182,7 +182,7 @@ Congratulations! You've authenticated to the Data Lake Store file system by usin
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](overview.md).
 - For management operations, Data Lake Store uses Azure Resource Manager.  For more information on using MSI to authenticate to Resource Manager, see [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
 - Learn more about [authentication with Data Lake Store by using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 - Learn more about [file system operations on Azure Data Lake Store by using the REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
