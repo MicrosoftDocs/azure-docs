@@ -97,37 +97,42 @@ If your application expects custom roles to be passed in SAML response, you need
 	> Following is an example of appRoles object. 
 	> 
 	>	```
-	>	{
-	>	"appRoles": [
-	>	{
+	> {
+	> "appRoles": [
+	> {
 	>	"allowedMemberTypes": [
 	>	"User"
 	>	],
 	>	"description": "msiam_access",
-	>	"displayName": "msiam_access", "id": "******************************",
+	>	"displayName": "msiam_access",
+	>	"id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
 	>	"isEnabled": true,
 	>	"origin": "Application",
 	>	"value": null
-	>	},
-	>	{
+	> },
+	> {
 	>	"allowedMemberTypes": [
 	>	"User"
 	>	],
-	>	"description": "**********",
-	>	"displayName": "**********",
-	>	"id": "*************",
-	>	"isEnabled": true,
+	>	"description": "teacher",
+	>	"displayName": "teacher",
+	>	"id": "6478ffd2-5dbd-4584-b2ce-137390b09b60",
+	>	"isEnabled": ,
 	>	"origin": "ServicePrincipal",
-	>	"value": "******************"
-	>	}
-	>	]
-	>	}
+	>	"value": "teacher"
+	> }
+	> ] 
+	> }
 	>
 	>	```
 
 7. After the service principal is patched with more roles, we can assign users to the respective roles. This can be done by going to Portal and navigating to the respective app. Then, clicking on the **Users and Groups** tab on top. This process will list all the users or groups.
 
+	![Configure Single Sign-On Add](./media/active-directory-enterprise-app-role-management/userrole.png)
+
 	a. To assign a role to any user, just select the particular user/group and click on **Assign** button in the bottom part of the page.
+
+	![Configure Single Sign-On Add](./media/active-directory-enterprise-app-role-management/userandgroups.png)
 
 	b. Clicking that brings a pop-up to select a role from different roles that are defined for the respective service principal.
 
@@ -155,9 +160,11 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	e. Click **Ok**.
 
-10. To test your application in IDP initiated Single Sign on, log into the Access Panel (https://myapps.microsoft.com ) and click on your application tile. You should see different roles to choose from. Choose the desired role and now click on Sign In button to use that role in your application.
+10. To test your application in IDP initiated Single Sign on, log into the Access Panel (https://myapps.microsoft.com ) and click on your application tile. In the SAML token you should see all the assigned roles for the user with the claim name you have given.
 
-11. To update an existing role, perform following steps -
+## Update existing role
+
+1. To update an existing role, perform following steps -
 
 	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
 
@@ -169,19 +176,42 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
 
 	d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
 
 	- `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-	e. Select **PATCH**.
+	e. Extract the appRoles property from the service principal object.
 
-	f. Update the value of role by replacing the **description** and **displayname** with the updated value.
+	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+
+	f. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y) and perform following steps -
+
+	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
+
+	g. If you want to add new roles follow the below steps:
+
+	- Enter **Role Name**, **Role Description** and **Role Value**. Click **Add** to add the role
+
+	- After you have added all the required roles, click **Generate**
+
+	- Copy the content by clicking **Copy Content**
+
+	> [!NOTE] 
+	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
+
+	h. If you want to update the value of existing role, go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
+
+	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+
+	i. Update the value of role by replacing the **description** and **displayname** with the updated value.
 	
-	g. Click **Run Query**. 
+	j. Click **Run Query**. 
 
-12. To delete an  existing role, perform following steps -
+## Delete existing role
+
+1. To delete an  existing role, perform following steps -
 
 	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
 
@@ -193,21 +223,42 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
+		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
 
 	d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
 
-	e. Select **PATCH**.
+	- `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+
+	e. Extract the appRoles property from the service principal object.
+
+	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+
+	f. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y) and perform following steps -
+
+	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
+
+	- Enter **Role Name**, **Role Description** and **Role Value**. Click **Add** to add the role
+
+	- After you have added all the required roles, click **Generate**
+
+	- Set the **IsEnabled** value to **false** for the role which you want to delete
+
+	- Copy the content by clicking **Copy Content**
+
+	> [!NOTE] 
+	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
+
+	g. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
 	
-	f. Find the role which you need to delete.
+	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
+
+	h. Select **PATCH**.
+
+	i. Click **Run Query**.
 	
-	g. Set the **IsEnabled** property to **false**.
+	j. Update the appRoles section by removing the specific role.
 	
-	h. Click **Run Query**.
-	
-	i. Update the appRoles section by removing the specific role.
-	
-	j. Click **Run Query**.
+	k. Click **Run Query**.
 
 > [!NOTE]
 > The role needs to be disabled first before it can be removed. 
