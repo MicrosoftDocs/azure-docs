@@ -18,20 +18,6 @@ In this quickstart, you learn how to use the .NET client library for Azure Stora
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Resources for developing .NET applications with blobs
-
-See these additional resources for .NET development with Blob storage:
-
-### Binaries and source code
-
-- Download the NuGet package for the latest version of the [Storage .NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- View the [Storage .NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
-
-### Client library reference and samples
-
-- See the [Storage .NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the client library.
-- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the Storage .NET client library.
-
 ## Prerequisites
 
 To complete this quickstart, you first need to download and install .NET Core 2.0 for your operating system, and optionally install an editor:
@@ -244,6 +230,20 @@ Console.WriteLine("Deleting the source, and downloaded files");
 File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
+
+## Resources for developing .NET applications with blobs
+
+See these additional resources for .NET development with Blob storage:
+
+### Binaries and source code
+
+- Download the NuGet package for the latest version of the [Storage .NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/). 
+- View the [Storage .NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
+
+### Client library reference and samples
+
+- See the [Storage .NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the client library.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the Storage .NET client library.
 
 ## Next steps
 
