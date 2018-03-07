@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -44,10 +44,10 @@ LinkedIn integration is enabled by default for your entire tenant. You can choos
 1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD tenant.
 2. Select **Users**.
 3. On the **Users** blade, select **User settings**.
-4. Under **LinkedIn Integration**:
+4. Under **LinkedIn account connections**:
   * Select **Yes** to enable LinkedIn integration for all users in your tenant
   * Select **Selected** to enable LinkedIn integration for only selected tenant users
-  * Select **None** to disable LinkedIn integration for all users
+  * Select **No** to disable LinkedIn integration for all users
 5. Save your settings when you're done by selecting **Save**.
    ![Enabling LinkedIn integration](./media/linkedin-integration/LinkedIn-integration.png)
 
