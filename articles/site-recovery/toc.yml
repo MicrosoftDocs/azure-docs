@@ -237,7 +237,7 @@
     - name: Disaster recovery of VMware VMs and physical servers to a secondary site
       href: vmware-physical-secondary-disaster-recovery.md
   - Hyper-V to Azure
-    - Networking
+    - name: Networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
         href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
@@ -275,7 +275,7 @@
         href: site-recovery-failover.md
       - name: Fail back from Azure to Hyper-V
         href: hyper-v-azure-failback.md
-    - name: Manage:
+    - name: Manage
       items:
       - name: Remove servers and disable protection
         href: site-recovery-manage-registration-and-protection.md
