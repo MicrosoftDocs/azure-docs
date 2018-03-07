@@ -95,8 +95,8 @@ This section walks you through using the Cloud Shell to create and execute two p
     tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          location: eastus
+        name: demoresourcegroup
+        location: eastus
   ```
 
 1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
@@ -143,8 +143,8 @@ This section walks you through using the Cloud Shell to create and execute two p
     tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          state: absent
+        name: demoresourcegroup
+        state: absent
   ```
 
 1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
