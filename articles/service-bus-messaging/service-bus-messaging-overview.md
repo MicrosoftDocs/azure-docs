@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/02/2018
+ms.date: 03/07/2018
 ms.custom: mvc
-ms.author: chwolf
+ms.author: chwolf;sethm
 
 ---
 # What is Azure Service Bus?
@@ -36,13 +36,6 @@ Messages sent to and received from the message broker are stored in *queues*. Qu
 
 Messages in queues are ordered, and Service Bus applies a timestamp on arrival. Once accepted, the message is held safely in redundant, triple replicated storage, with intra-region disaster recovery backups.
 
-### Delivery modes
-
-Queues have two delivery modes: *pull* and *forward*.
-
-* [Pull](service-bus-quickstart-powershell.md) – delivers messages on request.
-* [Forward](service-bus-auto-forwarding.md) – delivers a message to a single forwarding destination.
-
 ## Topics
 
 You can also use *topics* to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish/subscribe scenarios.
@@ -52,6 +45,14 @@ You can also use *topics* to send and receive messages. While a queue is often u
 Topics can have multiple, independent subscriptions. A subscriber to a topic is eligible to receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
 
 In some scenarios you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional actions, filter specified messages, and set or modify message properties.
+
+## Delivery modes
+
+Queues and topics have two delivery modes: *pull* and *forward*.
+
+* [Pull](service-bus-quickstart-powershell.md) – delivers messages on request.
+* [Forward](service-bus-auto-forwarding.md) – delivers a message to a single forwarding destination.
+
 
 ## Advanced features
 
