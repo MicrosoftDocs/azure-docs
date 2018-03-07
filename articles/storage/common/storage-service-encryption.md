@@ -2,31 +2,32 @@
 title: Azure Storage Service Encryption for Data at Rest | Microsoft Docs
 description: Use the Azure Storage Service Encryption feature to encrypt your Azure Blob Storage on the service side when storing the data, and decrypt it when retrieving the data.
 services: storage
-author: tamram
+author: lakasa
 manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: tamram
+ms.author: lakasa
 
 ---
 # Azure Storage Service Encryption for Data at Rest
 
-Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
+Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting it to Azure Storage, and decrypts it prior to retrieval. The handling encryption, encryption at rest, decryption, and key management provided by SSE are transparent to users. All data written to Azure Storage is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
-## Overview
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPs, or SMB 3.0. Storage Service Encryption (SSE) provides encryption at rest, handling encryption, decryption, and key management in a totally transparent fashion. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
+SSE is enabled for all new and existing storage accounts and cannot be disabled. Because your data is secured by default, you do not need to modify your code or applications to take advantage of SSE.
 
-SSE is enabled for all storage accounts and cannot be disabled. SSE automatically encrypts your data when writing it to Azure Storage. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. SSE enables you to secure your data without having to modify code or add code to any applications.
+ SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
 
-The keys used for SSE are managed by Microsoft. Microsoft generates the keys originally, and manages their secure storage as well as their regular rotation, as defined by internal Microsoft policy. Customer-managed keys will eventually be available, along with a migration path from Microsoft-managed keys to customer-managed keys.
+You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. For more information about using your own keys, see [Storage Service Encryption using customer managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
-SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
+## View encryption settings in the Azure portal
 
-To learn more, please refer to the FAQ.
+To view settings for Storage Service Encryption, log into the [Azure portal](https://portal.azure.com) and select a storage account. On the **Settings** blade, click on the Encryption setting.
 
-## Frequently asked questions about Storage Service Encryption for Data at Rest
+![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
+
+## FAQ for Storage Service Encryption
 
 **Q: I have an existing classic storage account. Can I enable SSE on it?**
 
