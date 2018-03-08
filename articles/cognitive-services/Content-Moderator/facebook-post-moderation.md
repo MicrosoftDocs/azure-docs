@@ -92,7 +92,6 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
 
 ## Configure the Facebook page and App
-
 1. Create a Facebook App.
 
     1. Navigate to the [Facebook developer site](https://developers.facebook.com/)
@@ -107,7 +106,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
     1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a **new Facebook Page**.
     2. Allow the Facebook App to access this page by following these steps:
-        1. Navigate to the **[Graph API Explorer]**(https://developers.facebook.com/tools/explorer/).
+        1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
         2. Select **Application**.
         3. Select **Page Access Token**, Send a **Get** request.
         4. Click the **Page ID** in the response.
