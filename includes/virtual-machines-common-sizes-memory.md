@@ -25,7 +25,7 @@ ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwe
 | Standard_E16s_v3 <sup>2</sup>| 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / 8,000                                       |
 | Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
 | Standard_E64s_v3 | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
-| Standard_E64is_v3 | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200 <sup>3</sup>                            | 8 / 30,000 
+| Standard_E64is_v3 <sup>3</sup>| 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000 
 
 
 <sup>1</sup> Esv3-series VM’s feature Intel® Hyper-Threading Technology
@@ -51,7 +51,7 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
-| Standard_E64i_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000  <sup>2</sup>         |
+| Standard_E64i_v3 <sup>3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000          |
 
 <sup>1</sup> Ev3-series VM’s feature Intel® Hyper-Threading Technology
 
