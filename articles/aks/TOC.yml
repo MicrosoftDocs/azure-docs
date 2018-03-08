@@ -80,7 +80,7 @@
     - name: Using OpenFaaS with AKS
       href: openfaas.md
     - name: Run Spark jobs on AKS
-      href: aks-spark-job.md
+      href: spark-job.md
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard

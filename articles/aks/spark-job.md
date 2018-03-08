@@ -2,7 +2,7 @@
 title: Run an Apache Spark job with Azure Container Service (AKS)
 description: Use Azure Container Service (AKS) to run an Apache Spark job
 services: container-service
-author: alehall
+author: lenadroid
 manager: listonb
 
 ms.service: container-service
@@ -20,11 +20,11 @@ ms.custom: mvc
 
 In order to complete the steps within this article, you need the following.
 
-* Basic understanding of Kubernetes and Apache Spark.
-* An Azure Container Service (AKS) cluster and AKS credentials configured on your development system.
-* Docker Hub account, or existing Azure Container Registry.
-* Azure CLI installed on your development system.
-* SBT (Scala Build Tool) installed on your system.
+* Basic understanding of Kubernetes and [Apache Spark][spark-quickstart].
+* An Azure Container Service (AKS) cluster and AKS credentials configured on your development system. Get started [here][aks-quickstart].
+* [Docker Hub][docker-hub] account, or existing [Azure Container Registry][acr-create].
+* Azure CLI [installed][azure-cli] on your development system.
+* SBT ([Scala Build Tool][sbt-install]) installed on your system.
 * Git command-line tools installed on your system.
 
 ## Get Apache Spark
@@ -67,6 +67,10 @@ Parameter `<your container repository name>` is a name of existing Docker Hub ac
 For example, if the Docker Hub was used as a container registry with account name `lenadroid`, the image would be published in a repository called `spark` under the specified tag.
 
 ![Container image](media/aks-spark-job/container-image.png)
+
+Similarly, in case of Azure Container Registry with the Login Server name `lenadroid.azurecr.io`, the image would be published in a repository called `spark` under the given tag.
+
+![ACR image](media/aks-spark-job/acr-image.png)
 
 ## Prepare a Spark job
 
@@ -396,3 +400,9 @@ Check out [Spark documentation](https://spark.apache.org/docs/latest/running-on-
 [storage-account]: https://docs.microsoft.com/en-us/azure/storage/common/storage-azure-cli
 [apache-spark]: https://spark.apache.org/
 [spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
+[docker-hub]: https://docs.docker.com/docker-hub/
+[acr-create]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli
+[azure-cli]: https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
+[sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
+[aks-quickstart]: https://docs.microsoft.com/en-us/azure/aks/
