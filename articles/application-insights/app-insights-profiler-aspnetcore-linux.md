@@ -141,3 +141,7 @@ Changing app settings will automatically restart the site. Once the new settings
 5. Navigate to Performance pane in Application Insights portal. You will see profiler traces available in the bottom right corner.
 
     ![View traces](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## Feedback
+If you have any issues or suggestions, please open an issue in our github repository:
+[ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues)
