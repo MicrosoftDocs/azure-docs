@@ -115,7 +115,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 3. Create a non-expiring Graph API access token.
 
-    1. Navigate to the **[Graph API Explorer]**(https://developers.facebook.com/tools/explorer/).
+    1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
     2. Select the **Application** option.
     3. Select the **Get User Access Token** option.
     4. Under the **Select Permissions**, select **manage_pages** and **publish_pages** options.
