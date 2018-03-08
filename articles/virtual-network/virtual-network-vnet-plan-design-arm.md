@@ -4,7 +4,7 @@ description: Learn how to plan and design virtual networks in Azure based on you
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
@@ -18,7 +18,7 @@ ms.author: jdial
 
 ---
 # Plan and design Azure Virtual Networks
-Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding.
+Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](quick-create-portal.md) one before proceeding.
 
 ## Plan
 A thorough understanding of Azure subscriptions, regions, and network resources is critical for success. You can use the list of considerations below as a starting point. Once you understand those considerations, you can define the requirements for your network design.
