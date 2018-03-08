@@ -29,7 +29,7 @@ Structured Streaming creates a long-running query during which you  apply operat
 ![Stream Processing with HDInsight and Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]
-> Spark Structured Streaming is  replacing Spark Streaming (DStreams). Going forward, Structured Streaming will receive enhancements and maintenance, while DStreams will be in maintenance mode only. However, it is important to note that Structured Streaming is currently not as feature-complete as DStreams for the sources and sinks that it supports out of the box, so you should evaluate your requirements to choose the appropriate Spark stream processing option. 
+> Spark Structured Streaming is  replacing Spark Streaming (DStreams). Going forward, Structured Streaming will receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming is currently not as feature-complete as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option. 
 
 ## Streams as tables
 
@@ -45,7 +45,7 @@ The data in the results tables  may  contain only the data that is new since the
 
 In append mode, only the rows added to the results table since the last query run are present in the results table and written to external storage. For example,  the simplest query  just copies all data from the input table to the results table unaltered. Each time a trigger interval elapses, the new data is processed and the rows representing that new data appear in the results table. 
 
-Consider a scenario where you are processing telemetry from temperature sensors, such as a  thermostat. Assume the first trigger processed one event at time 00:01 for device 1 with a temperature reading of 95 degrees. In the first trigger of the query, only the row with time 00:01  appears in the results table. At time 00:02 when another event arrives,  the only new row would be the row with time 00:02 and so the results table would contain only that one row.
+Consider a scenario where you are processing telemetry from temperature sensors, such as a  thermostat. Assume the first trigger processed one event at time 00:01 for device 1 with a temperature reading of 95 degrees. In the first trigger of the query, only the row with time 00:01  appears in the results table. At time 00:02 when another event arrives,  the only new row is the row with time 00:02 and so the results table would contain only that one row.
 
 ![Structured Streaming Append Mode](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
 
@@ -75,7 +75,7 @@ These JSON files are stored in the `temps` subfolder underneath  the HDInsight c
 
 ### Define the input source
 
-First configure a DataFrame that describes the source of the data and any settings required by that source. This example draws from the JSON files in Azure Storage and apply a schema to them at read time.
+First configure a DataFrame that describes the source of the data and any settings required by that source. This example draws from the JSON files in Azure Storage and applies a schema to them at read time.
 
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
