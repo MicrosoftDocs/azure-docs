@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Facebook content moderation with Content Moderator
 
-In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook pages.
+In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 
 The tutorial guides you through these steps:
 
