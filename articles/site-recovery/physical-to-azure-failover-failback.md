@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ---
 
@@ -69,7 +69,7 @@ low-latency network is required between the process server and the protected mac
   process server that's automatically installed on the configuration server.
 - If you have a VPN connection, or you're running failback in a production environment, you must
   set up an Azure VM as a Azure-based process server for failback.
-- Follow the instructions in [this article](site-recovery-vmware-setup-azure-ps-resource-manager.md) to set up a process server in Azure.
+- Follow the instructions in [this article](vmware-azure-set-up-process-server-azure.md) to set up a process server in Azure.
 
 ## Configure the master target server
 

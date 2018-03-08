@@ -7,13 +7,13 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
 
 # Create your first container in Azure Container Instances
-Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few seconds, you'll see this in your browser:
+Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this quickstart, you create a container in Azure and expose it to the internet with a fully qualified domain name (FQDN). This operation is completed in a single command. Within just a few seconds, you'll see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account][azure-account] 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
 
 ## Create a resource group
 
@@ -37,39 +37,32 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group to the [az container create][az-container-create] command. You can optionally expose the container to the internet with a public IP address. In this quickstart, you deploy a container that hosts a small web app written in [Node.js][node-js].
+You can create a container by providing a name, a Docker image, and an Azure resource group to the [az container create][az-container-create] command. You can optionally expose the container to the internet by specifying a DNS name label. In this quickstart, you deploy a container that hosts a small web app written in [Node.js][node-js].
+
+Execute the following command to start a container instance. The `--dns-name-label` value must be unique within the Azure region you create the instance, so you might need to modify this value to ensure uniqueness.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 Within a few seconds, you should get a response to your request. Initially, the container is in the **Creating** state, but it should start within a few seconds. You can check the status using the [az container show][az-container-show] command:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-At the bottom of the output, you will see the container's provisioning state and its IP address:
+When you run the command, the container's fully qualified domain name (FQDN) and its provisioning state are displayed:
 
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    },
-    "osType": "Linux",
-    "provisioningState": "Succeeded"
-...
+```console
+$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+FQDN                               ProvisioningState
+---------------------------------  -------------------
+aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Once the container moves to the **Succeeded** state, you can reach it in your browser using the IP address provided.
+Once the container moves to the **Succeeded** state, you can reach it in your browser by navigating to its FQDN:
 
-![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
+![Browser screenshot showing application running in an Azure container instance][aci-app-browser]
 
 ## Pull the container logs
 

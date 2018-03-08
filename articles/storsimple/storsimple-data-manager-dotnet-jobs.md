@@ -76,7 +76,7 @@ Perform the following steps to use .NET to launch a data transformation job.
 
         ![Create a project 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.	Now, add all dlls present in the [dlls folder](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) as **References** in the project that you created. To download the dll files, perform the following:
+4.	Now, add all dlls present in the [dlls folder](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) as **References** in the project that you created. To add the dll files, perform the following:
 
     1. In Visual Studio, go to **View > Solution Explorer**.
     2. Click the arrow to the left of Data Transformation App project. Click **References** and then right-click to **Add Reference**.
@@ -114,19 +114,14 @@ Perform the following steps to use .NET to launch a data transformation job.
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-   Once the code is pasted, build the solution. Here is a screenshot of the code snippet to initialize the data transformation job instance.
-
-   ![Code snippet to initialize data transformation job](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
-
+   
 7. Specify the parameters with which the job definition needs to be run
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (OR)
@@ -156,7 +151,6 @@ Perform the following steps to use .NET to launch a data transformation job.
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. After the initialization, add the following code to trigger a data transformation job on the job definition. Plug in the appropriate **Job Definition Name**.
@@ -166,12 +160,17 @@ Perform the following steps to use .NET to launch a data transformation job.
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    Once the code is pasted, build the solution. Here is a screenshot of the code snippet to initialize the data transformation job instance.
 
-9. This job uploads the matched files present under the root directory on the StorSimple volume to the specified container. When a file is uploaded, a message is dropped in the queue (in the same storage account as the container) with the same name as the job definition. This message can be used as a trigger to initiate any further processing of the file.
+   ![Code snippet to initialize data transformation job](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. Once the job has been triggered, add the following code to track the job for completion.
+9. This job transforms the data that matches the root directory and file filters within the StorSimple volume and puts it into the specified container/file share. When a file is transformed, a message is added to a storage queue (in the same storage account as the container/file share) with the same name as the job definition. This message can be used as a trigger to initiate any further processing of the file.
+
+10. Once the job has been triggered, you can use the following code to track the job for completion. It is not mandatory to add this code for the job run.
 
     ```
     Job jobDetails = null;

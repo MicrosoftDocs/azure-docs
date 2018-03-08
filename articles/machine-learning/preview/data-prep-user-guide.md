@@ -5,13 +5,13 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 02/01/2018
 ---
 # Data Preparations user guide 
 The Azure Machine Learning Data Preparations experience provides a lot of rich functionality. This article documents the deepest parts of the experience.
@@ -84,7 +84,7 @@ To fork:
 4. After **Conditions**, select **Create Dataflow Containing the Filtered Out Rows** to fork the non-display result set into a new data flow.
 
 
-This practice is often used to separate out a set of data that requires additional preparation. After you wrangle the forked dataset, it's common to merge the data with the result set in the original data flow. To perform a merge (the reverse of a fork operation), use one of the following actions:
+This practice is often used to separate out a set of data that requires additional preparation. After you prepared the forked dataset, it's common to merge the data with the result set in the original data flow. To perform a merge (the reverse of a fork operation), use one of the following actions:
 
 - **Append Rows**. Merge two or more data flows vertically (row-wise). 
 - **Append Columns**. Merge two or more data flows horizontally (column-wise).

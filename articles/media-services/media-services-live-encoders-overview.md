@@ -24,7 +24,10 @@ This topic lists on-premises live encoders that you can use to capture your live
 For information on how to configure the [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Elemental Live](media-services-configure-elemental-live-encoder.md).
 
 ## Flash Media Live Encoder
-For information on how to configure the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring FMLE](media-services-configure-fmle-live-encoder.md) .
+For information on how to configure the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring FMLE](media-services-configure-fmle-live-encoder.md).
+
+## Haivision KB Encoder
+For information on how to configure the [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Haivision KB Encoder](media-services-configure-kb-live-encoder.md).
 
 ## Telestream Wirecast
 For information on how to configure the [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Wirecast](media-services-configure-wirecast-live-encoder.md).

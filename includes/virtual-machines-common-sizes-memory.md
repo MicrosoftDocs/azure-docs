@@ -24,9 +24,10 @@ ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwe
 | Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / 4,000                                       |
 | Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / 8,000                                       |
 | Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
-| Standard_E64s_v3 <sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
+| Standard_E64s_v3 | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
 
 <sup>1</sup> Esv3-series VM’s feature Intel® Hyper-Threading Technology
+
 <sup>2</sup> Constrained core sizes available 
 
 ## Ev3-series <sup>1</sup>
@@ -49,6 +50,8 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 <sup>1</sup> Ev3-series VM’s feature Intel® Hyper-Threading Technology
 
+
+
 ## M-series <sup>1</sup>
 
 ACU: 160-180
@@ -57,8 +60,8 @@ ACU: 160-180
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64s  | 64   | 1024        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
 | Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
-| Standard_M128s <sup>2. 3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
-| Standard_M128ms <sup>2. 3</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
+| Standard_M128s <sup>2, 3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
+| Standard_M128ms <sup>2, 3, 4</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
 
 <sup>1</sup> M-series VM’s feature Intel® Hyper-Threading Technology
 
@@ -66,6 +69,7 @@ ACU: 160-180
 
 <sup>3</sup> Constrained core sizes available.
 
+<sup>4</sup>Instance is isolated to hardware dedicated to a single customer.
 <br>
 
 ## GS-series <sup>1</sup>
@@ -82,7 +86,7 @@ ACU: 180 - 240
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>2</sup> Instance is isolated to hardware dedicated to a single customer. 
 
 <sup>3</sup> Constrained core sizes available 
 
@@ -118,7 +122,7 @@ ACU: 210 - 250
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
+<sup>2</sup> Instance is isolated to hardware dedicated to a single customer. 
 
 <sup>3</sup> 25000 Mbps with Accelerated Networking.
 
@@ -136,7 +140,7 @@ ACU: 210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer. 
 
 <sup>2</sup> 25000 Mbps with Accelerated Networking.
 

@@ -86,7 +86,7 @@ You can use HDInsight to extend your existing on-premises big data infrastructur
 
 ![HDInsight architecture: Hybrid](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png)
 
-## <a name="overview"></a>Cluster types in HDInsight
+## Cluster types in HDInsight
 HDInsight includes specific cluster types and cluster customization capabilities, such as the capability to add components, utilities, and languages.
 
 ### Spark, Kafka, Interactive Query, HBase, customized, and other cluster types

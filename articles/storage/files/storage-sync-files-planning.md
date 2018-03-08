@@ -89,7 +89,7 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 | Reparse points | Skipped | |
 | NTFS compression | Fully supported | |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
-| Alternate Data Streams (ADS) | Preserved, but not synced | |
+| Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags created by the File Classification Infrastructure are not synced. Existing classification tags on files on each of the server endpoints are left untouched. |
 
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
@@ -139,7 +139,7 @@ Like antivirus solutions, backup solutions might cause the recall of tiered file
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
 
 - BitLocker encryption
-- Azure Rights Management Services (Azure RMS) (and legacy Active Directory RMS)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS), and Active Directory RMS
 
 Azure File Sync is known not to work with:
 
@@ -155,11 +155,13 @@ Azure File Sync is available only in the following regions in preview:
 
 | Region | Datacenter location |
 |--------|---------------------|
-| East US | Virginia, USA |
-| West US | California, USA |
+| Australia East | New South Wales |
+| Canada Central | Toronto |
+| East US | Virginia |
+| Southeast Asia | Singapore |
+| UK South | London |
 | West Europe | Netherlands |
-| South East Asia | Singapore |
-| Australia East | New South Wales, Australia |
+| West US | California |
 
 In preview, we support syncing only with an Azure file share that's in the same region as the Storage Sync Service.
 

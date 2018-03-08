@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 03/07/2018
 ms.author: rajanaki
 
 ---
@@ -74,7 +74,7 @@ The following table summarizes replicated operating system support in various de
 > On Linux distributions, only the stock kernels that are part of the minor version release/update of the distribution are supported.
 >
 > Upgrades across major versions of a Linux distribution on an Azure Site Recovery protected VMware virtual machine or physical server is not supported. While upgrading the operating system across major versions (for example CentOS 6.* to CentOS 7.*), disable replication for the machine, upgrade the operating system on the machine, and then enable replication again.
-> 
+>
 
 
 ### Supported Ubuntu kernel versions for VMware/physical servers
@@ -93,9 +93,8 @@ The following table summarizes replicated operating system support in various de
 ## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
 
 The following file systems and storage configuration software are supported on Linux servers running on VMware or Physical servers:
-* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
+* File systems: ext3, ext40, XFS
 * Volume manager: LVM2
-* Multipath software: Device Mapper
 
 Paravirtualized storage devices (devices exported by paravirtualized drivers) are not supported.<br/>
 Multi-queue block IO devices are not supported.<br/>
@@ -163,7 +162,7 @@ Multi-path (MPIO)<br></br>Tested with: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC
 VMDK | Yes | N/A
 VHD/VHDX | N/A | Yes
 Gen 2 VM | N/A | Yes
-EFI/UEFI| No | Yes
+EFI/UEFI| Migration to Azure for Windows Server 2012 and later VMware virtual machines only. </br></br> ** See note at the end of the table.  | Yes
 Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | No | N/A
@@ -177,6 +176,13 @@ Storage Spaces | No | Yes
 Hot add/remove disk | No | No
 Exclude disk | Yes | Yes
 Multi-path (MPIO) | N/A | Yes
+
+> [!NOTE]
+> ** UEFI boot VMware virtual machines running Windows Server 2012 or later, can be migrated to Azure. Following restrictions apply.
+> - Migration to Azure only. Failback to on-premises VMware site not supported.
+> - No more than 4 partitions are supported on the OS disk of the server.
+> - Requires Azure Site Recovery Mobility service version 9.13 or later.
+> - Not supported for Physical servers.
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
 --- | --- | ---

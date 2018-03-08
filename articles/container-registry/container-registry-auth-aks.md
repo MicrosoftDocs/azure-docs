@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ---
 
@@ -71,7 +71,7 @@ The service principal credentials can now be stored in a Kubernetes [image pull 
 The following command creates the Kubernetes secret. Replace the server name with the ACR login server, the user name with the service principal id, and the password with the service principal password.
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> 
+kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
 The Kubernetes secret can be used in a pod deployment using the `ImagePullSecrets` parameter. 

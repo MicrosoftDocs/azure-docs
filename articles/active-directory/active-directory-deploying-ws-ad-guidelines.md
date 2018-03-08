@@ -430,7 +430,7 @@ Do not use SYSPREP to deploy or clone DCs. The ability to clone DCs is only avai
 Select where to locate the Windows Server AD DS database, logs, and SYSVOL. They must be deployed on Azure Data disks.
 
 > [!NOTE]
-> Azure Data disks are constrained to 1 TB.
+> Azure data disks are limited to 4 TB.
 > 
 > 
 

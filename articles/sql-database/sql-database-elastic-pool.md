@@ -11,20 +11,15 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 10/11/2017
+ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: "Active"
 ms.topic: article
-ms.tgt_pltfrm: NA
 ---
 
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
 SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources ([elastic Database Transaction Units](sql-database-what-is-a-dtu.md) (eDTUs)) at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. 
-
-> [!NOTE]
-> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview. GA of elastic pools in this region will occur as soon as possible.
->
 
 ## What are SQL elastic pools? 
 
@@ -167,7 +162,7 @@ The SQL Database service evaluates usage history and recommends one or more pool
 
 The pool recommendation comprises:
 
-- A pricing tier for the pool (Basic, Standard, Premium, or Premium RS)
+- A pricing tier for the pool (Basic, Standard, or Premium)
 - Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool

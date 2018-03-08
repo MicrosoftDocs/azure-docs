@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
 
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
-`
+
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
 This is a list of related topics:
@@ -33,6 +33,72 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## 1.1.749.0
+Status: Released to select customers
+This release is currently distributed to a small and random section of AADConnect tenants that have enabled auto-upgrade. We will expand this group of tenants in the coming weeks until 100% of our auto-upgrade customers have received this release. After that we will post the build for general download on the above download link - currently planned for mid of March 2018.
+>[!NOTE]
+>When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, please make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
+
+### Azure AD Connect
+#### Fixed issues
+* Fix timing window on background tasks for Partition Filtering page when switching to next page.
+
+* Fixed a bug that caused Access violation during the ConfigDB custom action
+
+* Fixed a bug to recover from SQL connection timeout.
+
+* Fixed a bug where certificates with SAN wildcards failed a prerequisite check
+
+* Fixed a bug which causes miiserver.exe to crash during an Azure AD connector export.
+
+* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration
+
+
+#### New features and improvements
+
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
+
+
+	- Data sharing and privacy notification on the clean install EULA page.
+	- Data sharing and privacy notification on the upgrade page.
+	- A new additional task "Privacy Settings" where the user can change their preferences.
+
+* application telemetry - admin can switch this class of data on/off at will
+
+* Azure AD Health data - admin must visit the health portal to control their health settings.
+   Once the service policy has been changed, the agents will read and enforce it.
+
+* Added device write-back configuration actions and a progress bar for page initialization
+
+* Improved General Diagnostics with HTML report and full data collection in a ZIP-Text / HTML Report
+
+* Improved the reliability of auto upgrade and added additional telemetry to ensure the health of the server can be determined
+
+* Restrict permissions available to privileged accounts on AD Connector account
+
+  * For new installations, the wizard will restrict the permissions that privileged accounts have on the MSOL account after creating the MSOL account.
+
+The changes will take care of following:
+1. Express Installations
+2. Custom Installations with Auto-Create account
+
+* Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
+
+* Added a new utility to troubleshoot synchronization issues for a specific object. It is available under 'Troubleshoot Object Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task. Currently, the utility checks for the following:
+
+  * UserPrincipalName mismatch between synchronized user object and the user account in Azure AD Tenant.
+  * If the object is filtered from synchronization due to domain filtering
+  * If the object is filtered from synchronization due to organizational unit (OU) filtering
+
+* Added a new utility to synchronize the current password hash stored in the on-premises Active Directory for a specific user account.
+
+The utility does not require a password change. It is available under 'Troubleshoot Password Hash Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task.
+
+
+
+
+
 
 ## 1.1.654.0
 Status: December 12th, 2017
@@ -472,7 +538,7 @@ Azure AD Connect sync
   * Updated default sync rule set to not export attributes **userCertificate** and **userSMIMECertificate** if the attributes have more than 15 values.
   * AD attributes **employeeID** and **msExchBypassModerationLink** are now included in the default sync rule set.
   * AD attribute **photo** has been removed from default sync rule set.
-  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. To find out more about the attribute, refer to article section [Azure AD Connect sync: How to make a change to the default configuration - Enable synchronization of PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. 
   * Added **userType** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so.
 
 * Azure AD Connect now automatically enables the use of ConsistencyGuid attribute as the Source Anchor attribute for on-premises AD objects. Further, Azure AD Connect populates the ConsistencyGuid attribute with the objectGuid attribute value if it is empty. This feature is applicable to new deployment only. To find out more about this feature, refer to article section [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

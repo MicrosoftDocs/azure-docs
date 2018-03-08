@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
 ---
 
@@ -22,7 +22,7 @@ ms.author: kumud
 The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures. Applications that use Load Balancer Standard can take advantage of new capabilities. Low latency, high throughput, and scale are available for millions of flows for all TCP and UDP applications.
 
 >[!NOTE]
-> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. The features that are associated with this preview, [Availability Zones](https://aka.ms/availabilityzones), and [HA Ports](https://aka.ms/haports), require separate sign-up at this time. Follow the respective instructions for sign-up for those features, in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
+> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones), in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
 
 ## Why use Load Balancer Standard?
 
@@ -69,8 +69,8 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 | --- | --- |
 | VIP availability | Load Balancer Standard continuously exercises the data path from within a region to the Load Balancer front-end all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that is used by your customers is also validated. The measurement is invisible to your application and does not interfere with other operations.|
 | DIP availability | Load Balancer Standard uses a distributed health probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per endpoint filtered-view of each individual instance endpoint in the Load Balancer pool.  You can see how Load Balancer views the health of your application as indicated by your health probe configuration.
-| SYN packets | Load Balancer Standard does not terminate TCP connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received. The metric might also reflect clients that attempt to establish a connection to your service.|
-| SNAT connections | Load Balancer Standard reports the number of outbound connections that are masqueraded to the Public IP address front-end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated connections.|
+| SYN packets | Load Balancer Standard does not terminate TCP connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.|
+| SNAT connections | Load Balancer Standard reports the number of outbound flows that are masqueraded to the Public IP address front-end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows.  Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.|
 | Byte counters | Load Balancer Standard reports the data processed per front-end.|
 | Packet counters | Load Balancer Standard reports the packets processed per front-end.|
 
@@ -214,7 +214,7 @@ When outbound connections are used with a zone-redundant front-end, the connecti
 
 The new algorithm in Load Balancer Standard preallocates SNAT ports to the NIC of each VM. When a NIC is added to the pool, the SNAT ports are preallocated based on the pool size. The following table shows the port preallocations for six tiers of back-end pool sizes:
 
-| Pool size (VM instances) | Preallocated SNAT port |
+| Pool size (VM instances) | Preallocated number of SNAT ports |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -299,9 +299,11 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 1. Create a new Standard resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.
 
-2. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+2. Create new or update existing NSG on NIC or subnet to whitelist load balanced traffic, probe, as well as any other traffic you wish to permit.
 
-3. Attach all VM instances to the new Standard SKU resources.
+3. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
+
+4. Attach all VM instances to the new Standard SKU resources.
 
 ### Migrate from Standard to Basic SKU
 
@@ -322,13 +324,11 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 ## Region availability
 
-Load Balancer Standard is currently available in these regions:
-- East US 2
-- Central US
-- North Europe
-- West Central US
-- West Europe
-- Southeast Asia
+Load Balancer Standard is currently available in all public cloud regions.
+
+>[!IMPORTANT]
+> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) requires the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  [Please follow these steps](#additionalpreviewregions). Please execute all of them even if you have previously signed up for AllowLBPreview already.
+> This requirement will be removed in the coming weeks.
 
 ## SKU service limits and abilities
 
@@ -366,7 +366,12 @@ The following table compares the limits and abilities of the Public IP Basic and
 To participate in the preview for Load Balancer Standard SKU and the companion Public IP Standard SKU, register your subscription.  Registering your subscription gives you access from PowerShell or Azure CLI 2.0. To register, perform the following steps:
 
 >[!NOTE]
->Registration of the Load Balancer Standard feature can take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews. Follow the respective instructions for sign-up for those features.
+>Registration of the Load Balancer Standard feature can take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones), a [separate sign-up](https://aka.ms/availabilityzones) is required for the AZ Preview.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
+
 
 ### Sign up by using Azure CLI 2.0
 
@@ -374,15 +379,19 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Proceed to the next step when the feature registration state returns 'Registered':
+    Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
    
     ```json
     {
@@ -395,28 +404,33 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
     }
     ```
     
-3. Complete the preview sign-up by re-registering your subscription with the resource provider:
+4. Complete the preview sign-up by re-registering your subscription with the resource provider:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### Sign up by using PowerShell
 
 1. Register the feature with the provider:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Proceed to the next step when the feature registration state returns 'Registered':
-   
+  Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -447,11 +461,15 @@ The following limitations apply at the time of preview and are subject to change
 - IPv6 is not supported.
 - In the context of Availability Zones, a front-end is not mutable from zonal to zone-redundant, or vice versa. After a front-end is created as zone-redundant, it remains zone-redundant. After a front-end is created as zonal, it remains zonal.
 - In the context of Availability Zones, a zonal Public IP address cannot be moved from one zone to another.
+- [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
+- Portal does not yet support the expanded preview regions.  Please use client tools like templates, Azure CLI 2.0 or PowerShell as a workaround.
+- Move subscription operations are not supported.
 
 
 ## Next steps
 
 - Learn more about [Load Balancer Basic](load-balancer-overview.md).
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
+- Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
-
+- Learn about [metrics exposed](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
