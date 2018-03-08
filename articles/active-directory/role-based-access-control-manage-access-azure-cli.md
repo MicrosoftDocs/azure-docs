@@ -30,7 +30,7 @@ With Role-Based Access Control (RBAC), you define access for users, groups, and 
 
 To use the Azure CLI to manage RBAC, you must have the following prerequisites:
 
-* [Azure CLI 2.0](/cli/azure/overview). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
+* [Azure CLI 2.0](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
 
 ## List roles
 
@@ -266,7 +266,7 @@ To assign a role to a group, use [az role assignment create](/cli/azure/role/ass
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-The following example assigns the *Reader* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group and subscription, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) and [az account show](/cli/azure/account#az_account_show).
+The following example assigns the *Reader* role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) or [az ad group show](/cli/azure/ad/group#az_ad_group_show).
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -286,7 +286,7 @@ To assign a role to an application, use [az role assignment create](/cli/azure/r
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-The following example assigns the *Virtual Machine Contributor* role to an application with ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales-projectforecast* resource group scope. To get the object ID of the application, you can use [az ad app list](/cli/azure/ad/app#az_ad_app_list).
+The following example assigns the *Virtual Machine Contributor* role to an application with object ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales-projectforecast* resource group scope. To get the object ID of the application, you can use [az ad app list](/cli/azure/ad/app#az_ad_app_list) or [az ad app show](/cli/azure/ad/app#az_ad_app_show).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -308,7 +308,7 @@ The following example removes the *Virtual Machine Contributor* role assignment 
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-The following example removes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group and subscription, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) and [az account show](/cli/azure/account#az_account_show).
+The following example removes the *Reader* role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at the subscription scope. To get the ID of the group, you can use [az ad group list](/cli/azure/ad/group#az_ad_group_list) or [az ad group show](/cli/azure/ad/group#az_ad_group_show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111

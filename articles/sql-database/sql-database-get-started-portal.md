@@ -154,7 +154,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-5. Close the **Data explorer** page, click **OK** to discard your unsaved edits.
+5. Close the **Query editor** page, click **OK** to discard your unsaved edits.
 
 ## Clean up resources
 

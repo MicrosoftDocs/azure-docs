@@ -13,4 +13,6 @@ Secrets, Managed Storage Account Keys, and vault transactions:
 | All transactions |2000 |
 |
 
+See [Azure Key Vault throttling guidance](../articles/key-vault/key-vault-ovw-throttling.md) for information on how to handle throttling when these limits are exceeded.
+
 <sup>1</sup> There is a subscription-wide limit for all transaction types, that is 5x per key vault limit. For example, HSM- other transactions per subscription are limited to 5000 transactions in 10 seconds per subscription.

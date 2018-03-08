@@ -43,7 +43,7 @@ To resolve this issue, you need to determine which SKUs are available in a regio
 Use the [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command in PowerShell. Filter the results by location. You must have the latest version of PowerShell for this command.
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("southcentralus")}
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
 ```
 
 The results include a list of SKUs for the location and any restrictions for that SKU.
