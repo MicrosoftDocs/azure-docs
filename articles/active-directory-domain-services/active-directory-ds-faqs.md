@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/08/2018
 ms.author: maheshu
 
 ---
@@ -50,6 +50,9 @@ Yes. See [how to enable Azure AD Domain Services using PowerShell](active-direct
 
 ### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.
+
+### Can guest users invited to my directory use Azure AD Domain Services?
+No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) invite process are sycned into your Azure AD Domain Services managed domain. However, passwords for these users are not stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to sync NTLM and Kerberos hashes for these users into your managed domain. As a result, such users cannot login to the managed domain or join computers to the managed domain.
 
 ## Administration and Operations
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
