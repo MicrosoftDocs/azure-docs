@@ -2,8 +2,8 @@
 title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs 
 description: This article discusses the T-SQL differences between Azure SQL Database Managed Instance and SQL Server. 
 services: sql-database 
-author: jovanpop-msft 
-ms.reviewer: carlrab, bonova
+author: jovanpop-msft
+ms.reviewer: carlrab, bonova 
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: article 
@@ -52,7 +52,7 @@ For more information, see:
 ### Backup 
 
 Managed Instance has automatic backups, and enables users to create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups are not supported.  
-- Managed Instance can backup a database only to an Azure Blob Storage account: 
+- Managed Instance can back up a database only to an Azure Blob Storage account: 
  - Only `BACKUP TO URL` is supported 
  - `FILE`, `TAPE`, and backup devices are not supported  
 - Most of the general `WITH` options are supported 
@@ -62,8 +62,8 @@ Managed Instance has automatic backups, and enables users to create full databas
  - Log-specific options: `NORECOVERY`, `STANDBY`, and `NO_TRUNCATE` are not supported 
  
 Limitations:  
-- Managed Instance can backup a database to a backup with up to 32 stripes, which is enough for the databases up to 4TB if backup compression is used.
-- Max backup stripe size is 195 GB (maximum block blob size). Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit. 
+- Managed Instance can back up a database to a backup with up to 32 stripes, which is enough for the databases up to 4 TB if backup compression is used.
+- Max backup stripe size is 195 GB (maximum blob size). Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit. 
 
 > [!TIP]
 > To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore supports bigger files because a different blob type is used.  
@@ -131,8 +131,8 @@ Server collation is `SQL_Latin1_General_CP1_CI_AS` and cannot be changed. See [C
  
 - Multiple log files are not supported. 
 - In-memory objects are not supported in the General Purpose service tier.  
-- There is a limit of 280 files per instance, implying max 280 files per database. Both data and log files are counted towards this limit.  
-- Database cannot contain file groups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
+- There is a limit of 280 files per instance implying max 280 files per database. Both data and log files are counted toward this limit.  
+- Database cannot contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
 - Every file is placed in Azure Premium storage. IO and throughput per file depend on the size of each individual file, in the same way as they do for Azure Premium Storage disks. See [Azure Premium disk performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### CREATE DATABASE statement
@@ -212,7 +212,7 @@ In-database R and Python external libraries are not yet supported. See [SQL Serv
 
 ### Filestream and Filetable
 
-- Filestream data is not supported. 
+- filestream data is not supported. 
 - Database cannot contain filegroups with `FILESTREAM` data
 - `FILETABLE` is not supported
 - Tables cannot have `FILESTREAM` types
@@ -232,12 +232,12 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 ### Linked servers
  
 Linked servers in Managed Instance support limited number of targets: 
-- Supported targets: SQL Server, Azure SQL Database,  Managed Instance, and SQL Server on a virtual machine.
+- Supported targets: SQL Server, SQL Database, Managed Instance, and SQL Server on a virtual machine.
 - Not supported targets: files, Analysis Services, and other RDBMS.
 
 Operations
 
-- Cross-instance transactions are not supported.
+- Cross-instance write transactions are not supported.
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - `OPENROWSET` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in Virtual Machines). See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in virtual machines). Only `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as provider. For example: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
@@ -273,21 +273,21 @@ Replication is not yet supported. For information about Replication, see [SQL Se
  - `FROM DISK`/`TAPE`/backup device is not supported.
  - Backup sets are not supported. 
 - `WITH` options are not supported (No `DIFFERENTIAL`, `STATS`, etc.)     
-- ASYNC RESTORE - Restore continues even if client connection breaks. If your connection is dropped, you can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `ASYNC RESTORE` - Restore continues even if client connection breaks. If your connection is dropped, you can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
 The following database options are set/overridden and cannot be changed later:  
 - `NEW_BROKER` (if broker is not enabled in .bak file)  
 - `ENABLE_BROKER` (if broker is not enabled in .bak file)  
 - `AUTO_CLOSE=OFF` (if a database in .bak file has `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (if a database in .bak file has `SIMPLE` or `BULK_LOGGED` recovery mode)
-- Memory optimized file group is added and called XTP if it was not in the source .bak file  
-- Any existing memory optimized file group is renamed to XTP  
+- Memory optimized filegroup is added and called XTP if it was not in the source .bak file  
+- Any existing memory optimized filegroup is renamed to XTP  
 - `SINGLE_USER` and `RESTRICTED_USER` options are converted to `MULTI_USER`   
 Limitations:  
 - `.BAK` files containing multiple backup sets cannot be restored. 
 - `.BAK` files containing multiple log files cannot be restored. 
 - Restore will fail if .bak contains `FILESTREAM` data.
-- Backups containing databases that have active In-memory OLTP objects cannot currently be restored.  
+- Backups containing databases that have active In-memory objects cannot currently be restored.  
 - Backups containing databases where at some point In-Memory objects existed cannot currently be restored.   
 - Backups containing databases in read-only mode cannot currently be restored. This limitation will be removed soon.   
  
@@ -335,7 +335,7 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
   - Merge is not supported.  
   - Queue Reader is not supported.  
  - Command shell is not yet supported. 
-  - Managed Instance cannot access external resources (e.g. network shares via robocopy).  
+  - Managed Instance cannot access external resources (for example, network shares via robocopy).  
  - PowerShell is not yet supported.
  - Analysis Services are not supported.  
 - Notifications are partially supported.
@@ -368,8 +368,8 @@ For information about creating tables, see [CREATE TABLE statement](https://docs
  
 The following variables, functions, and views return different results:  
 - `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies Managed Instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` returns the short instance name, e.g. 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME` returns full DNS 'connectable' name, e.g. my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
+- `SERVERPROPERTY('InstanceName')` returns the short instance name, for example, 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` returns full DNS 'connectable' name, for example, my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
 - `@@SERVERNAME` returns full DNS 'connectable' name, such as `my-managed-instance.wcus17662feb9ce98.database.windows.net`. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
@@ -382,11 +382,11 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-`tempdb` is split into 12 files each with max size 14 GB per file. This maximum size per file cannot be changed and new files cannot be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if they need more than 168 GB in `tempdb`.
+`tempdb` is split into 12 files each with max size 14 GB per file. This maximum size per file cannot be changed and new files cannot be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if  they need more than 168 GB in `tempdb`.
 
 ### Exceeding storage space with small database files
 
-Each Managed Instance has up to 35TB reserved storage space, and every database file is initially placed on 128 GB storage allocation unit. Databases with many small files might be placed on 128 GB units that in total exceed 35TB limit. in this case, new databases cannot be created or restored, even if the total size of databases does not reach the instance size limit. The error that is returned in that case might not be clear.
+Each Managed Instance has up to 35 TB reserved storage space, and every database file is initially placed on 128 GB storage allocation unit. Databases with many small files might be placed on 128 GB units that in total exceed 35 TB limit. In this case, new databases cannot be created or restored, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case might not be clear.
 
 ### Incorrect configuration of SAS key during database restore
 
