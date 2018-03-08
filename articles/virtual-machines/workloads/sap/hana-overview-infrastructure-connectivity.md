@@ -275,7 +275,7 @@ Once the new circuit is created and the SAP HANA on Azure Service Management con
 
 To remove a VNet subnet, either the Azure portal, PowerShell, or CLI can be used. In case your Azure VNet IP address range/Azure VNet Address Space was an aggregated range, there is no follow up for you with Microsoft. Except that the VNet is still propagating BGP route address space that includes the deleted subnet. If you defined the Azure VNet IP address range/Azure VNet Address Space as multiple IP address ranges of which one was assigned to your deleted subnet, you should delete that out of your VNet Address Space and subsequently inform  SAP HANA on Azure Service Management to remove it from the ranges that SAP HANA on Azure (Large Instances) is allowed to communicate with.
 
-To delete a subnet, see [Delete a subnet](../../../virtual-network/virtual-network-manage-subnet.mdtoc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) for more information on creating subnets.
+To delete a subnet, see [Delete a subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) for more information on creating subnets.
 
 ## Deleting a VNet
 
