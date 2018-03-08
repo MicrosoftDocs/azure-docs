@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: raynew
 
 ---
@@ -66,13 +66,13 @@ Machine operating system (Linux) | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to
 
 **Component** | **Supported**
 --- | ---
-File systems | ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
+File systems | ext3, ext4, XFS
 Volume manager | LVM2
-Multipath software | Device Mapper
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Directories | These directories (if set up as separate partitions/file-systems) must all be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc. </br></br> If / (root) volume is an LVM volume, then /boot must reside on a separate partition on the same disk and not be an LVM volume.<br/><br/>
+|Free Space Requirements| 2 GB on the /root partition <br/>250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from version 9.10 of Mobility Service and later. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
 
 
