@@ -25,7 +25,7 @@ ms.reviewer: brenduns
 This document provides instructions about how to scale App Service on Azure Stack infrastructure and worker roles. It contains steps for creating additional worker roles to support applications of any size.
 
 > [!NOTE]
-> If your Azure Stack Environment does not have more than 96-GB RAM you may have difficulties adding additional capacity.
+> If your Azure Stack Environment does not have more than 96-GB RAM, you may have difficulties adding additional capacity.
 
 App Service on Azure Stack, by default, supports free and shared worker tiers. To add other worker tiers, you need to add more worker roles.
 
@@ -34,7 +34,7 @@ If you are not sure what was deployed with the default App Service on Azure Stac
 Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale Sets and as such takes advantage of the scaling capabilities of this workload. Therefore, all scaling of the worker tiers is done via the App Service Admin.
 
 > [!IMPORTANT]
-> Currently it is not possible to scale virtual machine scale sets in the portal as identified in the Azure Stack release notes,  therefore please use the PowerShell example to scale out.
+> Currently it is not possible to scale virtual machine scale sets in the portal as identified in the Azure Stack release notes,  therefore use the PowerShell example to scale out.
 >
 >
 
