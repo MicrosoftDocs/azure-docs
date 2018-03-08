@@ -53,7 +53,6 @@ You can download the existing template for creating a VNet and two subnets from 
    
    | Parameter | Description |
    | --- | --- |
-   | **location** |Azure region where the VNet is created |
    | **vnetName** |Name for the new VNet |
    | **addressPrefix** |Address space for the VNet, in CIDR format |
    | **subnet1Name** |Name for the first VNet |
@@ -77,9 +76,6 @@ You can download the existing template for creating a VNet and two subnets from 
 
 	```json
         {
-          "location": {
-            "value": "Central US"
-          },
           "vnetName": {
               "value": "TestVNet"
           },
