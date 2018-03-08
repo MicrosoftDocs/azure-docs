@@ -61,7 +61,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.
 
 2.  For **Location**, select the location for the data factory.
 
-    Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (like Azure Storage and Azure SQL Database) a and computes (like HDInsight) that Data Factory uses can be in other regions.
+    Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
 
 3.  Select **Pin to dashboard**.
 
@@ -99,7 +99,7 @@ In this section, you author a Databricks linked service. This linked service con
     
     2.  For **Cluster**, select a **New Cluster**
     
-    3.  For **Domain/ Region**, select your Azure Databricks Domain/Region. This is the region where your databricks workspace is located in.
+    3.  For **Domain/ Region**, select the region where your Azure Databricks workspace is located.
     
     4.  For **Cluster node type**, select **Standard\_D3\_v2** for this tutorial.
     
@@ -173,7 +173,7 @@ In this section, you author a Databricks linked service. This linked service con
 
     b.  Name the parameter as **input** and provide the value as expression **@pipeline().parameters.name**.
 
-6.  To validate the pipeline, select the **Validate** button on the toolbar. Select the **\>\>** (right arrow) button to close the validation window.
+6.  To validate the pipeline, select the **Validate** button on the toolbar. To close the validation window, select the **\>\>** (right arrow) button.
 
     ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
@@ -204,7 +204,7 @@ You can switch back to the pipeline runs view by selecting the **Pipelines** l
 
 ## Verify the output
 
-You can log on to the **Azure Databricks workspace**, go to **Clusters** and you can see the **Job** status as *pending execution, running or terminated*.
+You can log on to the **Azure Databricks workspace**, go to **Clusters** and you can see the **Job** status as *pending execution, running, or terminated*.
 
 ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
 
