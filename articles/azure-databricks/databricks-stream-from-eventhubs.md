@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 03/04/2018
+ms.date: 03/15/2018
 ms.author: nitinme
 
 ---
@@ -48,6 +48,12 @@ Before you start with this tutorial, make sure you have the following:
 - Partition count. You can use the default partition count, which is **2**. 
 
 You can meet these requirements by completing the steps in the article [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
+
+## What does this tutorial do?
+
+In this article, we set up a real-time data ingestion pipeline using Azure Event Hubs. We connect the pipeline to Spark on Azure Databricks to process the messages coming in through the pipeline. To simulate a real-time stream of data, we use Twitter APIs to ingest tweets into Event Hubs. The following screenshot shows the application flow.
+
+![Azure Databricks with Events Hub](./media/databricks-stream-from-eventhubs/databricks_eventhubs_tutorial.png "Azure Databricks with Events Hub")
 
 ## Log in to the Azure portal
 
@@ -87,7 +93,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     ![Create Databricks Spark cluster on Azure](./media/databricks-stream-from-eventhubs/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0 (beta)** runtime. 
+    * For this article, create a cluster with **4.0** runtime. 
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     * Accept all other default values. 
     * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
