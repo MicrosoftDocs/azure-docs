@@ -54,7 +54,7 @@ In this article, you learned how to integrate the Application Gateway WAF in Sec
 * [Integrate security solutions in Security Center](security-center-partner-integration.md)
 * [Connecting Microsoft Advanced Threat Analytics to Security Center](security-center-ata-integration.md)
 * [Connecting Azure Active Directory Identity Protection to Security Center](security-center-aadip-integration.md)
-* [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Monitor partner solutions with Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+* [Security health monitoring in Security Center](security-center-monitoring.md).
+* [Monitor partner solutions with Security Center](security-center-partner-solutions.md).
+* [Azure Security Center FAQs](security-center-faq.md).
+* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/).
