@@ -57,7 +57,7 @@ You can use the following tools to create or configure a VNet:
 Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16.
 
 ### Can I have public IP addresses in my VNets?
-Yes. For more information about public IP address ranges, see [Create a virtual network](virtual-network-manage-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
+Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
 
 ### Is there a limit to the number of subnets in my VNet?
 Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
