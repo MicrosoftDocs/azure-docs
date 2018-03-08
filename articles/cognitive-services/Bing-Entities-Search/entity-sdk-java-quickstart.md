@@ -175,7 +175,7 @@ public static void handlingDisambiguation(String subscriptionKey)
 }
 
 ```
-Search for a single restaurant with the query "John Howie Bellevue" and print the phone number for the result.
+Search for a single store with the query "Microsoft Store" and print the phone number for the result.
 ```
 public static void restaurantLookup(String subscriptionKey)
 {
@@ -183,7 +183,7 @@ public static void restaurantLookup(String subscriptionKey)
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner entityData = client.entities().search(
-                "John Howie Bellevue", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "Microsoft Store", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
 
         if (entityData.places() != null && entityData.places().value().size() > 0)
         {
@@ -193,7 +193,7 @@ public static void restaurantLookup(String subscriptionKey)
 
             if (restaurant != null)
             {
-                 System.out.println("\r\nSearched for \"John Howie Bellevue\" and found a restaurant with this phone number:");
+                 System.out.println("\r\nSearched for \"Microsoft Store\" and found a restaurant with this phone number:");
                  System.out.println(restaurant.telephone());
             }
             else

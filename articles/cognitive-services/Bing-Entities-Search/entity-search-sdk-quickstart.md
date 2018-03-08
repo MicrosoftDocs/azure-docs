@@ -191,13 +191,13 @@ The following code handles disambiguation of results for an ambiguous query "Wil
 ```
 
 ##EntityData places
-The following code looks up a single restaurant "John Howie Bellevue" and prints out its phone number.
+The following code looks up a single restaurant "Microsoft Store" and prints out its phone number.
 ```
-        public static void RestaurantLookup(EntitySearchAPI client)
+        public static void StoreLookup(EntitySearchAPI client)
         {
             try
             {
-                var entityData = client.Entities.Search(query: "john howie bellevue");
+                var entityData = client.Entities.Search(query: "microsoft store");
 
                 if (entityData?.Places?.Value?.Count > 0)
                 {
@@ -207,7 +207,7 @@ The following code looks up a single restaurant "John Howie Bellevue" and prints
 
                     if (restaurant != null)
                     {
-                        Console.WriteLine("Searched for \"John Howie Bellevue\" and found a restaurant with this phone number:");
+                        Console.WriteLine("Searched for \"Microsoft Store\" and found a restaurant with this phone number:");
                         Console.WriteLine(restaurant.Telephone);
                     }
                     else

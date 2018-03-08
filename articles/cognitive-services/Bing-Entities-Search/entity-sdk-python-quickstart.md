@@ -106,14 +106,14 @@ def handling_disambiguation(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Search for a single restaurant (John Howie Bellevue) and print out its phone number.
+Search for a single restaurant (Microsoft Store) and print out its phone number.
 ```
-def restaurant_lookup(subscription_key):
+def store_lookup(subscription_key):
 
     client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 
     try:
-        entity_data = client.entities.search(query="john howie bellevue")
+        entity_data = client.entities.search(query="microsoft store")
 
         if entity_data.places.value:
 
@@ -127,14 +127,14 @@ def restaurant_lookup(subscription_key):
             # Pythonic approach : EAFP "Easier to ask for forgiveness than permission"
             try:
                 telephone = restaurant.telephone
-                print('Searched for "John Howie Bellevue" and found a restaurant with this phone number:')
+                print('Searched for "Microsoft Store" and found a restaurant with this phone number:')
                 print(telephone)
             except AttributeError:
                 print("Couldn't find a place!")
 
             # More cross language approach
             if isinstance(restaurant, Place):
-                print('Searched for "John Howie Bellevue" and found a restaurant with this phone number:')
+                print('Searched for "Microsoft Store" and found a restaurant with this phone number:')
                 print(restaurant.telephone)
             else:
                 print("Couldn't find a place!")
