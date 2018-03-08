@@ -17374,6 +17374,21 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-cli.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-portal.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-powershell.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
         "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
         "redirect_document_id": false
