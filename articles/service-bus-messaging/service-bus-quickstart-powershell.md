@@ -70,10 +70,11 @@ To execute the code, do the following:
 2. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
 3.	Double-click **Program.cs** to open it in the Visual Studio editor.
 4.	If you have not done so already, obtain the connection string using the following PowerShell cmdlet: 
-   ```azurepowershell-interactive
+
+   ```azurepowershell
    Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
    ```
-5.	Replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained previously.
+5.	In **Program.cs**, replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained previously.
 6.	Replace the value of `QueueName` with the name of the queue you created.
 7.	Build and run the program, and observe 10 messages being sent to the queue, and received in parallel from the queue.
 
