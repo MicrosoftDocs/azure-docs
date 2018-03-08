@@ -44,9 +44,9 @@ Log Analytics Workspaces, see [Create a Log Analytics workspace](../log-analytic
 
 ## How Traffic Analytics works 
 
-Traffic Analytics examines the raw NSG flow logs and captures reduced logs by aggregating common flows among the same source IP address, destination IP address, destination port, and protocol. For example, Host 1 (IP address: 10.10.10.10) communicating to Host 2 (IP address: 10.10.20.10), 100 times over a period of 1 hour using port (for example, 80) and protocol (for example, http). The reduced log has one entry, that Host 1 & Host 2 communicated 100 times over a period of 1 hour using port *80* and protocol *HTTP*, instead of having 100 entries. Reduced logs are stored in the Log Analytics workspace and enhanced with geography, security, and topology information. The enhanced logs are further analyzed to derive analytics. The following picture shows the data flow:
+Traffic Analytics examines the raw NSG flow logs and captures reduced logs by aggregating common flows among the same source IP address, destination IP address, destination port, and protocol. For example, Host 1 (IP address: 10.10.10.10) communicating to Host 2 (IP address: 10.10.20.10), 100 times over a period of 1 hour using port (for example, 80) and protocol (for example, http). The reduced log has one entry, that Host 1 & Host 2 communicated 100 times over a period of 1 hour using port *80* and protocol *HTTP*, instead of having 100 entries. Reduced logs are enhanced with geography, security, and topology information, and then stored in a Log Analytics workspace. The following picture shows the data flow:
 
-![How Traffic Analytics works](media/traffic-analytics/1.png)
+![Data flow for NSG flow logs processing](media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## Supported regions
 
@@ -72,7 +72,7 @@ Before enabling NSG flow logging, you must have a network security group to log 
 
 On the left side of the Azure portal, select **Monitor**, then **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
 
-![Select an NSG](media/traffic-analytics/2.png)
+![Selection of NSGs that require enablement of NSG flow log](media/traffic-analytics/selection-of-nsgs-that-require- enablement-of-nsg-flow-logging.png)
 
 If you try to enable Traffic Analytics for an NSG that is hosted in any region other than the [supported regions](#supported-regions), you receive a "Not found" error. 
 
@@ -108,7 +108,7 @@ Select the following options, as shown in the picture:
     The Log Analytics (OMS) Workspace hosting the Traffic Analytics solution and the NSGs do not have to be in the same region. For example, you may have Traffic Analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
 6. Select **Save**.
 
-    ![Enable traffic analytics](media/traffic-analytics/3.png)
+    ![Selection of storage account, Log Analytics workspace, and Traffic Analytics enablement](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 
 Repeat the previous steps for any other NSGs for which you wish to enable Traffic Analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country permit data storage in the region where the workspace exists.
 
@@ -116,7 +116,7 @@ Repeat the previous steps for any other NSGs for which you wish to enable Traffi
 
 On the left-side of the portal, select **All services**, then enter *Monitor* in the **Filter** box. When **Monitor** appears in the search results, select it. To start exploring Traffic Analytics and its capabilities, select **Network watcher**, then **Traffic Analytics (Preview)**.
 
-![View traffic analytics](media/traffic-analytics/4.png)
+![Accessing the Traffic Analytics dashboard](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
 The dashboard may take up to 30 minutes to appear the first time because Traffic Analytics must first aggregate enough data for it to derive meaningful insights, before it can generate any reports.
 
@@ -138,11 +138,11 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     Select **More details**, under **Hosts with most traffic**, as shown in the following picture:
 
-    ![Enable traffic analytics](media/traffic-analytics/5.png)
+    ![Dashboard showcasing host with most traffic details](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
 - The following picture shows time trending for the top five talking hosts and the flow-related details (allowed – inbound/outbound and denied - inbound/outbound flows) for a VM:
 
-    ![](media/traffic-analytics/6.png)
+    ![Top five most-talking host trend](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
 **Look for**
 
@@ -154,11 +154,11 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     - Are these applications allowed on this network?
     - Are the applications configured properly? Are they using the appropriate protocol for communication? Select **More details** under **Most frequent conversations**, as show in the following picture:
 
-    ![](media/traffic-analytics/7.png)
+        ![Dashboard showcasing most frequent conversation](media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
 - The following picture shows time trending for the top five conversations and the flow-related details such as allowed and denied inbound and outbound flows for a conversation pair:
 
-    ![](media/traffic-analytics/8.png)
+    ![Top five chatty conversation details and trend](media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
 **Look for**
 
@@ -166,13 +166,13 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     - Are these applications allowed on this network?
     - Are the applications configured properly? Are they using the appropriate protocol for communication? Expected behavior is common ports such as 80 and 443. For standard communication, if any unusual ports are displayed, they might require a configuration change. Select **More details** under **Top application protocols**, in the following picture:
 
-    ![](media/traffic-analytics/9.png)
+        ![Dashboard showcasing top application protocols](media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
 - The following pictures show time trending for the top five L7 protocols and the flow-related details (for example, allowed and denied flows) for an L7 protocol:
 
-    ![](media/traffic-analytics/10.png)
+    ![Top five layer 7 protocols details and trend](media/traffic-analytics/top five-layer-seven-protocols-details-and-trend.png)
 
-    ![](media/traffic-analytics/11.png)
+    ![Flow details for application protocol in log search](media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
 **Look for**
 
@@ -182,11 +182,11 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Which are the most conversing hosts, via which VPN gateway, over which port?
     - Is this pattern normal? Select **More details** under **Top active VPN connections**, as shown in the following picture:
 
-    ![](media/traffic-analytics/12.png)
+        ![Dashboard showcasing top active VPN connections](media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
 - The following picture shows time trending for capacity utilization of an Azure VPN Gateway and the flow-related details (such as allowed flows and ports):
 
-    ![](media/traffic-analytics/13.png)
+    ![VPN gateway utilization trend and flow details](media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
 
 ### Visualize traffic distribution by geography
 
@@ -198,17 +198,17 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     Select **Click here to see live geomap** under **Traffic distribution across Azure data centers**, as shown in the following picture:
 
-    ![](media/traffic-analytics/14.png)
+  ![Dashboard showcasing traffic distribution](media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
 - The geo-map shows the top ribbon for selection of parameters such as data centers (Deployed/No-deployment/Active/Inactive/Traffic Analytics Enabled/Traffic Analytics Not Enabled) and countries contributing Benign/Malicious traffic to the active deployment:
 
-    ![](media/traffic-analytics/15.png)
+    ![Geo map view showcasing active deployment](media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
 - The geo-map shows the traffic distribution to a data center from countries and continents communicating to it in blue (Benign traffic) and red (malicious traffic) colored lines:
 
-    ![](media/traffic-analytics/16.png)
+    ![Geo map view showcasing traffic distribution to countries and continents](media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
-    ![](media/traffic-analytics/17.png)
+    ![Flow details for traffic distribution in log search](media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
 ### Visualize traffic distribution by virtual networks
 
@@ -220,14 +220,14 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
  
     Select **Click here to see VNet traffic topology** under **Virtual network distribution**, as shown in the following picture: 
 
-        ![](media/traffic-analytics/18.png)
+    ![Dashboard showcasing virtual network distribution](media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network’s (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 
-    ![](media/traffic-analytics/19.png)
+    ![Virtual network topology showcasing traffic distribution and flow details](media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
 
-    ![](media/traffic-analytics/20.png)
+    ![Flow details for virtual network traffic distribution in log search](media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
 **Look for**
 
@@ -237,7 +237,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - The Subnets Topology shows the top ribbon for selection of parameters such as Active/Inactive subnet, External Connections, Active Flows, and Malicious flows of the subnet.
 - The Subnet Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and NSGs, for example:
 
-    ![](media/traffic-analytics/21.png)
+    ![Subnet topology showcasing traffic distribution a virtual network subnet with regards to flows](media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
 ### View ports and virtual machines receiving traffic from the internet
 
@@ -246,15 +246,15 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Which open ports are conversing over the internet?
     - If unexpected ports are found open, you can correct your configuration:
 
-        ![](media/traffic-analytics/22.png)
+        ![Dashboard showcasing ports receiving and sending traffic to the internet](media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
-        ![](media/traffic-analytics/23.png)
+        ![Details of Azure destination ports and hosts](media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
 **Look for**
 
 Do you have malicious traffic in your environment? Where is it originating from? Where is it destined to?
 
-![](media/traffic-analytics/24.png)
+![Malicious traffic flows detail in log search](media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
 
 ### Visualize the trends in NSG rule hits
@@ -264,10 +264,14 @@ Do you have malicious traffic in your environment? Where is it originating from?
 - Which NSG/rule has the most hits?
 - What are the top source and destination conversation pairs per NSG?
 
-    ![](media/traffic-analytics/25.png)
+    ![Dashboard showcasing NSG hits statistics](media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
 
 - The following pictures show time trending for hits of NSG rules and source-destination flow details for a network security group:
 
-    ![](media/traffic-analytics/26.png)
+    ![Showcasing time trending for NSG rule hits and top NSG rules](media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 
-    ![](media/traffic-analytics/27.png)
+    ![Top NSG rules statistics details in log search](media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+
+## Frequently asked questions
+
+To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.md).

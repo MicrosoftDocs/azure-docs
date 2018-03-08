@@ -114,6 +114,9 @@ The report provides the following information:
 >
 >
 
+### Risky IP Report 
+Preview coming soon.
+
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
