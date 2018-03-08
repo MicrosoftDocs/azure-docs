@@ -18,11 +18,11 @@ Testing is the process of providing sample utterances to LUIS and getting a resp
 
 You can [test](Train-Test.md) LUIS interactively, one utterance at a time, or provide a batch of utterances. In the interactive test, you can compare the current active model to the published model. 
 
-<a name="A-test-sore"></a>
+<a name="A-test-score"></a>
 <a name="Score-all-intents"</a>
 <a name="E-(exponent)-notation"</a>
 ## What is a score in testing?
-See [Score](luis-concept-score.md) concepts to learn more about prediction scores.
+See [Prediction score](luis-concept-score.md) concepts to learn more about prediction scores.
 
 ## Interactive testing
 Interactive testing is done from the **Test panel** of the website. You can quickly enter utterances to see how intents and entities are identified and scored. If LUIS isn't predicting the intents and entities as you expect on an utterance in the testing pane, copy it to the Intent page as a new utterance. Then label the parts of that utterance, and train LUIS. 
