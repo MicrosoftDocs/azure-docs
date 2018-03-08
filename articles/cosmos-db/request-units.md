@@ -36,7 +36,7 @@ After reading this article, you'll be able to answer the following questions:
 * How do I estimate my application's request unit needs?
 * What happens if I exceed request unit capacity for a container?
 
-As Azure Cosmos DB is a multi-model database, it is important to note that this article refers to a container/document for a document API, a graph/node for a graph API and a table/entity for the Table API. This article refers to concept of a container, graph, or table as a container, and a a document, node, or entity as an item.
+As Azure Cosmos DB is a multi-model database, it is important to note that this article refers to a collection/document for a document API, a graph/node for a graph API and a table/entity for the Table API. This article refers to concept of a collection, graph, or table as a container, and a a document, node, or entity as an item.
 
 ## Request units and request charges
 Azure Cosmos DB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Azure Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.
@@ -50,7 +50,7 @@ We recommend getting started by watching the following video, where Aravind Rama
 > 
 
 ## Specifying request unit capacity in Azure Cosmos DB
-When starting a new container, table or graph, you specify the number of request units per second (RU per second) you want reserved. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your container and splits/rebalances data across partitions as it grows.
+When starting a new container you specify the number of request units per second (RU per second) you want reserved. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your container and splits/rebalances data across partitions as it grows.
 
 Azure Cosmos DB containers can be created as fixed or unlimited. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
 
@@ -72,7 +72,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved*, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through SDKs or using the [Azure Portal](https://portal.azure.com).
 
-Each container/table/graph are mapped to an `Offer` resource in Azure Cosmos DB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a container to 5,000 request units per second using the .NET SDK:
+Each container are mapped to an `Offer` resource in Azure Cosmos DB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a container to 5,000 request units per second using the .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
