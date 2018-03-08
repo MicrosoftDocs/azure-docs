@@ -27,7 +27,7 @@ After completing this walkthrough, your app will collect profiler traces similar
 ![Profiler traces](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
 
 ## Pre-requisites
-Instructions below applied to all of Windows, Linux, and Mac environments:
+Instructions below applied to all of Windows, Linux, and Mac development environments:
 
 * Install [.NET core SDK 2.1.2 or later](https://www.microsoft.com/net/download/windows/build)
 * Install Git following instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -42,9 +42,9 @@ dotnet new mvc -n LinuxProfilerTest
 ```
 3. Change directory in command prompt to the project root folder
 
-4. Add Nuget package for collecting profiler traces
+4. Add Nuget package for collecting profiler traces.
 ```
-dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -v 1.0.0-beta1
+dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
 ```
 5. Add a line of code to randomly delay a few seconds in HomeController.cs
 
@@ -138,7 +138,7 @@ Changing app settings will automatically restart the site. Once the new settings
 
 4. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
 
-5. Navigate to Performance pane in Application Insights portal. You will see profiler traces available in the bottom right corner.
+5. Navigate to Application Insights performance pane in Azure portal. You will see profiler traces available in the bottom right corner.
 
     ![View traces](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
