@@ -88,8 +88,8 @@
 
 
 ## [Virtual networks](azure-operations-guide.md#azure-virtual-network)
-### [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Create a virtual network by using Azure PowerShell](../../virtual-network/quick-create-powershell?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Create a virtual network by using Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Create a virtual network by using the Azure CLI](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Virtual networking tutorials
