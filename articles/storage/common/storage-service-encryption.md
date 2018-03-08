@@ -17,7 +17,11 @@ Azure Storage Service Encryption for Data at Rest helps you protect your data to
 
 Storage Service Encryption is enabled for all new and existing storage accounts and cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Storage Service Encryption.
 
-Storage Service Encryption automatically encrypts data in both performance tiers (Standard and Premium), both deployment models (Azure Resource Manager and classic), and all of the Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files). 
+Storage Service Encryption automatically encrypts data in:
+
+- Both performance tiers (Standard and Premium).
+- Both deployment models (Azure Resource Manager and classic).
+- All of the Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files). 
 
 You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. For more information about using your own keys, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
