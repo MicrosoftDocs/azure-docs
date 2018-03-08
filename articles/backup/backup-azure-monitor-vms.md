@@ -90,7 +90,7 @@ Login into the Azure portal and proceed to the relevant Azure Recovery Services 
 
 Apply the filters shown in the following picture to verify whether you are receiving activity logs for successful backups. Change the timespan accordingly to view records.
 
-    ![Activity Logs](./media/backup-azure-monitor-vms/activity-logs-identify.png)
+!Activity Logs](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
 You can click the “JSON” segment to get more details and view it by copy-pasting it onto a text editor. It should display the vault details and the item which triggered the activity log i.e., the backup item.
 
@@ -100,7 +100,7 @@ Then click “Add activity log alert” to generate alerts for all such logs.
 
 Clicking “Add activity log alert” will show you a screen as shown below
 
-    ![Activity log alert](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
+![Activity log alert](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
     
 The subscription and resource group are used to store the alert. The criteria will be pre-filled. Make sure all the values are relevant to your requirement.
 
@@ -112,7 +112,7 @@ If you select a "resource" above, the alert will be generated when activity logs
 
 Use the “action group” to define the action upon generating an alert. You can click on “Action type” to know more about available actions such email/SMS/Integration with ITSM etc.
 
-    ![Activity log action group](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
+![Activity log action group](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
 
 Once you click OK, an activity log alert will be generated and subsequent activity logs recorded for successful backups will fire the action as defined in the action group.
