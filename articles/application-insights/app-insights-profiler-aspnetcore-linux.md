@@ -142,6 +142,6 @@ You will see output similar to the following:
 
     ![View traces](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
-## Feedback
-If you have any issues or suggestions, please open an issue in our github repository:
+## Report issues to project Github repository
+If you have any issues or suggestions, please report to our github repository:
 [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues)
