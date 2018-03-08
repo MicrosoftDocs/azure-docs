@@ -3,12 +3,12 @@ title:  Sign up for Text Analytics API (Microsoft Cognitive Services on Azure) |
 description: Instructions for signing up to use text analysis and operating within limits.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: get-started-article
-ms.date: 08/24/2017
+ms.date: 3/07/2018
 ms.author: heidist
 ---
 
