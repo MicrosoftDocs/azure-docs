@@ -9795,6 +9795,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-app-registration.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
+            "redirect_document_id": false
+        },                     
+        {
             "source_path": "articles/active-directory/active-directory-java-authenticate-users-access-control-eclipse.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-java-authenticate-users-access-control-eclipse",
             "redirect_document_id": false
