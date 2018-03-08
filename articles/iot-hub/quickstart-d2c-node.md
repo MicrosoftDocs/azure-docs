@@ -60,9 +60,9 @@ To create your IoT hub, use the values in the following table:
 | Name | A unique name for your hub |
 | Pricing and scale tier | F1 Free |
 | IoT Hub units | 1 |
-| Device-to-cloud partitions | 4 partitions |
+| Device-to-cloud partitions | 2 partitions |
 | Subscription | Your Azure subscription. |
-| Resource group | Create new. A name for your resource group. |
+| Resource group | Create new. Enter a name for your resource group. |
 | Location | The location closest to you. |
 | Pin to dashboard | Yes |
 
