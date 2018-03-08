@@ -31,9 +31,9 @@ The following image shows the different kinds of Azure logs available.
 
 In the above image, **Compute resources** represent the Azure resources for which you can access the Guest OS. For example, Azure Virtual Machines, Virtual Machine scale sets, Azure Container Service etc. are considered as compute resources. Compute resources generate Activity Logs, Diagnostic Logs and Application Logs. To learn more, refer to the [Azure Monitoring – Compute resources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) article.
 
-**Non-compute resources** are resources where you can’t access the underlying OS and work directly with resource. For example, Network Security Groups, Logic Apps etc. Cosmos DB is a non-compute resource. You can view logs for non-compute resources in the Activity log or by enabling the Diagnostic Logs option in the portal. To learn more, refer to the [Azure Monitoring – Non-compute resources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) article.
+**Non-compute resources** are resources where you can’t access the underlying OS and work directly with resource. For example, Network Security Groups, Logic Apps etc. **Cosmos DB** is a non-compute resource. You can view logs for non-compute resources in the Activity log or by enabling the Diagnostic Logs option in the portal. To learn more, refer to the [Azure Monitoring – Non-compute resources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) article.
 
-The Activity Log records the operations at a subscription level for **Cosmos DB**, operations such as ListKeys, Write DatabaseAccounts etc are logged. Diagnostic Logs provide more granular logging and it allows you to log DataPlaneRequests (Create, Read, Query.. ) and MongoRequests.
+The Activity Log records the operations at a subscription level for Cosmos DB, operations such as ListKeys, Write DatabaseAccounts etc are logged. Diagnostic Logs provide more granular logging and it allows you to log DataPlaneRequests (Create, Read, Query.. ) and MongoRequests.
 
 
 For our discussion lets focus on Azure Activity, Azure Diagnotic, and Metrics. So what is the difference between these three logs? 
