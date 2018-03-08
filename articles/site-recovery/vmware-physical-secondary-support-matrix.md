@@ -1,6 +1,6 @@
 ---
 title: Support matrix for replication of VMware VMs or physical servers to a secondary VMware site with Azure Site Recovery | Microsoft Docs
-description: Summarizes the supported operating systems and components for replication of VMware VMs or physical servers to a secondary site with Azure Site Recovery
+description: Summarizes the support for VMware/physical server replication to a secondary site with Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -22,11 +22,6 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 
 
 ## Host servers
-
-**Deployment** | **Support**
---- | ---
-**VMware VM/physical server** | 
-**Hyper-V with VMM** | Windows Server 2016 and Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by VMM 2016.<br/><br/> VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.<br/><br/> Deployment that include an upgrade of an existing VMM 2012 R2 to System Center 2016 aren't currently supported.
 
 **Operating system** | **Details**
 --- | ---
@@ -65,7 +60,7 @@ Guest VM - NIC teaming | No
 Guest VM - IPv4 | Yes
 Guest VM - IPv6 | No
 Gues VM - Windows/Linux - Static IP address | Yes
-Guest VM - Multi-NIC \ Yes
+Guest VM - Multi-NIC | Yes
 
 
 ## Storage
