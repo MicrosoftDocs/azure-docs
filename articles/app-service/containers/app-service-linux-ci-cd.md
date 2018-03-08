@@ -28,7 +28,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable the continuous deployment feature
 
-Enable the continuous deployment feature by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
+Enable the continuous deployment feature by using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
 
 ```azurecli-interactive
 az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
@@ -44,7 +44,7 @@ On the **Docker Container** page, select **On**, and then select **Save** to ena
 
 ## Prepare the webhook URL
 
-Obtain the webhook URL by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
+Obtain the webhook URL by using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
 
 ```azurecli-interactive
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
@@ -77,7 +77,7 @@ On your Docker Hub page, select **Webhooks**, and then **CREATE A WEBHOOK**.
 
 ![Screenshot of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-For the webhook URL, provide the URL obtained in [Prepare the webhook URL](#Prepare-the-webhook-URL).
+For the webhook URL, provide the URL that you obtained earlier.
 
 ![Screenshot of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
 
