@@ -50,7 +50,7 @@ In order to redistribute the scale sets deployed for the App Service RP you must
     ![Azure App Service Scale Sets listed in Virtual Machine Scale Sets UX][1]
 
 2. Next scale out each set.  For example if you have 3 existing instances in the scale set you must scale out to 6 so that the three new instances will be provisioned across fault domains.
-    a. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin)
+    a. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin.md)
     b. Use this example to scale out the scale set:
         ```powershell
                 Login-AzureRMAccount -EnvironmentName AzureStackAdmin 
