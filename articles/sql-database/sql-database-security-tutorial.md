@@ -184,7 +184,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 5. Click **Save**.
 
 > [!IMPORTANT]
-> If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more details.
+> If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more information.
 >
 
 ## Enable SQL Database threat detection
@@ -213,7 +213,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
     ![Audit records](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Click on the audit records to view more details on the suspicious database activities such as SQL statement, failure reason and client IP.
+7. Click on the audit records to view more information on the suspicious database activities such as SQL statement, failure reason and client IP.
 
     ![Record details](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 
