@@ -1,5 +1,5 @@
 ---
-title: Create a Web App with Redis Cache that uses the Cache-Aside pattern | Microsoft Docs
+title: Tutorial for creating a Web App with Redis Cache that uses the Cache-Aside pattern | Microsoft Docs
 description: Learn how to create a Web App with Redis Cache that uses the Cache-Aside pattern
 services: redis-cache
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 03/08/2018
 ms.author: wesmc
 
 ---
-# Tutorial: Create a Web App with Redis Cache that uses Cache-Aside
+# Tutorial: Create a cache-aside leaderboard on ASP.NET
 
 This tutorial shows how to create and deploy an ASP.NET web application to a web app in Azure App Service using Visual Studio 2017. The sample application is a leaderboard ASP.NET application that demonstrates the cache-aside pattern with Azure Redis Cache. The sample application displays a list of team statistics from a database and shows different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
