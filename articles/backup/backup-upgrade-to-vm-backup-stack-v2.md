@@ -18,7 +18,7 @@ ms.author: trinadhk
 # Upgrade to VM backup stack V2
 VM backup stack V2 provides following feature enhancements 
 * Ability to see snapshot taken as part of backup job to be available for recovery without waiting for data transfer to complete.
-Note that this will reduce the wait on snapshot to be copied to vault before triggering restore. Also, this will eliminate the additional storage requirement for backing up premium VMs except for first backup.  
+It will reduce the wait on snapshot to be copied to vault before triggering restore. Also, this will eliminate the additional storage requirement for backing up premium VMs except for first backup.  
 
 * Reduction in backup and restore times by retaining snapshots locally for 7 days. 
 
@@ -46,7 +46,7 @@ By default, snapshots will be retained for 7 days. This allows to complete resto
 * For VM with premium disks, during the first backup, make sure that storage space equivalent to size of the VM is available in the storage account until first backup completes. 
 * Since snapshots are stored locally to boost recovery point creation and also to speed up restore, you will see storage costs corresponding to snapshots for the period 7 days.
 For managed disks, although there is *no increase in price* as restorePointCollections are free. 
-* If you are doing a restore from Snapshot recovery point for a Premium VM, you will see a temporary storage location being used while VM i sgetting created as part of the restore. 
+* If you are doing a restore from Snapshot recovery point for a Premium VM, you will see a temporary storage location being used while VM is getting created as part of the restore. 
 
 ## How to upgrade?
 ### Portal
@@ -85,7 +85,7 @@ From an elevated PowerShell terminal, run the following cmdlet:
 Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-If it says Registered, then your subscription is upgarded to VM backup stack V2. 
+If it says Registered, then your subscription is upgraded to VM backup stack V2. 
 
 
 
