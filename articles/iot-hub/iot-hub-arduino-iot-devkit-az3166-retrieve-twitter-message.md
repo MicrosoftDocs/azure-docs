@@ -43,7 +43,7 @@ An active Azure subscription. If you don't have one, you can register via one of
 
 VS Code automatically finds your DevKit and displays an introduction page:
 
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/vscode_start.png)
+![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
 
 > [!NOTE]
 > When launching VS Code, you may receive an error message that the Arduino IDE or related board package can't be found. If this error occurs, close VS Code and launch the Arduino IDE again. VS Code should now locate the Arduino IDE path correctly.
@@ -52,7 +52,7 @@ VS Code automatically finds your DevKit and displays an introduction page:
 
 Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **ShakeShake**. A new VS Code window with a project folder in it opens.
 
-![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/vscode_examples.png)
+![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
 If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
@@ -62,7 +62,7 @@ In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by enter
 
 In the VS Code terminal, an interactive command line guides you through provisioning the required Azure services:
 
-![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/cloud-provision.png)
+![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
 > If the page hangs in the loading status when trying to sign in to Azure, refer to this [FAQ step]({{"/docs/faq/#page-hangs-when-log-in-azure" | 
@@ -81,7 +81,7 @@ Replace the string `iot` within the curly braces with your preferred hashtag. De
 
 Use `Ctrl+P` (macOS: `Cmd+P`) to run `task cloud-deploy` to start deploying the Azure Functions code:
 
-![cloud-deploy](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/cloud-deploy.png)
+![cloud-deploy](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
 > [!NOTE]
 > Occasionally, the Azure Function may not work properly. To resolve this issue when it occurs, check this [FAQ step](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
@@ -99,7 +99,7 @@ Use `Ctrl+P` (macOS: `Cmd+P`) to run `task cloud-deploy` to start deploying the 
 3. The screen displays the DevKit ID and 'Configuration'.
 4. This sets the connection string that is retrieved from the `task cloud-provision` step.
 5. VS Code then starts verifying and uploading the Arduino sketch to your DevKit:
-   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/device-upload.png)
+   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 6. The DevKit reboots and starts running the code.
 
 > [!NOTE]
@@ -111,7 +111,7 @@ Use `Ctrl+P` (macOS: `Cmd+P`) to run `task cloud-deploy` to start deploying the 
   Hold down button A, then push and release the reset button. The screen displays 'Configuration'.
 2. Use `Cmd+P` to run `task device-upload` to set the connection string that is retrieved from the `task cloud-provision` step.
 3. VS Code then starts verifying and uploading the Arduino sketch to your DevKit:
-   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/device-upload.png)
+   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 4. The DevKit reboots and starts running the code.
 
 > [!NOTE]
@@ -122,29 +122,29 @@ Use `Ctrl+P` (macOS: `Cmd+P`) to run `task cloud-deploy` to start deploying the 
 After app initialization, click and release button A, then gently shake the DevKit board. This action retrieves a random tweet, which contains the hashtag you specified earlier. Within a few seconds, a tweet displays on your DevKit screen:
 
 ### Arduino application initializing...
-![Arduino-application-initializing](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/result-1.png)
+![Arduino-application-initializing](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
 
 ### Press A to shake...
-![Press-A-to-shake](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/result-2.png)
+![Press-A-to-shake](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-2.png)
 
 ### Ready to shake...
-![Ready-to-shake](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/result-3.png)
+![Ready-to-shake](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-3.png)
 
 ### Processing...
-![Processing](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/result-4.png)
+![Processing](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
 
 ### Press B to read...
-![Press-B-to-read](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/result-5.png)
+![Press-B-to-read](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-5.png)
 
 ### Display a random tweet...
-![Display-a-random-tweet](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/result-6.png)
+![Display-a-random-tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
 
 - Press button A again, then shake for a new tweet.
 - Press button B to scroll through the rest of the tweet.
 
 ## How it works
 
-![diagram](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/diagram.png)
+![diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
 The Arduino sketch sends an event to the Azure IoT Hub. This event triggers the Azure Functions app. Azure Functions app contains the logic to connect to Twitter's API and retrieve a tweet. It then wraps the tweet text into a C2D (Cloud-to-device) message and sends it back to the device.
 
@@ -159,7 +159,7 @@ For testing purposes, this sample project uses a pre-configured Twitter bearer t
 3. Use [some utility](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) to generate a Twitter bearer token from these two keys.
 
 4. In the [Azure portal](https://portal.azure.com/){:target="_blank"}, get into the **Resource Group** and find the Azure Function (Type: App Service) for your "Shake, Shake" project. The name always contains 'shake...' string.
-  ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/azure-function.png)
+  ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
 5. Update the code for `run.csx` within **Functions > shakeshake-cs** with your own token:
   ```csharp
@@ -167,7 +167,7 @@ For testing purposes, this sample project uses a pre-configured Twitter bearer t
   string authHeader = "Bearer " + "[your own token]";
   ...
   ```
-  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/twitter-token.png)
+  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Save the file and click **Run**.
 
@@ -181,7 +181,7 @@ This condition normally happens for the first time you deploy and run the sample
 1. Click the reset button on the DevKit to run the device app again.
 
 2. In the [Azure portal](https://portal.azure.com/), find the Azure Functions app you created and restart it:
-  ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/azure-function-restart.png)
+  ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
 ### Feedback
 
