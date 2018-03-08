@@ -16,9 +16,7 @@ ms.date: 03/08/2018
 ms.author: jdial
 ---
 
----
-title: Traffic ANALYTICS FAQ’S
----
+# Traffic Analytics frequently asked questions
 
 1.  What are the pre-requisites to use Traffic Analytics?
 
