@@ -71,7 +71,7 @@ To move SQL instances, you need to plan carefully:
 
 Managed Instance is a fully managed service that allows you to delegate some of the regular DBA activities to the platform as they are built in. Therefore, some instance level data does not need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as [high availability](sql-database-high-availability.md) is built in.
 
-Managed Instance supports the following several database migration options:
+Managed Instance supports the following database migration options (currently these are the only supported migration methods):
 
 ### Azure Database Migration Service
 
