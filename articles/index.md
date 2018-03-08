@@ -219,7 +219,7 @@ featureFlags:
                                                 <h3>Command-line tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/cli/azure/overview">
+                                                        <a class="barLink" href="/cli/azure">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
                                                             Azure CLI
                                                         </a>

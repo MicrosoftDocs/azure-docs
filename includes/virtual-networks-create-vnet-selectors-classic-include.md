@@ -1,7 +1,7 @@
 > [!div class="op_single_selector"]
-> * [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md)
-> * [PowerShell](../articles/virtual-network/virtual-networks-create-vnet-arm-ps.md)
-> * [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md)
+> * [Azure portal](../articles/virtual-network/quick-create-portal.md)
+> * [PowerShell](../articles/virtual-network/quick-create-powershell.md)
+> * [Azure CLI](../articles/virtual-network/quick-create-cli.md)
 > * [Template](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md)
 > * [Azure portal (Classic)](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)
 > * [PowerShell (Classic)](../articles/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps.md)
