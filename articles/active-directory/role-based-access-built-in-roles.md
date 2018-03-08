@@ -737,7 +737,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 | Microsoft.Compute/virtualMachines/extensions/* |  |
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-| Microsoft.Insights/diagnosticSettings/* |  |
+| Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 | Microsoft.OperationalInsights/* |  |
 | Microsoft.OperationsManagement/* |  |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
@@ -768,10 +768,10 @@ Lets you manage logic app, but not access to them.
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 | Microsoft.ClassicStorage/storageAccounts/read | Return the storage account with the given account. |
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-| Microsoft.Insights/diagnosticSettings/* |  |
-| Microsoft.Insights/logdefinitions/* |  |
-| Microsoft.Insights/metricDefinitions/* |  |
-| Microsoft.Logic/* |  |
+| Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+| Microsoft.Insights/logdefinitions/* | This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
+| Microsoft.Insights/metricDefinitions/* | Read metric definitions (list of available metric types for a resource). |
+| Microsoft.Logic/* | Manages Logic Apps resources. |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -791,10 +791,10 @@ Lets you read, enable and disable logic app.
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read | Read roles and role assignments |
-| Microsoft.Insights/alertRules/*/read |  |
-| Microsoft.Insights/diagnosticSettings/*/read |  |
-| Microsoft.Insights/metricDefinitions/*/read |  |
-| Microsoft.Logic/*/read |  |
+| Microsoft.Insights/alertRules/*/read | Read Insights alert rules |
+| Microsoft.Insights/diagnosticSettings/*/read | Gets diagnostic settings for Logic Apps |
+| Microsoft.Insights/metricDefinitions/*/read | Gets the available metrics for Logic Apps. |
+| Microsoft.Logic/*/read | Reads Logic Apps resources. |
 | Microsoft.Logic/workflows/disable/action | Disables the workflow. |
 | Microsoft.Logic/workflows/enable/action | Enables the workflow. |
 | Microsoft.Logic/workflows/validate/action | Validates the workflow. |
