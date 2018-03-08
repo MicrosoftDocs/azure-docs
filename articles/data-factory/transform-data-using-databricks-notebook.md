@@ -15,6 +15,8 @@ ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ---
+# Run a Databricks Notebook with the Databricks Notebook activity in Azure Data Factory
+
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline that executes a Databricks Notebook against the databricks jobs cluster. It also passes Azure Data Factory parameters to the Databricks Notebook during execution.
 
 You perform the following steps in this tutorial:
