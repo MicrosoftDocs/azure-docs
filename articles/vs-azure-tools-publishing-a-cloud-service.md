@@ -102,7 +102,9 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 1. To use Web Deploy, the publish mechanism needs the user name and password that you set up for your Remote Desktop connection when you first published the package.
 
    a. In **User name**, enter the user name.
+
    b. In **Password**, enter the password.
+
    c. (Optional) If you want to save this password in this profile, choose **Save password**.
 
 1. To publish the changes to your web role, choose **Publish**.

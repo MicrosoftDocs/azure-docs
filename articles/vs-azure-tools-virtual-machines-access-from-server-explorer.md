@@ -19,13 +19,7 @@ ms.author: kraigb
 ---
 # Accessing Azure Virtual Machines from Server Explorer
 
-By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.
-
-## Accessing virtual machines in Server Explorer
-
 If you have virtual machines hosted by Azure, you can access them in Server Explorer. You must first sign in to your Azure subscription to view your mobile services. To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose **Connect to Microsoft Azure**.
-
-### To get information about your virtual machines
 
 1. In Cloud Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.
 
