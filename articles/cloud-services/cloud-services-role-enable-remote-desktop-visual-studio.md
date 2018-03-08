@@ -143,3 +143,7 @@ After you publish your cloud service on Azure and have enabled Remote Desktop, y
 2. Right-click an instance node and select **Connect Using Remote Desktop**.
 
 3. Enter the user name and password that you created previously. You are now logged into your remote session.
+
+## Additional resources
+
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
