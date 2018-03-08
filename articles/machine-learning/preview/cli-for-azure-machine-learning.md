@@ -2,10 +2,10 @@
 title: Install and use the model management CLI for top Azure Machine Learning tasks
 description: Learn how to install and use the model management CLI for the most common machine learning tasks in Azure Machine Learning.
 services: machine-learning
-author: Miguel.GonzalezFierro
-ms.author: Miguel.GonzalezFierro
-manager: haining
-ms.reviewer: haining, mldocs, jmartens, jasonwhowell
+author: haining
+ms.author: haining
+manager: mwinkler
+ms.reviewer: mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -17,26 +17,23 @@ Azure Machine Learning services are an integrated, end-to-end data science and a
 
 Azure Machine Learning provides a command-line interface (CLI) with which you can interact with your data, projects, analytics, and web services. This article presents some of the most useful CLI commands for your convenience. 
 
+![Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
+
 >[!NOTE]
 >The CLI delivered with Azure Machine Learning services is different from the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest), which is used for managing Azure resources.
 
-![Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
-
 ## Get and start CLI
 
-To get this CLI:
-+ Download and install Azure Machine Learning Workbench:​
+To get this CLI, install Azure Machine Learning Workbench, which can be downloaded from here:​
     + Windows - https://aka.ms/azureml-wb-msi ​
     + MacOS - https://aka.ms/azureml-wb-dmg ​​
 
 To start the CLI:
-+ From Azure Machine Learning Workbench, launch the CLI from the menu **File -> Open Command Prompt.**​
++ In Azure Machine Learning Workbench, launch the CLI from the menu **File -> Open Command Prompt.**​
 
 ## Get command help 
 
-Add `--debug` or `--help` to get extra info​ on the CLI commands, such as `az ml <xyz> --debug` where `<xyz>` is the command name.
-
-For example:
+You can get extra information about CLI commands using `--debug` or `--help` after the commands such as `az ml <xyz> --debug` where `<xyz>` is the command name. For example:
 ```azurecli
 az ml computetarget --debug ​
 
@@ -45,13 +42,12 @@ az ml experiment --help
 
 ## Common CLI tasks for Azure Machine Learning 
 
-Here are some of the most common tasks you can perform with the CLI.
-
-+ [Set up a compute target​](#target)
-+ [Submit remote jobs](#jobs)
-+ [Work with Jupyter notebooks​](#jupyter)
-+ [Interact with and explore the run history](#history)
-+ [Configure your environment to operationalize](#o16n)
+Learn about the most common tasks you can perform with the CLI in this section, including:
++ [Setting up compute target​s](#target)
++ [Submitting jobs for remote execution](#jobs)
++ [Working with Jupyter notebooks​](#jupyter)
++ [Interacting with run histories](#history)
++ [Configuring your environment to operationalize](#o16n)
 
 <a name="target"></a>
 
@@ -76,12 +72,15 @@ Within the **aml_config** folder, you can change the conda dependencies.
 
 Also, you can operate with PySpark, Python, or Python in a GPU DSVM. 
 
-Define the Python operation mode as follows:
+To define the Python operation mode:
 + For Python, add `Framework:Python​` in `<target name>.runconfig` 
+
 + For PySpark, add `Framework:PySpark​` in `<target name>.runconfig` 
+
 + For Python in a GPU DSVM,
-    + Add `Framework:Python​` in `<target name>.runconfig` 
-    + Add `baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9 and nvidiaDocker:true​` in `<target name>.compute`
+    1. Add `Framework:Python​` in `<target name>.runconfig` 
+    
+    1. Also, add `baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9 and nvidiaDocker:true​` in `<target name>.compute`
 
 To prepare the compute target:​
 ```azurecli
@@ -91,6 +90,7 @@ az ml experiment prepare -c <target name>​
 >[!TIP]
 >To show your subscription​:<br/>
 >`az account show​`<br/>
+>
 >To set your subscription​:<br/>
 >`az account set –s "my subscription name" `​
 
@@ -161,22 +161,22 @@ To set up your operationalization environment, you must create:​
 
 To set up a local deployment for testing in a Docker container:
 ```azurecli
-az ml env setup -l <region, e.g. eastus2> -n <env name> -g <resource group>​
+az ml env setup -l <region, e.g. eastus2> -n <env name> -g <resource group name>​
 ```
 
 To set up an ACS cluster with Kubernetes​:
 ```azurecli
-az ml env setup -l <region, e.g. eastus2> -n <env name> -g <resource group> --cluster​
+az ml env setup -l <region, e.g. eastus2> -n <env name> -g <resource group name> --cluster​
 ```
 ​
 To monitor the status of the deployment:
 ```azurecli
-az ml env show -n <environment name> -g <resource group>​
+az ml env show -n <environment name> -g <resource group name>​
 ```
 ​
 To set the environment that should be used​:
 ```azurecli
-az ml env set -n <environment name> -g <resource group>​
+az ml env set -n <environment name> -g <resource group name>​
 ```
 
 ## Next steps
