@@ -29,7 +29,7 @@ Using Azure Redis Cache gives you access to a secure, dedicated [Redis cache](ht
 
 There are many common patterns where Redis Cache is used to support application architecture or to improve application performance.  Some of the most common would include the following:
 
-* **Cache-Aside** -  Since a database can be large, loading an entire database into a cache is not a recommended approach. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data items into the cache only as needed. When the system makes changes to the backend data, it can at that time also update the cache, which is distributed with other clients. Alternatively, the system can set an expiration on data items, or use an eviction policy to cause data updates to be reloaded into the cache.
+* **Cache-Aside** -  Since a database can be large, loading an entire database into a cache is not a recommended approach. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data items into the cache only as needed. When the system makes changes to the backend data, it can at that time also update the cache, which is distributed with other clients. Additionaly, the system can set an expiration on data items, or use an eviction policy to cause data updates to be reloaded into the cache.
 
   For an example of the cache-aside pattern with a leaderboard ASP.NET application, see the [Create a cache-aside leaderboard on ASP.NET](cache-web-app-cache-aside-leaderboard.md).
 
@@ -54,13 +54,17 @@ Azure Redis Cache is available in the following tiers:
 
   * **Standard** - A replicated cache in a two-node primary/secondary configuration managed by Microsoft, with a high-availability SLA.
 
-  * **Premium** - The Premium-tier is an Enterprise ready tier, which includes all of the Standard tier features and more.
+  * **Premium** - The Premium-tier is an Enterprise ready tier, which includes all of the Standard tier features and more listed below.
+
+
+## Advantages of Premium-Tier caches
+
+The following points describe some of the advantages of Premium-tier Azure Redis Cache. The [Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/) page also provides a detailed comparison of each tier.
 
 To scale to the premium tier from one of the other tiers, choose one of the premium tiers in the Change pricing tier blade. You can also scale your cache using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Redis Cache](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-The following points describe some of the advantages of Premium-tier Azure Redis Cache. The [Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/) page also provides a detailed comparison of each tier.
   
-  * **Better performance compared to Standard or Basic tier** - Caches in the Premium tier are deployed on hardware that has faster processors and provides better performance compared to the Basic or Standard Tier. Premium tier Caches have higher throughput and lower latencies. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. For example, the throughput of a 53 GB P4 (Premium) cache is 250 K requests per second as compared to 150 K for 53 GB C6 (Standard) cache. For more information about size, throughput, and bandwidth with premium caches, see [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+  * **Better performance compared to Standard or Basic tier** - Caches in the Premium tier are deployed on hardware that has faster processors and provides better performance compared to the Basic or Standard Tier. Premium tier Caches have higher throughput and lower latencies. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. For example, with a 1 KB payload, the throughput of a 53 GB P4 (Premium) cache is 250 K requests per second as compared to 150 K requests for 53 GB C6 (Standard) cache. For more information about size, throughput, and bandwidth with premium caches, see [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
   * **Redis data persistence** - The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache, all the data is stored only in memory. In the event of underlying infrastructure issues, there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Redis Cache offers RDB and AOF (coming soon) options in [Redis persistence[(http://redis.io/topics/persistence).
 
@@ -82,6 +86,24 @@ The following points describe some of the advantages of Premium-tier Azure Redis
 
     For more information, see [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md).
 
+  * **Schedule updates** - The scheduled updates feature allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. To designate a maintenance window, select the desired days and specify the maintenance window start hour for each day. The maintenance window time is expressed in UTC.
+
+    > [!NOTE]
+    > Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
+    > 
+    > 
+
+    For more information, see [Schedule updates](cache-administration.md#schedule-updates) and [Schedule updates FAQ](cache-administration.md#schedule-updates-faq).
+
+  * **Geo-replication** - Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions. This replication is not required to cross any geographical region. It also can be used as an intra region resiliency feature.
+
+    For more information, see [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md).
+
+
+## Features common to all cache tiers
+
+  * **Firewall rules** - This feature allows you to configure firewall rules on all tiers. This feature further enhances security by restricting IP addresses or IP address ranges that are allowed to communicate with your cache. By default, Connections are allowed from any IP address.
+
   * **Reboot** - The feature allows you to reboot one or more nodes of your cache on-demand. This feature allows you to test your application for resiliency in the event of a failure. 
   
     >[!NOTE]
@@ -97,19 +119,6 @@ The following points describe some of the advantages of Premium-tier Azure Redis
     * When using a premium cache with clustering, you can reboot the master, slave, or both nodes for individual shards in the cache
 
     For more information, see [Reboot](cache-administration.md#reboot) and [Reboot FAQ](cache-administration.md#reboot-faq).
-
-  * **Schedule updates** - The scheduled updates feature allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. To designate a maintenance window, select the desired days and specify the maintenance window start hour for each day. The maintenance window time is expressed in UTC.
-
-    > [!NOTE]
-    > Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
-    > 
-    > 
-
-    For more information, see [Schedule updates](cache-administration.md#schedule-updates) and [Schedule updates FAQ](cache-administration.md#schedule-updates-faq).
-
-  * **Geo-replication** - Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
-
-    For more information, see [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md).
 
 
 
