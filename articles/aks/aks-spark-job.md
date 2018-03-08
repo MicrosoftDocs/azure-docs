@@ -1,6 +1,6 @@
 ---
 title: Run an Apache Spark job with Azure Container Service (AKS)
-description: Use Azure Kubertetes Service (AKS) to run an Apache Spark job
+description: Use Azure Container Service (AKS) to run an Apache Spark job
 services: container-service
 author: alehall
 manager: listonb
