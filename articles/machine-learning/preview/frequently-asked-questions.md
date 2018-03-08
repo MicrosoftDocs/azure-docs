@@ -122,7 +122,7 @@ No. Azure Machine Learning Workbench is a free application. You can download it 
 
 **Do you support command-line capabilities?**
 
-Yes, Azure Machine Learning offers a full CLI interface. The Machine Learning CLI is installed by default with the Azure Machine Learning Workbench. It is also provided as part of the Linux Data Science virtual machine on Azure and will be integrated into the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Yes, Azure Machine Learning offers a full CLI interface. The Machine Learning CLI is installed by default with the Azure Machine Learning Workbench. It is also provided as part of the Linux Data Science virtual machine on Azure and will be integrated into the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 
 
 **Can I use Jupyter Notebooks with Workbench?**
