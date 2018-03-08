@@ -106,7 +106,7 @@ def handling_disambiguation(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Search for a single restaurant (Microsoft Store) and print out its phone number.
+Search for a single store (Microsoft Store) and print out its phone number.
 ```
 def store_lookup(subscription_key):
 
@@ -117,25 +117,25 @@ def store_lookup(subscription_key):
 
         if entity_data.places.value:
 
-            restaurant = entity_data.places.value[0]
+            store = entity_data.places.value[0]
 
             # Some local entities will be places, others won't be. Depending on what class contains the data you want, you can check 
             # using isinstance one of the class, or try to get the attribute and handle the exception (EAFP principle).
             # The recommended Python way is usually EAFP (see https://docs.python.org/3/glossary.html)
-            # In this case, the item being returned is technically a Restaurant, but the Place schema has the data we want (telephone)
+            # In this case, the item being returned is technically a store, but the Place schema has the data we want (telephone)
 
             # Pythonic approach : EAFP "Easier to ask for forgiveness than permission"
             try:
-                telephone = restaurant.telephone
-                print('Searched for "Microsoft Store" and found a restaurant with this phone number:')
+                telephone = store.telephone
+                print('Searched for "Microsoft Store" and found a store with this phone number:')
                 print(telephone)
             except AttributeError:
                 print("Couldn't find a place!")
 
             # More cross language approach
-            if isinstance(restaurant, Place):
-                print('Searched for "Microsoft Store" and found a restaurant with this phone number:')
-                print(restaurant.telephone)
+            if isinstance(store, Place):
+                print('Searched for "Microsoft Store" and found a store with this phone number:')
+                print(store.telephone)
             else:
                 print("Couldn't find a place!")
 
