@@ -22,9 +22,9 @@ This feature is currently in preview
 
 Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Profiler is now available for ASP.NET core web apps hosted in Linux on App Services. This guide provides step-by-step instruction on how profiler traces can be collected for ASP.NET core Linux web apps.
 
-After completing this walkthrough, your app will collect profiler traces similar to the screenshot below. In this example, the profiler trace indicates a particular web request is slow because most time is spent on waiting. The hot path in the code that slowed down the app is preceded by the flame icon. This example shows ```About``` method in ```HomeController``` slowed down the web app because it was calling ```Thread.Sleep```.
+After completing this walkthrough, your app will collect profiler traces similar to the screenshot below. In this example, the profiler trace indicates a particular web request is slow because most time is spent on waiting. The hot path in the code that slowed down the app is preceded by the flame icon. This example shows `About` method in `HomeController` slowed down the web app because it was calling `Thread.Sleep`.
 
-    ![Profiler traces](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
+![Profiler traces](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
 
 ## Pre-requisites
 Instructions below applied to all of Windows, Linux, and Mac environments:
