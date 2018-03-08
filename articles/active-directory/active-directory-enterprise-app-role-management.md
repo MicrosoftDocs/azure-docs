@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/08/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -185,39 +185,18 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
 	
-	f. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y)
-	
-	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
-	
-	g. If you want to add new roles, perform the following steps:
-	
-	- Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
-	
-	- After you have added all the required roles, click **Generate**
-	
-	- Copy the content by clicking **Copy Content**
-	
-	> [!NOTE] 
-	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
+	f. To update the existing role, please follow below steps:
 
-	h. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
-
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
-	
-	i. If you want to update the existing role, please follow below steps:
-
-	- Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y)
-	
-		![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
-	
-	2. Update the value of role by replacing the **Role description**, **Role value**, and **Role displayname** as per your organization requirement.
-	
-	3. After you have updated all the required roles, copy the content by clicking **Copy Content**
-	
-	4. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
-	  
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+
+	- Change the method from **GET** to **PATCH**.
+
+	- Copy the existing roles from the application and paste them in to the **Request Body**.
 	
+	- Update the value of role by replacing the **Role description**, **Role value**, and **Role displayname** as per your organization requirement.
+	
+	- After you have updated all the required roles, click **Run Query**.
+		
 ## Delete existing role
 
 1. To delete an  existing role, perform following steps -
@@ -241,33 +220,27 @@ If your application expects custom roles to be passed in SAML response, you need
 	e. Extract the appRoles property from the service principal object.
 	
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
-	
-	f. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y) and perform following steps -
-	
-	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
-	
-	- Enter **Role Name**, **Role Description**, and **Role Value**. Click **Add** to add the role
-	
-	- After you have added all the required roles, click **Generate**
+
+	f. To delete the existing role, please follow below steps:
+
+	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
+
+	- Change the method from **GET** to **PATCH**.
+
+	- Copy the existing roles from the application and paste them in the **Request Body**.
 	
 	- Set the **IsEnabled** value to **false** for the role which you want to delete
-	
-	- Copy the content by clicking **Copy Content**
+
+	- Click **Run Query**.
 	
 	> [!NOTE] 
 	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
 	
-	g. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
+	g. After doing the above process, keep the method as **PATCH** and paste the remianing role content in the **Request Body** and click **Run Query**.
 	
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
+	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
 
-	h. Open the [Azure AD Generator](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y) and delete the role which you want to delete and copy the remaining roles by clicking the **Copy Content**.
-	
-	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator_delete.png)
-
-	i. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
-	
-	j. After running the query the role will be deleted.	
+	h. After running the query the role will be deleted.	
 
 > [!NOTE]
 > The role needs to be disabled first before it can be removed. 
