@@ -22,7 +22,7 @@ You can [test](Train-Test.md) LUIS interactively, one utterance at a time, or pr
 <a name="Score-all-intents"</a>
 <a name="E-(exponent)-notation"</a>
 ## What is a score in testing?
-See [Prediction score](luis-concept-score.md) concepts to learn more about prediction scores.
+See [Prediction score](luis-concept-prediction-score.md) concepts to learn more about prediction scores.
 
 ## Interactive testing
 Interactive testing is done from the **Test panel** of the website. You can quickly enter utterances to see how intents and entities are identified and scored. If LUIS isn't predicting the intents and entities as you expect on an utterance in the testing pane, copy it to the Intent page as a new utterance. Then label the parts of that utterance, and train LUIS. 
