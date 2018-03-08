@@ -34,10 +34,10 @@ Every utterance prediction returns a top-scoring intent. This is a numerical com
 If you are concerned about proximity of top scores, you should return the score for all intents. 
 
 ## Return prediction score for all intents
-A test or endpoint result can include all intents. This configuration is set on the **[Publish](Publishapp.md)** page or with the `verbose=true` query string addition to the [endpoint](https://aka.ms/v1-endpoint-api-docs). 
+A test or endpoint result can include all intents. This configuration is set on the [endpoint](https://aka.ms/v1-endpoint-api-docs) with the `verbose=true` query string name/value pair. 
 
 ## Review intents with similar scores
-Reviewing the scores for all intents is a good way to verify that not only is the correct intent identified but that the next identified intent's score is significantly lower consistently for utterances. 
+Reviewing the score for all intents is a good way to verify that not only is the correct intent identified, but that the next identified intent's score is significantly lower consistently for utterances. 
 
 If multiple intents have close prediction scores, based on the context of an utterance, LUIS may switch between the intents. To fix this, continue to add utterances to each intent with a wider variety of contextual differences.   
 
