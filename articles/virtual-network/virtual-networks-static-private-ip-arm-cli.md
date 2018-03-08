@@ -38,7 +38,7 @@ This article covers the Resource Manager deployment model. You can also [manage 
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, complete the following steps:
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). 
 
 2. Create a public IP for the VM with the [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) command. The list shown after the output explains the parameters used.
 
