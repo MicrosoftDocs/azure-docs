@@ -19,8 +19,8 @@ Testing is the process of providing sample utterances to LUIS and getting a resp
 You can [test](Train-Test.md) LUIS interactively, one utterance at a time, or provide a batch of utterances. In the interactive test, you can compare the current active model to the published model. 
 
 <a name="A-test-score"></a>
-<a name="Score-all-intents"</a>
-<a name="E-(exponent)-notation"</a>
+<a name="Score-all-intents"></a>
+<a name="E-(exponent)-notation"></a>
 ## What is a score in testing?
 See [Prediction score](luis-concept-prediction-score.md) concepts to learn more about prediction scores.
 
