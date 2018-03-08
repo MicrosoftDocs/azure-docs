@@ -33,7 +33,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 
   * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
-  * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
+  * For **Resource Group**, select an existing resource group or create a new one by entering the name in the text field.  
   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
   * You can choose from three different **pricing tiers** in Log Analytics, but for this quickstart you are going to select the **free** tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 

@@ -25,7 +25,7 @@ In this overview of the core components of the Azure Batch service, we discuss t
 Whether you're developing a distributed computational application or service that issues direct [REST API][batch_rest_api] calls or you're using one of the [Batch SDKs](batch-apis-tools.md#azure-accounts-for-batch-development), you'll use many of the resources and features discussed in this article.
 
 > [!TIP]
-> For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md).
+> For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md). Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 >
 >
 
