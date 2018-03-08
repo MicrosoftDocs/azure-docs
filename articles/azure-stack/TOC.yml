@@ -274,6 +274,8 @@
         items:
         - name: Usage data reporting
           href: azure-stack-usage-reporting.md
+        - name: Usage reporting infrastructure for Cloud Service Providers
+          href: azure-stack-csp-ref-infrastructure.md
         - name: Provider usage API
           href: azure-stack-provider-resource-api.md
         - name: Tenant usage API
