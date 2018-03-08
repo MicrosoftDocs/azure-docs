@@ -180,7 +180,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Click on **NEW INTEGRATION** and on the **INSTALL** page perform the following steps:
+13. Click on **NEW INTEGRATION** and under the **INSTALL** tab perform the following steps:
  
 	![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -188,7 +188,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Copy the **Integration ID** value and append with the **Reply URL** like `https://api.signalfx.com/v1/saml/acs/<integration ID>` in the **Reply URL** textbox of **SignalFx Domain and URLs** section in Azure portal.
 
-	c. Click on **Upload File** to upload the **Base64 encoded certificate** from Azure portal in the **Certificate** textbox.
+	c. Click on **Upload File** to upload the **Base64 encoded certificate** downloaded from Azure portal in the **Certificate** textbox.
 
 	d. In the **Issuer URL** textbox, paste the value of **SAML Entity ID**, which you have copied from the Azure portal.
 
