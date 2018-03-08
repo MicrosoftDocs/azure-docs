@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Andromeda SCM | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Andromeda SCM.
+title: 'Tutorial: Azure Active Directory integration with Andromeda | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Andromeda.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,28 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Andromeda SCM
+# Tutorial: Azure Active Directory integration with Andromeda
 
-In this tutorial, you learn how to integrate Andromeda SCM with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Andromeda with Azure Active Directory (Azure AD).
 
-Integrating Andromeda SCM with Azure AD provides you with the following benefits:
+Integrating Andromeda with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Andromeda SCM.
-- You can enable your users to automatically get signed-on to Andromeda SCM (Single Sign-On) with their Azure AD accounts.
+- You can control in Azure AD who has access to Andromeda.
+- You can enable your users to automatically get signed-on to Andromeda (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Andromeda SCM, you need the following items:
+To configure Azure AD integration with Andromeda, you need the following items:
 
 - An Azure AD subscription
-- An Andromeda SCM single sign-on enabled subscription
+- An Andromeda single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -48,13 +48,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Andromeda SCM from the gallery
+1. Adding Andromeda from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Andromeda SCM from the gallery
-To configure the integration of Andromeda SCM into Azure AD, you need to add Andromeda SCM from the gallery to your list of managed SaaS apps.
+## Adding Andromeda from the gallery
+To configure the integration of Andromeda into Azure AD, you need to add Andromeda from the gallery to your list of managed SaaS apps.
 
-**To add Andromeda SCM from the gallery, perform the following steps:**
+**To add Andromeda from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -68,31 +68,31 @@ To configure the integration of Andromeda SCM into Azure AD, you need to add And
 
 	![The New application button][3]
 
-4. In the search box, type **Andromeda SCM**, select **Andromeda SCM** from result panel then click **Add** button to add the application.
+4. In the search box, type **Andromeda**, select **Andromeda** from result panel then click **Add** button to add the application.
 
-	![Andromeda SCM in the results list](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+	![Andromeda in the results list](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Andromeda SCM based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Andromeda based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Andromeda SCM is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Andromeda SCM needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Andromeda is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Andromeda needs to be established.
 
-To configure and test Azure AD single sign-on with Andromeda SCM, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Andromeda, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Andromeda SCM test user](#create-an-andromeda-scm-test-user)** - to have a counterpart of Britta Simon in Andromeda SCM that is linked to the Azure AD representation of user.
+3. **[Create an Andromeda test user](#create-an-andromeda-test-user)** - to have a counterpart of Britta Simon in Andromeda that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Andromeda SCM application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Andromeda application.
 
-**To configure Azure AD single sign-on with Andromeda SCM, perform the following steps:**
+**To configure Azure AD single sign-on with Andromeda, perform the following steps:**
 
-1. In the Azure portal, on the **Andromeda SCM** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **Andromeda** application integration page, click **Single sign-on**.
 
 	![Configure single sign-on link][4]
 
@@ -100,25 +100,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. On the **Andromeda SCM Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Andromeda Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-    ![Andromeda SCM Domain and URLs single sign-on information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![Andromeda Domain and URLs single sign-on information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantURL>`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<tenantURL>`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Andromeda SCM Domain and URLs single sign-on information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Andromeda Domain and URLs single sign-on information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantURL>/SAMLLogon.aspx`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 	 
 	> [!NOTE] 
 	> The preceding value is not real value. You will update the value with the actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
 
-5. Andromeda SCM application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
-    
+5. Andromeda application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+    
 	![Configure Single Sign-On attb](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
 	> [!Important]
@@ -127,13 +127,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
-	| role 		  | DEMO |
-	| type 		  | DEFAULT |
-	| company       | COMP02    |
+	| -------------- | -------------------- |    
+	| role 		  | App specific role |
+	| type 		  | App Type |
+	| company       | CompanyName    |
 
 	> [!NOTE]
-	> There are not real values. These values are only for demo purpose, please use your organisation roles.
+	> There are not real values. These values are only for demo purpose, please use your organization roles.
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -157,31 +157,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
 	
-9. On the **Andromeda SCM Configuration** section, click **Configure Andromeda SCM** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+9. On the **Andromeda Configuration** section, click **Configure Andromeda** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Andromeda SCM Configuration](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+	![Andromeda Configuration](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Sign-on to your Andromeda SCM company site as administrator.
+10. Sign-on to your Andromeda company site as administrator.
 
 11. On the top of the menubar click **Admin** and navigate to **Administration**.
 
-	![Andromeda SCM admin](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+	![Andromeda admin](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. On the left side of tool bar under **Interfaces** section, click **SAML Configuration**.
 
-	![Andromeda SCM saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+	![Andromeda saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. On the **SAML Configuration** section page, perform the following steps:
 
-	![Andromeda SCM config](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+	![Andromeda config](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
 	a. Check **Enable SSO with SAML**.
 
-	b. Under **Andromeda Information** section, copy the **SP Identity** value and paste it into the **Identifier** textbox of **Andromeda SCM Domain and URLs** section.
+	b. Under **Andromeda Information** section, copy the **SP Identity** value and paste it into the **Identifier** textbox of **Andromeda Domain and URLs** section.
 
-	c. Copy the **Consumer URL** value and paste it into the **Reply URL** textbox of **Andromeda SCM Domain and URLs** section.
+	c. Copy the **Consumer URL** value and paste it into the **Reply URL** textbox of **Andromeda Domain and URLs** section.
 
-	d. Copy the **Logon URL** value and paste it into the **Sign-on URL** textbox of **Andromeda SCM Domain and URLs** section.
+	d. Copy the **Logon URL** value and paste it into the **Sign-on URL** textbox of **Andromeda Domain and URLs** section.
 
 	e. Under **SAML Identity Provider** section, type your IDP Name.
 
@@ -189,9 +189,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
 	
-	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType** and **Role** are required. In this section we define attributes mapping (name and values) which correlate to those defined within Azure portal
+	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal
 
-	![Andromeda SCM attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+	![Andromeda attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
 	i. Click **Save**.
 
@@ -230,28 +230,28 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create an Andromeda SCM test user
+### Create an Andromeda test user
 
-The objective of this section is to create a user called Britta Simon in Andromeda SCM. Andromeda SCM supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Andromeda SCM if it doesn't exist yet.
+The objective of this section is to create a user called Britta Simon in Andromeda. Andromeda supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Andromeda if it doesn't exist yet.
 
 >[!Note]
->If you need to create a user manually, contact [Andromeda SCM Client support team](https://www.ngcsoftware.com/support/).
+>If you need to create a user manually, contact [Andromeda Client support team](https://www.ngcsoftware.com/support/).
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Andromeda SCM.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Andromeda.
 
 ![Assign the user role][200] 
 
-**To assign Britta Simon to Andromeda SCM, perform the following steps:**
+**To assign Britta Simon to Andromeda, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Andromeda SCM**.
+2. In the applications list, select **Andromeda**.
 
-	![The Andromeda SCM link in the Applications list](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+	![The Andromeda link in the Applications list](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -271,8 +271,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Andromeda SCM tile in the Access Panel, you should get automatically signed-on to your Andromeda SCM application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+When you click the Andromeda tile in the Access Panel, you should get automatically signed-on to your Andromeda application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
@@ -294,4 +294,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

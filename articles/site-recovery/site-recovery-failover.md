@@ -2,18 +2,11 @@
 title: Failover in Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 03/05/2018
 ms.author: pratshar
 
 ---
@@ -123,8 +116,8 @@ To retain the drive letter on virtual machines after failover, you can set the *
 ## Next steps
 
 > [!WARNING]
-> Once you have failed over virtual machines and the on-premises data center is available, you should [**Reprotect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
+> Once you have failed over virtual machines and the on-premises data center is available, you should [**Reprotect**](vmware-azure-reprotect.md) VMware virtual machines back to the on-premises data center.
 
-Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
+Use [**Planned failover**](hyper-v-azure-failback.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 
 If you have failed over a Hyper-v virtual machine to another on-premises data center managed by a VMM server and the primary data center is available, then use **Reverse replicate** option to start the replication back to the primary data center.
