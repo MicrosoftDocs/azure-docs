@@ -456,7 +456,7 @@ The following table explains the binding configuration properties that you set i
  
 In C# and C# script, write a single queue message by using a method parameter such as `out T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
-* A POCO serializable as JSON
+* An object serializable as JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
