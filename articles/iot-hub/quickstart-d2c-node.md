@@ -25,7 +25,7 @@ In this quickstart, you send telemetry from a simulated device, through IoT Hub,
 1. Run a Node.js device application that sends simulated telemetry.
 1. Run a simple Node.js back-end application that reads and processes the telemetry.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
