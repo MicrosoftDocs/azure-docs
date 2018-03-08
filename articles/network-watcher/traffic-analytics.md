@@ -271,3 +271,7 @@ Do you have malicious traffic in your environment? Where is it originating from?
     ![Showcasing time trending for NSG rule hits and top NSG rules](media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 
     ![Top NSG rules statistics details in log search](media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+
+## Frequently asked questions
+
+To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.md).
