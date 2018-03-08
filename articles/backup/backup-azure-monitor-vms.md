@@ -90,7 +90,7 @@ Login into the Azure portal and proceed to the relevant Azure Recovery Services 
 
 Apply the filters shown in the following picture to verify whether you are receiving activity logs for successful backups. Change the timespan accordingly to view records.
 
-!Activity Logs](./media/backup-azure-monitor-vms/activity-logs-identify.png)
+![Activity Logs](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
 You can click the “JSON” segment to get more details and view it by copy-pasting it onto a text editor. It should display the vault details and the item which triggered the activity log i.e., the backup item.
 
