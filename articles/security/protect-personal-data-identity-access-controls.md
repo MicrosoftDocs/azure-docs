@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data with Azure identity and access controls | Microsoft Docs
-description: Azure identity and access controls to help you protect your personal data. This informaton may be helpful to companies working on complying with General Data Protection Regulation (GDPR)
+description: Azure identity and access controls help you protect personal data and may be helpful complying with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
