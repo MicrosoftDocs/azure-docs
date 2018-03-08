@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -72,7 +72,7 @@ metadata:
  name: azure-files-pod
 spec:
  containers:
-  - image: neilpeterson/aks-helloworld
+  - image: microsoft/sample-aks-helloworld
     name: azure
     volumeMounts:
       - name: azure

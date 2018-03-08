@@ -151,7 +151,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Manage
-### [Virtual networks](virtual-network-manage-network.md)
+### [Virtual networks](manage-virtual-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
 #### Classic
