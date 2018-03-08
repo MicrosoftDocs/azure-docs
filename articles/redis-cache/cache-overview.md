@@ -18,26 +18,26 @@ ms.custom: mvc
 ---
 # What is Azure Redis Cache?
 
-Caching is a common technique that aims to improve the performance and scalability of systems that rely heavily on backend data-stores. These improvements are made by temporarily copying frequently accessed data to fast storage located close to the application. With open source [Redis cache](https://redis.io/), this fast storage is located in-memory with the application.
+Caching is a common technique that typically aims to improve the performance and scalability of systems that rely heavily on backend data-stores. These improvements are made by temporarily copying frequently accessed data to fast storage located close to the application. With open source [Redis cache](https://redis.io/), this fast storage is located in-memory with the application. Depending on the features of the caching technology used, the cache can be used for more than just caching.
 
 Azure Redis Cache is based on the popular open source [Redis cache](https://redis.io/) which is used as an in-memory data structure store, distributed non-relational database, cache, and message broker. It is used to improve the performance of your application by taking advantage of the low-latency, high-throughput performance of the Redis engine. You can read more about Redis Cache from the [Introduction to Redis](https://redis.io/topics/introduction) page.
 
 Using Azure Redis Cache gives you access to a secure, dedicated [Redis cache](https://redis.io/), managed by Microsoft, hosted within Azure, and accessible to any application within Azure. 
 
 
-## Advantages of using Caching
+## Common patterns for using Azure Redis Cache
 
 There are many common patterns where Redis Cache is used to support application architecture or to improve application performance.  Some of the most common would include the following:
 
-* **Cache-Aside** -  Since a database can be large, loading an entire database into a cache is not a recommended approach. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data items into the cache only as needed. When the system makes changes to the backend data, it can at that time also update the cache which is distributed with other clients. Alternatively, the system can set an expiration on data items, or use an eviction policy to cause data updates to be reloaded into the cache.
+* **Cache-Aside** -  Since a database can be large, loading an entire database into a cache is not a recommended approach. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data items into the cache only as needed. When the system makes changes to the backend data, it can at that time also update the cache, which is distributed with other clients. Alternatively, the system can set an expiration on data items, or use an eviction policy to cause data updates to be reloaded into the cache.
 
-  For an example of the cache-aside pattern with an ASP.NET application, see the [ASP.NET Tutorial](cache-web-app-howto.md).
+  For an example of the cache-aside pattern with a leaderboard ASP.NET application, see the [ASP.NET Tutorial](cache-web-app-cache-aside-leaderboard.md).
 
-* **Content Caching** - Most web pages are now generated from templates with headers, footers, toolbars, menus, etc. They don't actually change often and should not be generated dynamically. Using an in-memory cache will give your web servers quick access to this type of static content compared to backend datastores. This pattern reduces processing time and server load which would be required to generate content dynamically. This pattern allows web servers to be more responsive, and can allow you to reduce the number of servers needed to handle loads.
+* **Content Caching** - Most web pages are generated from templates with headers, footers, toolbars, menus, etc. They don't actually change often and should not be generated dynamically. Using an in-memory cache, like Azure Redis Cache, will give your web servers quick access to this type of static content compared to backend datastores. This pattern reduces processing time and server load that would be required to generate content dynamically. This pattern allows web servers to be more responsive, and can allow you to reduce the number of servers needed to handle loads.
 
   Azure Redis Cache provides the Redis Output Cache Provider to help support this pattern with ASP.NET. For more information, see [Output cache provider](cache-aspnet-output-cache-provider.md).
 
-* **User session caching** - This pattern is commonly used with shopping carts and other user history type information that a web application may want to associate with user cookies. Storing too much in a cookie can have a negative impact on performance as the cookie size grows and is passed and validated with every request. Using an in-memory cache to associate information with a user is much faster than interacting a full relational database.
+* **User session caching** - This pattern is commonly used with shopping carts and other user history type information that a web application may want to associate with user cookies. Storing too much in a cookie can have a negative impact on performance as the cookie size grows and is passed and validated with every request. A typical solution is use the cookie as a key to query the data in a backend database. Using an in-memory cache, like Azure Redis Cache, to associate information with a user is much faster than interacting a full relational database.
 
   Azure Redis Cache provides the Redis Session State Provider to help support this pattern with ASP.NET. For more information, see [Session state provider](cache-aspnet-session-state-provider.md).
 
