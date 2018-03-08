@@ -87,31 +87,48 @@ To realize a FIFO guarantee in Service Bus, use sessions. [Message sessions](mes
 
 A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction. For example, you can send several messages to one queue from within a transaction scope, and the messages will only be committed to the queue's log when the transaction successfully completes.
 
-Service Bus also supports the following features:
+### Filtering and actions
 
-* [Filtering and Actions](topic-filters.md)
-* [Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle?view=azure-dotnet#Microsoft_ServiceBus_Messaging_SubscriptionDescription_AutoDeleteOnIdle)
-* [Duplicate detection](duplicate-detection.md)
-* [SAS](service-bus-sas.md), [RBAC](service-bus-role-based-access-control.md) and [MSI](service-bus-managed-service-identity.md) support.
-* [Geo-Disaster Recovery](service-bus-geo-dr.md)
-NO BLURBS:
-* Secure, standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols
-* Client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client) support
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more [named subscription rules](topic-filters.md). For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
+
+### Auto-delete on idle
+
+[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+
+### Duplicate detection
+
+If an error occurs that causes the client to have any doubt about the outcome of a send operation, [duplicate detection](duplicate-detection.md) takes the doubt out of these situations by enabling the sender re-send the same message, and the queue or topic discards any duplicate copies.
+
+### SAS, RBAC, and MSI
+
+Service Bus supports security protocols such as [*Shared Access Signatures*](service-bus-sas.md) (SAS), [*Role Based Access Control*](service-bus-role-based-access-control.md) (RBAC) and [*Managed Service Identity*](service-bus-managed-service-identity.md) (MSI).
+
+### Geo-disaster recovery
+
+When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue to operate in a different region or datacenter.
+
+### Other features
+
+Service Bus also supports:
+
+* Secure, standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
+* Client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client) support.
 
 ## Integration
 
-Azure Event Grid 
-Azure Logic Apps 
-Azure Functions 
-Dynamics 365  
- 
-Stream Analytics
+Service Bus fully integrates with the following Azure services:
+
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Functions](https://azure.microsoft.com/services/functions/) 
+- [Dynamics 365](https://dynamics.microsoft.com)
+- [Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/)
  
 ## Next steps
 
 To get started using Service Bus messaging, see the following articles:
 
-* Compare messaging services (Event Grid page)
-* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and their pricing.
-* [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/).
-* Try the quickstarts in [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md).
+* [Compare Azure messaging services](../event-grid/compare-messaging-services.md)
+* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and their pricing
+* [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* Try the quickstarts in [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md)

@@ -69,7 +69,7 @@ To execute the code, do the following:
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
 2. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
 3.	Double-click **Program.cs** to open it in the Visual Studio editor.
-4.	If you have not done so already, obtain the connection string using the following PowerShell cmdlet: 
+4.	If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `<resource_group_name>` and `<namespace_name>` with your specific values: 
 
    ```azurepowershell
    Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
