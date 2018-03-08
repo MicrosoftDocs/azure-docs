@@ -91,12 +91,12 @@ The classification includes two metadata attributes:
 
 An important aspect of the information protection paradigm is the ability to monitor access to sensitive data.
 
-[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classifications (labels) of the actual data that was returned by the query.
+[Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classifications (labels) of the actual data that was returned by the query.
 
 ![Navigation pane][11]
 
 ## <a id="subheading-4"></a>Next steps
-Consider configuring [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) for monitoring and auditing access to your classified sensitive data.
+Consider configuring [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) for monitoring and auditing access to your classified sensitive data.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

@@ -34,7 +34,7 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 > You are automatically authenticated for Azure CLI 2.0 in every sesssion.
 
 ### Select the Bash environment
-1. Select the environment drop down from the the left hand side of shell window <br>
+1. Select the environment drop down from the left hand side of shell window <br>
 ![](media/quickstart/env-selector.png)
 2. Select Bash
 
