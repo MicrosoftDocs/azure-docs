@@ -38,7 +38,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 ## Create a virtual network
 
-1. Select **+ New** > **Networking** > **Virtual network**.
+1. Select **+ Create a resource** > **Networking** > **Virtual network**.
 2. Enter or select values for the following settings, then select **Create**:
 	- **Name**: The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Following a naming convention can help make it easier to manage multiple virtual networks.
 	- **Address space**: The address space for a virtual network is composed of one or more non-overlapping address ranges that are specified in CIDR notation. The address range you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. You cannot add the following address ranges:
@@ -176,5 +176,5 @@ To perform tasks on virtual networks, your account must be assigned to the [netw
 
 - To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](quick-create-portal.md#create-virtual-machines).
 - To filter network traffic between subnets within a virtual network, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
-- To peer a virtual network to another virtual network, see [Create a virtual network peering](virtual-network-create-peering.md#portal).
+- To peer a virtual network to another virtual network, see [Create a virtual network peering](tutorial-connect-virtual-networks-portal.md).
 - To learn about options for connecting a virtual network to an on-premises network, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
