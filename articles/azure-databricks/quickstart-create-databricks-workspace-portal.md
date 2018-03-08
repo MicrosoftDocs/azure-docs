@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.author: nitinme
 ms.custom: mvc
 
@@ -62,7 +62,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0 (beta)** runtime. 
+    * For this article, create a cluster with **4.0** runtime. 
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     * Accept all other default values. 
     * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
@@ -94,7 +94,7 @@ Perform the following steps to create a notebook in Databricks, configure the no
     > [!IMPORTANT]
     >This article uses the **approach to mount the storage with DBFS**. This approach ensures that the mounted storage gets associated with the cluster filesystem itself. Hence, any application accessing the cluster is able to use the associated storage as well. The direct access approach is limited to the application from where you configure the access.
     >
-    > To use the mounting approach, you must create a Spark cluster with Databricks runtime version **4.0 (beta)**, which is what you chose in this article.
+    > To use the mounting approach, you must create a Spark cluster with Databricks runtime version **4.0**, which is what you chose in this article.
 
     In the following snippet, replace `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, and `{YOUR STORAGE ACCOUNT ACCESS KEY}` with the appropriate values for your Azure Storage account. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell.
 
