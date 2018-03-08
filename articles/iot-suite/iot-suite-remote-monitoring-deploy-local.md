@@ -1,7 +1,7 @@
 ---
 title: Deploy the remote monitoring solution locally - Azure | Microsoft Docs 
 description: This tutorial shows you how to deploy the remote monitoring preconfigured solution to your local machine for testing and development.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
