@@ -130,7 +130,7 @@ Depending on which method of deployment you use, the relative path to browse to 
 
 ### Deploy with WarDeploy 
 
-To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to https://<your app name>.scm.azurewebsites.net/api/wardeploy. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip.md).
+To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to *https://<your app name>.scm.azurewebsites.net/api/wardeploy*. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip.md).
 
 ```bash
 curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
@@ -174,7 +174,7 @@ The servlet is running in a web app with built-in image.
 
 Alternatively, you can also use FTP to deploy the WAR file. 
 
-FTP the file to the `/home/site/wwwroot/webapps` directory of your web app. The following example commandline uses cURL:
+FTP the file to the */home/site/wwwroot/webapps* directory of your web app. The following example commandline uses cURL:
 
 ```bash
 curl -T war_file_path -u "app_name\username" ftp://webappFTPURL/site/wwwroot/webapps/
