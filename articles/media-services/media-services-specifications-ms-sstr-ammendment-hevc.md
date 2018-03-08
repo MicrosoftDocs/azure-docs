@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/7/18
-ms.author: cenkd;johndeu
+ms.date: 03/07/2018
+ms.author: johndeu; cenkd
 
 ---
 # Smooth Streaming Protocol (MS-SSTR) Ammendment for HEVC
@@ -32,7 +32,7 @@ that include HEVC, Common Encryption of HEVC, and box names for ISO Base Media F
 Format have been updated to be consistent with the latest specifications. 
 
 The referenced Smooth Streaming Protocol specification [MS-SSTR] describes the
-wire format used to deliver live and on-demand digital **media**,
+wire format used to deliver live and on-demand digital media,
 such as audio and video, in the following manners: from an encoder to a web
 server, from a server to another server, and from a server to an HTTP client.
 The use of an MPEG-4 ([[MPEG4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787)-based data
