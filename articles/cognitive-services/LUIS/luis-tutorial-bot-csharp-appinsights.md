@@ -99,14 +99,14 @@ Install and configure Application Insights in Visual Studio.
 
 1. Build the solution by selecting the **Build** menu, then select **Rebuild Solution**. Wait for the build to finish. 
 
-2. If the build fails with `CS0104` errors, you need to fix them. In the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. Change the name `Activity` on lines 22 and 36 from `Activity` to `Connector.Activity`. Build the solution again. There should be no more build errors.
+2. If the build fails with `CS0104` errors, you need to fix them. In the `Controllers` folder, in the `MessagesController.cs file`, fix the ambiguous usage of `Activity` type by prefixing the Activity type with the Connector type. To do this, change the name `Activity` on lines 22 and 36 from `Activity` to `Connector.Activity`. Build the solution again. There should be no more build errors.
 
-    The full source of that file follows:
+    The full source of that file is:
 
     [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
 
 ## Publish project to Azure
-The **ApplicationInsights** package is now in the project and configured correctly for your credentials in the Azure portal. The changes for the project need to be published back to Azure.
+The **Application Insights** package is now in the project and configured correctly for your credentials in the Azure portal. The changes for the project need to be published back to Azure.
 
 1. In the **Solution Explorer**, right-click the project name, then select **Publish**.
 
@@ -122,9 +122,7 @@ The **ApplicationInsights** package is now in the project and configured correct
 
 4. In the **Import Publish Settings File** windows, navigate to your project folder, navigate to the `PostDeployScripts` folder, select the file that ends in `.PublishSettings`, and select `Open`. You have now configured publishing for this project. 
 
-5. Publish your local source code to Bot Service: select the **Publish** button. The **Output** window shows status. 
-
-    The rest of the tutorial is completed in the Azure portal. Close Visual Studio 2017. 
+5. Publish your local source code to Bot Service by selecting the **Publish** button. The **Output** window shows status. The rest of the tutorial is completed in the Azure portal. Close Visual Studio 2017. 
 
 ## Open three browser tabs
 In the Azure portal, find the web app bot and open it. The following steps use three different views of the web app bot. It may be easier to have three separate tabs open in the browser: 
@@ -145,16 +143,18 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
    [!code-csharp[Add the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=61-92 "Add the LogToApplicationInsights function")]
 
-    The Application Insights instrumentation key is already in the web app bot's appliction setting named `BotDevInsightsKey`. The last line of the function is where the data is added to Application Insights. The trace's name is `LUIS`, a unique name apart from any other telemetry data collected by this web app bot. All the properties are also prefixed with `LUIS_` so you can see what this tutorial added compared to information that is given by Application Insights.
+    The Application Insights instrumentation key is already in the web app bot's application setting named `BotDevInsightsKey`. 
 
-4. Call the `LogToApplicationInsights` function in the `ShowLuisResult` function:
+    The last line of the function adds the data to Application Insights. The trace's name is `LUIS`, a unique name apart from any other telemetry data collected by this web app bot. All the properties are also prefixed with `LUIS_` so you can see what data this tutorial adds compared to information that is given by the web app bot.
+
+4. Call the `LogToApplicationInsights` function at the top of the `ShowLuisResult` function:
 
    [!code-csharp[Use the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=114-115 "Use the LogToApplicationInsights function")]
 
 ## Build web app bot
 1. Build the web app bot in one of two ways. The first method is to right-click on `build.cmd` in the **App Service Editor**, then select **Run from Console**. The output of the console displays and completes with `Finished successfully.`
 
-2. If this doesn't complete successfully, you need to open the console, navigate to the  script, and run it using the following steps: In the **App Service Editor**, on the top blue bar, select the name of your bot, then select **Open Kudu Console** in the drop-down list.
+2. If this doesn't complete successfully, you need to open the console, navigate to the  script, and run it using the following steps. In the **App Service Editor**, on the top blue bar, select the name of your bot, then select **Open Kudu Console** in the drop-down list.
 
     ![Open Kudu Console](./media/luis-tutorial-bot-csharp-appinsights/open-kudu-console.png)
 
@@ -166,15 +166,15 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
     Wait for the build to complete with `Finished successfully.`
 
-## Test web app bot in Azure Portal
+## Test the web app bot
 
 1. To test your web app bot, open the **Test in Web Chat** feature in the portal. 
 
-2. Enter the phrase `Coffee bar on please`. This phrase has a couple of entities. 
+2. Enter the phrase `Coffee bar on please`.  
 
     ![Test web app bot in chat](./media/luis-tutorial-bot-csharp-appinsights/test-in-web-chat.png)
 
-3. You see no difference because all the work is in Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
+3. You should see no difference in the chat bot response. The change is sending data to Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
 
 ```
 Please deliver a pizza
@@ -189,7 +189,7 @@ Open Application Insights to see the LUIS entries.
 
     ![Search for app insights](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
-2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. Search for `LUIS` and hit enter on the keyboard. The list is narrowed to just LUIS query results added with this tutorial.
+2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. Search for `LUIS`. The list is narrowed to just LUIS query results added with this tutorial.
 
     ![Search for traces](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace.png)
 
