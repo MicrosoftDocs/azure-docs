@@ -21,7 +21,7 @@ ms.author: shvija
 
 Azure Event Hubs seamlessly integrates with [Apache Spark](https://spark.apache.org/) to make building _end-to-end_ distributed streaming applications easy. This integration supports [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). The Event Hubs Connector for Apache Spark is available on [GitHub](https://github.com/Azure/azure-event-hubs-spark). This library is also available for use in Maven projects from the [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)
 
-This article will show you how to make a continuous application in [Azure Databrick](https://azure.microsoft.com/services/databricks/). While this article uses Azure Databricks, Spark Clusters are also available with [HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview).
+This article will show you how to make a continuous application in [Azure Databrick](https://azure.microsoft.com/services/databricks/). While this article uses [Azure Databricks]((https://azure.microsoft.com/services/databricks/), Spark Clusters are also available with [HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-overview).
 
 In the example below you will set up two Scala notebooks, one for streaming events from an Event Hub and another for sending events back to it.
 
@@ -29,7 +29,7 @@ In the example below you will set up two Scala notebooks, one for streaming even
 
 * An Azure subscription. If you do not have one, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * An Event Hubs instance. If you do not have one, [create one](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
-* An Azure Databricks instance. If you do not have one, [create one](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+* An [Azure Databricks]((https://azure.microsoft.com/services/databricks/) instance. If you do not have one, [create one](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
 * [Create a library using maven coordinate](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.0`
 
 Use the following code snippet in your notebook to stream events from the Event Hub.
