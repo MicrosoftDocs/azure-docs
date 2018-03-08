@@ -13,7 +13,12 @@ ms.date: 03/10/2018
 ---
 # Install and use the model management CLI for top tasks in Azure Machine Learning
 
-Azure Machine Learning services are an integrated, end-to-end data science and advanced analytics solution. 
+Azure Machine Learning services are an integrated, end-to-end data science and advanced analytics solution. Professional data scientists can use Azure Machine Learning services to prepare data, develop experiments, and deploy models at cloud scale. 
+
+Azure Machine Learning provides a command-line interface (CLI) with which you can interact with your data, projects, analytics, and web services. This article presents some of the most useful CLI commands for your convenience. 
+
+>[!NOTE]
+>The CLI delivered with Azure Machine Learning services is different from the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest), which is used for managing Azure resources.
 
 ![Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
 
@@ -41,6 +46,14 @@ az ml experiment --help
 ## Common CLI tasks for Azure Machine Learning 
 
 Here are some of the most common tasks you can perform with the CLI.
+
++ [Set up a compute target​](#target)
++ [Submit remote jobs](#jobs)
++ [Work with Jupyter notebooks​](#jupyter)
++ [Interact with and explore the run history](#history)
++ [Configure your environment to operationalize](#o16n)
+
+<a name="target"></a>
 
 ### Set up a compute target​
 
@@ -81,12 +94,16 @@ az ml experiment prepare -c <target name>​
 >To set your subscription​:<br/>
 >`az account set –s "my subscription name" `​
 
+<a name="jobs"></a>
+
 ### Submit remote jobs
 
 To submit a job to a remote target:​
 ```azurecli
 az ml experiment submit -c <target name> myscript.py
 ```
+
+<a name="jupyter"></a>
 
 ### Work with Jupyter notebooks​
 
@@ -96,6 +113,8 @@ az ml notebook start​
 ```
 
 This command starts a Jupyter notebook in localhost. You can work in local by selecting the kernel Python 3, or work in your remote VM by selecting the kernel `<target name>`.​
+
+<a name="history"></a>
 
 ### Interact with and explore the run history
 
@@ -125,6 +144,8 @@ To download that model:​
 ```azurecli
 az ml asset download -l assets/model.pkl.link -d <model folder path>​
 ```
+
+<a name="o16n"></a>
 
 ### Configure your environment to operationalize
 
@@ -160,6 +181,9 @@ az ml env set -n <environment name> -g <resource group>​
 
 ## Next steps
 
-Try these step-by-step tutorials: ​
-+ https://aka.ms/aml-tutorial-iris​
-+ https://aka.ms/aml-tutorial-scenarios​
+Get started with one of these articles: ​
++ [Install and start using Azure Machine Learning](quickstart-installation.md)
++ [Classifying Iris Data Tutorial: Part 1](tutorial-classifying-iris-part-1.md)
+
+Dig deeper with one of these articles:
++ [CLI commands for managing models](model-management-cli-reference.md)
