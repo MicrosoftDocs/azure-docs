@@ -51,9 +51,9 @@
   items: 
   - name: Integrate LUIS with a bot
     items: 
-      - name: Node.js
+    - name: Node.js
       href: luis-nodejs-tutorial-build-bot-framework-sample.md
-      - name: C#
+    - name: C#
       href: luis-csharp-tutorial-build-bot-framework-sample.md
   - name: Gain Application Insights with a bot 
     items: 
