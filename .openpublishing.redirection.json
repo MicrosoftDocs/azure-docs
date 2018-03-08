@@ -3209,6 +3209,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-manage-vm-backup.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-manage-vm-protect",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-faq.md",
             "redirect_url": "/azure/azure-stack/azure-stack-asdk-release-notes",
             "redirect_document_id": false
