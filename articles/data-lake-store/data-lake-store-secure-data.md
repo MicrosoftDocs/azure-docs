@@ -80,7 +80,7 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 1. In your Data Lake Store account blade, click **Data Explorer**.
    
     ![View data via Data Explorer](./media/data-lake-store-secure-data/adl.start.data.explorer.png "View data via Data Explorer")
-2. In the **Data Explorer** blade, click the file or folder for which you want to configure the ACL, and then click **Access**. To assign ACLs to a file, you must first preview the file and then click **Access** from the **File Preview** blade.
+2. In the **Data Explorer** blade, click the folder for which you want to configure the ACL, and then click **Access**. To assign ACLs to a file, you must first click the file to preview it and then click **Access** from the **File Preview** blade.
    
     ![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
 3. The **Access** blade lists the owners and assigned permissions already assigned to the root. Click the **Add** icon to add additional Access ACLs.
@@ -99,12 +99,12 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
     ![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.4.png "Assign permissions to group")
    
     For more information about permissions in Data Lake Store, and Default/Access ACLs, see [Access Control in Data Lake Store](data-lake-store-access-control.md).
-6. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.
+6. After clicking **Ok** in the **Select permissions** blade, the newly added group and associated permissions will now be listed in the **Access** blade.
    
     ![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.5.png "Assign permissions to group")
    
    > [!IMPORTANT]
-   > In the current release, you can only have 9 entries under **Custom Access**. If you want to add more than 9 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
+   > In the current release, you can have up to 28 entries under **Assigned permissions**. If you want to add more than 28 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
    > 
    > 
 7. If required, you can also modify the access permissions after you have added the group. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
@@ -115,28 +115,27 @@ Azure Data Lake Store enables you to further lock down access to your data store
 ![Firewall settings and IP access](./media/data-lake-store-secure-data/firewall-ip-access.png "Firewall settings and IP address")
 
 ## Remove security groups for an Azure Data Lake Store account
-When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.
+When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.  
 
-1. In your Data Lake Store account blade, click **Settings**. From the **Settings** blade, click **Users**.
+Access to data is unchanged and is still managed by the access ACLs.  The exception to this are users/groups in the Owners role.  Users/groups removed from the Owners role are no longer super users and their access falls back to access ACL settings. 
+
+1. In your Data Lake Store account blade, click **Access Control (IAM)**. 
    
     ![Assign security group to Azure Data Lake account](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake account")
-2. In the **Users** blade click the security group you want to remove.
-   
-    ![Security group to remove](./media/data-lake-store-secure-data/adl.add.user.3.png "Security group to remove")
-3. In the blade for the security group, click **Remove**.
+2. In the **Access Control (IAM)** blade, click the security group(s) you want to remove. Click **Remove**.
    
     ![Security group removed](./media/data-lake-store-secure-data/adl.remove.group.png "Security group removed")
 
 ## Remove security group ACLs from Azure Data Lake Store file system
-When you remove security groups ACLs from Azure Data Lake Store file system, you change access to the data in the Data Lake Store.
+When you remove security group ACLs from Azure Data Lake Store file system, you change access to the data in the Data Lake Store.
 
 1. In your Data Lake Store account blade, click **Data Explorer**.
    
     ![Create directories in Data Lake account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
-2. In the **Data Explorer** blade, click the file or folder for which you want to remove the ACL, and then in your account blade, click the **Access** icon. To remove ACL for a file, you must click **Access** from the **File Preview** blade.
+2. In the **Data Explorer** blade, click the folder for which you want to remove the ACL, and then click **Access**. To remove ACLs for a file, you must first click the file to preview it and then click **Access** from the **File Preview** blade. 
    
     ![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
-3. In the **Access** blade, from the **Custom Access** section, click the security group you want to remove. In the **Custom Access** blade, click **Remove** and then click **OK**.
+3. In the **Access** blade, click the security group you want to remove. In the **Access details** blade, click **Remove**.
    
     ![Assign permissions to group](./media/data-lake-store-secure-data/adl.remove.acl.png "Assign permissions to group")
 
