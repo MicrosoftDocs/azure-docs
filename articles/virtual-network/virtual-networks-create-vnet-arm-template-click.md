@@ -28,9 +28,9 @@ Azure has two deployment models: Azure Resource Manager and classic. Microsoft r
 This article explains how to create a VNet through the Resource Manager deployment model using an Azure Resource Manager template. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
+- [Portal](quick-create-portal.md)
+- [PowerShell](quick-create-powershell.md)
+- [CLI](quick-create-cli.md)
 - [Template](virtual-networks-create-vnet-arm-template-click.md)
 - [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
 - [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
