@@ -3,7 +3,7 @@ title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
-author: anwestg
+author: apwestgarth
 manager: stefsch
 editor: ''
 
@@ -40,7 +40,7 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
 
 ## Add additional workers with PowerShell
 
-1. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin)
+1. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin.md)
 2. Use this example to scale out the scale set:
    ```powershell
    
