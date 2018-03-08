@@ -13,7 +13,7 @@ ms.author: anoopkv
 
 # Manage VMware vCenter servers 
 
-This article discusses the various Site Recovery operations that can be performed on a VMware vCenter. Verify the [prerequisites](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)s before you start.
+This article discusses the various Site Recovery operations that can be performed on a VMware vCenter. Verify the [prerequisites](vmware-physical-azure-support-matrix.md#replicated-machines) before you start.
 
 
 ## Set up an account for automatic discovery
