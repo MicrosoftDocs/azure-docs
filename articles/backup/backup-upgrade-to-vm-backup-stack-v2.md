@@ -15,7 +15,7 @@ ms.date: 03/08/2018
 ms.author: trinadhk 
 --- 
 
-#Upgrade to VM backup stack V2
+# Upgrade to VM backup stack V2
 VM backup stack V2 provides following feature enhancements 
 * Ability to see snapshot taken as part of backup job to be available for recovery without waiting for data transfer to complete.
 Please note that this will reduce the wait on snapshot to be copied to vault before triggering restore. Also, this will eliminate the additional storage requirement we have for backing up premium VMs except for first backup.  
@@ -44,8 +44,11 @@ By default, we will retain snapshots for 7 days. This allow to complete restore 
 ## How to upgrade?
 ### Portal
 If you are using portal, you will see a notification on vault dashboard related to large disk support and backup and restore speed improvements.
+
 ![Backup job in VM backup stack V2](./media/backup-azure-vms/instant-rp-banner.jpg) 
+
 Clicking on the banner, will open a screen for upgrading to new stack. 
+
 ![Backup job in VM backup stack V2](./media/backup-azure-vms/instant-rp.png) 
 
 ### PowerShell
@@ -68,8 +71,18 @@ PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select
 PS C:>  Register-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-##What are the some must-knows?
-* This is a one-directional upgrade of the VM backup stack. So, all your future backups will go into this flow. Since it is enabled at a subscription level, all VMs will go onto this flow. All new feature additions will be based on the same stack. Ability to control this at policy level is coming in future releases. 
+## How to verify if upgrade is complete?
+From an elevated PowerShell terminal, run the following cmdlet:
+
+```
+Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+```
+
+If it says Registered, then your subscription is upgarded to VM backup stack V2. 
+
+
+## What are the some must-knows?
+* This is a one-directional upgrade of the VM backup stack. So, all your future backups will go into this flow. Since *it is enabled at a subscription level, all VMs will go onto this flow*. All new feature additions will be based on the same stack. Ability to control this at policy level is coming in future releases. 
 * For VM with premium disks, during the first backup, make sure that storage space equivalent to size of the VM is available in the storage account till first backup completes. 
 * Since we store snapshots to boost recovery point creation and also to speed up restore, you will see storage costs corresponding to snapshots for the period 7 days.
 For managed disks, although there is no increase in price as restorePointCollections are free. 
