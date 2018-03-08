@@ -89,7 +89,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
     ![Network Performance Monitor tile](media/log-analytics-network-performance-monitor/npm-config.png)
 
-3. On the **Setup** page, you see the option to install Operations Management Suite agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Operations Management Suite agents, select the **Setup** view to configure the capability you want to use. 
+4. On the **Setup** page, you see the option to install Operations Management Suite agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Operations Management Suite agents, select the **Setup** view to configure the capability you want to use. 
 
     * **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the rPerfomance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
 
@@ -196,11 +196,11 @@ Select **View topology** to view the hop-by-hop topology of the routes betwe
 
  
 
-### Network state recorder 
+### Network State Recorder 
 
-Each view displays a snapshot of your network health at a particular point in time. By default, the most recent state is shown. The bar at the top of the page shows the point in time for which the state is displayed. To go back in time and view a snapshot of your network health, select **Actions**. You also can enable or disable auto-refresh for any page while you view the latest state. 
+Each view displays a snapshot of your network health at a particular point in time. By default, the most recent state is shown. The bar at the top of the page shows the point in time for which the state is displayed. To view a snapshot of your network health at a previous time, select **Actions**. You also can enable or disable auto-refresh for any page while you view the latest state. 
 
- ![Network state recorder](media/log-analytics-network-performance-monitor/network-state-recorder.png)
+ ![Network State Recorder](media/log-analytics-network-performance-monitor/network-state-recorder.png)
 
  
 
@@ -210,7 +210,7 @@ At each level that you drill down, you can see the trend of the applicable metri
 
 Trend charts show you a historical perspective of the performance of a performance metric. Some network issues are transient in nature and are hard to catch by looking at only the current state of the network. Issues can surface quickly and disappear before anyone notices, only to reappear at a later point in time. Such transient issues also can be difficult for application administrators. The issues often show up as unexplained increases in application response time, even when all application components appear to run smoothly. 
 
-You can easily detect these kinds of issues by looking at a trend chart. The issue appears as a sudden spike in network latency or packet loss. To investigate the issue, use the network state recorder to view the network snapshot and topology for that point in time when the issue occurred.
+You can easily detect these kinds of issues by looking at a trend chart. The issue appears as a sudden spike in network latency or packet loss. To investigate the issue, use the Network State Recorder control to view the network snapshot and topology for that point in time when the issue occurred.
 
  
 ![Trend charts](media/log-analytics-network-performance-monitor/trend-charts.png)
