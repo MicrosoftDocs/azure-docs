@@ -19,9 +19,9 @@ ms.custom: mvc
 
 # Configure your App Service Environment with forced tunneling
 
-The App Service Environment (ASE) is a deployment of Azure App Service in a customer's instance of Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all virtual network outbound traffic to go on-premises before it can go out to the internet. Changing the routing of the virtual network so that the outbound traffic from the virtual network flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling. 
+The App Service Environment (ASE) is a deployment of Azure App Service in a customer's Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Forced tunneling is when you redirect internet bound traffic to your VPN instead. This is often done as a part of security requirements to inspect and audit all outbound traffic. 
 
-Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies, which are enumerated in the [App Service Environment network architecture][network] document. The ASE, by default, requires that all outbound communication goes through the VIP that is provisioned with the ASE.
+Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies, which are enumerated in the [App Service Environment network architecture][network] document. By default the ASE requires that all outbound communication goes through the VIP that is provisioned with the ASE.
 
 Routes are a critical aspect of what forced tunneling is and how to deal with it. In an Azure virtual network, routing is done based on the longest prefix match (LPM). If there is more than one route with the same LPM match, a route is selected based on its origin in the following order:
 
@@ -44,7 +44,7 @@ For your App Service Environment to work while your virtual network is configure
 * Configure ExpressRoute to advertise 0.0.0.0/0. By default, it force tunnels all outbound traffic on-premises.
 * Create a UDR. Apply it to the subnet that contains the App Service Environment with an address prefix of 0.0.0.0/0 and a next hop type of Internet.
 
-If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet isn't forced down the ExpressRoute connection, and the App Service Environment works.
+If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet isn't forced down the ExpressRoute connection.
 
 > [!IMPORTANT]
 > The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
@@ -55,7 +55,7 @@ If you make these two changes, internet-destined traffic that originates from th
 
 ## Configure your ASE with Service Endpoints
 
-To force tunnel all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, do the following:
+To force tunnel all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps.
 
 1. Create or edit a route table. Populate the rules to send the management addresses that map to your App Service Environment location with a next hop of Internet. To find the management addresses, see [App Service Environment management addresses][management]. An App Service Environment inbound management traffic can't be force tunneled and sent back from another address because that breaks TCP. 
 
@@ -65,13 +65,13 @@ Service Endpoints enable you to restrict access to some multi-tenant services su
 
 When you enable Service Endpoints on a resource, there are routes created with higher priority than BGP routes but less than UDRs. If you use Service Endpoints with a force tunneled ASE, the Azure SQL and Azure Storage management traffic is not force tunneled. The other ASE dependency traffic is force tunneled and can't be lost or the ASE would not function properly.
 
-The implementation for Azure SQL is that when Service Endpoints is enabled on a subnet, all of the traffic that comes from that subnet to Azure SQL must have Service Endpoints enabled. You cannot enable it on one Azure SQL server and not on another if you want to access both from the same subnet. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  This is not true with Azure Storage.  When you enable Service Endpoints with Azure Storage you lock access to that resource from your subnet but can still access other Azure Storage accounts.  
+The implementation for Azure SQL is that when Service Endpoints is enabled on a subnet, all of the traffic that comes from that subnet to Azure SQL must have Service Endpoints enabled. You cannot enable it on one Azure SQL server and not on another, if you want to access both from the same subnet. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts.  
 
 ![Forced tunnel with service endpoints][2]
 
 ## Add your own IPs to the ASE Azure SQL firewall ##
 
-To force tunnel all outbound traffic from your ASE, except that which goes to Azure Storage, do the following:
+To force tunnel all outbound traffic from your ASE, except that which goes to Azure Storage, perform the following steps.
 
 1. Create or edit a route table. Populate the rules to send the management addresses that map to your App Service Environment location with a next hop of Internet. To find the management addresses, see [App Service Environment management addresses][management]. An App Service Environment inbound management traffic can't be force tunneled and sent back from another address because that breaks TCP. 
 
@@ -85,7 +85,7 @@ To force tunnel all outbound traffic from your ASE, except that which goes to Az
 
    Select **PUT** at the top. This option triggers a scale operation on your App Service Environment and adjusts the firewall.
 
-_To create your ASE with the egress addresses_: Follow the directions in [Create an App Service Environment with a template][template] and pull down the appropriate template.  Edit the "resources" section in the azuredeploy.json file, but not in the "properties" block and include a line for **userWhitelistedIpRanges** with your values like this:
+_To create your ASE with the egress addresses_: Follow the directions in [Create an App Service Environment with a template][template] and pull down the appropriate template.  Edit the "resources" section in the azuredeploy.json file, but not in the "properties" block and include a line for **userWhitelistedIpRanges** with your values.
 
     "resources": [
       {
@@ -115,9 +115,9 @@ These changes send traffic to Azure Storage directly from the ASE and allow acce
 
 ## Preventing issues ##
 
-If communication between the ASE and its dependencies is broken, the ASE will go unhealthy.  If it remains unhealthy too long then the ASE will become suspended. To unsuspend the ASE, follow the instructions in your ASE portal.  
+If communication between the ASE and its dependencies is broken, the ASE will go unhealthy.  If it remains unhealthy too long, then the ASE will become suspended. To unsuspend the ASE, follow the instructions in your ASE portal.  
 
-In addition to simply breaking communication, you can adversely affect your ASE by introducing too much latency. That can happen if your ASE is, for example, in West Europe and your on premises network you are forced tunneling to is in the western US.  
+In addition to simply breaking communication, you can adversely affect your ASE by introducing too much latency. Too much latency can happen if your ASE is, for example, in West Europe and your on premises network you are forced tunneling to is in the western US.  Latency can also be introduced just due to intranet congestion or outbound bandwidth constraints.    
 
 
 <!--IMAGES-->
