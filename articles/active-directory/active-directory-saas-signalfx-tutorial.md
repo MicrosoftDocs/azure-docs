@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/08/2018
 ms.author: jeedes
 
 ---
@@ -172,31 +172,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 10. Sign-on to your SignalFx company site as administrator.
 
-11. In SignalFx, click **Integrations** to open the Integrations page.
+11. In SignalFx, on the top click **Integrations** to open the Integrations page.
 
 	![SignalFx Integration](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. In the search box type **SAML** and then click on **SAML** tile under Login Services.
+12. Click on **Azure Active Directory** tile under **Login Services** section.
  
 	![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. On the **SAML configuration** page click on **NEW INTEGRATION**.
+13. Click on **NEW INTEGRATION** and on the **INSTALL** page perform the following steps:
  
-	![SignalFx samlintg](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_newintg.png)
+	![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
-14. On the Install tab, perform the following steps:
- 
-	![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intgpage.png)
-
-	a. In the Name textbox type, a new integration name, like **OurOrgName SAML SSO**.
+	a. In the **Name** textbox type, a new integration name, like **OurOrgName SAML SSO**.
 
 	b. Copy the **Integration ID** value and append with the **Reply URL** like `https://api.signalfx.com/v1/saml/acs/<integration ID>` in the **Reply URL** textbox of **SignalFx Domain and URLs** section in Azure portal.
 
-	c. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **Public Key** textbox.
+	c. Click on **Upload File** to upload the **Base64 encoded certificate** from Azure portal in the **Certificate** textbox.
 
 	d. In the **Issuer URL** textbox, paste the value of **SAML Entity ID**, which you have copied from the Azure portal.
 
-	e. Paste the **Metadata url** pattern, which you have generated from the Azure portal.
+	e. In the **Metadata URL** textbox, paste the **Metadata url** pattern which you have generated from the Azure portal.
 
 	f. Click **Save**.
 
