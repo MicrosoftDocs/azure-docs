@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 
-# Profiler ASP.NET Core Azure Linux Web Apps with Application Insights Profiler
+# Profile ASP.NET Core Azure Linux Web Apps with Application Insights Profiler
 
 This feature is currently in preview
 
@@ -30,22 +30,25 @@ Instructions below applied to all of Windows, Linux, and Mac environments:
 
 ## Setup project locally
 
-1. Open commands prompt on your machine. The instructions below works for all of Windows, Linux, and Mac environments.
+1. Open a command prompt on your machine. The instructions below works for all of Windows, Linux, and Mac environments.
 
 2. Create an ASP.NET core MVC web application
 ```
-dotnet new mvc -n ServiceProfilerE2E
+dotnet new mvc -n LinuxProfilerTest
 ```
 3. Change directory in command prompt to the project root folder
 
 4. Add Nuget package for collecting profiler traces
 ```
-dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -s https://saarsnuget.azurewebsites.net/nuget -v 1.1.0-beta1
+dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -v 1.0.0-beta1
 ```
 5. Add a line of code to randomly delay a few seconds in HomeController.cs
 
 ```csharp
-    public IActionResult Index()
+    using System.Threading;
+    ...
+
+    public IActionResult About()
         {
             Random r = new Random();
             int delay = r.Next(5000, 10000);
@@ -55,12 +58,18 @@ dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -s https://
 ```
 6. Save and commit your changes to the local repository
 
+```
+    git init
+    git add .
+    git commit -m "first commit"
+```
+
 ## Create Azure App Service for hosting your project
 1. Create an App Services Linux environment
 
     ![Create Linux App Services](./media/app-insights-profiler-aspnetcore-linux/create-linux-appservice.png)
 
-2. Create deployment credential. Take a note of your password as you will need this later when deploy your app.
+2. Create deployment credential. Take a note of your password as you will need this later when deploying your app.
 
     ![Create deployment credentials](./media/app-insights-profiler-aspnetcore-linux/create-deployment-credentials.png)
 
@@ -68,7 +77,7 @@ dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore -s https://
 
     ![Setup Git repository](./media/app-insights-profiler-aspnetcore-linux/setup-git-repo.png)
 
-More deployment options are available [here](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-ftp)
+More deployment options are available [here](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type)
 
 ## Deploy your project
 
@@ -112,9 +121,16 @@ remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
 1. [Create an Application Insights resource](./app-insights-create-new-resource.md)
 2. Copy the iKey of the Application Insights resource and set the following settings in your App services
 
+    ```
+    APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
+    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
+    ```
+
     ![Set app settings](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
 
-3. Generate some load to your HomeController method. You can run a load test, or refresh the site home page for a few times.
+Changing app settings will automatically restart the site. Once the new settings are applied, the profiler will start to run for 2 minutes immediately. then it will run for 2 minutes every hour.
+
+3. Generate some traffic to your website. You can refresh the site ```About``` page for a few times.
 
 4. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
 
