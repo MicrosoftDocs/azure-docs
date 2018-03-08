@@ -60,11 +60,11 @@ Azure security solutions that are deployed from Security Center are automaticall
 
 ## Manage integrated Azure security solutions and other data sources
 
-1.Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
+1. Sign in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 
-2.On the **Microsoft Azure menu**, select **Security Center**. **Security Center - Overview** opens.
+2. On the **Microsoft Azure menu**, select **Security Center**. **Security Center - Overview** opens.
 
-![Security Center Overview](./media/security-center-partner-integration/overview.png)
+  ![Security Center Overview](./media/security-center-partner-integration/overview.png)
 
 3. Under **Overview**, select **Security solutions**.
 
@@ -76,7 +76,7 @@ The **Connected solutions** section includes security solutions that are current
 
 ![Connected solutions](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
-See [managing connected partner solutions](security-center-partner-solutions.md) to learn more.
+See [Managing connected partner solutions](security-center-partner-solutions.md) to learn more.
 
 ### Discovered solutions
 
