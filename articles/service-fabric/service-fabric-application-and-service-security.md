@@ -1,6 +1,6 @@
 ---
 title: Learn about Azure Service Fabric application security | Microsoft Docs
-description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
+description: An overview of how to securely run microservices applications on Service Fabric. Learn how to run services and startup script under different security accounts, manage application secrets, secure service communications, use an API gateway, and secure application data at rest. 
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -56,7 +56,7 @@ Service Fabric provides a mechanism for services inside a container to access a 
 In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. For more information, see [Set up gMSA for Windows containers](service-fabric-setup-gmsa-for-windows-containers.md).
 
 ## Secure service communication
-TO DO: Use HTTPS (ASP.NET Core, Java)
+[Enable HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) in your ASP.NET Core or Java web services.
 
 You can establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel. Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. For information on configuring the reverse proxy, read [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md).  [Connect to a secure service](service-fabric-reverseproxy-configure-secure-communication.md) describes how to establish secure connection between the reverse proxy and services.
 
@@ -72,6 +72,8 @@ Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluste
 
 TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?
+
+## To DO: Authentication and authorization
 
 ## TO DO: Service-to-service authentication and authorization
 
