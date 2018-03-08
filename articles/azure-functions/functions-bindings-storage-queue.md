@@ -55,7 +55,7 @@ public static class QueueFunctions
 
 ### Trigger - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+The following example shows a queue trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
 Here's the *function.json* file:
 
@@ -109,7 +109,7 @@ The [usage](#trigger---usage) section explains `myQueueItem`, which is named by 
 
 ### Trigger - JavaScript example
 
-The following example shows a blob trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
 Here's the *function.json* file:
 
@@ -220,9 +220,9 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
  
-In C# and C# script, access the blob data by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+In C# and C# script, access the message data by using a method parameter such as `string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
-* POCO object - The Functions runtime deserializes a JSON payload into a POCO object. 
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -299,7 +299,7 @@ public static class QueueFunctions
 
 ### Output - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a POCO payload for each HTTP request received.
+The following example shows an HTTP trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a **CustomQueueMessage** object payload for each HTTP request received.
 
 Here's the *function.json* file:
 
@@ -350,17 +350,17 @@ You can send multiple messages at once by using an `ICollector` or `IAsyncCollec
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### Output - JavaScript example
 
-The following example shows a blob trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
+The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
 
 Here's the *function.json* file:
 
@@ -456,7 +456,7 @@ The following table explains the binding configuration properties that you set i
  
 In C# and C# script, write a single queue message by using a method parameter such as `out T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
-* A POCO serializable as JSON
+* An object serializable as JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
