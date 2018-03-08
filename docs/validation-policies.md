@@ -238,7 +238,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.15|Microsoft Teams apps can fail validation for issues related to [Microsoft Teams app design guidelines](http://aka.ms/microsoftteamsdesignguidelines) or issues that impede the customer experience within Microsoft Teams. To pass validation, Microsoft Teams apps must meet the following requirements:<br/><ul><li>A tab experience must provide value beyond simply hosting an existing website.</li><li>Content in a channel tab must be contextually the same for all members of the channel and not scoped for individual use.</li><li>Content in a tab should not have excessive chrome or layered navigation.</li><li>A configurable tab should not allow users to navigate outside the core experience within the same tab.</li><li>The configuration screen of a configurable tab must clearly explain the value of the experience and how to configure it.</li><li>Tab configuration must happen in the configuration screen.</li><li>Bots must be responsive and fail gracefully.</li></ul>|
 |14.16|Microsoft Teams apps must focus on the Microsoft Teams experience and should not include names, icons, or imagery of other similar chat-based collaboration platforms or services unless the apps provide specific interoperability.|
 |14.17|Apps that depend on external accounts or services must provide a clear and simple sign in/sign out and signup experience. Microsoft Teams apps that depend on authentication to an external service to allow content sharing in channels must clearly state in their help documentation (or similar location) how a user can disconnect or unshare any shared content (if the same feature is supported on the external service). The ability to unshare this content does not have to be present in the Microsoft Teams app, but the process should be clearly documented and the documentation should be accessible from within the app.|
-|14.18| To ensure the security of your app and users, domains outside of your ogranization control (including wildcards) and tunneling services may not be included in the validdomains in your manifest. 
+|14.18| To help to ensure the security of your app and users, domains outside of your ogranization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest. 
 
 ## Conclusion
 <a name="bk_conclusion"> </a>
@@ -252,6 +252,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|March 8, 2018|Added policy 14.18.|
 |2.2|August 9, 2017|Updated policy 10.8 to apply to Office for Android, and added policy 10.8.2.|
 |2.2|August 4, 2017|Added policies 14.15 and 14.16.|
 |2.2|July 21, 2017|Added policy 7.19.|
