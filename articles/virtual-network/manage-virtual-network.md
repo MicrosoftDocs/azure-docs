@@ -78,7 +78,7 @@ Complete the following tasks before completing steps in any section of this arti
 3. The following settings are listed for the virtual network you selected:
 	- **Overview**: Provides information about the virtual network, including address space and DNS servers. The following screenshot shows the overview settings for a virtual network named **MyVNet**:
 
-		![Network interface overview](./media/virtual-network-manage-network/vnet-overview.png)
+		![Network interface overview](./media/manage-virtual-network/vnet-overview.png)
 
 	  You can move a virtual network to a different subscription or resource group by selecting **Change** next to **Resource group** or **Subscription name**. To learn how to move a virtual network, see [Move resources to a different resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json). The article lists prerequisites, and how to move resources by using the Azure portal, PowerShell, and Azure CLI. All resources that are connected to the virtual network must move with the virtual network.
 	- **Address space**: The address spaces that are assigned to the virtual network are listed. To learn how to add and remove an address range to the address space, complete the steps in [Add or remove an address range](#add-or-remove-an-address-range).
