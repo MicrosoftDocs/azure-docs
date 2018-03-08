@@ -81,6 +81,8 @@
     href: luis-concept-app-iteration.md 
   - name: Intents
     href: luis-concept-intent.md
+  - name: Prediction Score
+    href: luis-concept-prediction-score.md
   - name: Entities
     href: luis-concept-entity-types.md
   - name: Data extraction
