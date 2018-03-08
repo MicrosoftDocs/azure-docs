@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/09/2018
 ms.author: marsma
 ---
 
@@ -34,7 +34,7 @@ The Basic, Standard, and Premium SKUs are collectively known as *managed* regist
 
 ### Managed (Basic, Standard, Premium)
 
-Managed registries are backed by an Azure Storage account managed by Azure. That is, the storage account that stores your images does not appear within your Azure subscription. There are several benefits gained by using one of the managed registry SKUs, discussed in-depth in [Container image storage in Azure Container Registry][container-registry-storage]. This article focuses on the managed registry SKUs and their capabilities.
+Managed registries benefit from image storage managed entirely by Azure. That is, a storage account that stores your images does not appear within your Azure subscription. There are several benefits gained by using one of the managed registry SKUs, discussed in-depth in [Container image storage in Azure Container Registry][container-registry-storage]. This article focuses on the managed registry SKUs and their capabilities.
 
 ### Unmanaged (Classic)
 
