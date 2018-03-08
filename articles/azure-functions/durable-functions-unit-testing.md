@@ -18,7 +18,7 @@ ms.author: kadimitr
 
 # Durable Functions Unit Testing
 
-Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, Orchestrator and Activity functions. 
+Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, Orchestrator, and Activity functions. 
 
 ## Prerequisites
 
@@ -52,11 +52,9 @@ Find more details in the following paragraphs for testing Orchestration Client a
 
 ## Unit testing trigger functions
 
-In this section, the unit test will validate the value of the `Retry-After` header in the sample's response payload. 
+In this section, the unit test will validate the logic of the following method:
 
-First, use [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)  instead of [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) in the signature of the Orchestration client function:
-
-    ```csharp
+```csharp
     public static class HttpStart
     {
         [FunctionName("HttpStart")]
@@ -77,11 +75,77 @@ First, use [DurableOrchestrationClientBase](https://azure.github.io/azure-functi
             return res;
         }
     }
-    ```
+```
 
-Then, mock the behavior of [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) in your unit tests:
+The unit test task will be to verify the value of the `Retry-After` header provided in the response payload. 
 
-    ```csharp
+The method is already using  [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) class. So the unit test will mock some of its methods to ensure predictable behavior. 
+
+First, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) mock object is created. 
+
+```csharp
+    // Mock DurableOrchestrationClientBase
+    var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
+```
+
+Then `StartNewAsync` method is mocked:
+
+```csharp
+    // Mock StartNewAsync method
+    durableOrchestrationClientBaseMock.
+        Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
+        ReturnsAsync(instanceId);
+```
+
+Next `CreateCheckStatusResponse` is mocked:
+
+```csharp
+    // Mock CreateCheckStatusResponse method
+    durableOrchestrationClientBaseMock
+        .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId))
+        .Returns(new HttpResponseMessage
+        {
+            StatusCode = HttpStatusCode.OK,
+            Content = new StringContent(string.Empty),
+        });
+```
+
+`TraceWriter` also need to be mocked:
+
+```csharp
+    // Mock TraceWriter
+    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+
+```  
+
+Now the `Run` method is called from the unit test:
+
+```csharp
+    // Call Orchestration trigger function
+    var result = await HttpStart.Run(
+        new HttpRequestMessage()
+        {
+            Content = new StringContent(JsonConvert.SerializeObject(string.Empty), Encoding.UTF8, "application/json"),
+            RequestUri = new Uri("https://www.microsoft.com/"),
+        },
+        durableOrchestrationClientBaseMock.Object, 
+        functionName,
+        traceWriterMock.Object);
+ ``` 
+
+ The last step is to compare the output with the expected value:
+
+```csharp
+    // Validate that output is not null
+    result.Headers.RetryAfter.Should().NotBeNull();
+
+    // Validate output's Retry-After header value
+    result.Headers.RetryAfter.Delta.Should().Be(TimeSpan.FromSeconds(10));
+```
+
+After combining all steps, the unit test will have the following code: 
+
+```csharp
     public class HttpStartTests
     {
         [Fact]
@@ -115,8 +179,8 @@ Then, mock the behavior of [DurableOrchestrationClientBase](https://azure.github
             var result = await HttpStart.Run(
                 new HttpRequestMessage()
                 {
-                    Content = new StringContent(JsonConvert.SerializeObject(string.Empty), Encoding.UTF8, "application/json"),
-                    RequestUri = new Uri("https://www.microsoft.com/"),
+                    Content = new StringContent("{}", Encoding.UTF8, "application/json"),
+                    RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
                 },
                 durableOrchestrationClientBaseMock.Object, 
                 functionName,
@@ -129,7 +193,7 @@ Then, mock the behavior of [DurableOrchestrationClientBase](https://azure.github
             result.Headers.RetryAfter.Delta.Should().Be(TimeSpan.FromSeconds(10));
         }
     }
-    ```
+```
 
 ## Unit testing orchestrator functions
 
@@ -139,7 +203,36 @@ In this section the unit tests will validate the output of the `E1_HelloSequence
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-And the unit test for this function is `Run_retuns_multiple_greetings`:
+The unit test code will start with creating a mock:
+
+```csharp
+    var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
+```
+
+Then the activity method calls will be mocked:
+
+```csharp
+    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
+    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
+    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
+```
+
+Next the unit test will call `HelloSequence.Run` method:
+
+```csharp
+    var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
+```
+
+And finally the output will be validated:
+
+```csharp
+    Assert.Equal(3, result.Count);
+    Assert.Equal("Hello Tokyo!", result[0]);
+    Assert.Equal("Hello Seattle!", result[1]);
+    Assert.Equal("Hello London!", result[2]);
+```
+
+After combining all steps, the `Run_retuns_multiple_greetings` unit test will have the following code:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceTests.cs)]
 

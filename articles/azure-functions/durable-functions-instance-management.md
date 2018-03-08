@@ -66,7 +66,7 @@ module.exports = function (context, input) {
 
 ## Querying instances
 
-The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` (required), `showHistory` (optional), and `showHistoryOutput` (optional) as parameters. If `showHistory` is set to `true`, the response will contain the execution history. And if `showHistoryOutput` is set to `true` as well, the execution history will contain activity outputs. The method returns an object with the following properties:
+The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` (required), `showHistory` (optional), and `showHistoryOutput` (optional) as parameters. If `showHistory` is set to `true`, the response will contain the execution history. If `showHistoryOutput` is set to `true` as well, the execution history will contain activity outputs. The method returns an object with the following properties:
 
 * **Name**: The name of the orchestrator function.
 * **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
@@ -151,46 +151,7 @@ The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable
 
 Here is an example HTTP-trigger function that demonstrates how to use this API:
 
-```csharp
-public static class HttpSyncStart
-{
-    private const string Timeout = "timeout";
-    private const string RetryInterval = "retryInterval";
-
-    [FunctionName("HttpSyncStart")]
-    public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
-    HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClientBase starter,
-    string functionName,
-    TraceWriter log)
-    {
-        // Function input comes from the request content.
-        dynamic eventData = await req.Content.ReadAsAsync<object>();
-        string instanceId = await starter.StartNewAsync(functionName, eventData);
-
-        log.Info($"Started orchestration with ID = '{instanceId}'.");
-
-        TimeSpan? timeout = GetTimeSpan(req, Timeout);
-        TimeSpan? retryInterval = GetTimeSpan(req, RetryInterval);
-            
-        return await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
-            req,
-            instanceId,
-            timeout,
-            retryInterval);
-    }
-
-    private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
-    {
-        var queryParameterStringValue = request.GetQueryNameValuePairs()?
-            .FirstOrDefault(x => x.Key == queryParameterName)
-            .Value;
-        if (string.IsNullOrEmpty(queryParameterStringValue)) { return null; }
-        return TimeSpan.FromSeconds(double.Parse(queryParameterStringValue));
-    }
-}
-```
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
 The function can be called with the following line using 2-seconds timeout and 0.5-second retry interval:
 
@@ -198,7 +159,7 @@ The function can be called with the following line using 2-seconds timeout and 0
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-And depending on the time required to get the response from the orchestration instance there are two cases:
+Depending on the time required to get the response from the orchestration instance there are two cases:
 
 1. The orchestration instances complete within the defined timeout (in this case 2 seconds), the response is the actual orchestration instance output delivered synchronously:
 
@@ -222,16 +183,16 @@ And depending on the time required to get the response from the orchestration in
         HTTP/1.1 202 Accepted
         Content-Type: application/json; charset=utf-8
         Date: Thu, 14 Dec 2017 06:13:51 GMT
-        Location: http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==
+        Location: http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}
         Retry-After: 10
         Server: Microsoft-HTTPAPI/2.0
         Transfer-Encoding: chunked
 
         {
             "id": "d3b72dddefce4e758d92f4d411567177",
-            "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==",
-            "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA==",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code=m3SSX//9kxava8OfPn1/LQbYdEge59JxMwiPSPB11EuTzbqFIAn1HA=="
+            "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
