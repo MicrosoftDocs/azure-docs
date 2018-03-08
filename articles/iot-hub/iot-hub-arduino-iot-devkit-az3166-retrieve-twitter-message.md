@@ -1,6 +1,6 @@
 ---
-title: 'Route twitter message with Azure Functions | Microsoft Docs'
-description: Use the motion sensor to detect shaking and use Azure Functions to find a random tweet with a #hashtag that you specify.
+title: 'Retrieve a Twitter message with Azure Functions | Microsoft Docs'
+description: Use the motion sensor to detect shaking and use Azure Functions to find a random tweet with a hashtag that you specify.
 services: iot-hub
 documentationcenter: ''
 author: liydu
@@ -17,7 +17,7 @@ ms.date: 03/07/2018
 ms.author: liydu
 
 ---
-# Shake, Shake for a Tweet
+# Shake, Shake for a Tweet -- Retrieve a Twitter message with Azure Functions!
 
 In this project, you learn how to use the motion sensor to trigger an event using Azure Functions. The app retrieves a random tweet with a #hashtag you configure in your Arduino sketch. The tweet displays on the DevKit screen.
 
@@ -119,7 +119,7 @@ Use `Ctrl+P` (macOS: `Cmd+P`) to run `task cloud-deploy` to start deploying the 
 
 ## Test the project
 
-After app initialization, click and rfelease button A, then gently shake the DevKit board. This action retrieves a random tweet, which contains the hashtag you specified earlier. Within a few seconds, a tweet displays on your DevKit screen:
+After app initialization, click and release button A, then gently shake the DevKit board. This action retrieves a random tweet, which contains the hashtag you specified earlier. Within a few seconds, a tweet displays on your DevKit screen:
 
 ### Arduino application initializing...
 ![Arduino-application-initializing](media/iot-hub-arduino-iot-devkit-az3166-shake-shake/result-1.png)
