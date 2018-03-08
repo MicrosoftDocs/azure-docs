@@ -7,7 +7,7 @@ manager: listonb
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: alehall
 ms.custom: mvc
 ---
@@ -361,12 +361,12 @@ To do that, find the `dockerfile` for the Spark image located at `$sparkdir/reso
 
 WORKDIR /opt/spark/work-dir
 
-ADD /path/to/SparkPi-assembly-0.1.0.jar SparkPi-assembly-0.1.0.jar
+ADD /path/to/SparkPi-assembly-0.1.0-SNAPSHOT.jar SparkPi-assembly-0.1.0-SNAPSHOT.jar
 
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
 
-Where `/path/to/SparkPi-assembly-0.1.0.jar` is a path to the `SparkPi-assembly-0.1.0.jar` on your local filesystem.
+Where `/path/to/SparkPi-assembly-0.1.0-SNAPSHOT.jar` is a path to the `SparkPi-assembly-0.1.0-SNAPSHOT.jar` on your local filesystem.
 
 Build and push the image with the `dockerfile` change.
 
