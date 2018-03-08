@@ -2,15 +2,16 @@
 title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs 
 description: This article discusses the T-SQL differences between Azure SQL Database Managed Instance and SQL Server. 
 services: sql-database 
-author: CarlRabeler 
+author: jovanpop-msft 
+ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: article 
 ms.date: 03/07/2018 
-ms.author: carlrab 
+ms.author: jovanpop 
 manager: cguyer 
 --- 
-# Azure SQL Database Managed Instance (preview) T-SQL differences from SQL Server 
+# Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
 Azure SQL Database Managed Instance (preview) provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
  - [T-SQL differences and unsupported features](#Differences)
@@ -389,7 +390,7 @@ Each Managed Instance has up to 35TB reserved storage space, and every database 
 
 ### Incorrect configuration of SAS key during database restore
 
-`RESTORE DATABASE` that reads .bak file might be constantly re-trying to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
+`RESTORE DATABASE` that reads .bak file might be constantly retrying to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
 Make sure that you remove leading `?` from the SAS key generated using Azure portal.
 
 ### Tooling
