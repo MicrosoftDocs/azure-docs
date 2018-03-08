@@ -123,7 +123,7 @@
       items:
       - name: Disaster recovery of Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
-    - name: Replication, failover and failback
+    - name: Replication, failover, and failback
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
@@ -159,7 +159,7 @@
         href: vmware-azure-set-up-process-server-scale.md
     - name: Disaster recovery
       items:
-      - name: Disaster recovery of VMware VMs with multi-tenant support and cSP
+      - name: Disaster recovery of VMware VMs with multi-tenant support and CSP
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
       - name: Replicate VMware virtual machines to Azure using PowerShell
         href: vmware-azure-disaster-recovery-powershell.md
