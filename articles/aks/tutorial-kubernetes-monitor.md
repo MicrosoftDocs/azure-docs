@@ -55,7 +55,7 @@ To retrieve these values, Select **OMS Workspace** from the container solutions 
 
 ## Create Kubernetes secret
 
-Store the OMS workspace settings in a Kubernetes secret named `omsagent-secret` using the [kubectl create secret][kubectl-create-secret] command. Update `WSID=WORKSPACE_ID` with your OMS workspace ID and `WORKSPACE_KEY` with the workspace key.
+Store the OMS workspace settings in a Kubernetes secret named `omsagent-secret` using the [kubectl create secret][kubectl-create-secret] command. Update `WORKSPACE_ID` with your OMS workspace ID and `WORKSPACE_KEY` with the workspace key.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
