@@ -180,7 +180,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
