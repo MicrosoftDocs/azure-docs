@@ -44,7 +44,7 @@ Here are some data movement tools we have provided on the DSVM.
 | Supported DSVM Versions      | Windows, Linux     |
 | Typical Uses      | Importing, exporting data to and from Azure storage, Azure Data Lake Store      |
 |  How to use / run it?    |   Open a command prompt, then type `az` to get help.    |
-| Links to Samples      | [Using Azure CLI](https://docs.microsoft.com/cli/azure/reference-index?viee-cli-latest)     |
+| Links to Samples      | [Using Azure CLI](https://docs.microsoft.com/cli/azure)     |
 | Related Tools on the DSVM      | AzCopy, AdlCopy      |
 
 
