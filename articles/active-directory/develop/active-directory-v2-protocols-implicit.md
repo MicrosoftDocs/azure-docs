@@ -213,7 +213,7 @@ error=user_authentication_required
 
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token.  You can choose to handle this case in whatever way makes sense for your application.
 
-## Validating tokens
+## Validating access tokens
 
 Once you receive an access_token, make sure to validate the signature of the token as well as the following claims. You may also choose to validate additional claims based on your scenario. 
 
