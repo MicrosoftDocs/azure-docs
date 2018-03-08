@@ -161,6 +161,13 @@ You can also upload a VHD to your storage account using one of the following:
 -	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
+> [!IMPORTANT]
+> If you are using AzCopy uploading your VHD to Azure, make sure you have set [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running upload script. 
+> If the destination is a blob and this option is not specified, by default, AzCopy creates a block blob.
+> 
+> 
+
+
 
 ## Create a managed image from the uploaded VHD 
 
