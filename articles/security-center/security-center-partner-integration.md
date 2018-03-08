@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2018
+ms.date: 03/08/2018
 ms.author: yurid
 
 ---
@@ -80,11 +80,16 @@ See [managing connected partner solutions](security-center-partner-solutions.md)
 
 ### Discovered solutions
 
-The **Discovered solutions** section shows all the solutions that were added via Azure but are not connected to Security Center. Select **CONNECT** under a solution to integrate with Security Center and be notified on security alerts.
+Security Center automatically discovers security solutions running in Azure but are not connected to Security Center and displays the solutions in the **Discovered solutions** section. This includes Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), as well as partner solutions.
+
+> [!NOTE]
+> The discovered solutions feature is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+>
+>
+
+Select **CONNECT** under a solution to integrate with Security Center and be notified on security alerts.
 
 ![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Security Center automatically discovers other security solutions running in Azure. This includes Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), as well as partner solutions that are running in Azure.
 
 Security Center also discovers solutions deployed in the subscription that are able to forward Common Event Format (CEF) logs. Learn how to [connect a security solution](quick-security-solutions.md) that uses CEF logs to Security Center.
 
