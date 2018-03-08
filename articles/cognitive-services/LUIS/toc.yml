@@ -49,10 +49,18 @@
       href: luis-quickstart-ruby-add-utterance.md
 - name: Tutorials
   items: 
-  - name: Integrate LUIS with a bot using Node.js
-    href: luis-nodejs-tutorial-build-bot-framework-sample.md
-  - name: Integrate LUIS with a bot using C#
-    href: luis-csharp-tutorial-build-bot-framework-sample.md
+  - name: Integrate LUIS with a bot
+    items: 
+      - name: Node.js
+      href: luis-nodejs-tutorial-build-bot-framework-sample.md
+      - name: C#
+      href: luis-csharp-tutorial-build-bot-framework-sample.md
+  - name: Gain Application Insights with a bot 
+    items: 
+    - name: Node.js
+      href: luis-tutorial-function-appinsights.md
+    - name: C#
+      href: luis-tutorial-bot-csharp-appinsights.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
   - name: Add list entity for increased entity detection using Node.js
@@ -63,10 +71,6 @@
     href: luis-tutorial-batch-testing.md
   - name: Correct spelling with Bing Spell Check API v7
     href: luis-tutorial-bing-spellcheck.md
-  - name: Gain Application Insights with a bot in Node.js
-    href: luis-tutorial-function-appinsights.md
-  - name: Gain Application Insights with a bot in C#
-    href: luis-tutorial-bot-csharp-appinsights.md
 - name: Samples
   items:
   - name: Code samples
