@@ -20,7 +20,7 @@ ms.author: jdial
 
 # Create, change, or delete a route table
 
-Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](create-user-defined-route-portal.md) tutorial, before completing tasks in this article.
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](tutorial-create-route-table-portal.md) tutorial, before completing tasks in this article.
 
 ## Before you begin
 
@@ -35,7 +35,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 There is a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. In the top-left corner of the portal, select **+ New**.
+1. In the top-left corner of the portal, select **+ Create a resource**.
 2. Select **Networking**, then select **Route table**.
 3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. The **Disable BGP route propagation** option prevents on-premises routes from being propagated to an Azure virtual network via BGP. If your virtual network is not connected to an Azure network gateway (VPN or ExpressRoute), leave the option *Disabled*. 
 
