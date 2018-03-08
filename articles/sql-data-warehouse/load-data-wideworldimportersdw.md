@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
-description: A tutorial that uses the Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from Azure blob storage to Azure SQL Data Warehouse. 
+description: This tutorial uses the Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from Azure blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
 author: ckarst
@@ -23,16 +23,17 @@ ms.reviewer: barbkess
 
 # Tutorial: Load data to Azure SQL Data Warehouse
 
-PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
+This tutorial loads the WideWorldImportersDW data warehouse from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
 > * Connect to the data warehouse with SSMS
 > * Create a user designated for loading data
-> * Create external tables for data in Azure blob storage
+> * Create external tables that use Azure blob as the data source
 > * Use the CTAS T-SQL statement to load data into your data warehouse
 > * View the progress of data as it is loading
+> * Generate a year of data in the date dimension and sales fact tables
 > * Create statistics on the newly loaded data
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -219,17 +220,17 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create external tables and objects
 
-You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use [Polybase](/sql/relational-databases/polybase/polybase-guide.md) to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
-Run the following SQL scripts specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. 
+Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a public Azure blob.
 
-1. In the previous section, you logged into your data warehouse as LoaderRC20. In SSMS, right-click your LoaderRC20 connection and select **New Query**.  A new query window appears. 
+1. In the previous section, you logged into your data warehouse as LoaderRC60. In SSMS, right-click your LoaderRC60 connection and select **New Query**.  A new query window appears. 
 
     ![New loading query window](media/load-data-wideworldimportersdw/new-loading-query.png)
 
-2. Compare your query window to the previous image.  Verify your new query window is running as LoaderRC20 and performing queries on your MySampleDataWarehouse database. Use this query window to perform all of the loading steps.
+2. Compare your query window to the previous image.  Verify your new query window is running as LoaderRC60 and performing queries on your SampleDW database. Use this query window to perform all of the loading steps.
 
-3. Create a master key for the MySampleDataWarehouse database. You only need to create a master key once per database. 
+3. Create a master key for the SampleDW database. You only need to create a master key once per database. 
 
     ```sql
     CREATE MASTER KEY;
@@ -246,7 +247,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL statement to specify formatting characteristics and options for the external data file. This  statement specifies the external data is stored as text and the values are separated by the pipe ('|') character. The external file is compressed with Gzip. 
+5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL statement to specify the formatting characteristics and options for the external data file. This statement specifies the external data is stored as text and the values are separated by the pipe ('|') character.  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -261,14 +262,14 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-6.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) statement to create a schema for your external file format. The schema provides a way to organize the external tables you are about to create.
+6.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) statements to create a schema for your external file format. The ext schema provides a way to organize the external tables you are about to create. The wwi schema organizes the standard tables that will contain the data. 
 
     ```sql
     CREATE SCHEMA ext;
     CREATE SCHEMA wwi;
     ```
 
-7. Create the external tables. The table definitions are stored in SQL Data Warehouse, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
+7. Create the external tables. The table definitions are stored in SQL Data Warehouse, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob you defined previously in the external data source.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[dimension_City](
@@ -567,7 +568,11 @@ Run the following SQL scripts specify information about the data you wish to loa
 	    [Fiscal Year Label] [nvarchar](10) NOT NULL,
 	    [ISO Week Number] [int] NOT NULL
     )
-    WITH (DISTRIBUTION = ROUND_ROBIN, CLUSTERED INDEX ([Date]));
+    WITH 
+    (
+        DISTRIBUTION = REPLICATE,
+        CLUSTERED INDEX ([Date])
+    );
     ```
 
 10. Create the Sale fact table.
@@ -732,7 +737,7 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
     CREATE TABLE [wwi].[seed_Sale]
     WITH
     ( 
-        DISTRIBUTION = HASH([Sale Key]),
+        DISTRIBUTION = HASH([WWI Invoice ID]),
         CLUSTERED COLUMNSTORE INDEX
     )
     AS
@@ -808,11 +813,67 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
 
     ![View loaded tables](media/load-data-wideworldimportersdw/view-loaded-tables.png)
 
-## Create stored procedures for generating data 
+## Create tables and procedures to generate the Date and Sales tables
 
-The table [wwi].[seed_Sale] contains the data loaded from blob. This section expands the number of rows. 
+This section creates the wwi.dimension_Date and wwi.fact_Sales tables. It also creates stored procedures that can generate millions of rows in the wwi.dimension_Date and wwi.fact_Sales tables.
 
-1. Create the following procedure that will increase the number of rows in [wwi].[seed_Sale] by a factor of 8. 
+1. Create the dimension_Date and fact_Sale tables.  
+
+    ```sql
+    CREATE TABLE [wwi].[dimension_Date]
+    (
+	    [Date] [datetime] NOT NULL,
+	    [Day Number] [int] NOT NULL,
+	    [Day] [nvarchar](10) NOT NULL,
+	    [Month] [nvarchar](10) NOT NULL,
+	    [Short Month] [nvarchar](3) NOT NULL,
+	    [Calendar Month Number] [int] NOT NULL,
+	    [Calendar Month Label] [nvarchar](20) NOT NULL,
+	    [Calendar Year] [int] NOT NULL,
+	    [Calendar Year Label] [nvarchar](10) NOT NULL,
+	    [Fiscal Month Number] [int] NOT NULL,
+	    [Fiscal Month Label] [nvarchar](20) NOT NULL,
+	    [Fiscal Year] [int] NOT NULL,
+	    [Fiscal Year Label] [nvarchar](10) NOT NULL,
+	    [ISO Week Number] [int] NOT NULL
+    )
+    WITH 
+    (
+        DISTRIBUTION = REPLICATE,
+        CLUSTERED INDEX ([Date])
+    );
+    CREATE TABLE [wwi].[fact_Sale]
+    (
+	    [Sale Key] [bigint] IDENTITY(1,1) NOT NULL,
+	    [City Key] [int] NOT NULL,
+	    [Customer Key] [int] NOT NULL,
+	    [Bill To Customer Key] [int] NOT NULL,
+	    [Stock Item Key] [int] NOT NULL,
+	    [Invoice Date Key] [date] NOT NULL,
+	    [Delivery Date Key] [date] NULL,
+	    [Salesperson Key] [int] NOT NULL,
+	    [WWI Invoice ID] [int] NOT NULL,
+	    [Description] [nvarchar](100) NOT NULL,
+	    [Package] [nvarchar](50) NOT NULL,
+	    [Quantity] [int] NOT NULL,
+	    [Unit Price] [decimal](18, 2) NOT NULL,
+	    [Tax Rate] [decimal](18, 3) NOT NULL,
+	    [Total Excluding Tax] [decimal](18, 2) NOT NULL,
+	    [Tax Amount] [decimal](18, 2) NOT NULL,
+	    [Profit] [decimal](18, 2) NOT NULL,
+	    [Total Including Tax] [decimal](18, 2) NOT NULL,
+	    [Total Dry Items] [int] NOT NULL,
+	    [Total Chiller Items] [int] NOT NULL,
+	    [Lineage Key] [int] NOT NULL
+    )
+    WITH
+    (
+	    DISTRIBUTION = HASH ( [WWI Invoice ID] ),
+	    CLUSTERED COLUMNSTORE INDEX
+    )
+    ```
+
+2. Create [wwi].[InitialSalesDataPopulation] to increase the number of rows in [wwi].[seed_Sale] by a factor of eight. 
 
     ```sql
     CREATE PROCEDURE [wwi].[InitialSalesDataPopulation] AS
@@ -840,12 +901,11 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
     END
     ```
 
-3. Create stored procedures for generating data.
+3. Create this stored procedure that populates rows into wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[PopulateDateDimensionForYear] @Year [int] AS
     BEGIN
-	    --drop table #month
 	    IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL 
 		    DROP TABLE #month
 	    CREATE TABLE #month (
@@ -856,7 +916,6 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
 	    INSERT INTO #month
 	        SELECT 1, 31 UNION SELECT 2, CASE WHEN (@YEAR % 4 = 0 AND @YEAR % 100 <> 0) OR @YEAR % 400 = 0 THEN 29 ELSE 28 END UNION SELECT 3,31 UNION SELECT 4,30 UNION SELECT 5,31 UNION SELECT 6,30 UNION SELECT 7,31 UNION SELECT 8,31 UNION SELECT 9,30 UNION SELECT 10,31 UNION SELECT 11,30 UNION SELECT 12,31
 
-	    --drop table #days
 	    IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL 
 		    DROP TABLE #days
 	    CREATE TABLE #days (days int)
@@ -899,9 +958,7 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
 	DROP table #days;
     END;
     ```
-
-
-3. Create this procedure that populates the date table and the sales table
+4. Create this procedure that populates the wwi.dimension_Date and wwi.fact_Sales tables. It calls [wwi].[PopulateDateDimensionForYear] to populate wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -910,15 +967,6 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
         SET XACT_ABORT ON;
 
 	    EXEC [wwi].[PopulateDateDimensionForYear] @Year;
-
-	-- DECLARE @LineageKey int 
-	-- SET @LineageKey = (select isnull(max([Lineage Key]),0) + 1 from Integration.Lineage)
-
-	/*
-	    INSERT Integration.Lineage
-		    ([Lineage Key], [Data Load Started], [Table Name], [Data Load Completed], [Was Successful], [Source System Cutoff Time])
-	    SELECT @LineageKey, SYSDATETIME(), N'Sale', NULL, 0, CAST(@year as CHAR(4)) + '1231'
-	*/
 
 	    DECLARE @OrderCounter bigint = 0;
 	    DECLARE @NumberOfSalesPerDay bigint = @EstimatedRowsPerDay;
@@ -933,13 +981,6 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
 		    SET @DateCounter= CAST(@Year as char(4)) + '0101';
 
 	    PRINT 'Targeting ' + CAST(@NumberOfSalesPerDay AS varchar(20)) + ' sales per day.';
-
-    	/* REMOVED MAX LIMIT BELOW FOR DW EXPANSION */
-	    --IF @NumberOfSalesPerDay > 10000000
-	    --BEGIN
-	    --	PRINT 'WARNING: Limiting sales to 10000000 per day';
-	    --	SET @NumberOfSalesPerDay = 10000000;
-	    --END;
 
 	    DECLARE @OutputCounter varchar(20);
 	    DECLARE @variance DECIMAL(18,10);
@@ -969,27 +1010,24 @@ The table [wwi].[seed_Sale] contains the data loaded from blob. This section exp
 		    SET @DateCounter = DATEADD(day, 1, @DateCounter);
 	    END;
 
-	    /*
-	    UPDATE Integration.Lineage
-		    SET [Data Load Completed] = SYSDATETIME(),
-		        [Was Successful] = 1;
-	    */
-        END;
+    END;
 
-## Generate sales and date tables
+## Generate millions of rows
+Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
 
-1. Run the procedure to seed the [wwi].[seed_Sale] with more rows.
+
+1. Run is procedure to seed the [wwi].[seed_Sale] with more rows.
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Run this procedure to populate 100,000 rows per day for each day in the year 2000.
+2. Run this procedure to populate wwi.fact_Sales with 100,000 rows per day for each day in the year 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
     ```
-3. This might take a while as it progresses through the year.  To see which day the current process is on, run this SQL command:
+3. The data generation in the previous step might take a while as it progresses through the year.  To see which day the current process is on, run this SQL command:
 
     ```sql
     SELECT MAX([Invoice Date Key]) FROM wwi.fact_Sale;
