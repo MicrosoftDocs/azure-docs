@@ -34,39 +34,39 @@ Instructions below applied to all of Windows, Linux, and Mac development environ
 
 ## Setup project locally
 
-1. Open a command prompt on your machine. The instructions below works for all of Windows, Linux, and Mac environments.
+1. Open a command prompt on your machine. The instructions below works for all of Windows, Linux, and Mac development environments.
 
 2. Create an ASP.NET core MVC web application
-```
-dotnet new mvc -n LinuxProfilerTest
-```
+    ```
+    dotnet new mvc -n LinuxProfilerTest
+    ```
 3. Change directory in command prompt to the project root folder
 
 4. Add Nuget package for collecting profiler traces.
-```
-dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
-```
+    ```
+    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
+    ```
 5. Add a line of code to randomly delay a few seconds in HomeController.cs
 
-```csharp
-    using System.Threading;
-    ...
+    ```csharp
+        using System.Threading;
+        ...
 
-    public IActionResult About()
-        {
-            Random r = new Random();
-            int delay = r.Next(5000, 10000);
-            Thread.Sleep(delay);
-            return View();
-        }
-```
+        public IActionResult About()
+            {
+                Random r = new Random();
+                int delay = r.Next(5000, 10000);
+                Thread.Sleep(delay);
+                return View();
+            }
+    ```
 6. Save and commit your changes to the local repository
 
-```
-    git init
-    git add .
-    git commit -m "first commit"
-```
+    ```
+        git init
+        git add .
+        git commit -m "first commit"
+    ```
 
 ## Create Azure App Service for hosting your project
 1. Create an App Services Linux environment
@@ -87,39 +87,39 @@ More deployment options are available [here](https://docs.microsoft.com/azure/ap
 
 1. In your Command prompt, navigate to your project root folder. Add Git remote repository to point to the one on App Services:
 
-```
-git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
-```
-* Use the 'username' from the step of "create deployment credential."
-* Use the 'app name' from the step of "create app service."
+    ```
+    git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
+    ```
+    * Use the 'username' from the step of "create deployment credential."
+    * Use the 'app name' from the step of "create app service."
 
 2. Deploy the project by pushing the changes to Azure
 
-```
-git push azure master
-```
+    ```
+    git push azure master
+    ```
 You will see output similar to the following:
 
-```
-Counting objects: 9, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
-Total 9 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'd7369a99d7'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
-remote: ......
-remote:   Restoring packages for /home/site/repository/EventPipeExampleLinux.csproj...
-remote: .
-remote:   Installing Newtonsoft.Json 10.0.3.
-remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
-…
+    ```
+    Counting objects: 9, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (8/8), done.
+    Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
+    Total 9 (delta 3), reused 0 (delta 0)
+    remote: Updating branch 'master'.
+    remote: Updating submodules.
+    remote: Preparing deployment for commit id 'd7369a99d7'.
+    remote: Generating deployment script.
+    remote: Running deployment command...
+    remote: Handling ASP.NET Core Web Application deployment.
+    remote: ......
+    remote:   Restoring packages for /home/site/repository/EventPipeExampleLinux.csproj...
+    remote: .
+    remote:   Installing Newtonsoft.Json 10.0.3.
+    remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
+    …
 
-```
+    ```
 
 ## Add Application Insights to monitor your web apps
 1. [Create an Application Insights resource](./app-insights-create-new-resource.md)
@@ -132,7 +132,7 @@ remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
 
     ![Set app settings](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
 
-Changing app settings will automatically restart the site. Once the new settings are applied, the profiler will start to run for 2 minutes immediately. then it will run for 2 minutes every hour.
+    Changing app settings will automatically restart the site. Once the new settings are applied, the profiler will start to run for 2 minutes immediately. then it will run for 2 minutes every hour.
 
 3. Generate some traffic to your website. You can refresh the site ```About``` page for a few times.
 
