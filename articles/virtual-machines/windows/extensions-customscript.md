@@ -136,7 +136,7 @@ When executing the `commandToExecute` command, the extension will have set this 
 
 Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
 ```json
-	"commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+	"commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
 Path information after the first URI segment is retained for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  

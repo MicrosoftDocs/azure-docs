@@ -3209,6 +3209,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-manage-vm-backup.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-manage-vm-protect",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-faq.md",
             "redirect_url": "/azure/azure-stack/azure-stack-asdk-release-notes",
             "redirect_document_id": false
@@ -3396,6 +3401,11 @@
         {
             "source_path": "articles/aks/azure-files.md",
             "redirect_url": "/azure/aks/azure-files-dynamic-pv",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
+            "redirect_url": "/azure/aks/jenkins-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -17357,6 +17367,11 @@
             "source_path": "articles/python-how-to-install.md",
             "redirect_url": "/python/azure/python-sdk-azure-install",
             "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-manage-network.md",
+        "redirect_url": "/azure/virtual-network/manage-virtual-network",
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
