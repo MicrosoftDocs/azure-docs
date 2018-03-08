@@ -31,42 +31,40 @@ In order to complete the steps within this article, you need the following.
 
 Clone the Spark project repository to your development system.
 
-```azurecli-interactive
-$ git clone https://github.com/apache/spark
+```console
+git clone https://github.com/apache/spark
 ```
 
 Change into the directory of the cloned repository, and save the path to the Spark source to a variable.
 
-```azurecli-interactive
-$ cd spark
-$ sparkdir=$(pwd)
+```console
+cd spark
+sparkdir=$(pwd)
 ```
 
 ## Deploy Spark container image
 
-Spark container image is necessary because Kubernetes requires users to supply images that can be deployed into containers within pods.
+Kubernetes requires users to supply images that can be deployed into containers within pods. To prepare the Spark image, build Spark source code with Kubernetes support.
 
-Build Spark source code with Kubernetes support.
-
-```azurecli-interactive
-$ ./build/mvn -Pkubernetes -DskipTests clean package
+```console
+./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
 Build a container image.
 
-```azurecli-interactive
-$ ./bin/docker-image-tool.sh -r <your container repository name> -t <tag> build
+```console
+./bin/docker-image-tool.sh -r <your container repository name> -t <tag> build
 ```
 
 Publish the container image.
 
-```azurecli-interactive
-$ ./bin/docker-image-tool.sh -r <your container repository name> -t <tag> push
+```console
+./bin/docker-image-tool.sh -r <your container repository name> -t <tag> push
 ```
 
-In commands above, `<your container repository name>` is a name of existing Docker Hub account or Azure Container Registry, and `<tag>` is your choice for a name of the tag the Spark container image should be published with.
+Parameter `<your container repository name>` is a name of existing Docker Hub account or Azure Container Registry. Parameter `<tag>` is your choice for a name of the tag the Spark container image should be published with.
 
-For example, if the Docker Hub was used as a container registry with `lenadroid` as an account name, there would be a new container repository called `spark` created under existing account as a result.
+For example, if the Docker Hub was used as a container registry with account name `lenadroid`, the image would be published in a repository called `spark` under the specified tag.
 
 ![Container image](media/aks-spark-job/container-image.png)
 
@@ -76,19 +74,21 @@ Next step is preparing a Spark job to run on a Kubernetes cluster.
 
 Navigate to a directory where you would like to create the project for a Spark job.
 
-```azurecli-interactive
-$ cd /myprojects
+```console
+cd /myprojects
 ```
 
 Create a new Scala project from a template.
 
-```azurecli-interactive
-$ sbt new sbt/scala-seed.g8
+```console
+sbt new sbt/scala-seed.g8
 ```
 
-The command above will prompt for a project name, enter `SparkPi`.
+The command will prompt for a project name, enter `SparkPi`.
 
-```azurecli-interactive
+Output:
+
+```console
 A minimal Scala project.
 
 name [Scala Seed Project]: SparkPi
@@ -98,42 +98,42 @@ Template applied in ./sparkpi
 
 Navigate to the newly created project directory.
 
-```azurecli-interactive
-$ cd sparkpi
+```console
+cd sparkpi
 ```
 
 Run the following code to add an SBT plugin that allows packaging the project as a `jar` file.
 
-```azurecli-interactive
-$ touch project/assembly.sbt
-$ echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+```console
+touch project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
 ```
 
 Run the command to copy the code file to calculate Pi number from examples directory into the newly created project, and add necessary dependencies to `build.sbt`.
 
-```azurecli-interactive
-$ examplesdir="src/main/scala/org/apache/spark/examples"
-$ mkdir -p $examplesdir
-$ cp $sparkdir/examples/$examplesdir/SparkPi.scala $examplesdir/SparkPi.scala
+```console
+examplesdir="src/main/scala/org/apache/spark/examples"
+mkdir -p $examplesdir
+cp $sparkdir/examples/$examplesdir/SparkPi.scala $examplesdir/SparkPi.scala
 
-$ cat <<EOT >> build.sbt
+cat <<EOT >> build.sbt
 // https://mvnrepository.com/artifact/org.apache.spark/spark-sql
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-$ sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
-$ sed -ie 's/name.*/name := "SparkPi",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
-To package the project into a `jar`, run the command below.
+To package the project into a `jar`, run the following command.
 
-```azurecli-interactive
-$ sbt assembly
+```console
+sbt assembly
 ```
 
 After successful packaging, you should see output similar to the following.
 
-```azurecli-interactive
+```console
 [info] Packaging /Users/me/myprojects/sparkpi/target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar ...
 [info] Done packaging.
 [success] Total time: 10 s, completed Mar 6, 2018 11:07:54 AM
@@ -141,20 +141,20 @@ After successful packaging, you should see output similar to the following.
 
 Upload the `jar` file to a remotely accessible location. For example, you can use Azure Storage Account [instructions][storage-account] to create a storage account container and upload the `jar` file.
 
-```azurecli-interactive
-$ container_name=jars
-$ blob_name=SparkPi-assembly-0.1.0-SNAPSHOT.jar
-$ file_to_upload=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
-$ destination_file=SparkPi-assembly-0.1.0-SNAPSHOT.jar
+```console
+container_name=jars
+blob_name=SparkPi-assembly-0.1.0-SNAPSHOT.jar
+file_to_upload=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
+destination_file=SparkPi-assembly-0.1.0-SNAPSHOT.jar
 
-$ echo "Creating the container..."
-$ az storage container create --name $container_name
-$ az storage container set-permission --name $container_name --public-access blob
+echo "Creating the container..."
+az storage container create --name $container_name
+az storage container set-permission --name $container_name --public-access blob
 
-$ echo "Uploading the file..."
-$ az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+echo "Uploading the file..."
+az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
 
-$ jarUrl=$(az storage blob url --container-name $container_name --name $blob_name | tr -d '"')
+jarUrl=$(az storage blob url --container-name $container_name --name $blob_name | tr -d '"')
 ```
 
 Variable `jarUrl` now contains the publicly accessible path to the `jar` file with the Spark job.
@@ -163,20 +163,25 @@ Variable `jarUrl` now contains the publicly accessible path to the `jar` file wi
 
 Discover the URL where Kubernetes API server is running at.
 
-```azurecli-interactive
-$ kubectl cluster-info
+```console
+kubectl cluster-info
+```
+
+Output:
+
+```console
 Kubernetes master is running at https://<your api server>:443
 ```
 
 Navigate back to the root of Spark repository.
 
-```azurecli-interactive
-$ cd $sparkdir
+```console
+cd $sparkdir
 ```
 
 Submit the job using `spark-submit`. Replacing `<k8s-apiserver-host>` and `<k8s-apiserver-port>` with the appropriate values according to your AKS master, `<spark-image>` with the corresponding container image in format of `<your container repository name>/spark:<tag>`.
 
-```azurecli-interactive
+```console
 $ ./bin/spark-submit \
     --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
     --deploy-mode cluster \
@@ -187,9 +192,11 @@ $ ./bin/spark-submit \
     $jarUrl
 ```
 
-This should start the Spark job using Kubernetes scheduler and show the progress of job stages.
+This operation should start the Spark job using Kubernetes scheduler and show the progress of job stages.
 
-```azurecli-interactive
+Output:
+
+```console
 2018-03-06 16:28:22 INFO  LoggingPodStatusWatcherImpl:54 - State changed, new state:
 	 pod name: spark-pi-2232778d0f663768ab27edc35cb73040-driver
 	 namespace: default
@@ -248,7 +255,7 @@ This should start the Spark job using Kubernetes scheduler and show the progress
 
 While the job is running, it is possible to see Spark driver pod and executor pods running.
 
-```azurecli-interactive
+```console
 $ kubectl get pods
 NAME                                               READY     STATUS     RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Init:0/1   0          4s
@@ -296,21 +303,26 @@ spark-pi-2232778d0f663768ab27edc35cb73040-exec-3   1/1       Running   0        
 
 After the job has finished, the driver pod will be in a "Completed" state.
 
-```azurecli-interactive
-$ kubectl get pods --show-all
+```console
+kubectl get pods --show-all
+```
+
+Output:
+
+```console
 NAME                                               READY     STATUS      RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
 
-Following command helps to see the logs of the driver pod. Rplacing the pod name with your driver pod's name.
+The following command helps to see the logs of the driver pod. Replace the pod name with your driver pod's name.
 
-```azurecli-interactive
-$ kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
+```console
+kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
 ```
 
-In this example, the logs show the job result.
+Output:
 
-```azurecli-interactive
+```console
 ... truncated ...
 
 2018-03-08 02:16:24 INFO  DAGScheduler:54 - Job 0 finished: reduce at SparkPi.scala:38, took 3.198249 s
@@ -320,14 +332,21 @@ Pi is roughly 3.152155760778804
 ... truncated ...
 ```
 
-When the job is running there is an option to setup port forwarding to access the Spark UI. Open up a new command line window and enter the following command.
+In this example, the logs show the job result.
 
-```azurecli-interactive
-$ kubectl port-forward spark-pi-2232778d0f663768ab27edc35cb73040-driver 4040:4040
+When the job is running, there is an option to set up port forwarding to access the Spark UI. Open up a new command-line window and enter the following command.
+
+```console
+kubectl port-forward spark-pi-2232778d0f663768ab27edc35cb73040-driver 4040:4040
+```
+
+Output:
+
+```console
 Forwarding from 127.0.0.1:4040 -> 4040
 ```
 
-Open the address `127.0.0.1:4040` in a browser to access Spark UI.
+To access Spark UI, open the address `127.0.0.1:4040` in a browser.
 
 ![Spark UI](media/aks-spark-job/spark-ui.png)
 
@@ -337,7 +356,7 @@ In the example above, the `jar` file of the Spark job was uploaded to a publicly
 
 To do that, find the `dockerfile` for the Spark image located at `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` directory, and add the `ADD` statement for the Spark job `jar` somewhere between `WORKDIR` and `ENTRYPOINT` declarations.
 
-```azurecli-interactive
+```console
 ... truncated ...
 
 WORKDIR /opt/spark/work-dir
@@ -351,15 +370,15 @@ Where `/path/to/SparkPi-assembly-0.1.0.jar` is a path to the `SparkPi-assembly-0
 
 Build and push the image with the `dockerfile` change.
 
-```azurecli-interactive
-$ ./bin/docker-image-tool.sh -r <your container repository name> -t <tag> build
-$ ./bin/docker-image-tool.sh -r <your container repository name> -t <tag> push
+```console
+./bin/docker-image-tool.sh -r <your container repository name> -t <tag> build
+./bin/docker-image-tool.sh -r <your container repository name> -t <tag> push
 ```
 
-This way, instead of indicating a remote `jar` URL when submitting a job, we can use the `local://` scheme with the path to the `jar` that is already in the Docker image.
+This way, instead of indicating a remote `jar` URL when submitting a job, `local://` scheme can be used with the path to the `jar` from the Docker image.
 
-```azurecli-interactive
-$ ./bin/spark-submit \
+```console
+./bin/spark-submit \
     --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
     --deploy-mode cluster \
     --name spark-pi \
@@ -368,7 +387,6 @@ $ ./bin/spark-submit \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/SparkPi-assembly-0.1.0-SNAPSHOT.jar
 ```
-
 
 # Next Steps
 
