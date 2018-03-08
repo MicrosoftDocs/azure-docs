@@ -44,7 +44,7 @@ client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
 Search for a single entity (Gibralter) and print out a short description:
 ```
-entity_data = client.entities.search(query="satya nadella")
+entity_data = client.entities.search(query="Gibralter")
 
 if entity_data.entities.value:
     # find the entity that represents the dominant one
@@ -56,7 +56,7 @@ if entity_data.entities.value:
         print('Searched for "Gibralter" and found a dominant entity with this description:')
         print(main_entities[0].description)
     else:
-        print("Couldn't find main entity satya nadella!")
+        print("Couldn't find main entity Gibralter!")
 
 else:
     print("Didn't see any data..")
