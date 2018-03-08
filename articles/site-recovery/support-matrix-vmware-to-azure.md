@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: raynew
 
 ---
@@ -66,9 +66,8 @@ Machine operating system (Linux) | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to
 
 **Component** | **Supported**
 --- | ---
-File systems | ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
+File systems | ext3, ext4, XFS
 Volume manager | LVM2
-Multipath software | Device Mapper
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
