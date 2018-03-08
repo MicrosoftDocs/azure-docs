@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/08/2018
 ms.author: jeedes
 
 ---
@@ -104,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![YardiOne Domain and URLs single sign-on information](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.yardione.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<y1-subdomain>.yardione.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `http://<subdomain>.yardione.com/yAuth2/trust`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [YardiOne Client support team](https://clientcentral.yardi.com) to get these values. 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. To configure single sign-on on **YardiOne** side, you need to send the downloaded **Metadata url** to [YardiOne support team](https://clientcentral.yardi.com). They set this setting to have the SAML SSO connection set properly on both sides.
+6. To configure single sign-on on **YardiOne** side, you need to send the generated **Metadata url** to [YardiOne support team](https://clientcentral.yardi.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
