@@ -24,6 +24,8 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## Device twin queries
 [Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins as a single JSON document containing all device twin information.
 Assume, for instance, that your IoT hub device twins have the following structure:
