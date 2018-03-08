@@ -1,7 +1,7 @@
 
 ---
 title: Support matrix for replication of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery | Microsoft Docs
-description: Summarizes the supported operating systems and components for replication of Hyper-V VMs in System Center VMM clouds to a secondary site with Azure Site Recovery.
+description: Summarizes support for Hyper-V VM replication in VMM clouds to a secondary site with Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -11,7 +11,7 @@ ms.date: 03/05/2018
 ms.author: raynew
 ---
 
-# Support matrix for replication of Hyper-V VMs to a secondary site \
+# Support matrix for replication of Hyper-V VMs to a secondary site
 
 This article summarizes what's supported when you use the [Azure Site Recovery](site-recovery-overview.md) service to replicate Hyper-V VMs managed in System Center Virtual Machine Manager (VMM)clouds to a secondary site. If you want to replicate Hyper-V VMs to Azure, review [this support matrix](hyper-v-azure-support-matrix.md).
 
@@ -24,7 +24,7 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 
 **Operating system** | **Details**
 --- | ---
-Windows Server 2012 R2 | Servers must be running the latest updates.<br/><br/> 
+Windows Server 2012 R2 | Servers must be running the latest updates.
 Windows Server 2016 |  VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.<br/><br/> Deployments that upgraded from System Center 2012 R2 VMM 2012 R2 to System Center 2016 aren't currently supported.
 
 
@@ -59,7 +59,7 @@ Guest VM - NIC teaming | No
 Guest VM - IPv4 | Yes
 Guest VM - IPv6 | No
 Gues VM - Windows/Linux - Static IP address | Yes
-Guest VM - Multi-NIC \ Yes
+Guest VM - Multi-NIC | Yes
 
 
 ## Storage
