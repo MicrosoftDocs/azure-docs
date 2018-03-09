@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 03/12/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -16,9 +16,25 @@ ms.custom: mvc
 
 This article shows how to troubleshoot issues when deploying containers to Azure Container Instances. It also describes some of the common issues you might run into.
 
+## View logs and stream output
+
+When you have a misbehaving container, your first two stops should be viewing its logs with [az container logs][az-container-logs], and streaming the container's STDOUT and STDERR with [az container attach][az-container-attach].
+
+### View logs
+
+To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. The container does not have to be running for you to pull the logs. For example, this is the log output from the *terminated* task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md):
+
+```console
+fdsa
+```
+
+### Attach output streams
+
+For...
+
 ## Get diagnostic events
 
-To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. But if your container does not deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
+ If your container does not deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -213,5 +229,6 @@ This error indicates that due to heavy load in the region in which you are attem
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 
 <!-- LINKS - Internal -->
+[az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
