@@ -128,7 +128,7 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
 
 ## Name resolution that uses your own DNS server
 
-This section covers VMs and role instances, and Web Apps.
+This section covers VMs and role instances, and web apps.
 
 ### VMs and role instances
 
@@ -166,34 +166,34 @@ If forwarding queries to Azure doesn't suit your needs, you should provide your 
 > 
 > 
 
-### Web Apps
-If you need to perform name resolution from your App Service Web App linked to a virtual network, to VMs in the same virtual network, then in addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), you also need to perform the following steps:
-* Enable virtual network integration for your App Service Web App, if not done already, as described in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* In the Azure portal, for the AppService plan hosting the Web App, select **Sync Network** under **Networking**, **Virtual Network Integration**, as shown in the following picture:
+### Web apps
+Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:
+* Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
 
-    ![Web Apps virtual network name resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
+    ![Screenshot of virtual network name resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
-Name resolution from your App Service Web App linked to a virtual network, to VMs in a different virtual network requires the use of custom DNS servers on both virtual networks, as follows:
-* Set up a DNS server in your target virtual network on a VM that can also forward queries to Azure’s recursive resolver (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
+Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in a different virtual network. This requires the use of custom DNS servers on both virtual networks, as follows: 
+* Set up a DNS server in your target virtual network, on a VM that can also forward queries to the recursive resolver in Azure (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
 * Set up a DNS forwarder in the source virtual network on a VM. Configure this DNS forwarder to forward queries to the DNS server in your target virtual network.
 * Configure your source DNS server in your source virtual network’s settings.
-* Enable virtual network integration for your App Service Web App to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* In the Azure portal, for the AppService plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**. 
+* Enable virtual network integration for your web app to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**. 
 
-## Specifying DNS servers
-When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (Resource Manager) / cloud service (classic). DNS servers specified for a cloud service/network interface get precedence over DNS servers specified for the virtual network.
+## Specify DNS servers
+When you are using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network. You can also do this per network interface (for Resource Manager), or per cloud service (for the classic deployment model). DNS servers specified for a cloud service or network interface get precedence over DNS servers specified for the virtual network.
 
 > [!NOTE]
-> Network connection properties, such as DNS server IPs, should not be edited directly within Windows VMs as they may get erased during service heal when the virtual network adaptor gets replaced. 
+> Network connection properties, such as DNS server IPs, should not be edited directly within Windows VMs. This is because they may get erased during service heal when the virtual network adaptor gets replaced. 
 > 
 > 
 
-When using the Resource Manager deployment model, DNS servers can be specified in the Portal, API/Templates: [Virtual network](https://msdn.microsoft.com/library/azure/mt163661.aspx) and [network interface](https://msdn.microsoft.com/library/azure/mt163668.aspx), or PowerShell: [Virtual network](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork) and [network interface](/powershell/module/azurerm.network/new-azurermnetworkinterface).
+When you are using the Resource Manager deployment model, you can specify DNS servers in the Azure portal. See [Virtual Networks](https://msdn.microsoft.com/library/azure/mt163661.aspx) and [Network Interfaces](https://msdn.microsoft.com/library/azure/mt163668.aspx). You can also do this in PowerShell. See [Virtual network](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork) and [network interface](/powershell/module/azurerm.network/new-azurermnetworkinterface).
 
-When using the classic deployment model, DNS servers for the virtual network can be specified in the Portal or [the *Network Configuration* file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, DNS servers are specified via [the *Service Configuration* file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/azure/new-azurevm).
+When you are using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, you can specify DNS servers via the [Service Configuration file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/azure/new-azurevm).
 
 > [!NOTE]
-> If you change the DNS settings for a virtual network/virtual machine that is already deployed, you need to restart each affected VM for the changes to take effect.
+> If you change the DNS settings for a virtual network or virtual machine that is already deployed, you need to restart each affected VM for the changes to take effect.
 > 
 > 
 
@@ -210,4 +210,4 @@ Classic deployment model:
 
 * [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
 * [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
-* [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md)
+* [Configure a Virtual Network by using a Network Configuration file](virtual-networks-using-network-configuration-file.md)
