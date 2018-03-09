@@ -1,6 +1,6 @@
 ---
-title: Reliable Actors on Service Fabric | Microsoft Docs
-description: Describes how to use the features of the Service Fabric platform.
+title: Implementing service-level features in Service Fabric actors | Microsoft Docs
+description: Describes how to write your own actor service that implements service-level features the same way you would when inheriting StatefulService.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -17,7 +17,14 @@ ms.date: 09/20/2017
 ms.author: vturecek
 
 ---
-# Using the actor service
+# Implementing service-level features in your actor service
+As described in [service layering](service-fabric-reliable-actors-platform.md#service-layering), the actor service itself is a reliable service.  You can write your own service that derives from `ActorService` and implement service-level features the same way you would when inheriting StatefulService, such as:
+
+- Service backup and restore.
+- Shared functionality for all actors, for example, a circuit breaker.
+- Remote procedure calls on the actor service itself and on each individual actor.
+
+## Using the actor service
 Actor instances have access to the actor service in which they are running. Through the actor service, actor instances can programmatically obtain the service context. The service context has the partition ID, service name, application name, and other Service Fabric platform-specific information:
 
 ```csharp

@@ -42,6 +42,8 @@ In Reliable Services, your service inherits the `StatefulService` class. This cl
 > [!NOTE]
 > Stateful services are not currently supported in Java/Linux.
 
+For more information, see [Implementing service-level features in your actor service](service-fabric-reliable-actors-using.md).
+
 ## Application model
 Actor services are Reliable Services, so the application model is the same. However, the actor framework build tools generate some of the application model files for you.
 

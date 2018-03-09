@@ -377,15 +377,15 @@
         href: service-fabric-reliable-services-backup-restore.md
     - name: Build a Reliable Actors service
       items:
-      - name: Access, save, and remove Reliable Actors state
+      - name: Access, save, and remove actor state
         href: service-fabric-reliable-actors-access-save-remove-state.md
-      - name: Enumerate Service Fabric Reliable Actors
+      - name: Enumerate actors
         href: service-fabric-reliable-actors-enumerate.md
       - name: Delete actors and their state
         href: service-fabric-reliable-actors-delete-actors.md
       - name: Backup and restore actors
         href: service-fabric-reliable-actors-backup-and-restore.md
-      - name: Send notifications
+      - name: Send actor notifications
         href: service-fabric-reliable-actors-events.md
       - name: Set timers and reminders
         href: service-fabric-reliable-actors-timers-reminders.md
