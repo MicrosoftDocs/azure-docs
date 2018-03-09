@@ -43,13 +43,13 @@ For more information about NSG, see [Network security groups](../virtual-netwo
 1. Select the **ExpressRoute Peerings** view.
 2. Select **Discover Now** to discover all the ExpressRoute private peerings that are connected to the virtual networks in the Azure subscription linked with this Azure Log Analytics workspace.
 
->[!NOTE]
-> The solution currently discovers only ExpressRoute private peerings. 
+    >[!NOTE]
+    > The solution currently discovers only ExpressRoute private peerings. 
 
->[!NOTE]
-> Only private peerings connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Then use Network Performance Monitor to monitor those peerings. 
+    >[!NOTE]
+    > Only private peerings connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Then use Network Performance Monitor to monitor those peerings. 
 
- ![ExpressRoute Monitor configuration](media/log-analytics-network-performance-monitor/expressroute-configure.png)
+    ![ExpressRoute Monitor configuration](media/log-analytics-network-performance-monitor/expressroute-configure.png)
  
  After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
 

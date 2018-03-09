@@ -131,4 +131,4 @@ In the following image, the root cause of the problem areas to the specific sect
 ![Topology map with node properties selected](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## Next steps
-* [Search logs](log-analytics-log-searches.md) to view detailed network performance data records.
+[Search logs](log-analytics-log-searches.md) to view detailed network performance data records.

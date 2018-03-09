@@ -99,7 +99,7 @@ Determine whether poor application performance is because of the network or an i
 
     ![Service Endpoint Monitor network issue](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
-After you determine that the problem is because of the network, select the **Topology** view link to identify the troublesome hop on the topology map. An example is shown in the following image. Out of the 105 ms total latency between the node and the application endpoint, 96 ms is because of the hop marked in red. After you identify the troublesome hop, you can take corrective action. 
+After you determine that the problem is because of the network, select the **Topology** view link to identify the troublesome hop on the topology map. An example is shown in the following image. Out of the 105-ms total latency between the node and the application endpoint, 96 ms is because of the hop marked in red. After you identify the troublesome hop, you can take corrective action. 
 
 ![Service Endpoint Monitor tests](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
