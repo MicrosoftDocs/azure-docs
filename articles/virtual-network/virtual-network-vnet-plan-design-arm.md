@@ -247,5 +247,5 @@ Based on those requirements, you could add users from the networking team to the
 ## Next steps
 * [Deploy a virtual network](quick-create-portal.md).
 * Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
-* Learn more about [network security groups](security-overview) an NSG solution.
+* Learn more about [network security groups](security-overview.md) an NSG solution.
 * Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
