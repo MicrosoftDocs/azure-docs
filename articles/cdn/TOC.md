@@ -8,6 +8,7 @@
 
 # Tutorials
 ## [Add a custom domain](cdn-map-content-to-custom-domain.md)
+## [Add a custom domain without interrupting traffic](cdn-map-content-to-custom-domain-using-cdnverify.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
