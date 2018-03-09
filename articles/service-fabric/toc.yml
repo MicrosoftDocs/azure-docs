@@ -119,6 +119,8 @@
       items:
       - name: Architecture
         href: service-fabric-reliable-actors-platform.md
+      - name: Using Reliable Actors
+        href: service-fabric-reliable-actors-using.md
       - name: Lifecycle and garbage collection
         href: service-fabric-reliable-actors-lifecycle.md
       - name: State management
