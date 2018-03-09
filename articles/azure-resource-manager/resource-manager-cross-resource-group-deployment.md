@@ -224,35 +224,35 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
-In the preceding example, both *parentRG* and *inlineRG* resolve to *parentGroup*. *linkedRG* resolves to *linkedGroup*. The output from the preceding example is:
+In the preceding example, both **parentRG** and **inlineRG** resolve to **parentGroup**. **linkedRG** resolves to **linkedGroup**. The output from the preceding example is:
 
 ```powershell
  Name             Type                       Value
  ===============  =========================  ==========
  parentRG         Object                     {
-                            "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
-                            "name": "parentGroup",
-                            "location": "southcentralus",
-                            "properties": {
-                              "provisioningState": "Succeeded"
-                            }
-                          }
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
  inlineRG         Object                     {
-                            "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
-                            "name": "parentGroup",
-                            "location": "southcentralus",
-                            "properties": {
-                              "provisioningState": "Succeeded"
-                            }
-                          }
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
  linkedRG         Object                     {
-                            "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
-                            "name": "linkedGroup",
-                            "location": "southcentralus",
-                            "properties": {
-                              "provisioningState": "Succeeded"
-                            }
-                          }
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+                                               "name": "linkedGroup",
+                                               "location": "southcentralus",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
 ```
 
 ### Azure CLI
@@ -307,7 +307,7 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
-In the preceding example, both *parentRG* and *inlineRG* resolve to *parentGroup*. *linkedRG* resolves to *linkedGroup*. The output from the preceding example is:
+In the preceding example, both **parentRG** and **inlineRG** resolve to **parentGroup**. **linkedRG** resolves to **linkedGroup**. The output from the preceding example is:
 
 ```azurecli
 ...
