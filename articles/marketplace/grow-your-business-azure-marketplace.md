@@ -129,11 +129,8 @@ To maximize the impact of these activities, we encourage you to have your launch
 >[!NOTE]
 >One Commercial Partner Catalog (OCP Catalog) is a benefit of membership in the Microsoft Partner Network. 
 
-<<<<<<< HEAD
-![Marketplace GTM Benefits](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
-=======
-![Marketplace GTM benefits](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
->>>>>>> 2981bbe3fad5f4ab49e761bc81ec22a6aa1d418f
+[Marketplace GTM Benefits](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 For support, visit [Microsoft Go To Market](https://www.microsoftgotomarket.com). There, you can find templates, web content, training, and tools to promote your business.
 
