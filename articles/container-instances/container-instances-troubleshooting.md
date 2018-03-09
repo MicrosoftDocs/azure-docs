@@ -18,19 +18,64 @@ This article shows how to troubleshoot issues when deploying containers to Azure
 
 ## View logs and stream output
 
-When you have a misbehaving container, your first two stops should be viewing its logs with [az container logs][az-container-logs], and streaming the container's STDOUT and STDERR with [az container attach][az-container-attach].
+When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
 
 ### View logs
 
-To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. The container does not have to be running for you to pull the logs. For example, this is the log output from the *terminated* task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md):
+To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. The container does not have to be running for you to pull the logs.
+
+For example, this is the log output from the *terminated* task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md), after having fed it a **non-existent URL** to process:
 
 ```console
-fdsa
+$ az container logs --resource-group myResourceGroup --name mycontainer
+Traceback (most recent call last):
+  File "wordcount.py", line 11, in <module>
+    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
+  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
 ```
 
 ### Attach output streams
 
-For...
+The [az container attach][az-container-attach] command provides diagnostic information during container startup, as well as streams STDOUT and STDERR to your local console once the container is running.
+
+For example, this is output from the the task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md), after having supplied a valid URL with a very large text file to process:
+
+```console
+$ az container attach --resource-group myResourceGroup --name mycontainer
+Container 'mycontainer' is in state 'Unknown'...
+Container 'mycontainer' is in state 'Waiting'...
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+
+Start streaming logs:
+[('the', 22979),
+ ('I', 20003),
+ ('and', 18373),
+ ('to', 15651),
+ ('of', 15558),
+ ('a', 12500),
+ ('you', 11818),
+ ('my', 10651),
+ ('in', 9707),
+ ('is', 8195)]
+```
 
 ## Get diagnostic events
 
