@@ -13,13 +13,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
 
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+> [!IMPORTANT]
+> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+>
+>
 
 By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
 
