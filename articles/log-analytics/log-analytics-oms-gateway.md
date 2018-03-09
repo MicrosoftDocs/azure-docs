@@ -26,7 +26,9 @@ The OMS Gateway supports:
 * Linux computers with the OMS Agent for Linux directly connected to a Log Analytics workspace  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, Operations Manager 2016, and Operations Manager version 1801 management group integrated with Log Analytics  
 
-If your IT security policies do not allow certain computers on your network to connect to the Internet (such as point-of-sale devices or servers that support IT services) but you need to connect them to Azure Automation or Log Analytics to manage and monitor them, they can be configured to communicate directly with the OMS Gateway to receive configuration and forward data on their behalf.  If these computers are configured with the OMS agent to directly connect to a Log Analytics workspace, all computers instead communicate with the OMS Gateway. The gateway transfers data from the agents to the service directly. It doesn't analyze any of the data while it's in transit.
+If your IT security policies do not allow certain computers on your network to connect to the Internet (such as point-of-sale devices or servers that support IT services) but you need to connect them to Azure Automation or Log Analytics to manage and monitor them, they can be configured to communicate directly with the OMS Gateway to receive configuration and forward data on their behalf. 
+
+ If these computers are configured with the OMS agent to directly connect to a Log Analytics workspace, all computers instead communicate with the OMS Gateway. The gateway transfers data from the agents to the service directly. It doesn't analyze any of the data while it's in transit.
 
 When an Operations Manager management group is integrated with Log Analytics, the management servers can be configured to connect to the OMS Gateway to receive configuration information and send collected data. Operations Manager agents send some data, such as Operations Manager alerts, configuration assessment, instance space, and capacity data to the management server. Other high-volume data, such as IIS logs, performance information, and security events, are sent directly to the OMS Gateway.  
 
@@ -80,11 +82,7 @@ The OMS Gateway is available in the following languages:
 The OMS Gateway supports only Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
 
 ### Supported number of agent connections
-<<<<<<< HEAD
 The following table highlights the supported number of agents that are communicating with a gateway server. This support is based on agents uploading approximately 200 KB of data every 6 seconds. The data volume per agent tested is about 2.7 GB per day.
-=======
-The following table highlights the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.
->>>>>>> 394937319b9cb18bb22594aaf59052496b3c903f
 
 |Gateway |Approximate number of agents supported|  
 |--------|----------------------------------|  
@@ -238,7 +236,7 @@ For large or complex environments, you might only want specific servers (or grou
 ### Configure for automation hybrid workers
 If you have Automation Hybrid Runbook Workers in your environment, the following steps provide manual, temporary workarounds to configure the Gateway to support them.
 
-In the following steps, you need to know the Azure region where the Automation account resides. To find the location:
+In the following steps, you need to know the Azure region where the Automation account resides. To find the location, take the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select the Azure Automation service.
