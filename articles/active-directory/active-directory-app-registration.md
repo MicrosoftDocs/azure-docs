@@ -21,7 +21,7 @@ ms.reviewer: elisol
 
 # Register your application with your Azure Active Directory tenant
 
-You can use the Azure portal to register your application with your Azure Active Directory (Azure AD) tenant. This creates an Application ID for the application, and enables it to receive tokens.
+You can use the Azure portal to register your application with your Azure Active Directory (Azure AD) tenant. This creates an Application ID for the application and enables it to receive tokens.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD tenant by selecting your account in the top right corner of the page.
