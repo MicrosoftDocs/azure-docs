@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.qumucloud.com/saml/SSO`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Qumu Cloud Client support team](support@qumu.com) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Qumu Cloud Client support team](mailto:support@qumu.com) to get these values.
 
 4. Qumu Cloud application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
@@ -150,7 +150,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-qumucloud-tutorial/tutorial_general_400.png)
 	
-7. To configure single sign-on on **Qumu Cloud** side, you need to send the downloaded **Metadata XML** to [Qumu Cloud support team](support@qumu.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Qumu Cloud** side, you need to send the downloaded **Metadata XML** to [Qumu Cloud support team](mailto:support@qumu.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -191,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Qumu Cloud. Qumu Cloud supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Qumu Cloud if it doesn't exist yet.
 >[!Note]
->If you need to create a user manually, contact [Qumu Cloud Client support team](support@qumu.com).
+>If you need to create a user manually, contact [Qumu Cloud Client support team](mailto:support@qumu.com).
 
 ### Assign the Azure AD test user
 
