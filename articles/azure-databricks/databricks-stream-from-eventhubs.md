@@ -22,7 +22,7 @@ ms.author: nitinme
 
 # Stream events into Azure Databricks using Event Hubs
 
-Azure Databricks is an Apache Spark-based analytics platform optimized for Microsoft Azure. In this tutorial, you learn how to stream real-time data into Azure Databricks using Azure Event Hubs and data from public Twitter API.
+In this tutorial, you learn how to stream real-time data into Azure Databricks using Azure Event Hubs and data from public Twitter API. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. 
 
 This tutorial covers the following tasks: 
 
