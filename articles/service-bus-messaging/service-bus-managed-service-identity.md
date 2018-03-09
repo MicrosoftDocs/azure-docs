@@ -64,7 +64,7 @@ Now modify the default page of the ASP.NET application you created. You can also
 
 The Default.aspx page is your landing page. The code can be found in the Default.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Service Bus to either send or receive messages.
 
-Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) object is initialized. Instead of using the Shared Access Token (SAS) token provider, the code creates a token provider for the managed service identity with the `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` call. As such, there are no secrets to retain and use. The flow of the managed service identity context to Service Bus and the authorization handshake are automatically handled by the token provider, which is a simpler model than using SAS.
+Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) object is initialized. Instead of using the Shared Access Token (SAS) token provider, the code creates a token provider for the managed service identity with the `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` call. As such, there are no secrets to retain and use. The flow of the managed service identity context to Service Bus and the authorization handshake are automatically handled by the token provider, which is a simpler model than using SAS.
 
 Once you have made these changes, publish and run the application. An easy way to obtain the correct publishing data is to download and then import a publishing profile in Visual Studio:
 
