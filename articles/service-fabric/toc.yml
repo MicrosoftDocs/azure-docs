@@ -383,6 +383,8 @@
         href: service-fabric-reliable-actors-enumerate.md
       - name: Delete actors and their state
         href: service-fabric-actors-delete-actors.md
+      - name: Backup and restore actors
+        href: service-fabric-reliable-actors-backup-and-restore.md
       - name: Send notifications
         href: service-fabric-reliable-actors-events.md
       - name: Set timers and reminders
