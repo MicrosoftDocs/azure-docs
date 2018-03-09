@@ -20,7 +20,7 @@ ms.author: jdial
 # Filter network traffic with network security groups
 
 A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet. Traffic can further be restricted by also associating an NSG to a VM or NIC.
-
+ 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
 
@@ -95,7 +95,7 @@ You can associate an NSG to VMs, NICs, and subnets, depending on the deployment 
 
 * **VM (classic only):** Security rules are applied to all traffic to/from the VM. 
 * **NIC (Resource Manager only):** Security rules are applied to all traffic to/from the NIC the NSG is associated to. In a multi-NIC VM, you can apply different (or the same) NSG to each NIC individually. 
-* **Subnet (Resource Manager and classic):** Security rules are applied to any traffic to/from any resources connected to the VNet.
+* **Subnet (Resource Manager and classic):** Security rules are applied to any traffic to/from any resources connected to the Subnet.
 
 You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is connected to. Security rules are applied to the traffic, by priority, in each NSG, in the following order:
 
