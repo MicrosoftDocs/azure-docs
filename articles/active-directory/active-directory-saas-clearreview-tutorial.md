@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Clear Review Domain and URLs single sign-on information](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<customer name>.clearreview.com/sso/metadata`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<customer name>.clearreview.com/sso/metadata/`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer name>.clearreview.com/sso/acs/`
 
@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-on URL, Identifier, and Reply URL. Contact [Clear Review support team](https://clearreview.com/contact/) to get these values.
 
-5. Clear Review application expect the unique user identifier value in the Name Identifier claim. you should map the user identifier value to user.mail.
+5. Clear Review application expect the unique user identifier value in the Name Identifier claim. You should map the user identifier value to **user.mail**.
 
 	![The Attribute Section](./media/active-directory-saas-clearreview-tutorial/attribute.png)
 
