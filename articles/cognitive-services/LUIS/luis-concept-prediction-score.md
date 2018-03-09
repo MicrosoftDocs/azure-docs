@@ -12,7 +12,7 @@ ms.date: 03/08/2018
 ms.author: v-geberr;
 ---
 
-# Prediction Score
+# Prediction score
 A prediction score indicates the degree of confidence LUIS has for prediction results. 
 
 A prediction score is usually between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 

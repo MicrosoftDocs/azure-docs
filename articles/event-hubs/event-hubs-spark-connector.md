@@ -52,10 +52,9 @@ val reader = spark.readStream
   .load()
 
 // Select the body column and cast it to a string.
-val eventhubs = reader.load()
-  .select("body")
+val eventhubs = reader
+  .select("CAST (body AS STRING)")
   .as[String]
-
 ```
 The following code snippet is used for sending events to your Event Hub with Spark's batch API. You can also write a streaming query to send events to the Event Hub.
 
