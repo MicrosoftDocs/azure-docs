@@ -246,13 +246,21 @@ period to better understand how the feature will affect your bill.
 ## Quick Start
 
 ### Portal
-To enable soft delete...
+To enable soft delete, navigate to the "Soft delete" option under "Blob Service". Then click "Enabled" and enter the number of days you want to retain soft deleted data.
 
-To view soft deleted data...
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-Notice the new blob properties...
+To view soft deleted blobs...
 
-Call undelete to restore. Remember that calling Undelete Blob, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active.
+To view soft deleted snapshots for a given blob...
+
+When you click on a soft deleted blob or snapshot, notice the new blob properties. They indicate when the object was deleted, and how many days are left until the blob or blob snapshot is permanently expired.
+
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-properties.png)
+
+Call undelete to restore. Remember that undeleting a blob, active or soft deleted, will restore all associated soft deleted snapshots as active.
+
+Once you undelete a blob's snapshots, you can click "promote" to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
 
 ### PowerShell
 To enable soft delete, update a blob client’s service properties. The following example enables soft delete for a subset of accounts in a subscription:
