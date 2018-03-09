@@ -79,7 +79,7 @@ Start streaming logs:
 
 ## Get diagnostic events
 
- If your container does not deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
+If your container does not deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
