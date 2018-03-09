@@ -89,7 +89,7 @@ In this section, you author a Databricks linked service. This linked service con
 
 2.  Select **Connections** at the bottom of the window, and then select **+ New**.
     
-    ![Create a new con nection](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
+    ![Create a new connection](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
 3.  In the **New Linked Service** window, select **Data Store** \> **Azure Databricks**, and then select **Continue**.
     
@@ -137,7 +137,7 @@ In this section, you author a Databricks linked service. This linked service con
 
     b. Select **myAzureDatabricks\_LinkedService** (which you created in the previous procedure).
 
-    c. Select a Databricks **Notebook path**. Let’s create a simple notebook and specify the path here. You get the Notebook Path by following the next few steps.
+    c. Select a Databricks **Notebook path**. Let’s create a notebook and specify the path here. You get the Notebook Path by following the next few steps.
 
        1. Launch your Azure Databricks Workspace
 
@@ -151,7 +151,7 @@ In this section, you author a Databricks linked service. This linked service con
 
           ![Set the properties of the new Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       4. In the newly created Notebook "mynotebook'" add the below code:
+       4. In the newly created Notebook "mynotebook'" add the following code:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
