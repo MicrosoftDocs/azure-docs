@@ -120,7 +120,7 @@ VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
 ```
 
 > [!TIP]
-> As an alternative to the Set-ASRVaultContext cmdlet, one can also use the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet to set the vault context. Specify the path at which the vault registration key file is located as the value of the -path parameter to the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet.
+> As an alternative to the Set-ASRVaultContext cmdlet, one can also use the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet to set the vault context. Specify the path at which the vault registration key file is located as the -path parameter to the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet.
 >
 >For example:
 >
