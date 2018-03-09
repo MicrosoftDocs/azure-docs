@@ -1,6 +1,6 @@
 ---
 title: Add tenants for usage and billing to Azure Stack | Microsoft Docs
-description: Type the description in Azure Stack.
+description: The steps required add an end user to Azure Stack managed by a Cloud Service Provider.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -37,7 +37,7 @@ The following diagram shows the steps that a CSP will need to follow to enable a
 
 ## Create a new customer in Partner Center
 
-In Partner Center, create a new Azure subscription for the customer. For instructions, see [Add a new customer](https://msdn.microsoft.com/en-us/partner-center/add-a-new-customer).
+In Partner Center, create a new Azure subscription for the customer. For instructions, see [Add a new customer](https://msdn.microsoft.com/partner-center/add-a-new-customer).
 
 
 ##  Create an Azure subscription for the end customer

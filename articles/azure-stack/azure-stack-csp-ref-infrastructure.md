@@ -1,5 +1,5 @@
 ---
-title: Usage reporting infrastructure for Cloud Service Providers | Microsoft Docs
+title: Usage reporting infrastructure for Cloud Service Providers for Azure Stack | Microsoft Docs
 description: Azure Stack includes the infrastructure needed to track usage as it occurs and forwards it to Azure.
 services: azure-stack
 documentationcenter: ''
@@ -62,5 +62,4 @@ The following terms and concepts are used for usage and billing in Azure Stack:
 ## Next steps
 
  - To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
- - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).

@@ -1,6 +1,6 @@
 ---
 title: Manage usage and billing for Azure Stack as a Cloud Service Provider | Microsoft Docs
-description: Type the description in Azure Stack.
+description: A walk through registering Azure Stack as a Cloud Provider and adding customers.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -82,5 +82,4 @@ Since tenant subscriptions are CSP subscriptions, their bill is sent to the CSP 
 ## Next steps
 
  - To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
- - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
