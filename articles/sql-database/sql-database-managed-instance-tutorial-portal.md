@@ -3,8 +3,8 @@ title: 'Azure portal: Create SQL Database Managed Instance | Microsoft Docs'
 description: Create an Azure SQL Database Managed Instance in a VNet and use SSMS to restore the Wide World Importers database backup.
 keywords: sql database tutorial, create a sql database managed instance
 services: sql-database
-author: CarlRabeler
-ms.reviewer: bonova, srbozovi
+author: bonova
+ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.workload: "Active"
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.devlang: 
 ms.topic: tutorial
 ms.date: 03/07/2018
-ms.author: carlrab
+ms.author: bonova
 manager: cguyer
 
 ---
