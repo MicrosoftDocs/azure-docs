@@ -21,6 +21,11 @@ ms.author: anwestg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
+> [!IMPORTANT]
+> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+>
+>
+
 As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
 > [!IMPORTANT]
