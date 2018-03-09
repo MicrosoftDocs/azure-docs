@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: v-geberr;
 ---
 # LUIS boundaries
@@ -26,7 +26,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Hierarchical](./luis-concept-entity-types.md)|Parent: 30, child: 10|
 | [Intents][intents]|500|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items | 
-| Total machine-learned entities:<br> simple, composite parent(s) and hierarchical parent(s) | 100|
+| Total machine-learned entities:<br> simple, composite parent(s) and hierarchical parent(s) | 100, or 30 parent entities with 10   children each|
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
 | [Simple](./luis-concept-entity-types.md)| 30|
@@ -39,7 +39,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
-|Authoring/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
+|Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 

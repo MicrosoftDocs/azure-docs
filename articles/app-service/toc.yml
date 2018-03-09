@@ -43,7 +43,7 @@
       href: app-service-web-tutorial-java-mysql.md
     - name: Python with PostgreSQL
       href: app-service-web-tutorial-python-postgresql.md
-  - name: 1 - Create RESTful API
+  - name: 1 - Host RESTful API
     href: app-service-web-tutorial-rest-api.md
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
@@ -97,7 +97,7 @@
     items:
     - name: Deploy the app
       items:
-      - name: Deploy ZIP file
+      - name: Deploy ZIP or WAR
         href: app-service-deploy-zip.md
       - name: Deploy via FTP
         href: app-service-deploy-ftp.md
@@ -230,7 +230,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: ../guidance/guidance-ra-app-service.md
+      href: /azure/architecture/reference-architectures/app-service-web-app/
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

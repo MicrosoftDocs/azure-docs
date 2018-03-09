@@ -1,3 +1,5 @@
+# [Azure Active Directory Documentation](index.md)
+
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [About Azure identity management](identity-fundamentals.md)
@@ -111,6 +113,7 @@
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
 #### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
@@ -287,9 +290,10 @@
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](users-default-permissions.md)
+### [Securing privileged access](admin-roles-best-practices.md) 
+### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
-### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)

@@ -50,6 +50,26 @@ Add the updated Azure Database for MySQL management extension using the followin
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Check you have the correct extension version installed. 
+```azurecli-interactive
+az extension list
+```
+
+The return JSON should include the following: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+If version 0.0.3 is not returned, run the following to update the extension: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
