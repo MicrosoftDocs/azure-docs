@@ -41,17 +41,14 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Before you start with this tutorial, make sure you have the following:
 - An Azure Event Hubs namespace.
-- Policy name and policy key to access the Event Hubs namespace.
-- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
 - An Event Hub within the namespace.
-- Consumer group. For this tutorial, you can use the **$Default** consumer group, which is available by default.
-- Partition count. You can use the default partition count, which is **2**. 
+- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
 
 You can meet these requirements by completing the steps in the article [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
 ## What does this tutorial do?
 
-In this article, we set up a real-time data ingestion pipeline using Azure Event Hubs. We connect the pipeline to Spark on Azure Databricks to process the messages coming in through the pipeline. To simulate a real-time stream of data, we use Twitter APIs to ingest tweets into Event Hubs. The following screenshot shows the application flow.
+In this tutorial, you set up a real-time data ingestion pipeline using Azure Event Hubs. You connect the pipeline to Spark on Azure Databricks to process the messages coming through the pipeline. To simulate a real-time stream of data, you use Twitter APIs to ingest tweets into Event Hubs. The following screenshot shows the application flow.
 
 ![Azure Databricks with Events Hub](./media/databricks-stream-from-eventhubs/databricks_eventhubs_tutorial.png "Azure Databricks with Events Hub")
 
@@ -118,7 +115,30 @@ Save the values that you retrieved for the Twitter application. You need this la
 
 ## Add libraries to the cluster
 
-< TBD >
+In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Events Hub. To use these APIs as part of your cluster, you must add them as libraries to Azure Databricks and then associate them with your Spark cluster. The instructions below show how to add the library to the **Shared** folder in your workspace.
+
+1.  In the Azure Databricks workspace, click **Workspace**, and then right-click **Shared**. From the context menu, click **Create** > **Library**.
+
+    ![Add library dialog box](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Add library dialog box")
+
+2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here are the Maven coordinates for the libraries used in this tutorial:
+
+    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+
+    ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
+
+3. Click **Create Library**.
+
+4. Click the folder where you added the library, and then click the library name.
+
+    ![Select library to add](./media/databricks-stream-from-eventhubs/select-library.png "Select library to add")
+
+5. On the library page, select the cluster where you want to use the library. Once the library is successfully associated with the cluster, the status immediately changes to **Attached**.
+
+    ![Attach library to cluster](./media/databricks-stream-from-eventhubs/databricks-library-attached.png "Attach library to cluster")
+
+6. Repeat these steps for the library you added for Twitter API.
 
 ## Create notebooks in Databricks
 
@@ -146,20 +166,24 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
-
-    // Connection information about Event Hub!
-    // Replace values below with yours
+    import java.util.concurrent._
     
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
     val sasKeyName = "<POLICY NAME>"
     val sasKey = "<POLICY KEY>"
-    val connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey)
-    val eventHubClient = EventHubClient.createFromConnectionStringSync(connStr.toString())
+    val connStr = new ConnectionStringBuilder()
+                .setNamespaceName(namespaceName)
+                .setEventHubName(eventHubName)
+                .setSasKeyName(sasKeyName)
+                .setSasKey(sasKey)
+    
+    val pool = Executors.newFixedThreadPool(1)
+    val eventHubClient = EventHubClient.create(connStr.toString(), pool)
     
     def sendEvent(message: String) = {
-      val messageData = new EventData(message.getBytes("UTF-8"))
-      eventHubClient.send(messageData) 
+      val messageData = EventData.create(message.getBytes("UTF-8"))
+      eventHubClient.get().send(messageData) 
       System.out.println("Sent event: " + message + "\n")
     }
     
@@ -197,9 +221,7 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
       val statuses = result.getTweets()
       var lowestStatusId = Long.MaxValue
       for (status <- statuses.asScala) {
-        if(status.isRetweet()){ 
-          sendEvent(status.getRetweetedStatus().getText())
-        } else {
+        if(!status.isRetweet()){ 
           sendEvent(status.getText())
         }
         lowestStatusId = Math.min(status.getId(), lowestStatusId)
@@ -209,40 +231,27 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     }
     
     // Closing connection to the Event Hub
-    eventHubClient.close()
+    eventHubClient.get().close()
+
+
 
 ## Read message from Event Hubs
 
 In the **ReadTweetsFromEventHub** notebook, paste the following code, and replace the placeholder with values for your Azure Event Hubs that you created earlier. This notebook reads the tweets that you earlier streamed into Events Hub using the **SendTweetsToEventHub** notebook.
 
-    import java.io._
-    import java.net._
-    import java.util._
-    import javax.net.ssl.HttpsURLConnection
+    import org.apache.spark.eventhubs._
+
+    // Build connection string with the above information 
+    val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
+      .setEventHubName("<EVENT HUB NAME>")
+      .build
     
-    import com.google.gson.Gson
-    import com.google.gson.GsonBuilder
-    import com.google.gson.JsonObject
-    import com.google.gson.JsonParser
-    import scala.util.parsing.json._
+    val customEventhubParameters = 
+      EventHubsConf(connectionString)
+      .setMaxEventsPerTrigger(5)
     
-    // Configuration parameters for connecting to Event Hub.
-    val customEventhubParameters = scala.collection.immutable.Map[String, String] (
-         "eventhubs.policyname" -> "RootManageSharedAccessKey",
-         "eventhubs.policykey" -> "3aPJIMfP1ukfaisHZhfGkIPUPzgr+yiDoJI7QSsRI/U=",
-         "eventhubs.namespace" -> "eventhubnsfordatabricks",
-         "eventhubs.name" -> "eventhub_databricks",
-         "eventhubs.partition.count" -> "2",
-         "eventhubs.consumergroup" -> "$Default",
-         "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
-         "eventhubs.sql.containsProperties" -> "true",
-         "eventhubs.maxRate" -> s"3"
-         )
+    val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
     
-    // Getting a stream of messages using Event Hub to Spark connector (open source)
-    val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters).load()
-    
-    // Insight into the schema of the incoming datastream.
     incomingStream.printSchema
     
     // Sending the incoming stream into the console.
@@ -259,10 +268,7 @@ You get the following output.
      |-- enqueuedTime: long (nullable = true)
      |-- publisher: string (nullable = true)
      |-- partitionKey: string (nullable = true)
-     |-- properties: map (nullable = true)
-     |    |-- key: string
-     |    |-- value: string (valueContainsNull = true)
-    
+   
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -273,27 +279,46 @@ You get the following output.
 
 Because the output is in a binary mode, use the following snippet to convert it into string.
 
-    // Body is binary, so cast it to string to see the actual content of the message
-    val messages = incomingStream.selectExpr("cast (body as string) AS Content")
+    import org.apache.spark.sql.types._
+    import org.apache.spark.sql.functions._
+    
+    // Event Hub message format is JSON and contains "body" field
+    // Body is binary, so we cast it to string to see the actual content of the message
+    val messages = 
+      incomingStream
+      .withColumn("Offset", $"offset".cast(LongType))
+      .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
+      .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
+      .withColumn("Body", $"body".cast(StringType))
+      .select("Offset", "Time (readable)", "Timestamp", "Body")
+    
+    messages.printSchema
+    
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 The output now resembles the following snippet.
 
-    ------------
-    Batch: 0
-    ------------
-    +-------------+
-    |Content      |    
-    +-------------------------------------------+
-    |About to start my third shift today, delivering a custom #Azure #Security Center training for a customer. Focus on… https://t.co/HzNDblu0a2|
-    |Read the blog and learn how to securely shift your workload to #Azure: https://t.co/rsmcZA3knd https://t.co/o021XWLjOl                     |
-    |Looking for investments in the #cloud ? Try these. 4 Top Cloud Stocks to Buy Now @themotleyfool #stocks $MSFT,… https://t.co/PvanIE2KPw    |
-    |#DataScientists Q&A discussion forum >> Which is the best #BigData Analytics platform for beginners -- #AWS vs… https://t.co/M94LJeWwoH    
-    +---------------------------------------------+
+    root
+     |-- Offset: long (nullable = true)
+     |-- Time (readable): timestamp (nullable = true)
+     |-- Timestamp: long (nullable = true)
+     |-- Body: string (nullable = true)
     
-    --------------
+    -------------------------------------------
+    Batch: 0
+    -------------------------------------------
+    +------+------------------+-----------+-------+
+    |Offset|Time (readable)   |Timestamp  |Body   |
+    +------+------------------+-----------+-------+
+    |0     |2018-02-28 01:46:42.368|1519782402|About to start my third shift today, delivering a custom #Azure #Security Center training for a customer. Focus on… https://t.co/HzNDblu0a2|
+    |184   |2018-02-28 01:46:45.869|1519782405|Read the blog and learn how to securely shift your workload to #Azure: https://t.co/rsmcZA3knd https://t.co/o021XWLjOl                     |
+    |0     |2018-02-28 01:46:44.117|1519782404|Looking for investments in the #cloud ? Try these. 4 Top Cloud Stocks to Buy Now @themotleyfool #stocks $MSFT,… https://t.co/PvanIE2KPw    |
+    |176   |2018-02-28 01:46:47.867|1519782407|#DataScientists Q&A discussion forum >> Which is the best #BigData Analytics platform for beginners -- #AWS vs… https://t.co/M94LJeWwoH    |
+    +------+------------------+-----------+-------+
+    
+    -------------------------------------------
     Batch: 1
-    --------------
+    -------------------------------------------
     ...
     ...
 
