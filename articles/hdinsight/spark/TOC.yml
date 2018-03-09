@@ -88,9 +88,9 @@
           href: apache-spark-connect-to-sql-database.md
     - name: Spark streaming
       items:
-        - name: Streaming Overview
+        - name: Streaming overview
           href: apache-spark-streaming-overview.md
-        - name: Structured Streaming Overview
+        - name: Structured Streaming overview
           href: apache-spark-structured-streaming-overview.md
         - name: Create highly available Spark streaming jobs in YARN
           href: apache-spark-streaming-high-availability.md
