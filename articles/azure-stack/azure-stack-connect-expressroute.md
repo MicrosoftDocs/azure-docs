@@ -290,7 +290,7 @@ The example Azure network infrastructure is configured in the following way:
 3. Create the spoke VNet and subnet using the 10.100.0.0/16 address range.
 
 
-For more information about creating virtual networks in Azure, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+For more information about creating virtual networks in Azure, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### Configure an ExpressRoute circuit
 
