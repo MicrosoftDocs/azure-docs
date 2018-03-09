@@ -7,7 +7,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 03/09/2018
 ms.author: rajanaki
 
 ---
@@ -38,7 +38,7 @@ To resolve this issue:
 
 ### Error code 78052
 
-***Protection couldn't be completed for the virtual machine.**
+**Protection couldn't be completed for the virtual machine.**
 
 This can happen if there's already a VM with the same name on the master target server to which you're failing back.
 

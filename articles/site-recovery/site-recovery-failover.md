@@ -6,8 +6,8 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/03/2018
-ms.author: pratshar
+ms.date: 03/09/2018
+ms.author: ponatara
 
 ---
 # Failover in Site Recovery
