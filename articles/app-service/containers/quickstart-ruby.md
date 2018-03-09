@@ -54,7 +54,7 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 
 ## Modify app to display welcome message
 
-Modify the application so it displays a welcome message. First, you must setup a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
+Modify the application so it displays a welcome message. First, you must set up a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
 
   ```ruby
   Rails.application.routes.draw do
