@@ -6,7 +6,7 @@ services: active-directory
 keywords: 
 author: curtand
 ms.author: curtand
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -47,7 +47,7 @@ Securing privileged access requires changes to
 * Processes, administrative practices, and knowledge management
 * Technical components such as host defenses, account protections, and identity management
 
-This document focuses primarily on creating a roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Office 365, and other cloud services. For organizations that have on-premises administrative accounts, see the guidance for on-premises and hybrid privileged access managed from Active Directory at [Securing Privileged Access](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access). 
+This document focuses primarily on creating a roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Office 365, and other cloud services. For organizations that have on-premises administrative accounts, see the guidance for on-premises and hybrid privileged access managed from Active Directory at [Securing Privileged Access](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 
 > [!NOTE] 
 > The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure Active Directory Premium plans P1 and P2. Azure Active Directory Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term global administrator (or global admin) is synonymous with “company administrator” or “tenant administrator.”
@@ -184,11 +184,11 @@ The [plan for security and compliance](https://support.office.com/article/Plan-f
 
 #### Configure Office 365 Activity Monitoring (if using Office 365)
 
-You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. Fore more informatuon, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263?ui=en-US&rs=en-US&ad=US&ocmsassetID=0d6dfb17-8582-4172-a9a9-aed798150263).
+You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. Fore more informatuon, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### Establish incident/emergency response plan owners
 
-Performing incident response effectively is a complex undertaking. Therefore, establishing a successful incident response capability requires substantial planning and resources. It is essential that you continually monitor for cyber-attacks and establish procedures for prioritizing the handling of incidents. Effective methods of collecting, analyzing, and reporting data are vital to build relationships and to establish communication with other internal groups and plan owners. For more information, see [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717). 
+Performing incident response effectively is a complex undertaking. Therefore, establishing a successful incident response capability requires substantial planning and resources. It is essential that you continually monitor for cyber-attacks and establish procedures for prioritizing the handling of incidents. Effective methods of collecting, analyzing, and reporting data are vital to build relationships and to establish communication with other internal groups and plan owners. For more information, see [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717). 
 
 #### Secure on-premises privileged administrative accounts, if not already done
 
@@ -271,7 +271,7 @@ You can download this report from [Security Incident Management in Microsoft Off
 
 #### Continue to secure on-premises privileged administrative accounts
 
-If your Azure Active Directory is connected to on-premises Active Directory, then follow the guidance in the [Security Privileged Access Roadmap](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access): Stage 2. This includes deploying Privileged Access Workstations for all administrators, requiring MFA, using Just Enough Admin for DC maintenance, lowering the attack surface of domains, deploying ATA for attack detection.
+If your Azure Active Directory is connected to on-premises Active Directory, then follow the guidance in the [Security Privileged Access Roadmap](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Stage 2. This includes deploying Privileged Access Workstations for all administrators, requiring MFA, using Just Enough Admin for DC maintenance, lowering the attack surface of domains, deploying ATA for attack detection.
 
 ### Additional steps for organizations managing access to Azure
 
@@ -348,7 +348,7 @@ Determine if current built-in Azure AD admin roles are still up-to-date and ensu
 
 For more information, see [How to configure hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md).
 
-#### Review members of [built-in Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US)
+#### Review members of [built-in Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 If you are using Office 365.
 ‎
 #### Validate incident response plan
