@@ -4,7 +4,7 @@ description: Learn how to build web apps by using Azure AD B2C and OpenID Connec
 services: active-directory-b2c
 documentationcenter: ''
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865

@@ -4,7 +4,7 @@ description: Troubleshooting hybrid Azure Active Directory joined Windows 10 and
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory

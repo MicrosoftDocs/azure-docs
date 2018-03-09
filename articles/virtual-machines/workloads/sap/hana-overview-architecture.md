@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -33,16 +33,18 @@ The customer isolation within the infrastructure stamp is performed in tenants, 
 
 These bare-metal server units are supported to run SAP HANA only. The SAP application layer or workload middle-ware layer is running in Microsoft Azure Virtual Machines. The infrastructure stamps running the SAP HANA on Azure (Large Instance) units are connected to the Azure Network backbones, so, that low latency connectivity between SAP HANA on Azure (Large Instance) units and Azure Virtual Machines is provided.
 
-This document is one of five documents, which cover the topic of SAP HANA on Azure (Large Instance). In this document, we go through the basic architecture, responsibilities, services provided, and on a high-level through capabilities of the solution. For most of the areas, like networking and connectivity, the other four documents are covering details and drill downs. The documentation of SAP HANA on Azure (Large Instance) does not cover aspects of SAP NetWeaver installation or deployments of SAP NetWeaver in Azure VMs. This topic is covered in separate documentation found in the same documentation container. 
+This document is one of multiple documents, which cover SAP HANA on Azure (Large Instance). In this document, we go through the basic architecture, responsibilities, services provided, and on a high-level through capabilities of the solution. For most of the areas, like networking and connectivity, the other four documents are covering details and drill downs. The documentation of SAP HANA on Azure (Large Instance) does not cover aspects of SAP NetWeaver installation or deployments of SAP NetWeaver in Azure VMs. SAP NetWeaver on Azure is covered in separate documents found in the same Azure documentation container. 
 
 
-The five parts of this guide cover the following topics:
+The different documents of HANA Large Instance guidance cover the following areas:
 
 - [SAP HANA (large Instance) Overview and Architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [How to install and configure SAP HANA (large instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) Troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [High availability set up in SUSE using the STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [OS backup and restore for Type II SKUs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## Definitions
 
@@ -64,7 +66,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
     - **Type II Class:** S384, S384m, S384xm, S576, S768, and S960
 
 
-There are a variety of additional resources that have been published on the topic of deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning and executing a deployment of SAP HANA in Azure is experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
+There are a variety of additional resources that have been published on deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning and executing a deployment of SAP HANA in Azure is experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
 
 
 - [Using SAP solutions on Microsoft Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -132,21 +134,19 @@ As of July 2017, SAP HANA on Azure (Large Instances) is available in several con
 | Optimized for OLAP: SAP BW, BW/4HANA<br /> or SAP HANA for generic OLAP workload | SAP HANA on Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU cores and 72 CPU threads |  768 GB |  3 TB | Available |
 | --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU cores and 144 CPU threads |  1.5 TB |  6 TB | Not offered anymore |
 | --- | SAP HANA on Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU cores and 192 CPU threads |  2.0 TB |  8 TB | Available |
-| --- | SAP HANA on Azure S384<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  4.0 TB |  16 TB | Ready to Order |
+| --- | SAP HANA on Azure S384<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  4.0 TB |  16 TB | Available |
 | Optimized for OLTP: SAP Business Suite<br /> on SAP HANA or S/4HANA (OLTP),<br /> generic OLTP | SAP HANA on Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU cores and 72 CPU threads |  1.5 TB |  6 TB | Available |
 |---| SAP HANA on Azure S144m<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU cores and 144 CPU threads |  3.0 TB |  12 TB | Not offered anymore |
 |---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU cores and 192 CPU threads  |  4.0 TB |  16 TB | Available |
-|---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  6.0 TB |  18 TB | Ready to Order |
-|---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  8.0 TB |  22 TB |  Ready to Order |
-|---| SAP HANA on Azure S576<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  12.0 TB |  28 TB | Ready to Order |
-|---| SAP HANA on Azure S768<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU cores and 768 CPU threads |  16.0 TB |  36 TB | Ready to Order |
-|---| SAP HANA on Azure S960<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU cores and 960 CPU threads |  20.0 TB |  46 TB | Ready to Order |
+|---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  6.0 TB |  18 TB | Available |
+|---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  8.0 TB |  22 TB |  Available |
+|---| SAP HANA on Azure S576<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  12.0 TB |  28 TB | Available |
+|---| SAP HANA on Azure S768<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU cores and 768 CPU threads |  16.0 TB |  36 TB | Available |
+|---| SAP HANA on Azure S960<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU cores and 960 CPU threads |  20.0 TB |  46 TB | Available |
 
 - CPU cores = sum of non-hyper-threaded CPU cores of the sum of the processors of the server unit.
 - CPU threads = sum of compute threads provided by hyper-threaded CPU cores of the sum of the processors of the server unit. All units are configured by default to use Hyper-Threading.
 
-
-The different configurations above which are Available or are 'Not offered anymore' are referenced in [SAP Support Note #2316233 – SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E). The configurations, which are marked  as 'Ready to Order' will find their entry into the SAP Note soon. Though, those instance SKUs can be ordered already for the six different Azure regions the HANA Large Instance service is available.
 
 The specific configurations chosen are dependent on workload, CPU resources, and desired memory. It is possible for OLTP workload to use the SKUs that are optimized for OLAP workload. 
 
@@ -290,7 +290,10 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. The Red Hat Subscription Manager provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
 - SAP requires you to have a support contract with your Linux provider as well. This requirement is not erased by the solution of HANA Large Instances or the fact that your run Linux in Azure. Unlike with some of the Linux Azure gallery images, the service fee is NOT included in the solution offer of HANA Large Instances. It is on you as a customer to fulfill the requirements of SAP regarding support contracts with the Linux distributor.   
    - For SUSE Linux, look up the requirements of support contract in [SAP Note #1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) and [SAP Note #1056161 - SUSE Priority Support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161).
-   - For Red Hat Linux, you need to have the correct subscription levels that include support and service (updates to the operating systems of HANA Large Instances. Red Hat recommends getting an "RHEL for SAP Business Applications" subscription. Regarding support and services, check [SAP Note #2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167) and [SAP Note #1496410 - Red Hat Enterprise Linux 6.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/1496410) for details.
+   - For Red Hat Linux, you need to have the correct subscription levels that include support and service (updates to the operating systems of HANA Large Instances. Red Hat recommends getting an "RHEL for [SAP Solutions](https://access.redhat.com/solutions/3082481)" subscription. 
+
+For the support matrix of the different SAP HANA version with the different Linux versions, check [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
 
 **Database:**
 
@@ -353,7 +356,7 @@ These sizes are rough volume numbers that can vary slightly based on deployment 
 
 You as a customer might have need for more storage, you have the possibility to add storage to purchase additional storage in 1 TB units. This additional storage can be added as additional volume or can be used to extend one or more of the existing volumes. It is not possible to decrease the sizes of the volumes as originally deployed and mostly documented by the table(s) above. It is also not possible to change the names of the volumes or mount names. The storage volumes as described above are attached to the HANA Large Instance units as NFS4 volumes.
 
-You as a customer can choose to use storage snapshots for backup/restore and disaster recovery purposes. More details on this topic are detailed in [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You as a customer can choose to use storage snapshots for backup/restore and disaster recovery purposes. More details are detailed in [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Encryption of data at rest
 The storage used for HANA Large Instances allows a transparent encryption of the data as it is stored on the disks. At deployment time of a HANA Large Instance Unit, you have the option to have this kind of encryption enabled. You also can choose to change to encrypted volumes after the deployment already. The move from non-encrypted to encrypted volumes is transparent and does not require a downtime. 
@@ -460,14 +463,19 @@ Deploying the SAP application layer, or components, over multiple Azure VNets as
 
 ### Routing in Azure
 
-There are two important network routing considerations for SAP HANA on Azure (Large Instances):
+There are three important network routing considerations for SAP HANA on Azure (Large Instances):
 
-1. SAP HANA on Azure (Large Instances) can only be accessed by Azure VMs in the dedicated ExpressRoute connection; not directly from on-premises. Some administration clients and any applications needing direct access, such as SAP Solution Manager running on-premises, cannot connect to the SAP HANA database.
+1. SAP HANA on Azure (Large Instances) can only be accessed through Azure VMs and through the dedicated ExpressRoute connection; not directly from on-premises. Direct access from on-premise to the HANA Large Instance units, as delivered by Microsoft to you, is not possible immediately due to transitive routing restrictions of the current Azure network architecture used for SAP HANA Large Instances. Some administration clients and any applications needing direct access, such as SAP Solution Manager running on-premises, cannot connect to the SAP HANA database.
 
-2. SAP HANA on Azure (Large Instances) units have an assigned IP address from the Server IP Pool address range you as the customer submitted (see [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details).  This IP address is accessible through the Azure subscriptions and ExpressRoute that connects Azure VNets to HANA on Azure (Large Instances). The IP address assigned out of that Server IP Pool address range is directly assigned to the hardware unit and is NOT NAT'ed anymore as this was the case in the first deployments of this solution. 
+2. If you have HANA Large Instance units deployed in two different Azure regions for the purpose of Disaster Recovery, the same transient routing restrictions apply. Or in other words, IP addresses of a HANA Large Instance unit in one region (e.g. US West) will not be routed to a HANA Large Instance unit deployed for you in another region (e.g. US East). This is independent of the usage of Azure network peering across regions or cross connecting the ExpressRoute Circuits that connect HANA Large Instance units to Azure VNets. As shown a bit further down in this documentation. This restriction, that comes with the deployed architecture, will prohibit the immediate usage of HANA System Replication as Disaster recovery functionality.
+
+3. SAP HANA on Azure (Large Instances) units have an assigned IP address from the Server IP Pool address range you as the customer submitted (see [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details).  This IP address is accessible through the Azure subscriptions and ExpressRoute that connects Azure VNets to HANA on Azure (Large Instances). The IP address assigned out of that Server IP Pool address range is directly assigned to the hardware unit and is NOT NAT'ed anymore as this was the case in the first deployments of this solution. 
 
 > [!NOTE] 
-> If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP, NGINX with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
+> If you need to overcome the restriction in transient routing as explained in the first two list items above, you need to use additional components for routing. Components that can be used to overcome the restriction can be:
+> A reverse-proxy to route data, to and from. For example, F5 BIG-IP, NGINX with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
+> Using [IPTables rules](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in a Linux VM to enable routing between on-premise locations and HANA Large Instance units, or between HANA Large Instance units in different regions.
+> Be aware that implementation and support for custom solutions involving third party network appliances or IPTables is not provided by Microsoft. Support needs to be provided by the vendor of the component used or integrator. 
 
 ### Internet connectivity of HANA Large Instances
 HANA Large Instances do NOT have direct internet connectivity. This is restricting your abilities to, for example register the OS image directly with the OS vendor. Hence you might need to work with local SLES SMT server or RHEL Subscription Manager

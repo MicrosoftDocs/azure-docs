@@ -194,7 +194,6 @@ The sample snippets above allow you to easily build service infrastructure to de
 [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
 [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[Azure Classic Portal]: http://manage.windowsazure.com
 [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
 [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png

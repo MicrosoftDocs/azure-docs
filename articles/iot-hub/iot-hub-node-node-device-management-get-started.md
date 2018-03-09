@@ -81,7 +81,7 @@ In this section, you will
    
         // Respond the cloud app for the direct method
         response.send(200, 'Reboot started', function(err) {
-            if (!err) {
+            if (err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');

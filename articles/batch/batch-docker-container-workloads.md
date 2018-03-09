@@ -1,20 +1,20 @@
 ---
-title: Docker container workloads on Azure Batch | Microsoft Docs
-description: Learn how to run applications from Docker container images on Azure Batch.
+title: Container workloads on Azure Batch | Microsoft Docs
+description: Learn how to run applications from container images on Azure Batch.
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
-ms.author: v-dotren
+ms.date: 02/26/2018
+ms.author: danlep
 
 ---
 
-# Run Docker container applications on Azure Batch
+# Run container applications on Azure Batch
 
 Azure Batch lets you run and scale very large numbers of batch computing jobs on Azure. Until now, Batch tasks have run directly on virtual machines (VMs) in a Batch pool, but now you can set up a Batch pool to run tasks in Docker containers.
 
@@ -25,7 +25,7 @@ This article assumes familiarity with Docker container concepts and how to creat
 
 ## Prerequisites
 
-* SDK versions: The Batch SDKs support container images in the following versions:
+* SDK versions: The Batch SDKs support container images as of the following versions:
     * Batch REST API version 2017-09-01.6.0
     * Batch .NET SDK version 8.0.0
     * Batch Python SDK version 4.0
@@ -85,7 +85,7 @@ In your application code, provide a reference to the VM image to use in creating
 
     To obtain this image ID from the Azure portal, open **All resources**, select the custom image, and from the **Overview** section of the image blade, copy the path in **Resource ID**.
 
-* If you are using an [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) image, provide a group of parameters describing the image: the offer type, publisher, SKU, and version of the image, as listed in [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images):
+* If you are using an [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) image, provide a group of parameters describing the image: the publisher, the offer type, SKU, and version of the image, as listed in [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -110,12 +110,11 @@ The pull (or prefetch) process lets you pre-load container images either from Do
 
 ### Pool without prefetched container images
 
-To configure the pool without prefetched container images, use a `ContainerConfiguration` as shown in the following example. This and the following examples assume that you are using a custom Ubuntu 16.04 LTS image with Docker Engine installed.
+To configure the pool without prefetched container images, define `ContainerConfiguration` and `VirtualMachineConfiguration` objects as shown in the following example. This and the following examples assume that you are using a custom Ubuntu 16.04 LTS image with Docker Engine installed.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -134,14 +133,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### Prefetch images for container configuration
 
-To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the container configuration, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com), and start TensorFlow in a start task.
+To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the `ContainerConfiguration`, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com), and start TensorFlow in a start task.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -174,7 +173,7 @@ pool.Commit();
 
 ### Prefetch images from a private container registry
 
-You can also prefetch container images by authenticating to a private container registry server. The following example assumes that you are using a custom Ubuntu 16.04 LTS image and are prefetching a private TensorFlow image from a private Azure container registry.
+You can also prefetch container images by authenticating to a private container registry server. In the following example, the `ContainerConfiguration` and `VirtualMachineConfiguration` objects use a custom Ubuntu 16.04 LTS image and prefetch a private TensorFlow image from a private Azure container registry.
 
 ```csharp
 // Specify a container registry
@@ -185,7 +184,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );
@@ -239,7 +237,7 @@ CloudTask containerTask = new CloudTask (
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit for easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * For more information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 

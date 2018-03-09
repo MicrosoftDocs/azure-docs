@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
-
+ROBOTS: NOINDEX
 ---
 
 # Upload a generalized VHD to Azure to create a new VM

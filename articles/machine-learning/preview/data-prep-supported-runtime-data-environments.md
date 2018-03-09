@@ -5,13 +5,13 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 02/01/2018
 ---
 # Supported matrix for this release 
 When your code loads data by using Azure Machine Learning Data Sources or Azure Machine Learning Data Preparations, getting either a Pandas or Spark dataframe, the following combinations of experiment compute environments and data locations are supported:
@@ -32,4 +32,4 @@ Azure Data Lake Store is not currently supported for any compute target.
 
 **Uses Maven JDBC SQL Server driver 6.2.1. You must ensure that this package (or a compatible one) is included in your spark_dependencies.yml file for the compute environment.
 
-***Supports Azure SQL Database, Azure SQL Data Warehouse, or SQL Server provided the database can be reached from the compute environment. 
+***Supports Azure SQL Database or SQL Server provided the database can be reached from the compute environment. 

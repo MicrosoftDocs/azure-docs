@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 01/02/2018
 ms.author: larryfr
 
 ---
@@ -41,7 +41,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 ## <a id="prereq"></a>Prerequisites
 
-* A Linux-based Hadoop on HDInsight cluster.
+* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -50,7 +50,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     For more information on using SSH, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Use Beeline
+## <a id="beeline"></a>Run a Hive query
 
 1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster:
 
@@ -113,10 +113,19 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     These statements perform the following actions:
@@ -164,7 +173,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 5. To exit Beeline, use `!exit`.
 
-## <a id="file"></a>Use Beeline to run a HiveQL file
+### <a id="file"></a>Use Beeline to run a HiveQL file
 
 Use the following steps to create a file, then run it using Beeline.
 
@@ -199,7 +208,7 @@ Use the following steps to create a file, then run it using Beeline.
     ```
 
     > [!NOTE]
-    > The `-i` parameter starts Beeline, runs the statements in the query.hql file. Once the query completes, you arrive at the `jdbc:hive2://headnodehost:10001/>` prompt. You can also run a file using the `-f` parameter, which exits Beeline after the query completes.
+    > The `-i` parameter starts Beeline and runs the statements in the `query.hql` file. Once the query completes, you arrive at the `jdbc:hive2://headnodehost:10001/>` prompt. You can also run a file using the `-f` parameter, which exits Beeline after the query completes.
 
 5. To verify that the **errorLogs** table was created, use the following statement to return all the rows from **errorLogs**:
 
@@ -240,7 +249,7 @@ To find the fully qualified domain name of a headnode, use the information in th
 
 ## <a id="sparksql"></a>Use Beeline with Spark
 
-Spark provides its own implementation of HiveServer2, which is often referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
+Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
 
 To connect to the Spark Thrift server of a Spark on HDInsight cluster, use port `10002` instead of `10001`. For example, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
 

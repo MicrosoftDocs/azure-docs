@@ -5,7 +5,7 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs
+ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article

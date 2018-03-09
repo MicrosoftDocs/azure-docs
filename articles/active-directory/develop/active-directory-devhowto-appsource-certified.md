@@ -4,7 +4,7 @@ description: Details on how to get your application AppSource certified for Azur
 services: active-directory
 documentationcenter: ''
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183

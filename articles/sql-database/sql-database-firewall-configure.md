@@ -43,6 +43,10 @@ Connection attempts from the Internet and Azure must first pass through the fire
 
 **Recommendation:** Microsoft recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
 
+> [!Important]
+> Windows Azure SQL Database supports a maximum of 128 firewall rules.
+>
+
 > [!Note]
 > For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
 >

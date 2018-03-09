@@ -4,7 +4,7 @@ description: Learn why and how to use managed disks with virtual machine scale s
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

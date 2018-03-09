@@ -1,6 +1,6 @@
 ---
-title: Index, query & filter in Azure Search portal pages | Microsoft Docs
-description: In the Azure portal, use predefined sample data to generate an index. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
+title: Azure Search tutorial on indexing, query, and filtering using the portal | Microsoft Docs
+description: In the Azure portal, use predefined sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -8,19 +8,19 @@ manager: jhubbard
 editor: ''
 tags: azure-portal
 
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
 
 ---
 # Create, query, and filter an Azure Search index in the portal
 
-In the Azure portal, start with a predefined sample dataset to quickly generate an index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
+In the Azure portal, start with a predefined sample dataset to quickly generate an Azure Search index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 
 This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tooling is not a substitute for code, you might find it useful for these tasks:
 
@@ -43,7 +43,7 @@ If you don't want to provision a service immediately, you can watch a 6-minute d
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way: 
    
-   * In the Jumpbar, click **More services** at the bottom of the left navigation pane.
+   * In the Jumpbar, click **All services** on the left navigation pane.
    * In the search box, type *search* to get a list of search services for your subscription. Your service should appear in the list. 
 
 ## Check for space

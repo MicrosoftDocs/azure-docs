@@ -4,9 +4,12 @@
   items:
     - name: About Bing Image Search API
       href: overview.md
+    - name: Image Search endpoints      
+      href: image-search-endpoint.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: Quickstarts
+- name: API Quickstarts
+  expanded: true
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
@@ -20,10 +23,20 @@
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
+- name: SDK (preview)
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Image search SDK C# quickstart (preview)
+    href: image-search-sdk-quickstart.md
+  - name: Image search SDK Node.js quickstart (preview)
+    href: image-search-sdk-node-quickstart.md
+  - name: Image Search SDK Python quickstart (preview)
+    href: image-sdk-python-quickstart.md
+  - name: Image Search SDK Java quickstart (preview)
+    href: image-sdk-java-quickstart.md
 - name: How To Guides
   items:
-  - name: Upgrade from v5 to v7
-    href: bing-image-upgrade-guide-v5-to-v7.md
   - name: Use and display results
     href: UseAndDisplayRequirements.md
   - name: Get image insights
@@ -34,12 +47,18 @@
     href: paging-images.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+  - name: Upgrade from v5 to v7
+    href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Tutorials
   items:
   - name: Single-page Web app
     href: tutorial-bing-image-search-single-page-app.md
   - name: Single-page Web app (source code)
     href: tutorial-bing-image-search-single-page-app-source.md
+  - name: Bing image upload for insights
+    href: tutorial-image-post.md
+  - name: Bing image upload for insights (source code)
+    href: tutorial-image-post-source.md
 - name: Reference
   items:
   - name: REST v7 API

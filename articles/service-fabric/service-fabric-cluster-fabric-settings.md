@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
 
 ---
@@ -29,7 +29,7 @@ This document tells you how to customize the various fabric settings and the fab
 The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
 
 1. Go to https://resources.azure.com
-2. Navigate to your subscription by expanding **subscriptions** -> **resource groups** -> **Microsoft.ServiceFabric** -> **\<Your Cluster Name>**
+2. Navigate to your subscription by expanding **subscriptions** -> **\<Your Subscription>** -> **resourceGroups** -> **\<Your Resource Group>** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Your Cluster Name>**
 3. In the top right corner, select **Read/Write.**
 4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
 
@@ -338,8 +338,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: FaultAnalysisService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, default is 0 |Not Allowed|NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
-| MinReplicaSetSize |Int, default is 0 |Not Allowed|The MinReplicaSetSize for FaultAnalysisService. |
+| TargetReplicaSetSize |Int, default is 0 |Static|NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
+| MinReplicaSetSize |Int, default is 0 |Static|The MinReplicaSetSize for FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Time in seconds, default is 60 minutes|Static|Specify timespan in seconds. The ReplicaRestartWaitDuration for FaultAnalysisService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static|Specify timespan in seconds. The QuorumLossWaitDuration for FaultAnalysisService. |
 | StandByReplicaKeepDuration| Time in seconds, default is (60*24*7) minutes |Static|Specify timespan in seconds. The StandByReplicaKeepDuration for FaultAnalysisService. |
@@ -383,13 +383,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 |CommonName2Ntlmx509StoreLocation|string, default is L"LocalMachine"| Static|The store location of the X509 certificate used to generate HMAC on the CommonName2NtlmPasswordSecret  when using NTLM authentication |
 |CommonName2Ntlmx509StoreName|string, default is L"MY"|Static| The store name of the X509 certificate used to generate HMAC on the CommonName2NtlmPasswordSecret  when using NTLM authentication |
 |CommonName2Ntlmx509CommonName|string, default is L""|Static|The common name of the X509 certificate used to generate HMAC on the CommonName2NtlmPasswordSecret  when using NTLM authentication |
+|GenerateV1CommonNameAccount| bool, default is TRUE|Static|Specifies whether to generate an account with user name V1 generation algorithm. Starting with Service Fabric version 6.1; an account with v2 generation is always created. The V1 account is necessary for upgrades from/to versions that do not support V2 generation (prior to 6.1).|
 
 ### Section Name: ImageStoreService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | Enabled |Bool, default is false |Static|The Enabled flag for ImageStoreService. Default: false |
-| TargetReplicaSetSize | Int, default is 7 |Not Allowed|The TargetReplicaSetSize for ImageStoreService. |
-| MinReplicaSetSize | Int, default is 3 |Not Allowed|The MinReplicaSetSize for ImageStoreService. |
+| TargetReplicaSetSize | Int, default is 7 |Static|The TargetReplicaSetSize for ImageStoreService. |
+| MinReplicaSetSize | Int, default is 3 |Static|The MinReplicaSetSize for ImageStoreService. |
 | ReplicaRestartWaitDuration | Time in seconds, default is 60.0 * 30 |Static|Specify timespan in seconds. The ReplicaRestartWaitDuration for ImageStoreService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static| Specify timespan in seconds. The QuorumLossWaitDuration for ImageStoreService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 3600.0 * 2 |Static| Specify timespan in seconds. The StandByReplicaKeepDuration for ImageStoreService. |
@@ -412,8 +413,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: UpgradeOrchestrationService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, default is 0 |Not Allowed|The TargetReplicaSetSize for UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, default is 0 |Not Allowed|The MinReplicaSetSize for UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, default is 0 |Static |The TargetReplicaSetSize for UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, default is 0 |Static |The MinReplicaSetSize for UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Time in seconds, default is 60 minutes|Static| Specify timespan in seconds. The ReplicaRestartWaitDuration for UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static| Specify timespan in seconds. The QuorumLossWaitDuration for UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 60*24*7 minutes |Static| Specify timespan in seconds. The StandByReplicaKeepDuration for UpgradeOrchestrationService. |
@@ -480,17 +481,32 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: Security/ClientX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic| |
 
 ### Section Name: Security/ClusterX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic| |
 
 ### Section Name: Security/ServerX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic| |
+
+### Section Name: Security/ClientCertificateIssuerStores
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, default is None |Dynamic|X509 issuer certificate stores for client certificates; Name = clientIssuerCN; Value = comma separated list of stores |
+
+### Section Name: Security/ClusterCertificateIssuerStores
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, default is None |Dynamic|X509 issuer certificate stores for cluster certificates; Name = clusterIssuerCN; Value = comma separated list of stores |
+
+### Section Name: Security/ServerCertificateIssuerStores
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, default is None |Dynamic|X509 issuer certificate stores for server certificates; Name = serverIssuerCN; Value = comma separated list of stores |
 
 ### Section Name: Security/ClientAccess
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
@@ -684,6 +700,7 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |RunAsPolicyEnabled| bool, default is FALSE|Static| Enables running code packages as local user other than the user under which fabric process is running. In order to enable this policy Fabric must be running as SYSTEM or as user who has SeAssignPrimaryTokenPrivilege. |
 |ServiceFactoryRegistrationTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the sync Register(Stateless/Stateful)ServiceFactory call |
 |ServiceTypeDisableGraceInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Dynamic|Specify timespan in seconds. Time interval after which the service type can be disabled |
+|EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
 
 ### Section Name: Federation
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
@@ -718,8 +735,6 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |MaxDataMigrationTimeout |Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum timeout for data migration recovery operations after a Fabric upgrade has taken place. |
 |MaxOperationRetryDelay |Time in seconds, default is 5|Dynamic| Specify timespan in seconds. The maximum delay for internal retries when failures are encountered. |
 |ReplicaSetCheckTimeoutRollbackOverride |Time in seconds, default is 1200 |Dynamic| Specify timespan in seconds. If ReplicaSetCheckTimeout is set to the maximum value of DWORD; then it's overridden with the value of this config for the purposes of rollback. The value used for roll-forward is never overridden. |
-|ImageBuilderJobQueueThrottle |Int, default is 10 |Dynamic|Thread count throttle for Image Builder proxy job queue on application requests. |
-|MaxExponentialOperationRetryDelay|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Dynamic|Specify timespan in seconds. The maximum exponential delay for internal retries when failures are encountered repeatedly |
 
 ### Section Name: DefragmentationEmptyNodeDistributionPolicy
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or short Description** |

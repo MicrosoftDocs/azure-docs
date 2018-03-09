@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro

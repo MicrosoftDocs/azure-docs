@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Quickstarts for Government | Microsoft Docs
+title: Azure Functions for Government | Microsoft Docs
 description: This provides a series of quickstarts for using Functions with Azure Government
 services: azure-government
 cloud: gov
@@ -17,7 +17,7 @@ ms.date: 9/6/2017
 ms.author: yujhong
 
 ---
-# Azure Functions Quickstarts for Azure Government
+# Azure Functions on Azure Government
 The series of Quickstarts below will help you get started using Azure Functions on Azure Government. Using Azure Functions with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#azure-functions).
 
 To learn more about Azure Functions, click [here](../azure-functions/functions-overview.md). 
@@ -177,18 +177,18 @@ Use cURL to test the deployed function on a Mac or Linux computer or using Bash 
 Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
 
 ```bash
-curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+curl http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 ```
  
 ![Function response shown in a browser](./media/documentation-government-function2.png)  
 
 If you don't have cURL available in your command line, enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function app, and append the query string `&name=<yourname>` to the URL and execute the request. 
 
-    http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+    http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 
 ![Function response shown in a browser.](./media/documentation-government-function3.png)  
 
-## Create function using Visual Studio 
+## Create function - Visual Studio 
 
 Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](documentation-government-get-started-connect-with-vs.md). 
 

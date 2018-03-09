@@ -4,7 +4,7 @@ description: Learn how to configure hybrid Azure Active Directory joined devices
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -29,15 +29,18 @@ If you have an on-premises Active Directory environment and you want to join you
 
 Before you start configuring hybrid Azure AD joined devices in your environment, you should familiarize yourself with the supported scenarios and the constraints.  
 
+If you are relying on the [System Preparation Tool (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), please make sure you create images from an installation of Windows that has not been yet registered with Azure AD.
+
+All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in once the configuration steps mentioned below are complete. **If this automatic register behavior is not preferred or if a controlled rollout is desired**, please follow instructions in the "Step 4: Control Deployment and Rollout" section below first to selectively enable or disable automatic rollout before following the other configuration steps.  
+
 To improve the readability of the descriptions, this topic uses the following term: 
 
 - **Windows current devices** - This term refers to domain-joined devices running Windows 10 or Windows Server 2016.
 - **Windows down-level devices** - This term refers to all **supported** domain-joined Windows devices that are neither running Windows 10 nor Windows Server 2016.  
 
-
 ### Windows current devices
 
-- For devices running the Windows desktop operating system, we recommend using Windows 10 Anniversary Update (version 1607) or later. 
+- For devices running the Windows desktop operating system, the supported version is the Windows 10 Anniversary Update (version 1607) or later. 
 - The registration of Windows current devices **is** supported in non-federated environments such as password hash sync configurations.  
 
 
@@ -63,6 +66,15 @@ Azure AD Connect:
 - Keeps the association between the computer account in your on-premises Active Directory (AD) and the device object in Azure AD. 
 - Enables other device related features like Windows Hello for Business.
 
+Make sure that the following URLs are accessible from computers inside your organization network for registration of computers to Azure AD:
+
+- https://enterpriseregistration.windows.net
+
+- https://login.microsoftonline.com
+
+- https://device.login.microsoftonline.com
+
+If your organizations requires access to the Internet via an outbound proxy, must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
 
 
 ## Configuration steps
@@ -527,7 +539,7 @@ When you have completed the required steps, domain-joined devices are ready to a
 
 ### Remarks
 
-- You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers.
+- You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. **If you do not want these devices to automatically register with Azure AD or you want to control the registration**, then you must roll out group policy disabling the automatic registration to all these devices first, before starting with configuration steps. After you are done configuring, and when you are ready to test, you must roll out group policy enabling the automatic registration only to the test devices and then to all other devices as you choose.
 
 - Windows 10 November 2015 Update automatically joins with Azure AD **only** if the rollout Group Policy object is set.
 
@@ -553,7 +565,8 @@ To control the rollout of Windows current computers, you should deploy the **Reg
    > [!NOTE]
    > This Group Policy template has been renamed from earlier versions of the Group Policy Management console. If you are using an earlier version of the console, go to `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Select **Enabled**, and then click **Apply**.
+7. Select **Enabled**, and then click **Apply**. You must select **Disabled** if you want the policy to block the devices controlled by this group policy from automatically registering with Azure AD.
+
 8. Click **OK**.
 9. Link the Group Policy object to a location of your choice. For example, you can link it to a specific organizational unit. You also could link it to a specific security group of computers that automatically join with Azure AD. To set this policy for all domain-joined Windows 10 and Windows Server 2016 computers in your organization, link the Group Policy object to the domain.
 

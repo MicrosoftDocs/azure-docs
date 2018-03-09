@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 03/06/2018
 ms.author: cynthn
 
 ---
 # Create a managed image of a generalized VM in Azure
 
 A managed image resource can be created from a generalized VM that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. 
-
 
 ## Generalize the Windows VM using Sysprep
 
@@ -30,7 +29,9 @@ Sysprep removes all your personal account information, among other things, and p
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
+> Once you have run sysprep on an VM it is considered *generalized* and it cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should take a [copy of the VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize the copy. 
+>
+> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep.  
 > 
 > 
 
@@ -62,7 +63,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS Disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
 
-Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it. (Use `Get-Module` to check what version you have.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -108,7 +109,7 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
     ```	
 ## Create an image from a managed disk using PowerShell
 
-If you only want to create an image of the OS disk, you can also crate an image by specifying the managed disk ID as the OS disk.
+If you only want to create an image of the OS disk, you can also create an image by specifying the managed disk ID as the OS disk.
 
 	
 1. Create some variables. 
@@ -124,7 +125,7 @@ If you only want to create an image of the OS disk, you can also crate an image 
 2. Get the VM.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Get the ID of the managed disk.

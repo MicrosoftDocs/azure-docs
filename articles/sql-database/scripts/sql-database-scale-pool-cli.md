@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.custom: monitor & tune, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -56,6 +56,6 @@ This script uses the following commands to create a resource group, logical serv
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).

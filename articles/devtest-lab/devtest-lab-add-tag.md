@@ -3,7 +3,7 @@ title: Add tags to a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add a tag to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Add tags to a lab in Azure DevTest Labs
@@ -37,7 +37,7 @@ Every tag is made up of a **name**/**value** pair. For example, you might create
 ## Steps to manage tags in an existing lab
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. If necessary, select **More Services**, and then select **DevTest Labs** from the list. Your lab might already be shown on the Dashboard under **All Resources**.
+1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. Your lab might already be shown on the Dashboard under **All Resources**.
 1. From the list of labs, select the lab in which you want to add or manage tags.  
 1. On the lab's **Overview** area, select **Configuration and policies**.  
 

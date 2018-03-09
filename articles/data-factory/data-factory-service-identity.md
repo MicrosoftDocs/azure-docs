@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/15/2018
 ms.author: jingwang
 ---
 
@@ -169,3 +169,5 @@ See the following topics which introduce when and how to use data factory servic
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copy data from/to Azure Data Lake Store using managed service identity authentication](connector-azure-data-lake-store.md)
+
+See [MSI Overview](~/articles/active-directory/msi-overview.md) for more background on Managed Service Identity, which data factory service identity is based upon. 

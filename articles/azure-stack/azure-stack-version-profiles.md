@@ -3,18 +3,18 @@ title: Using API version profiles in Azure Stack | Microsoft Docs
 description: Learn about API version profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: EBAEA4D2-098B-4B5A-A197-2CEA631A1882
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 

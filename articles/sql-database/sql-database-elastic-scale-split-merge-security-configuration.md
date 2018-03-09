@@ -435,7 +435,7 @@ In the Certificate Import Wizard:
 9. Click **OK** on all dialog windows.
 
 ## Upload certificate
-In the [Azure Portal](https://portal.azure.com/)
+In the [Azure portal](https://portal.azure.com/)
 
 1. Select **Cloud Services**.
 2. Select the cloud service.

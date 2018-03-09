@@ -85,6 +85,13 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
+## Create a load balancer rule
+ Create a load balancer rule using the following command:
+
+```powershell
+   $rule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+```
+
 ## Create a load balancer
 Create a Load Balancer Standard using the following command:
 
@@ -95,7 +102,7 @@ $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBa
 ```
 
 ## Next steps
-- Learn how [create a Public IP in an availability zone](../virtual-network/create-public-ip-availability-zone-portal.md)
+- Learn how [create a Public IP in an availability zone](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

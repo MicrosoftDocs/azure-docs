@@ -4,7 +4,7 @@ description: Overview of DNS hosting service on Microsoft Azure. Host your domai
 services: dns
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2017
+ms.date: 12/18/2017
 ms.author: kumud
 ---
 

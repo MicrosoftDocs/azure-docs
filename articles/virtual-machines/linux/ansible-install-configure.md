@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ---
 
 # Install and configure Ansible to manage virtual machines in Azure
-This article details how to install Ansible and required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use. 
+This article details how to install Ansible and the required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use. 
 
 For more installation options and steps for additional platforms, see the [Ansible install guide](https://docs.ansible.com/ansible/intro_installation.html).
 
 
 ## Install Ansible
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAnsible* in the *eastus* location:
+First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupAnsible* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-Now create a VM and install Ansible for one of the following distros:
+Now, create a VM and install Ansible for one of the following distros of your choice:
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
-- [SLES 12.2 SP2](#sles-122-sp2)
+- [SLES 12 SP2](#sles-12-sp2)
 
 ### Ubuntu 16.04 LTS
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -69,9 +69,9 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 
 
 ### CentOS 7.3
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -100,10 +100,10 @@ sudo pip install ansible[azure]
 Now move on to [Create Azure credentials](#create-azure-credentials).
 
 
-### SLES 12.2 SP2
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
+### SLES 12 SP2
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -122,11 +122,14 @@ On your VM, install the required packages for the Azure Python SDK modules and A
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Now move on to [Create Azure credentials](#create-azure-credentials).
@@ -135,26 +138,26 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 ## Create Azure credentials
 Ansible communicates with Azure using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Ansible. You control and define the permissions as to what operations the service principal can perform in Azure. To improve security over just providing a username and password, this example creates a basic service principal.
 
-Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Ansible needs:
+Create a service principal on your host computer with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Ansible needs:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 An example of the output from the preceding commands is as follows:
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
-To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account#show):
+To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account#az_account_show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 You use the output from these two commands in the next step.
@@ -170,7 +173,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-The *credentials* file itself combines the subscription ID with the output of creating a service principal. Output from the previous [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) command is the same order as needed for *client_id*, *secret*, and *tenant*. The following example *credentials* file shows these values matching the previous output. Enter your own values as follows:
+The *credentials* file itself combines the subscription ID with the output of creating a service principal. Output from the previous [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) command is the same as needed for *client_id*, *secret*, and *tenant*. The following example *credentials* file shows these values matching the previous output. Enter your own values as follows:
 
 ```bash
 [default]

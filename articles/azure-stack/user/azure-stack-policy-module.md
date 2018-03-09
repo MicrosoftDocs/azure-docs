@@ -3,8 +3,8 @@ title: Use the Azure Stack Policy Module| Microsoft Docs
 description: Learn how to constrain an Azure subscription to behave like an Azure Stack subscription
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Manage Azure policy using the Azure Stack Policy Module
@@ -42,7 +42,6 @@ Login-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
-$rgName = 'AzureStack'
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 
 ```
@@ -52,7 +51,7 @@ You may want to apply policies in a more granular method.  As an example, you ma
 
 ```PowerShell
 Login-AzureRmAccount
-$resourceGroupName = ‘myRG01’
+$rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName

@@ -47,7 +47,7 @@ Congratulations. You now now succesfully created your scale setting to auto scal
 > Note: The same steps are applicable to get started with a VMSS or cloud service role.
 
 <!--Reference-->
-[1]: https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net
+[1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net
 [2]: https://portal.azure.com
 [3]: ./media/monitoring-autoscale-scale-by-custom-metric/azure-monitor-launch.png
 [4]: ./media/monitoring-autoscale-scale-by-custom-metric/discover-autoscale-azure-monitor.png

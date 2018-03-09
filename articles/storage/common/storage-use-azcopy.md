@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
 
 ---
 # Transfer data with the AzCopy on Windows
-AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
 There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
@@ -747,7 +747,7 @@ You can specify multiple response files. However, note that AzCopy does not supp
 
 ### /Y
 
-Suppresses all AzCopy confirmation prompts.
+Suppresses all AzCopy confirmation prompts. This option also allows the use of write-only SAS tokens for data upload scenarios, when /XO and /XN are not specified.
 
 **Applicable to:** Blobs, Files, Tables
 

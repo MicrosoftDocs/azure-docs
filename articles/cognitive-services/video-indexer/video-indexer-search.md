@@ -14,7 +14,7 @@ ms.author: juliako;
 ---
 # Find exact moments within videos
 
-This topic shows you the search options that enable you find exact moments within videos.
+This topic shows you the search options that enable you to find exact moments within videos.
 
 1. Sign in to your [Video Indexer](http://vi.microsoft.com) account.
 2. Search among all videos in your account.
@@ -36,7 +36,7 @@ This topic shows you the search options that enable you find exact moments withi
 
 	If you want to create your own breakdown based on the video that you found, press the **Edit** button. This page shows you the full breakdown of a video. You can search within the breakdown to only show the lines you are interested in. For more information, see [View and edit Video Indexer insights](video-indexer-view-edit.md).
 
-	In this example, we searched the "identity protection" text. We aslo applied additional fiters, as shown in the screen below.
+	In this example, we searched the "identity protection" text. We also applied additional filters, as shown in the screen below.
 
 	![Search](./media/video-indexer-search/video-indexer-search03.png)
 

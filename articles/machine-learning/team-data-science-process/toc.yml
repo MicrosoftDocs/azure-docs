@@ -1,4 +1,5 @@
-- name: Team Data Science Process Documentation
+- name: Team Data Science Process Documentation 
+  href: index.yml
 - name: Overview
   href: overview.md
 - name: Lifecycle
@@ -29,14 +30,26 @@
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
+- name: Project planning
+  href: team-data-science-process-project-templates.md
 - name: Project execution
-  href: project-execution.md
+  items:
+  - name: Agile development
+    href: agile-development.md
+  - name: Collaborative coding with Git
+    href: collaborative-coding-with-git.md
+  - name: Execute data science tasks
+    href: execute-data-science-tasks.md
+  - name: Track progress
+    href: track-progress.md
 - name: Examples
   href: walkthroughs.md
   items:
   - name: Azure Machine Learning
     href: walkthroughs-aml-with-tdsp.md
     items:
+    - name: Sentiment classification
+      href: predict-twitter-sentiment.md
     - name: US income classification
       href: ../preview/scenario-tdsp-classifying-us-incomes.md
       maintainContext: true
@@ -46,12 +59,12 @@
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
-    - name: Explore data
+    - name: Explore and model data
       href: spark-data-exploration-modeling.md
+    - name: Advanced data exploration and modeling
+      href: spark-advanced-data-exploration-modeling.md
     - name: Score models
       href: spark-model-consumption.md
-    - name: Advanced data exploration
-      href: spark-advanced-data-exploration-modeling.md
   - name: Hive with HDInsight Hadoop
     href: walkthroughs-hdinsight-hadoop.md
   - name: U-SQL with Azure Data Lake
@@ -62,9 +75,9 @@
     href: walkthroughs-sql-data-warehouse.md
 - name: Training
   items:
-  - name: TDSP for data scientists
+  - name: For data scientists
     href: team-data-science-process-for-data-scientists.md
-  - name: TDSP for DevOps
+  - name: For DevOps
     href: team-data-science-process-for-devops.md
 - name: How To
   items:
@@ -130,7 +143,8 @@
       - name: Use AzCopy
         href: move-data-to-azure-blob-using-azcopy.md
       - name: Use Python
-        href: move-data-to-azure-blob-using-python.md
+        href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+        maintainContext: true
       - name: Use SSIS
         href: move-data-to-azure-blob-using-ssis.md
       - name: Move to a VM
@@ -205,18 +219,12 @@
       - name: Algorithm cheat sheet
         href: ../studio/algorithm-cheat-sheet.md
         maintainContext: true
-  - name: Deploy models
-    items:
-    - name: With a web service
-      href: ../studio/publish-a-machine-learning-web-service.md
-      maintainContext: true
-    - name: Consume a web service
-      href: ../studio/consume-web-services.md
-      maintainContext: true
+  - name: Deploy models in production
+    href: deploy-models-in-production.md
 - name: Related
   items:
   - name: Microsoft Cognitive Toolkit - CNTK
-    href: https://docs.microsoft.com/en-us/cognitive-toolkit/
+    href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true
   - name: Cortana Intelligence Partner Solutions
     items:
@@ -233,7 +241,7 @@
       - name: Anomaly detection
         href: apps-anomaly-detection-api.md
       - name: Cognitive Services
-        href: https://docs.microsoft.com/en-us/azure/cognitive-services/
+        href: https://docs.microsoft.com/azure/cognitive-services/
       - name: Predictive maintenance
         items:
         - name: Overview

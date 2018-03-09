@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 writer: v-lorisc
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -34,7 +34,7 @@ The following architecture elements are covered in this article:
 ### Service architecture design
 The most common way to build a scalable, highly-available, data-rich system is through independent building blocks or scale units for the Azure AD data tier, scale units are called *partitions*. 
 
-The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are distributed throughout geographically-distrubuted data centers. 
+The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are distributed throughout geographically-distributed data centers. 
 
   ![Single Directory Partitions](./media/active-directory-architecture/active-directory-architecture.png)
 

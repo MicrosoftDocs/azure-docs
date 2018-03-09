@@ -118,7 +118,7 @@ The following exercise assumes no existing server or database, and instructs you
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-2. Click **New** > **SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
+2. Click **Create a resource** > **SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
 
    ![New database page](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -283,7 +283,7 @@ If you're not going to continue to using these services, follow these steps to d
 For more information and tasks specific to other supported data sources, see the following articles:
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexing CSV blobs using the Azure Search Blob indexer](search-howto-index-csv-blobs.md)

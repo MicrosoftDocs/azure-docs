@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
 
 ---
@@ -32,28 +32,25 @@ If you want to use the existing data on the disk again, you can reattach it to t
 ## Detach a data disk using CLI 2.0
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm disk detach \
+    -g myResourceGroup \
+	--vm-name myVm \
+	-n myDataDisk
 ```
 
 The disk remains in storage but is no longer attached to a virtual machine.
 
 
 ## Detach a data disk using the portal
-1. In the portal hub, select **Virtual Machines**.
+1. In the left menu, select **Virtual Machines**.
 2. Select the virtual machine that has the data disk you want to detach and click **Stop** to deallocate the VM.
-3. In the virtual machine blade, select **Disks**.
-4. At the top of the **Disks** blade, select **Edit**.
-5. In the **Disks** blade, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
-5. After the disk has been removed, click Save on the top of the blade.
-6. In the virtual machine blade, click **Overview** and then click the **Start** button at the top of the blade to restart the VM.
+3. In the virtual machine pane, select **Disks**.
+4. At the top of the **Disks** pane, select **Edit**.
+5. In the **Disks** pane, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
+5. After the disk has been removed, click Save on the top of the pane.
+6. In the virtual machine pane, click **Overview** and then click the **Start** button at the top of the pane to restart the VM.
 
 The disk remains in storage but is no longer attached to a virtual machine.
-
-
-
-
-
-
 
 
 ## Next steps

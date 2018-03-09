@@ -9,17 +9,17 @@
     href: model-management-overview.md
 - name: Quickstarts
   items:
-  - name: Install and create
+  - name: Install and start
     href: quickstart-installation.md
 - name: Tutorials
   items:
-  - name: 1 - Prepare data
+  - name: '1: Prepare data'
     href: tutorial-classifying-iris-part-1.md
-  - name: 2 - Build a model 
+  - name: '2: Build models' 
     href: tutorial-classifying-iris-part-2.md
-  - name: 3 - Deploy a model
+  - name: '3: Deploy models'
     href: tutorial-classifying-iris-part-3.md
-  - name: 4 - Advanced data preparation
+  - name: '4: Advanced data preparation'
     href: tutorial-bikeshare-dataprep.md  
 - name: Concepts   
   items: 
@@ -39,10 +39,14 @@
       href: how-to-use-tdsp-in-azure-ml.md
     - name: Roaming and collaboration
       href: roaming-and-collaboration.md
-  - name: Use Visual Studio Code Tools for AI
-    href: quickstart-visual-studio-tools.md
-  - name: Use Azure IoT Edge AI Toolkit
-    href: use-azure-iot-edge-ai-toolkit.md
+  - name: Use IDE extensions
+    items:
+      - name: Use Visual Studio Tools for AI
+        href: quickstart-visual-studio-tools.md
+      - name: Use Visual Studio Code Tools for AI
+        href: quickstart-visual-studio-code-tools.md
+  - name: Use Azure IoT Edge AI Toolkit 
+    href: use-azure-iot-edge-ai-toolkit.md 
   - name: Configure compute environment
     items: 
     - name: Configure experimentation
@@ -88,10 +92,12 @@
       href: deployment-setup-configuration.md
     - name: Scale clusters and services
       href: how-to-scale-clusters.md
+    - name: Enable SSL on an MLC cluster
+      href: how-to-setup-ssl-on-mlc.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
-    - name: Deploy to an IoT Edge device
-      href: deploy-to-iot-edge-device.md
+    - name: Deploy to an IoT Edge device 
+      href: deploy-to-iot-edge-device.md 
     - name: Consume a web service
       href: model-management-consumption.md  
     - name: Collect model data
@@ -123,7 +129,9 @@
     - name: Classify US incomes - TDSP project
       href: scenario-tdsp-classifying-us-incomes.md
     - name: Image classification using CNTK
-      href: scenario-image-classification-using-cntk.md     
+      href: scenario-image-classification-using-cntk.md
+    - name: Deep Learning for Predictive Maintenance 
+      href: scenario-deep-learning-for-predictive-maintenance.md
 - name: Reference
   items:  
   - name: Data preparation
@@ -132,6 +140,8 @@
       href: data-prep-python-extensibility-overview.md
     - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
+    - name: Load Azure Cosmos DB as data source 
+      href: data-prep-load-azure-cosmos-db.md
     - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
     - name: Supported data destinations
@@ -150,12 +160,16 @@
       href: data-prep-appendix10-sample-custom-column-transforms-python.md  
     - name: Data preparation execution API
       href: data-prep-python-execution-api.md
+    - name: Data preparation operationalization
+      href: data-prep-operationalization.md
   - name: Experimentation    
     items:
     - name: Experimentation Service configuration
       href: experimentation-service-configuration-reference.md
     - name: Logging API
       href: reference-logging-api.md
+    - name: Experimentation Service template
+      href: experimentation-service-template.md
   - name: Model Management
     items:
     - name: Model Management API
@@ -170,29 +184,25 @@
       href: release-notes-sprint-0.md
     - name: Sprint 1 - November 2017
       href: release-notes-sprint-1.md
+    - name: Sprint 2 - December 2017
+      href: release-notes-sprint-2.md
+    - name: Sprint 2 QFE - December 2017
+      href: release-notes-sprint-2.1.md
+    - name: Sprint 3 - January 2018
+      href: release-notes-sprint-3.md
 - name: Resources
   items:  
   - name: Frequently asked questions
     href: frequently-asked-questions.md
-  - name: Known issues and troubleshooting
+  - name: Issues and troubleshooting
     href: known-issues-and-troubleshooting-guide.md
-  - name: Team Data Science Process documentation
-    href: ../team-data-science-process/overview.md
-  - name: Data Science VM documentation
-    href: ../data-science-virtual-machine/overview.md
-  - name: Azure Roadmap
+  - name: Support and training
+    href: support-for-aml-services.md
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-  - name: Feedback forum
-    href: https://feedback.azure.com/forums/257792-machine-learning
+    href: aml-services-pricing.md
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Support options
-    href: https://azure.microsoft.com/support/options/
+  - name: Team Data Science Process
+    href: ../team-data-science-process/overview.md

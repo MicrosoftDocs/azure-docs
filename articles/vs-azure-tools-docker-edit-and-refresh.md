@@ -53,7 +53,7 @@ To quickly iterate changes, you can start your application within a container, a
 
 1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally.
 
-    Once the container image has been built and is running in a Docker container, Visual Studio will launch the Web app in your default browser.
+    Once the container image has been built and is running in a Docker container, Visual Studio launches the Web app in your default browser.
     If you are using the Microsoft Edge browser or otherwise have errors, see [Troubleshooting](vs-azure-tools-docker-troubleshooting-docker-errors.md) section.
 2. Go to the About page, which is where we're going to make our changes.
 3. Return to Visual Studio and open `Views\Home\About.cshtml`.

@@ -4,7 +4,7 @@ description: This describes how to change user settings such as forcing the user
 documentationcenter: ''
 services: multi-factor-authentication
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
 ms.service: multi-factor-authentication

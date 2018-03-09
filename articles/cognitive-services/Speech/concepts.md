@@ -277,7 +277,7 @@ The payload format of the `detailed` phrase result:
   "RecognitionStatus": "Success",
   "Offset": "1236645672289",
   "Duration": "1236645672289",
-  "N-Best": [
+  "NBest": [
       {
         "Confidence" : "0.87",
         "Lexical" : "remind me to buy five pencils",

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 1/24/2018
 ms.author: johnkem
 
 ---
@@ -26,6 +26,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 | Service | Schema & Docs |
 | --- | --- |
+| Analysis Services | Schema not available. |
 | API Management | [API Management Diagnostic Logs](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -42,7 +43,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | Schema not available. |
-| Recovery Services | Schema not available.|
+| Recovery Services | [Data Model for Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
 | Server Management | Schema not available. |
 | Service Bus |[Azure Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -60,6 +61,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Pipeline activity runs log|
 |Microsoft.DataFactory/factories|PipelineRuns|Pipeline runs log|
@@ -110,6 +112,8 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
@@ -119,6 +123,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Sql/servers/databases|Timeouts|Timeouts|
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Audit|Audit Logs|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 

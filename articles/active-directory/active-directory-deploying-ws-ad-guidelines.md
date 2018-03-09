@@ -4,7 +4,7 @@ description: If you know how to deploy AD Domain Services and AD Federation Serv
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
@@ -48,7 +48,7 @@ You may download and run the [Azure Virtual Machine Readiness Assessment](https:
 
 We recommend that you also first review the tutorials, guides, and videos that cover the following topics:
 
-* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/quick-create-portal.md)
 * [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
 * [Install a replica Active Directory domain controller on Azure](active-directory-install-replica-active-directory-domain-controller.md)
@@ -430,7 +430,7 @@ Do not use SYSPREP to deploy or clone DCs. The ability to clone DCs is only avai
 Select where to locate the Windows Server AD DS database, logs, and SYSVOL. They must be deployed on Azure Data disks.
 
 > [!NOTE]
-> Azure Data disks are constrained to 1 TB.
+> Azure data disks are limited to 4 TB.
 > 
 > 
 

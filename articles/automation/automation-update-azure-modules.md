@@ -3,7 +3,7 @@ title: Update Azure modules in Azure Automation | Microsoft Docs
 description: This article describes how you can now update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -26,11 +26,11 @@ Because modules are updated regularly by the product group, changes can occur wi
 
 ## Updating Azure Modules
 
-1. In the Modules blade of your Automation account there is an option called **Update Azure Modules**.  It is always enabled.<br><br> ![Update Azure Modules option in Modules blade](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. In the Modules page of your Automation account, there is an option called **Update Azure Modules**. It is always enabled.<br><br> ![Update Azure Modules option in Modules page](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Click **Update Azure Modules** and you will be presented with a confirmation notification that asks you if you want to continue.<br><br> ![Update Azure Modules notification](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Click **Update Azure Modules** and you are presented with a confirmation notification that asks you if you want to continue.<br><br> ![Update Azure Modules notification](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Click **Yes** and the module update process will begin.  The update process takes about 15-20 minutes to update the following modules:
+3. Click **Yes** and the module update process begins. The update process takes about 15-20 minutes to update the following modules:
 
   * Azure
   *	Azure.Storage
@@ -41,12 +41,12 @@ Because modules are updated regularly by the product group, changes can occur wi
   *	AzureRm.Sql
   * AzureRm.Storage
 
-    If the modules are already up to date, then the process will complete in a few seconds.  When the update process completes you will be notified.<br><br> ![Update Azure Modules update status](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    If the modules are already up to date, then the process completes in a few seconds. When the update process completes, you will be notified.<br><br> ![Update Azure Modules update status](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
-> Azure Automation will use the latest modules in your Automation account when a new scheduled job is run.    
+> Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.    
 
-If you use cmdlets from these Azure PowerShell modules in your runbooks to manage Azure resources, then you will want to perform this update process every month or so to assure that you have the latest modules.
+If you use cmdlets from these Azure PowerShell modules in your runbooks to manage Azure resources, then you want to perform this update process every month or so to assure that you have the latest modules.
 
 ## Next steps
 

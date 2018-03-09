@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with WeChat accounts in yo
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: d2424c66-ba68-4d82-847e-d137683527b0

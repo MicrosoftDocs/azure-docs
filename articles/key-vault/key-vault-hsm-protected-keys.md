@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
 
 ---
@@ -79,10 +79,14 @@ For installation instructions, see [How to install and configure Azure PowerShel
 ### Step 1.2: Get your Azure subscription ID
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 From the output, locate the ID for the subscription you will use for Azure Key Vault. You will need this subscription ID later.
 
 Do not close the Azure PowerShell window.
@@ -185,7 +189,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 The toolset includes the following:
 
@@ -205,7 +211,9 @@ Install the nCipher (Thales) support software on a Windows computer, and then at
 
 Ensure that the Thales tools are in your path (**%nfast_home%\bin**). For example, type the following:
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 For more information, see the user guide included with the Thales HSM.
 
@@ -226,7 +234,9 @@ If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button
 ### Step 3.2: Create a security world
 Start a command prompt and run the Thales new-world program.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards give full access to the security world. These cards become the **Administrator Card Set** for the new security world.
 
@@ -290,6 +300,10 @@ To validate the downloaded package:
    * For India:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * For United Kingdom:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > The Thales software includes python at %NFAST_HOME%\python\bin
      >
@@ -368,6 +382,9 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 * For India:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* For United Kingdom:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
@@ -424,6 +441,9 @@ Run one of the following commands, depending on your geographic region or instan
 * For India:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For United Kingdom:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 When you run this command, use these instructions:
 
@@ -439,7 +459,9 @@ Use a USB drive or other portable storage to copy the output file from the previ
 ## Step 5: Transfer your key to Azure Key Vault
 For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 If the upload is successful, you see displayed the properties of the key that you just added.
 

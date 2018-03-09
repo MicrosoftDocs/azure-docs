@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: 03bef6f2-3ea2-4eaa-a828-79c5f1346ce5
@@ -144,7 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_general_400.png)
 
-8. Open the Palo Alto site as an administrator in another browser window.
+8. Open the Palo Alto Networks Firewall Admin UI as an administrator in another browser window.
 
 9. Click on **Device**.
 
@@ -158,7 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Palo Alto Single Sign-on](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-	a. In the **Profile Name** textbox, provide a name e.g Azure AD Global Protect.
+	a. In the **Profile Name** textbox, provide a name e.g Azure AD GlobalProtect.
 	
 	b. In **Identity Provider Metadata**, click **Browse** and select the metadata.xml file which you have downloaded from Azure portal
 	

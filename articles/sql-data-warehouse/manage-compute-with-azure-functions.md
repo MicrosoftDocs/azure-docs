@@ -22,7 +22,7 @@ ms.author: elbutter
 
 This tutorial will demonstrate how you can use Azure Functions to manage the compute levels of your Azure SQL Data Warehouse. These architectures are recommended for use with SQL Data Warehouse [Optimized for Elasticity][Performance Tiers].
 
-In order to use Azure Function App with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
+In order to use Azure Function App with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
 
 ## Deploy Timer based scaler with an Azure Resource Manager Template
 
@@ -181,7 +181,7 @@ Checkout the SQL Data Warehouse [samples repository](https://github.com/Microsof
 
 
 
-[schedule examples]: ../azure-functions/functions-bindings-timer.md#schedule-examples
+[schedule examples]: ../azure-functions/functions-bindings-timer.md#example
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function

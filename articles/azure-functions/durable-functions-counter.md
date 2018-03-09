@@ -18,6 +18,9 @@ ms.author: azfuncdf
 
 # Stateful singletons in Durable Functions - Counter sample
 
+> [!NOTE]
+> We are rewriting this sample. The code snippets have been removed, and a new article for a new sample will replace it.
+
 Stateful singletons are long-running (potentially eternal) orchestrator functions that can store state and be invoked and queried by other functions. Stateful singletons are similar to the [Actor model](https://en.wikipedia.org/wiki/Actor_model) in distributed computing.
 
 While not a proper "actor" implementation, orchestrator functions have many of the same runtime characteristics. For example, they are stateful, reliable, single-threaded, location-transparent, and globally addressable. These are characteristics that make real actor implementations especially useful, but without the need for a separate framework.
@@ -41,13 +44,31 @@ Durable Functions makes this kind of scenario trivial to implement because orche
 
 This article walks through the **E3_Counter** function in the sample app.
 
-The following sections explain the code that is used for Visual Studio development. The code for Azure portal development is similar.
+
 
 ## The counter orchestration
 
+The following sections explain the code that is used for Visual Studio Code and Azure Portal development.
+
+### C# Script
+
+The function.json file:
+
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
+
+The run.csx file:
+
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
+
+### Precompiled C# 
+
+The following sections explain the code that is used for Visual Studio development.
+
 Here is the code that implements the orchestrator function:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
+
+### Explanation of the code
 
 This orchestrator function essentially does the following:
 

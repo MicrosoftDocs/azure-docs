@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Cost Management Documentation
 metadata:
   title: Cost Management Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
+  description: Azure Cost Management is a multi-cloud cost management solution that helps you use Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
   services: cost-management
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/18/2017
   ms.author: carolz
 abstract:
-  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you best utilize and manage Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
+  description: Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary, is a multi-cloud cost management solution that helps you best utilize and manage Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:

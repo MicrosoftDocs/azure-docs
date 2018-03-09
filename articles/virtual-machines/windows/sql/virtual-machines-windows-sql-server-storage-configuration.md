@@ -4,7 +4,7 @@ description: This topic describes how Azure configures storage for SQL Server VM
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/31/2017
+ms.date: 12/05/2017
 ms.author: ninarn
 
 ---
@@ -27,7 +27,7 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 ## Prerequisites
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
-* Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Uses the [Resource Manager deployment model](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Uses [Premium Storage](../premium-storage.md).
 

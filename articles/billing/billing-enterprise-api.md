@@ -40,6 +40,9 @@ A Swagger endpoint is available [here](https://consumption.azure.com/swagger/ui/
 
 * **Price Sheet** - The [Price Sheet API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) provides the applicable rate for each Meter for the given Enrollment and Billing Period. 
 
+## Data Freshness
+Etags will be returned in the response of all the above API. A change in Etag indicates the data has been refreshed.  In subsequent calls to the same API using the same parameters, pass the captured Etag with the key “If-None-Match” in the header of http request. The response status code would be "NotModified" if the data has not been refreshed any further and no data will be returned. API will return the full dataset for the required period whenever there is an etag change.
+
 ## Helper APIs
  **List Billing Periods** - The [Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returns a list of billing periods that have consumption data for the specified Enrollment in reverse chronological order. Each Period contains a property pointing to the API route for the four sets of data - BalanceSummary, UsageDetails, Marketplace Charges, and Price Sheet.
 

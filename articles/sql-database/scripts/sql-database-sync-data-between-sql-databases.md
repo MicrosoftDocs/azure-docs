@@ -10,7 +10,7 @@ tags:
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: load & move data, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -258,7 +258,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncStartTime = Get-Date
+$SyncLogStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"

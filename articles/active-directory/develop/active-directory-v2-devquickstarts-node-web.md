@@ -4,7 +4,7 @@ description: Learn how to build a Node.js web app that signs in a user by using 
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 1b889e72-f5c3-464a-af57-79abf5e2e147

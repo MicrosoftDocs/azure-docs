@@ -4,7 +4,7 @@ description: Enable Azure Active Directory Domain Services using the Azure porta
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -23,7 +23,7 @@ This article shows how to enable Azure Active Directory Domain Services (Azure A
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. In the left pane, click on **New**.
+2. In the left pane, click **Create a resource**.
 3. In the **New** page, type **Domain Services** into the search bar.
 
     ![Search for domain services](./media/getting-started/search-domain-services.png)

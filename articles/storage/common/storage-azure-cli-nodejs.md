@@ -92,7 +92,7 @@ After the script runs, you should have a local destination folder that includes 
 
 ## Manage storage accounts with the Azure CLI
 ### Connect to your Azure subscription
-While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [Connect to an Azure subscription from the Azure CLI](../../xplat-cli-connect.md).
+While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ### Create a new storage account
 To use Azure storage, you will need a storage account. You can create a new Azure storage account after you have configured your computer to connect to your subscription.

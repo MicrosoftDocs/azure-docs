@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
 
 ---
@@ -26,7 +26,7 @@ At the core of Log Analytics is the log search feature which allows you to combi
 
 On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
 
-Common log search queries appear on most solution pages. Throughout the OMS console, you can click tiles or drill in to other items to view details about the item by using log search.
+Common log search queries appear on most solution pages. Throughout the OMS portal, you can click tiles or drill in to other items to view details about the item by using log search.
 
 In this tutorial, we'll walk through examples to cover all the basics when you use log search.
 
@@ -35,7 +35,7 @@ We'll start with simple, practical examples and then build on them so that you c
 After you've familiar with search techniques, you can review the [Log Analytics log search reference](log-analytics-search-reference.md).
 
 ## Use basic filters
-The first thing to know is that the first part of a search query, before any "|" vertical pipe character, is always a *filter*. You can think of it as a WHERE clause in TSQL--it determines *what* subset of data to pull out of the OMS data store. Searching in the data store is largely about specifying the characteristics of the data that you want to extract, so it is natural that a query would start with the WHERE clause.
+The first thing to know is that the first part of a search query, before any "|" vertical pipe character, is always a *filter*. You can think of it as a WHERE clause in TSQL--it determines *what* subset of data to pull out of the Log Analytics workspace. Searching in the data store is largely about specifying the characteristics of the data that you want to extract, so it is natural that a query would start with the WHERE clause.
 
 The most basic filters you can use are *keywords*, such as ‘error’ or ‘timeout’, or a computer name. These types of simple queries generally return diverse shapes of data within the same result set. This is because Log Analytics has different *types* of data in the system.
 
@@ -351,7 +351,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## Use the avg function with the measure command
 The Avg() statistical function used with measure allows you to calculate the average value for some field, and group results by the same or other field. This is useful in a variety of cases, such as performance data.
 
-We'll start with performance data. Note that OMS currently collects performance counters for both Windows and Linux machines.
+We'll start with performance data. Note that Log Analytics currently collects performance counters for both Windows and Linux machines.
 
 To search for *all* performance data, the most basic query is:
 

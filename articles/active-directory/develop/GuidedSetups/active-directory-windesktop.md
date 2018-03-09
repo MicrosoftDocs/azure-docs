@@ -1,10 +1,10 @@
 ---
-title: Azure AD v2 Windows desktop getting started | Microsoft Docs
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint.
+title: Get started with Azure Active Directory v2 Windows desktop | Microsoft Docs
+description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by an Azure Active Directory v2 endpoint.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -19,9 +19,8 @@ ms.custom: aaddev
 
 ---
 
-[!INCLUDE [1. Introduction](active-directory-mobileanddesktopapp-windowsdesktop-introduction.md)]
-[!INCLUDE [2. Setup](active-directory-mobileanddesktopapp-windowsdesktop-setup.md)]
-[!INCLUDE [3. Use](active-directory-mobileanddesktopapp-windowsdesktop-use.md)]
-[!INCLUDE [4. Configure](active-directory-mobileanddesktopapp-windowsdesktop-configure.md)]
-[!INCLUDE  [5. Test and Validate](active-directory-mobileanddesktopapp-windowsdesktop-test.md)]
-
+[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-introduction.md)]
+[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-setup.md)]
+[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-use.md)]
+[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-configure.md)]
+[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-test.md)]

@@ -4,7 +4,7 @@ description: 'How to use the features of the ADAL SDK to enable Single Sign On a
 services: active-directory
 documentationcenter: ''
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7

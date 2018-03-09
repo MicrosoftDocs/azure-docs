@@ -101,6 +101,10 @@ Azure Managed Disks currently supports only locally redundant storage managed di
 
 No. This feature is not supported currently. 
 
+**Can I break a lease on my disk?**
+
+No. This is not supported currently as a lease is present to prevent accidental deletion when the disk is being used.
+
 **Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
@@ -137,7 +141,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery (ASR) via Azure to Azure replication?**
 
-Yes. ASR Azure to Azure protection is not supported for VMs with Managed Disks. It is going to be supported by the end of CY2018. 
+Yes. Currently, ASR Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 

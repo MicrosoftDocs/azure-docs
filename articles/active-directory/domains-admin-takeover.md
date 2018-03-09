@@ -4,7 +4,7 @@ description: How to take over a DNS domain name in an unmanaged directory (shado
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -64,7 +64,7 @@ When you complete the preceding steps, you are now the global administrator of t
   
 6. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the global admin for the Azure AD tenant.
   
-7. Select **Domain names**, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
+7. Select **Custom domain names**, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
   
   ![domain added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   

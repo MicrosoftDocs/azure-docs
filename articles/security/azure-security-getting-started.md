@@ -1,4 +1,4 @@
----
+﻿---
 title: Getting started with Microsoft Azure security | Microsoft Docs
 description: This article provides an overview of Microsoft Azure security capabilities and general considerations for organizations that are migrating their assets to a cloud provider.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
 
 ---

@@ -11,7 +11,7 @@ tags:
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/19/2017
@@ -25,7 +25,36 @@ This article steps through using the Azure CLI to create a Linux VM in an Azure 
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/#login).
+Make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index#az_login).
+
+
+## Check VM SKU availability
+The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](sizes.md).
+
+You can view the available VM SKUs with the [az vm list-skus](/cli/azure/vm#az_vm_list_skus) command. The following example lists available VM SKUs in the *eastus2* region:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## Create resource group
 

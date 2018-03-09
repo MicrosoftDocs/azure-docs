@@ -20,10 +20,10 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/create-sql-database-on-azure.png
+      src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250  
     title: Create a SQL database on Azure. (3:12)
-    href: https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/
+    href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
 - title: 5-Minute Quickstarts
@@ -34,17 +34,17 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
       text: Azure portal
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
       text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-cli
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-powershell
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

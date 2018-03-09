@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 01/10/2018
 ms.author: shengc
 
 ---
@@ -133,7 +133,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 ### Service principal authentication
 
-The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
+The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 

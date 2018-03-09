@@ -1,20 +1,20 @@
 ---
-title: Manage costs by using Azure Cost Management | Microsoft Docs
-description: Manage costs by using cost allocation and showback and chargeback reports.
+title: Tutorial - Manage costs with Azure Cost Management | Microsoft Docs
+description: In this tutorial you learn to manage costs by using cost allocation and showback and chargeback reports.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
 ---
 
-# Manage costs by using Azure Cost Management
+# Tutorial: Manage costs by using Azure Cost Management
 
-You manage costs and produce showback reports in Azure Cost Management by Cloudyn by allocating costs based on tags. The process of cost allocation assigns costs to your consumed cloud resources. Costs are fully allocated when all your resources are categorized with tags. After costs are allocated, you can provide showback or chargeback to your users with dashboards and reports. However, many resources might be untagged or untaggable when you start to use Cost Management.
+You manage costs and produce showback reports in Azure Cost Management by allocating costs based on tags. The process of cost allocation assigns costs to your consumed cloud resources. Costs are fully allocated when all your resources are categorized with tags. After costs are allocated, you can provide showback or chargeback to your users with dashboards and reports. However, many resources might be untagged or untaggable when you start to use Cost Management.
 
 For example, you might want to get reimbursed for engineering costs. You need to be able to show your engineering team that you need a specific amount, based on resource costs. You can show them a report for all the consumed resources that are tagged *engineering*.
 
@@ -23,6 +23,13 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Use custom tags to allocate costs.
 > * Create showback and chargeback reports.
+
+If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+- You must have an Azure account.
+- You must have either a trial registration or paid subscription for Azure Cost Management.
 
 ## Use custom tags to allocate costs
 
@@ -76,6 +83,23 @@ The following image shows an example of rules created for a new category named *
 
 ![Example category](./media/tutorial-manage-costs/category01.png)
 
+### Tag sources and reports
+
+Tag data that you see in Cloudyn reports originates in three places:
+
+- Cloud provider resources APIs
+- Cloud provider billing APIs
+- Manually-created tags from the following sources:
+    - Cloudyn entity tags - user-defined meta data applied to Cloudyn entities
+    - Category Manager - a data cleansing tool that creates new tags based on rules that are applied to existing tags
+
+To view cloud provider tags in Cloudyn cost reports you must create a custom cost allocation model using Cost Allocation 360. To do so, go to **Cost** > **Cost Management** > **Cost Allocation 360**, select the desired tags, and then define rules to handle untagged costs. Then, create a new cost model. Afterward, you can view reports in Cost Allocation Analysis to view, filter, and sort on your Azure resource tags.
+
+Azure resource tags only appear in **Cost Allocation Analysis** reports.
+
+Cloud provider billing tags appear in all cost reports.
+
+Cloudyn entity tags and tags that you manually create appear in all cost reports.
 
 
 ## Create showback and chargeback reports
@@ -101,7 +125,7 @@ In this tutorial, you learned how to:
 
 
 
-To learn more about getting started with Cloudyn and using its features, advance to the Cloudyn documentation.
+Advance to the next tutorial to learn about controlling access to data.
 
 > [!div class="nextstepaction"]
-> [Cloudyn documentation](https://support.cloudyn.com/hc/)
+> [Control access to data](tutorial-user-access.md)

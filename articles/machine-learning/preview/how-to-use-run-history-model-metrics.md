@@ -2,8 +2,8 @@
 title: How to Use Run History and Model Metrics in Azure Machine Learning Workbench | Microsoft Docs
 description: Guide for the using the Run History and Model Metrics features of Azure Machine Learning Workbench
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -28,7 +28,7 @@ To step through this how-to guide, you need to:
 The [Azure ML Logging API](reference-logging-api.md) is available via the **azureml.logging** module in Python (which is installed with the Azure ML Workbench.)
 After importing this module, you can use the **get_azureml_logger** method to instantiate a **logger** object.
 Then, you can use the logger's **log** method to store key/value pairs produced by your Python scripts.
-Currently, logging model metrics of scalar, dictionary, list, dataframe types are supported as shown.
+Currently, logging model metrics of scalar and list types are supported as shown.
 
 ```Python
 # create a logger instance in already set up environment 

@@ -14,6 +14,12 @@ ms.author: sajagtap
 
 # Supported languages by feature
 
+> [!NOTE]
+> For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
+>
+> For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
+
+
 | Auto-detected | Profanity   | OCR    |
 | -------------------- |-------------|--------|
 | Arabic (Romanized)   | Afrikaans   | Arabic
@@ -102,7 +108,7 @@ ms.author: sajagtap
 | | Russian
 | | Scottish Gaelic
 | | Serbian (Cyrillic)
-| | Serbian (Cyrillic, Bosnia and Herzegovina)
+| | Serbian (Cyrillic, Bosnia, and Herzegovina)
 | | Serbian (Latin)
 | | Sesotho
 | | Sesotho sa Leboa

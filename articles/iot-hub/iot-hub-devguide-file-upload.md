@@ -93,7 +93,7 @@ The following reference topics provide you with more information about uploading
 
 ## File upload notifications
 
-Optionally, when a device notifies IoT Hub that an upload is complete, IoT Hub can generate a notification message that contains the name and storage location of the file.
+Optionally, when a device notifies IoT Hub that an upload is complete, IoT Hub generates a notification message that contains the name and storage location of the file.
 
 As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notifications through a service-facing endpoint (**/messages/servicebound/fileuploadnotifications**) as messages. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message lifecycle][lnk-lifecycle]. Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
 
@@ -150,7 +150,7 @@ Now you have learned how to upload files from devices using IoT Hub, you may be 
 * [Invoke a direct method on a device][lnk-devguide-directmethods]
 * [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+To try out some of the concepts described in this article, see the following IoT Hub tutorial:
 
 * [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
 

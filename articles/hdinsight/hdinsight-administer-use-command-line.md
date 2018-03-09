@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
 
 ---
 # Manage Hadoop clusters in HDInsight using the Azure CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use the [Azure Command-line Interface](../cli-install-nodejs.md) to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. Currently HDInsight doesn't support [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview).
+Learn how to use the [Azure Command-line Interface](../cli-install-nodejs.md) to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. Currently HDInsight doesn't support [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
 
 This article covers only using the Azure CLI with HDInsight. For a general guide on how to use Azure CLI, see [Install and configure Azure CLI][azure-command-line-tools].
 
@@ -37,7 +37,7 @@ Before you begin this article, you must have the following:
     azure login
     ```
   
-    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
+    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
 * **Switch to the Azure Resource Manager mode**, using the following command:
   
     ```cli

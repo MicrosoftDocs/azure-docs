@@ -1,21 +1,13 @@
 ---
-title: Azure Container Service tutorial - Update application | Microsoft Docs
+title: Azure Container Service tutorial - Update application
 description: Azure Container Service tutorial - Update Application
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -84,7 +76,7 @@ Browse to http://localhost:8080 to see the updated application.
 
 Tag the `azure-vote-front` image with the loginServer of the container registry. 
 
-Get the login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

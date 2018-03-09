@@ -8,13 +8,13 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
 
 ---
 
-# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Linux device - preview
+# Quickstart: Deploy your first IoT Edge module to a Linux or Mac device - preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
@@ -22,10 +22,14 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 ## Prerequisites
 
-To accomplish this task, use your computer or a virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
+This quickstart uses your computer or virtual machine like an Internet of Things device. To turn your machine into an IoT Edge device, the following services are required:
 
-- [Install Docker on Linux][lnk-docker-ubuntu] and make sure it's running. 
-- Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
+* Python pip, to install the IoT Edge runtime.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker, to run the IoT Edge modules
+   * [Install Docker for Linux][lnk-docker-ubuntu] and make sure that it's running. 
+   * [Install Docker for Mac][lnk-docker-mac] and make sure that it's running. 
 
 ## Create an IoT hub with Azure CLI
 
@@ -65,24 +69,26 @@ Create a device identity for your simulated device so that it can communicate wi
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
 On the machine where you'll run the IoT Edge device, download the IoT Edge control script:
-```python
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure the runtime with your IoT Edge device connection string from the previous section:
-```python
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Start the runtime:
-```python
+```bash
 sudo iotedgectl start
 ```
 
 Check Docker to see that the IoT Edge agent is running as a module:
-```python
+```bash
 sudo docker ps
 ```
+
+![See edgeAgent in Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## Deploy a module
 
@@ -92,15 +98,31 @@ sudo docker ps
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
 
-View the messages being sent from the tempSensor module:
+Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device:
 
-```cmd/sh
+```bash
+sudo docker ps
+```
+
+![View three modules on your device](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+View the messages being sent from the tempSensor module to the cloud:
+
+```bash
 sudo docker logs -f tempSensor
 ```
+
+![View the data from your module](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 
 ## Clean up resources
+
+If you want to remove the simulated device that you created, along with the Docker containers that were started for each module, use the following command: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
 
@@ -122,6 +144,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

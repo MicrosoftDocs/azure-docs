@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm:
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 01/22/2018
 ms.author: shlo
 
 ---
@@ -335,7 +335,7 @@ def main():
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(ls_name)
-    blob_path= 'adftutorial/input'
+    blob_path= 'adfv2tutorial/input'
     blob_filename = 'input.txt'
     ds_azure_blob= AzureBlobDataset(ds_ls, folder_path=blob_path, file_name = blob_filename)
     ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
@@ -343,7 +343,7 @@ def main():
 
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
-    output_blobpath = 'adftutorial/output'
+    output_blobpath = 'adfv2tutorial/output'
     dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
     dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)

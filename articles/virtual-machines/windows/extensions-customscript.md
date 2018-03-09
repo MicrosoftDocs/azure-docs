@@ -26,6 +26,11 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ## Prerequisites
 
+> [!NOTE]  
+> Do not use Custom Script Extension to run Update-AzureRmVM with the same VM as its parameter, since it will wait on itself.  
+>   
+> 
+
 ### Operating System
 
 The Custom Script Extension for Windows can be run against Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
@@ -96,7 +101,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 ## PowerShell deployment
 
 The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
-](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 	-VMName myVM `
@@ -131,7 +136,7 @@ When executing the `commandToExecute` command, the extension will have set this 
 
 Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
 ```json
-	"commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+	"commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
 Path information after the first URI segment is retained for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  

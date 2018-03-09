@@ -1,6 +1,6 @@
 ---
 title: Set up endpoints on a classic Windows VM | Microsoft Docs
-description: Learn to set up endpoints for a Windows VM in the Azure classic portal to allow communication with a Windows virtual machine in Azure.
+description: Learn to set up endpoints for a classic Windows VM in the Azure portal to allow communication with a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn

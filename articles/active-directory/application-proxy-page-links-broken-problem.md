@@ -5,7 +5,7 @@ description:  How to troubleshoot issues with broken links on Application Proxy 
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
 ---
 # Create and deploy an Azure managed application with Azure CLI
@@ -101,7 +101,7 @@ az managedapp create \
   --resource-group applicationGroup \
   --managedapp-definition-id $appid \
   --managed-rg-id $managedGroupId \
-  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"<your-prefix>\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
+  --parameters "{\"storageAccountNamePrefix\": {\"value\": \"storage\"}, \"storageAccountType\": {\"value\": \"Standard_LRS\"}}"
 ```
 
 Some of the parameters used in the preceding example are:
@@ -117,5 +117,4 @@ After the deployment finishes successfully, you see the managed application is c
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* For information about publishing managed applications to the Azure Marketplace, see [Create marketplace application](publish-marketplace-app.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).

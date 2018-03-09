@@ -39,7 +39,7 @@ You will:
 ## Before you begin
 
 * You need access to a Jenkins server. If you have not yet created a Jenkins server,
-  see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+  see [Create a Jenkins master on an Azure virtual machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Sign in to your Team Services account (**https://{youraccount}.visualstudio.com**). 
   You can get a [free Team Services account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -47,9 +47,9 @@ You will:
   > [!NOTE]
   > For more information, see [Connect to Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## Get the sample app
 

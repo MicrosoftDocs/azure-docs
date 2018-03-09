@@ -4,7 +4,7 @@ description: Step-by-step configuration guides for Azure MFA to integrate with C
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 
 ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45

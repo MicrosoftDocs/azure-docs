@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Configure Azure Media Clipper keyboard settings| Microsoft Docs 
+title: Configure Azure Media Clipper keyboard settings | Microsoft Docs 
 description: Steps for setting up configurable keyboard shortcuts for Azure Media Clipper
 services: media-services
 keywords: clip;subclip;encoding;media

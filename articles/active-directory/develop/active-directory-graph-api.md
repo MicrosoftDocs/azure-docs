@@ -4,7 +4,7 @@ description: An overview and quickstart guide for the Graph API which allows pro
 services: active-directory
 documentationcenter: ''
 author: viv-liu
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045

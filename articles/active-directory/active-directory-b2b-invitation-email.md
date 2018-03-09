@@ -1,26 +1,24 @@
 ---
-title: The elements of the Azure Active Directory B2B collaboration invitation email | Microsoft Docs
+title: The elements of the B2B collaboration invitation email - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration invitation email template
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
-ms.assetid:
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-
+ms.author: twooley
+ms.reviewer: sasubram
+ms.custom: seohack1
 ---
 
-
-# The elements of the B2B collaboration invitation email
+# The elements of the B2B collaboration invitation email - Azure Active Directory
 
 Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. You can use them to increase the recipient's trust. you can add legitimacy and social proof to the email, to make sure the recipient feels comfortable with selecting the **Get Started** button to accept the invitation. This trust is a key means to reduce sharing friction. And you also want to make the email look great!
 
@@ -35,7 +33,7 @@ You're invited to the &lt;tenantname&gt; organization
 
 ### From address
 We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is:
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
+&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
 
 ### Reply To
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.

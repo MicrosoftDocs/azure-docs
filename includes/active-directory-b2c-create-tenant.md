@@ -1,4 +1,4 @@
-Click the **New** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
+Click the **Create a resource** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
 
 ![Add button highlighted and the text Azure Active Directory B2C in the search the marketplace field](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

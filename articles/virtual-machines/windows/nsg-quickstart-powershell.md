@@ -4,7 +4,7 @@ description: Learn how to open a port / create an endpoint to your Windows VM us
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 
 ---
@@ -29,7 +29,7 @@ Log in to your Azure account:
 Login-AzureRmAccount
 ```
 
-In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
+In the following examples, replace parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
 
 Create a rule with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). The following example creates a rule named *myNetworkSecurityGroupRule* to allow *tcp* traffic on port *80*:
 

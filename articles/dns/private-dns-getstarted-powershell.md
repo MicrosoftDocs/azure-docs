@@ -3,8 +3,8 @@ title: Get started with Azure DNS private zones using PowerShell | Microsoft Doc
 description: Learn how to create a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using PowerShell.
 services: dns
 documentationcenter: na
-author: garbrad
-manager: ''
+author: KumudD
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,19 +14,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2017
-ms.author: garbrad
+ms.date: 11/20/2017
+ms.author: kumud
 ---
 
 # Get started with Azure DNS private zones using PowerShell
 
 This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell.
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  We call these 'resolution networks'.  You may also specify a set of virtual networks for which Azure DNS will maintain hostname records whenever a VM is created, changes IP, or is destroyed.  We call these 'registration networks'.
-
-As this feature is currently a managed preview, a preview PowerShell module will be provided.
-
 [!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
+A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  We call these 'resolution networks'.  You may also specify a set of virtual networks for which Azure DNS maintains hostname records whenever a VM is created, changes IP, or is destroyed.  We call these 'registration networks'.
+
+As this feature is currently a managed preview, a preview PowerShell module is provided when you email [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
+
+## Get the Preview PowerShell module
+
+In order to create a Private DNS Zone using PowerShell, send email to [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) to get the Preview PowerShell module.
 
 ## Create the resource group
 
