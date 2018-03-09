@@ -6,7 +6,7 @@ author: Nhoya
 ms.service: cognitive-services
 ms.technology: bing-search
 ms.topic: article
-ms.date: 09/03/2018
+ms.date: 03/09/2018
 ms.author: rosh
 ---
 
