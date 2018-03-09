@@ -85,7 +85,7 @@ Before you begin with this section, you must complete the following prerequisite
 * Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
 * Upload the sample JSON file to the Azure storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 
-Perform the following steps to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
+Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
 1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
 
@@ -97,7 +97,7 @@ Perform the following steps to create a notebook in Databricks, configure the no
 
     Click **Create**.
 
-3. In this step, associate the Azure Storage account with the Databricks Spark cluster. There are two ways to accomplish this, mount the Azure Storage account to the Databricks Filesystem (DBFS) or directly access the Azure Storage account from the application you create.  
+3. In this step, associate the Azure Storage account with the Databricks Spark cluster. There are two ways to accomplish this association. You can mount the Azure Storage account to the Databricks Filesystem (DBFS) or directly access the Azure Storage account from the application you create.  
 
     > [!IMPORTANT]
     >This article uses the **approach to mount the storage with DBFS**. This approach ensures that the mounted storage gets associated with the cluster filesystem itself. Hence, any application accessing the cluster is able to use the associated storage as well. The direct access approach is limited to the application from where you configure the access.
