@@ -27,7 +27,7 @@ Network Performance Monitor detects network issues like traffic blackholing, rou
 
 Network Performance Monitor offers three broad capabilities: 
 
-* [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md): You can monitor network connectivity across cloud deployments and on-premises locations, multiple data centers, and branch offices and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before users respond.
+* [Performance Monitor](log-analytics-network-performance-monitor-performance-monitor.md): You can monitor network connectivity across cloud deployments and on-premises locations, multiple data centers, and branch offices and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before users complain.
 
 * [Service Endpoint Monitor](log-analytics-network-performance-monitor-service-endpoint.md): You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and identify where network bottlenecks occur. You can know about outages before your users, and see the exact location of the issues along your network path. 
 
@@ -196,7 +196,7 @@ Select **View topology** to view the hop-by-hop topology of the routes betwe
 
  
 
-### Network State Recorder 
+### Network State Recorder control
 
 Each view displays a snapshot of your network health at a particular point in time. By default, the most recent state is shown. The bar at the top of the page shows the point in time for which the state is displayed. To view a snapshot of your network health at a previous time, select **Actions**. You also can enable or disable auto-refresh for any page while you view the latest state. 
 
