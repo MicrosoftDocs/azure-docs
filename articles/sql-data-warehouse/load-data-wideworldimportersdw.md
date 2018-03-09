@@ -1135,13 +1135,20 @@ To achieve high query performance, it's important to create statistics on each c
     ```sql
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
+## Clean up resources
 
+You are being charged for compute resources and data that you loaded into your data warehouse. These are billed separately. 
 
-## If desired, delete WideWorldImportersDW
+- 
+- If you want to remove future charges, you can delete the data warehouse. 
 
-If you want to keep the data warehouse you have created, but delete the objects and data for WideWorldImportersDW, run the sql scripts in this section.
+Follow these steps to clean up resources as you desire.
 
-1. Drop the external tables
+1. Log in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
+
+    ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+
+2. If you want to keep the data warehouse, but delete the tables and procedures you create in this tutorial, run the following script.
 
     ```sql
     DROP EXTERNAL TABLE [ext].[dimension_City];
@@ -1158,11 +1165,6 @@ If you want to keep the data warehouse you have created, but delete the objects 
     DROP EXTERNAL TABLE [ext].[fact_Sale];
     DROP EXTERNAL TABLE [ext].[fact_StockHolding];
     DROP EXTERNAL TABLE [ext].[fact_Transaction];
-    ```
-
-2. Drop the tables
-
-    ```sql
     DROP TABLE [wwi].[dimension_City];
     DROP TABLE [wwi].[dimension_Customer];
     DROP TABLE [wwi].[dimension_Date];
@@ -1177,29 +1179,15 @@ If you want to keep the data warehouse you have created, but delete the objects 
     DROP TABLE [wwi].[fact_StockHolding];    
     DROP TABLE [wwi].[fact_Transaction];
     DROP TABLE [wwi].[seed_Sale];
+    DROP PROCEDURE [dbo].[prc_sqldw_create_stats];
+    DROP PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable];
+    DROP PROCEDURE [wwi].[InitialSalesDataPopulation];
+    DROP PROCEDURE [wwi].[PopulateDateDimensionForYear];
     ```
 
-3. Drop the stored procedures
+3. If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
 
-
-
-
-## Clean up resources
-
-You are being charged for compute resources and data that you loaded into your data warehouse. These are billed separately. 
-
-- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data.
-- If you want to remove future charges, you can delete the data warehouse. 
-
-Follow these steps to clean up resources as you desire.
-
-1. Log in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
-
-    ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
-
-2. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
-
-3. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
+4. If you want to remove future charges, you can delete the data warehouse. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 
 4. To remove the SQL server you created, click **sample-svr.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
