@@ -68,7 +68,7 @@ Create two VMs in the virtual network:
 
 ### Create the first VM
 
-Create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). When running thd command the follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
+Create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
