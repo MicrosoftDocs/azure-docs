@@ -22,7 +22,7 @@ Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR)
 1. **Create and test an Azure Automation runbook.** In this step, you create a PowerShell runbook with the script that starts or stops an Azure SSIS IR. Then, you test the runbook in both START and STOP scenarios and confirm that IR starts or stops. 
 2. **Create two schedules for the runbook.** For the first schedule, you configure the runbook with START as the operation. For the second schedule, configure the runbook with STOP as the operation. For both the schedules, you specify the cadence at which the runbook is run. For example, you may want to schedule the first one to run at 8 AM every day and the second one to run at 11 PM everyday. When the first runbook runs, it starts the Azure SSIS IR. When the second runbook runs, it stops the Azure SSIS IR. 
 3. **Create two webhooks for the runbook**, one for the START operation and the other for the STOP operation. You use the URLs of these webhooks when configuring web activities in a Data Factory pipeline. 
-4. **Create a Data Factory pipeline**. The pipeline you create consists of four activities. The first **Web** activity invokes the first webhook to start the Azure SSIS IR. The **Wait** activity waits for 30 minutes (1800 seconds) for the Azure SSIS IR to start. The **Stored Procedure** activity runs a SQL script that runs the SSIS package. The second **Web** activity stops the Azure SSIS IR. For more information about invoking an SSIS package from a Data Factory pipeline by using the Stored Procedure activity, see [Invoke an SSIS package](how-to-invoke-ssis-package-stored-procedure-activity.md). Then, you create a schedule trigger to schedule the pipeline to run at the cadence you specify.
+4. **Create a Data Factory pipeline**. The pipeline you create consists of three activities. The first **Web** activity invokes the first webhook to start the Azure SSIS IR. The **Stored Procedure** activity runs a SQL script that runs the SSIS package. The second **Web** activity stops the Azure SSIS IR. For more information about invoking an SSIS package from a Data Factory pipeline by using the Stored Procedure activity, see [Invoke an SSIS package](how-to-invoke-ssis-package-stored-procedure-activity.md). Then, you create a schedule trigger to schedule the pipeline to run at the cadence you specify.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Invoke SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -220,12 +220,11 @@ You should have two URLs, one for the **StartAzureSsisIR** webhook and the other
 ## Create and schedule a Data Factory pipeline that starts/stops the IR
 This section shows how to use a Web activity to invoke the webhooks you created in the previous section.
 
-The pipeline you create consists of four activities. 
+The pipeline you create consists of three activities. 
 
 1. The first **Web** activity invokes the first webhook to start the Azure SSIS IR. 
-2. The **Wait** activity waits for 30 minutes (1800 seconds) for the Azure SSIS IR to start. 
-3. The **Stored Procedure** activity runs a SQL script that runs the SSIS package. The second **Web** activity stops the Azure SSIS IR. For more information about invoking an SSIS package from a Data Factory pipeline by using the Stored Procedure activity, see [Invoke an SSIS package](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. The second **Web** activity invokes the webhook to stop the Azure SSIS IR. 
+2. The **Stored Procedure** activity runs a SQL script that runs the SSIS package. The second **Web** activity stops the Azure SSIS IR. For more information about invoking an SSIS package from a Data Factory pipeline by using the Stored Procedure activity, see [Invoke an SSIS package](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. The second **Web** activity invokes the webhook to stop the Azure SSIS IR. 
 
 After you create and test the pipeline, you create a schedule trigger and associate with the pipeline. The schedule trigger defines a schedule for the pipeline. Suppose, you create a trigger that is scheduled to run daily at 11 PM. The trigger runs the pipeline at 11 PM every day. The pipeline starts the Azure SSIS IR, executes the SSIS package, and then stops the Azure SSIS IR. 
 
@@ -389,7 +388,7 @@ Now that the pipeline works as you expected, you can create a trigger to run thi
 6. To monitor trigger runs and pipeline runs, use the **Monitor** tab on the left. For detailed steps, see [Monitor the pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Pipeline runs](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. To view the activity runs associated with a pipeline run, select the first link (**View Activity Runs**) in the **Actions** column. You see the four activity runs associated with each activity in the pipeline (first Web activity, Wait activity, Stored Procedure activity, and the second Web activity). To switch back to view the pipeline runs, select **Pipelines** link at the top.
+7. To view the activity runs associated with a pipeline run, select the first link (**View Activity Runs**) in the **Actions** column. You see the three activity runs associated with each activity in the pipeline (first Web activity, Stored Procedure activity, and the second Web activity). To switch back to view the pipeline runs, select **Pipelines** link at the top.
 
     ![Activity runs](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. You can also view trigger runs by selecting **Trigger runs** from the drop-down list that's next to the **Pipeline Runs** at the top. 
