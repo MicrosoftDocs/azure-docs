@@ -3,9 +3,10 @@ title: Support matrix for Hyper-V replication Azure | Microsoft Docs
 description: Summarizes the supported components and requirements for Hyper-V replication to Azure with Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
 ---
 
