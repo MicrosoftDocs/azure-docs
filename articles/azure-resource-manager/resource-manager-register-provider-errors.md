@@ -93,7 +93,7 @@ To see the supported locations and API versions for a resource type, use:
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### Solution 3 - Azure portal
+## Solution 3 - Azure portal
 
 You can see the registration status and register a resource provider namespace through the portal.
 
