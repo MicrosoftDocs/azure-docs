@@ -59,7 +59,7 @@ The function in the following table is used to access certificates in a Python2 
 
 ## Creating a new certificate
 
-When you create a new certificate, you upload a .cer or .pfx file to Azure Automation. If you mark the certificate as exportable, then you can transfer it out of the Azure Automation certificate store. If it is not exportable, then it can only be used for signing within the runbook or DSC configuration. Azure Automation requires the certificate to have the **Microsoft Enhanced RSA and AES Cryptographic Provider**.
+When you create a new certificate, you upload a .cer or .pfx file to Azure Automation. If you mark the certificate as exportable, then you can transfer it out of the Azure Automation certificate store. If it is not exportable, then it can only be used for signing within the runbook or DSC configuration. Azure Automation requires the certificate to have the **Microsoft Enhanced RSA and AES Cryptographic** provider.
 
 ### To create a new certificate with the Azure portal
 
