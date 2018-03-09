@@ -1,6 +1,6 @@
 ---
 title: 'App Service on Azure Stack: Fault Domain Update | Microsoft Docs'
-description: How to redistribute Azure App Service on Azure Stack across Fault Domains
+description: How to redistribute Azure App Service on Azure Stack across fault domains
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -17,20 +17,20 @@ ms.date: 03/09/2018
 ms.author: anwestg
 
 ---
-# How to redistribute Azure App Service on Azure Stack across Fault Domains
+# How to redistribute Azure App Service on Azure Stack across fault domains
 
 *Applies to: Azure Stack integrated systems*
 
 With the 1802 update, Azure Stack now supports the distribution of workloads across fault domains, a feature, which is critical for high availability.
 
 > [!IMPORTANT]
-> You must have updated your Azure Stack integrated system to 1802 to be able to take advantage of fault domain support.  This document only applies to App Service Resource Provider deployments that were completed prior to the 1802 update.  If you have deployed App Service on Azure Stack after the 1802 update was applied to Azure Stack, the resource provider is already distributed across fault domains.
+> You must have updated your Azure Stack integrated system to 1802 to be able to take advantage of fault domain support.  This document only applies to App Service resource provider deployments that were completed prior to the 1802 update.  If you have deployed App Service on Azure Stack after the 1802 update was applied to Azure Stack, the resource provider is already distributed across fault domains.
 >
 >
 
-## Rebalance an App Service Resource Provider Across Fault Domains
+## Rebalance an App Service resource provider across fault domains
 
-In order to redistribute the scale sets deployed for the App Service RP, you must perform the following steps for each scale set.  By default the scaleset names are:
+In order to redistribute the scale sets deployed for the App Service resource provider, you must perform the following steps for each scale set.  By default the scaleset names are:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
