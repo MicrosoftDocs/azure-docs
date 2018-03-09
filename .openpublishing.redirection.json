@@ -409,6 +409,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-tips.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-common-deployment-errors",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-toolkit-for-eclipse-debugging-azure-applications.md",
             "redirect_url": "/azure/azure-toolkit-for-eclipse",
             "redirect_document_id": false
