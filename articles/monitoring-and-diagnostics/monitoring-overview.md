@@ -26,7 +26,7 @@ Azure includes multiple services that individually perform a specific role or ta
 
 The following diagram shows a conceptual view of the components that work together to provide monitoring of Azure resources. The following sections describe these components and provide links to detailed technical information.
 
-![Monitoring overview](media/monitoring-overview/monitoring-products-overview.svg)
+![Monitoring overview](media/monitoring-overview/monitoring-products-overview.png)
 
 
 ## Shared Capabilities
