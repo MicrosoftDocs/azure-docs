@@ -102,13 +102,13 @@ You see more details about the deployment. Select the option to find more inform
 
 ![deployment failed](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-You see the error message and error codes. Notice there are two error codes. The first error code (**DeploymentFailed**) is a general error that does not provide the details you need to solve the error. The second error code (**StorageAccountNotFound**) provides the details you need. 
+You see the error message and error codes. Notice there are two error codes. The first error code (**DeploymentFailed**) is a general error that doesn't provide the details you need to solve the error. The second error code (**StorageAccountNotFound**) provides the details you need. 
 
 ![error details](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## Enable debug logging
 
-Sometimes you need more information about the request and response to discover what went wrong. By using PowerShell or Azure CLI, you can request that additional information is logged during a deployment.
+Sometimes you need more information about the request and response to learn what went wrong. By using PowerShell or Azure CLI, you can request that additional information is logged during a deployment.
 
 - PowerShell
 

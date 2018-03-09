@@ -18,11 +18,11 @@ ms.author: tomfitz
 ---
 # Resolve not found errors for Azure resources
 
-This article describes the errors you may encounter when a resource cannot be found during deployment. 
+This article describes the errors you may encounter when a resource can't be found during deployment.
 
 ## Symptom
 
-When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
+When your template includes the name of a resource that can't be resolved, you receive an error similar to:
 
 ```
 Code=NotFound;
@@ -39,11 +39,11 @@ group {resource group name} was not found.
 
 ## Cause
 
-Resource Manager needs to retrieve the properties for a resource, but cannot identify the resource in your subscription.
+Resource Manager needs to retrieve the properties for a resource, but can't identify the resource in your subscription.
 
 ## Solution 1 - set dependencies
 
-If you are attempting to deploy the missing resource in the template, check whether you need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You prevent this error by setting the dependency in the web app.
+If you're trying to deploy the missing resource in the template, check whether you need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template. For example, when deploying a web app, the App Service plan must exist. If you haven't specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You get an error stating that the App Service plan resource can't be found, because it doesn't exist yet when attempting to set a property on the web app. You prevent this error by setting the dependency in the web app.
 
 ```json
 {
@@ -72,7 +72,7 @@ When you encounter dependency problems, you need to gain insight into the order 
 
    ![parallel deployment](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
 
-   The next image shows three storage accounts that are not deployed in parallel. The second storage account depends on the first storage account, and the third storage account depends on the second storage account. Therefore, the first storage account is started, accepted, and completed before the next is started.
+   The next image shows three storage accounts that are not deployed in parallel. The second storage account depends on the first storage account, and the third storage account depends on the second storage account. The first storage account is started, accepted, and completed before the next is started.
 
    ![sequential deployment](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
 
