@@ -48,7 +48,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     * For **Location**, select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).
     * For **Pricing Tier**, select between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).
 
-    Click **Create**.
+    Select **Pin to dashboard** and then click **Create**.
 
 4. The account creation takes a few minutes. During account creation the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
