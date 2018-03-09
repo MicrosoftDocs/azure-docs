@@ -47,6 +47,8 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
+    - name: Kubernetes Volume - Disks
+      href: azure-disk-volume.md
     - name: Kubernetes Volume - Files
       href: azure-files-volume.md
     - name: Persistent Volume - Disks
@@ -85,6 +87,8 @@
     items:
     - name: SSH node access
       href: aks-ssh.md
+    - name: Get kubelet logs
+      href: kubelet-logs.md
 - name: Reference
   items:
   - name: Azure CLI

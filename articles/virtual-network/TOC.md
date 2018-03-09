@@ -53,17 +53,15 @@
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Virtual network peering
-#### [Same deployment model - same subscription](virtual-network-create-peering.md)
+#### Same deployment model - same subscription
+##### [Azure portal](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
 ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
-
-### Public IP address - availability zone
-#### [Azure portal](create-public-ip-availability-zone-portal.md)
-#### [Azure CLI](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)
@@ -148,7 +146,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Manage
-### [Virtual networks](virtual-network-manage-network.md)
+### [Virtual networks](manage-virtual-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
 #### Classic
