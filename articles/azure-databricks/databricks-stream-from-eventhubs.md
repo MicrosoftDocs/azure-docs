@@ -113,11 +113,11 @@ To receive a real-time stream of tweets, you must create an application in Twitt
 
     ![Twitter application details](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Twitter application details")
 
-Save the values that you retrieved for the Twitter application. You need this later in the tutorial.
+Save the values that you retrieved for the Twitter application. You need the values later in the tutorial.
 
 ## Add libraries to the cluster
 
-In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Events Hub. To use these APIs as part of your cluster, you must add them as libraries to Azure Databricks and then associate them with your Spark cluster. The instructions below show how to add the library to the **Shared** folder in your workspace.
+In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Events Hub. To use these APIs as part of your cluster, you must add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the library to the **Shared** folder in your workspace.
 
 1.  In the Azure Databricks workspace, click **Workspace**, and then right-click **Shared**. From the context menu, click **Create** > **Library**.
 
@@ -235,7 +235,7 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-Press **SHIFT + ENTER** to run the notebook. You see the following output. Each event below is a real-time tweet that is ingested into the Events Hub. 
+To run the notebook, press **SHIFT + ENTER**. You see the following output. Each event in the output is a real-time tweet that is ingested into the Events Hub. 
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
@@ -275,7 +275,7 @@ In the **ReadTweetsFromEventHub** notebook, paste the following code, and replac
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
-You get the following output.
+You get the following output:
 
   
     root
@@ -321,7 +321,7 @@ Because the output is in a binary mode, use the following snippet to convert it 
     
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
-The output now resembles the following snippet.
+The output now resembles the following snippet:
 
     root
      |-- Offset: long (nullable = true)
