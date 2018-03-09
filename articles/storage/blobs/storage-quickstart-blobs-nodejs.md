@@ -12,7 +12,7 @@ ms.date: 02/22/2018
 ms.author: cshoe
 ---
 
-# Transfer objects to/from Azure Blob storage using Node.js
+# Quickstart: Transfer objects to/from Azure Blob storage using Node.js
 
 In this quickstart, you learn how to use Node.js to upload, download, and list block blobs in a container using Azure Blob storage.
 
@@ -257,6 +257,11 @@ try {
     console.log(e);
 }
 ```
+
+## Clean up resources
+If no not plan on using the data or accounts created in this procedure, you may want to delete the storage account to ensure you avoid any undesired billing. First, 
+
+
 
 ## Next steps
 
