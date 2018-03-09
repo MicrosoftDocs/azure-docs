@@ -39,7 +39,8 @@ You can configure auditing for different types of event categories, as explained
 > [!IMPORTANT]
 > Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
 >
-> **Storage in VNet** is currently **not supported**.
+> * **Premium Storage** is currently **not supported** by Append Blobs.
+> * **Storage in VNet** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 

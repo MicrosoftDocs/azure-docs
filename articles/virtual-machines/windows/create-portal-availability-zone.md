@@ -32,7 +32,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual machine
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
 

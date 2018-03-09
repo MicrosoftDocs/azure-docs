@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
 
 ---
@@ -148,8 +148,8 @@ The following table provides **outbound port** and domain requirements for the *
 | `*.servicebus.windows.net`    | 443, 80        | Required by the self-hosted integration runtime to connect to data movement services in Data Factory |
 | `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to Azure Storage Account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
 | `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Azure Data Factory service. |
-| `*.database.windows.net`      | 1433           | (OPTIONAL) needed when your destination is Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. |
-| `*.azuredatalakestore.net`    | 443            | (OPTIONAL) needed when your destination is Azure Data Lake store |
+| `*.database.windows.net`      | 1433           | (OPTIONAL) needed when you copy from/to Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (OPTIONAL) needed when you copy from/to is Azure Data Lake store |
 
 > [!NOTE] 
 > You may have to manage ports/ whitelisting domains at the corporate firewall level as required by respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store as examples.   

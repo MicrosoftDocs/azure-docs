@@ -2,18 +2,14 @@
 title: Make application data highly available in Azure | Microsoft Docs 
 description: Use read access geo-redundant storage to make your application data highly available
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: ''
 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
 ---
 
@@ -61,7 +57,7 @@ A storage account provides a unique namespace to store and access your Azure sto
 
 Follow these steps to create a read-access geo-redundant storage account:
 
-1. Select the **New** button found on the upper left-hand corner of the Azure portal.
+1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Storage** from the **New** page, and select **Storage account - blob, file, table, queue** under **Featured**.
 3. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
@@ -70,7 +66,7 @@ Follow these steps to create a read-access geo-redundant storage account:
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Name** | mystorageaccount | A unique value for your storage account |
    | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
-   | **Account kind** | General purpose | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
    |**Secure transfer required** | Disabled| Secure transfer is not required for this scenario. |
@@ -78,7 +74,7 @@ Follow these steps to create a read-access geo-redundant storage account:
    |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Location** | East US | Choose a location. |
 
-![create storage account](media/storage-create-geo-redundant-storage/figure1.png)
+![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## Download the sample
 

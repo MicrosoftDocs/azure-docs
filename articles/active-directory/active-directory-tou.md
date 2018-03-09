@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
 
 ---
@@ -122,10 +122,10 @@ This is because conditional access policies take effect immediately. When this h
 A: A user accepting the terms of use is written to the audit log. You can search the Azure AD audit log to see the results.  
 
 **Q: If you change the terms of use terms does it require users to accept again?**</br>
-A: Yes, an admin can change the terms of use terms and it requires reaccepting the new terms.
+A: Yes, an administrator can change the terms of use terms and it requires re-accepting the new terms.
 
-**Q: Can a terms of use support multi languages?**</br>
-A: No, currently it is not possible to have multiple languages in a single terms of use.  However, you can scope to a group (for example, terms of use for France is different from terms of use for UK). 
+**Q: Can a terms of use support multiple languages?**</br>
+A: Yes.  Currently there are 18 different languages an administrator can configure for a single terms of use. 
 
 **Q: When is the terms of use triggered?**</br>
 A: The terms of use is triggered during the sign-in experience.
