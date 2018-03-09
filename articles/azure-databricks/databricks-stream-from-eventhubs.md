@@ -22,7 +22,7 @@ ms.author: nitinme
 
 # Stream events into Azure Databricks using Event Hubs
 
-Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. In this tutorial, you learn how to stream real-time data into Azure Databricks using Azure Event Hubs and data from public Twitter API.
+Azure Databricks is an Apache Spark-based analytics platform optimized for Microsoft Azure. In this tutorial, you learn how to stream real-time data into Azure Databricks using Azure Event Hubs and data from public Twitter API.
 
 This tutorial covers the following tasks: 
 
@@ -43,7 +43,7 @@ Before you start with this tutorial, make sure you have the following:
 - An Azure Event Hubs namespace.
 - An Event Hub within the namespace.
 - Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
-- Policy name and policy key
+- Shared access policy name and policy key for Event Hubs.
 
 You can meet these requirements by completing the steps in the article [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
@@ -52,6 +52,7 @@ You can meet these requirements by completing the steps in the article [Create a
 In this tutorial, you set up a real-time data ingestion pipeline using Azure Event Hubs. You connect the pipeline to Spark on Azure Databricks to process the messages coming through the pipeline. To simulate a real-time stream of data, you use Twitter APIs to ingest tweets into Event Hubs. The following screenshot shows the application flow.
 
 ![Azure Databricks with Events Hub](./media/databricks-stream-from-eventhubs/databricks_eventhubs_tutorial.png "Azure Databricks with Events Hub")
+
 
 ## Log in to the Azure portal
 
@@ -139,11 +140,11 @@ In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You als
 
     ![Attach library to cluster](./media/databricks-stream-from-eventhubs/databricks-library-attached.png "Attach library to cluster")
 
-6. Repeat these steps for the library you added for Twitter API.
+6. Repeat these steps for the Twitter package, `twitter4j-core:4.0.6`.
 
 ## Create notebooks in Databricks
 
-In this section, you create two notebooks in Databricks workspace with the following names
+In this section, you create two notebooks in Databricks workspace with the following names:
 
 - **SendTweetsToEventHub** - You use this notebook to get tweets from Twitter and stream them to Events Hub.
 - **ReadTweetsFromEventHub** - You use this notebook to read the tweets from Events Hub.
@@ -162,7 +163,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 ## Send message to Event Hubs
 
-In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Events Hub.
+In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Events Hub in real-time.
 
     import java.util._
     import scala.collection.JavaConverters._
@@ -234,21 +235,22 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-Press SHIFT + ENTER to run the notebook. You will see the following output.
+Press **SHIFT + ENTER** to run the notebook. You see the following output. Each event below is a real-time tweet that is ingested into the Events Hub. 
 
-    Sent event: What Is App Service Environment? https://t.co/NnZvYLaVkJ @PetriFeed  Deploy #Azure apps in an isolated environment… https://t.co/05KgO2aZYK
+    Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
-    Sent event: Wanting to build bots? Get started today with these #Azure Bot Service tutorials: https://t.co/bH5D2gVUZu #SharePoint #Office365
-
-    Sent event: Wanting to build bots? Get started today with these #Azure Bot Service tutorials: https://t.co/kNRXmI5PQ6… https://t.co/WaGRwHgllT
-
-    Sent event: Wanting to build bots? Get started today with these #Azure Bot Service tutorials: https://t.co/bWTCp8GMrv
-
-    Sent event: Getting started with #Azure #IoT #Edge development https://t.co/qVMZnNc7tM https://t.co/xojeJJJ84r
-
-    Sent event: #ICYDK: Full MeitY accreditation enables Indian public sector to deploy on Azure: Microsoft recently became one of… https://t.co/JZSCEfT4VS
-
-
+    Sent event: Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
+    https://t.co/7vs7cKtvah 
+    #cloudcomputing #Azure
+    
+    Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
+    
+    Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
+    
+    Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
+    
+    ...
+    ...
 
 ## Read message from Event Hubs
 
@@ -287,10 +289,18 @@ You get the following output.
     -------------------------------------------
     Batch: 0
     -------------------------------------------
-    +----------+------+---------+------------+---------+------------+----------+
-    |body|offset|seqNumber|enqueuedTime|publisher|partitionKey|properties|
-    +------+------+---------+------------+---------+------------+----------+
-    |[41 62 6F 75 74 20 74 6F 20 73 74 61 72 74 20 6D 79 20 74 68 69 72 64 20 73 68 69 66 74 20 74 6F 64 61 79 2C 20 64 65 6C 69 76 65 72 69 6E 67 20 61 20 63 75 73 74 6F 6D 20 23 41 7A 75 72 65 20 23 53 65 63 75 72 69 74 79 20 43 65 6E 74 65 72 20 74 72 61 69 6E 69 6E 67 20 66 6F 72 20 61 20 63 75 73 74 6F 6D 65 72 2E 20 46 6F 63 75 73 20 6F 6E E2 80 A6 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 48 7A 4E 44 62 6C 75 30 61 32]|0     |0        |1519782402  |null     |null        |[]        |
+    +------+------+--------------+---------------+---------+------------+
+    |body  |offset|sequenceNumber|enqueuedTime   |publisher|partitionKey|
+    +------+------+--------------+---------------+---------+------------+
+    |[50 75 62 6C 69 63 20 70 72 65 76 69 65 77 20 6F 66 20 4A 61 76 61 20 6F 6E 20 41 70 70 20 53 65 72 76 69 63 65 2C 20 62 75 69 6C 74 2D 69 6E 20 73 75 70 70 6F 72 74 20 66 6F 72 20 54 6F 6D 63 61 74 20 61 6E 64 20 4F 70 65 6E 4A 44 4B 0A 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 37 76 73 37 63 4B 74 76 61 68 20 0A 23 63 6C 6F 75 64 63 6F 6D 70 75 74 69 6E 67 20 23 41 7A 75 72 65]                              |0     |0             |2018-03-09 05:49:08.86 |null     |null        |
+    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        | 
+    +------+------+--------------+---------------+---------+------------+
+    
+    -------------------------------------------
+    Batch: 1
+    -------------------------------------------
+    ...
+    ...
 
 Because the output is in a binary mode, use the following snippet to convert it into string.
 
@@ -322,20 +332,30 @@ The output now resembles the following snippet.
     -------------------------------------------
     Batch: 0
     -------------------------------------------
-    +------+------------------+-----------+-------+
-    |Offset|Time (readable)   |Timestamp  |Body   |
-    +------+------------------+-----------+-------+
-    |0     |2018-02-28 01:46:42.368|1519782402|About to start my third shift today, delivering a custom #Azure #Security Center training for a customer. Focus on… https://t.co/HzNDblu0a2|
-    |184   |2018-02-28 01:46:45.869|1519782405|Read the blog and learn how to securely shift your workload to #Azure: https://t.co/rsmcZA3knd https://t.co/o021XWLjOl                     |
-    |0     |2018-02-28 01:46:44.117|1519782404|Looking for investments in the #cloud ? Try these. 4 Top Cloud Stocks to Buy Now @themotleyfool #stocks $MSFT,… https://t.co/PvanIE2KPw    |
-    |176   |2018-02-28 01:46:47.867|1519782407|#DataScientists Q&A discussion forum >> Which is the best #BigData Analytics platform for beginners -- #AWS vs… https://t.co/M94LJeWwoH    |
-    +------+------------------+-----------+-------+
-    
+    +------+-----------------+----------+-------+
+    |Offset|Time (readable)  |Timestamp |Body                                                     +------+-----------------+----------+-------+
+    |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
+    https://t.co/7vs7cKtvah 
+    #cloudcomputing #Azure          |
+    |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
+    |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
+    |176   |2018-03-09 05:49:20.801|1520574560|4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |
+    +------+-----------------+----------+-------+
     -------------------------------------------
     Batch: 1
     -------------------------------------------
     ...
     ...
+
+That's it! Using Azure Databricks, you have successfully streamed real-time data into Azure Event Hubs. You then consumed the stream data using the Event Hubs connector for Apache Spark.
+
+## Clean up resources
+
+While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically terminate if it has been inactive for the specified time.
+
+If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
+
+![Terminate Databricks cluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Terminate Databricks cluster")
 
 ## Next steps 
 In this tutorial, you learned how to use Azure Databricks to stream data into Azure Events Hub and then read the streaming data from Events Hub in real time. You learned how to:
