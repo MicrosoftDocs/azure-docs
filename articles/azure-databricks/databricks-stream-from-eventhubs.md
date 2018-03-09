@@ -43,6 +43,7 @@ Before you start with this tutorial, make sure you have the following:
 - An Azure Event Hubs namespace.
 - An Event Hub within the namespace.
 - Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
+- Policy name and policy key
 
 You can meet these requirements by completing the steps in the article [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
@@ -232,6 +233,20 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+
+Press SHIFT + ENTER to run the notebook. You will see the following output.
+
+    Sent event: What Is App Service Environment? https://t.co/NnZvYLaVkJ @PetriFeed  Deploy #Azure apps in an isolated environment… https://t.co/05KgO2aZYK
+
+    Sent event: Wanting to build bots? Get started today with these #Azure Bot Service tutorials: https://t.co/bH5D2gVUZu #SharePoint #Office365
+
+    Sent event: Wanting to build bots? Get started today with these #Azure Bot Service tutorials: https://t.co/kNRXmI5PQ6… https://t.co/WaGRwHgllT
+
+    Sent event: Wanting to build bots? Get started today with these #Azure Bot Service tutorials: https://t.co/bWTCp8GMrv
+
+    Sent event: Getting started with #Azure #IoT #Edge development https://t.co/qVMZnNc7tM https://t.co/xojeJJJ84r
+
+    Sent event: #ICYDK: Full MeitY accreditation enables Indian public sector to deploy on Azure: Microsoft recently became one of… https://t.co/JZSCEfT4VS
 
 
 
