@@ -66,13 +66,12 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-  
-    '''
+   ```    
 
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   > [!NOTE]
+   > This step can take a number of hours to complete depending on the type of role and the number of instances.
+   >
+   >
 
 3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
 
