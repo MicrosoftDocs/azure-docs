@@ -18,7 +18,7 @@ ms.author: kadimitr
 
 # Durable Functions Unit Testing
 
-Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, Orchestrator, and Activity functions. 
+Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, Orchestrator, and Activity functions. 
 
 ## Prerequisites
 
@@ -48,11 +48,11 @@ These classes are base classes for [DurableOrchestrationClient](https://azure.gi
 1. Use the base classes instead of the concrete implementation when defining Orchestration Client and Orchestrator's signatures
 2. In the unit tests mock the behavior of the base classes and verify the business logic 
 
-Find more details in the following paragraphs for testing Orchestration Client and Orchestrator.
+Find more details in the following paragraphs for testing functions that use the orchestration client binding and the orchestrator trigger binding.
 
 ## Unit testing trigger functions
 
-In this section, the unit test will validate the logic of the following method:
+In this section, the unit test will validate the logic of the following HTTP trigger function for starting new orchestrations.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
@@ -60,14 +60,14 @@ The unit test task will be to verify the value of the `Retry-After` header provi
 
 The method is already using  [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) class. So the unit test will mock some of its methods to ensure predictable behavior. 
 
-First, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) mock object is created. 
+First, a mock of the base class is required [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). The mock can be a new class that implements [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). However, using a mocking framework like [moq](https://github.com/moq/moq4) simplifies the process:    
 
 ```csharp
     // Mock DurableOrchestrationClientBase
     var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
 ```
 
-Then `StartNewAsync` method is mocked:
+Then `StartNewAsync` method is mocked to return a well-known instance ID.
 
 ```csharp
     // Mock StartNewAsync method
@@ -76,7 +76,7 @@ Then `StartNewAsync` method is mocked:
         ReturnsAsync(instanceId);
 ```
 
-Next `CreateCheckStatusResponse` is mocked:
+Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 response.
 
 ```csharp
     // Mock CreateCheckStatusResponse method
@@ -104,8 +104,8 @@ Now the `Run` method is called from the unit test:
     var result = await HttpStart.Run(
         new HttpRequestMessage()
         {
-            Content = new StringContent(JsonConvert.SerializeObject(string.Empty), Encoding.UTF8, "application/json"),
-            RequestUri = new Uri("https://www.microsoft.com/"),
+            Content = new StringContent("{}", Encoding.UTF8, "application/json"),
+            RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
         },
         durableOrchestrationClientBaseMock.Object, 
         functionName,
@@ -169,8 +169,7 @@ After combining all steps, the unit test will have the following code:
 
 ## Unit testing activity functions
 
-Activity function can be unit tested in the same way as non-durable functions. Base classes for mocking are not available for unit testing Activity functions.
-So, avoid using [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) because its methods cannot be mocked. 
+Activity function can be unit tested in the same way as non-durable functions. Activity functions don't have base class for mocking. So the unit tests use directly the parameter types.
 
 In this section the unit test will validate the behavior of the `E1_SayHello` Activity function:
 
