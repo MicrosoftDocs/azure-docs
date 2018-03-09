@@ -22,9 +22,8 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 ## Standard optional claims set
 The set of Optional Claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
 
-**Note**
-
-The majority of these claims can be included in JWTs, but not SAML tokens, except where noted in the Token Type column.  Additionally, while optional claims are only supported for AAD users currently, MSA support is being added.  When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user.  
+> [!Note]
+>The majority of these claims can be included in JWTs, but not SAML tokens, except where noted in the Token Type column.  Additionally, while optional claims are only supported for AAD users currently, MSA support is being added.  When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user.  
 
 **Table 2: Standard optional claim set**
 
@@ -85,11 +84,10 @@ Some Optional Claims can be configured to change the way the claim is returned. 
 | | Max_size_limit                                    | Limit the number of groups returned to the max group size limit.                                                                     |             
 | | Emit_as_roles                                     | Return the groups the user is in as the roles corresponding to those groups.                                                         |             
 
-**Notes**
-
-Specifying the upn optional claim without an additional property does not change any behavior – in order to see a new claim issued in the token, at least one of the additional properties must be added. 
-
-The `*account_name` additional properties for groups are not interoperable, and ordering of the additional properties matters – only the first account name Additional Property listed will be used. 
+> [!Note]
+>Specifying the upn optional claim without an additional property does not change any behavior – in order to see a new claim issued in the token, at least one of the additional properties must be added. 
+>
+>The `*account_name` additional properties for groups are not interoperable, and ordering of the additional properties matters – only the first account name Additional Property listed will be used. 
 
 #### Additional Properties Example:
 
@@ -115,22 +113,22 @@ You can configure optional claims for your application by modifying the applicat
 **Sample Schema:**
 
 ```json
-"optionalClaims":  // The optional claims property
+"optionalClaims":  
    {
-       "idToken": [  // ID Token Optional Claim[s]
+       "idToken": [
              { 
                    "name": "upn", 
                    "essential": false, 
                    "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ],
- "accessToken": [ // Access Token Optional Claim[s]
+ "accessToken": [ 
              {
                     "name": "auth_time", 
                     "essential": false
               }
         ],
-"saml2Token": [ // SAML Token Optional Claim[s]
+"saml2Token": [ 
               { 
                     "name": "upn", 
                     "essential": true
