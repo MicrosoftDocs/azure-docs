@@ -55,14 +55,14 @@ The navigation experience for managing users and groups has been streamlined. Yo
 ---
 
 
-### Availability of sign-ins and audit reports in Azure Mooncake
+### Availability of sign-ins and audit reports in Microsoft Azure operated by 21Vianet (Azure China 21Vianet)
 
 **Type:** New feature  
 **Service category:** Sovereign Clouds  
 **Product capability:** Monitoring & Reporting
  
 
-Azure AD Activity log reports are now available in Azure Mooncake sovereign instance. The following logs are included:
+Azure AD Activity log reports are now available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) instances. The following logs are included:
 
 - **Sign-ins activity logs**  - Includes all the sign-ins logs associated with your tenant.
 
@@ -162,7 +162,7 @@ The new cmdlets are:
 ---
  
 
-### New cmdlets to support configuration of Application Proxy
+### New cmdlets to support configuration of groups
 
 **Type:** New feature  
 **Service category:** App Proxy  

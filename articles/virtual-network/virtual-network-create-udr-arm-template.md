@@ -21,8 +21,8 @@ ms.author: jdial
 # Create User-Defined Routes (UDR) using a template
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [Template](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
@@ -72,7 +72,7 @@ To associate the UDR to the front-end subnet, you have to change the subnet defi
 
 Notice the same being done for the back-end NSG and the back-end subnet in the template.
 
-You also need to ensure that the **FW1** VM has the IP forwarding property enabled on the NIC that will be used to receive and forward packets. The section below shows the definition of the NIC for FW1 in the azuredeploy-nsg-udr.json file, based on the scenario above.
+You also need to ensure that the **FW1** VM has the IP forwarding property enabled on the NIC that will be used to receive and forward packets. The following section  shows the definition of the NIC for FW1 in the azuredeploy-nsg-udr.json file, based on the scenario.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -109,7 +109,7 @@ You also need to ensure that the **FW1** VM has the IP forwarding property enabl
     }
 
 ## Deploy the template by using click to deploy
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described previously. To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the following command to create a resource group:
@@ -170,7 +170,7 @@ The sample template available in the public repository uses a parameter file con
 
 ## Deploy the template by using the Azure CLI
 
-To deploy the ARM template by using the Azure CLI, complete the following steps:
+To deploy the Azure Resource Manager template by using the Azure CLI, complete the following steps:
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the following command to switch to Resource Manager mode:
@@ -179,11 +179,11 @@ To deploy the ARM template by using the Azure CLI, complete the following steps:
 	azure config mode arm
 	```
 
-	Here is the expected output for the command above:
+	Here is the expected output for the previous command:
 
 		info:    New mode is arm
 
-3. From your browser, navigate to **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copy the contents of the json file, and paste into a new file in your computer. For this scenario, you would be copying the values below to a file named **c:\udr\azuredeploy.parameters.json**.
+3. From your browser, navigate to **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copy the contents of the json file, and paste into a new file in your computer. For this scenario, copy the following values to a file named **c:\udr\azuredeploy.parameters.json**.
 
 	```json
         {
@@ -203,7 +203,7 @@ To deploy the ARM template by using the Azure CLI, complete the following steps:
         }
 	```
 
-4. Run the following command to deploy the new VNet by using the template and parameter files you downloaded and modified above:
+4. Run the following command to deploy the new VNet by using the template and parameter files you downloaded and modified previously:
 
 	```azurecli
 	azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -401,5 +401,5 @@ To deploy the ARM template by using the Azure CLI, complete the following steps:
 	        info:    group show command OK
 
 > [!TIP]
-> If you do not see all the resources, run the `azure group deployment show` command to ensure the provisioning state of the deployment is *Succeded*.
+> If you do not see all the resources, run the `azure group deployment show` command to ensure the provisioning state of the deployment is *Succeeded*.
 > 
