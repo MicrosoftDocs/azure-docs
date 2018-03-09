@@ -59,6 +59,16 @@
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 4- Deploy API Management with Service Fabric
       href: service-fabric-tutorial-deploy-api-management.md
+  - name: Create a Standalone cluster on AWS
+    items:
+    - name: 1- Create the infrastructure on AWS
+      href: standalone-tutorial-create-infrastructure.md
+    - name: 2- Setup Service Fabric
+      href: standalone-tutorial-create-service-fabric-cluster.md
+    - name: 3- Install an application into the cluster
+      href: standalone-tutorial-install-an-application.md
+    - name: 4- Clean up your cluster and delete the infrastructure
+      href: standalone-tutorial-clean-up.md
 - name: Samples
   items:
   - name: Code samples
