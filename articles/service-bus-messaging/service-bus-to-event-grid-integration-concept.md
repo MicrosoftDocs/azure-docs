@@ -78,7 +78,7 @@ The schema for this event is as follows:
 
 You get at least one event per Dead Letter queue, which has messages and no active receivers.
 
-The schema for this Event is as follows:
+The schema for this event is as follows:
 
 ```JSON
 [{
@@ -100,7 +100,7 @@ The schema for this Event is as follows:
 }]
 ```
 
-### How often and how many events are emitted?
+### How many events are emitted, and how often?
 
 If you have multiple queues and topics or subscriptions in the namespace, you get at least one event per queue and one per subscription. The events are emitted immediately if there are no messages in the Service Bus entity and a new message arrives. Or the events are emitted every two minutes unless Service Bus detects an active receiver. Message browsing does not interrupt the events.
 
@@ -124,11 +124,12 @@ To create a new Event Grid subscription, do the following:
 1. In the Azure portal, go to your namespace.
 2. In the left pane, select the **Event Grid**. 
 3. Select **Event Subscription**.  
-    The following image displays a namespace that has a few Event Grid subscriptions.
+
+   The following image displays a namespace that has a few Event Grid subscriptions:
 
    ![20][]
 
-   The following screenshot shows how to subscribe to an Azure Function or a webhook without any specific filtering:
+   The following image shows how to subscribe to an Azure Function or a webhook without any specific filtering:
 
    ![21][]
 
@@ -170,7 +171,7 @@ From here, you can explore the other setup options or [test that events are flow
 
 ## Next steps
 
-* Service Bus and Event Grid [examples](service-bus-to-event-grid-integration-example.md).
+* Get Service Bus and Event Grid [examples](service-bus-to-event-grid-integration-example.md).
 * Learn more about [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Learn more about [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
