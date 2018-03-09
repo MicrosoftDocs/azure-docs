@@ -4,7 +4,7 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to use the Face API with the Python SDK to detect human faces in an image in Cognitive Services.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face

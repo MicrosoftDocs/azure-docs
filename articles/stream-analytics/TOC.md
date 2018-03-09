@@ -41,9 +41,9 @@
 ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real time fraud detection](stream-analytics-real-time-fraud-detection.md)
 ### [Run jobs on IoT edge](stream-analytics-edge.md) 
-### [Run a Javascript UDA](stream-analytics-javascript-user-defined-aggregates.md)
+### [Run a JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
-### [Rum Azure Functions](stream-analytics-with-azure-functions.md)
+### [Run Azure Functions](stream-analytics-with-azure-functions.md)
 
 ## Monitor
 
@@ -77,7 +77,7 @@
 
 ## Integrate with machine learning
 ### [Sentiment analysis with ML models](stream-analytics-machine-learning-integration-tutorial.md)
-### [Anamoly detection](stream-analytics-machine-learning-anomaly-detection.md)
+### [Anomaly detection](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Use REST APIs](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
 
