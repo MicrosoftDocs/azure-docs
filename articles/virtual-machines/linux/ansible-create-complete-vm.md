@@ -41,7 +41,7 @@ The following section in an Ansible playbook creates a virtual network named *my
   azure_rm_virtualnetwork:
     resource_group: myResourceGroup
     name: myVnet
-    address_prefixes: "10.10.0.0/16"
+    address_prefixes: "10.0.0.0/16"
 ```
 
 To add a subnet, the following section creates a subnet named *mySubnet* in the *myVnet* virtual network:
