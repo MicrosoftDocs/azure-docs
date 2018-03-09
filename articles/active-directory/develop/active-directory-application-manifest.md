@@ -34,7 +34,7 @@ Apps that integrate with Azure AD must be registered with an Azure AD tenant. Th
 |displayName     |string         |MyRegisteredApp         |The display name for the application. |
 |errorURL     |string         |http:<i></i>//MyRegisteredAppError         |The URL for errors encountered in an application. |
 |groupMembershipClaims     |    string     |    1     |   A bitmask that configures the "groups" claim issued in a user or OAuth 2.0 access token that the application expects. The bitmask values are: 0: None, 1: Security groups and Azure AD roles, 2: Reserved, and 4: Reserved. Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.      |
-|optionalClaims     |  string       |     null    |    The optional claims returned in the token by the security token service for this specific app.     |
+|optionalClaims     |  string       |     null    |    The [optional claims](active-directory-optional-claims.md) returned in the token by the security token service for this specific app.     |
 |acceptMappedClaims    |      boolean   | true        |    If this value is set to true,  it allows an application to use claims mapping without specifying a custom signing key.|
 |homepage     |  string       |http:<i></i>//MyRegistererdApp         |    The URL to the application's home page.     |
 |identifierUris     |  String array       | http:<i></i>//MyRegistererdApp        |   User-defined URI(s) that uniquely identify a Web application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant.      |
