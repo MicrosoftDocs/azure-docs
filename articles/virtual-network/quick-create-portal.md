@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a virtual network using the Azure portal
 
-A virtual network enables Azure resources, such as virtual machines (VM), to communicate privately with each other and with the Internet. In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately with the other VM.
+A virtual network enables Azure resources, such as virtual machines (VM), to communicate privately with each other, and with the internet. In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately between the two VMs.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -114,7 +114,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To learn about all virtual network settings, see [Manage a virtual network](manage-virtual-network.md). 
+In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
 
 By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the Internet. To learn how to allow or restrict different types of network communication to and from VMs, advance to the next tutorial.
 
