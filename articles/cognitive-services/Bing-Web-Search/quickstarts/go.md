@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.technology: bing-search
 ms.topic: article
 ms.date: 09/03/2018
-ms.author: Nhoya
+ms.author: rosh
 ---
 
 # Call and response: your first Bing Web Search query in Go
