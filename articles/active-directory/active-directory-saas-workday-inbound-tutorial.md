@@ -879,12 +879,27 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 * A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
 
+## GDPR compliance
 
-## Additional resources
-* [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
+
+The Azure AD provisioning service is GDPR compliant along with the rest of Microsoft’s services and features. To learn more about Microsoft’s GDPR story, see the [terms of service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+However, because the Workday provisioning solution for Active Directory requires a synchronization agent to be installed on a domain-joined server, there are some events you will need to monitor to also stay GDPR compliant.
+ 
+The agent creates logs in the **Windows Event log**, which can contain personally-identifiable information.
+
+There are two ways for you to stay GDPR compliant:
+
+1. Upon request, extract data for a person and remove data from that person from the Windows Event logs. 
+2. Keep retention of Windows Event logs sourced from the AADSyncAgent process to under 48 hours
+
+For information on how to configure data retention for the Windows Event logs, see the [Settings for event logs](https://technet.microsoft.com/en-us/library/cc952132.aspx). For general information on the Windows Event log, see [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Learn how to configure single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Learn how to integrate other SaaS applications with Azure Active Directory](active-directory-saas-tutorial-list.md)
+
