@@ -59,7 +59,7 @@ Once the service is redeployed, you will see an error message with the name of t
 You can use Remote Desktop to access the role and view more complete error information remotely. Use the following steps to view the errors by using Remote Desktop:
 
 1. Ensure that Azure SDK 1.3 or later is installed.
-2. During the deployment of the solution by using Visual Studio, choose to "Configure Remote Desktop connections". For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](../vs-azure-tools-remote-desktop-roles.md).
+2. During the deployment of the solution by using Visual Studio, enable Remote Desktop. For more information, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. In the Microsoft Azure portal, once the instance shows a status of **Ready**, remote into the instance. For more information on using the remote desktop with Cloud Services, see [Remote into role instances](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Sign in to the virtual machine by using the credentials that were specified during the Remote Desktop configuration.
 6. Open a command window.

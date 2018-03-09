@@ -86,7 +86,7 @@ Use the following procedure:
 
      ![Select Target](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Under **Target Criteria, click **add criteria** select the signal type as **Activity log**.
+    - Under **Target Criteria**, click **add criteria** select the signal type as **Activity log**.
 
     - Select the signal from the list displayed.
 
