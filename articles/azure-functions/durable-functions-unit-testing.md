@@ -54,28 +54,7 @@ Find more details in the following paragraphs for testing Orchestration Client a
 
 In this section, the unit test will validate the logic of the following method:
 
-```csharp
-    public static class HttpStart
-    {
-        [FunctionName("HttpStart")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClientBase starter,
-            string functionName,
-            TraceWriter log)
-        {
-            // Function input comes from the request content.
-            dynamic eventData = await req.Content.ReadAsAsync<object>();
-            string instanceId = await starter.StartNewAsync(functionName, eventData);
-
-            log.Info($"Started orchestration with ID = '{instanceId}'.");
-
-            var res = starter.CreateCheckStatusResponse(req, instanceId);
-            res.Headers.RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10));
-            return res;
-        }
-    }
-```
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
 The unit test task will be to verify the value of the `Retry-After` header provided in the response payload. 
 
@@ -110,7 +89,7 @@ Next `CreateCheckStatusResponse` is mocked:
         });
 ```
 
-`TraceWriter` also need to be mocked:
+`TraceWriter` is also mocked:
 
 ```csharp
     // Mock TraceWriter
@@ -145,55 +124,7 @@ Now the `Run` method is called from the unit test:
 
 After combining all steps, the unit test will have the following code: 
 
-```csharp
-    public class HttpStartTests
-    {
-        [Fact]
-        public async Task HttpStart_returns_retryafter_header()
-        {
-            // Define constants
-            const string functionName = "SampleFunction";
-            const string instanceId = "7E467BDB-213F-407A-B86A-1954053D3C24";
-
-            // Mock TraceWriter
-            var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
-
-            // Mock DurableOrchestrationClientBase
-            var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
-
-            // Mock StartNewAsync method
-            durableOrchestrationClientBaseMock.
-                Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
-                ReturnsAsync(instanceId);
-
-            // Mock CreateCheckStatusResponse method
-            durableOrchestrationClientBaseMock
-                .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId))
-                .Returns(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent(string.Empty),
-                });
-
-            // Call Orchestration trigger function
-            var result = await HttpStart.Run(
-                new HttpRequestMessage()
-                {
-                    Content = new StringContent("{}", Encoding.UTF8, "application/json"),
-                    RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
-                },
-                durableOrchestrationClientBaseMock.Object, 
-                functionName,
-                traceWriterMock.Object);
-
-            // Validate that output is not null
-            result.Headers.RetryAfter.Should().NotBeNull();
-
-            // Validate output's Retry-After header value
-            result.Headers.RetryAfter.Delta.Should().Be(TimeSpan.FromSeconds(10));
-        }
-    }
-```
+[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
 ## Unit testing orchestrator functions
 
@@ -232,9 +163,9 @@ And finally the output will be validated:
     Assert.Equal("Hello London!", result[2]);
 ```
 
-After combining all steps, the `Run_retuns_multiple_greetings` unit test will have the following code:
+After combining all steps, the unit test will have the following code:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceTests.cs)]
+[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceOrchestratorTests.cs)]
 
 ## Unit testing activity functions
 
@@ -245,9 +176,9 @@ In this section the unit test will validate the behavior of the `E1_SayHello` Ac
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-And the `SayHello_returns_greeting` unit test will verify the format of the output:
+And the unit test will verify the format of the output:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceTests.cs)]
+[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 
 ## Next steps
 
