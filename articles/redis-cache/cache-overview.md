@@ -102,6 +102,8 @@ To scale to the premium tier from one of the other tiers, choose one of the prem
 
 ## Features common to all cache tiers
 
+  The following are some of the features that are available for all tiers:
+
   * **Firewall rules** - This feature allows you to configure firewall rules on all tiers. This feature further enhances security by restricting IP addresses or IP address ranges that are allowed to communicate with your cache. By default, Connections are allowed from any IP address.
 
   * **Reboot** - The feature allows you to reboot one or more nodes of your cache on-demand. This feature allows you to test your application for resiliency in the event of a failure. 
