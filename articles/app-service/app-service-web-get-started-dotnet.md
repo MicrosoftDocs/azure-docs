@@ -33,7 +33,7 @@ ms.custom: mvc, devcenter
 
 Watch a short video to see how to deploy an ASP .NET Core app to Azure using Visual Studio 2017.
 
-[!VIDEO https://www.youtube-nocookie.com/embedAEfG9PWPAxg]
+> [!VIDEO https://www.youtube-nocookie.com/embed/AEfG9PWPAxg]
 
 ## Prerequisites
 
