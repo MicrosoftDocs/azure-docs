@@ -6,7 +6,7 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 03/09/2018
 ms.author: asgang
 
 ---
@@ -77,4 +77,3 @@ You can modify the default target settings used by Site Recovery.
 # Next steps
 
 [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
-
