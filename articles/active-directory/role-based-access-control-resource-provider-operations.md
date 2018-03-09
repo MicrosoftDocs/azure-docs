@@ -33,6 +33,18 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/Operations/read|The localized friendly description for the operation, as it should be shown to the user.|
 |/locations/operationresults/read|Read the status of an asynchronous operation.|
 
+## microsoft.aadiam
+
+| Operation | Description |
+|---|---|
+|/diagnosticsettingscategories/read|Reading a diagnostic setting categories|
+|/diagnosticsettings/write|Writing a diagnostic setting|
+|/diagnosticsettings/read|Reading a diagnostic setting|
+|/diagnosticsettings/delete|Deleting a diagnostic setting|
+|/tenants/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
+|/tenants/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/tenants/providers/Microsoft.Insights/logDefinitions/read|Gets the available logs for tenants|
+
 ## Microsoft.ADHybridHealthService
 
 | Operation | Description |
@@ -3447,6 +3459,383 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/environments/referencedatasets/write|Creates a new reference data set for an environment, or updates an existing reference data set.|
 |/environments/referencedatasets/delete|Deletes the reference data set.|
 |/environments/status/read|Get the status of the environment, state of its associated operations like ingress.|
+
+## microsoft.web
+
+| Operation | Description |
+|---|---|
+|/unregister/action|Unregister Microsoft.Web resource provider for the subscription.|
+|/validate/action|Validate .|
+|/register/action|Register Microsoft.Web resource provider for the subscription.|
+|/verifyhostingenvironmentvnet/action|Verify Hosting Environment Vnet.|
+|/hostingEnvironments/Read|Get the properties of an App Service Environment|
+|/hostingEnvironments/Write|Create a new App Service Environment or update existing one|
+|/hostingEnvironments/Delete|Delete an App Service Environment|
+|/hostingEnvironments/reboot/Action|Reboot all machines in an App Service Environment|
+|/hostingenvironments/resume/action|Resume Hosting Environments.|
+|/hostingenvironments/suspend/action|Suspend Hosting Environments.|
+|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
+|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/hostingenvironments/metricdefinitions/read|Get Hosting Environments Metric Definitions.|
+|/hostingenvironments/inboundnetworkdependenciesendpoints/read|Get the network endpoints of all inbound dependencies.|
+|/hostingEnvironments/workerPools/Read|Get the properties of a Worker Pool in an App Service Environment|
+|/hostingEnvironments/workerPools/Write|Create a new Worker Pool in an App Service Environment or update an existing one|
+|/hostingEnvironments/workerPools/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for App Service Environment WorkerPool|
+|/hostingenvironments/workerpools/metricdefinitions/read|Get Hosting Environments Workerpools Metric Definitions.|
+|/hostingenvironments/workerpools/metrics/read|Get Hosting Environments Workerpools Metrics.|
+|/hostingenvironments/workerpools/skus/read|Get Hosting Environments Workerpools SKUs.|
+|/hostingenvironments/workerpools/usages/read|Get Hosting Environments Workerpools Usages.|
+|/hostingenvironments/outboundnetworkdependenciesendpoints/read|Get the network endpoints of all outbound dependencies.|
+|/hostingenvironments/sites/read|Get Hosting Environments Web Apps.|
+|/hostingenvironments/serverfarms/read|Get Hosting Environments App Service Plans.|
+|/hostingenvironments/usages/read|Get Hosting Environments Usages.|
+|/hostingenvironments/capacities/read|Get Hosting Environments Capacities.|
+|/hostingenvironments/operations/read|Get Hosting Environments Operations.|
+|/hostingEnvironments/multiRolePools/Read|Get the properties of a FrontEnd Pool in an App Service Environment|
+|/hostingEnvironments/multiRolePools/Write|Create a new FrontEnd Pool in an App Service Environment or update an existing one|
+|/hostingEnvironments/multiRolePools/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for App Service Environment MultiRole|
+|/hostingenvironments/multirolepools/metricdefinitions/read|Get Hosting Environments MultiRole Pools Metric Definitions.|
+|/hostingenvironments/multirolepools/metrics/read|Get Hosting Environments MultiRole Pools Metrics.|
+|/hostingenvironments/multirolepools/skus/read|Get Hosting Environments MultiRole Pools SKUs.|
+|/hostingenvironments/multirolepools/usages/read|Get Hosting Environments MultiRole Pools Usages.|
+|/hostingenvironments/diagnostics/read|Get Hosting Environments Diagnostics.|
+|/publishingusers/read|Get Publishing Users.|
+|/publishingusers/write|Update Publishing Users.|
+|/checknameavailability/read|Check if resource name is available.|
+|/geoRegions/Read|Get the list of Geo regions.|
+|/sites/Read|Get the properties of a Web App|
+|/sites/Write|Create a new Web App or update an existing one|
+|/sites/Delete|Delete an existing Web App|
+|/sites/backup/Action|Create a new web app backup|
+|/sites/publishxml/Action|Get publishing profile xml for a Web App|
+|/sites/publish/Action|Publish a Web App|
+|/sites/restart/Action|Restart a Web App|
+|/sites/start/Action|Start a Web App|
+|/sites/stop/Action|Stop a Web App|
+|/sites/slotsswap/Action|Swap Web App deployment slots|
+|/sites/slotsdiffs/Action|Get differences in configuration between web app and slots|
+|/sites/applySlotConfig/Action|Apply web app slot configuration from target slot to the current web app|
+|/sites/resetSlotConfig/Action|Reset web app configuration|
+|/sites/functions/action|Functions Web Apps.|
+|/sites/listsyncfunctiontriggerstatus/action|List Sync Function Trigger Status Web Apps.|
+|/sites/networktrace/action|Network Trace Web Apps.|
+|/sites/newpassword/action|Newpassword Web Apps.|
+|/sites/sync/action|Sync Web Apps.|
+|/sites/migratemysql/action|Migrate MySql Web Apps.|
+|/sites/recover/action|Recover Web Apps.|
+|/sites/syncfunctiontriggers/action|Sync Function Triggers for Web Apps.|
+|/sites/operationresults/read|Get Web Apps Operation Results.|
+|/sites/webjobs/read|Get Web Apps WebJobs.|
+|/sites/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for Web App|
+|/sites/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
+|/sites/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/sites/backup/read|Get Web Apps Backup.|
+|/sites/backup/write|Update Web Apps Backup.|
+|/sites/publiccertificates/delete|Delete Web Apps Public Certificates.|
+|/sites/publiccertificates/read|Get Web Apps Public Certificates.|
+|/sites/publiccertificates/write|Update Web Apps Public Certificates.|
+|/sites/metricdefinitions/read|Get Web Apps Metric Definitions.|
+|/sites/metrics/read|Get Web Apps Metrics.|
+|/sites/processes/read|Get Web Apps Processes.|
+|/sites/continuouswebjobs/delete|Delete Web Apps Continuous Web Jobs.|
+|/sites/continuouswebjobs/read|Get Web Apps Continuous Web Jobs.|
+|/sites/continuouswebjobs/start/action|Start Web Apps Continuous Web Jobs.|
+|/sites/continuouswebjobs/stop/action|Stop Web Apps Continuous Web Jobs.|
+|/sites/domainownershipidentifiers/read|Get Web Apps Domain Ownership Identifiers.|
+|/sites/domainownershipidentifiers/write|Update Web Apps Domain Ownership Identifiers.|
+|/sites/premieraddons/delete|Delete Web Apps Premier Addons.|
+|/sites/premieraddons/read|Get Web Apps Premier Addons.|
+|/sites/premieraddons/write|Update Web Apps Premier Addons.|
+|/sites/triggeredwebjobs/delete|Delete Web Apps Triggered WebJobs.|
+|/sites/triggeredwebjobs/read|Get Web Apps Triggered WebJobs.|
+|/sites/triggeredwebjobs/run/action|Run Web Apps Triggered WebJobs.|
+|/sites/triggeredwebjobs/history/read|Get Web Apps Triggered WebJobs History.|
+|/sites/hostnamebindings/delete|Delete Web Apps Hostname Bindings.|
+|/sites/hostnamebindings/read|Get Web Apps Hostname Bindings.|
+|/sites/hostnamebindings/write|Update Web Apps Hostname Bindings.|
+|/sites/virtualnetworkconnections/delete|Delete Web Apps Virtual Network Connections.|
+|/sites/virtualnetworkconnections/read|Get Web Apps Virtual Network Connections.|
+|/sites/virtualnetworkconnections/write|Update Web Apps Virtual Network Connections.|
+|/sites/virtualnetworkconnections/gateways/read|Get Web Apps Virtual Network Connections Gateways.|
+|/sites/virtualnetworkconnections/gateways/write|Update Web Apps Virtual Network Connections Gateways.|
+|/sites/migratemysql/read|Get Web Apps Migrate MySql.|
+|/sites/publishxml/read|Get Web Apps Publishing XML.|
+|/sites/hybridconnectionrelays/read|Get Web Apps Hybrid Connection Relays.|
+|/sites/perfcounters/read|Get Web Apps Performance Counters.|
+|/sites/resourcehealthmetadata/read|Get Web Apps Resource Health Metadata.|
+|/sites/usages/read|Get Web Apps Usages.|
+|/sites/slots/Write|Create a new Web App Slot or update an existing one|
+|/sites/slots/Delete|Delete an existing Web App Slot|
+|/sites/slots/backup/Action|Create new Web App Slot backup.|
+|/sites/slots/publishxml/Action|Get publishing profile xml for Web App Slot|
+|/sites/slots/publish/Action|Publish a Web App Slot|
+|/sites/slots/restart/Action|Restart a Web App Slot|
+|/sites/slots/start/Action|Start a Web App Slot|
+|/sites/slots/stop/Action|Stop a Web App Slot|
+|/sites/slots/slotsswap/Action|Swap Web App deployment slots|
+|/sites/slots/slotsdiffs/Action|Get differences in configuration between web app and slots|
+|/sites/slots/applySlotConfig/Action|Apply web app slot configuration from target slot to the current slot.|
+|/sites/slots/resetSlotConfig/Action|Reset web app slot configuration|
+|/sites/slots/Read|Get the properties of a Web App deployment slot|
+|/sites/slots/newpassword/action|Newpassword Web Apps Slots.|
+|/sites/slots/sync/action|Sync Web Apps Slots.|
+|/sites/slots/networktrace/action|Network Trace Web Apps Slots.|
+|/sites/slots/operationresults/read|Get Web Apps Slots Operation Results.|
+|/sites/slots/webjobs/read|Get Web Apps Slots WebJobs.|
+|/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for Web App Slot|
+|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
+|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/sites/slots/backup/write|Update Web Apps Slots Backup.|
+|/sites/slots/backup/read|Get Web Apps Slots Backup.|
+|/sites/slots/publiccertificates/read|Get Web Apps Slots Public Certificates.|
+|/sites/slots/publiccertificates/write|Create or Update Web Apps Slots Public Certificates.|
+|/sites/slots/metricdefinitions/read|Get Web Apps Slots Metric Definitions.|
+|/sites/slots/metrics/read|Get Web Apps Slots Metrics.|
+|/sites/slots/continuouswebjobs/delete|Delete Web Apps Slots Continuous Web Jobs.|
+|/sites/slots/continuouswebjobs/read|Get Web Apps Slots Continuous Web Jobs.|
+|/sites/slots/continuouswebjobs/start/action|Start Web Apps Slots Continuous Web Jobs.|
+|/sites/slots/continuouswebjobs/stop/action|Stop Web Apps Slots Continuous Web Jobs.|
+|/sites/slots/domainownershipidentifiers/read|Get Web Apps Slots Domain Ownership Identifiers.|
+|/sites/slots/premieraddons/delete|Delete Web Apps Slots Premier Addons.|
+|/sites/slots/premieraddons/read|Get Web Apps Slots Premier Addons.|
+|/sites/slots/premieraddons/write|Update Web Apps Slots Premier Addons.|
+|/sites/slots/triggeredwebjobs/delete|Delete Web Apps Slots Triggered WebJobs.|
+|/sites/slots/triggeredwebjobs/read|Get Web Apps Slots Triggered WebJobs.|
+|/sites/slots/triggeredwebjobs/run/action|Run Web Apps Slots Triggered WebJobs.|
+|/sites/slots/hostnamebindings/delete|Delete Web Apps Slots Hostname Bindings.|
+|/sites/slots/hostnamebindings/read|Get Web Apps Slots Hostname Bindings.|
+|/sites/slots/hostnamebindings/write|Update Web Apps Slots Hostname Bindings.|
+|/sites/slots/phplogging/read|Get Web Apps Slots Phplogging.|
+|/sites/slots/virtualnetworkconnections/delete|Delete Web Apps Slots Virtual Network Connections.|
+|/sites/slots/virtualnetworkconnections/read|Get Web Apps Slots Virtual Network Connections.|
+|/sites/slots/virtualnetworkconnections/write|Update Web Apps Slots Virtual Network Connections.|
+|/sites/slots/virtualnetworkconnections/gateways/write|Update Web Apps Slots Virtual Network Connections Gateways.|
+|/sites/slots/migratemysql/read|Get Web Apps Slots Migrate MySql.|
+|/sites/slots/hybridconnectionrelays/read|Get Web Apps Slots Hybrid Connection Relays.|
+|/sites/slots/perfcounters/read|Get Web Apps Slots Performance Counters.|
+|/sites/slots/resourcehealthmetadata/read|Get Web Apps Slots Resource Health Metadata.|
+|/sites/slots/usages/read|Get Web Apps Slots Usages.|
+|/sites/slots/hybridconnection/delete|Delete Web Apps Slots Hybrid Connection.|
+|/sites/slots/hybridconnection/read|Get Web Apps Slots Hybrid Connection.|
+|/sites/slots/hybridconnection/write|Update Web Apps Slots Hybrid Connection.|
+|/sites/slots/operations/read|Get Web Apps Slots Operations.|
+|/sites/slots/config/Read|Get Web App Slot's configuration settings|
+|/sites/slots/config/list/Action|List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings|
+|/sites/slots/config/Write|Update Web App Slot's configuration settings|
+|/sites/slots/config/delete|Delete Web Apps Slots Config.|
+|/sites/slots/instances/read|Get Web Apps Slots Instances.|
+|/sites/slots/instances/processes/read|Get Web Apps Slots Instances Processes.|
+|/sites/slots/instances/processes/delete|Delete Web Apps Slots Instances Processes.|
+|/sites/slots/instances/deployments/read|Get Web Apps Slots Instances Deployments.|
+|/sites/slots/hybridconnectionnamespaces/relays/delete|Delete Web Apps Slots Hybrid Connection Namespaces Relays.|
+|/sites/slots/hybridconnectionnamespaces/relays/write|Update Web Apps Slots Hybrid Connection Namespaces Relays.|
+|/sites/slots/sourcecontrols/Read|Get Web App Slot's source control configuration settings|
+|/sites/slots/sourcecontrols/Write|Update Web App Slot's source control configuration settings|
+|/sites/slots/sourcecontrols/Delete|Delete Web App Slot's source control configuration settings|
+|/sites/slots/restore/read|Get Web Apps Slots Restore.|
+|/sites/slots/restore/write|Restore Web Apps Slots.|
+|/sites/slots/analyzecustomhostname/read|Get Web Apps Slots Analyze Custom Hostname.|
+|/sites/slots/backups/Read|Get the properties of a web app slots' backup|
+|/sites/slots/backups/list/action|List Web Apps Slots Backups.|
+|/sites/slots/backups/restore/action|Restore Web Apps Slots Backups.|
+|/sites/slots/backups/delete|Delete Web Apps Slots Backups.|
+|/sites/slots/snapshots/read|Get Web Apps Slots Snapshots.|
+|/sites/slots/siteextensions/delete|Delete Web Apps Slots Site Extensions.|
+|/sites/slots/siteextensions/read|Get Web Apps Slots Site Extensions.|
+|/sites/slots/siteextensions/write|Update Web Apps Slots Site Extensions.|
+|/sites/slots/deployments/delete|Delete Web Apps Slots Deployments.|
+|/sites/slots/deployments/read|Get Web Apps Slots Deployments.|
+|/sites/slots/deployments/write|Update Web Apps Slots Deployments.|
+|/sites/slots/deployments/log/read|Get Web Apps Slots Deployments Log.|
+|/sites/slots/diagnostics/read|Get Web Apps Slots Diagnostics.|
+|/sites/slots/diagnostics/threadcount/read|Get Web Apps Slots Diagnostics Thread Count.|
+|/sites/slots/diagnostics/workerprocessrecycle/read|Get Web Apps Slots Diagnostics Worker Process Recycle.|
+|/sites/slots/diagnostics/workeravailability/read|Get Web Apps Slots Diagnostics Workeravailability.|
+|/sites/slots/diagnostics/sitelatency/read|Get Web Apps Slots Diagnostics Site Latency.|
+|/sites/slots/diagnostics/runtimeavailability/read|Get Web Apps Slots Diagnostics Runtime Availability.|
+|/sites/slots/diagnostics/sitememoryanalysis/read|Get Web Apps Slots Diagnostics Site Memory Analysis.|
+|/sites/slots/diagnostics/sitecrashes/read|Get Web Apps Slots Diagnostics Site Crashes.|
+|/sites/slots/diagnostics/autoheal/read|Get Web Apps Slots Diagnostics Autoheal.|
+|/sites/slots/diagnostics/siteswap/read|Get Web Apps Slots Diagnostics Site Swap.|
+|/sites/slots/diagnostics/siterestartuserinitiated/read|Get Web Apps Slots Diagnostics Site Restart User Initiated.|
+|/sites/slots/diagnostics/analyses/read|Get Web Apps Slots Diagnostics Analysis.|
+|/sites/slots/diagnostics/analyses/execute/Action|Run Web Apps Slots Diagnostics Analysis.|
+|/sites/slots/diagnostics/siterestartsettingupdate/read|Get Web Apps Slots Diagnostics Site Restart Setting Update.|
+|/sites/slots/diagnostics/loganalyzer/read|Get Web Apps Slots Diagnostics Log Analyzer.|
+|/sites/slots/diagnostics/servicehealth/read|Get Web Apps Slots Diagnostics Service Health.|
+|/sites/slots/diagnostics/deployments/read|Get Web Apps Slots Diagnostics Deployments.|
+|/sites/slots/diagnostics/aspnetcore/read|Get Web Apps Slots Diagnostics for ASP.NET Core app.|
+|/sites/slots/diagnostics/sitecpuanalysis/read|Get Web Apps Slots Diagnostics Site CPU Analysis.|
+|/sites/slots/diagnostics/deployment/read|Get Web Apps Slots Diagnostics Deployment.|
+|/sites/slots/diagnostics/detectors/read|Get Web Apps Slots Diagnostics Detector.|
+|/sites/slots/diagnostics/detectors/execute/Action|Run Web Apps Slots Diagnostics Detector.|
+|/sites/slots/diagnostics/frebanalysis/read|Get Web Apps Slots Diagnostics FREB Analysis.|
+|/sites/hybridconnection/delete|Delete Web Apps Hybrid Connection.|
+|/sites/hybridconnection/read|Get Web Apps Hybrid Connection.|
+|/sites/hybridconnection/write|Update Web Apps Hybrid Connection.|
+|/sites/recommendationhistory/read|Get Web Apps Recommendation History.|
+|/sites/operations/read|Get Web Apps Operations.|
+|/sites/recommendations/Read|Get the list of recommendations for web app.|
+|/sites/recommendations/disable/action|Disable Web Apps Recommendations.|
+|/sites/config/Read|Get Web App configuration settings|
+|/sites/config/list/Action|List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings|
+|/sites/config/Write|Update Web App's configuration settings|
+|/sites/config/delete|Delete Web Apps Config.|
+|/sites/instances/read|Get Web Apps Instances.|
+|/sites/instances/processes/delete|Delete Web Apps Instances Processes.|
+|/sites/instances/processes/read|Get Web Apps Instances Processes.|
+|/sites/instances/extensions/read|Get Web Apps Instances Extensions.|
+|/sites/instances/extensions/log/read|Get Web Apps Instances Extensions Log.|
+|/sites/instances/deployments/read|Get Web Apps Instances Deployments.|
+|/sites/instances/deployments/delete|Delete Web Apps Instances Deployments.|
+|/sites/hybridconnectionnamespaces/relays/delete|Delete Web Apps Hybrid Connection Namespaces Relays.|
+|/sites/hybridconnectionnamespaces/relays/listkeys/action|List Keys Web Apps Hybrid Connection Namespaces Relays.|
+|/sites/hybridconnectionnamespaces/relays/write|Update Web Apps Hybrid Connection Namespaces Relays.|
+|/sites/hybridconnectionnamespaces/relays/read|Get Web Apps Hybrid Connection Namespaces Relays.|
+|/sites/metricsdefinitions/read|Get Web Apps Metrics Definitions.|
+|/sites/sourcecontrols/Read|Get Web App's source control configuration settings|
+|/sites/sourcecontrols/Write|Update Web App's source control configuration settings|
+|/sites/sourcecontrols/Delete|Delete Web App's source control configuration settings|
+|/sites/restore/read|Get Web Apps Restore.|
+|/sites/restore/write|Restore Web Apps.|
+|/sites/analyzecustomhostname/read|Analyze Custom Hostname.|
+|/sites/backups/Read|Get the properties of a web app's backup|
+|/sites/backups/list/action|List Web Apps Backups.|
+|/sites/backups/restore/action|Restore Web Apps Backups.|
+|/sites/backups/delete|Delete Web Apps Backups.|
+|/sites/snapshots/read|Get Web Apps Snapshots.|
+|/sites/functions/delete|Delete Web Apps Functions.|
+|/sites/functions/listsecrets/action|List Secrets Web Apps Functions.|
+|/sites/functions/read|Get Web Apps Functions.|
+|/sites/functions/write|Update Web Apps Functions.|
+|/sites/functions/token/read|Get Web Apps Functions Token.|
+|/sites/functions/masterkey/read|Get Web Apps Functions Masterkey.|
+|/sites/siteextensions/delete|Delete Web Apps Site Extensions.|
+|/sites/siteextensions/read|Get Web Apps Site Extensions.|
+|/sites/siteextensions/write|Update Web Apps Site Extensions.|
+|/sites/deployments/delete|Delete Web Apps Deployments.|
+|/sites/deployments/read|Get Web Apps Deployments.|
+|/sites/deployments/write|Update Web Apps Deployments.|
+|/sites/deployments/log/read|Get Web Apps Deployments Log.|
+|/sites/diagnostics/read|Get Web Apps Diagnostics Categories.|
+|/sites/diagnostics/threadcount/read|Get Web Apps Diagnostics Thread Count.|
+|/sites/diagnostics/workerprocessrecycle/read|Get Web Apps Diagnostics Worker Process Recycle.|
+|/sites/diagnostics/workeravailability/read|Get Web Apps Diagnostics Workeravailability.|
+|/sites/diagnostics/sitelatency/read|Get Web Apps Diagnostics Site Latency.|
+|/sites/diagnostics/runtimeavailability/read|Get Web Apps Diagnostics Runtime Availability.|
+|/sites/diagnostics/sitememoryanalysis/read|Get Web Apps Diagnostics Site Memory Analysis.|
+|/sites/diagnostics/sitecrashes/read|Get Web Apps Diagnostics Site Crashes.|
+|/sites/diagnostics/autoheal/read|Get Web Apps Diagnostics Autoheal.|
+|/sites/diagnostics/siteswap/read|Get Web Apps Diagnostics Site Swap.|
+|/sites/diagnostics/siterestartuserinitiated/read|Get Web Apps Diagnostics Site Restart User Initiated.|
+|/sites/diagnostics/analyses/read|Get Web Apps Diagnostics Analysis.|
+|/sites/diagnostics/analyses/execute/Action|Run Web Apps Diagnostics Analysis.|
+|/sites/diagnostics/siterestartsettingupdate/read|Get Web Apps Diagnostics Site Restart Setting Update.|
+|/sites/diagnostics/loganalyzer/read|Get Web Apps Diagnostics Log Analyzer.|
+|/sites/diagnostics/servicehealth/read|Get Web Apps Diagnostics Service Health.|
+|/sites/diagnostics/failedrequestsperuri/read|Get Web Apps Diagnostics Failed Requests Per Uri.|
+|/sites/diagnostics/deployments/read|Get Web Apps Diagnostics Deployments.|
+|/sites/diagnostics/aspnetcore/read|Get Web Apps Diagnostics for ASP.NET Core app.|
+|/sites/diagnostics/sitecpuanalysis/read|Get Web Apps Diagnostics Site CPU Analysis.|
+|/sites/diagnostics/deployment/read|Get Web Apps Diagnostics Deployment.|
+|/sites/diagnostics/detectors/read|Get Web Apps Diagnostics Detector.|
+|/sites/diagnostics/detectors/execute/Action|Run Web Apps Diagnostics Detector.|
+|/sites/diagnostics/frebanalysis/read|Get Web Apps Diagnostics FREB Analysis.|
+|/customApis/Read|Get the list of Custom API.|
+|/customApis/Write|Creates or updates a Custom API.|
+|/customApis/Delete|Deletes a Custom API.|
+|/customApis/Move/Action|Moves a Custom API.|
+|/customApis/Join/Action|Joins a Custom API.|
+|/customApis/extractApiDefinitionFromWsdl/Action|Extracts API definition from a WSDL.|
+|/customApis/listWsdlInterfaces/Action|Lists WSDL interfaces for a Custom API.|
+|/availablestacks/read|Get Available Stacks.|
+|/isusernameavailable/read|Check if Username is available.|
+|/serverfarms/Read|Get the properties on an App Service Plan|
+|/serverfarms/Write|Create a new App Service Plan or update an existing one|
+|/serverfarms/Delete|Delete an existing App Service Plan|
+|/serverfarms/restartSites/Action|Restart all Web Apps in an App Service Plan|
+|/serverfarms/operationresults/read|Get App Service Plans Operation Results.|
+|/serverfarms/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for App Service Plan|
+|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
+|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/serverfarms/capabilities/read|Get App Service Plans Capabilities.|
+|/serverfarms/metricdefinitions/read|Get App Service Plans Metric Definitions.|
+|/serverfarms/metrics/read|Get App Service Plans Metrics.|
+|/serverfarms/hybridconnectionplanlimits/read|Get App Service Plans Hybrid Connection Plan Limits.|
+|/serverfarms/virtualnetworkconnections/read|Get App Service Plans Virtual Network Connections.|
+|/serverfarms/virtualnetworkconnections/routes/delete|Delete App Service Plans Virtual Network Connections Routes.|
+|/serverfarms/virtualnetworkconnections/routes/read|Get App Service Plans Virtual Network Connections Routes.|
+|/serverfarms/virtualnetworkconnections/routes/write|Update App Service Plans Virtual Network Connections Routes.|
+|/serverfarms/virtualnetworkconnections/gateways/write|Update App Service Plans Virtual Network Connections Gateways.|
+|/serverfarms/firstpartyapps/settings/delete|Delete App Service Plans First Party Apps Settings.|
+|/serverfarms/firstpartyapps/settings/read|Get App Service Plans First Party Apps Settings.|
+|/serverfarms/firstpartyapps/settings/write|Update App Service Plans First Party Apps Settings.|
+|/serverfarms/sites/read|Get App Service Plans Web Apps.|
+|/serverfarms/workers/reboot/action|Reboot App Service Plans Workers.|
+|/serverfarms/hybridconnectionrelays/read|Get App Service Plans Hybrid Connection Relays.|
+|/serverfarms/skus/read|Get App Service Plans SKUs.|
+|/serverfarms/usages/read|Get App Service Plans Usages.|
+|/serverfarms/hybridconnectionnamespaces/relays/read|Get App Service Plans Hybrid Connection Namespaces Relays.|
+|/serverfarms/hybridconnectionnamespaces/relays/delete|Delete App Service Plans Hybrid Connection Namespaces Relays.|
+|/serverfarms/hybridconnectionnamespaces/relays/sites/read|Get App Service Plans Hybrid Connection Namespaces Relays Web Apps.|
+|/ishostnameavailable/read|Check if Hostname is Available.|
+|/connectionGateways/Read|Get the list of Connection Gateways.|
+|/connectionGateways/Write|Creates or updates a Connection Gateway.|
+|/connectionGateways/Delete|Deletes a Connection Gateway.|
+|/connectionGateways/Move/Action|Moves a Connection Gateway.|
+|/connectionGateways/Join/Action|Joins a Connection Gateway.|
+|/connectionGateways/ListStatus/Action|Lists status of a Connection Gateway.|
+|/connectiongateways/liststatus/action|List Status Connection Gateways.|
+|/classicmobileservices/read|Get Classic Mobile Services.|
+|/resourcehealthmetadata/read|Get Resource Health Metadata.|
+|/skus/read|Get SKUs.|
+|/certificates/Read|Get the list of certificates.|
+|/certificates/Write|Add a new certificate or update an existing one.|
+|/certificates/Delete|Delete an existing certificate.|
+|/operations/read|Get Operations.|
+|/recommendations/Read|Get the list of recommendations for subscriptions.|
+|/ishostingenvironmentnameavailable/read|Get if Hosting Environment Name is available.|
+|/apimanagementaccounts/apis/read|Get Api Management Accounts APIs.|
+|/apimanagementaccounts/apis/delete|Delete Api Management Accounts APIs.|
+|/apimanagementaccounts/apis/write|Update Api Management Accounts APIs.|
+|/apimanagementaccounts/apis/connections/read|Get Api Management Accounts APIs Connections.|
+|/apimanagementaccounts/apis/connections/confirmconsentcode/action|Confirm Consent Code Api Management Accounts APIs Connections.|
+|/apimanagementaccounts/apis/connections/delete|Delete Api Management Accounts APIs Connections.|
+|/apimanagementaccounts/apis/connections/getconsentlinks/action|Get Consent Links for Api Management Accounts APIs Connections.|
+|/apimanagementaccounts/apis/connections/write|Update Api Management Accounts APIs Connections.|
+|/apimanagementaccounts/apis/connections/listconnectionkeys/action|List Connection Keys Api Management Accounts APIs Connections.|
+|/apimanagementaccounts/apis/connections/listsecrets/action|List Secrets Api Management Accounts APIs Connections.|
+|/apimanagementaccounts/apis/connections/connectionacls/delete|Delete Api Management Accounts APIs Connections Connectionacls.|
+|/apimanagementaccounts/apis/connections/connectionacls/read|Get Api Management Accounts APIs Connections Connectionacls.|
+|/apimanagementaccounts/apis/connections/connectionacls/write|Update Api Management Accounts APIs Connections Connectionacls.|
+|/apimanagementaccounts/apis/localizeddefinitions/delete|Delete Api Management Accounts APIs Localized Definitions.|
+|/apimanagementaccounts/apis/localizeddefinitions/read|Get Api Management Accounts APIs Localized Definitions.|
+|/apimanagementaccounts/apis/localizeddefinitions/write|Update Api Management Accounts APIs Localized Definitions.|
+|/apimanagementaccounts/apis/connectionacls/read|Get Api Management Accounts APIs Connectionacls.|
+|/apimanagementaccounts/apis/apiacls/delete|Delete Api Management Accounts APIs Apiacls.|
+|/apimanagementaccounts/apis/apiacls/read|Get Api Management Accounts APIs Apiacls.|
+|/apimanagementaccounts/apis/apiacls/write|Update Api Management Accounts APIs Apiacls.|
+|/apimanagementaccounts/connectionacls/read|Get Api Management Accounts Connectionacls.|
+|/apimanagementaccounts/apiacls/read|Get Api Management Accounts Apiacls.|
+|/connections/Read|Get the list of Connections.|
+|/connections/Write|Creates or updates a Connection.|
+|/connections/Delete|Deletes a Connection.|
+|/connections/Move/Action|Moves a Connection.|
+|/connections/Join/Action|Joins a Connection.|
+|/connections/confirmconsentcode/action|Confirm Connections Consent Code.|
+|/connections/listconsentlinks/action|List Consent Links for Connections.|
+|/deploymentlocations/read|Get Deployment Locations.|
+|/sourcecontrols/read|Get Source Controls.|
+|/sourcecontrols/write|Update Source Controls.|
+|/billingmeters/read|Get list of billing meters.|
+|/locations/extractapidefinitionfromwsdl/action|Extract Api Definition from WSDL for Locations.|
+|/locations/listwsdlinterfaces/action|List WSDL Interfaces for Locations.|
+|/locations/managedapis/read|Get Locations Managed APIs.|
+|/locations/managedapis/Join/Action|Joins a Managed API.|
+|/locations/managedapis/apioperations/read|Get Locations Managed API Operations.|
+|/locations/apioperations/read|Get Locations API Operations.|
+|/locations/connectiongatewayinstallations/read|Get Locations Connection Gateway Installations.|
+|/listSitesAssignedToHostName/Read|Get names of sites assigned to hostname.|
 
 ## Microsoft.WorkloadMonitor
 

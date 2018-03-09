@@ -778,12 +778,12 @@ Lets you manage logic app, but not access to them.
 | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 | Microsoft.Support/* | Create and manage support tickets |
-| Microsoft.Web/connectionGateways/* |  |
-| Microsoft.Web/connections/* |  |
-| Microsoft.Web/customApis/* |  |
+| Microsoft.Web/connectionGateways/* | Create and manages a Connection Gateway. |
+| Microsoft.Web/connections/* | Create and manages a Connection. |
+| Microsoft.Web/customApis/* | Creates and manages a Custom API. |
 | Microsoft.Web/serverFarms/join/action |  |
-| Microsoft.Web/serverFarms/read |  |
-| Microsoft.Web/sites/functions/listSecrets/action |  |
+| Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
+| Microsoft.Web/sites/functions/listSecrets/action | List Secrets Web Apps Functions. |
 
 ### Logic App Operator
 Lets you read, enable and disable logic app.
@@ -802,10 +802,10 @@ Lets you read, enable and disable logic app.
 | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
-| Microsoft.Web/connectionGateways/*/read |  |
-| Microsoft.Web/connections/*/read |  |
-| Microsoft.Web/customApis/*/read |  |
-| Microsoft.Web/serverFarms/read |  |
+| Microsoft.Web/connectionGateways/*/read | Get the list of Connection Gateways. |
+| Microsoft.Web/connections/*/read | Get the list of Connections. |
+| Microsoft.Web/customApis/*/read | Get the list of Custom API. |
+| Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 
 ### Managed Identity Contributor
 Create, Read, Update, and Delete User Assigned Identity
