@@ -78,7 +78,7 @@ Network Security Groups control the flow of network traffic in and out of your V
     name: myNetworkSecurityGroup
     rules:
       - name: SSH
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 22
         access: Allow
         priority: 1001
