@@ -34,7 +34,7 @@ This Azure Network Security Overview article focuses on the following areas:
 
 
 ## Azure Networking
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps ensure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
 Learn more:
 
@@ -215,7 +215,7 @@ For internal name resolution, you have two options:
 Learn more:
 
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-* [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/virtual-network-manage-network.md#dns-servers)
+* [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 For external DNS resolution, you have two options:
 

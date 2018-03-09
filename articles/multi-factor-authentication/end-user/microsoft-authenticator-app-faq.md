@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
 ---
@@ -21,9 +21,17 @@ ms.custom: end-user
 
 This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
 
-The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## Frequently asked questions
+
+### What data does the Authenticator store on my behalf and how can I delete it?
+
+Microsoft Authenticator stores the account information you create when you add an account. When you use Authenticator, a diagnostic log is created for debugging purposes and stores useful data in helping Microsoft diagnose any unforeseen issues. You can access the log data by opening **Help** > **Send Logs** > **View logs**.
+
+You can delete the data by deleting the account tile. This will delete all the account information being used by the application including the logs. 
+
+For more information on how Microsoft uses your data, please visit: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### What are the codes in the app for? Why does the number keep counting down?
 

@@ -23,7 +23,7 @@ If the Log Analytics workspace is in the same Azure subscription, or in a differ
 
 ## Overview
 
-The strategy used in this scenario is to have Azure Activity Log send events to an [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) where a [Logic App](../logic-apps/logic-apps-what-are-logic-apps.md) sends them to your Log Analytics workspace. 
+The strategy used in this scenario is to have Azure Activity Log send events to an [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) where a [Logic App](../logic-apps/logic-apps-overview.md) sends them to your Log Analytics workspace. 
 
 ![image of data flow from activity log to log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -49,7 +49,7 @@ Following are the requirements for the Azure resources used in this scenario.
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. In the Azure portal, select **New**> **Internet of Things** > **Event Hubs**.
+1. In the Azure portal, select **Create a resource** > **Internet of Things** > **Event Hubs**.
 
    ![Marketplace new event hub](media/log-analytics-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -137,7 +137,7 @@ To get the event Hub name and connection string, follow the steps in [Check Even
 
 The Logic Apps Designer now shows you available connectors and their triggers, which you use for starting your logic app workflow.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### Add Event Hub trigger
 

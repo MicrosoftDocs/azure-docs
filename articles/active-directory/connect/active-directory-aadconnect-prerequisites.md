@@ -6,14 +6,13 @@ documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: ''
-
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
 
 ---
@@ -28,6 +27,7 @@ Before you install Azure AD Connect, there are a few things that you need.
   * You can also use the [Azure portal](https://portal.azure.com). This portal does not require an Azure AD license.
 * [Add and verify the domain](../active-directory-domains-add-azure-portal.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
 * An Azure AD tenant allows by default 50k objects. When you verify your domain, the limit is increased to 300k objects. If you need even more objects in Azure AD, then you need to open a support case to have the limit increased even further. If you need more than 500k objects, then you need a license, such as Office 365, Azure AD Basic, Azure AD Premium, or Enterprise Mobility and Security.
+* ADSyncPrep is a PowerShell script module that provides functions that are used to prepare your Active Directory environment for Azure AD Connect.  ADSyncPrep requires the [Azure AD Microsoft Online v1.1 PowerShell Module](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 will not work.  You will can install the module using the `Install-Module` cmdlet.  For more information see the link provided.
 
 ### Prepare your on-premises data
 * Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Office 365.
@@ -58,7 +58,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server.
 * If you use a separate SQL Server, then these requirements apply:
-  * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016 SP1. Microsoft Azure SQL Database is **not supported** as a database.
+  * Azure AD Connect supports all versions of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016 SP1. Microsoft Azure SQL Database is **not supported** as a database.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. It is **not supported** to use a case-sensitive collation, identified by \_CS_ in their name.
   * You can only have one sync engine per SQL instance. It is **not supported** to share a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync.
 

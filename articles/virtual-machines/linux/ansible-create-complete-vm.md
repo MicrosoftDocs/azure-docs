@@ -184,7 +184,7 @@ To bring all these sections together, create an Ansible playbook named *azure_cr
         version: latest
 ```
 
-Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#az_vm_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

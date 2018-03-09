@@ -4,7 +4,7 @@ description: Learn how to use Apache Maven to build a Java-based Apache HBase ap
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: ''
 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
 
 ---
@@ -639,7 +639,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    Replace `hdinsightclustername` with the name of your cluster. The command uploads the `hbaseapp-1.0-SNAPSHOT.jar` to the `example/jars` location in the primary storage for your cluster.
+    Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password. The command uploads the `hbaseapp-1.0-SNAPSHOT.jar` to the `example/jars` location in the primary storage for your cluster.
 
 5. To create a table using the `hbaseapp`, use the following command:
 
@@ -647,7 +647,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    Replace `hdinsightclustername` with the name of your cluster.
+    Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password.
 
     This command creates a table named **people** in HBase on your HDInsight cluster. This command does not show any output in the console window.
 
@@ -657,7 +657,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    Replace `hdinsightclustername` with the name of your cluster.
+    Replace `hdinsightclustername` with the name of your cluster. When prompted, enter the cluster login (admin) name and password.
 
     This command uses the `SearchByEmail` class to search for any rows where the `contactinformation` column family and the `email` column, contains the string `contoso.com`. You should receive the following results:
 

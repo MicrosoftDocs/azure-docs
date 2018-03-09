@@ -33,5 +33,4 @@ By default, each Azure project includes one service-configuration file for local
 If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.
 
 ## Next steps
-After the package is built, you can deploy it to Azure. For a tutorial that demonstrates how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+After the package is built, you can deploy it to Azure.

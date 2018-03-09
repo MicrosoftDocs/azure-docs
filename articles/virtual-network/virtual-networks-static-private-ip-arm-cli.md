@@ -32,15 +32,15 @@ This article covers the Resource Manager deployment model. You can also [manage 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> The following sample Azure CLI commands expect an existing simple environment. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
+> The following sample Azure CLI commands expect an existing simple environment. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](quick-create-cli.md).
 
 ## Specify a static private IP address when creating a VM
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, complete the following steps:
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). 
 
-2. Create a public IP for the VM with the [az network public-ip create](/cli/azure/network/public-ip#create) command. The list shown after the output explains the parameters used.
+2. Create a public IP for the VM with the [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) command. The list shown after the output explains the parameters used.
 
     > [!NOTE]
     > You may want or need to use different values for your arguments in this and subsequent steps, depending upon your environment.
@@ -71,7 +71,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
    * `--name`: Name of the public IP.
    * `--location`: Azure region in which to create the public IP.
 
-3. Run the [az network nic create](/cli/azure/network/nic#create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
+3. Run the [az network nic create](/cli/azure/network/nic#az_network_nic_create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
    
     ```azurecli
     az network nic create \
@@ -123,7 +123,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     * `--vnet-name`: Name of the VNet in which to create the NIC.
     * `--subnet`: Name of the subnet in which to create the NIC.
 
-4. Run the [azure vm create](/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
+4. Run the [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
    
     ```azurecli
     az vm create \
@@ -151,7 +151,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     }
     ```
    
-   Parameters other than the basic [az vm create](/cli/azure/vm#create) parameters.
+   Parameters other than the basic [az vm create](/cli/azure/vm#az_vm_create) parameters.
 
    * `--nics`: Name of the NIC to which the VM is attached.
    

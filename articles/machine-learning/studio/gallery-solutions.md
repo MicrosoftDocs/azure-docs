@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
+ms.author: garye
 
 ---
 # Discover Solutions in the Azure AI Gallery

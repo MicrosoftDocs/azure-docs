@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -48,7 +48,7 @@ Click **Save**, and take note of the password value. The password is needed when
 
 ## Create AKS cluster
 
-Select **New** > **Containers** > **Azure Container Service - AKS (preview)**.
+Select **Create a resource** > **Containers** > **Azure Container Service - AKS (preview)**.
 
 Provide a cluster name, DNS prefix, resource group name, location, and Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster.
 
@@ -151,7 +151,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:redis-v1
+        image: microsoft/azure-vote-front:v1
         ports:
         - containerPort: 80
         env:
@@ -233,7 +233,7 @@ In this quick start, you deployed a Kubernetes cluster and deployed a multi-cont
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage an AKS cluster][aks-tutorial]
+> [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

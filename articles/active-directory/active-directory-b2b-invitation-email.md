@@ -3,7 +3,7 @@ title: The elements of the B2B collaboration invitation email - Azure Active Dir
 description: Azure Active Directory B2B collaboration invitation email template
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,7 +13,8 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 ms.custom: seohack1
 ---
 
@@ -32,7 +33,7 @@ You're invited to the &lt;tenantname&gt; organization
 
 ### From address
 We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is:
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
+&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
 
 ### Reply To
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.

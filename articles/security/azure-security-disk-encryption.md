@@ -3,9 +3,9 @@ title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: TomSh
+author: DevTiw
+manager: avibm
+editor: barclayn
 
 ms.assetid: d3fac8bb-4829-405e-8701-fa7229fb1725
 ms.service: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
-ms.author: kakhan
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs
@@ -138,34 +138,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > [!NOTE]
 > For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. You can install it from Windows Update by installing the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption is supported on the following Azure Gallery based Linux server distributions and versions:
-
-| Linux Distribution | Version | Volume Type Supported for Encryption|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | OS and Data disk |
-| Ubuntu | 14.04.5-DAILY-LTS | OS and Data disk |
-| Ubuntu | 12.10 | Data disk |
-| Ubuntu | 12.04 | Data disk |
-| RHEL | 7.4 | OS and Data disk |
-| RHEL | 7.3 | OS and Data disk |
-| RHEL | LVM 7.3 | OS and Data disk |
-| RHEL | 7.2 | OS and Data disk |
-| RHEL | 6.8 | OS and Data disk |
-| RHEL | 6.7 | Data disk |
-| CentOS | 7.3 | OS and Data disk |
-| CentOS | 7.2n | OS and Data disk |
-| CentOS | 6.8 | OS and Data disk |
-| CentOS | 7.1 | Data disk |
-| CentOS | 7.0 | Data disk |
-| CentOS | 6.7 | Data disk |
-| CentOS | 6.6 | Data disk |
-| CentOS | 6.5 | Data disk |
-| openSUSE | 13.2 | Data disk |
-| SLES | 12 SP1 | Data disk |
-| SLES | 12-SP1 (Premium) | Data disk |
-| SLES | HPC 12 | Data disk |
-| SLES | 11-SP4 (Premium) | Data disk |
-| SLES | 11 SP4 | Data disk |
+* Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions.  For the list of currently supported versions, please refer to the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
 
@@ -1287,9 +1260,6 @@ When you attach the OS disk, pass `$KeyEncryptionKey` and `$secretUrl`. The URL 
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## Download this guide
-You can download this guide from the [TechNet Gallery](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## For more information
 [Explore Azure Disk Encryption with Azure PowerShell - Part 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  

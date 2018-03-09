@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL and Relay state. Contact [Grovo support team](https://www.grovo.com/contact-us) to get these values.
  
-5. Grovo application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+5. Grovo application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. Please map **User Identifier** with **user.mail** and configure other attributes as shown in below screenshot.
 	
 	![Configure Single Sign-On attb](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
 	

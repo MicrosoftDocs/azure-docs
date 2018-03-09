@@ -1,28 +1,34 @@
 ---
-title: Review usage and costs in Azure Cost Management | Microsoft Docs
-description: Review usage and costs to track trends, detect inefficiencies, and create alerts.
+title: Tutorial - Review usage and costs in Azure Cost Management | Microsoft Docs
+description: In this tutorial, you review usage and costs to track trends, detect inefficiencies, and create alerts.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
 ---
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
 
+# Tutorial: Review usage and costs
 
-# Review usage and costs
-
-Azure Cost Management by Cloudyn shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs using dashboards and reports. In this tutorial, you learn how to:
+Azure Cost Management shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs using dashboards and reports. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Track usage and cost trends
 > * Detect usage inefficiencies
 > * Create alerts for unusual spending or overspending
 
+If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+- You must have an Azure account.
+- You must have either a trial registration or paid subscription for Azure Cost Management.
 
 ## Open the Cloudyn portal
 
@@ -46,7 +52,7 @@ In the preceding example, less money was spent starting on 2017-08-31 than befor
 
 In the example, you clearly see that Azure Storage cost dropped starting on 2017-08-31 while spending on other Azure services remained level. So, what caused that reduction in spending? In this example, some employees were on vacation away from work and did not use the Storage service.
 
-To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g).
+To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g).
 
 ## Detect usage inefficiencies
 
@@ -70,7 +76,7 @@ View VM instance IDs by clicking the plus symbol next to **List of Candidates**.
 
 ![List of Candidates](./media/tutorial-review-usage/sizing03.png)
 
-To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704).
+To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704).
 
 ## Create alerts for unusual spending
 
@@ -95,7 +101,7 @@ In this tutorial, you learned how to:
 > * Create alerts for unusual spending or overspending
 
 
-Advance to the next tutorial to learn about controlling access to data.
+Advance to the next tutorial to learn how to forecast spending using historical data.
 
 > [!div class="nextstepaction"]
-> [Control access to data](tutorial-user-access.md)
+> [Forecast future spending](tutorial-forecast-spending.md)

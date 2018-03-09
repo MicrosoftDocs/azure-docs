@@ -27,7 +27,7 @@ The first step to allowing users to create VMs from a licensed image is to make 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **More services**, and then select **DevTest Labs** from the list.
+1. Select **All services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.  
 
@@ -74,7 +74,15 @@ You can enable programmatic deployment for a licensed image by following these s
    >
 
 
-1. Select **Save**. In the list of marketplace images, that image now shows **Terms accepted** and is available for users to create virtual machines.
+1. Select **Save**. 
+
+    In the list of marketplace images, that image now shows **Terms accepted** and is available for users to create virtual machines.
+
+> [!NOTE]
+> Users can create a custom image from a licensed image. See [Create a custom image from a VHD file](devtest-lab-create-template.md) for more information.
+>
+>
+
 
 ## Related blog posts
 
@@ -83,4 +91,6 @@ You can enable programmatic deployment for a licensed image by following these s
 
 ## Next steps
 
+- [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Create a custom image from a VHD file](devtest-lab-create-template.md)
 - [Add a VM to your lab](devtest-lab-add-vm.md)

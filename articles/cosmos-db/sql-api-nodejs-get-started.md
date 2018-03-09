@@ -333,7 +333,7 @@ Copy and paste the **getFamilyDocument** function underneath the **getCollection
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {

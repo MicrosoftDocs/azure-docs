@@ -49,13 +49,14 @@ The following video shows how to monitor API Management using Azure Monitor.
 Activity logs provide insight into the operations that were performed on your API Management services. Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your API Management services. 
 
 > [!NOTE]
-> Activity logs do not include read (GET) operations or operations performed in the classic Publisher Portal or using the original Management APIs.
+> Activity logs do not include read (GET) operations or operations performed in the Azure portal or using the original Management APIs.
 
 You can access activity logs in your API Management service, or access logs of all your Azure resources in Azure Monitor. 
 
 To view activity logs:
 
-1. From your **API Management** instance, click **Activity log**.
+1. Select your APIM service instance.
+2. Click **Activity log**.
 
 ## View diagnostic Logs
 
@@ -63,7 +64,8 @@ Diagnostic logs provide rich information about operations and errors that are im
 
 To access diagnostic logs:
 
-1. From your **API Management** instance, click **Diagnostic log**.
+1. Select your APIM service instance.
+2. Click **Diagnostic log**.
 
 ## View metrics of your APIs
 

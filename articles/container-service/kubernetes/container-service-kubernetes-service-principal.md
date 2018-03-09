@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -21,7 +21,7 @@ resources such as [user-defined routes](../../virtual-network/virtual-networks-u
 and the [Layer 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster and the service principal at the same time.
 
 
 ## Requirements for the service principal
@@ -94,7 +94,7 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
 
 ## Option 2: Generate a service principal when creating the cluster with `az acs create`
 
-If you run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
+If you run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
 
 As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
 

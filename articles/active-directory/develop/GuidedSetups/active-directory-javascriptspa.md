@@ -23,4 +23,4 @@ ms.custom: aaddev
 [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-setup.md)]
 [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-use.md)]
 [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-configure.md)]
-[!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-test.md)]
+[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-test.md)]
