@@ -60,7 +60,7 @@ The web application's managed service identity now has access to the Service Bus
 
 ### Run the app
 
-Now modify the default page of the ASP.NET application you created. You can also use the web application code from [this GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity). 
+Now modify the default page of the ASP.NET application you created. You can also use the web application code from [this GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
 
 The Default.aspx page is your landing page. The code can be found in the Default.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Service Bus to either send or receive messages.
 
@@ -70,7 +70,7 @@ Once you have made these changes, publish and run the application. An easy way t
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-To send or receive messages, enter the name of the namespace and the name of the entity you created, then click either **send** or **receive**. 
+To send or receive messages, enter the name of the namespace and the name of the entity you created, then click either **send** or **receive**.
  
 Note that the managed service identity only works inside the Azure environment, and only in the App Service deployment in which you configured it. Also note that managed service identities do not work with App Service deployment slots at this time.
 
