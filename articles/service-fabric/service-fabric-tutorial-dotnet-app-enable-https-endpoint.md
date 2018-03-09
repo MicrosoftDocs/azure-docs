@@ -22,8 +22,6 @@ ms.custom: mvc
 # Tutorial: add an HTTPS endpoint to an ASP.NET Core Web API front-end service
 This tutorial is part three of a series.  You will learn how to ... When you're finished, you have .... If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).
 
-![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
-
 In part three of the series, you learn how to:
 
 > [!div class="checklist"]
@@ -43,8 +41,8 @@ Before you begin this tutorial:
 - [Install Visual Studio 2017](https://www.visualstudio.com/) version 15.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
-## Create a self-signed development certificate
-Use the New-SelfSignedCertificate Powershell cmdlet to generate a suitable certificate for development:
+## Obtain a certificate or create a self-signed development certificate
+In order to enable HTTPS you need a digital certificate.  For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. Use the New-SelfSignedCertificate Powershell cmdlet to generate a self-signed certificate for development:
 
 ```powershell
 PS C:\Users\sfuser>New-SelfSignedCertificate -NotBefore (Get-Date) -NotAfter (Get-Date).AddYears(1) -Subject "localhost" -KeyAlgorithm "RSA" -KeyLength 2048 -HashAlgorithm "SHA256" -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsage KeyEncipherment -FriendlyName "HTTPS development certificate" -TextExtension @("2.5.29.19={critical}{text}","2.5.29.37={critical}{text}1.3.6.1.5.5.7.3.1","2.5.29.17={critical}{text}DNS=localhost")
@@ -167,16 +165,55 @@ new ServiceInstanceListener(
             }))
 ```
 
-
-
 ## Run the application locally
 In Solution Explorer, select the **Voting** application and set the **Application URL** property to "https://localhost:443".
 
 Save all files, hit F5.
 
+## Install certificate on cluster nodes
+
+```powershell
+Connect-AzureRmAccount
+
+$vaultname="ryanwitestvault"
+$certname="VotingApp2PFX"
+$certpw="!Password321#"
+$groupname="voting_RG"
+$clustername = "votingryanwi"
+$ExistingPfxFilePath="C:\Users\ryanwi\votingappcert.pfx"
+
+$appcertpwd = ConvertTo-SecureString –String $certpw –AsPlainText –Force  
+
+# $key = Add-AzureKeyVaultCertificate -VaultName $vaultname -Name $certname -KeyFilePath $ExistingPfxFilePath -KeyFilePassword $appcertpwd 
+
+Write-Host "Reading pfx file from $ExistingPfxFilePath"
+$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $certpw
+
+$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
+$base64 = [System.Convert]::ToBase64String($bytes)
+
+$jsonBlob = @{
+   data = $base64
+   dataType = 'pfx'
+   password = $certpw
+   } | ConvertTo-Json
+
+$contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
+$content = [System.Convert]::ToBase64String($contentbytes)
+
+$secretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
+
+Write-Host "Writing secret to $certname in vault $vaultname"
+$secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretValue $secretValue
+
+
+# Create a new self-signed certificate and add it to all the VMs in the cluster.
+Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
+```
+
 ## Deploy the application to Azure
 
-
+Right-click, publish app to remote cluster.
 
 ## Next steps
 In this part of the tutorial, you learned how to:

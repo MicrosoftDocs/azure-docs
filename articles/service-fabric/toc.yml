@@ -27,9 +27,11 @@
       href: service-fabric-tutorial-create-dotnet-app.md
     - name: 2- Deploy the application
       href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-    - name: 3- Configure CI/CD
+    - name: 3- Add an HTTPS endpoint to an ASP.NET Core Web API front-end service
+      href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+    - name: 4- Configure CI/CD
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 4- Monitor and Diagnose
+    - name: 5- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Containerize an existing .NET app
     items:
