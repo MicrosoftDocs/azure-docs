@@ -110,7 +110,7 @@ The example shows the impact of actor method calls, reminders, and timers on the
 An actor will never be garbage collected while it is executing one of its methods, no matter how much time is spent in executing that method. As mentioned earlier, the execution of actor interface methods and reminder callbacks prevents garbage collection by resetting the actor's idle time to 0. The execution of timer callbacks does not reset the idle time to 0. However, the garbage collection of the actor is deferred until the timer callback has completed execution.
 
 ## Manually deleting actors and their state
-Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is re-activated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never re-activated, it may be necessary to clean up their data.  For examples of how to delete actors, read [delete actors and their state](service-fabric-actors-delete-actors.md).
+Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is re-activated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never re-activated, it may be necessary to clean up their data.  For examples of how to delete actors, read [delete actors and their state](service-fabric-reliable-actors-delete-actors.md).
 
 ## Next steps
 * [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)

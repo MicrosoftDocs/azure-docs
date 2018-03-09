@@ -18,7 +18,7 @@ ms.author: vturecek
 
 ---
 # Access, save, and remove Reliable Actors state
-[Reliable Actors](service-fabric-reliable-actors-introduction.md) are single-threaded objects that can encapsulate both logic and state and maintain state reliably. Every actor instance has its own [state manager](service-fabric-reliable-actors-state-managment.md): a dictionary-like data structure that reliably stores key/value pairs. The state manager is a wrapper around a state provider. You can use it to store data regardless of which [persistence setting](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) is used.
+[Reliable Actors](service-fabric-reliable-actors-introduction.md) are single-threaded objects that can encapsulate both logic and state and maintain state reliably. Every actor instance has its own [state manager](service-fabric-reliable-actors-state-management.md): a dictionary-like data structure that reliably stores key/value pairs. The state manager is a wrapper around a state provider. You can use it to store data regardless of which [persistence setting](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) is used.
 
 State manager keys must be strings. Values are generic and can be any type, including custom types. Values stored in the state manager must be data contract serializable because they might be transmitted over the network to other nodes during replication and might be written to disk, depending on an actor's state persistence setting.
 

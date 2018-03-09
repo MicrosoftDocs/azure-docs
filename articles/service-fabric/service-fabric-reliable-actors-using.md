@@ -84,7 +84,7 @@ static class Program
 ```
 
 ## Actor service methods
-The Actor service implements `IActorService` (C#) or `ActorService` (Java), which in turn implements `IService` (C#) or `Service` (Java). This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely via service remoting and allow you to [enumerate](service-fabric-actors-enumerate.md) and [delete](service-fabric-actors-delete-actors.md) actors.
+The Actor service implements `IActorService` (C#) or `ActorService` (Java), which in turn implements `IService` (C#) or `Service` (Java). This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely via service remoting and allow you to [enumerate](service-fabric-reliable-actors-enumerate.md) and [delete](service-fabric-reliable-actors-delete-actors.md) actors.
 
 
 ## Custom actor service
