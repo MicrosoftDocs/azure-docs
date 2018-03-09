@@ -1064,6 +1064,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/vs-azure-tools-remote-desktop-roles.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-visual-studio",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/xplat-cli-azure-resource-manager.md",
             "redirect_url": "/azure/azure-resource-manager/xplat-cli-azure-resource-manager",
             "redirect_document_id": false
@@ -8560,6 +8565,11 @@
             "redirect_document_id": false
         },
 		    {
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-sec-site.md",
+            "redirect_url": "vmware-physical-secondary-support-matrix",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/tutorial-dr-drill-secondary.md",
             "redirect_url": "hyper-v-vmm-test-failover",
             "redirect_document_id": false
@@ -8976,7 +8986,7 @@
         },
         {
             "source_path": "articles/site-recovery/vmware-walkthrough-prerequisites.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9100,6 +9110,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/support-matrix-vmware-to-azure.md",
+            "redirect_url": "vmware-physical-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-azure.md",
+            "redirect_url": "vmware-physical-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md",
             "redirect_url": "vmware-azure-install-mobility-service",
             "redirect_document_id": false
@@ -9171,7 +9191,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-support-matrix.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9181,7 +9201,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-prereq.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9191,7 +9211,7 @@
         },
 	{
             "source_path": "articles/site-recovery/site-recovery-best-practices.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -17371,6 +17391,21 @@
     {
         "source_path": "articles/virtual-network/virtual-network-manage-network.md",
         "redirect_url": "/azure/virtual-network/manage-virtual-network",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-cli.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-portal.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-powershell.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
         "redirect_document_id": false
     },
     {
