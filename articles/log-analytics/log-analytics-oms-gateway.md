@@ -52,7 +52,7 @@ The following diagram shows data flow from an Operations Manager management grou
 
 ## Prerequisites
 
-When you designate a computer to run the OMS Gateway, make sure the it has the following components:
+When you designate a computer to run the OMS Gateway, make sure it has the following components:
 
 * Windows 10, Windows 8.1, Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
@@ -86,7 +86,7 @@ The OMS Gateway supports only Transport Layer Security (TLS) 1.0, 1.1, and 1.2. 
 ### Supported number of agent connections
 The following table highlights the supported number of agents that are communicating with a gateway server. This support is based on agents uploading approximately 200 KB of data every 6 seconds. The data volume per agent tested is about 2.7 GB per day.
 
-|Gateway |Approximate number of agents supported|  
+|Gateway |Approximate number of agents that are supported|  
 |--------|----------------------------------|  
 |- CPU: Intel XEON CPU E5-2660 v3 @ 2.6 GHz 2 Cores<br> - Memory: 4 GB<br> - Network Bandwidth: 1 Gbps| 600|  
 |- CPU: Intel XEON CPU E5-2660 v3 @ 2.6 GHz 4 Cores<br> - Memory: 8 GB<br> - Network Bandwidth: 1 Gbps| 1000|  
@@ -146,7 +146,7 @@ To install a gateway, take the following steps. If you installed the previous ve
 ## Configure network load balancing 
 You can configure the gateway for high availability by using network load balancing (NLB). Use either Microsoft Network Load Balancing (NLB) or hardware-based load balancers.  The load balancer manages traffic by redirecting the requested connections from the OMS agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
 
-To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  The following steps describe how to configure a  Microsoft network load balancing cluster.  
+To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  The following steps describe how to configure a Microsoft network load balancing cluster.  
 
 1.  Sign in with an administrative account to the Windows server that is a member of the NLB cluster.  
 
@@ -187,7 +187,7 @@ To use the Gateway to support Operations Manager, the following components must 
 > If you don't specify a value for the gateway, blank values are pushed to all agents.
 > 
 
-If this is the first time your Operations Manager management group is registering with a Log Analytics workspace, the option to specify the proxy configuration for the management group  won't be available in the Operations console. 
+If this is the first time your Operations Manager management group is registering with a Log Analytics workspace, the option to specify the proxy configuration for the management group won't be available in the Operations console. 
 
 The management group has to be successfully registered with the service before this option is available. Update the system proxy configuration using Netsh on the same system on which you're running the Operations console and all management servers in the management group.
 
@@ -198,7 +198,7 @@ The management group has to be successfully registered with the service before t
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-After you complete the integration with Log Analytics, you can remove the change by running `netsh winhttp reset proxy`. Then  use the **Configure proxy server** option in the Operations console to specify the OMS Gateway server. 
+After you complete the integration with Log Analytics, you can remove the change by running `netsh winhttp reset proxy`. Then use the **Configure proxy server** option in the Operations console to specify the OMS Gateway server. 
 
 1. Open the Operations Manager console. Under **Operations Management Suite**, select **Connection**. Then select **Configure Proxy Server**.
 
@@ -223,19 +223,23 @@ For large or complex environments, you might only want specific servers (or grou
 
 3. in the **Look for** field, type **Health Service**. Then select it from the list. Select **OK**.  
 
-4. Search for the rule **Advisor Proxy Setting Rule**. In the Operations console toolbar, select **Overrides**. Then select **Override the Rule\For a specific object of class: Health Service**. Next, select a specific object from the list. Optionally, you can create a custom group that contains the health service object of the servers to which you want to apply this override. Then you can then apply the override to that group.
+4. Search for the rule **Advisor Proxy Setting Rule**. In the Operations console toolbar, select **Overrides**. Then select **Override the Rule\For a specific object of class: Health Service**. 
 
-5. In the **Override Properties** dialog box, click to place a check mark in the **Override** column next to the **WebProxyAddress** parameter.  In the **Override Value** field, enter the URL of the OMS Gateway server, ensuring that you start with the `http://` prefix.  
+5. Next, select a specific object from the list. 
+
+6. (Optional) Create a custom group that contains the health service object of the servers to which you want to apply this override. Then you can then apply the override to that group.
+
+7. In the **Override Properties** dialog box, click to place a check mark in the **Override** column next to the **WebProxyAddress** parameter.  In the **Override Value** field, enter the URL of the OMS Gateway server, ensuring that it starts with the `http://` prefix.  
 
     >[!NOTE]
     > You do not need to enable the rule. It's already managed automatically with an override that's contained in the Microsoft System Center Advisor Secure Reference Override management pack that targets the Microsoft System Center Advisor Monitoring Server Group.
     >   
 
-6. Either select a management pack from the **Select destination management pack** list, or create a new unsealed management pack by selecting **New**. 
+8. Either select a management pack from the **Select destination management pack** list, or create a new unsealed management pack by selecting **New**. 
 
-7. When you complete your changes, select **OK**. 
+9. When you complete your changes, select **OK**. 
 
-### Configure for automation hybrid workers
+### Configure for Automation Hybrid Runbook Workers
 If you have Automation Hybrid Runbook Workers in your environment, the following steps provide manual, temporary workarounds to configure the Gateway to support them.
 
 In the following steps, you need to know the Azure region where the Automation account resides. To find the location, take the following steps:
@@ -243,7 +247,7 @@ In the following steps, you need to know the Azure region where the Automation a
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select the Azure Automation service.
 3. Select the appropriate Azure Automation account.
-4. View the region of the account under **Location**.
+4. Under **Location**, view the region of the account.
 
     ![Azure portal – Automation account location](./media/log-analytics-oms-gateway/location.png)  
 
@@ -281,29 +285,29 @@ Use the following tables to identify the URL for each location:
 
 If your computer is automatically registered as a Hybrid Runbook Worker for patching using the Update Management solution, follow these steps:
 
-1. Add the Job Runtime Data service URLs to the Allowed Host list on the OMS Gateway. For example:
+1. Add the Job Runtime Data service URLs to the Allowed Host list on the OMS Gateway. For example, type the following:
     `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 
 2. Restart the OMS Gateway service by using the following PowerShell cmdlet:
    `Restart-Service OMSGatewayService`
 
-If you on-board your computer  to Azure Automation by using the Hybrid Runbook Worker registration cmdlet, follow these steps:
+If you on-board your computer to Azure Automation by using the Hybrid Runbook Worker registration cmdlet, follow these steps:
 
-1. Add the agent service registration URL to the Allowed Host list on the OMS Gateway. For example:
+1. Add the agent service registration URL to the Allowed Host list on the OMS Gateway. For example, type the following:
    `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
 
-2. Add the Job Runtime Data service URLs to the Allowed Host list on the OMS Gateway. For example:
+2. Add the Job Runtime Data service URLs to the Allowed Host list on the OMS Gateway. For example, type the following:
     `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 
 3. Restart the OMS Gateway service.
     `Restart-Service OMSGatewayService`
 
 ## Useful PowerShell cmdlets
-Cmdlets can help you complete tasks that are needed to update the OMS Gateway's configuration settings. Before you use them, be sure to:
+Cmdlets can help you complete tasks that are necessary for updating the configuration settings of the the OMS Gateway. Before you use them, be sure to take the following steps:
 
 1. Install the OMS Gateway (MSI).
 2. Open a PowerShell console window.
-3. To import the module, type this command: `Import-Module OMSGateway`.
+3. Import the module by typing this command: `Import-Module OMSGateway`.
 4. If no error occurred in the previous step, the module was successfully imported and the cmdlets can be used. Type `Get-Module OMSGateway`.
 5. After you make changes by using the cmdlets, ensure that you restart the Gateway service.
 
@@ -313,8 +317,8 @@ If you get an error in step 3, the module wasn't imported. The error might occur
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Key |Gets the configuration of the service |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Key (required) <br> Value |Changes the configuration of the service |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
-| `Get-OMSGatewayRelayProxy` | |Gets the address of relay (upstream) proxy |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Address<br> Username<br> Password |Sets the address (and credential) of relay (upstream) proxy |1. Set a relay proxy and credential:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Set a relay proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Clear the relay proxy setting:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayRelayProxy` | |Gets the address of the relay (upstream) proxy |`Get-OMSGatewayRelayProxy` |  
+| `Set-OMSGatewayRelayProxy` |Address<br> Username<br> Password |Sets the address (and credential) of the relay (upstream) proxy |1. Set a relay proxy and credential:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Set a relay proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Clear the relay proxy setting:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Gets the currently allowed host (only the locally configured allowed host, does not include automatically downloaded allowed hosts) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (required) |Adds the host to the allowed list |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (required) |Removes the host from the allowed list |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
@@ -325,11 +329,11 @@ If you get an error in step 3, the module wasn't imported. The error might occur
 ## Troubleshooting
 To collect events that are logged by the gateway, you need to also have the OMS agent installed.
 
-    ![Event Viewer – OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
+![Event Viewer – OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **OMS Gateway Event IDs and descriptions**
 
-The following table shows the event IDs and descriptions for OMS Gateway Log events:
+The following table shows the event IDs and descriptions for OMS Gateway log events:
 
 | **ID** | **Description** |
 | --- | --- |
@@ -343,7 +347,7 @@ The following table shows the event IDs and descriptions for OMS Gateway Log eve
 | 103 |Received an HTTP CONNECT command from client. |
 | 104 |Not an HTTP CONNECT command. |
 | 105 |Destination server is not in allowed list or the destination port is not secure port (443). <br> <br> Ensure that the MMA agent on your Gateway server and the agents that are communicating with the Gateway are connected to the same Log Analytics workspace. |
-| 105 |ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure that: <br>    <br> - You are using a Gateway with version number 1.0.395.0 or greater. <br> - The MMA agent on your Gateway server and the agents that are communicating with the Gateway are connected to the same Log Analytics workspace. |
+| 105 |ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure that: <br>    <br> - You are using a Gateway with version number 1.0.395.0 or greater. <br> - The MMA agent on your Gateway server and the agents that are communicating with the gateway are connected to the same Log Analytics workspace. |
 | 106 |The OMS Gateway only supports TLS 1.0, TLS 1.1 and 1.2.  It does not support SSL. For any unsupported TLS/SSL protocol version, OMS Gateway generates event ID 106.|
 | 107 |The TLS session has been verified |
 
@@ -363,9 +367,9 @@ The following table shows the performance counters that are available for the OM
 ## Get assistance
 When you are signed in to the Azure portal, you can create a request for assistance with the OMS Gateway or any other Azure service or feature of a service.
 
-To request assistance, select the question mark symbol in the top right corner of the portal and then select **New support request**. Complete the new support request form.
+To request assistance, select the question mark symbol in the upper right corner of the portal. Then select **New support request**. Complete the new support request form.
 
 ![New support request](./media/log-analytics-oms-gateway/support.png)
 
 ## Next steps
-[Add data sources](log-analytics-data-sources.md) to collect data from your Connected Sources and store it in your Log Analytics workspace.
+[Add data sources](log-analytics-data-sources.md) to collect data from your connected sources and store it in your Log Analytics workspace.
