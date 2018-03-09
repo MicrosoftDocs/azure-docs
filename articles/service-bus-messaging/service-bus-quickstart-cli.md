@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/09/2018
 ms.author: sethm
 
 ---
@@ -28,13 +28,23 @@ This quickstart describes how to send and receive messages with Service Bus, usi
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
+## Prerequisites
+
+To develop a Service Bus app with Java, you must have the following installed:
+
+-  [.NET Core](https://www.microsoft.com/net/core), latest version.
+-  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
+-  [Apache Maven](https://maven.apache.org), version 3.0 or above.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Use CLI to log in to Azure
 
-1. Once CLI is installed, open a command prompt and issue the following commands to log in to Azure:
+Once CLI is installed, open Cloud Shell and issue the following commands to log in to Azure: 
+
 
    ```azurecli-interactive
    az extension add --name servicebus
@@ -59,7 +69,7 @@ After logging in to Azure, issue the following commands to provision Service Bus
 
 ```azurecli
 # Create a resource group
-az group create --name serviceBusResourceGroup --location eastus
+az group create --name <my_rg> --location eastus
 
 # Create a Messaging namespace
 az servicebus namespace create --name <namespace_name> -location eastus
@@ -68,27 +78,40 @@ az servicebus namespace create --name <namespace_name> -location eastus
 az servicebus entity create --name <queue_name> -location eastus
 
 # Get the connection string
-az servicebus TBD
+az servicebus namespace authorizationrule show --resource-group <my_rg> --namespace-name <namespace_name> --nam
+e RootManageSharedAccessKey
 ```
 
-Copy and paste the **PrimaryConnectionString** value to a temporary location, such as Notepad, to use later.
+Copy and paste the connection string value to a temporary location, such as Notepad, to use later.
 
-## Send and receive messages TBD: change to Java
+## Send and receive messages
 
 After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages.
 
-1. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
-2. Double-click **Program.cs** to open it in the Visual Studio editor.
-3. Replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained in the [previous section](#get-the-connection-string).
-4. Replace the value of `QueueName` with the name of the queue you [created previously](#create-a-queue).
-5. Build and run the program, and observe 10 messages being sent to the queue, and received in parallel from the queue.
+1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
+2. From a command prompt, navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsTopicQuickstart).
+3. Issue the following command to build the application:
+   
+   ```shell
+   mvn clean package -DskipTests
+   ```
+
+4. To run the program, issue the following command. Make sure you supply the connection string you obtained in the previous step:
+
+   ```shell
+   java -jar .\target\jmstopicquickstart-1.0.0-jar-with-dependencies.jar -c <your_connection_string>
+   ```
+
+Observe 10 messages being sent to the queue, and subsequently received from the queue:
+
+![program output](./media/service-bus-quickstart-cli/javasendrecv.png)
 
 ## Clean up deployment
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
 ```azurecli-interactive
-az group delete --name serviceBusResourceGroup
+az group delete --name <my_rg>
 ```
 
 ## Next steps
