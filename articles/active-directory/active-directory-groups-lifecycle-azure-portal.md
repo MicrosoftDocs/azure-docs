@@ -22,25 +22,27 @@ ms.custom: it-pro
 
 # Configure the expiration policy for Office 365 groups
 
-You can now manage the lifecycle of Office 365 groups by setting an expiration policy for them. You can set expiration policy for only Office 365 groups in Azure Active Directory (Azure AD). Once you set a group to expire:
+You can now manage the lifecycle of Office 365 groups by setting an expiration policy for them. You can set expiration policy for only Office 365 groups in Azure Active Directory (Azure AD). 
+
+Once you set a group to expire:
 -	Owners of the group are notified to renew the group as the expiration nears
 -	Any group that is not renewed is deleted
 -	Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
 
 > [!NOTE]
-> Configuring and using the expiration policy for Office 365 groups requires an Azure AD Premium license for all members of the groups to which the expiration policy is applied.
+> Configuring and using the expiration policy for Office 365 groups requires you to have on hand Azure AD Premium licenses for all members of the groups to which the expiration policy is applied.
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 ## Roles and permissions
-These are the roles that can configure and use expiration for Office 365 groups in Azure AD.
+The following are roles that can configure and use expiration for Office 365 groups in Azure AD.
 
 Role | Permissions
 -------- | --------
 Global Administrator<br>User Account Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings<br>Can renew any Office 365 group
 User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
-For more information on permissions to restore a deleted groups, see [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md).
+For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](active-directory-groups-restore-azure-portal.md).
 
 ## Set group expiration
 
