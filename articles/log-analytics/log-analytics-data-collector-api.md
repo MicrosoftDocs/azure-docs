@@ -73,17 +73,21 @@ Authorization: SharedKey <WorkspaceID>:<Signature>
 Use this format to encode the **SharedKey** signature string:
 
 ```
-StringToSign = VERB + "\n" +
-                  Content-Length + "\n" +
-               Content-Type + "\n" +
-                  x-ms-date + "\n" +
+StringToSign = VERB + "`n" +
+                  Content-Length + "`n" +
+               Content-Type + "`n" +
+                  x-ms-date + "`n" +
                   "/api/logs";
 ```
 
 Here's an example of a signature string:
 
 ```
-POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
+POST
+1024
+application/json
+x-ms-date:Fri, 09 Mar 2018 17:18:53 GMT
+/api/logs
 ```
 
 When you have the signature string, encode it by using the HMAC-SHA256 algorithm on the UTF-8-encoded string, and then encode the result as Base64. Use this format:
