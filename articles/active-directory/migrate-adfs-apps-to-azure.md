@@ -69,7 +69,7 @@ Federated apps include apps that fall into these categories:
     - If your users sign on to SaaS apps such as Salesforce, ServiceNow, or Workday, and you're integrating with an on-premises identity provider such as AD FS or Ping, you're using federated sign-on for SaaS apps.
     - Apps generally use the SAML 2.0 protocol for federated sign-on.
     - Apps that fall into this category can be integrated with Azure AD as enterprise applications, either from the Marketplace or as non-Marketplace applications.
-- Custom LOB applications
+- Custom LOB apps
     - This refers to non-SaaS apps, developed internally by your organization or available as a standard packaged product that's installed in your datacenter. This includes SharePoint apps and apps built on Windows Identity Foundation.
     - Apps can use SAML 2.0, WS-Federation, OAuth, or OpenID Connect for federated sign-on.
     - Custom apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as app registrations. Custom apps that use SAML 2.0 or WS-Federation can be integrated as non-Marketplace applications within enterprise applications.
@@ -177,12 +177,15 @@ Apps that require the following capabilities cannot be migrated today. If you ha
 #### Configure single sign-on (SSO) settings for the SaaS app
 
 In Azure AD, you configure SAML sign-on (as required by your app) in the **Single sign-on** properties of the app, under **User Attributes**.
+
 ![Single sign-on properties with "User Attributes" section](media/migrate-adfs-apps-to-azure/migrate3.png)
 
 Select **View and edit all other user attributes** to see the attributes to send as claims in the security token.
+
 ![List of attributes](media/migrate-adfs-apps-to-azure/migrate4.png)
 
-Select a specific attribute row to edit, or select **Add attribute** to add a new attribute. 
+Select a specific attribute row to edit, or select **Add attribute** to add a new attribute.
+
 !["Edit Attribute" pane](media/migrate-adfs-apps-to-azure/migrate5.png)
 
 #### Assign users to the app
