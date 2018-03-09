@@ -18,7 +18,7 @@ ms.author: amanbha
 
 ---
 # Delete Reliable Actors and their state
-Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is re-activated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never re-activated, it may be necessary to clean up their data.
+Garbage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is reactivated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never reactivated, it may be necessary to clean up their data.
 
 The [Actor Service](service-fabric-reliable-actors-platform.md) provides a function for deleting actors from a remote caller:
 
@@ -47,7 +47,7 @@ Deleting an actor has the following effects depending on whether or not the acto
 * **Inactive Actor**
   * Its state is deleted permanently.
 
-Note that an actor cannot call delete on itself from one of its actor methods because the actor cannot be deleted while executing within an actor call context, in which the runtime has obtained a lock around the actor call to enforce single-threaded access.
+An actor cannot call delete on itself from one of its actor methods because the actor cannot be deleted while executing within an actor call context, in which the runtime has obtained a lock around the actor call to enforce single-threaded access.
 
 ## Next steps
 * [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
