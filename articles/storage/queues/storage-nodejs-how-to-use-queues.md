@@ -88,7 +88,7 @@ queue if it already exists or creates a new queue with the specified
 name if it does not already exist.
 
 ```
-queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
   if(!error){
     // Queue created or exists
   }
@@ -124,7 +124,7 @@ To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
 
 ```
-queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
   if(!error){
     // Message inserted
   }
@@ -137,9 +137,9 @@ from the queue by calling the **peekMessages** method. By default,
 **peekMessages** peeks at a single message.
 
 ```
-queueSvc.peekMessages('myqueue', function(error, result, response){
+queueSvc.peekMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
+    // Message text is in results[0].messageText
   }
 });
 ```
@@ -160,10 +160,10 @@ Processing a message is a two-stage process:
 To dequeue a message, use **getMessages**. This makes the messages invisible in the queue, so no other clients can process them. Once your application has processed a message, call **deleteMessage** to delete it from the queue. The following example gets a message, then deletes it:
 
 ```
-queueSvc.getMessages('myqueue', function(error, result, response){
+queueSvc.getMessages('myqueue', function(error, results, response){
   if(!error){
-    // Message text is in messages[0].messageText
-    var message = result[0];
+    // Message text is in results[0].messageText
+    var message = results[0];
     queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
       if(!error){
         //message deleted
@@ -185,11 +185,11 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 You can change the contents of a message in-place in the queue using **updateMessage**. The following example updates the text of a message:
 
 ```
-queueSvc.getMessages('myqueue', function(error, result, response){
+queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
   if(!error){
     // Got the message
-    var message = result[0];
-    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+    var message = getResults[0];
+    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, updateResults, updateResponse){
       if(!error){
         // Message updated successfully
       }
@@ -208,13 +208,13 @@ The following example uses the **getMessages** method to get 15 messages in one 
 each message using a for loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
 
 ```
-queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
     for(var index in result){
       // text is available in result[index].messageText
-      var message = result[index];
-      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+      var message = results[index];
+      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, deleteResponse){
         if(!error){
           // Message deleted
         }
@@ -228,9 +228,9 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 The **getQueueMetadata** returns metadata about the queue, including the approximate number of messages waiting in the queue.
 
 ```
-queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+queueSvc.getQueueMetadata('myqueue', function(error, results, response){
   if(!error){
-    // Queue length is available in result.approximateMessageCount
+    // Queue length is available in results.approximateMessageCount
   }
 });
 ```
@@ -239,9 +239,9 @@ queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 To retrieve a list of queues, use **listQueuesSegmented**. To retrieve a list filtered by a specific prefix, use **listQueuesSegmentedWithPrefix**.
 
 ```
-queueSvc.listQueuesSegmented(null, function(error, result, response){
+queueSvc.listQueuesSegmented(null, function(error, results, response){
   if(!error){
-    // result.entries contains the list of queues
+    // results.entries contains the list of queues
   }
 });
 ```
