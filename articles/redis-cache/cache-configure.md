@@ -266,7 +266,9 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 ### Firewall
 
-Click **Firewall** to view and configure firewall rules for your Premium Azure Redis Cache.
+Firewall rules configuration is available for all Azure Redis Cache tiers.
+
+Click **Firewall** to view and configure firewall rules for cache.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
