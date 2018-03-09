@@ -87,7 +87,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | SDKs to access Azure and Cortana Intelligence Suite of services | Y | Y |
 | **Data Movement and management Tools** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Explorer | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure/overview) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) | N | Y |
