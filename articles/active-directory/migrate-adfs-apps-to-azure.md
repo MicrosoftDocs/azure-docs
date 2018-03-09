@@ -68,7 +68,7 @@ Federated apps include apps that fall into these categories:
 - SaaS apps 
     - If your users sign on to SaaS apps such as Salesforce, ServiceNow, or Workday, and you're integrating with an on-premises identity provider such as AD FS or Ping, you're using federated sign-on for SaaS apps.
     - Apps generally use the SAML 2.0 protocol for federated sign-on.
-    - Apps that fall into this category can be integrated with Azure AD as enterprise applications, either from the Marketplace, or as non-Marketplace applications.
+    - Apps that fall into this category can be integrated with Azure AD as enterprise applications, either from the Marketplace or as non-Marketplace applications.
 - Custom LOB applications
     - This refers to non-SaaS apps, developed internally by your organization or available as a standard packaged product that's installed in your datacenter. This includes SharePoint apps and apps built on Windows Identity Foundation.
     - Apps can use SAML 2.0, WS-Federation, OAuth, or OpenID Connect for federated sign-on.
@@ -77,7 +77,7 @@ Federated apps include apps that fall into these categories:
 ### Non-federated apps
 You can integrate non-federated apps with Azure AD by using Azure AD Application Proxy and related capabilities. Non-federated apps include:
 - Apps that use Windows Integrated Authentication directly with Active Directory. You can integrate these apps with Azure AD via [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
-- Apps that integrate with your single sign-on provider via an agent and that use headers for authorization. On-premises apps that use an installed agent for sign-on and header-based authorization can be configured for Azure AD based sign-on via Azure AD Application Proxy with [Ping Access for Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
+- Apps that integrate with your single sign-on provider via an agent and that use headers for authorization. On-premises apps that use an installed agent for sign-on and header-based authorization can be configured for Azure AD-based sign-on via Azure AD Application Proxy with [Ping Access for Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## Translating on-premises federated apps to Azure AD 
 AD FS and Azure AD work similarly, so the concepts of configuring trust, sign-on and sign-out URLs, and identifiers apply in both cases. However, you need to understand some small differences as you make the transition.
@@ -86,8 +86,8 @@ The following tables map key ideas shared by AD FS, Azure AD, and SaaS apps to h
 
 ### Representing the app in Azure AD or AD FS
 Migration starts with assessing how the application is configured on-premises and mapping that configuration to Azure AD. The following table is a mapping of AD FS relying party configuration elements to the corresponding elements in Azure AD.  
-- AD FS term: Relying party or relying party trust
-- Azure AD term: Enterprise application or app registration (depending on the type of app)
+- AD FS term: Relying party or relying party trust.
+- Azure AD term: Enterprise application or app registration (depending on the type of app).
 
 |App configuration element|Description|Location in AD FS configuration|Corresponding location in Azure AD configuration|SAML token element|
 |-----|-----|-----|-----|-----|
@@ -130,7 +130,7 @@ The integration tutorials assume that you're doing a green field integration. As
 - After the attributes are available in Azure AD, you can add claim issuance rules in Azure AD to include those attributes as claims in issued tokens. You add these rules in the **Single sign-on** properties of the app in Azure AD.
 
 ### Assess what can be migrated
-SAML 2.0 applications can be integrated with Azure AD either via the Azure AD application gallery in Marketplace as non-Marketplace applications.  
+SAML 2.0 applications can be integrated with Azure AD either via the Azure AD application gallery in the Marketplace or as non-Marketplace applications.  
 
 Some configurations require additional steps to configure in Azure AD, and some configurations are not supported today. To determine what you can move, look at the current configuration of each of your apps. Specifically, look for:
 - Claim rules configured (issuance transform rules).
@@ -163,7 +163,7 @@ Apps that require the following capabilities cannot be migrated today. If you ha
     - SAML token encryption. 
     - SAML version 1.1 tokens within SAML protocol responses. 
 - Claims in token capabilities:
-    - Issuance of on-premises group names as a claims.
+    - Issuance of on-premises group names as claims.
     - Claims from stores other than Azure AD.
     - Complex claims issuance transform rules. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
     - Issuance of directory extensions as claims.
@@ -209,9 +209,9 @@ The cutover process from on-premises federation to Azure AD depends on whether t
 
    A: If multiple IdPs are not supported, the admin has to set aside a short window of time as a service or maintenance outage during which they configure Azure AD as an app’s new IdP. During this outage, users should be notified that they won't be able to sign in to their accounts.
 
-   If an app does support multiple IdPs, the additional IdP can be configured in advance. The admin can then simply switch the IdP at Azure cutover.
+   If an app does support multiple IdPs, the additional IdP can be configured in advance. The admin can then switch the IdP at Azure cutover.
 
-   Additionally, if the app supports multiple IdPs and you choose multiple IdPs to simultaneously handle authentication for sign-in, the user is given a choice of IdP to authenticate on their sign-in page.
+   If the app supports multiple IdPs and you choose multiple IdPs to simultaneously handle authentication for sign-in, the user is given a choice of IdP to authenticate on their sign-in page.
 
 #### Example: Support for multiple IdPs
 For example, in Salesforce, you can find the IDP configuration under **Settings** > **Company Settings** > **My Domain** > **Authentication Configuration**.
