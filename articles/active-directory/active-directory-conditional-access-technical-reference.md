@@ -190,6 +190,10 @@ In your conditional access policy, you can require that an access attempt to the
 This setting applies to the following client apps:
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 
