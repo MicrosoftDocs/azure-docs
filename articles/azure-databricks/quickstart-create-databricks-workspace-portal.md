@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
 
@@ -46,12 +46,17 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     * For **Subscription**, from the drop-down, select your Azure subscription.
     * For **Resource group**, specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
     * For **Location**, select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).
+    * For **Pricing Tier**, select between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).
 
-4. Click **Create**.
+    Click **Create**.
+
+4. The account creation takes a few minutes. During account creation the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+
+    ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Databricks
 
-1. In the Azure portal, go to the Databricks workspace that you created, and then click **Initialize Workspace**.
+1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
 
 2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
 
