@@ -34,7 +34,7 @@ deleting queues**.
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Node.js Application
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## Configure Your Application to Access Storage
 To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
@@ -73,7 +73,7 @@ var azure = require('azure-storage');
 ## Setup an Azure Storage Connection
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service].
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service](/azure/cosmos-db/table-storage-cloud-service-nodejs).
 
 ## How To: Create a Queue
 The following code creates a **QueueService** object, which enables you
