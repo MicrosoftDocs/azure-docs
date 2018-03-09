@@ -377,6 +377,8 @@
       items:
       - name: Access, save, and remove Reliable Actors state
         href: service-fabric-reliable-actors-access-save-remove-state.md
+      - name: Delete actors and their state
+        href: service-fabric-actors-delete-actors.md
       - name: Send notifications
         href: service-fabric-reliable-actors-events.md
       - name: Set timers and reminders

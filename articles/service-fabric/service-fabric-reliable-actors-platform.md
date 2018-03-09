@@ -110,7 +110,7 @@ static class Program
 ```
 
 ### Actor service methods
-The Actor service implements `IActorService` (C#) or `ActorService` (Java), which in turn implements `IService` (C#) or `Service` (Java). This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely via service remoting.
+The Actor service implements `IActorService` (C#) or `ActorService` (Java), which in turn implements `IService` (C#) or `Service` (Java). This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely via service remoting and allow you to enumerate and [delete](service-fabric-actors-delete-actors.md) actors.
 
 #### Enumerating actors
 The actor service allows a client to enumerate metadata about the actors that the service is hosting. Because the actor service is a partitioned stateful service, enumeration is performed per partition. Because each partition might contain many actors, the enumeration is returned as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all active actors in one partition of an actor service:
@@ -155,28 +155,6 @@ do
 }
 while (continuationToken != null);
 ```
-
-#### Deleting actors
-The actor service also provides a function for deleting actors:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new URI("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-For more information on deleting actors and their state, see the [actor lifecycle documentation](service-fabric-reliable-actors-lifecycle.md).
 
 ### Custom actor service
 By using the actor registration lambda, you can register your own custom actor service that derives from `ActorService` (C#) and `FabricActorService` (Java). In this custom actor service, you can implement your own service-level functionality by writing a service class that inherits `ActorService` (C#) or `FabricActorService` (Java). A custom actor service inherits all the actor runtime functionality from `ActorService` (C#) or `FabricActorService` (Java) and can be used to implement your own service methods.
