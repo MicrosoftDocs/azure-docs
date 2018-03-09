@@ -44,7 +44,7 @@ communicate with the storage REST services.
 1. Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 2. Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
  
-	```
+	```bash
 	azure-storage@0.5.0 node_modules\azure-storage
 	+-- extend@1.2.1
 	+-- xmlbuilder@0.4.3
@@ -66,7 +66,7 @@ communicate with the storage REST services.
 Using Notepad or another text editor, add the following to the top the
 **server.js** file of the application where you intend to use storage:
 
-```
+```javascript
 var azure = require('azure-storage');
 ```
 
@@ -79,7 +79,7 @@ For an example of setting the environment variables in the [Azure Portal](https:
 The following code creates a **QueueService** object, which enables you
 to work with queues.
 
-```
+```javascript
 var queueSvc = azure.createQueueService();
 ```
 
@@ -87,7 +87,7 @@ Use the **createQueueIfNotExists** method, which returns the specified
 queue if it already exists or creates a new queue with the specified
 name if it does not already exist.
 
-```
+```javascript
 queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
   if(!error){
     // Queue created or exists
@@ -100,13 +100,13 @@ If the queue is created, `result.created` is true. If the queue exists, `result.
 ### Filters
 Optional filtering operations can be applied to operations performed using **QueueService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -114,7 +114,7 @@ In this callback, and after processing the returnObject (the response from the r
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **QueueService** object that uses the **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
@@ -123,7 +123,7 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
 
-```
+```javascript
 queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
   if(!error){
     // Message inserted
@@ -136,7 +136,7 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peekMessages** method. By default,
 **peekMessages** peeks at a single message.
 
-```
+```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
   if(!error){
     // Message text is in results[0].messageText
@@ -159,7 +159,7 @@ Processing a message is a two-stage process:
 
 To dequeue a message, use **getMessages**. This makes the messages invisible in the queue, so no other clients can process them. Once your application has processed a message, call **deleteMessage** to delete it from the queue. The following example gets a message, then deletes it:
 
-```
+```javascript
 queueSvc.getMessages('myqueue', function(error, results, response){
   if(!error){
     // Message text is in results[0].messageText
@@ -184,7 +184,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 ## How To: Change the Contents of a Queued Message
 You can change the contents of a message in-place in the queue using **updateMessage**. The following example updates the text of a message:
 
-```
+```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
   if(!error){
     // Got the message
@@ -207,7 +207,7 @@ There are two ways you can customize message retrieval from a queue:
 The following example uses the **getMessages** method to get 15 messages in one call. Then it processes
 each message using a for loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
 
-```
+```javascript
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
@@ -227,7 +227,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 ## How To: Get the Queue Length
 The **getQueueMetadata** returns metadata about the queue, including the approximate number of messages waiting in the queue.
 
-```
+```javascript
 queueSvc.getQueueMetadata('myqueue', function(error, results, response){
   if(!error){
     // Queue length is available in results.approximateMessageCount
@@ -238,7 +238,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 ## How To: List Queues
 To retrieve a list of queues, use **listQueuesSegmented**. To retrieve a list filtered by a specific prefix, use **listQueuesSegmentedWithPrefix**.
 
-```
+```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
   if(!error){
     // results.entries contains the list of queues
@@ -252,7 +252,7 @@ If all queues cannot be returned, `result.continuationToken` can be used as the 
 To delete a queue and all the messages contained in it, call the
 **deleteQueue** method on the queue object.
 
-```
+```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
   if(!error){
     // Queue has been deleted
@@ -269,7 +269,7 @@ A trusted application such as a cloud-based service generates a SAS using the **
 
 The following example generates a new shared access policy that will allow the SAS holder to add messages to the queue, and expires 100 minutes after the time it is created.
 
-```
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -291,7 +291,7 @@ Note that the host information must be provided also, as it is required when the
 
 The client application then uses the SAS with **QueueServiceWithSAS** to perform operations against the queue. The following example connects to the queue and creates a message.
 
-```
+```javascript
 var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
 sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
   if(!error){
@@ -307,7 +307,7 @@ You can also use an Access Control List (ACL) to set the access policy for a SAS
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
 
-```
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
@@ -324,7 +324,7 @@ var sharedAccessPolicy = {
 
 The following example gets the current ACL for **myqueue**, then adds the new policies using **setQueueAcl**. This approach allows:
 
-```
+```javascript
 var extend = require('extend');
 queueSvc.getQueueAcl('myqueue', function(error, result, response) {
   if(!error){
@@ -340,7 +340,7 @@ queueSvc.getQueueAcl('myqueue', function(error, result, response) {
 
 Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
 
-```
+```javascript
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 
