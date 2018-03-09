@@ -62,7 +62,7 @@ Write the subnet configuration to the virtual network with [Set-AzureRmVirtualNe
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## Create VMs
+## Create virtual machines
 
 Create two VMs in the virtual network:
 
@@ -89,6 +89,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 ```
 
 ### Create the second VM 
+
+Enter the following command:
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -125,17 +127,19 @@ From PowerShell, enter `ping myvm2`. Ping fails, because ping uses the internet 
 
 To allow *myVm2* to ping *myVm1* in a later step, enter the following command from PowerShell, which allows ICMP inbound through the Windows firewall:
 
-    ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
-    ```
+```powershell
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+```
 
 Close the remote desktop connection to *myVm1*. 
 
-Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*. From a command prompt, enter `ping myvm1`.
+Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*. 
 
-    You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in a previous step.
+From a command prompt, enter `ping myvm1`.
 
-5. Close the remote desktop connection to *myVm2*.
+You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in a previous step.
+
+Close the remote desktop connection to *myVm2*.
 
 ## Clean up resources
 
@@ -147,7 +151,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To override the default network traffic protocols that Azure allows from the Internet to VMs, and privately between VMs, advance to the next tutorial.
+In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To learn about all virtual network settings, see [Manage a virtual network](manage-virtual-network.md). 
+
+By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the Internet. To learn how to allow or restrict different types of network communication to and from VMs, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](virtual-networks-create-nsg-arm-ps.md)

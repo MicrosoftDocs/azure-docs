@@ -47,7 +47,7 @@ az network vnet create \
   --subnet-name default
 ```
 
-## Create VMs
+## Create virtual machines
 
 Create two VMs in the virtual network:
 
@@ -65,6 +65,8 @@ az vm create \
 ```
 
 ### Create the second VM
+
+Enter the following command:
 
 ```azurecli-interactive 
 az vm create \
@@ -121,7 +123,9 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To override the default network traffic protocols that Azure allows from the Internet to VMs, and privately between VMs, advance to the next tutorial.
+In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To learn about all virtual network settings, see [Manage a virtual network](manage-virtual-network.md). 
+
+By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the Internet. To learn how to allow or restrict different types of network communication to and from VMs, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](virtual-networks-create-nsg-arm-cli.md)
