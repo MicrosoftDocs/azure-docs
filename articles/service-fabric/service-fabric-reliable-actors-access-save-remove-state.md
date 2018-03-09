@@ -1,6 +1,6 @@
 ---
-title: Reliable Actors state management | Microsoft Docs
-description: Describes how Reliable Actors state is managed, persisted, and replicated for high availability.
+title: Manage Azure Service Fabric state | Microsoft Docs
+description: Learn how to access, save, and remove Service Fabric Reliable Actors state.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
