@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 12/15/2016
+ms.date: 03/09/2018
 ms.author: danlep
 
 ---
@@ -138,10 +138,10 @@ Enter or modify values for the template parameters. Click the icon next to each 
 
 Specify the values you recorded in the Prerequisites for the following parameters: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
-### Step 3. Review legal terms and create
-Click **Review legal terms** to review the terms. If you agree, click **Purchase**, and then click **Create** to start the deployment.
+### Step 3. Review terms and create
+Review the terms and conditions associated with the template. If you agree, click **Purchase** to start the deployment.
 
-Depending on the cluster topology, deployment can take up to 30 minutes to complete.
+Depending on the cluster topology, deployment can take 30 minutes or longer to complete.
 
 ## Connect to the cluster
 1. After the HPC Pack cluster is deployed, go to the [Azure portal](https://portal.azure.com). Click **Resource groups**, and find the resource group in which the cluster was deployed. You can find the head node virtual machines.
