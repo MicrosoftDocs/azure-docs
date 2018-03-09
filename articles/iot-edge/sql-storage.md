@@ -64,7 +64,7 @@ In step 3, you add create options to the SQL Server container, which are importa
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
