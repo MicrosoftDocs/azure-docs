@@ -29,7 +29,7 @@ Using Azure Redis Cache gives you access to a secure, dedicated [Redis cache](ht
 
 There are many common patterns where Redis Cache is used to support application architecture or to improve application performance.  Some of the most common would include the following:
 
-* **Cache-Aside** -  Since a database can be large, loading an entire database into a cache is not a recommended approach. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data items into the cache only as needed. When the system makes changes to the backend data, it can at that time also update the cache, which is distributed with other clients. Additionaly, the system can set an expiration on data items, or use an eviction policy to cause data updates to be reloaded into the cache.
+* **Cache-Aside** -  Since a database can be large, loading an entire database into a cache is not a recommended approach. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data items into the cache only as needed. When the system makes changes to the backend data, it can at that time also update the cache, which is distributed with other clients. Additionally, the system can set an expiration on data items, or use an eviction policy to cause data updates to be reloaded into the cache.
 
   For an example of the cache-aside pattern with a leaderboard ASP.NET application, see the [Create a cache-aside leaderboard on ASP.NET](cache-web-app-cache-aside-leaderboard.md).
 
