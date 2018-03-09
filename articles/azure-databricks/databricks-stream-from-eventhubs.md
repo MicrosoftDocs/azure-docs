@@ -333,7 +333,8 @@ The output now resembles the following snippet:
     Batch: 0
     -------------------------------------------
     +------+-----------------+----------+-------+
-    |Offset|Time (readable)  |Timestamp |Body                                                     +------+-----------------+----------+-------+
+    |Offset|Time (readable)  |Timestamp |Body
+    +------+-----------------+----------+-------+
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
     https://t.co/7vs7cKtvah 
     #cloudcomputing #Azure          |
