@@ -80,7 +80,11 @@ The OMS Gateway is available in the following languages:
 The OMS Gateway supports only Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
 
 ### Supported number of agent connections
+<<<<<<< HEAD
 The following table highlights the supported number of agents that are communicating with a gateway server. This support is based on agents uploading approximately 200 KB of data every 6 seconds. The data volume per agent tested is about 2.7 GB per day.
+=======
+The following table highlights the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.
+>>>>>>> 394937319b9cb18bb22594aaf59052496b3c903f
 
 |Gateway |Approximate number of agents supported|  
 |--------|----------------------------------|  

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -99,7 +99,7 @@ Make sure that the VM complies with the Azure requirements summarized in the fol
 **VM type** | Generation 1 - Linux or Windows<br/><br/>Generation 2 - Windows only
 
 The VM must also be running a supported operating system. See the
-[Site Recovery support matrix](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+[VMware and physical server support matrix](vmware-physical-azure-support-matrix.md#replicated-machines)
 for a complete list of supported versions.
 
 ## Prepare to connect to Azure VMs after failover
