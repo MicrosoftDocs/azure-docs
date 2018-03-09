@@ -41,6 +41,7 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
 ## Add additional workers with PowerShell
 
 1. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin.md)
+
 2. Use this example to scale out the scale set:
    ```powershell
    
@@ -56,7 +57,7 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
     $ScaleSetName = "SharedWorkerTierScaleSet"
 
     ## TotalCapacity is sum of the instances needed at the end of operation. 
-    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
 
     # Get current scale set
@@ -65,13 +66,12 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-  
-    '''
+   ```    
 
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   > [!NOTE]
+   > This step can take a number of hours to complete depending on the type of role and the number of instances.
+   >
+   >
 
 3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
 
