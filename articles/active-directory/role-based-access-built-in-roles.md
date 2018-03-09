@@ -802,9 +802,9 @@ Lets you read, enable and disable logic app.
 | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
-| Microsoft.Web/connectionGateways/*/read | Get the list of Connection Gateways. |
-| Microsoft.Web/connections/*/read | Get the list of Connections. |
-| Microsoft.Web/customApis/*/read | Get the list of Custom API. |
+| Microsoft.Web/connectionGateways/*/read | Read Connection Gateways. |
+| Microsoft.Web/connections/*/read | Read Connections. |
+| Microsoft.Web/customApis/*/read | Read Custom API. |
 | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 
 ### Managed Identity Contributor
