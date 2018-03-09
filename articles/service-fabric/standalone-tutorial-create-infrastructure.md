@@ -31,32 +31,53 @@ In part one of the series, you learn how to:
 > * Security Groups?
 > * Login to one of the instances
 
-Azure blob storage provides a scalable service for storing your data. To ensure your application is as performant as possible, an understanding of how blob storage works is recommended. Knowledge of the limits for Azure blobs is important, to learn more about these limits visit: [blob storage scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
-
-[Partition naming](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is another important factor when designing a highly performing application using blobs. Azure storage uses a range-based partitioning scheme to scale and load balance. This configuration means that files with similar naming conventions or prefixes go to the same partition. This logic includes the name of the container that the files are being uploaded to. In this tutorial, you use files that have GUIDs for names as well as randomly generated content. They are then uploaded to five different containers with random names.
-
 ## Prerequisites
 
-In order to complete this tutorial you need an AWS account.
+In order to complete this tutorial you need an AWS account and method to make an RDP connection.
+
+## Create a VPC
 
 ## Create an EC2 instance
 
-This is where we create an EC2 instance.
+Login to the AWS Console
+In the search box enter EC2
+Click on Launch Instance
+Select Windows 2016 Base
+Select t2.medium -> Next: Configure Instance Details
+Change number of instances to 3 - how does Auto Scaling interact with Sevice Fabric?
+Leave the Networking preferences set to the default options.
+Expand Advanced details
 
-### Validate the connections
+In order to connect your virtual machines together in service fabric you need the VMs to have the same credentials.  The two most common ways to do this are to join them all to a domain or update the Administrator password on each VM.  For this tutorial we will use a user data script to ensure they all have the same password.  In a production environment you should join them to a domain as storing credentials in the user data field of a VM is not secure.
 
-While the files are being uploaded, you can verify the number of concurrent connections to your storage account. Open a **Command Prompt** and type `netstat -a | find /c "blob:https"`. This command shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, 800 connections were open when uploading the random files to the storage account. This value changes throughout running the upload. By uploading in parallel block chunks, the amount of time required to transfer the contents is greatly reduced.
+Enter the following script in the user data field on the console.
 
+```powershell
+<powershell>
+$user = [adsi]"WinNT://localhost/Administrator,user"
+$user.SetPassword("serv1ceF@bricP@ssword")
+$user.SetInfo()
+</powershell>
 ```
-C:\>netstat -a | find /c "blob:https"
-800
 
-C:\>
-```
+Click on **Next: Storage**
+Click on **Next: Add Tags**
+Add a Name tag of Azure Service Fabric Cluster
+Click on **Next: Configure Security Group**
+Create a new security group
+Change the name to service-fabric-cluster
+Update the description if you would like
+Click on **Review and Launch**
+Check to ensure all the settings are as desired.
+**Click Launch**
+Change the drop down to proceed with out a key pair, in this case we do not need a key to retrieve the password, as we are setting it in the user data script.'
+![AWS keypair selection][aws-keypair]
+**Click Launch Instances**
 
-## Remote into your virtual machine
 
-Open the command prompt
+## Connect to an instance and validate inter-connectivity
+**Click View Instances**
+![Download Remote Desktop File][aws-rdp]
 
 ## Next steps
 
@@ -71,4 +92,8 @@ In part one of the series, you learned about uploading large amounts of random d
 Advance to part two of the series to download large amounts of data from a storage account.
 
 > [!div class="nextstepaction"]
-> [Upload large amounts of large files in parallel to a storage account](storage-blob-scalable-app-download-files.md)
+> [Create the service fabric cluster](standalone-tutorial-create-service-fabric-cluster.md)
+
+<!-- IMAGES -->
+[aws-keypair]: ./media/service-fabric-tutorial-standalone-cluster/aws-keypair.png
+[aws-rdp]: ./media/service-fabric-tutorial-standalone-cluster/aws-rdp.png
