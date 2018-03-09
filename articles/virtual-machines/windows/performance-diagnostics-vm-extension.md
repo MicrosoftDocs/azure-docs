@@ -224,9 +224,7 @@ The PerfInsights tool collects various logs, configuration, and diagnostic data,
 
 ## View and share the results
 
-Output from the extension is stored under **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** by default. Under this folder, you can see zip files containing the diagnostic logs, and a report with findings and recommendations.
-
-You can also find the zip file in the storage account provided during the installation. It is shared for 30 days by using [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). A text file named *zipfilename*_saslink.txt is also created in the AzurePerformanceDiagnostics extension folder mentioned earlier. This file contains the SAS link created to download the zip file. Anyone who has this link is able to download the zip file.
+Output from the extension can be found in a zip file that uploaded to the storage account specified during the installation and is shared for 30 days by using [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). This zip file contains diagnostic logs and a report with findings and recommendations. A SAS link to the output zip file can be found inside a text file named *zipfilename*_saslink.txt under the folder **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>**. Anyone who has this link is able to download the zip file.
 
 To assist the support engineer working on your support ticket, Microsoft might use this SAS link to download the diagnostics data.
 
@@ -237,7 +235,7 @@ You should also be able to download the zip file directly from the portal by sel
 ![Screenshot of Performance Diagnostics detailed status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> The SAS link displayed in the portal might not work. This can be caused by a malformed URL during the encoding and decoding operations. You can instead get the link directly from the *_saslink.txt file from the VM.
+> The SAS link displayed in the portal might not work sometimes. This can be caused by a malformed URL during the encoding and decoding operations. You can instead get the link directly from the *_saslink.txt file from the VM.
 
 ## Troubleshoot and support
 
