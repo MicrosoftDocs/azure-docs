@@ -26,6 +26,8 @@ ms.author: xshi
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) has a handful of commands that makes IoT Hub management easier. This tutorial focuses on how to use iothub-explorer to send and receive messages between your device and your IoT hub.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## What you will learn
 
 You learn how to use iothub-explorer to monitor device-to-cloud messages and to send cloud-to-device messages. Device-to-cloud messages could be sensor data that your device collects and then sends to your IoT hub. Cloud-to-device messages could be commands that your IoT hub sends to your device to blink an LED that is connected to your device.
