@@ -90,7 +90,7 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 

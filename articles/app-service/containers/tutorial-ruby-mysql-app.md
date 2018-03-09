@@ -307,7 +307,7 @@ In this step, you deploy the MySQL-connected Rails application to Azure App Serv
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 ### Configure database settings
 
