@@ -83,6 +83,14 @@ The following example shows part of a template. The connection string configurat
 }
 ```
 
+## Find information about MSDeploy errors
+
+If your Resource Manager template uses MSDeploy, the deployment error messages can be difficult to understand. To get more information after a failed deployment, try the following steps:
+
+1. Go to the site's [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
+2. Navigate to the folder at `D:\home\LogFiles\SiteExtensions\MSDeploy`.
+3. Look for the *appManagerStatus.xml* and *appManagerLog.xml* files. The first file logs the status. The second file logs information about the error. If the error is not clear to you, you can include it when asking for help on the forum.
+
 ## Unique web app name
 
 The name for your web app must be globally unique. You can use a naming convention that is likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) to assist with generating a unique name.

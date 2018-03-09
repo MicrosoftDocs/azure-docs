@@ -16,7 +16,7 @@ ms.custom: mvc
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single external address can be used to route traffic to multiple services in a Kubernetes cluster.
 
-This document walks through a sample deployment of the [NGIX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
+This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
 
 ## Install an ingress controller
 
@@ -55,8 +55,8 @@ IP="52.224.125.195"
 DNSNAME="demo-aks-ingress"
 
 # Get resource group and public ip name
-RESOURCEGROUP=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
-PIPNAME=$(az network public-ip list --query "[?contains(ipAddress, '$IP')].[name]" --output tsv)
+RESOURCEGROUP=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
+PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[name]" --output tsv)
 
 # Update public ip address with dns name
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
@@ -65,7 +65,7 @@ az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --d
 If needed, run the following command to retrieve the FQDN. Update the IP address value with that of your ingress controller.
 
 ```azurecli
-az network public-ip list --query "[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
+az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
 ```
 
 The ingress controller is now accessible through the FQDN.

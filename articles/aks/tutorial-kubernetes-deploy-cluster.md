@@ -99,7 +99,7 @@ ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --que
 Create the role assignment, which grants the proper access.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
 ## Next steps
