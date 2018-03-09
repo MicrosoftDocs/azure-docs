@@ -43,7 +43,7 @@
 ### [Run jobs on IoT edge](stream-analytics-edge.md) 
 ### [Run a Javascript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
-### [Rum Azure Functions](stream-analytics-with-azure-functions.md)
+### [Run Azure Functions](stream-analytics-with-azure-functions.md)
 
 ## Monitor
 
