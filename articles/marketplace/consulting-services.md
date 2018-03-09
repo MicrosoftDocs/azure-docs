@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 03/9/2018
 ms.author: ellacroi
 
 ---
@@ -51,6 +51,9 @@ Read more about [competencies through Microsoft Partner Network](https://partner
 
 SI partners can submit consulting services offerings for the following 18 countries. 
 
+
+|Eligible Countries |  |  |
+|---------|---------|---------|
 |Australia    |Germany         |New Zealand         |
 |Belgium     |Italy         |Norway         |
 |Canada     |India         |Poland         |

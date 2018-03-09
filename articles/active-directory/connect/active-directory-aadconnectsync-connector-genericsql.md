@@ -149,7 +149,7 @@ Starting in the March 2017 update there is now an option for "*" When this optio
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- As of May 2017 the “*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
+ As of May 2017 the “\*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

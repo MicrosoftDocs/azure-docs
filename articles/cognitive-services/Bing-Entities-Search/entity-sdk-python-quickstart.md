@@ -44,7 +44,7 @@ client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
 Search for a single entity (Gibralter) and print out a short description:
 ```
-entity_data = client.entities.search(query="tom cruise")
+entity_data = client.entities.search(query="Gibralter")
 
 if entity_data.entities.value:
     # find the entity that represents the dominant one
@@ -56,20 +56,20 @@ if entity_data.entities.value:
         print('Searched for "Gibralter" and found a dominant entity with this description:')
         print(main_entities[0].description)
     else:
-        print("Couldn't find main entity tom cruise!")
+        print("Couldn't find main entity Gibralter!")
 
 else:
     print("Didn't see any data..")
 
 ```
-Search and handle disambiguation results for an ambiguous query (Harry Potter).
+Search and handle disambiguation results for an ambiguous query (William Gates).
 ```
 def handling_disambiguation(subscription_key):
 
     client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 
     try:
-        entity_data = client.entities.search(query="harry potter")
+        entity_data = client.entities.search(query="william gates")
 
         if entity_data.entities.value:
             # find the entity that represents the dominant one
@@ -84,11 +84,11 @@ def handling_disambiguation(subscription_key):
                 main_entity = main_entities[0]
                 type_hint = main_entity.entity_presentation_info.entity_type_display_hint
                 
-                print('Searched for "harry potter" and found a dominant entity {}with this description:'.format(
+                print('Searched for "William Gates" and found a dominant entity {}with this description:'.format(
                     '"with type hint "{}" '.format(type_hint) if type_hint else ''))
                 print(main_entity.description)
             else:
-                print("Couldn't find a reliable dominant entity for harry potter!")
+                print("Couldn't find a reliable dominant entity for William Gates!")
         
             if disambig_entities:
                 print("\nThis query is pretty ambiguous and can be referring to multiple things. Did you mean one of these:")
@@ -97,7 +97,7 @@ def handling_disambiguation(subscription_key):
                     suggestions.append("{} the {}".format(disambig_entity.name, disambig_entity.entity_presentation_info.entity_type_display_hint))
                 print(", or ".join(suggestions))
             else:
-                print("We didn't find any disambiguation items for harry potter, so we must be certain what you're talking about!")
+                print("We didn't find any disambiguation items for William Gates, so we must be certain what you're talking about!")
 
         else:
             print("Didn't see any data..")
@@ -106,36 +106,36 @@ def handling_disambiguation(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Search for a single restaurant (John Howie Bellevue) and print out its phone number.
+Search for a single store (Microsoft Store) and print out its phone number.
 ```
-def restaurant_lookup(subscription_key):
+def store_lookup(subscription_key):
 
     client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 
     try:
-        entity_data = client.entities.search(query="john howie bellevue")
+        entity_data = client.entities.search(query="microsoft store")
 
         if entity_data.places.value:
 
-            restaurant = entity_data.places.value[0]
+            store = entity_data.places.value[0]
 
             # Some local entities will be places, others won't be. Depending on what class contains the data you want, you can check 
             # using isinstance one of the class, or try to get the attribute and handle the exception (EAFP principle).
             # The recommended Python way is usually EAFP (see https://docs.python.org/3/glossary.html)
-            # In this case, the item being returned is technically a Restaurant, but the Place schema has the data we want (telephone)
+            # In this case, the item being returned is technically a store, but the Place schema has the data we want (telephone)
 
             # Pythonic approach : EAFP "Easier to ask for forgiveness than permission"
             try:
-                telephone = restaurant.telephone
-                print('Searched for "John Howie Bellevue" and found a restaurant with this phone number:')
+                telephone = store.telephone
+                print('Searched for "Microsoft Store" and found a store with this phone number:')
                 print(telephone)
             except AttributeError:
                 print("Couldn't find a place!")
 
             # More cross language approach
-            if isinstance(restaurant, Place):
-                print('Searched for "John Howie Bellevue" and found a restaurant with this phone number:')
-                print(restaurant.telephone)
+            if isinstance(store, Place):
+                print('Searched for "Microsoft Store" and found a store with this phone number:')
+                print(store.telephone)
             else:
                 print("Couldn't find a place!")
 
@@ -193,7 +193,7 @@ def error(subscription_key):
     client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 
     try:
-        entity_data = client.entities.search(query="tom cruise", market="no-ty")
+        entity_data = client.entities.search(query="satya nadella", market="no-ty")
     except ErrorResponseException as err:
         # The status code of the error should be a good indication of what occurred. However, if you'd like more details, you can dig into the response.
         # Please note that depending on the type of error, the response schema might be different, so you aren't guaranteed a specific error response schema.

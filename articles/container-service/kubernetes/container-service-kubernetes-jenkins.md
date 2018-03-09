@@ -2,13 +2,13 @@
 title: Jenkins CI/CD with Kubernetes in Azure Container Service
 description: How to automate a CI/CD process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Container Service
 services: container-service
-author: chzbrgr71
+author: neilpeterson
 manager: timlt
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: briar
+ms.author: nepeters
 ms.custom: mvc
 ---
 
