@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the phpqs.php file.  
 
 ## Configure your storage connection string
-In the application, you must provide your storage account name and account key to create the **BlobRestProxy** instance for your application. It is recommended to store these identifiers within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **youraccountname** and **youraccountkey** values with your account name and key. 
+In the application, you must provide your storage account name and account key to create the **BlobRestProxy** instance for your application. It is recommended to store these identifiers within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **youraccountname** and **youraccountkey** values with your account name and key.
 
 # [Linux] (#tab/linux)
 
@@ -127,8 +127,6 @@ The sample code creates a local file to be used for the upload and download, sto
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");
-    $txt = "Hello Azure!";
-    fwrite($myfile, $txt);
     fclose($myfile);
 
     # Upload file as a block blob
