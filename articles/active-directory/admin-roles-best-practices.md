@@ -68,7 +68,7 @@ Microsoft recommends that you develop and follow a roadmap to secure privileged 
 
 This roadmap framework is designed to maximize the use of Microsoft technologies that you may have already deployed. You can also take advantage of key current and upcoming security technologies and integrate security tools from other vendors that you have already deployed or are considering deploying. 
 
-### Stage 1: Critical items that we recommend you do right away
+## Stage 1: Critical items that we recommend you do right away
 
 ![Stage 1](./media/admin-roles-best-practices/stage-one.png)
 
@@ -381,13 +381,13 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 6. For hybrid environments, if federated and your AD FS server isn’t available, you may need to temporarily switch from federated authentication to use password hash sync. This reverts the domain federation back to managed authentication until the AD FS server becomes available.
 
-7. Monitor for email for privileged accounts.
+7. Monitor email for privileged accounts.
 
 8. Make sure you save backups of relevant logs for potential forensic and legal investigation.
 
 For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](http://aka.ms/Office365SIM).
 
-# FAQ: Common questions we receive regarding securing privileged access  
+## FAQ: Common questions we receive regarding securing privileged access  
 
 
 **Q:** What do I do if I haven’t implemented any secure access components yet?
@@ -435,7 +435,7 @@ For more information about how Microsoft Office 365 handles security incidents, 
 **Answer:** Use non-privileged accounts for all users and most admins. Start by developing a footprint of the organization to determine which few admin accounts should be privileged. And monitor for newly-created administrative users.
 
 
-# More information
+## Next steps
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Security features of Microsoft cloud products and services
 
