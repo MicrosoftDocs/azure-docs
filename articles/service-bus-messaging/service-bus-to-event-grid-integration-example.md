@@ -115,7 +115,7 @@ Click save and run.
 
 ## Connect Function and Namespace via Event Grid
 
-The next step is to tie the function and the service bus namespace together. For this example, use the Azure portal. See the [concepts](service-bus-to-event-grid-integration-concept.md page to understand how to use PowerShell or Azure CLI to achieve the same.
+The next step is to tie the function and the service bus namespace together. For this example, use the Azure portal. See the [concepts](service-bus-to-event-grid-integration-concept.md) page to understand how to use PowerShell or Azure CLI to achieve the same.
 
 To create a new Azure Event Grid subscription, navigate to your namespace in the Azure portal and select the Event Grid blade. Click on “+ Event Subscription.”
 
