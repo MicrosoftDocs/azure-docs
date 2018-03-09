@@ -128,7 +128,7 @@ There are two basic kinds of encryption available for the Storage services. For 
 
 Azure Storage Service Encryption (SSE) at rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
 
-SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
+SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance.
 
 For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
