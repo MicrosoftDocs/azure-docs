@@ -38,18 +38,19 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 2. Under **Azure Databricks (Preview)**, click **Create**.
 
-3. Under **Azure Databricks Service**, provide the following values:
+3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
     ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    
-|Property  |Description  |
-|---------|---------|
-|**Workspace name**     | Provide a name for your Databricks workspace        |
-|**Subscription**     | From the drop-down, select your Azure subscription.        |
-|**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
-|**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
-|**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+    Provide the following values: 
+     
+    |Property  |Description  |
+    |---------|---------|
+    |**Workspace name**     | Provide a name for your Databricks workspace        |
+    |**Subscription**     | From the drop-down, select your Azure subscription.        |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+    |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Select **Pin to dashboard** and then click **Create**.
 
