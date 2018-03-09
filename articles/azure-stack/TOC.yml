@@ -232,7 +232,7 @@
         href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
-      - name: How to redistribute Azure App Service on Azure Stack across Fault Domains
+      - name: How to redistribute Azure App Service on Azure Stack across fault domains
         href: azure-stack-app-service-fault-domain-update.md
       - name: Deploy App Service resource provider
         href: azure-stack-app-service-deploy.md
