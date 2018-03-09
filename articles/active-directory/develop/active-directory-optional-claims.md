@@ -10,7 +10,7 @@ This feature is used by application developers to specify which claims they want
 
 For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](active-directory-token-and-claims.md). 
 
-One of the goals of the v2.0 Azure AD endpoint is smaller token sizes to ensure optimal performance by clients.  As a result, several claims formerly included in the access and id tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.  
+One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients.  As a result, several claims formerly included in the access and id tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.  
 
 **Table 1: Applicability**
 
@@ -20,7 +20,7 @@ One of the goals of the v2.0 Azure AD endpoint is smaller token sizes to ensure 
 | AAD          | Supported                          | Supported      |
 
 ## Standard optional claims set
-The set of Optional Claims available by default for applications to use are listed below.  To add custom optional claims for your application, see Directory Extensions, below. 
+The set of Optional Claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
 
 **Note**
 
@@ -76,8 +76,8 @@ Some Optional Claims can be configured to change the way the claim is returned. 
 | Property name                                     | Additional Property name                                                                                                             | Description |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | Upn                                               |                                                                                                                                      |             |
-| | include_externally_authenticated_upn              | Includes the guest UPN as stored in the resource tenant.  E.g. foo_hometenant.com#EXT#@resourcetenant.com                            |             
-| | include_externally_authenticated_upn_without_hash | Same as above, except that the hashmarks (‘#’) are replaced with underscores (‘_’) , e.g. foo_hometenant.com_EXT_@resourcetenant.com |             
+| | include_externally_authenticated_upn              | Includes the guest UPN as stored in the resource tenant.  E.g. `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
+| | include_externally_authenticated_upn_without_hash | Same as above, except that the hashmarks (`#`) are replaced with underscores (`_`) , e.g. `foo_hometenant.com_EXT_@resourcetenant.com` |             
 | groups                                            |                                                                                                                                      |             |
 | | Sam_account_name                                  |                                                                                                                                      |             
 | | Dns_domain_and_sam_account_name                   |                                                                                                                                      |             
@@ -89,7 +89,7 @@ Some Optional Claims can be configured to change the way the claim is returned. 
 
 Specifying the upn optional claim without an additional property does not change any behavior – in order to see a new claim issued in the token, at least one of the additional properties must be added. 
 
-The \*account_name additional properties for groups are not interoperable, and ordering of the additional properties matters – only the first account name Additional Property listed will be used. 
+The `*account_name` additional properties for groups are not interoperable, and ordering of the additional properties matters – only the first account name Additional Property listed will be used. 
 
 #### Additional Properties Example:
 
@@ -98,15 +98,15 @@ The \*account_name additional properties for groups are not interoperable, and o
    {
        "idToken": [ 
              { 
-                   "name": "groups", 
-	     "essential": false,
-                   "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "name": "groups", 
+	     	"essential": false,
+                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
               }
         ]
 }
 ```
 
-This will return the same groups claim as if `sam_account_name` were not included – because it is after `netbios_domain_and_sam_account_name`, it is ignored. 
+This will return the same `groups` claim as if `sam_account_name` were not included – because it is after `netbios_domain_and_sam_account_name`, it is ignored. 
 
 ## Configuring Optional Claims
 
