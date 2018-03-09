@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data in transit with encryption in Azure | Microsoft Docs
-description: Using encryption in Azure to protect personal data
+description: information on Azure encryption to protect personal data can be helpful in efforts to comply with General Data Protection Regulation (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,22 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Azure encryption technologies: Protect personal data in transit with encryption
 
-This article will help you understand and use Azure encryption technologies to secure data in transit. 
-
-Protecting the privacy of personal data as it travels across the network is an essential part of a multi-layered defense-in-depth security strategy. Encryption in transit is designed to prevent an attacker who intercepts transmissions from being able to view or use the data.
+This article will help you understand and use Azure encryption technologies to secure data in transit. Protecting the privacy of personal data as it travels across the network is an essential part of a multi-layered defense-in-depth security strategy. Encryption in transit is designed to prevent an attacker who intercepts transmissions from being able to view or use the data. The information contained in this article may be useful in an organization's efforts to comply with General Data Protection Regulation (GDPR).
 
 ## Scenario
 
 A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, Adriatic, and Baltic seas, as well as the British Isles. To support those efforts, it has acquired several smaller cruise lines based in Italy, Germany, Denmark and the U.K. 
 
-The company uses Microsoft Azure to store corporate data in the cloud. This includes personal identifiable information such as names, addresses, phone numbers, and credit card information of its global customer base. It also includes traditional Human Resource information such as addresses, phone numbers, tax identification numbers and medical information about company employees in all locations. The cruise line also maintains a large database of reward and loyalty program members that includes personal information to track relationships with current and past customers.
+The company uses Microsoft Azure to store corporate data in the cloud. This includes personal identifiable information such as names, addresses, phone numbers, and credit card information of its global customer base. It also includes traditional Human Resource information such as addresses, phone numbers, tax identification numbers and other information about company employees in all locations. The cruise line also maintains a large database of reward and loyalty program members that includes personal information to track relationships with current and past customers.
 
 Personal data of customers is entered in the database from the company’s remote offices and from travel agents located around the world. Documents containing customer information are transferred across the network to Azure storage.
 
@@ -192,4 +190,4 @@ The company can accomplish its goal of protecting personal data and the privacy 
 
 - [VPN Gateway FAQ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
-- [Buy and configure an SSL Certificate for your Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site)
+- [Buy and configure an SSL Certificate for your Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)

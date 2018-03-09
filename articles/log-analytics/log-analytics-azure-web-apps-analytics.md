@@ -3,7 +3,7 @@ title: View Azure Web Apps analytic data | Microsoft Docs
 description: You can use the Azure Web Apps Analytics solution to gain insights about your Azure Web Apps by collecting different metrics across all your Azure Web App resources.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 
 # View analytic data for metrics across all your Azure Web App resources
 
 ![Web Apps symbol](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
-The Azure Web Apps Analytics (Preview) solution provides insights into your [Azure Web Apps](../app-service-web/app-service-web-overview.md) by collecting different metrics across all your Azure Web App resources. With the solution, you can analyze and search for web app resource metric data.
+The Azure Web Apps Analytics (Preview) solution provides insights into your [Azure Web Apps](../app-service/app-service-web-overview.md) by collecting different metrics across all your Azure Web App resources. With the solution, you can analyze and search for web app resource metric data.
 
 Using the solution, you can view the:
 
@@ -36,7 +36,7 @@ Unlike most other Log Analytics solutions, data isn't collected for Azure Web Ap
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agents.md) | No | The solution does not collect information from Windows agents. |
+| [Windows agents](log-analytics-windows-agent.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collection information from Azure storage. |
@@ -87,7 +87,7 @@ When you add the Azure Web Apps Analytics solution to your workspace, the **Azur
 
 Click the **Azure Web Apps Analytics** tile to open the **Azure Web Apps Analytics** dashboard. The dashboard includes the blades in the following table. Each blade lists up to ten items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Column | Description |
 | --- | --- |

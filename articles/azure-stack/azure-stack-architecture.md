@@ -3,8 +3,8 @@ title: Microsoft Azure Stack Development Kit architecture | Microsoft Docs
 description: View the Microsoft Azure Stack Development Kit architecture.
 services: azure-stack
 documentationcenter: ''
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -13,11 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: helaw
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 
 ---
 # Microsoft Azure Stack Development Kit architecture
+
+*Applies to: Azure Stack Development Kit*
+
 The Azure Stack Development Kit is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
 
 ## Logical architecture diagram

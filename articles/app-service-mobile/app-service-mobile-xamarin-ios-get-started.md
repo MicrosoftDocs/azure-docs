@@ -3,8 +3,8 @@ title: Get started with Azure App Service Mobile Apps for Xamarin.iOS apps | Mic
 description: Follow this tutorial to get started with using Mobile Apps for Xamarin.iOS development.
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: syntaxc4
+ms.author: crdun
 
 ---
 # Create a Xamarin.iOS app

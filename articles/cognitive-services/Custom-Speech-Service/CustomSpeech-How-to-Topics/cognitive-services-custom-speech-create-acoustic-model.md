@@ -65,11 +65,13 @@ The transcriptions for all WAV files should be contained in a single plain-text 
 
 The transcriptions will be text-normalized so they can be processed by the system. However, there are some very important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. Please consult the section on [transcription guidelines](cognitive-services-custom-speech-transcription-guidelines.md) for the appropriate language when preparing your transcriptions.
 
+The following steps are done using the [Custom Speech Service Portal](https://cris.ai). 
+
 ## Step 1: Importing the acoustic data set
 
 Once the audio files and transcriptions have been prepared, they are ready to be imported to the service web portal.
 
-To do so, first ensure you are signed into the system. Then click the “Menu” drop-down menu on the top ribbon and select “Acoustic Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Acoustic Data”. The current locale is reflected in the table title. If you would like to import acoustic data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](cognitive-services-custom-speech-change-locale.md).
+To do so, first ensure you are signed into the system. Then click the “Custom Speech” drop-down menu on the top ribbon and select “Adaptation Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Acoustic Datasets”. The current locale is reflected in the table title. If you would like to import acoustic data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](cognitive-services-custom-speech-change-locale.md).
 
 Click the “Import New” button, located directly below the table title and you will be taken to the page for uploading a new data set.
 
@@ -77,11 +79,11 @@ Click the “Import New” button, located directly below the table title and yo
 
 Enter a _Name_ and _Description_ in the appropriate text boxes. These are useful for keeping track of various data sets you upload. Next, click “Choose File" for the “Transcription File” and “WAV files” and select your plaint-text transcription file and zip archive of WAV files, respectively. When this is complete, click “Import” to upload your data. Your data will then be uploaded. For larger data sets, this may take several minutes.
 
-When the upload is complete, you will return to the "Acoustic Data"" table and will see an entry that corresponds to your acoustic data set. Notice that it has been assigned a unique id (GUID). The data will also have a status that reflects its current state. Its status will be “Waiting” while it is being queued for processing, “Processing” while it is going through validation, and “Complete” when the data is ready for use.
+When the upload is complete, you will return to the "Acoustic Datasets" table and will see an entry that corresponds to your acoustic data set. Notice that it has been assigned a unique id (GUID). The data will also have a status that reflects its current state. Its status will be “Waiting” while it is being queued for processing, “Processing” while it is going through validation, and “Complete” when the data is ready for use.
 
 Data validation includes a series of checks on the audio files to verify the file format, length, and sampling rate, and on the transcription files to verify the file format and perform some text normalization.
 
-When the status is “Complete” you can click “View Report” to see the acoustic data verification report. The number of utterances that passed and failed verification will be shown, along with details about the failed utterances. In the example below, two WAV files failed verification because of improper audio format (in this data set, one had an incorrect sampling rate and one was the incorrect file format).
+When the status is “Complete” you can click “Details” to see the acoustic data verification report. The number of utterances that passed and failed verification will be shown, along with details about the failed utterances. In the example below, two WAV files failed verification because of improper audio format (in this data set, one had an incorrect sampling rate and one was the incorrect file format).
 
 ![try](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-datasets-report.png)
 
@@ -89,7 +91,7 @@ At some point, if you would like to change the Name or Description of the data s
 
 ## Step 2: Creating a custom acoustic model
 
-Once the status of your acoustic data set is “Complete”, it can be used to create a custom acoustic model. To do so, click “Acoustic Models” in the “Menu” drop-down menu. You will see a table called "Your models” that lists all of your custom acoustic models. This table will be empty if this is your first use. The current locale is shown in the table title. Currently, acoustic models can be created for US English only.
+Once the status of your acoustic data set is “Complete”, it can be used to create a custom acoustic model. To do so, click “Acoustic Models” in the “Custom Speech” drop-down menu. You will see a table called "Your models” that lists all of your custom acoustic models. This table will be empty if this is your first use. The current locale is shown in the table title. Currently, acoustic models can be created for US English only.
 
 To create a new model, click “Create New” under the table title. As before, enter a name and description to help you identify this model. For example, the "Description"" field can be used to record which starting model and acoustic data set were used to create the model. Next, select a “Base Acoustic Model” from the drop-down menu. The base model is the model which is the starting point for your customization. There are two base acoustic models to choose from. The _Microsoft Search and Dictation AM_ is appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational model_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call center or meetings. Note that latency for partial results in Conversational models is higher than in Search and Dictation models.
 
@@ -97,9 +99,9 @@ Next, select the acoustic data you wish to use to perform the customization usin
 
 ![try](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-models-create2.png)
 
-You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Offline Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. Please see the [description](cognitive-services-custom-speech-create-language-model.md) of the base language models in the guide and select the one that is most appropriate.
+You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Accuracy Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. Please see the [description](cognitive-services-custom-speech-create-language-model.md) of the base language models in the guide and select the one that is most appropriate.
 
-Finally, select the acoustic data set you would like to use to evaluate the custom model. If you perform offline testing, it is important to select an acoustic data that is different from the one used for the model creation to get a realistic sense of the model’s performance. Also note that offline testing is limited to 1000 utterances. If the acoustic dataset for testing is larger than that, only the first 1000 utterances will be evaluated.
+Finally, select the acoustic data set you would like to use to evaluate the custom model. If you perform accuracy testing, it is important to select an acoustic data that is different from the one used for the model creation to get a realistic sense of the model’s performance. Also note that offline testing is limited to 1000 utterances. If the acoustic dataset for testing is larger than that, only the first 1000 utterances will be evaluated.
 
 When you are ready to start running the customization process, press “Create”.
 

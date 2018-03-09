@@ -26,7 +26,11 @@ Through activity logs, you can determine:
 * the status of the operation
 * the values of other properties that might help you research the operation
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+The activity log contains all write operations (PUT, POST, DELETE) performed on your resources. It does not include read operations (GET). For a list of resource actions, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md). You can use the audit logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+
+Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past.
+
+
 
 You can retrieve information from the activity logs through the portal, PowerShell, Azure CLI, Insights REST API, or [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -35,10 +39,10 @@ You can retrieve information from the activity logs through the portal, PowerShe
    
     ![select activity logs](./media/resource-group-audit/select-monitor.png)
 
-   Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log** from that resource blade. Notice that the activity log is automatically filtered by the selected resource.
+   Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log**. Notice that the activity log is automatically filtered by the selected resource.
    
     ![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
-2. In the **Activity Log** blade, you see a summary of recent operations.
+2. In the **Activity Log**, you see a summary of recent operations.
    
     ![show actions](./media/resource-group-audit/audit-summary.png)
 3. To restrict the number of operations displayed, select different conditions. For example, the following image shows the **Timespan** and **Event initiated by** fields changed to view the actions taken by a particular user or application for the past month. Select **Apply** to view the results of your query.
@@ -144,4 +148,5 @@ The REST operations for working with the activity log are part of the [Insights 
 * To learn about setting security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 * To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

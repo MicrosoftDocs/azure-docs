@@ -4,8 +4,8 @@ description: Getting-started tutorial for the Stream Analytics IoT solution of a
 keywords: iot solution, window functions
 documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na   
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
+ms.date: 01/12/2018
+ms.author: sngun
 ---
 
 # Build an IoT solution by using Stream Analytics
+
 ## Introduction
 In this tutorial, you will learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
 
@@ -172,24 +173,11 @@ You will also see another window that's similar to the following screenshot. Thi
 You should be able to see your resources in Azure portal now. Go to <https://portal.azure.com>, and sign in with your account credentials. Note that currently some functionality utilizes the classic portal. These steps will be clearly indicated.
 
 ### Azure Event Hubs
-In the Azure portal, click **More services** on the bottom of the left management pane. Type **Event hubs** in the field provided and click **Event hubs**. This launches a new browser window to display the **SERVICE BUS** area in the **classic portal**. Here you can see the Event Hub created by the Setup.ps1 script.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Click the one that starts with *tolldata*. Click the **EVENT HUBS** tab. You will see two event hubs named *entry* and *exit* created in this namespace.
-
-![Event Hubs tab in the classic portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+From the Azure portal, click **More services** on the bottom of the left management pane. Type **Event hubs** in the field provided, you can see a new Event Hub namespace that starts with **tolldata**. This namesapce is created by the Setup.ps1 script. You will see two event hubs named **entry** and **exit** created in this namespace.
 
 ### Azure Storage container
-1. Go back to the tab in your browser open to Azure portal. Click **STORAGE** on the left side of the Azure portal to see the Azure Storage container that's used in the tutorial.
-   
-    ![Storage menu item](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Click the one that start with *tolldata*. Click the **CONTAINERS** tab to see the created container.
-   
-    ![Containers tab in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Click the **tolldata** container to see the uploaded JSON file that has vehicle registration data.
-   
-    ![Screenshot of the registration.json file in the container](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+From the Azure portal, browse to storage accounts, you should see a storage account that starts with **tolldata**. Click the **tolldata** container to see the uploaded JSON file that has vehicle registration data.
 
 ### Azure SQL Database
 1. Go back to the Azure portal on the first tab that was opened in the browser. Click **SQL DATABASES** on the left side of the Azure portal to see the SQL database that will be used in the tutorial and click **tolldatadb**.

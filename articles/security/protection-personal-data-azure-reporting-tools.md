@@ -1,6 +1,6 @@
 ---
   title: Document protection of personal data with Azure reporting tools| Microsoft Docs
-  description: how to use Azure reporting services and technologies to help protect privacy of personal data.
+  description: use Azure reporting services to protect privacy of personal data in initiatives to comply with General Data Protection Regulation (GDPR).
   services: security
   documentationcenter: na
   author: barclayn
@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 08/24/2017
+  ms.date: 03/06/2018
   ms.author: barclayn
 
 
@@ -21,19 +21,18 @@
 ---
 # Document protection of personal data with Azure reporting tools
 
-This article will discuss how to use Azure reporting services and technologies to help protect privacy of personal data.
-
+This article will discuss how to use Azure reporting services and technologies to help protect privacy of personal data. This information can be used to comply with industry or government regulations such as General Data Protection Regulation (GDPR).
 ## Scenario
 
 A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, Adriatic, and Baltic seas, as well as the British Isles. To help these efforts, it has acquired several smaller cruise lines based in Italy, Germany, Denmark and the U.K.
 
-The company uses Microsoft Azure for processing and storage of corporate data. This includes personal identifiable information such as names, addresses, phone numbers, and credit card information of its global customer base. It also includes traditional Human Resources information such as addresses, phone numbers, tax identification numbers and medical information about company employees in all locations. The cruise line also maintains a large database of reward and loyalty program members that includes personal information to track relationships with current and past customers.
+The company uses Microsoft Azure for processing and storage of corporate data. This includes personal identifiable information such as names, addresses, phone numbers, and credit card information of its global customer base. It also includes traditional Human Resources information such as addresses, phone numbers, tax identification numbers and other information about company employees in all locations. The cruise line also maintains a large database of reward and loyalty program members that includes personal information to track relationships with current and past customers.
 
 Corporate employees access the network from the company’s remote offices and travel agents located around the world have access to some company resources.
 
 ## Problem statement
 
-The company must protect the privacy of employees’ and customers’ personal data through a multi-layered security strategy that uses Azure management and security features to impose strict controls on access to and processing of personal data, and must be able to demonstrate its protective measures to internal and external auditors.
+The company must protect the privacy of customers' and employees’ and personal data through a multi-layered security strategy that uses Azure management and security features to impose strict controls on access to and processing of personal data, and must be able to demonstrate its protective measures to internal and external auditors.
 
 ## Company goal
 
@@ -90,7 +89,7 @@ Visit the [Azure Active Directory audit API reference](https://docs.microsoft.co
 
 ### Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) can [collect data from Azure Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage)
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) can [collect data from Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 to correlate it with other data and provide additional analysis. Azure Monitor collects and analyzes monitoring data for your Azure environment. 
 
 Analysis tools in Log Analytics such as log searches, views, and solutions work against all collected data, providing you with centralized analysis of your entire environment. Log Analytics can aggregate and analyze Windows Event logs, IIS logs, and Syslogs, which can help detect potential personal data breaches that could expose personal data to unauthorized users.
@@ -146,7 +145,7 @@ There are a number of ways to use the data in the Activity log and other Azure M
 
 - You can query the data using the Azure Monitor REST API, CLI commands, [PowerShell](https://docs.microsoft.com/powershell/) cmdlets, or the .NET SDK.
 
-To get started with Azure Monitor, select **More Services** in the Azure portal.
+To get started with Azure Monitor, select **All services** in the Azure portal.
 
 1. Scroll down to **Monitor** in the **Monitoring and Managing** section.
 

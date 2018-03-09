@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: authentication server, azure multi factor authentication app activation page, authentication server download
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -49,7 +49,7 @@ Make sure the server  that you're using for Azure Multi-Factor Authentication me
 | Azure Multi-Factor Authentication Server Requirements | Description |
 |:--- |:--- |
 | Hardware |<li>200 MB of hard disk space</li><li>x32 or x64 capable processor</li><li>1 GB or greater RAM</li> |
-| Software |<li>Windows Server 2008 or greater if the host is a server OS</li><li>Windows 7 or greater if the host is a client OS</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, all editions</li><li>Windows 8, all editions</li><li>Windows 7, all editions</li><li>Windows Vista, all editions, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
 
 ### Azure MFA Server Components
 
@@ -85,26 +85,20 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## Download the Azure Multi-Factor Authentication Server
+## Download the MFA Server
+
+Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. On the left, select **Active Directory**
-3. Click **Users and groups**
-4. Click **All users**
-5. Click **Multi-Factor Authentication**
-6. Under **multi-factor authentication** section, select **service settings**
+2. Select **Azure Active Directory** > **MFA Server**.
+3. Select **Server settings**.
+4. Select **Download** and follow the instructions on the download page to save the installer. 
 
-   ![Service settings page](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+   ![Download MFA Server](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
-6. On the services settings page, at the bottom of the screen click **Go to the portal**. A new page opens.
-7. Click **Downloads**.
-8. Click the **Download** link and save the installer.
+5. Keep this page open as we will refer to it after running the installer.
 
-   ![Download MFA Server](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Keep this page open as we will refer to it after running the installer.
-
-## Install and configure the Azure Multi-Factor Authentication Server
+## Install and configure the MFA Server
 
 Now that you have downloaded the server you can install and configure it. Be sure that the server you are installing it on meets requirements listed in the planning section.
 
@@ -115,7 +109,7 @@ Now that you have downloaded the server you can install and configure it. Be sur
 
    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. Back on the page that we downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
+5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
 ## Send users an email
 

@@ -12,8 +12,8 @@ ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 7/15/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: delhan
 
 ---
@@ -33,3 +33,5 @@ Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|
 |Dv3||OK|OK|OK|OK|OK|
 
 All other series could not be in the same availability set because they require a specific hardware.
+
+A8/A9 VM size can't be mixed due to requirment on dedicated RDMA backend network.

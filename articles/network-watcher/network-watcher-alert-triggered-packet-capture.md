@@ -3,7 +3,7 @@ title: Use packet capture to do proactive network monitoring with alerts and Azu
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 # Use packet capture for proactive network monitoring with alerts and Azure Functions
@@ -62,7 +62,7 @@ This scenario does the following:
 
 The first step is to create an Azure function to process the alert and create a packet capture.
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Compute** > **Function App**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Compute** > **Function App**.
 
     ![Creating a function app][1-1]
 

@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Bing Web Search Documentation
+metadata:
+  document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
+  title: Bing Web Search Documentation - Tutorials, API Reference
+  description: Learn how to use Bing Web Search API to obtain results from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
+  services: cognitive-services
+  author: jerrykindall
+  manager: carolz
+  ms.service: bing-web-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jerkin
+abstract:
+  description: Bing Web Search API provides an experience similar to Bing.com/search by returning search results that Bing determines are relevant to a user's query. The results include Web pages and may also include images, videos, and more.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started using the Bing Web Search API by making a query and viewing the JSON response:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_nodejs.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_php.svg
+      - image:
+          src: media/index/logo_ruby.svg
+    rows:
+      - title: 'Call and response: your first query'
+        values:
+        - href: quickstarts/csharp
+        - href: quickstarts/java
+        - href: quickstarts/nodejs
+        - href: quickstarts/python
+        - href: quickstarts/php
+        - href: quickstarts/ruby
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Bing Web Search API:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-bing-web-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-web-search-single-page-app-source">Source code</a>
+    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a> | <a href="https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/">Download Visual Studio solution</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST v7 API
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference">API Reference</a></p>
+    - title: REST v5 API
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference/">API Reference</a> (old version)</p>

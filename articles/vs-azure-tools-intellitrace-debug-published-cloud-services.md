@@ -3,7 +3,7 @@ title: Debugging a published an Azure cloud service with Visual Studio and Intel
 description: Learn how to debug a cloud service with Visual Studio and IntelliTrace
 services: visual-studio-online
 documentationcenter: n/a
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: kraigb
+ms.author: mikejo
 
 ---
 # Debugging a published Azure cloud service with Visual Studio and IntelliTrace

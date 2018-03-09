@@ -4,7 +4,7 @@ description: A Walkthrough on using extension properties, custom attributes, and
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor:
 
 ms.assetid:
@@ -47,7 +47,7 @@ Extension properties exist only in the context of a registered  Application in t
 
 ## Creating a new application to store the extension properties
 
-1. Open a browsing session and navigate to the [Azure porta](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
+1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
 1. Click **Azure Active Directory** on the left navigation menu. You may need to find it by selecting More services>.
 1. Select **App registrations** and click **New application registration**
 1. Provide the following recommended entries:
@@ -57,7 +57,7 @@ Extension properties exist only in the context of a registered  Application in t
 1. Select **Create. Successful completion appears in the **notifications**
 1. Select the newly created web application: **WebApp-GraphAPI-DirectoryExtensions**
 1. Select Settings: **Required permissions**
-1. Select API **Windows Active Directory**
+1. Select API **Windows Azure Active Directory**
 1. Place a checkmark in Application Permissions: **Read and write directory data**, and **Save**
 1. Choose **Grant permissions** and confirm **Yes**.
 1. Copy to your clipboard and save the following identifiers from WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
@@ -148,7 +148,7 @@ Extension properties exist only in the context of a registered  Application in t
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -158,7 +158,7 @@ Extension properties exist only in the context of a registered  Application in t
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -230,7 +230,7 @@ Extension properties exist only in the context of a registered  Application in t
 
 The  id token sent back to your application includes the new extension property as a custom claim preceded by extension_loyaltyId. See example.
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -249,8 +249,8 @@ The  id token sent back to your application includes the new extension property 
 
 ## Next steps
 
-Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
-```
+### Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

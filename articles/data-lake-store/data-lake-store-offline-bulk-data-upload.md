@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 01/30/2018
 ms.author: nitinme
 
 ---
@@ -30,6 +30,7 @@ Before you begin, you must have the following:
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Preparing the data
+
 Before using the Import/Export service, break the data file to be transferred **into copies that are less than 200 GB** in size. The import tool does not work with files greater than 200 GB. In this tutorial, we split the file into chunks of 100 GB each. You can do this by using [Cygwin](https://cygwin.com/install.html). Cygwin supports Linux commands. In this case, use the following command:
 
     split -b 100m 319GB.tsv
@@ -55,7 +56,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/co
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     See [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) for more sample snippets.
-4. The preceding command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure classic portal](https://manage.windowsazure.com).
+4. The preceding command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure portal](https://portal.azure.com).
 
 ## Create an import job
 You can now create an import job by using the instructions in [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) (under the **Create the Import job** section). For this import job, with other details, also provide the journal file created while preparing the disk drives.
@@ -66,7 +67,7 @@ You can now physically ship the disks to an Azure datacenter. There, the data is
 ## Copy data from Azure Storage blobs to Azure Data Lake Store
 After the status of the import job shows that it's completed, you can verify whether the data is available in the Azure Storage blobs you had specified. You can then use a variety of methods to move that data from the blobs to Azure Data Lake Store. For all the available options for uploading data, see [Ingesting data into Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
 
-In this section, we provide you with the JSON definitions that you can use to create an Azure Data Factory pipeline for copying data. You can use these JSON definitions from the [Azure portal](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md), or [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md).
+In this section, we provide you with the JSON definitions that you can use to create an Azure Data Factory pipeline for copying data. You can use these JSON definitions from the [Azure portal](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md), or [Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md).
 
 ### Source linked service (Azure Storage blob)
 ````
@@ -184,7 +185,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
     }
 }
 ````
-For more information, see [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
+For more information, see [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## Reconstruct the data files in Azure Data Lake Store
 We started with a file that was 319 GB, and broke it down into files of smaller size so that it could be transferred by using the Azure Import/Export service. Now that the data is in Azure Data Lake Store, we can reconstruct the file to its original size. You can use the following Azure PowerShell cmldts to do so.

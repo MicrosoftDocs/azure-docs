@@ -4,7 +4,7 @@ description: A description of changes that are being made to the app model v2.0 
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: e6c5b891-0b5d-47dc-8184-5d0ef6a1a006

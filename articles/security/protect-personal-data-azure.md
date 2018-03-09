@@ -1,6 +1,6 @@
 ---
 title: Protect personal data in Microsoft Azure | Microsoft Docs
-description: First article in a series of articles to help you use Azure to protect personal data
+description: This article should help you use Azure to protect personal data and comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,28 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Protect personal data in Microsoft Azure
 
-This article introduces a series of articles that help you use Azure security technologies and services to protect personal data. This is a key requirement for many corporate and industry compliance and governance initiatives. The scenario, problem statement and company goals are included here.
+This article introduces a series of articles that help you use Azure security technologies and services to protect personal data. This is a key requirement for many corporate and industry compliance and governance initiatives. For example, you can use the information provided in this series of articles to comply with General Data Protection Regulation (GDPR). The scenario, problem statement and company goals are included here.
 
 ## Scenario and problem statement
 
 A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, Adriatic, and Baltic seas, as well as the British Isles. To support those efforts, it has acquired several smaller cruise lines based in Italy, Germany, Denmark and the U.K.
 
-The company uses Microsoft Azure to store corporate data in the cloud. This may include employee and/or customer information such as:
+The company uses Microsoft Azure to store corporate data in the cloud. This may include customer and/or employee information such as:
 
 - addresses
 - phone numbers
 - tax identification numbers
-- medical information
 - credit card information
 
-The company must protect the privacy of employee and customer data while making data accessible to those departments that need it. (such as payroll and reservations departments)
+The company must protect the privacy of customer and employee data while making data accessible to those departments that need it. (such as payroll and reservations departments)
 
 ## Company goals 
 

@@ -15,34 +15,27 @@ ms.author: scottwhi
 
 # Searching the web for entities and places
 
-> [!NOTE]
-> Preview release of the Entity Search API. All aspects of the API and documentation are subject to change. 
-
-
-The Entity Search API lets you send a search query to Bing and get back search results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc.  
+The Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc.  
 
 
 ## Search query term
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
+After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) query parameter. For example, if the user enters *Bill Gates*, set `q` to *Bill+Gates* or *Bill%20Gates*.
 
 If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
 
 ```
-  "queryContext":{  
-    "originalQuery":"sialing dingy for sale",  
-    "alteredQuery":"sailing dingh for sale",  
-    "alterationOverrideQuery":"+sialing dingy for sale"  
-  },  
+  "queryContext": {
+    "originalQuery": "Bill Gares",
+    "alteredQuery": "bill gates",
+    "alterationOverrideQuery": "+Bill Gares",
+    "adultIntent": false
+  }
 ```
 
 You can use this information to let the user know that you modified their query string when you display the search results.
-
-![Query context UX example](../bing-web-search/media/cognitive-services-bing-web-api/bing-query-context.PNG)
-
-
 
 ## Requesting entities
 
@@ -331,10 +324,6 @@ The following shows an example that includes an image's `provider` field and con
   
 ![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
 
-
-### United States-Based queries only  
-
-Entity Search API is intended for use only within the United States. Partners must use reasonable and best effort to ensure that all users for whom they are originating calls to the API are physically located within the United States. If the user is not physically located within the United States, then do not call this API.  
   
 ### Search or search-like experience  
 

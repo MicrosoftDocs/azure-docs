@@ -4,7 +4,7 @@ title: Monitor VPN gateways with Azure Network Watcher troubleshooting | Microso
 description: This article describes how diagnose On-premises connectivity with Azure Automation and Network Watcher
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 
@@ -51,7 +51,7 @@ Before you start this scenario, you must have the following pre-requisites:
 
 ### Create the runbook
 
-The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-create-runas-account.md)
 
 ### Step 1
 

@@ -4,7 +4,7 @@ description: Learn how to add a custom image to an existing Azure Virtual Machin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -24,13 +24,13 @@ This article shows how to modify the [minimum viable scale set template](./virtu
 
 ## Change the template definition
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:
+The minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and the template for deploying the scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:
 
 ### Creating a managed disk image
 
 If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images`), then you can skip this section.
 
-First, we add a `sourceImageVhdUri` parameter, which is the URI to the generalized blob in Azure Storage that contains the custom image to deploy from.
+First, add a `sourceImageVhdUri` parameter, which is the URI to the generalized blob in Azure Storage that contains the custom image to deploy from.
 
 
 ```diff
@@ -48,7 +48,7 @@ First, we add a `sourceImageVhdUri` parameter, which is the URI to the generaliz
    "variables": {},
 ```
 
-Next, we add a resource of type `Microsoft.Compute/images`, which is the managed disk image based on the generalized blob located at URI `sourceImageVhdUri`. This image must be in the same region as the scale set that uses it. In the properties of the image, we specify the OS type, the location of the blob (from the `sourceImageVhdUri` parameter), and the storage account type:
+Next, add a resource of type `Microsoft.Compute/images`, which is the managed disk image based on the generalized blob located at URI `sourceImageVhdUri`. This image must be in the same region as the scale set that uses it. In the properties of the image, specify the OS type, the location of the blob (from the `sourceImageVhdUri` parameter), and the storage account type:
 
 ```diff
    "resources": [
@@ -75,7 +75,7 @@ Next, we add a resource of type `Microsoft.Compute/images`, which is the managed
 
 ```
 
-In the scale set resource, we add a `dependsOn` clause referring to the custom image to make sure the image gets created before the scale set tries to deploy from that image:
+In the scale set resource, add a `dependsOn` clause referring to the custom image to make sure the image gets created before the scale set tries to deploy from that image:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -92,7 +92,7 @@ In the scale set resource, we add a `dependsOn` clause referring to the custom i
 
 ### Changing scale set properties to use the managed disk image
 
-In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, we specify the `id` of the `Microsoft.Compute/images` resource:
+In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, specify the `id` of the `Microsoft.Compute/images` resource:
 
 ```diff
          "virtualMachineProfile": {
@@ -108,7 +108,7 @@ In the `imageReference` of the scale set `storageProfile`, instead of specifying
            "osProfile": {
 ```
 
-In this example, we use the `resourceId` function to get the resource ID of the image created in the same template. If you have created the managed disk image beforehand, you should provide the id of that image instead. This id must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+In this example, use the `resourceId` function to get the resource ID of the image created in the same template. If you have created the managed disk image beforehand, you should provide the ID of that image instead. This ID must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## Next Steps

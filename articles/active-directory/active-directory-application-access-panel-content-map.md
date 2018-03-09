@@ -4,7 +4,7 @@ description: Problems using the application access panel website or mobile appli
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: kbrint
+manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity

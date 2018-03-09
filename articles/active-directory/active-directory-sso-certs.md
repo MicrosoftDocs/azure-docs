@@ -4,7 +4,7 @@ description: Learn how to customize the expiration date for your federation cert
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23

@@ -4,7 +4,7 @@ description: A topic on the types of Azure Active Directory B2C tenants
 services: active-directory-b2c
 documentationcenter: ''
 author: gsacavdm
-manager: krassk
+manager: mtillman
 editor: bryanla
 
 ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb

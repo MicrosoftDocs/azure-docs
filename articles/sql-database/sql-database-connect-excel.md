@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -75,5 +75,5 @@ Now that you've established the connection and created the file with data and co
 ## Next steps
 * Learn how to [Connect to SQL Database with SQL Server Management Studio](sql-database-connect-query-ssms.md) for advanced querying and analysis.
 * Learn about the benefits of [elastic pools](sql-database-elastic-pool.md).
-* Learn how to [create a web application that connects to SQL Database on the back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+* Learn how to [create a web application that connects to SQL Database on the back-end](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
 

@@ -17,7 +17,7 @@ This tutorial addresses the advanced machine learning functionality in Custom De
 
 By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Microsoft Cognitive Services:
 [Entity Linking](../entitylinking/home.md),
-[Text Analytics](../Text-Analytics/overview.md),
+[Text Analytics](../text-analytics/overview.md),
 [Emotion](../emotion/home.md), and
 [Computer Vision](../computer-vision/home.md). This tutorial can be skipped if only the default functionality is used.
 

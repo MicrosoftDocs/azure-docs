@@ -4,7 +4,7 @@ description: An comparison between the original Azure AD and the v2.0 endpoints.
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c

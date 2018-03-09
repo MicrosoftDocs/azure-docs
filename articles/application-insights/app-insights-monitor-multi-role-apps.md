@@ -3,7 +3,7 @@ title: Azure Application Insights support for multiple components, microservices
 description: Monitoring apps that consist of multiple components or roles for performance and usage.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Monitor multi-component applications with Application Insights (preview)
@@ -45,7 +45,7 @@ Configure each component of your application using the appropriate method for it
 
 ### 1. Install the latest pre-release package
 
-Update or install the Appication Insights packages in the project for each server component. If you're using Visual Studio:
+Update or install the Application Insights packages in the project for each server component. If you're using Visual Studio:
 
 1. Right-click a project and select **Manage NuGet Packages**. 
 2. Select **Include prerelease**.

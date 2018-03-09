@@ -3,7 +3,7 @@ title: What to do in the event of an Azure Storage outage | Microsoft Docs
 description: What to do in the event of an Azure Storage outage
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
-ms.author: robinsh
+ms.author: tamram
 
 ---
 
@@ -24,10 +24,10 @@ At Microsoft, we work hard to make sure our services are always available. Somet
 ## How to prepare
 It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan:
 
-* [Disaster recovery and high availability for Azure applications](/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications.md)
-* [Azure resiliency technical guidance](/azure/architecture/resiliency.md)
+* [Availability checklist](https://docs.microsoft.com/azure/architecture/checklist/availability)
+* [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery service](https://azure.microsoft.com/services/site-recovery/)
-* [Azure Storage replication](storage-redundancy.md)
+* [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Azure Backup service](https://azure.microsoft.com/services/backup/)
 
 ## How to detect
@@ -50,7 +50,7 @@ When a regional disaster affects your primary region, we will first try to resto
 A couple of points regarding the storage geo-failover experience:
 
 * Storage geo-failover will only be triggered by the Azure Storage team – there is no customer action required.
-* Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the DNS entry will need to be updated to switch from the primary region to the secondary region.
+* Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the Microsoft-supplied DNS entry will need to be updated to switch from the primary region to the secondary region.  Microsoft will perform this update automatically as part of the geo-failover process.
 * Before and during the geo-failover, you won't have write access to your storage account due to the impact of the disaster but you can still read from the secondary if your storage account has been configured as RA-GRS.
 * When the geo-failover has been completed and the DNS changes propagated, read and write access to your storage account will be resumed; this points to what used to be your secondary endpoint. 
 * Note that you will have write access if you have GRS or RA-GRS configured for the storage account. 

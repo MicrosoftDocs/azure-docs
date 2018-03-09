@@ -1,23 +1,23 @@
 ---
-title: 'Connect to Azure Database for MySQL from C++ | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL from C++'
 description: This quickstart provides a C++ code sample you can use to connect and query data from Azure Database for MySQL.
 services: mysql
-author: seanli1988
-ms.author: seal
-manager: janders
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: C++
-ms.topic: hero-article
-ms.date: 08/03/2017
+ms.topic: quickstart
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Connector/C++ to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL using a C++ application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using C++, and that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL by using a C++ application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with developing using C++ and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
+This quickstart uses the resources created in either of the following guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -31,30 +31,29 @@ You also need to:
 The steps in this section assume that you are familiar with developing using .NET.
 
 ### **Windows**
-1. Install Visual Studio 2017 Community, which is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET Framework or just .NET Core. The code snippets in the Quickstart work with either. If you already have Visual Studio installed on your machine, skip the next two steps.
-   - Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-   - Run the installer and follow the installation prompts to complete the installation.
+- Install Visual Studio 2017 Community, which is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web and database applications, and cloud services. You can install either the full .NET Framework or just .NET Core: the code snippets in the Quickstart work with either. If you already have Visual Studio installed on your computer, skip the next two steps.
+   1. Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+   2. Run the installer and follow the installation prompts to complete the installation.
 
 ### **Configure Visual Studio**
 1. From Visual Studio, project property > configuration properties > C/C++ > linker > general > additional library directories, add the lib\opt directory (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) of the c++ connector.
-2. From Visual Studio, project property > configuration properties > C/C++ > general > additional include directories
-   - Add include/ directory of c++ connector (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)
-   - Add Boost library's root directory (i.e.: C:\boost_1_64_0\)
-3. From Visual Studio, project property > configuration properties > C/C++ > linker > Input > Additional Dependencies, add mysqlcppconn.lib into the text field
-4. Either copy mysqlcppconn.dll from the c++ connector library folder in step 3 to the same directory as the application executable or add it to the environment variable so your application can find it.
+2. From Visual Studio, project property > configuration properties > C/C++ > general > additional include directories:
+   - Add include/ directory of c++ connector (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Add Boost library's root directory (i.e.: C:\boost_1_64_0\).
+3. From Visual Studio, project property > configuration properties > C/C++ > linker > Input > Additional Dependencies, add mysqlcppconn.lib into the text field.
+4. Either copy mysqlcppconn.dll from the C++ connector library folder in step 3 to the same directory as the application executable or add it to the environment variable so your application can find it.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **myserver4demo**.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
-4. Select the server's **Properties** page. Make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL server name](./media/connect-cpp/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-cpp/1_server-overview-name-login.png)
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method createStatement() and execute() to run the database commands. 
+Use the following code to connect and load the data by using **CREATE TABLE** and **INSERT INTO** SQL statements. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method createStatement() and execute() to run the database commands. 
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -80,7 +79,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{
@@ -121,7 +120,7 @@ int main()
 
 ## Read data
 
-Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the select commands. Finally the code uses next() to advance to the records in the results. Then the code uses getInt() and getString() to parse the values in the record.
+Use the following code to connect and read the data by using a **SELECT** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the select commands. Next, the code uses next() to advance to the records in the results. Finally, the code uses getInt() and getString() to parse the values in the record.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -148,7 +147,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{
@@ -173,7 +172,7 @@ int main()
 ```
 
 ## Update data
-Use the following code to connect and read the data using a **UPDATE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the update commands. 
+Use the following code to connect and read the data by using an **UPDATE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the update commands. 
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -198,7 +197,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{
@@ -223,7 +222,7 @@ int main()
 
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the delete commands.
+Use the following code to connect and read the data by using a **DELETE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the delete commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -250,7 +249,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{

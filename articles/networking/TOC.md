@@ -23,8 +23,9 @@
 ### [Connect on-premises - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect on-premises - dedicated](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # Get started
-## [Create your first virtual network](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Create your first virtual network](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # How to
 ## Internet connectivity
@@ -47,10 +48,11 @@
 ### [Manage packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Determine routing next hop](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Verify IP flows for a VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Network Monitoring Overview](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Sample scripts
 ### [Azure CLI](cli-samples.md)
-### [PowerShell](powershell-samples.md)
+### [Azure PowerShell](powershell-samples.md)
 
 ## Tutorials
 ### [Load balance VMs](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -58,7 +60,7 @@
 
 # Reference
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
-## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)

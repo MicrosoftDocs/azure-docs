@@ -3,8 +3,8 @@ title: "Azure Analysis Services tutorial supplemental lesson: Detail Rows | Micr
 description: Describes how to create a Detail Rows Expression in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
-manager: erikre
+author: Minewiskan
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,26 +14,24 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 01/08/2018
 ms.author: owend
 ---
 # Supplemental lesson - Detail Rows
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In this supplemental lesson, you use the DAX Editor to define a custom Detail Rows Expression. A Detail Rows Expression is a property on a measure, providing end-users more information about the aggregated results of a measure. 
   
 Estimated time to complete this lesson: **10 minutes**  
   
 ## Prerequisites  
-This supplemental lesson topic is part of a tabular modeling tutorial. Before performing the tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project.  
+This supplemental lesson is part of a tabular modeling tutorial. Before performing the tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project.  
   
-## What do we need to solve?
+## What's the issue?
 Let's look at the details of our InternetTotalSales measure, before adding a Detail Rows Expression.
 
 1.  In SSDT, click the **Model** menu > **Analyze in Excel** to open Excel and create a blank PivotTable.
   
-2.  In **PivotTable Fields**, add the **InternetTotalSales** measure from the FactInternetSales table to **Values**, **CalendarYear** from the DimDate table to **Columns**, and **EnglishCountryRegionName** to **Rows**. Our PivotTable now gives us aggregated results from the InternetTotalSales measure by regions and year. 
+2.  In **PivotTable Fields**, add the **InternetTotalSales** measure from the FactInternetSales table to **Values**, **CalendarYear** from the DimDate table to **Columns**, and **EnglishCountryRegionName** to **Rows**. The PivotTable now gives us aggregated results from the InternetTotalSales measure by regions and year. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -47,7 +45,7 @@ What we would like to see here is a table containing columns and rows of data th
 
 #### To create a Detail Rows Expression 
   
-1. In SSDT, in the FactInternetSales table's measure grid, click the **InternetTotalSales** measure. 
+1. In the FactInternetSales table's measure grid, click the **InternetTotalSales** measure. 
 
 2. In **Properties** > **Detail Rows Expression**, click the editor button to open the DAX Editor.
 
@@ -77,7 +75,7 @@ What we would like to see here is a table containing columns and rows of data th
 5. Redeploy your model.
 
   
-## See Also  
-[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
-[Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+## See also  
+[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
+[Supplemental lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
+[Supplemental lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

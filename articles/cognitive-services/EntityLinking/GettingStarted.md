@@ -36,7 +36,7 @@ Let’s start by creating a new project in Visual Studio. First, launch Visual S
 
  ![Createa universal app](./Images/CreateUWP.png)
 
-### <a name+"step-3-add-the-entity-linking-nuget-package-to-your-project">Step 3: Add the Entity Linking NuGet Package to your project</a>
+### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Step 3: Add the Entity Linking NuGet Package to your project</a>
 
 Entity Linking of Cognitive Services is released as a NuGet.org package and needs to be installed before you can use it.
 To add it to your project, go to the **Solution Explorer** tab, right click your project, and select **Manage Nuget Packages**.
@@ -85,7 +85,7 @@ Below is example code, which adds the "wikipediaId" to the response by using Ent
  private async void button_Click(object sender, RoutedEventArgs e)
 {
     var text = this.inputBox.Text;
-    var client = new EntityLinkingServiceClient("Your subscription key");
+    var client = new EntityLinkingServiceClient("Your subscription key","https://api.labs.cognitive.microsoft.com");
     var linkResponse = await client.LinkAsync(text);
     var result = string.Join(", ", linkResponse.Select(i => i.WikipediaID).ToList());
     this.outputBlock.Text = result;

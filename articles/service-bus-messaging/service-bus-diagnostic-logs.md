@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: babanisa;sethm
+ms.date: 02/05/2018
+ms.author: sethm
 
 ---
 # Service Bus diagnostic logs
@@ -42,7 +42,7 @@ Diagnostics logs are disabled by default. To enable diagnostic logs, perform the
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archive target that you want; for example, a storage account, an Event Hub, or Azure Log Analytics.
+5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
 
 6.	Save the new diagnostics settings.
 
@@ -90,7 +90,7 @@ Here's an example of an operational log JSON string:
 
 ## Next steps
 
-Visit the following links to learn more about Service Bus:
+See the following links to learn more about Service Bus:
 
 * [Introduction to Service Bus](service-bus-messaging-overview.md)
 * [Get started with Service Bus](service-bus-dotnet-get-started-with-queues.md)

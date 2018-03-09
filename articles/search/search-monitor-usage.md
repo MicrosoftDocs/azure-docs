@@ -3,19 +3,19 @@ title: Monitor usage and statistics in an Azure Search service | Microsoft Docs
 description: Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure.
 services: search
 documentationcenter: ''
-author: bernitorres
-manager: jlembicz
+author: HeidiSteen
+manager: jhubbard
 editor: ''
 tags: azure-portal
 
-ms.assetid: 122948de-d29a-426e-88b4-58cbcee4bc23
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/01/2017
-ms.author: betorres
+ms.date: 11/09/2017
+ms.author: heidist
 
 ---
 # Monitoring an Azure Search service

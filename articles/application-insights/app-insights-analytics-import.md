@@ -4,7 +4,7 @@ description: Import static data to join with app telemetry, or import a separate
 services: application-insights
 keywords: "open schema, data import"
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-ms.author: bwren
+ms.date: 10/04/2017
+ms.author: mbullwin
 
 ---
 # Import data into Analytics
@@ -193,7 +193,7 @@ This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.J
 
 ### Classes
 
-```C#
+```csharp
 namespace IngestionClient 
 { 
     using System; 
@@ -352,7 +352,7 @@ namespace IngestionClient
 
 Use this code for each blob. 
 
-```C#
+```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
    var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
@@ -363,4 +363,4 @@ Use this code for each blob.
 ## Next steps
 
 * [Tour of the Log Analytics query language](app-insights-analytics-tour.md)
-* [Use *Logstash* to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* If you're using Logstash, use the [Logstash plugin to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

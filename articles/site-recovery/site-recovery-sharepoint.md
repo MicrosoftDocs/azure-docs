@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
 
 ---
@@ -68,6 +68,7 @@ For creating this article, VMware virtual machines with Windows Server 2012 R2 E
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
+**Azure** | NA | Yes
 
 ### SharePoint Versions
 The following SharePoint server versions are supported.

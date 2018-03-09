@@ -2,38 +2,45 @@
 Create an IoT hub for your simulated device app to connect to. The following steps show you how to complete this task by using the Azure portal.
 
 1. Sign in to the [Azure portal][lnk-portal].
-1. In the Jumpbar, click **New** > **Internet of Things** > **IoT Hub**.
+
+1. Select **New** > **Internet of Things** > **IoT Hub**.
    
     ![Azure portal Jumpbar][1]
-1. In the **IoT hub** blade, choose the configuration for your IoT hub.
+
+1. In the **IoT hub** pane, enter the following information for your IoT hub:
+
+   * **Name**: Create a name for your IoT hub. If the name you enter is valid, a green check mark appears.
+
+   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+
+   * **Pricing and scale tier**: For this tutorial, select the **F1 - Free** tier. For more information, see the [Pricing and scale tier][lnk-pricing].
+
+   * **Resource group**: Create a resource group to host the IoT hub or use an existing one. For more information, see [Use resource groups to manage your Azure resources][lnk-resource-groups]
+
+   * **Location**: Select the closest location to you.
+
+   * **Pin to dashboard**: Check this option for easy access to your IoT hub from the dashboard.
+
+    ![IoT hub window][2]
+
+1. Click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
+
+1. When your new IoT hub is ready, click its tile in the Azure portal to open its properties window. Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
    
-    ![IoT hub blade][2]
+    ![New IoT hub window][4]
+
+1. In **Shared access policies**, click the **iothubowner** policy, and then make note of the IoT Hub connection string in the **iothubowner** window. For more information, see [Access control][lnk-access-control] in the "IoT Hub developer guide."
    
-   1. In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
-    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
-   
-   1. Select a [pricing and scale tier][lnk-pricing]. This tutorial does not require a specific tier. For this tutorial, use the free F1 tier.
-   1. In **Resource group**, either create a resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
-   1. In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
-1. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
-   
-    ![New IoT hub status][3]
-1. When the IoT hub has been created successfully, click the new tile for your IoT hub in the Azure portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
-   
-    ![New IoT hub blade][4]
-1. In the **Shared access policies** blade, click the **iothubowner** policy, and then copy and make note of the IoT Hub connection string in the **iothubowner** blade. For more information, see [Access control][lnk-access-control] in the "IoT Hub developer guide."
-   
-    ![Shared access policies blade][5]
+    ![Shared access policies][5]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-get-started-create-hub/create-iot-hub3.png
 [4]: ./media/iot-hub-get-started-create-hub/create-iot-hub4.png
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
-[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
+[lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
+[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md

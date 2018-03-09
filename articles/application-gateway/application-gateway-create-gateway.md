@@ -3,7 +3,7 @@ title: Create, start, or delete an application gateway | Microsoft Docs
 description: This page provides instructions to create, configure, start, and delete an Azure application gateway
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Create, start, or delete an application gateway with PowerShell 

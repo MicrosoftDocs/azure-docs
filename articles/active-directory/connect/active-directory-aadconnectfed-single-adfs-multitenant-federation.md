@@ -5,7 +5,7 @@ keywords: federate, ADFS, AD FS, multiple tenants, single AD FS, one ADFS, multi
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 

@@ -15,9 +15,6 @@ ms.author: scottwhi
 
 # Spell Check API upgrade guide
 
-> [!NOTE]
-> V7 is a Preview release. All aspects of the API and documentation are subject to change. Use only for testing in a non-production environment.
-
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Spell Check API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
 ## Breaking changes
@@ -68,3 +65,7 @@ ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
 InsufficientScope|InsufficientAuthorization
 Blocked|InvalidRequest.Blocked
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Use and display requirements](./UseAndDisplayRequirements.md)

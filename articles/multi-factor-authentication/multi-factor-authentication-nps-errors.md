@@ -3,8 +3,8 @@ title: Troubleshoot error codes for the Azure MFA NPS extension | Microsoft Docs
 description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication with specific resolutions for common error messages
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MicrosoftGuyJFlo
+manager: mtillman
 
 ms.assetid:
 ms.service: multi-factor-authentication
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 
@@ -103,9 +103,10 @@ If your users are [Having trouble with two-step verification](./end-user/multi-f
 
 If you need additional help, contact a support professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, the ID of the user who saw the error, and debug logs.
 
-To collect debug logs for support diagnostics, use the following steps: 
+To collect debug logs for support diagnostics, use the following steps on the NPS server:
 
-1. Open an Administrator command prompt and run these commands:
+1. Open Registry Editor and browse to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** to **TRUE**
+2. Open an Administrator command prompt and run these commands:
 
    ```
    Mkdir c:\NPS
@@ -115,9 +116,9 @@ To collect debug logs for support diagnostics, use the following steps:
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Reproduce the issue
+3. Reproduce the issue
 
-3. Stop the tracing with these commands:
+4. Stop the tracing with these commands:
 
    ```
    logman stop "NPSExtension" -ets
@@ -128,6 +129,7 @@ To collect debug logs for support diagnostics, use the following steps:
    Start .
    ```
 
-4. Zip the contents of the C:\NPS folder and attach the zipped file to the support case.
+5. Open Registry Editor and browse to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** to **FALSE**
+6. Zip the contents of the C:\NPS folder and attach the zipped file to the support case.
 
 

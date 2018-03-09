@@ -59,7 +59,7 @@ To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-If you prefer to create the device identity programmatically, read the corresponding section in the [Connect your device to your IoT hub using Java](iot-hub-java-java-getstarted.md#create-a-device-identity) article. You can also use the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to add a device to your IoT hub.
+If you prefer to create the device identity programmatically, read the corresponding section in the [Connect your device to your IoT hub using Java](iot-hub-java-java-getstarted.md#create-a-device-identity) article. You can also use the [IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) tool to add a device to your IoT hub.
 
 ## Create the service app
 
@@ -345,7 +345,7 @@ In this section, you create a Java console app that handles the desired properti
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use device twin features you must use the MQTT protocol.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
 
 1. To print device twin notifications to the console, add the following nested class to the **App** class:
 

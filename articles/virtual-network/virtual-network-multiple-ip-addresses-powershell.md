@@ -156,7 +156,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	```
 
 	>[!NOTE]
-	>Though all configurations are assigned to one NIC in this article, you can assign multiple IP configurations to every NIC attached to the VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](virtual-network-deploy-multinic-arm-ps.md) article.
+	>Though all configurations are assigned to one NIC in this article, you can assign multiple IP configurations to every NIC attached to the VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](../virtual-machines/windows/multiple-nics.md) article.
 
 9. Create the VM by entering the following commands:
 

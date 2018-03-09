@@ -19,7 +19,7 @@ ms.author: ralfwi
 
 # Azure Germany storage services
 ## Storage
-For details on Azure Storage and how to use it, see the [Storage global documentation](../storage/index.md).
+For details on Azure Storage and how to use it, see the [Storage global documentation](../storage/index.yml).
 
 Data stored in Azure Storage is replicated to ensure high availability. For geo-redundant storage and read-access geo-redundant storage, Azure replicates data between *pairing regions*. For Azure Germany, these pairing regions are:
 
@@ -37,12 +37,12 @@ Storage Service Encryption safeguards data at rest within Azure storage accounts
 | Service | Germany Central | Germany Northeast |
 | --- | --- | --- | --- |
 | [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
+| [Azure Files](../storage/common/storage-introduction.md#azure-files) | GA | GA |
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
-| [File storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
-| [Premium Storage](../storage/common/storage-premium-storage.md) |GA |GA |
+| [Premium Storage](../virtual-machines/windows/premium-storage.md) |GA |GA |
 | Import/Export |NA |NA |
 | StorSimple |NA |NA |
 
@@ -52,9 +52,9 @@ The URLs for storage accounts in Azure Germany are different from those in globa
 | Service type | Global Azure | Azure Germany |
 | --- | --- | --- |
 | Blob storage | *.blob.core.windows.net | *.blob.core.cloudapi.de |
+| Azure Files | *.file.core.windows.net | *.file.core.cloudapi.de | 
 | Queue storage | *.queue.core.windows.net | *.queue.core.cloudapi.de |
 | Table storage | *.table.core.windows.net | *.table.core.cloudapi.de |
-| File storage | *.file.core.windows.net | *.file.core.cloudapi.de | 
 
 > [!NOTE]
 > All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/common/storage-configure-connection-string.md). 

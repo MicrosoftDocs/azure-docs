@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure security features used with Azure virtual machines | Microsoft Docs
 description: " An overview of the core Azure security features that can be used with Azure virtual machines. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the VM. "
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 11/21/2017
 ms.author: terrylan
 
 ---

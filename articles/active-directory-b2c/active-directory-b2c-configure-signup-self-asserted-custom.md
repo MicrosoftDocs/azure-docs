@@ -4,7 +4,7 @@ description: A walkthrough on adding claims to sign up and configure the user in
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: tbd
 
 ms.assetid:
@@ -31,7 +31,7 @@ Gathering initial data from your users is achieved via signup/signin.  Additiona
 
 
 ## Define the claim, its display name and the user input type
-Lets ask the user for their city.  Add the following element to the `<ClaimsSchema>` element in the TrustFrameWorkExtensions policy file:
+Lets ask the user for their city.  Add the following element to the `<ClaimsSchema>` element in the TrustFrameworkBase policy file:
 
 ```xml
 <ClaimType Id="city">

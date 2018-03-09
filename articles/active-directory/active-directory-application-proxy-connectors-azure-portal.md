@@ -3,8 +3,8 @@ title: Publishing applications on separate networks and locations using connecto
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MarkusVi
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -12,17 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
-ms.author: kgremban
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
+
 ---
 
 # Publish applications on separate networks and locations using connector groups
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
-> * [Azure classic portal](active-directory-application-proxy-connectors.md)
->
 
 Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your Application Proxy deployment. 
 

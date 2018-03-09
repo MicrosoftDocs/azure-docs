@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -20,7 +20,7 @@ ms.author: dobett
 
 To send time-series telemetry and alerts from your devices to your solution back end, send device-to-cloud messages from your device to your IoT hub. For a discussion of other device-to-cloud options supported by IoT Hub, see [Device-to-cloud communications guidance][lnk-d2c-guidance].
 
-You send device-to-cloud messages through a device-facing endpoint (**/devices/{deviceId}/messages/events**). Routing rules then route your messages to one of the service-facing endpoints on your IoT hub. Routing rules use the headers and body of the device-to-cloud messages flowing through your hub to determine where to route them. By default, messages are routed to the built-in service-facing endpoint (**messages/events**), that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard [Event Hubs integration and SDKs][lnk-compatible-endpoint] to receive device-to-cloud messages in your solution back end.
+You send device-to-cloud messages through a device-facing endpoint (**/devices/{deviceId}/messages/events**). Routing rules then route your messages to one of the service-facing endpoints on your IoT hub. Routing rules use the headers and body of the device-to-cloud messages to determine where to route them. By default, messages are routed to the built-in service-facing endpoint (**messages/events**), that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard [Event Hubs integration and SDKs][lnk-compatible-endpoint] to receive device-to-cloud messages in your solution back end.
 
 IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs][lnk-event-hubs] *events* than [Service Bus][lnk-servicebus] *messages* in that there is a high volume of events passing through the service that can be read by multiple readers.
 
@@ -33,11 +33,11 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 * IoT Hub enables millions of simultaneously connected devices (see [Quotas and throttling][lnk-quotas]).
 * IoT Hub does not allow arbitrary partitioning. Device-to-cloud messages are partitioned based on their originating **deviceId**.
 
-For more information about the differences between the IoT Hub and Event Hubs services, see [Comparison of Azure IoT Hub and Azure Event Hubs][lnk-comparison].
+For more information about the differences between IoT Hub and Event Hubs, see [Comparison of Azure IoT Hub and Azure Event Hubs][lnk-comparison].
 
 ## Send non-telemetry traffic
 
-Often, in addition to telemetry data points, devices send messages and requests that require separate execution and handling in the solution back end. For example, critical alerts that must trigger a specific action in the back end. You can easily write a [routing rule][lnk-devguide-custom] to send these types of messages to an endpoint dedicated to their processing based on either a header on the message or a value in the message body.
+Often, in addition to telemetry, devices send messages and requests that require separate execution and handling in the solution back end. For example, critical alerts that must trigger a specific action in the back end. You can write a [routing rule][lnk-devguide-custom] to send these types of messages to an endpoint dedicated to their processing based on either a header on the message or a value in the message body.
 
 For more information about the best way to process this kind of message, see the [Tutorial: How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial] tutorial.
 

@@ -4,8 +4,8 @@ description: Learn how to work with the .NET backend server SDK for Azure App Se
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -145,8 +145,8 @@ initialization by using the **MobileAppConfiguration** object.
      Provides the AppServiceLoginHandler.CreateToken() method, which is a static method used during custom authentication scenarios.
 
 ## <a name="publish-server-project"></a>How to: Publish the server project
-This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using Git or any of
-the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-sites-deploy.md).
+This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using [Git](../app-service/app-service-deploy-local-git.md) or any of
+the other methods available there.
 
 1. In Visual Studio, rebuild the project to restore NuGet packages.
 2. In Solution Explorer, right-click the project, click **Publish**. The first time you publish, you need to define a publishing profile. When
@@ -277,6 +277,10 @@ to step 3.
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>How to: Use custom authentication for your application
+> [!IMPORTANT]
+> In order to enable custom authentication, you must first enable App Service Authentication without selecting a provider for your App Service in the Azure portal. This will enable the WEBSITE_AUTH_SIGNING_KEY environment variable when hosted.
+> 
+> 
 If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install
 the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  Provide your own code for validating
 user credentials. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()`
@@ -474,9 +478,9 @@ registration. For more information, see [Push to users][6] in the App Service Mo
 ## How to: Debug and troubleshoot the .NET Server SDK
 Azure App Service provides several debugging and troubleshooting techniques for ASP.NET applications:
 
-* [Monitoring an Azure App Service](../app-service-web/web-sites-monitor.md)
-* [Enable Diagnostic Logging in Azure App Service](../app-service-web/web-sites-enable-diagnostic-log.md)
-* [Troubleshoot an Azure App Service in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Monitoring an Azure App Service](../app-service/web-sites-monitor.md)
+* [Enable Diagnostic Logging in Azure App Service](../app-service/web-sites-enable-diagnostic-log.md)
+* [Troubleshoot an Azure App Service in Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### Logging
 You can write to App Service diagnostic logs by using the standard ASP.NET trace writing. Before you can write to the logs, you must enable
@@ -484,7 +488,7 @@ diagnostics in your Mobile App backend.
 
 To enable diagnostics and write to the logs:
 
-1. Follow the steps in [How to enable diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
+1. Follow the steps in [How to enable diagnostics](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
 2. Add the following using statement in your code file:
 
         using System.Web.Http.Tracing;
@@ -493,7 +497,7 @@ To enable diagnostics and write to the logs:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Republish your server project, and access the Mobile App backend to execute the code path with the logging.
-5. Download and evaluate the logs, as described in [How to: Download logs](../app-service-web/web-sites-enable-diagnostic-log.md#download).
+5. Download and evaluate the logs, as described in [How to: Download logs](../app-service/web-sites-enable-diagnostic-log.md#download).
 
 ### <a name="local-debug"></a>Local debugging with authentication
 You can run your application locally to test changes before publishing them to the cloud. For most Azure Mobile Apps backends, press *F5* while

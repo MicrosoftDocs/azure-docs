@@ -4,7 +4,7 @@ description: How to take advantage of RDMA-capable or GPU-enabled VM sizes in Az
 services: batch
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 03/01/2018
 ms.author: danlep
 
 
@@ -31,13 +31,11 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Subscription and account limits
 
-* **Quotas** - One or more Azure quotas may limit the number or type of nodes you can add to a Batch pool. You are more likely to be limited when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. Depending on the type of Batch account you created, the quotas could apply to the account itself or to your subscription.
+* **Quotas and limits** - The [cores quota per Batch account](batch-quota-limit.md#resource-quotas) can limit the number of nodes of a given size you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. 
 
-    * If you created your Batch account in the **Batch service** configuration, you are limited by the [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas). By default, this quota is 20 cores. A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. 
+  Additionally, use of certain VM families in your Batch account, such as NCv2, NCv3, and ND, is restricted because of limited capacity. Use of these families is only available by requesting a quota increase from the default of 0 cores.  
 
-    * If you created the account in the **User subscription** configuration, your subscription limits the number of VM cores per region. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). Your subscription also applies a regional quota to certain VM sizes, including HPC and GPU instances. In the user subscription configuration, no additional quotas apply to the Batch account. 
-
-  You might need to increase one or more quotas when using a specialized VM size in Batch. To request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+  If you need to, [request a quota increase](batch-quota-limit.md#increase-a-quota) at no charge.
 
 * **Region availability** - Compute-intensive VMs might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
@@ -51,11 +49,11 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | SUSE Linux Enterprise Server 12 HPC or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
-| [NC series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS.<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 8.0 drivers | N/A | 
-| [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, NCv3, ND series*](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers | N/A | 
+| [NV series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
-*RDMA connectivity on NC24r VMs is supported on CentOS-based 7.3 HPC with Intel MPI.
+*RDMA connectivity on RDMA-capable N-series VMs may require [additional configuration](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) that varies by distribution.
 
 
 
@@ -63,21 +61,21 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
-| [NC series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 or <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit 8.0 drivers| N/A | 
-| [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, NCv3, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit drivers| N/A | 
+| [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
-*RDMA connectivity on NC24r VMs is supported on Windows Server 2012 R2 with HpcVMDrivers extension and Microsoft MPI or Intel MPI.
+*RDMA connectivity on RDMA-capable N-series VMs is supported on Windows Server 2016 or Windows Server 2012 R2 (from Azure Marketplace) with HpcVMDrivers extension and Microsoft MPI or Intel MPI.
 
 ### Windows pools - Cloud services configuration
 
 > [!NOTE]
-> N-series sizes are not supported in Batch pools with the cloud services configuration.
+> N-series sizes are not supported in Batch pools with the Cloud Service configuration.
 >
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, or<br/>Windows Server 2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication,<br/> disable concurrent task execution |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012, or<br/>2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication,<br/> disable concurrent task execution |
 
 
 
@@ -95,13 +93,7 @@ To configure a specialized VM size for your Batch pool, the Batch APIs and tools
 
 * [Application package](batch-application-packages.md) - Add a zipped installation package to your Batch account, and configure a package reference in the pool. This setting uploads and unzips the package on all nodes in the pool. If the package is an installer, create a start task command line to silently install the app on all pool nodes. Optionally, install the package when a task is scheduled to run on a node.
 
-* [Custom pool image](batch-api-basics.md#pool) - Create a custom Windows or Linux VM image that contains drivers, software, or other settings required for the VM size. If you created your Batch account in the user subscription configuration, specify the custom image for your Batch pool. (Custom images are not supported in accounts in the Batch service configuration.) Custom images can only be used with pools in the virtual machine configuration.
-
-  > [!IMPORTANT]
-  > In Batch pools, you can't currently use a custom image created with managed disks or with Premium storage.
-  >
-
-
+* [Custom pool image](batch-custom-images.md) - Create a custom Windows or Linux VM image that contains drivers, software, or other settings required for the VM size. 
 
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) automatically configures the GPU and RDMA to work transparently with containerized workloads on Azure Batch. Batch Shipyard is entirely driven with configuration files. There are many sample recipe configurations available that enable GPU and RDMA workloads such as the [CNTK GPU Recipe](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI)  which preconfigures GPU drivers on N-series VMs and loads Microsoft Cognitive Toolkit software as a Docker image.
 
@@ -127,21 +119,18 @@ To run Windows MPI applications on a pool of Azure A8 nodes, you need to install
 
 ## Example: NVIDIA Tesla drivers on NC VM pool
 
-To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA Toolkit 8.0 on the nodes. The Toolkit installs the necessary NVIDIA Tesla GPU drivers. Here are sample steps to deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
+To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA Toolkit 9.0 on the nodes. The Toolkit installs the necessary NVIDIA Tesla GPU drivers. Here are sample steps to deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
 
-1. Deploy an Azure NC6 VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with standard storage, and *without* managed disks.
-2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Deprovision the Linux agent, and then capture Linux VM image using the Azure CLI 1.0 commands. For steps, see [Capture a Linux virtual machine running on Azure](../virtual-machines/linux/capture-image-nodejs.md). Make a note of the image URI.
-  > [!IMPORTANT]
-  > Do not use Azure CLI 2.0 commands to capture the image for Azure Batch. Currently the CLI 2.0 commands only capture VMs created using managed disks.
-  >
-4. Create a Batch account, with the user subscription configuration, in a region that supports NC VMs.
-5. Using the Batch APIs or Azure portal, create a pool using the custom image and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
+1. Deploy an Azure NC-series VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with a managed disk.
+2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md).
+3. Deprovision the Linux agent, and then [capture the Linux VM image](../virtual-machines/linux/capture-image.md).
+4. Create a Batch account in a region that supports NC VMs.
+5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-custom-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
 
 | Setting | Value |
 | ---- | ---- |
 | **Image Type** | Custom Image |
-| **Custom Image** | Image URI of the form `https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
+| **Custom Image** | Name of the image |
 | **Node agent SKU** | batch.node.ubuntu 16.04 |
 | **Node size** | NC6 Standard |
 

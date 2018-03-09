@@ -3,7 +3,7 @@ title: Introduction to Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher service for monitoring and visualizing network connected resources in Azure
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Azure network monitoring overview
@@ -43,7 +43,7 @@ Network Watcher currently has the following capabilities:
 * **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - Provides the ability to troubleshoot Virtual Network Gateways and Connections.
 * **[Network subscription limits](#network-subscription-limits)** - Enables you to view network resource usage against limits.
 * **[Configuring Diagnostics Log](#diagnostic-logs)** – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
-* **[Connectivity (Preview)](network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint.
+* **[Connection Troubleshoot](network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint enriched with Azure context.
 
 ### Role-based Access Control (RBAC) in Network Watcher
 

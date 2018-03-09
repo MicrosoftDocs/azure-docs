@@ -1,6 +1,6 @@
 ---
 title: Ports beyond 1433 for SQL Database | Microsoft Docs
-description: Client connections from ADO.NET to Azure SQL Database sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important.
+description: Client connections from ADO.NET to Azure SQL Database can bypass the proxy and interact directly with the database using ports other than 1433.
 services: sql-database
 documentationcenter: ''
 author: MightyPen
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 3f17106a-92fd-4aa4-b6a9-1daa29421f64
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: drivers
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -32,7 +32,7 @@ For connections to Azure SQL Database, we must first ask whether your client pro
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 #### *Inside:* Client runs on Azure
-When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
+When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
 
 The sequence is as follows:
 

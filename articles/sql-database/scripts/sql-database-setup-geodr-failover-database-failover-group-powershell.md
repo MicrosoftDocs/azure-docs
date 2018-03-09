@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-geo-replication failover group-single Azure SQL Database | Microsoft Docs
-description: Azure PowerShell example script to set up active geo-replication for a single Azure SQL database 
+description: Azure PowerShell example script to set up active geo-replication failover group for a single Azure SQL database and fail it over.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: business continuity
+ms.custom: business continuity, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -34,8 +34,8 @@ This PowerShell script example configures an active geo-replication failover gro
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## Script explanation
@@ -54,7 +54,9 @@ This script uses the following commands. Each command in the table links to comm
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
 | [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Terminates data replication between a SQL Database and the specified secondary database. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
-|||
+| [New-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/new-azurermsqldatabasefailovergroup) | Creates a new Azure SQL Database Failover Group for the specified servers. |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Swaps the roles of the servers in the Failover Group and switches all secondary databases to the primary role. |
+| [Get-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Gets a specific Azure SQL Database Failover Group or lists the Failover Groups on a server. |
 
 ## Next steps
 

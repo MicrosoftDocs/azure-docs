@@ -13,12 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/19/2017
+ms.date: 10/09/2017
 ms.author: BernardoAMunoz
 ---
 
 # Resource types and health checks in Azure resource health
 Below is a complete list of all the checks executed through resource health by resource types.
+
+## Microsoft.ApiManagement/service
+|Executed Checks|
+|---|
+|<ul><li>Is the Api Management service up and running?</li></ul>|
 
 ## Microsoft.CacheRedis/Redis
 |Executed Checks|
@@ -56,10 +61,16 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Can users upload data to Data Lake Store in the region?</li><li>Can users download data from Data Lake Store in the region?</li></ul>|
 
+## Microsoft.devices/iothubs
+
+|Executed Checks|
+|---|
+|<ul><li>Is the IoT hub up and running?</li></ul>|
+
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|
 |---|
-|<ul><li>Have there been any database or collection requests not served due to a DocumentDB service unavailability?</li><li>Have there been any document requests not served due to a DocumentDB service unavailability?</li></ul>|
+|<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
 
 ## Microsoft.network/connections
 |Executed Checks|
