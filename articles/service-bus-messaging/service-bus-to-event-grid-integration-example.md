@@ -21,7 +21,7 @@ ms.author: chwolf
 
 In this article, you learn how to set up an Azure function and a logic app, which both receive messages based on receiving an event from Event Grid. You'll do the following:
  
-* Create a simple [test Azure function](#test-function-setup) for debugging and viewing the initial flow of events from the Event Grid. **This step should be done regardless of executing 3. or 4.**
+* Create a simple [test Azure function](#test-function-setup) for debugging and viewing the initial flow of events from the Event Grid. Perform this step regardless of whether you perform the others.
 * Create an [Azure function to receive and process Azure Service Bus messages](#receive-messages-using-azure-function) based on Event Grid events.
 * Utilize the [The Logic Apps feature of Azure App Service](#receive-messages-using-azure-logic-app).
 
