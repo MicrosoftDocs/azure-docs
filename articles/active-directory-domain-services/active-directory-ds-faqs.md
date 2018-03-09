@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
 
 ---
@@ -36,7 +36,7 @@ Not currently. Microsoft will deliver a mechanism to migrate your existing manag
 ### Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
 Yes. See how you can enable [Azure AD Domain Services in Azure CSP subscriptions](active-directory-ds-csp.md).
 
-### Can I enable Azure AD Domain Services in a federated Azure AD directory? I use ADFS to authenticate users for access to Office 365 and do not synchronize password hashes to Azure AD. Can I enable Azure AD Domain Services for this directory?
+### Can I enable Azure AD Domain Services in a federated Azure AD directory? I do not synchronize password hashes to Azure AD. Can I enable Azure AD Domain Services for this directory?
 No. Azure AD Domain Services needs access to the password hashes of user accounts, to authenticate users via NTLM or Kerberos. In a federated directory, password hashes are not stored in the Azure AD directory. Therefore, Azure AD Domain Services does not work with such Azure AD directories.
 
 ### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
@@ -50,6 +50,9 @@ Yes. See [how to enable Azure AD Domain Services using PowerShell](active-direct
 
 ### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.
+
+### Can guest users invited to my directory use Azure AD Domain Services?
+No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) invite process are sycned into your Azure AD Domain Services managed domain. However, passwords for these users are not stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to sync NTLM and Kerberos hashes for these users into your managed domain. As a result, such users cannot login to the managed domain or join computers to the managed domain.
 
 ## Administration and Operations
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
@@ -72,6 +75,9 @@ No. The schema is administered by Microsoft for the managed domain. Schema exten
 
 ### Can I modify or add DNS records in my managed domain?
 Yes. Members of the 'AAD DC Administrators' group are granted 'DNS Administrator' privileges, to modify DNS records in the managed domain. They can use the DNS Manager console on a machine running Windows Server joined to the managed domain, to manage DNS. To use the DNS Manager console, install 'DNS Server Tools', which is part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
+
+### What is the password lifetime policy on a managed domain?
+The default password lifetime on an Azure AD Domain Services managed domain is 90 days. This password lifetime is not synchronized with the password lifetime configured in Azure AD. Therefore, you may have a situation where users' passwords expire in your managed domain, but are still valid in Azure AD. In such scenarios, users need to change their password in Azure AD and the new password will synchronize to your managed domain. Additionally, the 'password-does-not-expire' and 'user-must-change-password-at-next-logon' attributes for user accounts are not synchronized to your managed domain.
 
 ## Billing and availability
 ### Is Azure AD Domain Services a paid service?

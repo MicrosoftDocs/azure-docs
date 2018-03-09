@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -287,7 +287,6 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.20.2](#1.20.2) |February 21, 2018 |--- |
 | [1.20.1](#1.20.1) |February 05, 2018 |--- |
 | [1.19.1](#1.19.1) |November 16, 2017 |--- |
 | [1.19.0](#1.19.0) |November 10, 2017 |--- |
