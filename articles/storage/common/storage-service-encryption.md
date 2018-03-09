@@ -17,7 +17,7 @@ Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and sa
 
 SSE is enabled for all new and existing storage accounts and cannot be disabled. Because your data is secured by default, you do not need to modify your code or applications to take advantage of SSE. For more information, see [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 
- SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
+ SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance. 
 
 You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. For more information about using your own keys, see [Storage Service Encryption using customer managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
