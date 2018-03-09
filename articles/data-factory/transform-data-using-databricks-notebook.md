@@ -41,13 +41,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.
 
 2.  Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image1.png)
+    ![Create a new data factory](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image1.png)
 
 3.  In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**.
 
     The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) article.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
+    ![Provide a name for the new data factory](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
 4.  For **Subscription**, select your Azure subscription in which you want to create the data factory.
 
@@ -75,7 +75,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.
 
 6.  After the creation is complete, you see the **Data factory** page. Select the **Author & Monitor** tile to start the Data Factory UI application on a separate tab.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
+    ![Launch the data factory UI application](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
 
 ## Create linked services
 
@@ -85,15 +85,15 @@ In this section, you author a Databricks linked service. This linked service con
 
 1.  On the **Let's get started** page, switch to the **Edit** tab in the left panel.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image5.png)
+    ![Edit the new linked service](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image5.png)
 
 2.  Select **Connections** at the bottom of the window, and then select **+ New**.
     
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
+    ![Create a new con nection](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
 3.  In the **New Linked Service** window, select **Data Store** \> **Azure Databricks**, and then select **Continue**.
     
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
+    ![Specify a Databricks linked service](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
 4.  In the **New Linked Service** window, complete the following steps:
     
@@ -113,7 +113,7 @@ In this section, you author a Databricks linked service. This linked service con
     
     8.  Select **Finish**
 
-        ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image8.png)
+        ![Finish creating the linked service](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image8.png)
 
 ## Create a pipeline
 
@@ -123,13 +123,13 @@ In this section, you author a Databricks linked service. This linked service con
 
 2.  Create a **parameter** to be used in the **Pipeline**. Later you pass this parameter to the Databricks Notebook activity. In the empty pipeline, click on the **Parameters** tab, then **New** and name it as '**name**'.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
+    ![Create a new parameter](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
+    ![Create the name parameter](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
 
 3.  In the **Activities** toolbox, expand **Databricks**. Drag the **Notebook** activity from the **Activities** toolbox to the pipeline designer surface.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image12.png)
+    ![Drag the notebook to the designer surface](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image12.png)
 
 4.  In the properties for the **Databricks** **Notebook** activity window at the bottom, complete the following steps:
 
@@ -139,68 +139,71 @@ In this section, you author a Databricks linked service. This linked service con
 
     c. Select a Databricks **Notebook path**. Let’s create a simple notebook and specify the path here. You get the Notebook Path by following the next few steps.
 
-        1. Launch your Azure Databricks Workspace
+       1. Launch your Azure Databricks Workspace
 
-        2. Create a **New Folder** in Workplace and call it as **adftutorial**
+       2. Create a **New Folder** in Workplace and call it as **adftutorial**.
 
-            ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
+          ![Create a new folder](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-        3. [Create a new Notebook][https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder**,** click **Create.**
+       3. [Create a new Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder**,** click **Create.**
 
-            ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          ![Create a new Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
-            ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          ![Set the properties of the new Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-        4. In the newly created Notebook ‘mynotebook’, add the below code:
+       4. In the newly created Notebook "mynotebook'" add the below code:
 
-            ```
-            # Creating widgets for leveraging parameters, and printing the parameters
+           ```
+           # Creating widgets for leveraging parameters, and printing the parameters
 
-            dbutils.widgets.text("input", "","")
-            dbutils.widgets.get("input")
-            y = getArgument("input")
-            print "Param -\'input':"
-            print y
-            ```
+           dbutils.widgets.text("input", "","")
+           dbutils.widgets.get("input")
+           y = getArgument("input")
+           print "Param -\'input':"
+           print y
+           ```
 
-            ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
+           ![Create widgets for parameters](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
 
-        5. The **Notebook Path** in this case is **/adftutorial/mynotebook**
+       5. The **Notebook Path** in this case is **/adftutorial/mynotebook**
 
 5.  Switch back to the **Data Factory UI authoring tool**. Navigate to **Settings** Tab under the **Notebook1 Activity**. 
     
     a.  **Add Parameter** to the Notebook activity. You use the same parameter that you added earlier to the **Pipeline**.
 
-        ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image17.png)
+       ![Add a parameter](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image17.png)
 
     b.  Name the parameter as **input** and provide the value as expression **@pipeline().parameters.name**.
 
 6.  To validate the pipeline, select the **Validate** button on the toolbar. To close the validation window, select the **\>\>** (right arrow) button.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
+    ![Validate the pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
 7.  Select **Publish All**. The Data Factory UI publishes entities (linked services and pipeline) to the Azure Data Factory service.
 
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
+    ![Publish the new data factory entities](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
 ## Trigger a pipeline run
 
 Select **Trigger** on the toolbar, and then select **Trigger Now**.
 
-![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image20.png)
+![Select the Trigger Now command](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image20.png)
 
 The **Pipeline Run** dialog box asks for the **name** parameter. Use **/path/filename** as the parameter here. Click **Finish.**
 
-![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image21.png)
+![Provide a value for the name parameters](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image21.png)
 
 ## Monitor the pipeline run
 
-1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. It takes approximately 5-8 minutes to create a Databricks job cluster, where the notebook is executed. ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
+1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. It takes approximately 5-8 minutes to create a Databricks job cluster, where the notebook is executed.
+
+    ![Monitor the pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
 2.  Select **Refresh** periodically to check the status of the pipeline run.
 
 3.  To see activity runs associated with the pipeline run, select **View Activity Runs** in the **Actions** column.
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
+
+    ![View the activity runs](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
 
 You can switch back to the pipeline runs view by selecting the **Pipelines** link at the top.
 
@@ -208,11 +211,11 @@ You can switch back to the pipeline runs view by selecting the **Pipelines** l
 
 You can log on to the **Azure Databricks workspace**, go to **Clusters** and you can see the **Job** status as *pending execution, running, or terminated*.
 
-![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
+![View the job cluster and the job](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
 
 You can click on the **Job name** and navigate to see further details. On successful run, you can validate the parameters passed and the output of the Python notebook.
 
-![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image25.png)
+![View the run details and output](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image25.png)
 
 ## Next steps
 
