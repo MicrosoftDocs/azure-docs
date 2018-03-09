@@ -21,7 +21,7 @@ ms.author: anwestg
 
 *Applies to: Azure Stack integrated systems*
 
-With the 1802 update, Azure Stack now supports the distribution of workloads across fault domains, a feature which is critical for high availability.
+With the 1802 update, Azure Stack now supports the distribution of workloads across fault domains, a feature, which is critical for high availability.
 
 > [!IMPORTANT]
 > You must have updated your Azure Stack integrated system to 1802 to be able to take advantage of fault domain support.  This document only applies to App Service Resource Provider deployments that were completed prior to the 1802 update.  If you have deployed App Service on Azure Stack after the 1802 update was applied to Azure Stack, the resource provider is already distributed across fault domains.
@@ -30,7 +30,7 @@ With the 1802 update, Azure Stack now supports the distribution of workloads acr
 
 ## Rebalance an App Service Resource Provider Across Fault Domains
 
-In order to redistribute the scale sets deployed for the App Service RP you must do the following for each scaleset.  By default these are:
+In order to redistribute the scale sets deployed for the App Service RP, you must perform the following steps for each scale set.  By default the scaleset names are:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -41,7 +41,7 @@ In order to redistribute the scale sets deployed for the App Service RP you must
 * LargeWorkerTierScaleSet
 
 > [!NOTE]
-> You may have no instances deployed in some of the worker tier scalesets if that is the case you do not need to rebalance those scalesets.  These will be balanced correctly when you scale them out in future.
+> If you have no instances deployed in some of the worker tier scale sets, you do not need to rebalance those scale sets.  The scale sets will be balanced correctly when you scale them out in future.
 >
 >
 
@@ -49,7 +49,7 @@ In order to redistribute the scale sets deployed for the App Service RP you must
 
     ![Azure App Service Scale Sets listed in Virtual Machine Scale Sets UX][1]
 
-2. Next scale out each set.  For example if you have 3 existing instances in the scale set you must scale out to 6 so that the three new instances will be provisioned across fault domains.
+2. Next scale out each set.  For example, if you have three existing instances in the scale set you must scale out to 6 so that the three new instances will be provisioned across fault domains.
     a. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin.md)
     b. Use this example to scale out the scale set:
         ```powershell
@@ -67,13 +67,13 @@ In order to redistribute the scale sets deployed for the App Service RP you must
 >
 >
 
-3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list
+3. Monitor the status of the new role instances in the App Service Administration Roles blade.  Check the status of an individual role instance by clicking the role type in the list
 
     ![Azure App Service on Azure Stack Roles][2]
 
 4. One new instances are in a **Ready** state, go back to the Virtual Machine Scale Set blade and **delete**  the old instances.
 
-5. Repeat these steps for **each** virtual machine scale set
+5. Repeat these steps for **each** virtual machine scale set.
 
 ## Next steps
 
