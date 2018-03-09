@@ -63,11 +63,6 @@
 
 ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
 
-### Public IP address - availability zone
-#### [Azure portal](create-public-ip-availability-zone-portal.md)
-#### [Azure CLI](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
-
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)
 #### Create a VM with a static public IP address
@@ -151,7 +146,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Manage
-### [Virtual networks](virtual-network-manage-network.md)
+### [Virtual networks](manage-virtual-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
 #### Classic
