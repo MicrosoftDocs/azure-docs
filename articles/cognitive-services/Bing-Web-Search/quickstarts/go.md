@@ -1,20 +1,20 @@
 ---
-title: Call and response - Go Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+title: Go Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
+description: Quickly get started using Go language to query the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: Nhoya
 ms.service: cognitive-services
 ms.technology: bing-search
 ms.topic: article
 ms.date: 03/09/2018
-ms.author: rosh
+ms.author: rosh, nhoyadx@gmail.com, v-gedod
 ---
 
 # Call and response: your first Bing Web Search query in Go
 
-The Bing Web Search API provides an experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
+The Bing Web Search API provides an experience similar to Bing.com/Search by returning search results relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The results are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
-Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) for details about the APIs.
 
 
 ## Prerequisites
@@ -24,7 +24,7 @@ For this tutorial we will only use **core** libraries, so no external dependenci
 
 ## Core Libraries
 
-We will use `http` to send the request to the endpoint, `ioutil` to read the answer and `fmt` to print the output
+Use `http` to send the request to the endpoint, `ioutil`, read the answer, and `fmt` to print the output
 
 ```
 package main
@@ -37,13 +37,13 @@ import (
 ```
 
 ## Define variables
-We need to set the API endpoint and the search term
+Set the API endpoint and the search term.
 
 ```
 //This is the valid endpoint at the time of the writing
 const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
 //API token
-token := "123457890123456890"
+token := "YOUR-ACCESS-KEY"
 searchTerm := "Microsoft Cognitive Services"
 ```
 
@@ -55,13 +55,13 @@ req, err := http.NewRequest("GET", endpoint, nil)
 if err != nil {
     panic(err)
 }
-//Adding the payload to the request
+//Add the payload to the request
 param := req.URL.Query()
 param.Add("q", searchTerm)
 //Encoding the payload
 req.URL.RawQuery = param.Encode()
 
-//Now we need to insert the API token in the request header
+//Insert the API token in the request header
 req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 //create new client
@@ -76,14 +76,14 @@ defer resp.Body.Close()
 ```
 
 ## Printing the answer
-Finally we have the search result inside the `resp` variable, what we need to do in the end is to print the answer body
+The search result is inside the `resp` variable. Print the answer body from the variable.
 
 ```
 body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
     panic(err)
 }
-//While printing the body we need to convert it from byte to string
+//Convert body from byte to string.
 fmt.Println(string(body))
 ```
 
@@ -126,7 +126,7 @@ func main() {
 }
 ```
 
-## See also 
+## Next steps
 
 [Bing Web Search overview](../overview.md)  
 [Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
