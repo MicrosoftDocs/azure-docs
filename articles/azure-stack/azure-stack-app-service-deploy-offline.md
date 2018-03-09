@@ -21,6 +21,11 @@ ms.author: anwestg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
+> [!IMPORTANT]
+> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+>
+>
+
 By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
 
 - not connected to the Internet
