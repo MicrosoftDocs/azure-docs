@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
 ---
 
@@ -34,7 +34,16 @@ No. Seamless SSO is only available in the worldwide instance of Azure AD.
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that you are interested in, let us know in the comments section.
+Listed below is a non-exhaustive list of applications that send these parameters to Azure AD, and therefore provides users a silent sign-on experience using Seamless SSO:
+
+| Application name | Application URL to be used |
+| -- | -- |
+| Access panel | myapps.microsoft.com/contoso.com |
+| Outlook on Web | outlook.office365.com/contoso.com |
+
+In the above table, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
+
+If you have other applications that you are interested in, let us know in the comments section.
 
 ## Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
 

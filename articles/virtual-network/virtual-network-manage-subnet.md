@@ -20,7 +20,7 @@ ms.author: jdial
 ---
 # Add, change, or delete a virtual network subnet
 
-Learn how to add, change, or delete a virtual network subnet. If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](virtual-network-manage-network.md). All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network.
+Learn how to add, change, or delete a virtual network subnet. If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](manage-virtual-network.md). All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network.
  
 ## Before you begin
 

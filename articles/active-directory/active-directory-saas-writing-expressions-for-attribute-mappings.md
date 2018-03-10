@@ -117,7 +117,7 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 - - -
 ### Replace
 **Function:**<br> 
-ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description:**<br>
 Replaces values within a string. It works differently depending on the parameters provided:
@@ -128,13 +128,13 @@ Replaces values within a string. It works differently depending on the parameter
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
-* When **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue** are provided:
+* When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
   * Replaces all values matching oldValueRegexPattern in the source string with replacementValue
-* When **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** are provided:
+* When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
   
-  * If **source** has value, **source** is returned
-  * If **source** has no value, uses **oldValueRegexPattern** and **oldValueRegexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
+  * If **source** has no value, **source** is returned
+  * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
 
 **Parameters:**<br> 
 
