@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: jonbeck7
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: azcspmt;jonbeck;cynthn
+ ms.custom: include file
+---
+
 <!-- F-series, Fs-series* -->
 
 Compute optimized VM sizes have a high CPU-to-memory ratio and are good for medium traffic web servers, network appliances, batch processes, and application servers. This article provides information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping.
