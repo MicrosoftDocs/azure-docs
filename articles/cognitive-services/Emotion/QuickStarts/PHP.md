@@ -3,7 +3,7 @@ title: Emotion API PHP quick start | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Emotion API with PHP in Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion

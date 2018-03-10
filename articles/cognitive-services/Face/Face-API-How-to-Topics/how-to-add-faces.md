@@ -4,7 +4,7 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Use the Face API in Cognitive Services to add faces in images.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face
