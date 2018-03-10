@@ -3,7 +3,7 @@ title: Test and Retrain Your Model | Microsoft Docs
 description: How to quickly test an image and then add it to the model and retrain the model.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom vision service
