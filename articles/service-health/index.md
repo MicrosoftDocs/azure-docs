@@ -15,14 +15,14 @@ ms.author: carolz
 ---
 # Azure Service Health Documentation
 
-Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. Azure Service Health can notify you and your teams and help you understand the impact of issues, while also keeping you updated as the issue is resolved. It can also helps you prepare for planned maintenance and changes that could affect the availability of your resources.
+Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. It can notify you, help you understand the impact of issues, and keep you updated as the issue resolves. It can also help you prepare for planned maintenance and changes that could affect the availability of your resources.
 
 Azure Service Health is composed of:
  1. **Azure status** - A global view of the health of Azure services
  2. **Personalized Service Health** - A personalized view of the health of your Azure services
  3. **Resource Health** - A deeper view of the health of the individual resources provisioned to you by your Azure services
 
-Together, these experiences provide you with a comprehensive view into the health of Azure, at the granulatity which is most relevant to you.
+Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -90,7 +90,7 @@ Together, these experiences provide you with a comprehensive view into the healt
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>View an video introduction on Personalized Service Health</h3>
+                        <h3>View a video introduction on Personalized Service Health</h3>
                     </div>
                 </div>
             </div>
