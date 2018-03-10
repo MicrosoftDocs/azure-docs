@@ -19,6 +19,8 @@ Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitive
 ## Prerequisites
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
+Install the [Go binaries](https://golang.org/dl/).
+ 
 This tutorial uses only **core** libraries, so there are no external dependencies.
 
 ## Core Libraries
@@ -98,7 +100,7 @@ import (
 
 func main() {
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
-    token := "123457890123456890"
+    token := "YOUR-ACCESS-KEY"
     searchTerm := "Microsoft Cognitive Services"
     
     req, err := http.NewRequest("GET", endpoint, nil)
