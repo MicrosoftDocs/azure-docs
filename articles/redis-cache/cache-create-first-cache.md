@@ -21,7 +21,7 @@ ms.author: wesmc
 
 
 
- Microsoft Azure Redis Cache is based on the popular open source [Redis Cache](https://redis.io/). It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure. This guide shows you how to get started with Azure Redis Cache by creating your first cache and testing cache commands in the Redis Console.
+ Microsoft Azure Redis Cache is based on the popular open-source [Redis Cache](https://redis.io/). It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure. This guide shows you how to get started with Azure Redis Cache by creating your first cache and testing cache commands in the Redis Console.
 
 ![Azure Redis Cache Console Commands](media/cache-create-first-cache/cache-console-commands.png)
 
@@ -81,13 +81,13 @@ You can retrieve this information in the Azure portal or by using command-line t
 
 By default, only the SSL port (6380) is enabled. The `redis-cli.exe` command-line tool doesn't support SSL. So you have two configuration choices in order to use it:
 
-1. [Enable the non-SSL port (6379)](cache-configure.md#access-ports) - **This is not recommended**. Because in this configuration, the access keys are sent via TCP in clear text. This can compromise access to your cache. The only scenario where you might consider this is when you are just accessing a test cache.
+1. [Enable the non-SSL port (6379)](cache-configure.md#access-ports) - **This configuration is not recommended** because in this configuration, the access keys are sent via TCP in clear text. This change can compromise access to your cache. The only scenario where you might consider this configuration is when you are just accessing a test cache.
 
 2. Download and install [stunnel](https://www.stunnel.org/downloads.html).
 
     Run **stunnel GUI Start** to start the server.
 
-    Rick click the taskbar icon for the stunnel server and click **Show Log Window**.
+    Right click the taskbar icon for the stunnel server and click **Show Log Window**.
 
     On the stunnel Log Window menu, click **Configuration** > **Edit Configuration** to open the current configuration file.
 
@@ -107,7 +107,7 @@ By default, only the SSL port (6380) is enabled. The `redis-cli.exe` command-lin
 
 ### Connect using the Redis command-line tool.
 
-If you are using stunnel, run the Redis command-line tool, `redis-cli.exe`, passing your port, and access key (primary or secondary) to connect to the cache.
+If you're using stunnel, run the Redis command-line tool, `redis-cli.exe`, and pass your port, and access key (primary or secondary) to connect to the cache.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
@@ -115,7 +115,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![stunnel with redis-cli](media/cache-create-first-cache/cache-redis-cli-stunnel.png)
 
-If you are using the **unsecure**, non-SSL, port just for a test cache, run `redis-cli.exe`, passing your host name, port, and access key (primary or secondary) to connect to the cache.
+If you're using the **unsecure**, non-SSL, port just for a test cache, run `redis-cli.exe` and pass your host name, port, and access key (primary or secondary) as parameters to connect to the cache.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 63790 -a YourAccessKey
