@@ -51,7 +51,8 @@ d. **Buy**
 
 * To start the provisioning, click Buy. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the Size step.
 
-## Template Deployment Steps:
+Once we purchase the Virutal Machine, here are the actual deployment steps performed in the image. 
+
 * Creates a VM with system assigned identity based on the Ubuntu 16.04 LTS image
 * Installs the MSI extension on the VM to allow OAuth tokens to be issued for Azure resources
 * Assign RBAC permissions to the Managed Identity, granting owner rights for the resource group
