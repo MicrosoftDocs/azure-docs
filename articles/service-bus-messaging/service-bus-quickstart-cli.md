@@ -78,7 +78,7 @@ az servicebus namespace create --name <namespace_name> -location eastus
 az servicebus entity create --name <queue_name> -location eastus
 
 # Get the connection string
-az servicebus namespace authorizationrule show --resource-group <my_rg> --namespace-name <namespace_name> --name RootManageSharedAccessKey
+az servicebus namespace authorizationrule keys list --resource-group <my_rg> --namespace-name <namespace-name> --name RootManageSharedAccessKey
 ```
 
 Copy and paste the connection string value to a temporary location, such as Notepad, to use later.
