@@ -148,8 +148,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
                       },
     ```
 
-    The properties should now look like this:
-    
+    The properties should now look like this    
     ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 5. Make Changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "vaultCertificates": , under "OSProfile". it should look something like this.
