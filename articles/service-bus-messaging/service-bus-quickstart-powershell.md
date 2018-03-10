@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: chwolf;sethm
 
 ---
@@ -64,7 +64,7 @@ After the `Get-AzureRmServiceBusKey` cmdlet runs, copy and paste the connection 
 
 After the namespace and queue are created, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient).
 
-To execute the code, do the following:
+To run the code, do the following:
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
 2. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
@@ -74,9 +74,9 @@ To execute the code, do the following:
    ```azurepowershell
    Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
    ```
-5.	In **Program.cs**, replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained previously.
+5.	In **Program.cs**, replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained in the previous step.
 6.	Replace the value of `QueueName` with the name of the queue you created.
-7.	Build and run the program, and observe 10 messages being sent to the queue, and received in parallel from the queue.
+7.	Build and run the program, and observe 10 messages being sent to the queue, and subsequently received from the queue.
 
 ## Clean up deployment
 
