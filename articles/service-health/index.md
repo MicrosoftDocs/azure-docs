@@ -1,7 +1,7 @@
 ---
-title: Azure Resource health - Tutorials | Microsoft Docs
-description: Azure Service Health provides personalized guidance and support when issues in Azure services affect you, and helps you prepare for upcoming planned maintenance. Azure Service Health alerts you and your teams via targeted and flexible notifications.	
-services: Resource health
+title: Azure Service Health | Microsoft Docs
+description: Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you.
+services: Azure Service Health
 author: czeumault
 manager: carolz
 layout: LandingPage
@@ -15,8 +15,34 @@ ms.author: carolz
 ---
 # Azure Service Health Documentation
 
-Azure Service Health provides personalized guidance and support when issues in Azure services affect you, and helps you prepare for upcoming planned maintenance. Azure Service Health alerts you and your teams via targeted and flexible notifications.
+Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. Azure Service Health can notify you and your teams and help you understand the impact of issues, while also keeping you updated as the issue is resolved. It can also helps you prepare for planned maintenance and changes that could affect the availability of your resources.
+
+Azure Service Health is composed of:
+ 1. **Azure status** - A global view of the health of Azure services
+ 2. **Personalized Service Health** - A personalized view of the health of your Azure services
+ 3. **Resource Health** - A deeper view of the health of the individual resources provisioned to you by your Azure services
+
+Together, these experiences provide you with a comprehensive view into the health of Azure, at the granulatity which is most relevant to you.
+
 <ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/service-health/service-health-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn more about Azure status</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/service-health/service-health-overview">
         <div class="cardSize">
@@ -28,7 +54,7 @@ Azure Service Health provides personalized guidance and support when issues in A
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Service Health</h3>
+                        <h3>Learn more about Personalized Service Health</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +62,7 @@ Azure Service Health provides personalized guidance and support when issues in A
         </a>
     </li>
     <li>
-        <a href="/azure/service-health/resource-health-checks-resource-types">
+        <a href="/azure/service-health/resource-health-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,7 +72,7 @@ Azure Service Health provides personalized guidance and support when issues in A
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about resource types and health checks in Resource Health</h3>
+                        <h3>Learn more about Resource Health</h3>
                     </div>
                 </div>
             </div>
@@ -64,7 +90,7 @@ Azure Service Health provides personalized guidance and support when issues in A
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>View an video introduction on Service Health</h3>
+                        <h3>View an video introduction on Personalized Service Health</h3>
                     </div>
                 </div>
             </div>
