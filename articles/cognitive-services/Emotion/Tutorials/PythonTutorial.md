@@ -3,7 +3,7 @@ title: Emotion API Python tutorial | Microsoft Docs
 description: Use a Jupyter notebook to learn how to use the Cognitive Services Emotion API with Python. Visualize your results by using popular libraries. 
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion
