@@ -134,8 +134,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
     
     ![Json_Pub_Setting2][Json_Pub_Setting2]
     
-    If you want to **roll over the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step. 
-    
+    If you want to **roll over the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step.     
 
     ```json
                    "certificate": {
@@ -148,7 +147,8 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
                         }
                       },
     ```
-    The properties should now look like this
+
+    The properties should now look like this:
     
     ![Json_Pub_Setting3][Json_Pub_Setting3]
 
