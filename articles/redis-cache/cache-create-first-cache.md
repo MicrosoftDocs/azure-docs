@@ -68,6 +68,8 @@ The following example the cache was tested with these commands:
 
 ## Testing the cache with the Redis command-line tool
 
+`redis-cli.exe` is a popular command-line tool for interacting with a Redis Cache. This tool is also available for use with Azure Redis Cache.
+
 Download the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). If you want to run the command-line tool on another platform, download the package from [http://redis.io/download](https://redis.io/download).
 
 To connect to an Azure Redis Cache instance, cache clients, including the Redis command-line tool, require the following information: *host name*, *port*, and *access key* (primary or secondary) for the cache. Some clients may refer to these items by slightly different names. 
@@ -107,7 +109,7 @@ By default, only the SSL port (6380) is enabled. The `redis-cli.exe` command-lin
 
 ### Connect using the Redis command-line tool.
 
-If you're using stunnel, run the Redis command-line tool, `redis-cli.exe`, and pass your port, and access key (primary or secondary) to connect to the cache.
+If you're using stunnel, run the Redis command-line tool, `redis-cli.exe`, and pass your *port*, and *access key* (primary or secondary) to connect to the cache.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
@@ -115,10 +117,10 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![stunnel with redis-cli](media/cache-create-first-cache/cache-redis-cli-stunnel.png)
 
-If you're using the **unsecure**, non-SSL, port just for a test cache, run `redis-cli.exe` and pass your host name, port, and access key (primary or secondary) as parameters to connect to the cache.
+If you're using the **unsecure**, non-SSL port, to interact with a test cache, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the cache.
 
 ```
-redis-cli.exe -h yourcachename.redis.cache.windows.net -p 63790 -a YourAccessKey
+redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ```
 
 ![stunnel with redis-cli](media/cache-create-first-cache/cache-redis-cli-non-ssl.png)
@@ -140,8 +142,6 @@ Now that you created and tested an Azure Redis Cache, follow these links to inte
   Create a simple Java app that uses an Azure Redis Cache.
 * [Python Quickstart](cache-python-get-started.md)  
   Create a Python app that uses an Azure Redis Cache.
-
-
 * Check out the ASP.NET providers for Azure Redis Cache.
   * [Azure Redis Session State Provider](cache-aspnet-session-state-provider.md)
   * [Azure Redis Cache ASP.NET Output Cache Provider](cache-aspnet-output-cache-provider.md)

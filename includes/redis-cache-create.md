@@ -40,7 +40,7 @@ In **New Redis Cache**, specify the desired configuration for the cache.
 * By default, non-SSL access is disabled for new caches. To enable the non-SSL port, check **Unblock port 6379 (not SSL encrypted)**.
 * Click **Pin to dashboard** to pin the new cache to your dashboard making it easy to find.
 
-Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with [default settings](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the dashboard. After the cache has been created, your new cache has a **Running** status and is ready for use with [default settings](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
 ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 
