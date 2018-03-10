@@ -1,6 +1,14 @@
- 
-
-
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: cynthn
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: cynthn;davberg
+ ms.custom: include file
+--- 
 
 We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
 
