@@ -236,7 +236,7 @@ Obtain the public IP address of your load balancer with [az network public-ip sh
 
 You can then enter the public IP address in to a web browser. Remember - it takes a few minutes for the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
-![Running Node.js app](./media/load-balancer-standard-zonal-cli/running-nodejs-app.png)
+![Running Node.js app](./media/load-balancer-standard-public-zonal-cli/running-nodejs-app.png)
 
 To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
 
