@@ -166,7 +166,7 @@ The following table lists some of the most common HTTP response status codes for
 |:--|--|--|
 |400|Authoring, Endpoint|request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
 |400|Authoring, Endpoint|request's body is incorrect meaning the JSON is missing, malformed, or too large|
-|401|Authoring|used endpoint subscription key, instead of key|
+|401|Authoring|used endpoint subscription key, instead of authoring key|
 |401|Authoring, Endpoint|invalid, malformed, or empty key|
 |401|Authoring, Endpoint| key doesn't match region|
 |401|Authoring|you are not the owner or collaborator|
