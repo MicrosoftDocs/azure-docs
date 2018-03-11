@@ -49,7 +49,7 @@ Serial Console for Virtual Machines is only accessible via [Azure portal](https:
 ## Serial Console  Security 
 
 ### Access Security 
-Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles#virtual-machine-contributor) or above access to the Virtual Machine. If your AAD tenant requires Multi-Factor Authentication then access to serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
+Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) or above access to the Virtual Machine. If your AAD tenant requires Multi-Factor Authentication then access to serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel Security
 All data is sent back and forth is encrypted on the wire.
