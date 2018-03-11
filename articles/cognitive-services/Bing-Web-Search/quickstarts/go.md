@@ -25,7 +25,7 @@ This tutorial uses only **core** libraries, so there are no external dependencie
 
 ## Core Libraries
 
-Use `http` to send the request to the endpoint, `ioutil`, read the answer, `time` and `json` to handle the json and `fmt` to print the output
+Use `http` to send the request to the endpoint, `ioutil` to read the answer, `time` and `json` to handle the json and `fmt` to print the output
 
 ```
 package main
@@ -53,7 +53,7 @@ searchTerm := "Microsoft Cognitive Services"
 ## Building and sending the request
 
 ```
-//We declare a new GET request
+//Declare a new GET request
 req, err := http.NewRequest("GET", endpoint, nil)
 if err != nil {
     panic(err)
