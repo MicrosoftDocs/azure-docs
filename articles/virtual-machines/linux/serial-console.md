@@ -32,7 +32,7 @@ Currently this service is in **preview** and access to serial console for virtua
 ### Requirements for Accessing Serial Console 
 
 1. Virtual Machine that requires Serial Console MUST have [boot diagnostics](boot-diagnostics.md) enabled 
-2. User Accessing Serial console MUST have [Contributor role](..\..\active-directory\role-based-access-built-in-roles.md) for Virtual Machine and its [boot diagnostics](boot-diagnostics.md) storage account. 
+2. User Accessing Serial console MUST have [Contributor role](../../active-directory/role-based-access-built-in-roles.md) for Virtual Machine and its [boot diagnostics](boot-diagnostics.md) storage account. 
 
 
 ## Accessing Serial Console
@@ -50,7 +50,7 @@ Serial Console for Virtual Machines is only accessible via [Azure portal](https:
 ## Serial Console  Security 
 
 ### Access Security 
-Access to Serial console is limited to users who have [VM Contributors](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles#virtual-machine-contributor) or above access to the Virtual Machine. If your AAD tenant requires Multi-Factor Authentication then access to serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
+Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles#virtual-machine-contributor) or above access to the Virtual Machine. If your AAD tenant requires Multi-Factor Authentication then access to serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel Security
 All data is sent back and forth is encrypted on the wire.
@@ -58,12 +58,14 @@ All data is sent back and forth is encrypted on the wire.
 ### Audit logs
 All access to serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure Virtual Machine administrator.  
 
->[!CAUTION] While no access passwords for the console are logged, if commands run within the console contain or output passwords, secrets, user names or any other form of Personally Identifiable Information (PII), those will be written to the Virtual Machine boot diagnostics logs, along with all other visible text, as part of the implementation of the serial console's scrollback functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them, however we recommend following the best practice of using the SSH console for anything that may involve secrets and/or PII. 
+>[!CAUTION] 
+While no access passwords for the console are logged, if commands run within the console contain or output passwords, secrets, user names or any other form of Personally Identifiable Information (PII), those will be written to the Virtual Machine boot diagnostics logs, along with all other visible text, as part of the implementation of the serial console's scrollback functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them, however we recommend following the best practice of using the SSH console for anything that may involve secrets and/or PII. 
 
 ### Concurrent usage
 If a user is connected to Serial Console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected in a manner akin to the first user standing up and leaving the physical console and a new user sitting down.
 
->[!CAUTION] This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap.For Windows there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. 
+>[!CAUTION] 
+This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap.For Windows there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. 
 
 ### Disable feature
 The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
@@ -87,11 +89,11 @@ RedHat Images available on Azure have serial console enabled by default. Single 
 1. Log in to the Red Hat system via SSH
 2. Enable password for root user 
  * `passwd root` (set a strong root password)
-3. Ensure root user can only login via ttyS0
+3. Ensure root user can only log in via ttyS0
  * `edit /etc/ssh/sshd_config` and ensure PermitRootLog in is set to no
  * `edit /etc/securetty file` to only allow log in via ttyS0 
 
-Now if the system boots into single user mode you can login via root password.
+Now if the system boots into single user mode you can log in via root password.
 
 Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB prompts, see instructions [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
 
@@ -99,7 +101,7 @@ Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB 
 Ubuntu images available on Azure have serial console enabled by default. If the system boots into Single User Mode you can access without additional credentials. 
 
 ### Access for CoreOS
-CoreOS images available on Azure have serial console enabled by default. If necessary system can be booted into Single User Mode via changing GRUB parameters and adding coreos.autologin=ttyS0 would enable core user to login and available in Serial Console. 
+CoreOS images available on Azure have serial console enabled by default. If necessary system can be booted into Single User Mode via changing GRUB parameters and adding coreos.autologin=ttyS0 would enable core user to log in and available in Serial Console. 
 
 ### Access for SUSE
 SLES images available on Azure have serial console enabled by default. If you are using older versions of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. Newer Images of SLES 12 SP3+ also allows access via serial console in case the system boots into emergency mode.
@@ -121,8 +123,8 @@ Most errors are transient in nature and retrying connection address these. Below
 Error                            |   Mitigation 
 ---------------------------------|:--------------------------------------------:|
 Unable to retrieve boot diagnostics settings for ''. To use serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md)) enabled. 
-The VM is in a stopped deallocated state.Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access serial console
-You do not have the required permissions to use this VM serial console.Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access.See [access requirements](#requirements-for-accessing-serial-console) for details
+The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access serial console
+You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#requirements-for-accessing-serial-console) for details
 Unable to determine the resource group for the boot diagnostics storage account ''. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access.See [access requirements](#requirements-for-accessing-serial-console) for details
 
 ## Known Issues 
@@ -131,7 +133,7 @@ As we are still in the preview stages for Serial Console access, we are working 
 Issue                           |   Mitigation 
 ---------------------------------|--------------------------------------------|
 There is no option with virtual machine scale set instance Serial Console |  At the time of preview,access to serial console for virtual machine scale set instances is not supported.
-Hitting enter after the connection banner does not show a login prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 
 
 ## Availability 
