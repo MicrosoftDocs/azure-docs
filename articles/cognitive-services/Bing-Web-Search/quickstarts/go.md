@@ -25,7 +25,7 @@ This tutorial uses only **core** libraries, so there are no external dependencie
 
 ## Core Libraries
 
-Use `http` to send the request to the endpoint, `ioutil`, read the answer, and `fmt` to print the output
+Use `http` to send the request to the endpoint, `ioutil`, read the answer, `time` and `json` to handle the json and `fmt` to print the output
 
 ```
 package main
@@ -34,6 +34,8 @@ import (
     "fmt"
     "net/http"
     "io/iutil"
+    "time"
+    "encoding/json"
 )
 ```
 
@@ -96,7 +98,64 @@ import (
     "fmt"
     "net/http"
     "io/ioutil"
+    "time"
+    "encoding/json
 )
+
+//The struct that will contain the answer
+type BingAnswer struct {
+        Type         string `json:"_type"`
+        QueryContext struct {
+                OriginalQuery string `json:"originalQuery"`
+        } `json:"queryContext"`
+        WebPages struct {
+                WebSearchURL          string `json:"webSearchUrl"`
+                TotalEstimatedMatches int    `json:"totalEstimatedMatches"`
+                Value                 []struct {
+                        ID               string    `json:"id"`
+                        Name             string    `json:"name"`
+                        URL              string    `json:"url"`
+                        IsFamilyFriendly bool      `json:"isFamilyFriendly"`
+                        DisplayURL       string    `json:"displayUrl"`
+                        Snippet          string    `json:"snippet"`
+                        DateLastCrawled  time.Time `json:"dateLastCrawled"`
+                        SearchTags       []struct {
+                                Name    string `json:"name"`
+                                Content string `json:"content"`
+                        } `json:"searchTags,omitempty"`
+                        About []struct {
+                                Name string `json:"name"`
+                        } `json:"about,omitempty"`
+                } `json:"value"`
+        } `json:"webPages"`
+        RelatedSearches struct {
+                ID    string `json:"id"`
+                Value []struct {
+                        Text         string `json:"text"`
+                        DisplayText  string `json:"displayText"`
+                        WebSearchURL string `json:"webSearchUrl"`
+                } `json:"value"`
+        } `json:"relatedSearches"`
+        RankingResponse struct {
+                Mainline struct {
+                        Items []struct {
+                                AnswerType  string `json:"answerType"`
+                                ResultIndex int    `json:"resultIndex"`
+                                Value       struct {
+                                        ID string `json:"id"`
+                                } `json:"value"`
+                        } `json:"items"`
+                } `json:"mainline"`
+                Sidebar struct {
+                        Items []struct {
+                                AnswerType string `json:"answerType"`
+                                Value      struct {
+                                        ID string `json:"id"`
+                                } `json:"value"`
+                        } `json:"items"`
+                } `json:"sidebar"`
+        } `json:"rankingResponse"`
+}
 
 func main() {
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
@@ -124,7 +183,18 @@ func main() {
     if err != nil {
         panic(err)
     }
-    fmt.Println(string(body))
+    //creating a new answer struct
+    ans := new(BingAnswer)
+    err = json.Unmarshal(body, &ans)
+    if err != nil {
+         fmt.Println(err)
+    }
+    //Iterate over search results
+    for _, result := range ans.WebPages.Value {
+         //Printing result name and URL
+         fmt.Println(result.Name, "||", result.URL)
+    }
+
 }
 ```
 
