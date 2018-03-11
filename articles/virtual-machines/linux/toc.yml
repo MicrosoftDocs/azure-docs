@@ -458,6 +458,8 @@
       href: understand-vm-reboot.md
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Serial console 
+      href: serial-console.md
     - name: Access to applications
       href: troubleshoot-app-connection.md
     - name: Allocation failures
