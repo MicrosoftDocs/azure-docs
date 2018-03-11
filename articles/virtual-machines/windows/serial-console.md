@@ -44,7 +44,7 @@ Serial Console for Virtual Machines is only accessible via [Azure portal](https:
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 > [!NOTE] 
-> Note that serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to serial console. To, create a local user with password follow [VM Access Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
+> Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to serial console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
 
 ## Serial Console  Security 
 
@@ -94,7 +94,7 @@ If [SAC] (https://technet.microsoft.com/en-us/library/cc787940(v=ws.10).aspx) is
 
 ### Enabling boot menu to show in serial console 
 
-If you need to enable Windows boot loader prompts to show in serial console you can add the following additional options to bcd.
+If you need to enable Windows boot loader prompts to show in serial console you can add the following additional options to Windows boot loader.
 
 1. Connect to your Windows virtual machine via Remote Desktop
 2. From an Administrative command prompt run the following commands 

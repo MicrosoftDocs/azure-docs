@@ -45,7 +45,7 @@ Serial Console for Virtual Machines is only accessible via [Azure portal](https:
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 > [!NOTE] 
-> Note that serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to serial console. To, create a local user with password follow [VM Access Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
+> Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to serial console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
 
 ## Serial Console  Security 
 
@@ -132,7 +132,7 @@ As we are still in the preview stages for Serial Console access, we are working 
 
 Issue                           |   Mitigation 
 ---------------------------------|--------------------------------------------|
-There is no option with virtual machine scale set instance Serial Console |  At the time of preview,access to serial console for virtual machine scale set instances is not supported.
+There is no option with virtual machine scale set instance Serial Console |  At the time of preview, access to serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 
 
