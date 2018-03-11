@@ -99,7 +99,7 @@ import (
     "net/http"
     "io/ioutil"
     "time"
-    "encoding/json
+    "encoding/json"
 )
 
 //The struct that will contain the answer
