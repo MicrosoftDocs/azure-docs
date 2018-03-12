@@ -1,3 +1,16 @@
+---
+description: include file
+author: tomarcher
+manager: rloutlaw
+ms.service: multiple
+ms.workload: web
+ms.devlang: na
+ms.topic: include
+ms.date: 03/12/2018
+ms.author: tarcher
+ms.custom: Jenkins
+---
+
 1. In your browser, open the [Azure Marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
 1. Select **GET IT NOW**.
