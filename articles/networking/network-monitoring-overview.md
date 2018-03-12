@@ -80,6 +80,18 @@ For more information, see the following articles:
 * [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
 * [Blog post](https://aka.ms/svcendptmonitor)
 
+## Traffic Analytics
+Traffic Analytics is a cloud based solution that provides  visibility into user and application activity on your cloud networks. NSG Flow logs are analyzed to provide insights into:
+* Sources and destinations of traffic across VNETs
+* Top talkers, chatty applications, VM conversations in the cloud
+* Traffic flows across your networks between Azure and Internet,  public cloud regions, VNETs and subnets
+* Applications and protocols on your network, without the need for sniffers or dedicated flow collector appliances
+* Security – malicious traffic, ports open to the Internet,  applications or VMs attempting Internet access…
+
+Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
+
+* [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-faq)
+
 ## Next steps
 
 * [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)

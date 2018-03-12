@@ -24,7 +24,7 @@ Example intent   |   Example utterances   |
  CheckWeather | What's the weather like in Boston? <br/> Show me the forecast for this weekend |
  None         | Get me a cookie recipe |
 
-All applications come with the predefined intent, **"[None](#none-intent)"**. 
+All applications come with the predefined intent, **"[None](#none-intent-is-fallback-for-app)"**. 
 
 ## Prebuilt domains provide intents
 In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. See [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
