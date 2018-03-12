@@ -110,9 +110,9 @@ Load Balancer Standard uses all candidates for outbound flows at the same time w
 
 ```json    
       "loadBalancingRules": [
-      {
-      "disableOutboundSnat": boolean
-      }
+        {
+          "disableOutboundSnat": false
+        }
       ]
 ```
 
