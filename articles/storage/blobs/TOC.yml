@@ -336,9 +336,9 @@
   - name: Java
     items:
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/client
     - name: Resource Manager
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/managementapi
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/management
   - name: Node.js
     href: http://azure.github.io/azure-storage-node
   - name: Ruby
