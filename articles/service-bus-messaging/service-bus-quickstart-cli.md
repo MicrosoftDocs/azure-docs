@@ -45,6 +45,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Once CLI is installed, open Cloud Shell and issue the following commands to log in to Azure: 
 
+1. First, install the Service Bus CLI extension, if you haven't already:
 
    ```azurecli-interactive
    az extension add --name servicebus
