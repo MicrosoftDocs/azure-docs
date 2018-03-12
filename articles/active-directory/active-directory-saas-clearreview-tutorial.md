@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/12/2018
 ms.author: jeedes
 
 ---
@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-8. On the **Clear Review Configuration** section, click **Configure Clear Review** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Clear Review Configuration** section, click **Configure Clear Review** to open **Configure sign-on** window. Copy the **Sign-Out URL ,SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Clear Review Configuration](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
