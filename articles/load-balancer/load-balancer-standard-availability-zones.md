@@ -187,10 +187,10 @@ Avoid introducing new failure modes due to unintended cross-zone dependencies.  
 
 - If your application has two components like an IP address and a VM with managed disk, and they are guaranteed to be zone-redundant and zone 1 respectively, your end-to-end service will survive zone failure of zone 2, zone 3, or both unless zone 1 has failed.  However, you lose some ability to reason about the health of your service if all you are observing is the reachability of the frontend.  Consider developing a more extensive health and capacity model.  You may be able to use zone-redundant and zonal concepts together to expand insight and manageability. 
 
-- If your application has two components like a zone-redundant Load Balancer frontend and a cross-zone virtual machine scale set in three zones, your end-to-end service will be degraded in terms of capacity, but you may be able to survive one or more zone failures from an infrastructure perspective.  Do you understand how your application reasons about such failures and degraded capacity?  Do you need to have safe guards in your service to force fail over to a region pair? How will you monitor, detect, and mitigate such a scenario?   You may be able to use [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md) to augment monitoring of your end-to-end service performance.
+- If your application has two components like a zone-redundant Load Balancer frontend and a cross-zone virtual machine scale set in three zones, your end-to-end service will be degraded in terms of capacity, but you may be able to survive one or more zone failures from an infrastructure perspective. Do you understand how your application reasons about such failures and degraded capacity?  Do you need to have safe guards in your service to force fail over to a region pair? How will you monitor, detect, and mitigate such a scenario? You may be able to use Standard Load Balancer diagnostics to augment monitoring of your end-to-end service performance.
 
-- Zones can make failures more easily understood and contained.  However, zone failure is no different than other failures when it comes to concepts like timeouts, retries, and backoff algorithms. Even though Azure Load Balancer provides zone-redundant paths and tries to recover quickly, at a packet level in real time, retransmissions may occur during the onset of a failure and it's important to understand how your application copes with failures. Your load balancing scheme may survive, but also you need to determine the following:
--  When a zone fails, does your end-to-end service understand this and if state is lost, how will you recover?
+- Zones can make failures more easily understood and contained.  However, zone failure is no different than other failures when it comes to concepts like timeouts, retries, and backoff algorithms. Even though Azure Load Balancer provides zone-redundant paths and tries to recover quickly, at a packet level in real time, retransmissions may occur during the onset of a failure and it's important to understand how your application copes with failures. Your load balancing scheme may survive, but also you need to plan for the following:
+-  When a zone fails, does your end-to-end service understand this and if the state is lost, how will you recover?
 -  When a zone returns, does your application understand how to converge safely?
 
 ### Zone-redundant versus zonal
@@ -208,3 +208,4 @@ There is no general guidance that one is better than the other without knowing t
 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
+- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
