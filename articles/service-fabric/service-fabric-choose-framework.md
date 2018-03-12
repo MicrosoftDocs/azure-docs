@@ -26,7 +26,7 @@ A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbi
 Get started with guest executables by deploying your first [guest executable application](service-fabric-deploy-existing-app.md).
 
 ## Containers
-By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Service Fabric supports deployment of Linux containers and Windows containers on Windows Server 2016. Container images can be pulled from any container repository and deployed to the machine. You can deploy existing applications as guest exectuables, Service Fabric stateless or stateful Reliable services or Reliable Actors in containers, and you can mix services in processes and services in containers in the same application.
+By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Service Fabric supports deployment of Linux containers and Windows containers on Windows Server 2016. Container images can be pulled from any container repository and deployed to the machine. You can deploy existing applications as guest executables, Service Fabric stateless or stateful Reliable services or Reliable Actors in containers, and you can mix services in processes and services in containers in the same application.
 
 [Learn more about containerizing your services in Windows or Linux](service-fabric-deploy-container.md)
 
