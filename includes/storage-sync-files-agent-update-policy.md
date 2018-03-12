@@ -1,31 +1,25 @@
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend you configure Microsoft Update to get updates for the Azure File Sync agent as they're available.
 
 ### Major vs. minor agent versions
-* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: *2.&ast;.&ast;*
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: *&ast;.3.&ast;*
-
-> [!Important]
-> If you use domain-specific firewall rules, check the [Azure File Sync Firewall and Proxy document](../articles/storage/files/storage-sync-files-firewall-and-proxy.md) for each new agent release to ensure your firewall rules allow communication to the currently required set of domains.
+* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: *2.\*.\**
+* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: *\*.3.\**
 
 ### Upgrade paths
-* [The latest Azure File Sync agent installer](https://go.microsoft.com/fwlink/?linkid=858257) (&ast;.msi) can be downloaded from the Microsoft Download Center. <br />It is possible to use the &ast;.msi file to upgrade an existing install. For that, the existing agent must be uninstalled before the latest version can then be installed. All settings as well as the server registration will be maintained for a seamless experience.
-* Existing installs of an agent can also be patched with either minor or major version updates. <br />These Microsoft Update patches (&ast;.msp) can be downloaded by [searching the Microsoft Update Catalog for Azure File Sync](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).
+There are three approved and tested ways to install the Azure File Sync agent updates. These update paths work for both major and minor versions.
+1. (Preferred) Configure Microsoft Update to automatically download and install agent updates. 
+    We always recommend taking every Azure File Sync update to ensure you have access to the latest fixes for the server agent. Microsoft Update makes this process seamless, by automatically downloading and installing updates for you.
+2. Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync)
+    Running an .msp exectuable will upgrade your Azure File Sync installation with the same method used automatically by Microsoft Update in the previous upgrade path. Applying a Microsoft Update patch will perform an in-place upgrade of an Azure File Sync installation.
+3. Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). The installer download is a Microsoft Installer package, or a .msi executable. 
+    To upgrade an existing Azure File Sync agent installation, uninstalled the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
 
-### Agent support guarantees
-A specific Azure File Sync agent version is supported for a limited time. The service keeps rolling forward and so must the agents installed on servers to take advantage of the latest features as well as staying compatible with the service.
+### Agent lifecyle and change management guarantees
+Azure File Sync is a cloud service, which enables us to continuously introduce new features and functionality. This means that a specific Azure File Sync agent version can only be supported for a limited time. To facilitate your deployment, we have put in place the following rules to guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:
 
-The following rules guarantee enough time and notifications to accommodate agent updates/upgrades in any change management process:
-
-> 1. Any major agent version has guaranteed supported for at least six months from the date of release.
-> 2. Support between major agent versions will overlap for at least three months.
-> 3. Any agent version will receive a warning at least three months prior to its expiration. Find it in the Azure portal -> YourStorageSyncService -> Registered servers section.
+- Major agent versions are supported for at least six months from the date of initial release.
+- We guarantee there is an overlap of at least three months between the support of major agent versions. 
+- Warnings are issued for registered servers using a soon-to-be expired agent at least three months prior to expiration. You can check if a registered server is using an older version of the agent under the registered servers section of a Storage Sync Service.
+- The lifetime of a minor agent version is bound to the associated major version. For example, when we release agent version 3.0, agent version 2.0 and 2.1 will be expired together.
 
 > [!Note]
-> The lifetime of a minor agent version is bound to the associated major version. <br />
-Installing an agent version with an expiration warning will display a warning but succeed. Attempting to install or connect with an expired agent version is not supported and will be blocked.
-- After the initial release of a new major version, the Storage Sync Service honors the previous major version for three months. For example, the Storage Sync Service supports version 1.\* for three months after the release of version 2.\*.
-- After three months have elapsed, the Storage Sync Service blocks Registered Servers with the expired version from syncing with their sync groups.
-- During the three months that the previous major version is honored, all bug fixes go only to the current (new) major version.
-
-> [!Note]  
-> If your version of Azure File Sync expires within three months, you're notified via toast notification in the Azure portal.
+> Installing an agent version with an expiration warning will display a warning but succeed. Attempting to install or connect with an expired agent version is not supported and will be blocked.
