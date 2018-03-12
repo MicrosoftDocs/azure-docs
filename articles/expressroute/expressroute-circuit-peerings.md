@@ -57,7 +57,7 @@ Connectivity is always initiated from your WAN to Microsoft Azure services. Micr
 
 You can define custom route filters within your network to consume only the routes you need. Refer to the [Routing](expressroute-routing.md) page for detailed information on routing configuration. 
 
-See the [FAQ page](expressroute-faqs.md) for more information on services supported through the public peering routing domain. 
+For more information about services supported through the public peering routing domain, see the [FAQ](expressroute-faqs.md).
 
 ### Microsoft peering
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
