@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. The Azure Write Accelerator is not available with any other VM-Series in Azure, except the M-Series. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium Storage. 
 
 >[!NOTE]
-> At this point the Azure Write Accelerator is in public preview and requires white-listing of your Azure subscription ID
+> At this point, the Azure Write Accelerator is in public preview and requires white-listing of your Azure subscription ID
 
 The Azure Write Accelerator functionality is available as public preview in:
 
@@ -32,7 +32,7 @@ The Azure Write Accelerator functionality is available as public preview in:
 - Western Europe
 
 ## Planning for using Azure Write
-Azure Write Accelerator should be used for the volumes which contain the transaction log or redo logs of a DBMS. It is not recommended to use Azure Write Accelerator for the data volumes of a DBMS. Reason to this restriction is that Azure Write Accelerator requires the Azure Premium Storage VHDs to be mounted without the additional read caching that is available for Premium Storage. We see larger advantages with this type of caching with traditional databases. Since Write Accelerator is only affecting the write activities and does not speed up reads, the supported design is to use Write Accelerator against the transaction log drives only for databases. This includes SAP HANA as well.
+Azure Write Accelerator should be used for the volumes, which contain the transaction log or redo logs of a DBMS. It is not recommended to use Azure Write Accelerator for the data volumes of a DBMS. Reason to this restriction is that Azure Write Accelerator requires the Azure Premium Storage VHDs to be mounted without the additional read caching that is available for Premium Storage. Larger advantages with this type of caching can be observed with traditional databases. Since Write Accelerator is only affecting the write activities and does not speed up reads, the supported design is to use Write Accelerator against the transaction log drives only for databases. This includes SAP HANA as well.
 
 Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Hence, you need to plan accordingly. 
 
@@ -41,32 +41,38 @@ As the functionality of Azure Write Accelerator is still in public preview, no p
 ## Enabling Write Accelerator on a specific disk
 The next few sections will describe how Azure Write Accelerator can be enabled on Azure Premium Storage VHDs.
 
-At this point in time, enabling Write Accelerator through Azure Rest API and Power Shell are the only methods. Other methods up to support in Azure Portal will follow in the course of the next few weeks.
+At this point in time, enabling Write Accelerator through Azure Rest API and Power Shell are the only methods. Other methods up to support in Azure portal will follow in the course of the next few weeks.
 
 ### Prerequisites
 The following prerequisites apply to the usage of Azure Write Accelerator at this point in time:
 
-- You subscription ID that was used to deploy VM and storage for the VM needs to be white-listed. Contact your Microsoft CSA, GBB or Account Manager to get your subscription ID white-listed. 
+- Your subscription ID that was used to deploy VM and storage for the VM needs to be white-listed. Contact your Microsoft CSA, GBB, or Account Manager to get your subscription ID white-listed. 
 - The disks you want to apply Azure Write Accelerator against need to be [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
 
 ### Enabling through Power Shell
-In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed and extended to accept a parameter for Write Accelerator.
+In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed, and extended to accept a parameter for Write Accelerator.
 
-A new switch parameter, "WriteAccelerator" got added to the following cmdlets. Not giving the parameter sets the property to false and will deploy disks that have no support by Azure Write Accelerator:
+A new switch parameter, "WriteAccelerator" got added to the following cmdlets: 
 
 - Set-AzureRmVMOsDisk
 - Add-AzureRmVMDataDisk
 - Set-AzureRmVMDataDisk
 - Add-AzureRmVmssDataDisk
 
-A new switch parameter, "OsDiskWriteAccelerator" was added to the following cmdlets. Not giving the sets the property to false and will deliver disks that do not leverage Azure Write Accelerator:
+Not giving the parameter sets the property to false and will deploy disks that have no support by Azure Write Accelerator.
+
+A new switch parameter, "OsDiskWriteAccelerator" was added to the following cmdlets: 
 
 - Set-AzureRmVmssStorageProfile
 
-A new optional Boolean (non-nullable) parameter, "OsDiskWriteAccelerator" got added to the following cmdlets. You need to specify ither $true or $false to control support of Azure Write Accelerator with the disks:
+Not giving the sets the property to false and will deliver disks that do not leverage Azure Write Accelerator.
+
+A new optional Boolean (non-nullable) parameter, "OsDiskWriteAccelerator" got added to the following cmdlets: 
 
 - Update-AzureRmVM
 - Update-AzureRmVmss
+
+Specify either $true or $false to control support of Azure Write Accelerator with the disks.
 
 Examples of commands could look like:
 
@@ -87,7 +93,7 @@ In order to deploy through Azure Rest API, you need to install the Azure armclie
 
 #### Install armclient
 
-To run armclient you need to install it through Chocolatey. You can install it through cmd.exe or powershell. Use elevated rights for these commands (“Run as Administrator”).
+To run armclient, you need to install it through Chocolatey. You can install it through cmd.exe or powershell. Use elevated rights for these commands (“Run as Administrator”).
 
 Using cmd.exe run the following command:
 
@@ -108,12 +114,12 @@ choco install armclient
 ```
 
 #### Getting your current VM configuration
-In order to change the attributes of your disk configuration, you first need to get the current configuration in a JSON file. You can get this by executing the following command:
+In order to change the attributes of your disk configuration, you first need to get the current configuration in a JSON file. You can get the current configuration by executing the following command:
 
 ```
 armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>
 ```
-You need to replace the terms within '<<   >>' with your data, including the file name the JSON file should have.
+Replace the terms within '<<   >>' with your data, including the file name the JSON file should have.
 
 The output could look like:
 
@@ -221,7 +227,7 @@ armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>
 
 ```
 
-The output should look like this and you can see that there is Write Accelerator enabled for one disk.
+The output should look like the one below. You can see that there is Write Accelerator enabled for one disk.
 
 ```
 {
@@ -304,6 +310,6 @@ The output should look like this and you can see that there is Write Accelerator
 
 ```
 
-From the point of the change on, the dirve should be supported by Write Accelerator.
+From the point of the change on, the drive should be supported by Write Accelerator.
 
  
