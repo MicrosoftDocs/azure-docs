@@ -54,6 +54,31 @@ The ASDK differs from multi-node Azure Stack deployments in a few ways.
 
 - **Patch and update process**. ASDK deployments do not have a patch and update process like production, multi-node Azure Stack deployments. To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer. Perform proper backup of development workloads and infrastructure-as-code artifacts
 
+## Learn about available services
+You need to know which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve over time.
+
+### Foundational services
+By default, Azure Stack includes the following "foundational services" when you deploy the ASDK:
+- Compute
+- Storage
+- Networking
+- Key Vault
+
+With these foundational services, you can offer Infrastructure-as-a-Service (IaaS) to your users with minimal configuration.
+
+### Additional services
+Currently, the following additional Platform-as-a-Service (PaaS) services are supported:
+- App Service
+- Azure Functions
+- SQL and MySQL databases
+
+> [!NOTE]
+> These services require additional configuration before you can make them available to your users and are not available by default when you install the ASDK.
+
+## Service roadmap
+Azure Stack will continue to add support for additional Azure services. To learn about what's coming next with Azure Stack, see the [Azure Stack roadmap](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
+
+
 ## Next steps
 
 [Deploy the ASDK](asdk-deploy-qs.md)

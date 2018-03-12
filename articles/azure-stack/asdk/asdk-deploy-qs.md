@@ -52,7 +52,7 @@ Before you can install the ASDK on the host computer, the environment must be pr
 After preparing the development kit host computer, the ASDK can be deployed into the CloudBuilder.vhdx image. The ASDK can be deployed using a graphical user interface (GUI) provided by downloading and running the asdk-installer.ps1 PowerShell script or completely from [the command line](asdk-deploy-powershell-qs.md). 
 
 > [!NOTE]
-> Optionally, after the host computer has booted into the CloudBuilder.vhdx, you can configure [Azure Stack telemetry settings](asdk-telemetry.md) *before* installing the ASDK.
+> Optionally, after the host computer has booted into the CloudBuilder.vhdx, you can configure [Azure Stack telemetry settings](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *before* installing the ASDK.
 
 
 **[Install the Azure Stack Development Kit (ASDK)](asdk-install.md)**
@@ -65,7 +65,7 @@ After deployments that use Azure AD, you must activate both the Azure Stack admi
 You should also reset the password expiration policy to make sure that the password for the development kit host doesn't expire before your evaluation period ends.
 
 > [!NOTE]
-> Optionally, you can also configure [Azure Stack telemetry settings](asdk-telemetry.md) *after* installing the ASDK.
+> Optionally, you can also configure [Azure Stack telemetry settings](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *after* installing the ASDK.
 
 **[Post-ASDK deployment tasks](asdk-post-deploy.md)**
 

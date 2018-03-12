@@ -65,7 +65,7 @@ To configure the ASDK host computer to boot from CloudBuilder.vhdx:
 After the development kit host computer successfully boots into the CloudBuilder.vhdx image, log in with the same local administrator credentials you used to log into the development kit host computer (and that you provided as part of finalizing Windows Server Setup when the host computer booted from VHD). 
 
 > [!NOTE]
-> Optionally, you can also configure [Azure Stack telemetry settings](asdk-telemetry.md) *before* installing the ASDK.
+> Optionally, you can also configure [Azure Stack telemetry settings](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *before* installing the ASDK.
 
 Open an elevated PowerShell console and run the commands in this section to deploy the ASDK on the development kit host.
 
@@ -153,7 +153,7 @@ After installing the ASDK, there are a few recommended post-installation checks 
 You should also reset the password expiration policy to make sure that the password for the development kit host doesn't expire before your evaluation period ends.
 
 > [!NOTE]
-> Optionally, you can also configure [Azure Stack telemetry settings](asdk-telemetry.md) *after* installing the ASDK.
+> Optionally, you can also configure [Azure Stack telemetry settings](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *after* installing the ASDK.
 
 **[Post ASDK deployment tasks](asdk-post-deploy.md)**
 
