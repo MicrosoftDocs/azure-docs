@@ -2,8 +2,8 @@
 title: Emotion API C# quick start | Microsoft Docs
 description: Get information and a code sample to help you quickly get started by using the Emotion API with C# in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion

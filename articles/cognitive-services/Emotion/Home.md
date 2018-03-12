@@ -2,8 +2,8 @@
 title: Emotion API overview | Microsoft Docs
 description: Use the Microsoft cutting-edge, cloud-based emotion recognition algorithm to build more personalized apps, with the Emotion API in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion

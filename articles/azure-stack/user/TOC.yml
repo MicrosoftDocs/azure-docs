@@ -48,7 +48,7 @@
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
       - name: Protect VMs
-        href: azure-stack-manage-vm-backup.md
+        href: azure-stack-manage-vm-protect.md
     - name: Storage
       items:
       - name: Overview
@@ -119,12 +119,14 @@
         href: azure-stack-deploy-template-powershell.md
       - name: Deploy with Visual Studio
         href: azure-stack-deploy-template-visual-studio.md
+  - name: Enable a Cloud Service Provider
+    href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
   - name: Azure Stack CLI
-    href: /cli/azure/?view=azure-cli-2017-03-09-profile
+    href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Related
   items:
   - name: Azure Stack Operator Documentation

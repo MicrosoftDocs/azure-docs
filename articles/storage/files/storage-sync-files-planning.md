@@ -46,7 +46,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, `F:\sync1` and `F:\sync2`). You can configure cloud tiering policies individually for each server endpoint. Currently, it is not possible to create a server endpoint for the root of a volume (for example `F:\` or `C:\myvolume`, if a volume is mounted as a mount point).
 
 > [!Note]  
-> A server endpoint may be located on the Windows system volume. Cloud tiering is not supported on the system volume.
+> Only non-removable volumes are supported.  Drives mapped from a remote share are not supported for a server endpoint path.  In addition, a server endpoint may be located on the Windows system volume though cloud tiering is not supported on the system volume.
 
 If you add a server location that has an existing set of files as a server endpoint to a sync group, those files are merged with any other files that are already on other endpoints in the sync group.
 
