@@ -45,7 +45,7 @@ Pick the troubleshooting steps that correspond to or alert ID or message you enc
 
 *The Azure AD directory associated with your managed domain may have been deleted. The managed domain is no longer in a supported configuration. Microsoft cannot monitor, manage, patch, and synchronize your managed domain.*
 
-**Remediation:**
+**Resolution:**
 
 This error is usually caused by incorrectly moving your Azure subscription to a new Azure AD directory and deleting the old Azure AD directory that is still associated with Azure AD Domain Services.
 
@@ -56,7 +56,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 *Azure AD Domain Services cannot be enabled in an Azure AD B2C Directory.*
 
-**Remediation:**
+**Resolution:**
 
 >[!NOTE]
 >In order to continue to use Azure AD Domain Services, you must recreate your Azure AD Domain Services instance in a non-Azure AD B2C directory.
@@ -73,7 +73,7 @@ To restore your service, follow these steps:
 
 *The IP address range for the virtual network in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.*
 
-**Remediation:**
+**Resolution:**
 
 > [!NOTE]
 > To address this issue, you must delete your existing managed domain and re-create it in a virtual network with a private IP address range. This process is disruptive.
@@ -104,7 +104,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 *The managed domain was last synchronized with Azure AD on {0}. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD.*
 
-**Remediation:**
+**Resolution:**
 
 [Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
 
@@ -115,7 +115,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 *The managed domain was last backed up on XX.*
 
-**Remediation:**
+**Resolution:**
 
 [Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
 
@@ -126,7 +126,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 *The managed domain is suspended because the Azure subscription associated with the domain is not active.*
 
-**Remediation:**
+**Resolution:**
 
 To restore your service, [renew your Azure subscription](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associated with your managed domain.
 
@@ -136,7 +136,7 @@ To restore your service, [renew your Azure subscription](https://docs.microsoft.
 
 *The managed domain is suspended due to an invalid configuration. The service has been unable to manage, patch, or update the domain controllers for your managed domain for a long time.*
 
-**Remediation:**
+**Resolution:**
 
 [Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. If you can resolve any of these alerts, do so. After, contact support to re-enable your subscription.
 

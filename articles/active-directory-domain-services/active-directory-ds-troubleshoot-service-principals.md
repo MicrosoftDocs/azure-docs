@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/12/2018
 ms.author: ergreenl
 
 ---
@@ -45,7 +45,7 @@ Use the following steps to determine which service principals need to be recreat
 ## Recreate a missing Service Principal with PowerShell
 Follow these steps if a service principal with the ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` is missing from your Azure AD directory.
 
-**Remediation:**
+**Resolution:**
 You need Azure AD PowerShell to complete these steps. For information on installing Azure AD PowerShell, see [this article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 To address this issue, type the following commands in a PowerShell window:
@@ -74,7 +74,7 @@ To address this issue, type the following commands in a PowerShell window:
 ## Re-register to the Microsoft AAD namespace using the Azure portal
 Follow these steps if a service principal with the ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` or ```abba844e-bc0e-44b0-947a-dc74e5d09022``` is missing from your Azure AD directory.
 
-**Remediation:**
+**Resolution:**
 Use the following steps to restore Domain Services on your directory:
 
 1. Navigate to the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
@@ -87,7 +87,7 @@ Use the following steps to restore Domain Services on your directory:
 ## Service Principals that self correct
 Follow these steps if a service principal with the ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` is missing from your Azure AD directory.
 
-**Remediation:**
+**Resolution:**
 Azure AD Domain Services can detect when this specific service principal is missing, misconfigured, or deleted. The service automatically recreates this service principal. However, you will need to delete the application and object that worked with the deleted application, as when the certification rolls over, the application and object will no longer be able to be modified by the new service principal. This will lead to a new error on your domain. Follow the steps outlined in the section to prevent this problem. After, check your managed domain's health after two hours to ensure that the new service principal has been recreated.
 
 
@@ -96,7 +96,7 @@ Azure AD Domain Services can detect when this specific service principal is miss
 **Alert message:** The service principal used for password synchronization was deleted, and Microsoft was able to recreate it. However, the password synchronization applications that were authorized with the deleted service principal became outdated when the synchronization certificate expired. The new service principal is unable to update the old applications.
 
 
-**Remediation:**
+**Resolution:**
 You need Azure AD PowerShell to complete these steps. For information on installing Azure AD PowerShell, see [this article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 To address this issue, type the following commands in a PowerShell window:
