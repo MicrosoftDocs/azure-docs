@@ -22,16 +22,16 @@ ms.reviewer: brenduns
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This article describes the improvements and fixes in Azure App Service on Azure Stack Update 1, known issues for this release, and where to download the update. Known issues are divided into issues directly related to the update process and issues with the build (post-installation).
+These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 1 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build     (post-installation).
 
 > [!IMPORTANT]
 > Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
 >
 >
 
-## Build reference    
-The App Service on Azure Stack Update 1 build number is **69.0.13698.9**
+## Build reference
 
+The App Service on Azure Stack Update 1 build number is **69.0.13698.9**
 
 ### Prerequisites
 
@@ -40,15 +40,15 @@ The App Service on Azure Stack Update 1 build number is **69.0.13698.9**
 >
 >
 
-Please refer to the [Before You Get Started documentation](azure-stack-app-service-before-you-get-started.md) before beginning deployment.
-
+Refer to the [Before You Get Started documentation](azure-stack-app-service-before-you-get-started.md) before beginning deployment.
 
 ### New features and fixes
-This update includes the following improvements and fixes for Azure App Service on Azure Stack Update 1
 
-- **High Availability of Azure App Service** - The Azure Stack 1802 update enabled workloads to be deployed across fault domains.  This therefore enables the App Service infrastructure to be fault tolerant when deployed across fault domains.  By default all new deployments of Azure App Service will have this capability however for deployments completed prior to Azure Stack 1802 update being applied please refer to the [App Service Fault Domain documentation](azure-stack-app-service-fault-domain-update.md)
+Azure App Service on Azure Stack Update 1 includes the following improvements and fixes:
 
-- **Deploy in existing virtual network** - Customers can now deploy App Service on Azure Stack within an existing virtual network.  This enables customers to connect to the SQL Server and File Server, required for Azure App Service, over private ports.  This is an option during installation, customers [must create subnets for use by App Service](azure-stack-app-service-before-you-get-started.md#virtual-network).
+- **High Availability of Azure App Service** - The Azure Stack 1802 update enabled workloads to be deployed across fault domains.  Therefore App Service infrastructure is able to be fault tolerant as it will be deployed across fault domains.  By default all new deployments of Azure App Service will have this capability however for deployments completed prior to Azure Stack 1802 update being applied refer to the [App Service Fault Domain documentation](azure-stack-app-service-fault-domain-update.md)
+
+- **Deploy in existing virtual network** - Customers can now deploy App Service on Azure Stack within an existing virtual network.  Deploying in an existing virtual network enables customers to connect to the SQL Server and File Server, required for Azure App Service, over private ports.  During deployment customers can select to deploy in an existing virtual network, however [must create subnets for use by App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) prior to deployment.
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**.  Consistent with Azure Stack Portal SDK version.
 
@@ -73,12 +73,12 @@ This update includes the following improvements and fixes for Azure App Service 
         - 5.3.0
         - 5.4.2
         - 5.5.1
-    - Added **PHP** Updates: 
+    - Added **PHP** Updates:
         - 5.6.32
         - 7.0.26 (x86 and x64)
         - 7.1.12 (x86 and x64)
     - Updated **Git for Windows** to v 2.14.1
-    - Updated **Mercurial** to v4.5.0   
+    - Updated **Mercurial** to v4.5.0
 
   - Added support for **HTTPS Only** feature within Custom Domain feature in the App Service Tenant Portal. 
 
@@ -86,27 +86,33 @@ This update includes the following improvements and fixes for Azure App Service 
 
 #### Fixes
 
-* When creating offline package customers will no longer receive an access denied error message when opening the folder from the App Service installer
+- When creating an offline deployment package, customers will no longer receive an access denied error message when opening the folder from the App Service installer
 
-* Resolved issues when working in the Custom Domains feature in the App Service Tenant Portal.
+- Resolved issues when working in the Custom Domains feature in the App Service Tenant Portal.
 
-* Prevent customers using reserved administrator names during setup
+- Prevent customers using reserved administrator names during setup
 
-* Enabled App Service deployment with **domain joined** file server
+- Enabled App Service deployment with **domain joined** file server
 
-* Improved retrieval of Azure Stack root certificate in script and now validate the root cert in the App Service installer.
+- Improved retrieval of Azure Stack root certificate in script and now validate the root cert in the App Service installer.
 
-* Fixed incorrect status being returned to Azure Resource Manager when a subscription is deleted that contained resources in the Microsoft.Web namespace.
+- Fixed incorrect status being returned to Azure Resource Manager when a subscription is deleted that contained resources in the Microsoft.Web namespace.
 
-### Known issues with the update process    
-* There are no known issues for the installation of Azure App Service on Azure Stack Update 1.
+### Known issues with the deployment process
 
+- There are no known issues for the deployment of Azure App Service on Azure Stack Update 1.
+
+### Known issues with the update process
+
+- There are no known issues for the update of Azure App Service on Azure Stack Update 1.
 
 ### Known issues (post-installation)
 
-** Known issues for Cloud Admins operating Azure App Service on Azure Stack.
+- There are no known issues for the installation of Azure App Service on Azure Stack Update 1.
 
-Please refer to the documentation in the [Azure Stack 1802 Release Notes](azure-stack-update-1802.md)
+### Known issues for Cloud Admins operating Azure App Service on Azure Stack
+
+Refer to the documentation in the [Azure Stack 1802 Release Notes](azure-stack-update-1802.md)
 
 ## See also
 
