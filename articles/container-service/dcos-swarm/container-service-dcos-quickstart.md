@@ -22,7 +22,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Log in to Azure 
 
-Log in to your Azure subscription with the [az login](/cli/azure/#az_login) command and follow the on-screen directions.
+Log in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions.
 
 ```azurecli
 az login
