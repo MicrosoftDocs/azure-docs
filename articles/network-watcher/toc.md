@@ -1,4 +1,4 @@
-# [Azure Network Watchers Documentation](index.md)
+# [Azure Network Watcher Documentation](index.md)
 
 # Overview
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
