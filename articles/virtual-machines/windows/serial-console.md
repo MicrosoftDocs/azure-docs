@@ -134,5 +134,5 @@ The current preview is available in global Azure regions. At this point serial c
 * This is a preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
 ## Next Steps
-Learn more about [Linux serial console][../linux/serial-console.md]
+Learn more about [Linux serial console](../linux/serial-console.md)
 Learn more about [bootdiagnostics](boot-diagnostics.md)
