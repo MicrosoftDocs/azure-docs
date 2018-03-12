@@ -39,7 +39,7 @@ The Custom Script Extension downloads and executes scripts on Azure VMs. This ex
 
 The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine Scale Set REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
 
-To see the Custom Script Extension in action, lets create a scale set that installs the IIS web server and outputs the hostname of the scale set VM instance. The Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
+To see the Custom Script Extension in action, create a scale set that installs the IIS web server and outputs the hostname of the scale set VM instance. The Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
 
 ## Create a scale set

@@ -39,7 +39,7 @@ The Custom Script Extension downloads and executes scripts on Azure VMs. This ex
 
 The Custom Script extension integrates with Azure Resource Manager templates, and can also be used with the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine Scale Set REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
-To see the Custom Script Extension in action, lets create a scale set that installs the Nginx web server and outputs the hostname of the scale set VM instance. The following Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
+To see the Custom Script Extension in action, create a scale set that installs the Nginx web server and outputs the hostname of the scale set VM instance. The following Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
 
 ## Create Custom Script Extension definition
@@ -73,7 +73,7 @@ For a complete example of an Azure template that deploys a scale set and the Cus
 
 
 ## Create a scale set
-Lets use the sample template to create a scale set and apply the Custom Script Extension. First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Let's use the sample template to create a scale set and apply the Custom Script Extension. First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus

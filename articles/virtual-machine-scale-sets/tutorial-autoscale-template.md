@@ -138,7 +138,7 @@ The following example defines a rule to scale in the number of VM instances by o
 
 
 ## Create an autoscaling scale set
-Lets use the sample template to create a scale set and apply autoscale rules. You can [review the complete template](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json), or [see the *Microsoft.insights/autoscalesettings* resource provider section](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) of the template.
+Let's use the sample template to create a scale set and apply autoscale rules. You can [review the complete template](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json), or [see the *Microsoft.insights/autoscalesettings* resource provider section](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) of the template.
 
 First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
@@ -158,7 +158,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Generate CPU load on scale set
-To test the autoscale rules, lets generate some CPU load on the VM instances in the scale set. This simulated CPU causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
+To test the autoscale rules, generate some CPU load on the VM instances in the scale set. This simulated CPU causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
 
 First, list the address and ports to connect to VM instances in a scale set with [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
 

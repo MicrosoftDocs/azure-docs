@@ -227,7 +227,7 @@ az monitor autoscale-settings create \
 
 
 ## Generate CPU load on scale set
-To test the autoscale rules, lets generate some CPU load on the VM instances in the scale set. This simulated CPU causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
+To test the autoscale rules, generate some CPU load on the VM instances in the scale set. This simulated CPU causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
 
 First, list the address and ports to connect to VM instances in a scale set with [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
 
