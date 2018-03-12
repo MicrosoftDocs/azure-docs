@@ -205,5 +205,4 @@ There is no general guidance that one is better than the other without knowing t
 - Standard Load Balancer Diagnostics do not provide Availability Zones as a dimension in Azure Monitor.
 
 ## Next steps
-- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
