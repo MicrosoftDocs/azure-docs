@@ -53,7 +53,7 @@ sections:
         - href: /azure/cosmos-db/create-sql-api-nodejs
         - href: /azure/cosmos-db/create-sql-api-python
         - href:
-        - href: /azure/cosmos-db/create-sql-api-xamarin
+        - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
       - title: MongoDB API
         values:
           - href: /azure/cosmos-db/create-mongodb-java
