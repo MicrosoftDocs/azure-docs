@@ -140,7 +140,7 @@ To create an Azure Event Grid subscription, do the following:
 
 5. Send a message to your Service Bus topic, as mentioned in the "Prerequisites" section, and then verify that events are flowing via the Azure Functions Monitoring feature.
 
-The next step is to tie together the function and the Service Bus namespace. For this example, use the Azure portal. To understand how to use PowerShell or Azure CLI to to perform this step, see [Azure Service Bus to Azure Event Grid integration overview](service-bus-to-event-grid-integration-concept.md).
+The next step is to tie together the function and the Service Bus namespace. For this example, use the Azure portal. To understand how to use PowerShell or Azure CLI to perform this step, see [Azure Service Bus to Azure Event Grid integration overview](service-bus-to-event-grid-integration-concept.md).
 
     ![9][]
 
