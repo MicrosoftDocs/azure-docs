@@ -225,7 +225,7 @@ This form of authentication requires an Azure application be created with the ne
 
     ![Add API access](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.	In **Select an API**, type **Azure Analysis Services** into the search box, and then select it.
+5.	In **Select an API**, type **Azure Analysis Services** into the search box, and then select itgit .
 
     ![Select API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -239,7 +239,7 @@ This form of authentication requires an Azure application be created with the ne
 
 #### Service principal
 
-See [Create service principle - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [Add a service principle to the server administrator role](analysis-services-addservprinc-admins.md) for how to set up a service principal and assign the necessary permissions in Azure Analysis Services. Once you've completed the steps, complete the following additional steps:
+See [Create service principle - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [Add a service principle to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
 
 1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID.
 2.	Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
