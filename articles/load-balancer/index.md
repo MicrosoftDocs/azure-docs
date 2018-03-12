@@ -14,7 +14,7 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-#Load Balancer Documentation
+# Load Balancer Documentation
 
 Learn how to configure Load Balancer to deliver high availability and network performance to your applications. Documentation shows you how to load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 

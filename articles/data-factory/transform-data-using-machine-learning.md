@@ -72,7 +72,7 @@ Azure Machine Learning support both Classic Web Services and New Web Services fo
 
 ![Azure Machine Learning Web Services](./media/transform-data-using-machine-learning/web-services.png)
 
-##Azure Machine Learning Batch Execution activity
+## Azure Machine Learning Batch Execution activity
 
 The following JSON snippet defines an Azure Machine Learning Batch Execution activity. The activity definition has a reference to the Azure Machine Learning linked service you created earlier. 
 

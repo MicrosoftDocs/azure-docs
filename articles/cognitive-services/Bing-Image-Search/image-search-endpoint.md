@@ -13,7 +13,7 @@ ms.author: v-gedod
 
 # Image Search endpoints
 The **Image Search API**  includes three endpoints.  Endpoint 1 returns images from the Web based on a query. Endpoint 2 returns [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3 returns trending images.
-##Endpoints
+## Endpoints
 To get image results using the Bing API, send a request to one of the following endpoints. Use the headers and URL parameters to define further specifications.
 
 **Endpoint 1:** Returns images that are relevant to the user's search query defined by `?q=""`.
@@ -38,10 +38,10 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 For a list of markets that support trending images, see [Trending Images](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
 
 For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) reference.
-##Response JSON
+## Response JSON
 The response to an image search request includes results as JSON objects. For examples of parsing the results see the [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) and [source code](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 
-##Next steps
+## Next steps
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.

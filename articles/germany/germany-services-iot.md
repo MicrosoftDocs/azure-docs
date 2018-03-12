@@ -18,7 +18,7 @@ ms.author: ralfwi
 ---
 # Azure Germany IoT services
 
-##IoT Suite
+## IoT Suite
 All the required services for Azure IoT Suite are available in Azure Germany. 
 
 ### Variations

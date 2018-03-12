@@ -309,7 +309,7 @@ There are multiple options for single tenant applications:
 - Develop a per customer 'Test Drive'
 - Build a multi-tenant sample demo app with SSO
 
-##Publishing processes by product for Office, Dynamics, and Power BI
+## Publishing processes by product for Office, Dynamics, and Power BI
 For AppSource apps that extend Office, Dynamics, and Power BI, you can learn more about the specific requirements in the product specific documentation in this section. 
 
 

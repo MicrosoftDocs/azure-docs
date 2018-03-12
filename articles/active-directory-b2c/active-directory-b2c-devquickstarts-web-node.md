@@ -398,7 +398,7 @@ Run `node app.js` and navigate to `http://localhost:3000`
 
 Sign up or sign in to the app by using email or Facebook. Sign out and sign back in as a different user.
 
-##Next steps
+## Next steps
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). You can also clone it from GitHub:
 

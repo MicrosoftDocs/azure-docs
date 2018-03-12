@@ -92,5 +92,5 @@ To change the authentication type, remove the incompatible authentication type a
 
 For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
-#Next steps
+## Next steps
 - [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)

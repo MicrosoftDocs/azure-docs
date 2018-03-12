@@ -142,7 +142,7 @@ foreach ($solution in $Solutions) {
     Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
-#List enabled solutions
+# List enabled solutions
 (Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches

@@ -108,7 +108,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -126,7 +126,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.

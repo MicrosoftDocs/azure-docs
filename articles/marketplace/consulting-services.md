@@ -18,14 +18,14 @@ ms.author: ellacroi
 
 ---
 
-#Azure Marketplace Consulting Services
+# Azure Marketplace Consulting Services
 With the goal of connecting customers with services to support and extend their use of Microsoft Azure, Azure Marketplace supports the listing of consulting services offerings from System Integrator (SI) partners of Microsoft. 
 
 These consulting services offerings are customer-specific engagements, fixed in scope and duration, can be fixed price or free, and have a defined outcome. Potential customers can easily request to be contacted by partners in a friction-free manner. Partners receive a notification in their CRM system and aim to respond to users within 48hrs.
 
 Service Offers  based on Microsoft Dynamics 365, Microsoft Office 365, and Microsoft Power BI are eligible to be listed on AppSource. Review detailed [guidelines for these services here](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
-##Eligible services and partners
+## Eligible services and partners
 
 Partners are also required to have a silver or gold competency in the relevant area for their service. See below for eligible Competencies:
 
@@ -47,7 +47,7 @@ Except for Briefings, consulting services may be offered in-person (i.e., onsite
 
 Read more about [competencies through Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
 
-##Countries supported
+## Countries supported
 
 SI partners can submit consulting services offerings for the following 18 countries. 
 
@@ -63,7 +63,7 @@ SI partners can submit consulting services offerings for the following 18 countr
 
 The launch for Azure Marketplace Consulting Services will go live first for Australia, Canada, the United Kingdom, and the United States. The catalogs for other countries will go live once a meaningful number and compelling selection of services offerings have been submitted by partners and approved by Microsoft.
 
-##Prepare your publishing artifacts
+## Prepare your publishing artifacts
 Even before you nominate your service, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
 
 
@@ -86,7 +86,7 @@ Even before you nominate your service, you can start collecting and preparing th
 |Marketing Documents (Maximum 3)     |
 
 
-##Publishing process
+## Publishing process
 Listing your consulting service offer on Azure Marketplace involves the following:
 
 1. **Request:** Send in your request [here](https://azuremarketplace.microsoft.com/en-us/sell/nominate)  and tell us more about your organization. 
