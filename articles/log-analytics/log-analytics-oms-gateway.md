@@ -26,7 +26,7 @@ The OMS Gateway supports:
 * Linux computers with the OMS Agent for Linux directly connected to a Log Analytics workspace  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, Operations Manager 2016, and Operations Manager version 1801 management group integrated with Log Analytics  
 
-If your IT security policies do not allow certain computers on your network to connect to the Internet (such as point-of-sale devices or servers that support IT services) but you need to connect them to Azure Automation or Log Analytics to manage and monitor them, they can be configured to communicate directly with the OMS Gateway.
+If your IT security policies don't allow certain computers on your network to connect to the Internet (such as point-of-sale devices or servers that support IT services) but you need to connect them to Azure Automation or Log Analytics to manage and monitor them, they can be configured to communicate directly with the OMS Gateway.
 
  If these computers are configured with the OMS agent to directly connect to a Log Analytics workspace, all computers instead communicate with the OMS Gateway. The gateway transfers data from the agents to the service directly. It doesn't analyze any of the data while it's in transit.
 
@@ -127,7 +127,7 @@ To install a gateway, take the following steps. If you installed the previous ve
 
    a. Type the TCP port number to be used for the gateway. Setup configures an inbound rule with this port number on Windows firewall. The default value is 8080.The valid range of the port number is 1 - 65535. If the input does not fall into this range, an error message appears.
 
-   b. Optionally, if the server where the gateway is installed needs to communicate through a proxy, type the proxy to which the gateway needs to connect. An example would be `http://myorgname.corp.contoso.com:80`, as shown in the screenshot below. If you leave this field blank, the gateway tries to connect to the Internet directly.  If your proxy server requires authentication, enter a user name and password.
+   b. Optionally, if the server where the gateway is installed needs to communicate through a proxy, type the proxy to which the gateway needs to connect. An example would be `http://myorgname.corp.contoso.com:80`, as shown in the following screenshot. If you leave this field blank, the gateway tries to connect to the Internet directly.  If your proxy server requires authentication, enter a user name and password.
    
     ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)
 
@@ -232,7 +232,7 @@ For large or complex environments, you might only want specific servers (or grou
 7. In the **Override Properties** dialog box, click to place a check mark in the **Override** column next to the **WebProxyAddress** parameter.  In the **Override Value** field, enter the URL of the OMS Gateway server, ensuring that it starts with the `http://` prefix.  
 
     >[!NOTE]
-    > You do not need to enable the rule. It's already managed automatically with an override that's contained in the Microsoft System Center Advisor Secure Reference Override management pack that targets the Microsoft System Center Advisor Monitoring Server Group.
+    > You don't need to enable the rule. It's already managed automatically with an override that's contained in the Microsoft System Center Advisor Secure Reference Override management pack that targets the Microsoft System Center Advisor Monitoring Server Group.
     >   
 
 8. Either select a management pack from the **Select destination management pack** list, or create a new unsealed management pack by selecting **New**. 
@@ -303,7 +303,7 @@ If you on-board your computer to Azure Automation by using the Hybrid Runbook Wo
     `Restart-Service OMSGatewayService`
 
 ## Useful PowerShell cmdlets
-Cmdlets can help you complete tasks that are necessary for updating the configuration settings of the the OMS Gateway. Before you use them, be sure to take the following steps:
+Cmdlets can help you complete tasks that are necessary for updating the configuration settings of the OMS Gateway. Before you use them, be sure to take the following steps:
 
 1. Install the OMS Gateway (MSI).
 2. Open a PowerShell console window.
