@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: bwren
 
 ---
@@ -306,17 +306,24 @@ The stack of line chart displays three separate line charts, with multiple serie
 ## Common settings
 The following sections describe settings that are common to several visualization parts.
 
-### <a name="name-value-separator"></a>Name and value separator
+### Name and value separator
 The name and value separator is the single-character delimiter to use to parse the text property from a list query into multiple values. If you specify a delimiter, you can provide names for each field, separated by the same delimiter in the **Name** box.
 
 For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
-### <a name="navigation-query"></a>Navigation query
-The navigation query is the query to run when you select an item in the list. Use *{selected item}* to include the syntax for the item that the user selected.
+### Click-Through Navigation
+Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Search portal](log-analytics-log-search-portals.md#log-search) or launch another view.
 
-For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run.
+The following table describes the settings for click-through navigation.
 
-### <a name="sparklines"></a>Sparklines
+| Setting           | Description |
+| Log Search (Auto) | Log search to run when you select a header item.  This is the same log search that the item is based on.
+| Log Search        | Log search to run when you select an item in a list.  Type the query into the **Navigation query** box.   Use *{selected item}* to include the syntax for the item that the user selected.  For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run. |
+| View              | View to open when you select a header item or an item in a list.  Select the name of a view in your workspace in **View Name**. |
+
+
+
+### Sparklines
 A sparkline is a small line chart that illustrates the value of a list entry over time. For visualization parts with a list, you can select whether to display a horizontal bar, which indicates the relative value of a numeric column, or a sparkline, which indicates its value over time.
 
 The following table describes the settings for sparklines:
@@ -326,7 +333,7 @@ The following table describes the settings for sparklines:
 | Enable Sparklines |Select this link to display a sparkline instead of a horizontal bar. |
 | Operation |If sparklines are enabled, this is the operation to perform on each property in the list to calculate the values for the sparkline.<ul><li>Last sample: The last value for the series over the time interval.</li><li>Max: The maximum value for the series over the time interval.</li><li>Min: The minimum value for the series over the time interval.</li><li>Sum: The sum of the values for the series over the time interval.</li><li>Summary: Uses the same `measure` command as the query in the header.</li></ul> |
 
-### <a name="thresholds"></a>Thresholds
+### Thresholds
 By using thresholds, you can display a colored icon next to each item in a list. Thresholds give you a quick visual indicator of items that exceed a particular value or fall within a particular range. For example, you can display a green icon for items with an acceptable value, yellow if the value is within a range that indicates a warning, and red if it exceeds an error value.
 
 When you enable thresholds for a part, you must specify one or more thresholds. If the value of an item is greater than a threshold value and lower than the next threshold value, the color for that value is used. If the item is greater than the highest threshold value, another color is used. 
