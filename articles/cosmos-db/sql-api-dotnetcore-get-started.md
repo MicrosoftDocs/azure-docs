@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
 
@@ -215,7 +215,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -315,7 +315,7 @@ And insert two documents, one each for the Andersen Family and the Wakefield Fam
 Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE` to your **GetStartedDemo** method underneath the document collection creation.
 
 ```csharp
-await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
