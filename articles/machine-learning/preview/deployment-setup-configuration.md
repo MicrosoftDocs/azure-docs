@@ -4,8 +4,8 @@ description: This document describes the steps and concepts involved in setting 
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jmartens,jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article

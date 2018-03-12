@@ -3,7 +3,7 @@ title: Azure Virtual Networks and Linux Virtual Machines | Microsoft Docs
 description: Tutorial - Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 

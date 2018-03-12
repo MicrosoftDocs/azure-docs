@@ -2,14 +2,14 @@
 title: Computer Vision API C# quick starts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using C# and the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: JuliaNik
+author: KellyDF
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: v-royhar
+ms.author: kefre
 ---
 
 # Computer Vision C# Quick Starts
