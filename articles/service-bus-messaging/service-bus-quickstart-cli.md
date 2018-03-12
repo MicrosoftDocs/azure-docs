@@ -70,7 +70,7 @@ After logging in to Azure, issue the following commands to provision Service Bus
 
 ```azurecli
 # Create a resource group
-az group create --name <my_rg> --location eastus
+az group create --name <my-resourcegroup> --location eastus
 
 # Create a Messaging namespace
 az servicebus namespace create --name <namespace_name> -location eastus
@@ -79,7 +79,7 @@ az servicebus namespace create --name <namespace_name> -location eastus
 az servicebus entity create --name <queue_name> -location eastus
 
 # Get the connection string
-az servicebus namespace authorizationrule keys list --resource-group <my_rg> --namespace-name <namespace-name> --name RootManageSharedAccessKey
+az servicebus namespace authorizationrule keys list --resource-group <my-resourcegroup> --namespace-name <namespace-name> --name RootManageSharedAccessKey
 ```
 
 Copy and paste the connection string value to a temporary location, such as Notepad, to use later.
@@ -111,7 +111,7 @@ Observe 10 messages being sent to the queue, and subsequently received from the 
 Run the following command to remove the resource group, namespace, and all related resources:
 
 ```azurecli-interactive
-az group delete --name <my_rg>
+az group delete --name <my-resourcegroup>
 ```
 
 ## Next steps
