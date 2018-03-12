@@ -18,7 +18,7 @@ ms.author: nitinme
 
 ---
 # Securing data stored in Azure Data Lake Store
-Securing data in Azure Data Lake Store is a three-step approach.
+Securing data in Azure Data Lake Store is a three-step approach.  Both role-based access control (RBAC) and access control lists (ACLs) must be set to fully enable access to data for users and security groups.
 
 1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure portal. For more information, see [Role-based Access Control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 2. Assign the AAD security groups to the Azure Data Lake Store account. This controls access to the Data Lake Store account from the portal and management operations from the portal or APIs.
@@ -64,7 +64,11 @@ When you assign users or security groups to Azure Data Lake Store accounts, you 
 	The **Owner** and **Contributor** role provide access to a variety of administration functions on the data lake account. For users who will interact with data in the data lake but still need to view account management information, you can add them to the **Reader** role. The scope of these roles is limited to the management operations related to the Azure Data Lake Store account.
    
 	For data operations, individual file system permissions define what the users can do. Therefore, a user having a Reader role can only view administrative settings associated with the account but can potentially read and write data based on file system permissions assigned to them. Data Lake Store file system permissions are described at [Assign security group as ACLs to the Azure Data Lake Store file system](#filepermissions).
-4. If you want to add a group/user that is not listed in the **Add permissions** blade, you can invite them by typing their email address in the **Select** text box and then selecting them from the list.
+
+    > [!IMPORTANT]
+    > Only the **Owner** role automatically enables file system access. The **Contributor**, **Reader**, and all other roles require ACLs to enable any level of access to folders and files.  The **Owner** role provides super-user file and folder permissions that cannot be overridden via ACLs. For more information on how RBAC policies map to data access, see [RBAC for account management](data-lake-store-security-overview#rbac-for-account-management).
+
+1. If you want to add a group/user that is not listed in the **Add permissions** blade, you can invite them by typing their email address in the **Select** text box and then selecting them from the list.
    
 	![Add a security group](./media/data-lake-store-secure-data/adl.add.user.2.png "Add a security group")
    
