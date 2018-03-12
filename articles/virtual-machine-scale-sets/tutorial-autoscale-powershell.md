@@ -228,7 +228,7 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## Generate CPU load on scale set
-To test the autoscale rules, lets generate some CPU load on the VM instances in the scale set. This simulated CPU causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
+To test the autoscale rules, generate some CPU load on the VM instances in the scale set. This simulated CPU causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
 
 To list the NAT ports to connect to VM instances in a scale set, first get the load balancer object with [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Then, view the inbound NAT rules with [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
 
