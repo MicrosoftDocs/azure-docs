@@ -77,6 +77,8 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
+  - name: Authoring cycle
+    href: luis-concept-app-iteration.md 
   - name: Design Model 
     items:
     - name: Intents
@@ -85,8 +87,6 @@
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
-    - name: Authoring cycle
-      href: luis-concept-app-iteration.md 
   - name: Features
     href: luis-concept-feature.md
   - name: Prediction score
