@@ -52,7 +52,9 @@ ExpressRoute connections enable access to the following services:
 * Microsoft Office 365 services
 * Microsoft Dynamics 365
 
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+> [!NOTE]
+> [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+> 
 
 For a detailed list of services supported over ExpressRoute, visit the [ExpressRoute FAQ](expressroute-faqs.md) page 
 
