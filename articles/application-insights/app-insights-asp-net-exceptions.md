@@ -202,7 +202,7 @@ There are a number of cases that the exception filters cannot handle. For exampl
 * Exception thrown in background tasks
 
 All exceptions *handled* by application still need to be tracked manually. 
-Unhandled exceptions by controllers typically results in 500 "Internal Server Error" response. If 500 response is manually constructed as a result of handled exception (or no exception at all) it is tracked in corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
+Unhandled exceptions originating from controllers typically result in 500 "Internal Server Error" response. If such response is manually constructed as a result of handled exception (or no exception at all) it is tracked in corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
 
 ### Prior versions support
 If you use MVC 4 (and prior) of Application Insights Web SDK 2.5 (and prior), refer to the following examples to track exceptions.
@@ -294,7 +294,7 @@ There are a number of cases that the exception filters cannot handle. For exampl
 * Exception thrown in background tasks
 
 All exceptions *handled* by application still need to be tracked manually. 
-Unhandled exceptions by controllers typically results in 500 "Internal Server Error" response. If 500 response is manually constructed as a result of handled exception (or no exception at all) it is tracked in a corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
+Unhandled exceptions originating from controllers typically result in 500 "Internal Server Error" response. If such response is manually constructed as a result of handled exception (or no exception at all) it is tracked in a corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
 
 ### Prior versions support
 If you use WebAPI 1 (and prior) of Application Insights Web SDK 2.5 (and prior), refer to the following examples to track exceptions.
