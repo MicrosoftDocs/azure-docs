@@ -161,7 +161,7 @@ The user who created the item is automatically the owning user of the item. An o
 * Change the owning group of a file that is owned, as long as the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning user *cannot* change the owning user of another owned file. Only super-users can change the owning user of a file or folder.
+> The owning user *cannot* change the owning user of a file or folder. Only super-users can change the owning user of a file or folder.
 >
 >
 
@@ -174,9 +174,14 @@ When a new filesystem item is created, Data Lake Store assigns a value to the ow
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Store account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
 
+The owning group otherwise behaves similarly to assigned permissions for other users/groups.
+
 The owning group can be changed by:
 * Any super-users.
 * The owning user, if the owning user is also a member of the target group.
+
+> [!NOTE]
+> The owning group *cannot* change the ACLs of a file or folder.
 
 ## Access check algorithm
 
