@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/08/2018
+ms.date: 03/12/2018
 ms.custom: mvc
 ms.author: chwolf;sethm
 
@@ -101,7 +101,7 @@ If an error occurs that causes the client to have any doubt about the outcome of
 
 ### SAS, RBAC, and MSI
 
-Service Bus supports security protocols such as [*Shared Access Signatures*](service-bus-sas.md) (SAS), [*Role Based Access Control*](service-bus-role-based-access-control.md) (RBAC) and [*Managed Service Identity*](service-bus-managed-service-identity.md) (MSI).
+Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](service-bus-role-based-access-control.md) (RBAC) and [Managed Service Identity](service-bus-managed-service-identity.md) (MSI).
 
 ### Geo-disaster recovery
 
