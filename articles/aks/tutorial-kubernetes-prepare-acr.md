@@ -167,6 +167,7 @@ Advance to the next tutorial to learn about deploying a Kubernetes cluster in Az
 
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create
+[az-acr-list]: /cli/azure/acr#list
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
 [az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az_acr_list
 [az-acr-repository-list]: /cli/azure/acr/repository#list
