@@ -25,7 +25,7 @@ ms.author: mimig
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 > [!TIP]
-> <div><img src="media/create-sql-api-xamarin-dotnet/xam-app-promo.png" alt="" align="left" /> <p>Sample code for an entire canonical sample Xamarin app showcasing multiple Azure offerings, including CosmosDB, can be found on GitHub here(https://github.com/xamarinhq/app-geocontacts). This app demonstrates an application for viewing geographically dispersed contacts, and allowing those contacts to update their location.<p></div>
+> Sample code for an entire canonical sample Xamarin app showcasing multiple Azure offerings, including CosmosDB, can be found on GitHub [here](https://github.com/xamarinhq/app-geocontacts). This app demonstrates viewing geographically dispersed contacts, and allowing those contacts to update their location.
 
 This quickstart demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](sql-api-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/), and the Azure Cosmos DB authorization engine. The todo list web app implements a per-user data pattern that enables users to log in using Facebook Auth and manage their own to do items.
 
