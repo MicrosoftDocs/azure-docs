@@ -65,7 +65,7 @@ If [absolute order of messages](message-sequencing.md) is significant, or a cons
 
 ### Dead-lettering
 
-Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. Messages can then be removed from the DLQ and inspected. An application might, with the help of an operator, correct issues and resubmit the message, log the fact that there was an error, and take corrective action.
+Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. Messages can then be removed from the DLQ and inspected.
 
 ### Auto-forwarding
 
@@ -81,11 +81,11 @@ To realize a FIFO guarantee in Service Bus, use sessions. [Message sessions](mes
 
 ### Batching
 
-[Client-side batching](service-bus-performance-improvements.md#client-side-batching) enables a queue or topic client to delay sending a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support batching.
+[Client-side batching](service-bus-performance-improvements.md#client-side-batching) enables a queue or topic client to delay sending a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. 
 
 ### Transactions
 
-A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction. For example, you can send several messages to one queue from within a transaction scope, and the messages will only be committed to the queue's log when the transaction successfully completes.
+A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction.
 
 ### Filtering and actions
 
@@ -107,9 +107,9 @@ Service Bus supports security protocols such as [*Shared Access Signatures*](ser
 
 When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue to operate in a different region or datacenter.
 
-### Other features
+### Supported protocols
 
-Service Bus also supports:
+Service Bus also supports the following standard protocols:
 
 * Secure, standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 * Client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client) support.
@@ -128,7 +128,7 @@ Service Bus fully integrates with the following Azure services:
 
 To get started using Service Bus messaging, see the following articles:
 
-* [Compare Azure messaging services](../event-grid/compare-messaging-services.md)
+* [Compare Azure messaging services](../event-grid/compare-messaging-services.md?toc=/azure/service-bus-messaging/toc.md&bc=/azure/service-bus-messaging/breadcrumb/toc.md)
 * Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and their pricing
 * [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
 * Try the quickstarts in [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md)
