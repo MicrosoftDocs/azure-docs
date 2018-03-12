@@ -200,7 +200,7 @@ If your Azure Active Directory tenant is synchronized with on-premises Active Di
 
 Use the Enterprise portal and the Azure portal to identify the subscriptions in your organization that host production applications. 
 
-#### Remove Microsoft ccounts from admin roles
+#### Remove Microsoft Accounts from admin roles
 
 Microsoft accounts from other programs, such as Xbox, Live, and Outlook should not be used as administrator accounts for organizational subscriptions. Remove admin status from all Microsoft accounts, and replace with Active Directory (for example, chris@contoso.com) work or school accounts.
 
