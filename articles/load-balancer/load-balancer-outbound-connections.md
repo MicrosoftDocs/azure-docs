@@ -106,7 +106,9 @@ Load Balancer Basic chooses a single frontend to be used for outbound flows when
 
 #### Load Balancer Standard
 
-Load Balancer Standard uses all candidates for outbound flows at the same time when [multiple (public) IP frontends](load-balancer-multivip-overview.md) is present. Each frontend multiplies the number of available preallocated SNAT ports. You can choose to suppress a frontend IP address from being used for outbound connections with a new load balancing rule option:
+Load Balancer Standard uses all candidates for outbound flows at the same time when [multiple (public) IP frontends](load-balancer-multivip-overview.md) is present. Each frontend multiplies the number of available preallocated SNAT ports if a load balancing rule is enabled for outbound connections.
+
+You can choose to suppress a frontend IP address from being used for outbound connections with a new load balancing rule option:
 
 ```json    
       "loadBalancingRules": [
