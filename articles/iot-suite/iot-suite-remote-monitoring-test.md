@@ -141,10 +141,10 @@ The following commands use the `az` command from [Azure CLI 2.0](https://docs.mi
     ```sh
     az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
-1. To find the IP address of your virtual machine, use the following command and make a note of the public IP address:
+1. To find the IP address of your virtual machine, use the following command and make a note of the public IP address, search for ip address with mgmt string in it's name:
 
     ```sh
-    az vm list-ip-addresses --name YOUR-VM-NAME
+    az network public-ip list -o table --query "[].[name,ipAddress]"
     ```
 
 1. You can now use SSH to connect to your virtual machine. The `ssh` command is pre-installed in the Cloud Shell. Use the public IP address from the previous step and, when prompted, the password you configured for the virtual machine:
