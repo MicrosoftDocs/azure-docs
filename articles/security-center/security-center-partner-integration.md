@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
 
 ---
@@ -60,7 +60,15 @@ Azure security solutions that are deployed from Security Center are automaticall
 
 ## Manage integrated Azure security solutions and other data sources
 
-After deployment, you can view information about the health of integrated Azure security solution and perform basic management tasks. You can also connect other types of security data sources, such as Azure Active Directory Identity Protection alerts and firewall logs in Common Event Format (CEF). In the Security Center dashboard, select Security solutions.
+1. Sign in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
+
+2. On the **Microsoft Azure menu**, select **Security Center**. **Security Center - Overview** opens.
+
+  ![Security Center Overview](./media/security-center-partner-integration/overview.png)
+
+3. Under **Overview**, select **Security solutions**.
+
+Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks. You can also connect other types of security data sources, such as Azure Active Directory Identity Protection alerts and firewall logs in Common Event Format (CEF).
 
 ### Connected solutions
 
@@ -68,13 +76,22 @@ The **Connected solutions** section includes security solutions that are current
 
 ![Connected solutions](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+See [Managing connected partner solutions](security-center-partner-solutions.md) to learn more.
+
 ### Discovered solutions
 
-The **Discovered solutions** section shows all the solutions that were added via Azure. It also shows all the solutions that Security Center suggests should connect to it.
+Security Center automatically discovers security solutions running in Azure but are not connected to Security Center and displays the solutions in the **Discovered solutions** section. This includes Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), as well as partner solutions.
+
+> [!NOTE]
+> The discovered solutions feature is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+>
+>
+
+Select **CONNECT** under a solution to integrate with Security Center and be notified on security alerts.
 
 ![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center automatically discovers other security solutions running in Azure. This includes Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), as well as partner solutions that are running in Azure. To integrate these solutions with Security Center, select **CONNECT**.
+Security Center also discovers solutions deployed in the subscription that are able to forward Common Event Format (CEF) logs. Learn how to [connect a security solution](quick-security-solutions.md) that uses CEF logs to Security Center.
 
 ### Add data sources
 
@@ -87,7 +104,6 @@ The **Add data sources** section includes other available data sources that can 
 
 In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
 
-* [Security Center planning and operations guide](security-center-planning-and-operations-guide.md)
 * [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md)
 * [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md)
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.

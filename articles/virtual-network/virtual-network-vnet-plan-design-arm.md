@@ -245,7 +245,7 @@ The following requirements are related to access control:
 Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
 
 ## Next steps
-* [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
+* [Deploy a virtual network](quick-create-portal.md).
 * Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
-* Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
+* Learn more about [network security groups](security-overview.md) an NSG solution.
 * Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
