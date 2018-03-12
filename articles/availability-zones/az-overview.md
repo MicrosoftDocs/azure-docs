@@ -26,10 +26,11 @@ Availability Zones help to protect you from datacenter-level failures. They are 
 
 ## Regions that support Availability Zones
 
-- East US 2
+- East US 2 (Preview)
 - US Central
-- West Europe
+- West Europe (Preview)
 - France Central
+- South East Asia
 
 ## Services that support Availability Zones
 
@@ -42,10 +43,11 @@ The Azure services that support Availability Zones are:
 - Load Balancer
 - Public IP address
 - SQL Database
+- Zone Redundant Storage
 
 ## Get started with Availability Zones
 
-Availability Zones are available in the East US 2, US Central, West Europe, and France Central regions for specific Azure services. 
+Availability Zones are available in the East US 2, US Central, West Europe, France Central, and South East Asia regions for specific Azure services. 
 
 1. Sign in to your Azure subscription.
 2. Choose a region that supports Availability Zones.
