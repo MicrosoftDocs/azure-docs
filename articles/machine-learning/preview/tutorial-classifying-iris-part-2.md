@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ---
 
-# Tutorial: Classify Iris part 2 - Build a model
-Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+# Tutorial 2: Classify Iris - Build a model
+Azure Machine Learning services (preview) are an integrated, data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services (preview) to:
 
 > [!div class="checklist"]
-> * Use Azure Machine Learning Workbench.
-> * Open scripts and review code.
-> * Execute scripts in a local environment.
-> * Review the run history.
-> * Execute scripts in a local Docker environment.
-> * Execute scripts in a local Azure CLI window.
-> * Execute scripts in a remote Docker environment.
-> * Execute scripts in a cloud Azure HDInsight environment.
+> * Use Azure Machine Learning Workbench
+> * Open scripts and review code
+> * Execute scripts in a local environment
+> * Review the run history
+> * Execute scripts in a local Docker environment
+> * Execute scripts in a local Azure CLI window
+> * Execute scripts in a remote Docker environment
+> * Execute scripts in a cloud Azure HDInsight environment
 
 This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
 
@@ -56,7 +56,7 @@ To experiment with dispatching scripts to run in a Docker container in a remote 
    - Loads the data preparation package **iris.dprep** to create a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). 
 
         >[!NOTE]
-        >Use the `iris.dprep` data preparation package that comes with the sample project, which should be the same as the `iris-1.dprep` file you built in part 1 of this tutorial.
+        >Use the `iris.dprep` data preparation package that comes with the sample project. This file should be the same as the `iris-1.dprep` file you built in part 1 of this tutorial.
 
    - Adds random features to make the problem more difficult to solve. Randomness is necessary because Iris is a small data set that's easily classified with nearly 100% accuracy.
 
@@ -88,7 +88,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 3. Return to the workbench app window. 
 
-4. In the toolbar at the top of the **iris_sklearn.py** tab, select to open the drop-down menu that is next to the **Save** icon, and then select **Run Configuration**. Select **local** as the execution environment, and then enter `iris_sklearn.py` as the script to run.
+4. In the toolbar of the **iris_sklearn.py** tab, open the drop-down menu next to the **Save** icon and then select **Run Configuration**. Select **local** as the execution environment, and then enter `iris_sklearn.py` as the script to run.
 
 5. Next, move to the right side of the toolbar and enter `0.01` in the **Arguments** field. 
 
@@ -111,7 +111,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
    When the run is finished, the pop-up window shows the following results:
 
    >[!NOTE]
-   >Because we introduced some randomization into the training set earlier, your exact results might vary from the results shown here.
+   >Because the tutorial introduced some randomization into the training set earlier, your exact results might vary from the results shown here.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -162,7 +162,7 @@ Review the statistics captured across the multiple runs. Graphs render in the to
 
 3. Filter the table, and then select any of the graphs to view the status, duration, accuracy, and regularization rate of each run. 
 
-4. Select two or three runs in the **Runs** table, and select the **Compare** button to open a detailed comparison pane. Review the side-by-side comparison. Select the **Run List** back button on the upper left of the **Comparison** pane to return to the **Run Dashboard**.
+4. Select two or three runs in the **Runs** table, and select the **Compare** button to open a detailed comparison pane. Review the side-by-side comparison. To return to the **Run Dashboard**, select the **Run List** back button on the upper left of the **Comparison** pane.
 
 5. Select an individual run to see the run detail view. Notice that the statistics for the selected run are listed in the **Run Properties** section. The files written into the output folder are listed in the **Outputs** section, and you can download the files from there.
 
@@ -210,7 +210,7 @@ With Machine Learning, you can easily configure additional execution environment
 
    In the end, you should see the exact same result as you do when you target **local**.
 
-5. Now, let's try Spark. The Docker base image contains a preinstalled and configured Spark instance. Because of this instance, you can execute a PySpark script in it. This is an easy way to develop and test your Spark program, without having to spend the time to install and configure Spark yourself. 
+5. Now, let's try Spark. The Docker base image contains a preinstalled and configured Spark instance. You can execute a PySpark script in this instance as an easy way to develop and test your Spark program, without having to install and configure Spark. 
 
    Open the `iris_spark.py` file. This script loads the `iris.csv` data file, and uses the logistic regression algorithm from the Spark Machine Learning library to classify the Iris data set. Now change the run environment to **docker-spark** and the script to **iris_spark.py**, and then run it again. This process takes a little longer because a Spark session has to be created and started inside the Docker container. You can also see the stdout is different than the stdout of `iris_spark.py`.
 
@@ -229,7 +229,7 @@ With Machine Learning, you can easily configure additional execution environment
 
 2. Use the command prompt to log in to Azure. 
 
-   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az account set -s** command, and then provide the subscription ID value. Then confirm the setting by using the account **show** command.
+   The Workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to log in once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az account set -s** command, and then provide the subscription ID value. Then confirm the setting by using the account **show** command.
 
    ```azurecli
    REM login by using the aka.ms/devicelogin site
@@ -245,7 +245,7 @@ With Machine Learning, you can easily configure additional execution environment
    az account show
    ```
 
-3. After authentication finishes and the current Azure subscription context is set, enter the following commands in the CLI window to install **matplotlib**, and then submit the Python script as an experiment to run.
+3. After authenticating and the current Azure subscription context is set, enter the following commands in the CLI window to install **matplotlib**, and then submit the Python script as an experiment to run.
 
    ```azurecli
    REM you don't need to run this command if you have installed matplotlib locally from the previous steps
@@ -329,7 +329,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    ```
    The command executes as if you're in a `docker-python` environment, except that the execution happens on the remote Linux VM. The CLI window displays the same output information.
 
-4. Let's try using Spark in the container. Open File Explorer. You can also do this from the CLI window if you're comfortable with basic file-manipulation commands. Make a copy of the `myvm.runconfig` file and name it `myvm-spark.runconfig`. Edit the new file to change the `Framework` setting from `Python` to `PySpark`:
+4. Let's try using Spark in the container. Open File Explorer. Make a copy of the `myvm.runconfig` file and name it `myvm-spark.runconfig`. Edit the new file to change the `Framework` setting from `Python` to `PySpark`:
    ```yaml
    "Framework": "PySpark"
    ```
@@ -360,7 +360,7 @@ You can also run this script in an HDInsight Spark cluster. Learn [how to create
    The cluster head node FQDN is typically `<cluster_name>-ssh.azurehdinsight.net`.
 
    >[!NOTE]
-   >The `username` is the cluster SSH username. The default value is `sshuser` if you don't change it during HDInsight setup. The value is not `admin`, which is the other user created during setup to enable access to the cluster's admin website. 
+   >The `username` is the cluster SSH username defined during HDInsight setup. By default, the value is `sshuser`. The value is not `admin`, which is the other user created during setup to enable access to the cluster's admin website. 
 
 2. Run the following command, and the script runs in the HDInsight cluster:
 

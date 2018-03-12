@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ---
 
-# Tutorial: Classify Iris part 1 - Preparing the data
+# Tutorial 1: Classify Iris - Preparing the data
 
 Azure Machine Learning service (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 

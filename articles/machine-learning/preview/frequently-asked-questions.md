@@ -27,7 +27,7 @@ More regions will be added as we develop the product.  You can help us prioritiz
 
 **What other Azure services are required?**
 
-To fully experience all capabilities of Azure Machine Learning, Azure Machine Learnign will use Visual Studio VSTS account, Azure Blob Storage, Azure Container Registry, Data Science VM or HDInsight compute, and Azure Container Service.
+To fully experience all capabilities of Azure Machine Learning, Azure Machine Learning uses a Visual Studio VSTS account, Azure Blob Storage, Azure Container Registry, Data Science VM or HDInsight compute, and Azure Container Service.
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**	
 
