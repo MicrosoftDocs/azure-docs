@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -53,7 +53,7 @@ Once the disk has been created, you should see output similar to the following. 
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-## Mount file share as volume
+## Mount disk as volume
 
 Mount the Azure disk into your pod by configuring the volume in the container spec. 
 
@@ -66,7 +66,7 @@ metadata:
  name: azure-disk-pod
 spec:
  containers:
-  - image: neilpeterson/aks-helloworld
+  - image: microsoft/sample-aks-helloworld
     name: azure
     volumeMounts:
       - name: azure
