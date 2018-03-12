@@ -24,7 +24,7 @@ ms.author: harijayms
 > ACCESS VIA SERIAL CONSOLE SHOULD BE LIMITED TO DEV-TEST VIRTUAL MACHINES. PREVIEW FUNCTIONALITY IS SUPPORTED ON A AS IS BASIS. WE STRONGLY RECOMMEND NOT TO USE THIS FOR ANY PRODUCTION VIRTUAL MACHINE.
 >
 
-Azure's Virtual Machine Serial Console provides access to a text-based console for Linux and Windows Virtual Machines on Azure. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and not related to virtual machine's network / operating system state. Access to serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
+Azure's Virtual Machine Serial Console provides access to a text-based console for Linux and Windows Virtual Machines on Azure. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
 ### Important information
 Currently this service is in **preview** and access to serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
@@ -101,7 +101,7 @@ Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB 
 Ubuntu images available on Azure have serial console enabled by default. If the system boots into Single User Mode you can access without additional credentials. 
 
 ### Access for CoreOS
-CoreOS images available on Azure have serial console enabled by default. If necessary system can be booted into Single User Mode via changing GRUB parameters and adding coreos.autologin=ttyS0 would enable core user to log in and available in Serial Console. 
+CoreOS images available on Azure have serial console enabled by default. If necessary system can be booted into Single User Mode via changing GRUB parameters and adding `coreos.autologin=ttyS0` would enable core user to log in and available in Serial Console. 
 
 ### Access for SUSE
 SLES images available on Azure have serial console enabled by default. If you are using older versions of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. Newer Images of SLES 12 SP3+ also allows access via serial console in case the system boots into emergency mode.
@@ -122,10 +122,10 @@ Most errors are transient in nature and retrying connection address these. Below
 
 Error                            |   Mitigation 
 :---------------------------------|:--------------------------------------------|
-Unable to retrieve boot diagnostics settings for ''. To use serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md)) enabled. 
+Unable to retrieve boot diagnostics settings for '<VMNAME>'. To use serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access serial console
 You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#requirements-for-accessing-serial-console) for details
-Unable to determine the resource group for the boot diagnostics storage account ''. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access.See [access requirements](#requirements-for-accessing-serial-console) for details
+Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access.See [access requirements](#requirements-for-accessing-serial-console) for details
 
 ## Known Issues 
 As we are still in the preview stages for Serial Console access, we are working through some known issues, below is the list of these with possible workarounds 
@@ -142,10 +142,10 @@ The current preview is available in global Azure regions. At this point serial c
 ## FAQ
 1. How can I send feedback?
   * Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively(less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
-2. I am not a part of early access preview but I want to participate, how can I?
-  * We will be opening access to more subscriptions shortly.
-3. I get an Error "Existing console has conflicting OS type "Windows" with the requested OS type of Linux
+2. I get an Error "Existing console has conflicting OS type "Windows" with the requested OS type of Linux
   * This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) in bash mode and retry.
+3. I am not able to access serial console, where can I file a support case?
+  * This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
 ## Next Steps
 1. Learn more about [Windows serial console](../windows/serial-console.md)

@@ -108,18 +108,18 @@ Scenario          | Actions in serial console
 :------------------|:----------------------------------------
 Incorrect firewall rules | Access serial console and fix iptables or Windows firewall rules 
 Filesystem corruption/check | Access serial console and recover filesystem after logging in to SAC CMD
-RDP configuration issues | Access serial console and log in to cmd channel. Now you can check health of the Terminal services and restart if needed.
-Network lock down system| Access Serial Console and log in to cmd channel. Now you can the firewall status by [netsh](https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-contexts) command line. 
+RDP configuration issues | Access serial console and log in to cmd channel. Check health of the Terminal services and restart if needed.
+Network lock down system| Access Serial Console and log in to cmd channel. Check the firewall status by [netsh](https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-contexts) command line. 
 
 ## Errors
 Most errors are transient in nature and retrying connection address these. Below table shows a list of errors and mitigation 
 
 Error                            |   Mitigation 
 :---------------------------------|:--------------------------------------------|
-Unable to retrieve boot diagnostics settings for ''. To use serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md)) enabled. 
+Unable to retrieve boot diagnostics settings for '<VMNAME>'. To use serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access serial console
 You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#requirements-for-accessing-serial-console) for details
-Unable to determine the resource group for the boot diagnostics storage account ''. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access.See [access requirements](#requirements-for-accessing-serial-console) for details
+Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. See [access requirements](#requirements-for-accessing-serial-console) for details
 
 ## Known Issues 
 As we are still in the preview stages for Serial Console access, we are working through some known issues, below is the list of these with possible workarounds 
@@ -135,11 +135,11 @@ The current preview is available in global Azure regions. At this point serial c
 
 ## FAQ
 1. How can I send feedback?
-  * Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback . Alternatively(less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
+  * Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively(less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
 2. I get an Error "Existing console has conflicting OS type "Windows" with the requested OS type of Linux
   * This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) in bash mode and retry.
 3. I am not able to access serial console, where can I file a support case?
-  * This is a preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
+  * This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
 ## Next Steps
 1. Learn more about [Linux serial console](../linux/serial-console.md)
