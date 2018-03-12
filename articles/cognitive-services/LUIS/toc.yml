@@ -109,8 +109,8 @@
       href: Add-example-utterances.md
     - name: Add entities
       href: Add-entities.md
-  - name: Improve prediction accuracy using features
-    href: Add-Features.md
+    - name: Improve prediction accuracy using features
+      href: Add-Features.md
   - name: Train and test the app
     href: Train-Test.md
   - name: Use active learning
