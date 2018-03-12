@@ -17,7 +17,7 @@ ms.author: magoedte
 ---
 
 # Connect computers without Internet access using the OMS Gateway
-This document describes how to configure communication with Azure Automation and Log Analytics by using the OMS Gateway when direct-connected or Operations Manager-monitored computers don't Internet access.  The OMS Gateway is an HTTP-forward proxy that supports HTTP tunneling by using the HTTP CONNECT command. It can collect data and send it to Azure Automation and Log Analytics on their behalf.  
+This document describes how to configure communication with Azure Automation and Log Analytics by using the OMS Gateway when directly connected computers or Operations Manager-monitored computers don't have Internet access. The OMS Gateway is an HTTP-forward proxy that supports HTTP tunneling by using the HTTP CONNECT command. It can collect data and send it to Azure Automation and Log Analytics on behalf of the computers without Internet access.  
 
 The OMS Gateway supports:
 
@@ -107,7 +107,7 @@ There are two ways to get the latest version of the OMS Gateway setup file.
    
     ![Download OMS Gateway](./media/log-analytics-oms-gateway/download-gateway.png)
 
-or 
+-- OR-- 
 
    1. In your workspace blade, under **Settings**, select **Advanced settings**.
    2. Select **Connected Sources** > **Windows Servers**. Then select **Download OMS Gateway**.
@@ -139,18 +139,18 @@ To install a gateway, take the following steps. If you installed the previous ve
 
 7. On the **Ready to install** page, select **Install**. User Account Control might appear requesting permission to install. If you get a request for permission, select **Yes**.
 
-8. After setup finishes, select **Finish**. You can verify that the service is running by opening the services.msc snap-in, verifying that **OMS Gateway** appears in the list of services, and that its status is **Running**.
+8. After setup finishes, select **Finish**. You can verify that the service is running by opening the services.msc snap-in, making sure that **OMS Gateway** appears in the list of services, and that its status is **Running**.
 
     ![Services – OMS Gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
 
 ## Configure network load balancing 
-You can configure the gateway for high availability by using network load balancing (NLB). Use either Microsoft Network Load Balancing (NLB) or hardware-based load balancers.  The load balancer manages traffic by redirecting the requested connections from the OMS agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
+You can configure the gateway for high availability by using network load balancing (NLB). Use either Microsoft Network Load Balancing (NLB) or hardware-based load balancers.  The load balancer manages traffic by redirecting the requested connections from the OMS agents or Operations Manager management servers across its nodes. If one gateway server goes down, the traffic gets redirected to other nodes.
 
 To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  The following steps describe how to configure a Microsoft network load balancing cluster.  
 
 1.  Sign in with an administrative account to the Windows server that is a member of the NLB cluster.  
 
-2.  In Server Manager, open Network Load Balancing Manager . Select **Tools**, and then select **Network Load Balancing Manager**.
+2.  In Server Manager, open Network Load Balancing Manager. Select **Tools**, and then select **Network Load Balancing Manager**.
 
 3. To connect an OMS Gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then select **Add Host to Cluster**.
 
@@ -163,7 +163,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 ## Configure the OMS agent and the Operations Manager management group
 The following section includes steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook workers with the OMS Gateway to communicate with Azure Automation or Log Analytics.  
 
-To understand requirements and steps on how to install the OMS agent on Windows computers that directly connect to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md).
+To understand requirements and steps for installing the OMS agent on Windows computers that directly connect to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md).
 
  For Linux computers, see [Connect Linux computers to Log Analytics](log-analytics-quick-collect-linux-computer.md). For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
@@ -239,8 +239,8 @@ For large or complex environments, you might only want specific servers (or grou
 
 9. When you complete your changes, select **OK**. 
 
-### Configure for Automation Hybrid Runbook Workers
-If you have Automation Hybrid Runbook Workers in your environment, the following steps provide manual, temporary workarounds to configure the Gateway to support them.
+### Configure the OMS Gateway for Automation Hybrid Runbook Workers
+If you have Automation Hybrid Runbook Workers in your environment, the following steps provide manual, temporary workarounds to configure the OMS Gateway to support them.
 
 In the following steps, you need to know the Azure region where the Automation account resides. To find the location, take the following steps:
 
