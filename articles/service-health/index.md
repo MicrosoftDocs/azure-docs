@@ -26,7 +26,7 @@ Together, these experiences provide you with a comprehensive view into the healt
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/service-health/service-health-overview">
+        <a href="/azure/service-health/azure-status-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
