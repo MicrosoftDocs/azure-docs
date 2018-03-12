@@ -63,9 +63,11 @@ To force tunnel all outbound traffic from your ASE, except that which goes to Az
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
-When you enable Service Endpoints on a resource, there are routes created with higher priority than BGP routes but less than UDRs. If you use Service Endpoints with a force tunneled ASE, the Azure SQL and Azure Storage management traffic isn't force tunneled. The other ASE dependency traffic is force tunneled and can't be lost or the ASE would not function properly.
+When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints with a force tunneled ASE, the Azure SQL and Azure Storage management traffic isn't force tunneled. The other ASE dependency traffic is force tunneled and can't be lost or the ASE would not function properly.
 
-When Service Endpoints is enabled on a subnet with a Azure SQL server, all Azure SQL servers connected to from that subnet must have Service Endpoints enabled. if you want to access multiple SQL Servers from the same subnet, you cannot enable Service Endpoints on one Azure SQL server and not on another. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts.  
+When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you cannot enable Service Endpoints on one Azure SQL instance and not on another. For this reason alone, enabling Service Endpoints may not be the solution to your forced tunnel needs.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
+
+If you configure forced tunneling with a network filtering appliance then remember that the ASE has a number of dependencies in addtion to Azure SQL and Azure Storage. You must allow that traffic or the ASE will not function properly.
 
 ![Forced tunnel with service endpoints][2]
 
