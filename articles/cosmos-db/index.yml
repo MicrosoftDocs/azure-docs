@@ -43,6 +43,8 @@ sections:
           src: media/index/logo_python.svg
       - image:
           src: media/index/logo_gremlin.svg
+      - image:
+          src: media/index/logo_xamarin.svg
     rows:
       - title: SQL API
         values:
@@ -51,6 +53,7 @@ sections:
         - href: /azure/cosmos-db/create-sql-api-nodejs
         - href: /azure/cosmos-db/create-sql-api-python
         - href:
+        - href: /azure/cosmos-db/create-sql-api-xamarin
       - title: MongoDB API
         values:
           - href: /azure/cosmos-db/create-mongodb-java
@@ -58,6 +61,7 @@ sections:
           - href: /azure/cosmos-db/create-mongodb-nodejs
           - href: /azure/cosmos-db/create-mongodb-flask
           - href:
+          - href: 
       - title: Graph API
         values:
           - href: /azure/cosmos-db/create-graph-java
@@ -65,6 +69,7 @@ sections:
           - href: /azure/cosmos-db/create-graph-nodejs
           - href: /azure/cosmos-db/create-graph-python
           - href: /azure/cosmos-db/create-graph-gremlin-console
+          - href:
       - title: Table API
         values:
           - href: /azure/cosmos-db/create-table-java
@@ -72,12 +77,14 @@ sections:
           - href: /azure/cosmos-db/create-table-nodejs
           - href: /azure/cosmos-db/create-table-python
           - href:
+          - href:
       - title: Cassandra API
         values:
           - href: /azure/cosmos-db/create-cassandra-java
           - href: /azure/cosmos-db/create-cassandra-dotnet
           - href: /azure/cosmos-db/create-cassandra-nodejs
           - href: /azure/cosmos-db/create-cassandra-python
+          - href:
           - href:
 - title: Step-by-Step Tutorials
   items:
