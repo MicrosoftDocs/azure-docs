@@ -22,7 +22,7 @@ ms.author: nitinme
 
 # Stream events into Azure Databricks using Event Hubs
 
-In this tutorial, you learn how to stream real-time data into Azure Databricks using Azure Event Hubs and data from public Twitter API. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. 
+In this tutorial, you learn how to connect an event ingestion pipeline with Azure Databricks so that you can stream real-time data into a Spark cluster. This article uses Azure Event Hubs for event ingestion to stream data from public Twitter API. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. 
 
 This tutorial covers the following tasks: 
 
@@ -31,7 +31,7 @@ This tutorial covers the following tasks:
 > * Create a Spark cluster in Azure Databricks
 > * Create a Twitter app to access real-time data
 > * Create notebooks in Azure Databricks
-> * Add and attach libraries for Event Hubs and Twitter
+> * Add and attach libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
 > * Receive messages from Event Hubs
 
@@ -68,16 +68,25 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 2. Under **Azure Databricks (Preview)**, click **Create**.
 
-3. Under **Azure Databricks Service**, provide the following values:
+3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
     ![Create an Azure Databricks workspace](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    * For **Workspace name**, provide a name for your Databricks workspace.
-    * For **Subscription**, from the drop-down, select your Azure subscription.
-    * For **Resource group**, specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
-    * For **Location**, select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).
+    Provide the following values: 
+     
+    |Property  |Description  |
+    |---------|---------|
+    |**Workspace name**     | Provide a name for your Databricks workspace        |
+    |**Subscription**     | From the drop-down, select your Azure subscription.        |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+    |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-4. Click **Create**.
+    Select **Pin to dashboard** and then click **Create**.
+
+4. The account creation takes a few minutes. During account creation the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+
+    ![Databricks deployment tile](./media/databricks-stream-from-eventhubs/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Databricks
 
@@ -359,13 +368,14 @@ If you did not select the checkbox, you must manually terminate the cluster. To 
 ![Terminate Databricks cluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Terminate Databricks cluster")
 
 ## Next steps 
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Events Hub and then read the streaming data from Events Hub in real time. You learned how to:
+In this tutorial, you learned how to:
+
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
 > * Create a Twitter app to generate streaming data
-> * Create a notebook in Azure Databricks
-> * Add libraries for Event Hubs and Twitter
+> * Create notebooks in Azure Databricks
+> * Add libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
 > * Receive messages from Event Hubs
 
