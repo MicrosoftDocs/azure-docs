@@ -22,13 +22,16 @@ ms.author: kumud
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 
-Azure provides outbound connectivity for customer deployments through several different mechanisms. This article describes what the scenarios are, when they apply, how they work, and how to manage them.
+Azure provides outbound connectivity for customer deployments through several different mechanisms. This article describes what the scenarios are, when they apply, how they work, and how to manage them.  
 
 A deployment in Azure can communicate with endpoints outside Azure in the public IP address space. When an instance initiates an outbound flow to a destination in the public IP address space, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
 
 Azure uses source network address translation (SNAT) to perform this function. When multiple private IP addresses are masquerading behind a single public IP address, Azure uses [port address translation (PAT)](#pat) to masquerade private IP addresses. Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size.
 
 There are multiple [outbound scenarios](#scenarios). You can combine these scenarios as needed. Review them carefully to understand the capabilities, constraints, and patterns as they apply to your deployment model and application scenario. Review guidance for [managing these scenarios](#snatexhaust).
+
+>[!IMPORTANT] 
+>Standard Load Balancer introduces new abilities and different behaviors to outbound connectivity.   For example, [scenario 3](#defaultsnat) does not exist when an internal Standard Load Balancer is present and different steps need to be taken.   Carefully review this entire document to understand the overall concepts and differences between SKUs.
 
 ## <a name="scenarios"></a>Scenario overview
 
@@ -64,7 +67,7 @@ If your application initiates many outbound flows and you experience SNAT port e
 
 ### <a name="lb"></a>Scenario 2: Load-balanced VM without an Instance Level Public IP address
 
-In this scenario, the VM is part of a public Load Balancer backend pool. The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool. 
+In this scenario, the VM is part of a public Load Balancer backend pool. The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool.
 
 If you do not complete this rule configuration, the behavior is as described in the scenario for [Standalone VM with no Instance Level Public IP](#defaultsnat). It is not necessary for the rule to have a working listener in the backend pool for the health probe to succeed.
 
@@ -80,7 +83,10 @@ To monitor the health of outbound connections with Load Balancer Basic, you can 
 
 ### <a name="defaultsnat"></a>Scenario 3: Standalone VM without an Instance Level Public IP address
 
-In this scenario, the VM is not part of an Azure Load Balancer pool and does not have an ILPIP address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit. 
+In this scenario, the VM is not part of a public Load Balancer pool (and not part of an internal Standard Load Balancer pool) and does not have an ILPIP address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit.
+
+>[!IMPORTANT] 
+>This scenario also applies when __only__ an internal Basic Load Balancer is attached. Scenario 3 is __not available__ when an internal Standard Load Balancer is attached to a VM.  You must explicitly create [scenario 1](#ilpip) or [scenario 2](#lb) in addition to using an internal Standard Load Balancer.
 
 Azure uses SNAT with port masquerading ([PAT](#pat)) to perform this function. This scenario is similar to [scenario 2](#lb), except there is no control over the IP address used. This is a fallback scenario for when scenarios 1 and 2 do not exist. We don't recommend this scenario if you want control over the outbound address. If outbound connections are a critical part of your application, you should chose another scenario.
 
@@ -94,7 +100,23 @@ An example is an Azure Resource Manager deployment where the application relies 
 
 ### <a name="multivipsnat"></a> Multiple frontends for outbound flows
 
+#### Load Balancer Basic
+
 Load Balancer Basic chooses a single frontend to be used for outbound flows when [multiple (public) IP frontends](load-balancer-multivip-overview.md) are candidates for outbound flows. This selection is not configurable, and you should consider the selection algorithm to be random. You can designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations).
+
+#### Load Balancer Standard
+
+Load Balancer Standard uses all candidates for outbound flows at the same time when [multiple (public) IP frontends](load-balancer-multivip-overview.md) is present. Each frontend multiplies the number of available preallocated SNAT ports. You can choose to suppress a frontend IP address from being used for outbound connections with a new load balancing rule option:
+
+```    "loadBalancingRules": [
+      {
+        "id": "string",
+        [..]
+          "disableOutboundSnat": boolean
+        [..]
+],```
+
+Normally, this option defaults to _true_ and signifies that this rule programs outbound SNAT for the associated VMs in the backend pool of the load balancing rule.  This can be changed to _false_ to prevent Load Balancer from using the associated frontend IP address for outbound connections for the VM's in the backend pool of this load balancing rule.  And you can also still designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations) as well.
 
 ## <a name="snat"></a>Understanding SNAT and PAT
 
@@ -181,6 +203,9 @@ Sometimes it's undesirable for a VM to be allowed to create an outbound flow. Or
 When you apply an NSG to a load-balanced VM, pay attention to the [default tags](../virtual-network/virtual-networks-nsg.md#default-tags) and [default rules](../virtual-network/virtual-networks-nsg.md#default-rules). You must ensure that the VM can receive health probe requests from Azure Load Balancer. 
 
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
+
+## Limitations
+- DisableOutboundSnat is not available as an option when configuring a load balancing rule in portal.  Use REST, template, or client tools instead.
 
 ## Next steps
 
