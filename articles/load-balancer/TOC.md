@@ -1,3 +1,5 @@
+# [Load Balancer Documentation](index.md)
+
 # Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
 ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)
@@ -9,6 +11,7 @@
 ## [IPv6 support](load-balancer-ipv6-overview.md)
 ## [Multiple VIPs](load-balancer-multivip-overview.md)
 ## [Understanding outbound connections](load-balancer-outbound-connections.md)
+## [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
 
 # Get Started
 

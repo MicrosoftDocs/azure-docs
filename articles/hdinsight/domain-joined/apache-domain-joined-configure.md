@@ -23,7 +23,7 @@ ms.author: saurinsh
 Learn how to set up an Azure HDInsight cluster with standalone Active Directory and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md). 
 
 > [!IMPORTANT]
-> This set up can only be used with using Azure Storage accounts. To use with Azure Data Lake Store, see [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
+> By default, this set up can only be used with using Azure Storage accounts. To use with Azure Data Lake Store, sync Active Directory to a new Azure Active Directory.
 
 Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTTP users account, and an SSH user account.  The multi-user authentication can be achieved using:
 

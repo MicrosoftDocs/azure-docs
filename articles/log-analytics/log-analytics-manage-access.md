@@ -30,7 +30,7 @@ To create a workspace, you need to:
 ## Determine the number of workspaces you need
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
 
-You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to query across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Previously you could only analyze data from within the current workspace and this limited your ability to query across multiple workspaces defined in your subscription. Now you can [query across multiple workspaces](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), providing a system-wide view of your data. This section describes when it can be helpful to create more than one workspace.
 
 Today, a workspace provides:
 
@@ -243,7 +243,7 @@ Use the following steps to remove a user from a workspace. Removing the user doe
 4. Select the group in the list results and then click **Add**.
 
 ## Link an existing workspace to an Azure subscription
-All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
+All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a subscription when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
 
 ### To link a workspace to an Azure subscription in the OMS portal
 
