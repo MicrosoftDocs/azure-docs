@@ -255,8 +255,6 @@
           href: hyper-v-deployment-planner-analyze-report.md
         - name: Analyze the cost estimation report
           href: hyper-v-deployment-planner-cost-estimation.md
-      - name: Performance scale tests for Hyper-V replication to a secondary site
-        href: hyper-v-vmm-performance-results.md
     - name: Disaster recovery
       items: 
       - name: Set up Hyper-V replication to Azure (no VMM) using PowerShell
@@ -301,6 +299,8 @@
       href: hyper-v-vmm-recovery-script.md
     - name: Run a failover and failback between on-premises sites
       href: hyper-v-vmm-failover-failback.md
+    - name: Performance scale tests for Hyper-V replication to a secondary site
+      href: hyper-v-vmm-performance-results.md
   - name: Replicate apps
     items:
     - name: Active Directory and DNS
