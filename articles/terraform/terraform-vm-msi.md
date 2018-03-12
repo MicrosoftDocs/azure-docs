@@ -1,19 +1,19 @@
 ---
-title: Use Marketplace image to create Terraform Linux Virtual Machine with Managed Service Identity
-description: Use Marketplace image to create Terraform Linux Virtual Machine with Managed Service Identity and Remote State manangement to easily deploy resources to Azure.
+title: Use an Azure Marketplace image to create a Terraform Linux Virtual Machine with Managed Service Identity
+description: Use Marketplace image to create Terraform Linux Virtual Machine with Managed Service Identity and Remote State management to easily deploy resources to Azure.
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
 author: VaijanathB
 manager: rloutlaw
 ms.author: tarcher
-ms.date: 10/29/2017
+ms.date: 3/12/2018
 ms.topic: article
 ---
 
-# Use Marketplace image to create Terraform Linux Virtual Machine with Managed Service Identity
+# Use an Azure Marketplace image to create a Terraform Linux Virtual Machine with Managed Service Identity
 
-This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.terraform?tab=Overview) to create a `Ubuntu Linux VM (16.04 LTS)` with latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [Managed Service Identity (MSI)](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview). This image also configures a remote backend to enable [Remote State](https://www.terraform.io/docs/state/remote.html) management using Terraform. The Terraform Marketplace image makes it easy to get started using Terraform on Azure in minutes, without having to install Terraform and configure authentication manually. 
+This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create a `Ubuntu Linux VM (16.04 LTS)` with latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). This image also configures a remote backend to enable [Remote State](https://www.terraform.io/docs/state/remote.html) management using Terraform. The Terraform Marketplace image makes it easy to get started using Terraform on Azure in minutes, without having to install Terraform and configure authentication manually. 
 
-There are no software charges for this Terraform VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine provisioned. More details on the compute fees can be found on the [Linux Virtual Machines Pricing page](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/).
+There are no software charges for this Terraform VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine provisioned. More details on the compute fees can be found on the [Linux Virtual Machines Pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## Prerequisites
 Before you can create a Linux Terraform Virtual Machine, you must have an Azure subscription. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).  
@@ -28,6 +28,8 @@ Here are the steps to create an instance of Linux Terraform Virtual Machine.
 3. The following sections provide inputs for each of the steps in the wizard (**enumerated on the right**) to create the Terraform Linux Virtual Machine.  Here are the inputs needed to configure each of these steps
 
 ## Details in Create Terraform Tab
+
+Here are the details that need to be entered in Create Terraform tab.
 
 a. **Basics**
     
@@ -65,9 +67,9 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 
 Once you have used `SSH` to connect to the Virtual Machine, you need to give contributor permissions for the entire subscription to Managed Service Identity on the Virtual Machine. Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. You can easily achieve this action by executing a script once. Here is the command to do it.
 
-. ~/tfEnv.sh
+`. ~/tfEnv.sh`
 
-The previous script uses [AZ CLI v 2.0 Interactive log-in](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mechanism to authenticate with Azure and assign the Virtual Machine Managed Service Identity contributor permission on the entire subscription. 
+The previous script uses [AZ CLI v 2.0 Interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mechanism to authenticate with Azure and assign the Virtual Machine Managed Service Identity contributor permission on the entire subscription. 
 
  The VM has Terraform Remote State backend created and to enable it on your Terraform deployment, you need to copy remoteState.tf file from tfTemplate directory to the root of the Terraform scripts.  
 
@@ -75,14 +77,12 @@ The previous script uses [AZ CLI v 2.0 Interactive log-in](https://docs.microsof
 
  You can read more about Remote State Management [here](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file and needs to be carefully checked into source control.  
 
- ## Learn more
+## Next Steps
+In this article you learned how to set up a Terraform Linux Virtual Machine on Azure. Here are some additional resources to learn more about Terraform on Azure. 
 
- [Terraform Hub in Microsoft.com](https://docs.microsoft.com/en-us/azure/terraform/) 
-
- [Terraform Azure Provider Documentation](http://aka.ms/terraform)
-
- [Terraform Azure Provider Source](http://aka.ms/tfgit)
-
+ [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
+ [Terraform Azure Provider Documentation](http://aka.ms/terraform)  
+ [Terraform Azure Provider Source](http://aka.ms/tfgit)  
  [Terraform Azure Modules](http://aka.ms/tfmodules)
  
 
