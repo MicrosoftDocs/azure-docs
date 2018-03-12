@@ -33,16 +33,16 @@ Azure disk encryption is supported:
 
 
 ## Prerequisites
-Install the latest versions of [Azure Powershell](https://github.com/Azure/azure-powershell/releases), which contains the encryption commands.
+This article requires the Azure PowerShell module version 5.3.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription using the following PowerShell commands: 
+Register your Azure subsription for the preview of disk encryption for virtual machine scale sets with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
 Login-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Wait around 10 minutes until the 'Registered' state is returned by the following command: 
+Wait around 10 minutes until the *Registered* state is returned by [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature), then reregister the `Microsoft.Compute` provider: 
 
 ```powershell
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -57,7 +57,7 @@ Create a Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvaul
 
 ```powershell
 $rgName="myResourceGroup"
-$vaultName="myuniquekeyvaultikf777"
+$vaultName="myuniquekeyvault"
 $location = "EastUS"
 
 New-AzureRmResourceGroup -Name $rgName -Location $location
@@ -66,7 +66,7 @@ New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $
 
 
 ### Use an existing Key Vault
-This step is only if you have an existing Key Vault that you wish to use with disk encryption. Skip this step if you created a Key Vault in the previous section.
+This step is only required if you have an existing Key Vault that you wish to use with disk encryption. Skip this step if you created a Key Vault in the previous section.
 
 You can enable an existing Key Vault in the same subscription and region as the scale set for disk encryption with [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/AzureRM.KeyVault/Set-AzureRmKeyVaultAccessPolicy). Define the name of your existing Key Vault in the *$vaultName* variable as follows:
 
