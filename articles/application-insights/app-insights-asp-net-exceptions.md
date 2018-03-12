@@ -113,8 +113,6 @@ You can:
 ## Reporting exceptions explicitly
 The simplest way is to insert a call to TrackException() in an exception handler.
 
-JavaScript
-
 ```javascript
     try
     { ...
@@ -198,8 +196,8 @@ There are a number of cases that the exception filters cannot handle. For exampl
 * Exceptions thrown from message handlers.
 * Exceptions thrown during routing.
 * Exceptions thrown during response content serialization.
-* Exception thrown during application start-up
-* Exception thrown in background tasks
+* Exception thrown during application start-up.
+* Exception thrown in background tasks.
 
 All exceptions *handled* by application still need to be tracked manually. 
 Unhandled exceptions originating from controllers typically result in 500 "Internal Server Error" response. If such response is manually constructed as a result of handled exception (or no exception at all) it is tracked in corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
@@ -290,8 +288,8 @@ There are a number of cases that the exception filters cannot handle. For exampl
 * Exceptions thrown from message handlers.
 * Exceptions thrown during routing.
 * Exceptions thrown during response content serialization.
-* Exception thrown during application start-up
-* Exception thrown in background tasks
+* Exception thrown during application start-up.
+* Exception thrown in background tasks.
 
 All exceptions *handled* by application still need to be tracked manually. 
 Unhandled exceptions originating from controllers typically result in 500 "Internal Server Error" response. If such response is manually constructed as a result of handled exception (or no exception at all) it is tracked in a corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
