@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2018
+ms.date: 03/12/2018
 ms.author: kumud
 ---
 
 # Standard Load Balancer and Availability Zones
 
-Azure Load Balancer's Standard SKU supports [Availability Zones](../availability-zones/az-overview.md) scenarios. You can use zones to align resources or distribute them for optimizing your end-to-end scenario that introduces several new concepts to Load Balancer. Review [Availability Zones](../availability-zones/az-overview.md) for guidance on what Availability Zones's are, which regions currently support Availability Zones and other related concepts and products. Availability Zone in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.
+Azure Load Balancer's Standard SKU supports [Availability Zones](../availability-zones/az-overview.md) and introduces several new scenarios. You can use zones to align resources or distribute resources across zones for optimizing your end-to-end scenario. Review [Availability Zones](../availability-zones/az-overview.md) for guidance on what Availability Zones are, which regions currently support Availability Zones, and other related concepts and products. Standard Load Balancer and Availability Zones is an expansive and flexible feature set which can create many different scenarios.
 
 >[!NOTE]
 > The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones), in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
-
 
 ## <a name="concepts"></a> Availability Zones concepts applied to Load Balancer
 
@@ -51,9 +50,9 @@ When using multiple frontends, review [multiple frontends for Load Balancer](loa
 
 #### Zone redundant by default
 
-In a region with Availability Zones, a Standard Load Balancer frontend is zone-redundant by default.  A single frontend IP address can survive zone failure and can be used to reach all backend pool members irrespective of the zone. DNS redundancy schemes are not required. The single IP address is served simultaneously by independent infrastructure deployments in every Availability Zone.  Zone redundant means that all inbound or outbound flows are served by all Availability Zones in a region simultaneously using a single IP address.
+In a region with Availability Zones, a Standard Load Balancer frontend is zone-redundant by default.  A single frontend IP address can survive zone failure and can be used to reach all backend pool members irrespective of the zone. DNS redundancy schemes are not required. The frontend's single IP address is served simultaneously by independent infrastructure deployments in every Availability Zone.  Zone-redundant means that all inbound or outbound flows are served by all Availability Zones in a region simultaneously using a single IP address.
 
-One or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. Zone redundant configuration is the default and requires no additional actions.  When a region gains the ability to support Availability Zones, an existing frontend becomes zone-redundant automatically.
+One or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. Zone-redundant configuration is the default and requires no additional actions.  When a region gains the ability to support Availability Zones, an existing frontend becomes zone-redundant automatically.
 
 Use the following script to create a zone-redundant Public IP address for your internal Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
 
@@ -68,7 +67,7 @@ Use the following script to create a zone-redundant Public IP address for your i
             },
 ```
 
-Use the following script to create a zone-redundant front-end IP for your internal Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
+Use the following script to create a zone-redundant frontend IP address for your internal Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
 
 ```json
             "apiVersion": "2017-08-01",
