@@ -92,6 +92,8 @@ Given that low storage latency is critical for DBMS systems, even as those are, 
 
 Accumulating a number of Azure VHDs underneath a RAID, is accumulative from an IOPS and storage throughput side. So, if you put a RAID 0  over 3 x P30 Azure Premium Storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure Premium Storage P30 disk.
 
+Don't configure Premium Storage caching on the disks used for /hana/data and /hana/log. All the disks building those volumes should have caching of those disks set to 'None'.
+
 Also keep the overall VM I/O throughput in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 #### Cost conscious Azure Storage configuration
@@ -173,7 +175,7 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by A
 - 16 VHDs for an M128xx VM
 - 8 VHDs for an M64xx VM
 
-More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Azure Write Accelerator for SAP deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator)
+More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Azure Write Accelerator for SAP deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
 
 
 ### Set up Azure virtual networks
