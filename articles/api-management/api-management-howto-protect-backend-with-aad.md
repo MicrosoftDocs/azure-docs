@@ -176,7 +176,7 @@ APIs are configured from the API publisher portal, which is accessed through the
 
 ![Publisher portal][api-management-management-console]
 
-Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported. In this video, operations are imported in Swagger format starting at 6:40.
+Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported.
 
 Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example,  `"host": "apimaaddemo.azurewebsites.net"` is used.
 
