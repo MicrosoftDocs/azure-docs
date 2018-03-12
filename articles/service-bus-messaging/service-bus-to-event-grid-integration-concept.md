@@ -27,7 +27,7 @@ To enable the feature, you need the following items:
 
 * A Service Bus Premium namespace with at least one Service Bus queue or a Service Bus topic with at least one subscription.
 * Contributor access to the Service Bus namespace.
-* Additionally, you need an Event Grid subscription for the Service Bus namespace. This subscription receives a notification from Event Grid that there are messages to be picked up. Typical subscribers could be Azure Logic Apps, Azure Functions, or a webhook contacting a web app. The subscriber then processes the messages. 
+* Additionally, you need an Event Grid subscription for the Service Bus namespace. This subscription receives a notification from Event Grid that there are messages to be picked up. Typical subscribers could be the Logic Apps feature of Azure App Service, Azure Functions, or a webhook contacting a web app. The subscriber then processes the messages. 
 
 ![19][]
 
@@ -129,7 +129,7 @@ To create a new Event Grid subscription, do the following:
 
    ![20][]
 
-   The following image shows how to subscribe to an Azure Function or a webhook without any specific filtering:
+   The following image shows how to subscribe to a function or a webhook without any specific filtering:
 
    ![21][]
 
@@ -174,7 +174,7 @@ From here, you can explore the other setup options or [test that events are flow
 * Get Service Bus and Event Grid [examples](service-bus-to-event-grid-integration-example.md).
 * Learn more about [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Learn more about [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Learn more about [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
 * Learn more about [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
