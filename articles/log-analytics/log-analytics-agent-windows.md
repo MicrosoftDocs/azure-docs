@@ -76,7 +76,7 @@ The following table highlights the specific Log Analytics parameters supported b
 |OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy |
 
-1. To extract the agent installation files, from an elevated command prompt run `extract MMASetup-<platform>.exe` and it will prompt you for the path to extract files to.  Alternatively, you can specify the path by passing the arguments `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  For more information on the command-line swtiches supported by IExpress, see [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) and then update the example to suit your needs.
+1. To extract the agent installation files, from an elevated command prompt run `extrac32 MMASetup-<platform>.exe` and it will extract the contents of the .exe to a folder within the directory that your .exe resides wihin.
 2. To silently install the agent and configure it to report to a workspace in Azure commercial cloud, from the folder you extracted the setup files to type: 
    
      ```dos
