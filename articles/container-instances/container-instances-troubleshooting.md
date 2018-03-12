@@ -22,9 +22,9 @@ When you have a misbehaving container, start by viewing its logs with [az contai
 
 ### View logs
 
-To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. The container does not have to be running for you to pull the logs.
+To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. The container need not be running for you to pull the logs.
 
-For example, this is the log output from the *terminated* task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md), after having fed it a **non-existent URL** to process:
+For example, here is log output from a *terminated* container (from [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md)) after having fed it a **non-existent URL** to process:
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -50,9 +50,9 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ### Attach output streams
 
-The [az container attach][az-container-attach] command provides diagnostic information during container startup, as well as streams STDOUT and STDERR to your local console once the container is running.
+The [az container attach][az-container-attach] command provides diagnostic information during container startup. Once the container has started, it streams STDOUT and STDERR to your local console.
 
-For example, this is output from the the task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md), after having supplied a valid URL with a very large text file to process:
+For example, here is output from the task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md), after having supplied a valid URL of a large text file to process:
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -79,7 +79,7 @@ Start streaming logs:
 
 ## Get diagnostic events
 
-If your container does not deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
+If your container fails to deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -152,7 +152,7 @@ There are a few common issues that account for most errors in deployment.
 
 ## Image version not supported
 
-If an image is specified that Azure Container Instances cannot support, an error will be returned of form `ImageVersionNotSupported`. The value of the error will show `The version of image '{0}' is not supported.`. This error currently applies to Windows 1709 images, to mitigate use an LTS Windows image. Support for Windows 1709 images is underway.
+If you specify an image that Azure Container Instances cannot support, an `ImageVersionNotSupported` error is returned. The value of the error is `The version of image '{0}' is not supported.`, and currently applies to Windows 1709 images. To mitigate this issue, use an LTS Windows image. Support for Windows 1709 images is underway.
 
 ## Unable to pull image
 
