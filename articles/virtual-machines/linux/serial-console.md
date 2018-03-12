@@ -42,7 +42,7 @@ Serial Console for Virtual Machines is only accessible via [Azure portal](https:
 2. Scroll down onto the Support + Troubleshooting section 
 3. Click on Serial Console (Preview) option to access serial console 
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to serial console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.

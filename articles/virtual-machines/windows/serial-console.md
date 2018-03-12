@@ -69,14 +69,6 @@ This means that the user who gets disconnected will not be logged out! The abili
 ### Disable feature
 The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
 
-## Common Scenarios for accessing Windows serial console 
-Scenario          | Actions in serial console                
-------------------|:----------------------------------------
-Incorrect firewall rules | Access serial console and fix iptables or Windows firewall rules 
-Filesystem corruption/check | Access serial console and recover filesystem after logging in to SAC CMD
-RDP configuration issues | Access serial console and log in to cmd channel. Now you can check health of the Terminal services and restart if needed.
-Network lock down system| Access Serial Console and log in to cmd channel. Now you can the firewall status by [netsh](https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-contexts) command line. 
-
 ## Accessing Serial Console for Windows 
 Newer Windows Server images on Azure  have [Special Administrative Console](https://technet.microsoft.com/en-us/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. To enable Serial console for Windows Virtual Machines created with using Feb2018 or lower images please the following steps: 
 
@@ -88,6 +80,12 @@ Newer Windows Server images on Azure  have [Special Administrative Console](http
 
 ![](https://github.com/Microsoft/azserialconsole/blob/master/images/SerialConsole-PrivatePreviewWindows.gif)
 
+If needed SAC can be enabled offline as well, 
+
+1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
+2. From an Administrative command prompt run the following commands 
+* `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
+* `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 ### How do I know if SAC is enabled or not 
 
 If [SAC] (https://technet.microsoft.com/en-us/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. It can show a VM Health information in some cases or it would be blank.  
@@ -102,6 +100,14 @@ If you need to enable Windows boot loader prompts to show in serial console you 
 * `bcdedit /set {bootmgr} timeout 5`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reboot the system for the boot menu to be enabled
+
+## Common Scenarios for accessing Windows serial console 
+Scenario          | Actions in serial console                
+------------------|:----------------------------------------
+Incorrect firewall rules | Access serial console and fix iptables or Windows firewall rules 
+Filesystem corruption/check | Access serial console and recover filesystem after logging in to SAC CMD
+RDP configuration issues | Access serial console and log in to cmd channel. Now you can check health of the Terminal services and restart if needed.
+Network lock down system| Access Serial Console and log in to cmd channel. Now you can the firewall status by [netsh](https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-contexts) command line. 
 
 ## Errors
 Most errors are transient in nature and retrying connection address these. Below table shows a list of errors and mitigation 
