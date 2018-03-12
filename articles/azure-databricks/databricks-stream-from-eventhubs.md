@@ -39,7 +39,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-Before you start with this tutorial, make sure of the following:
+Before you start with this tutorial, make sure to meet the following requirements:
 - An Azure Event Hubs namespace.
 - An Event Hub within the namespace.
 - Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
@@ -108,7 +108,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ## Create a Twitter application
 
-To receive a real-time stream of tweets, you create an application in Twitter. Follow the steps to create a Twitter application and record the values that you need to complete this tutorial.
+To receive a real-time stream of tweets, you create an application in Twitter. Follow the instructions create a Twitter application and record the values that you need to complete this tutorial.
 
 1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and click **Create New App**.
 
@@ -244,7 +244,7 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-To run the notebook, press **SHIFT + ENTER**. You see the following output. Each event in the output is a real-time tweet that is ingested into the Events Hub. 
+To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet below. Each event in the output is a real-time tweet that is ingested into the Events Hub. 
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
@@ -361,11 +361,11 @@ That's it! Using Azure Databricks, you have successfully streamed real-time data
 
 ## Clean up resources
 
-While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically terminate if it has been inactive for the specified time.
+While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically stop if it has been inactive for the specified time.
 
 If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
 
-![Terminate Databricks cluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Terminate Databricks cluster")
+![Stop a Databricks cluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
 ## Next steps 
 In this tutorial, you learned how to:
