@@ -33,6 +33,8 @@
     href: transform-concept.md
   - name: Assets
     href: assets-concept.md
+  - name: Auto-generating adaptive bitrate outputs
+    href: autogen-bitrate-ladder.md
 - name: How-to guides
 - name: Reference
   items:
