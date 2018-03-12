@@ -1,6 +1,6 @@
 ---
-title: Install and use the model management CLI for top Azure Machine Learning tasks
-description: Learn how to install and use the model management CLI for the most common machine learning tasks in Azure Machine Learning.
+title: Install and use the machine learning CLI for top Azure Machine Learning tasks
+description: Learn how to install and use the CLI for the most common machine learning tasks in Azure Machine Learning.
 services: machine-learning
 author: haining
 ms.author: haining
@@ -11,11 +11,19 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 03/10/2018
 ---
-# Install and use the model management CLI for top tasks in Azure Machine Learning
+# Install and use the machine learning CLI for top tasks in Azure Machine Learning
 
 Azure Machine Learning services are an integrated, end-to-end data science and advanced analytics solution. Professional data scientists can use Azure Machine Learning services to prepare data, develop experiments, and deploy models at cloud scale. 
 
-Azure Machine Learning provides a command-line interface (CLI) with which you can interact with your data, projects, analytics, and web services. This article presents some of the most useful CLI commands for your convenience. 
+Azure Machine Learning provides a command-line interface (CLI) with which you can:
++ Manage your workspace and projects
++ Set up compute targets
++ Run training experiments
++ View history and metrics for past runs
++ Deploy models into production as web services
++ Manage production models and services
+
+This article presents some of the most useful CLI commands for your convenience. 
 
 ![Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
 
@@ -79,7 +87,7 @@ To define the Python operation mode:
 
 + For Python in a GPU DSVM,
     1. Add `Framework:Python​` in `<target name>.runconfig` 
-    
+
     1. Also, add `baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9 and nvidiaDocker:true​` in `<target name>.compute`
 
 To prepare the compute target:​
