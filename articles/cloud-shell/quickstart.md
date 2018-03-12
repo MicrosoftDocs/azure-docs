@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/12/2018
 ms.author: juluk
 ---
 
@@ -25,35 +25,44 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 > A [PowerShell in Azure Cloud Shell](quickstart-powershell.md) Quickstart is also available.
 
 ## Start Cloud Shell
-1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
+1. Launch **Cloud Shell** from the top navigation of the Azure portal. <br>
 ![](media/quickstart/shell-icon.png)
-2. Select a subscription to create a storage account and Microsoft Azure Files share
+
+2. Select a subscription to create a storage account and Microsoft Azure Files share.
 3. Select "Create storage"
 
 > [!TIP]
 > You are automatically authenticated for Azure CLI 2.0 in every sesssion.
 
 ### Select the Bash environment
-1. Select the environment drop down from the left hand side of shell window <br>
+Check that the environment drop down from the left hand side of shell window says `Bash`. <br>
 ![](media/quickstart/env-selector.png)
-2. Select Bash
 
 ### Set your subscription
-1. List subscriptions you have access to: <br>
-`az account list`
+1. List subscriptions you have access to.
+```azurecli-interactive
+az account list
+```
+
 2. Set your preferred subscription: <br>
-`az account set --subscription my-subscription-name`
+```azurecli-interactive
+az account set --subscription my-subscription-name`
+```
 
 > [!TIP]
 > Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
 
 ### Create a resource group
-Create a new resource group in WestUS named "MyRG": <br>
-`az group create -l westus -n MyRG` <br>
+Create a new resource group in WestUS named "MyRG".
+```azurecli-interactive
+az group create --location westus --name MyRG
+```
 
 ### Create a Linux VM
 Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create SSH keys and setup the VM with them. <br>
-`az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
+```azurecli-interactive
+az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
+```
 
 > [!NOTE]
 > The public and private keys used to authenticate your VM are placed in `/home/<user>/.ssh/id_rsa` and `/home/<user>/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure Files share's 5-GB image.
@@ -61,17 +70,28 @@ Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create SS
 Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
 
 ### SSH into your Linux VM
-1. Search for your VM name in the Azure portal search bar
-2. Click "Connect" and run: `ssh username@ipaddress`
-
+1. Search for your VM name in the Azure portal search bar.
+2. Click "Connect" to get your VM name and public IP address. <br>
 ![](media/quickstart/sshcmd-copy.png)
+
+3. SSH into your VM with the `ssh` cmd.
+```
+ssh username@ipaddress
+```
 
 Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## Cleaning up 
-Delete your resource group and any resources within it: <br>
+1. Exit your ssh session.
+```azurecli-interactive
+exit
+```
+
+2. Delete your resource group and any resources within it.
+```azurecli-interactive
 Run `az group delete -n MyRG`
+```
 
 ## Next steps
 [Learn about persisting files for Bash in Cloud Shell](persisting-shell-storage.md) <br>
