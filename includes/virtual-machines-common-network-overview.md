@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+---
+
 When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-subscription-service-limits.md#networking-limits).
 
 In the following figure, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
@@ -75,7 +87,7 @@ This table lists the methods that you can use to create a VNet and subnets.
 | [Azure portal](../articles/virtual-network/quick-create-portal.md) | If you let Azure create a VNet when you create a VM, the name is a combination of the resource group name that contains the VNet and **-vnet**. The address space is 10.0.0.0/24, the required subnet name is **default**, and the subnet address range is 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | You use [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) and [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) to create a subnet and a VNet. You can also use [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) to add a subnet to an existing VNet. |
 | [Azure CLI](../articles/virtual-network/quick-create-cli.md) | The subnet and the VNet are created at the same time. Provide a **--subnet-name** parameter to [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) with the subnet name. |
-| [Template](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), and modify it for your needs. |
+| Template | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), and modify it for your needs. |
 
 ## Network security groups
 
