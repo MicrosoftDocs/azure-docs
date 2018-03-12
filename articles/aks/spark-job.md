@@ -24,6 +24,7 @@ In order to complete the steps within this article, you need the following.
 * An Azure Container Service (AKS) cluster and AKS credentials configured on your development system. Get started [here][aks-quickstart].
 * [Docker Hub][docker-hub] account, or existing [Azure Container Registry][acr-create].
 * Azure CLI [installed][azure-cli] on your development system.
+* [JDK 8][java-install] installed on your system.
 * SBT ([Scala Build Tool][sbt-install]) installed on your system.
 * Git command-line tools installed on your system.
 
@@ -72,9 +73,11 @@ Similarly, in case of Azure Container Registry with the Login Server name `lenad
 
 ![ACR image](media/aks-spark-job/acr-image.png)
 
+When using Azure Container Registry (ACR) with your Azure Container Service cluster, follow these [steps][acr-aks] to properly assign read access to the ACR resource.
+
 ## Prepare a Spark job
 
-Next step is preparing a Spark job to run on a Kubernetes cluster.
+Next step is preparing a Spark job to run on a Kubernetes cluster. A `jar` file with a Spark job is one of the inputs to `spark-submit` command. The `jar` should be either accessible through a public URL, or pre-packaged within a container image. Feel free to use your own `jar` for a Spark job, or create a new one following the instructions.
 
 Navigate to a directory where you would like to create the project for a Spark job.
 
@@ -164,6 +167,15 @@ jarUrl=$(az storage blob url --container-name $container_name --name $blob_name 
 Variable `jarUrl` now contains the publicly accessible path to the `jar` file with the Spark job.
 
 ## Submit a Spark job
+
+Create a Kubernetes cluster, or use an existing one. Spark is generally used for large-scale data processing, so Spark pods have minimal resources requirements. For instance, Spark driver pod and each executor pod require one Azure core by default (details are [here][spark-conf]).
+
+For this example, a three node cluster AKS is used with a VM size `Standard_D3_v2`.
+
+```console
+az group create --name <resource-group-name> --location <resource-group-location>
+az aks create --resource-group <resource-group-name> --name <cluster-name> --node-vm-size Standard_D3_v2
+```
 
 Discover the URL where Kubernetes API server is running at.
 
@@ -354,7 +366,7 @@ To access Spark UI, open the address `127.0.0.1:4040` in a browser.
 
 ![Spark UI](media/aks-spark-job/spark-ui.png)
 
-# Pre-packaging Spark job dependencies in a container image
+## Pre-packaging Spark job dependencies in a container image
 
 In the example above, the `jar` file of the Spark job was uploaded to a publicly accessible location. Another option is to pre-mount application dependencies into custom-built Docker images. In other words, this referencing the job `jar` file from the local context of the container when submitting a job.
 
@@ -370,7 +382,7 @@ ADD /path/to/SparkPi-assembly-0.1.0-SNAPSHOT.jar SparkPi-assembly-0.1.0-SNAPSHOT
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
 
-Where `/path/to/SparkPi-assembly-0.1.0-SNAPSHOT.jar` is a path to the `SparkPi-assembly-0.1.0-SNAPSHOT.jar` on your local filesystem.
+Where `/path/to/SparkPi-assembly-0.1.0-SNAPSHOT.jar` is a path to the `SparkPi-assembly-0.1.0-SNAPSHOT.jar`, or your custom `jar` file on your local filesystem.
 
 Build and push the image with the `dockerfile` change.
 
@@ -389,7 +401,7 @@ This way, instead of indicating a remote `jar` URL when submitting a job, `local
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
     --conf spark.kubernetes.container.image=<spark-image> \
-    local:///opt/spark/work-dir/SparkPi-assembly-0.1.0-SNAPSHOT.jar
+    local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
 
 # Next Steps
@@ -406,3 +418,6 @@ Check out [Spark documentation](https://spark.apache.org/docs/latest/running-on-
 [azure-cli]: https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [aks-quickstart]: https://docs.microsoft.com/en-us/azure/aks/
+[java-install]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[spark-conf]: https://spark.apache.org/docs/latest/configuration.html
+[acr-aks]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks
