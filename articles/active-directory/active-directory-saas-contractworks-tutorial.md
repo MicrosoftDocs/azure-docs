@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	 
 5. ContractWorks application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
-	![Configure Single Sign-On](./media/active-directory-saas-ContractWorks-tutorial/tutorial_ContractWorks_attribute.png)
+	![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_ContractWorks_attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
@@ -125,9 +125,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-ContractWorks-tutorial/tutorial_attribute_04.png)
+	![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-ContractWorks-tutorial/tutorial_attribute_05.png)
+	![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_attribute_05.png)
 	
 	b. In the **Name** textbox, type the attribute name shown for that row.
 	
@@ -144,12 +144,28 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-contractworks-tutorial/tutorial_general_400.png)
-	
-9. On the **ContractWorks Configuration** section, click **Configure ContractWorks** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![ContractWorks Configuration](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_configure.png) 
+9. To generate the **Metadata URL**, perform the following steps:
 
-10. To configure single sign-on on **ContractWorks** side, you need to send the downloaded **Metadata XML, Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [ContractWorks support team](mailto:support@contractworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
+    a. Click **App registrations**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appregistrations.png)
+   
+    b. Click **Endpoints** to open **Endpoints** dialog box.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpointicon.png)
+
+    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpoint.png)
+     
+    d. Now go to the property page of **contractworks** and copy the **Application Id** using **Copy** button and paste it into notepad.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appid.png)
+
+    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+10. To configure single sign-on on **ContractWorks** side, you need to send the downloaded **Metadata URL** to [ContractWorks support team](mailto:support@contractworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
