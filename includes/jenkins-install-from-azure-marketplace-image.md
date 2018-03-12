@@ -16,9 +16,8 @@
 
     - **Name** - Enter `Jenkins`.
     - **User name** - Enter the user name to use when signing into the virtual machine on which Jenkins is running. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-    - **Authentication type** - Select **Password**.
-    - **Password** - Enter the password to use when signing into the virtual machine on which Jenkins is running.
-    - **Confirm password** - Reenter the password to use when signing into the virtual machine on which Jenkins is running.
+    - **Authentication type** - Select **SSH public key**.
+    - **SSH public key** - Copy and paste an RSA public key in single-line format (starting with `ssh-rsa`) or multi-line PEM format. You can generate SSH keys using ssh-keygen on Linux and macOS, or PuTTYGen on Windows. For more information about SSH keys and Azure, see the article, [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
     - **Subscription** - Select the Azure subscription into which you want to install Jenkins.
     - **Resource group** - Select **Create new**, and enter a name for the resource group that serves as a logical container for the collection of resources that make up your Jenkins installation.
     - **Location** - Select **East US**.
@@ -44,7 +43,7 @@
 1. In the **Integration Settings** tab, specify the following values:
 
     - **Service Principal** - The service principal is added into Jenkins as a credential for authentication with Azure. `Auto` means that the principal will be created by MSI (Managed Service Identity). `Manual` means that the principal should be created by you. 
-    - **Application ID** and **Secret** - If you select the `Manual` option for the **Service Principal** option, you'll need to specify the `Application ID` and `Secret` for your service principal. When [creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli), note that the default role is **Contributor**, which is sufficient for installing the Jenkins solution template.
+    - **Application ID** and **Secret** - If you select the `Manual` option for the **Service Principal** option, you'll need to specify the `Application ID` and `Secret` for your service principal. When [creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli), note that the default role is **Contributor**, which is sufficient for working with Azure resources.
     - **Enable Cloud Agents** - Specify the default cloud template for agents where `ACI` refers to Azure Container Instance, and `VM` refers to virtual machines. You can also specify `No` if you don't wish to enable a cloud agent.
 
 1. Select **OK** to proceed to the **Summary** tab.
