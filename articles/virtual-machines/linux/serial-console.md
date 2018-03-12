@@ -24,7 +24,7 @@ ms.author: harijayms
 > ACCESS VIA SERIAL CONSOLE SHOULD BE LIMITED TO DEV-TEST VIRTUAL MACHINES. PREVIEW FUNCTIONALITY IS SUPPORTED ON A AS IS BASIS. WE STRONGLY RECOMMEND NOT TO USE THIS FOR ANY PRODUCTION VIRTUAL MACHINE.
 >
 
-Azure's Virtual Machine Serial Console provides access to a text-based console for Linux and Windows Virtual Machines on Azure. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine regardless of that virtual machine's network / operating system state. Access to serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
+Azure's Virtual Machine Serial Console provides access to a text-based console for Linux and Windows Virtual Machines on Azure. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and not related to virtual machine's network / operating system state. Access to serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
 ### Important information
 Currently this service is in **preview** and access to serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
@@ -72,7 +72,7 @@ The serial console functionality can be deactivated for specific VMs by disablin
 
 ## Common Scenarios for accessing Serial Console 
 Scenario          | Actions in Serial Console                |  OS Applicability 
-------------------|:----------------------------------------:|------------------:
+:------------------|:-----------------------------------------|:------------------
 Broken FSTAB file | Enter key to continue and fix fstab file using a text editor. See [how to fix fstab issues](https://support.microsoft.com/en-us/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) | Linux 
 Incorrect firewall rules | Access Serial Console and fix iptables or Windows firewall rules | Linux/Windows 
 Filesystem corruption/check | Access Serial Console and recover filesystem | Linux/Windows 
@@ -121,7 +121,7 @@ To enable Serial Console for your custom Linux VM image, enable console in /etc/
 Most errors are transient in nature and retrying connection address these. Below table shows a list of errors and mitigation 
 
 Error                            |   Mitigation 
----------------------------------|:--------------------------------------------:|
+:---------------------------------|:--------------------------------------------|
 Unable to retrieve boot diagnostics settings for ''. To use serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md)) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access serial console
 You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#requirements-for-accessing-serial-console) for details
@@ -131,7 +131,7 @@ Unable to determine the resource group for the boot diagnostics storage account 
 As we are still in the preview stages for Serial Console access, we are working through some known issues, below is the list of these with possible workarounds 
 
 Issue                           |   Mitigation 
----------------------------------|--------------------------------------------|
+:---------------------------------|:--------------------------------------------|
 There is no option with virtual machine scale set instance Serial Console |  At the time of preview, access to serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 
@@ -141,11 +141,11 @@ The current preview is available in global Azure regions. At this point serial c
 
 ## FAQ
 1. How can I send feedback?
-* Provide feedback as an issue by going to aka.ms/serialconsolefeedback. Alternatively(less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
+  * Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively(less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
 2. I am not a part of early access preview but I want to participate, how can I?
-* We will be opening access to more subscriptions shortly.
+  * We will be opening access to more subscriptions shortly.
 3. I get an Error "Existing console has conflicting OS type "Windows" with the requested OS type of Linux
-* This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) in bash mode and retry.
+  * This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) in bash mode and retry.
 
 ## Next Steps
 1. Learn more about [Windows serial console](../windows/serial-console.md)
