@@ -1,14 +1,14 @@
 ---
-title: High availability concepts in Azure Database for MySQL | Microsoft Docs
+title: High availability concepts in Azure Database for MySQL
 description: This topic provides information of high availability when using Azure Database for MySQL
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 02/28/2018
 ---
 # High availability concepts in Azure Database for MySQL
 The Azure Database for MySQL service provides a guaranteed high level of availability. The financially backed service level agreement (SLA) is 99.99% upon general availability. There is virtually no application down time when using this service.
