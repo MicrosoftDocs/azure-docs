@@ -142,11 +142,20 @@ The following table provides **outbound port** and domain requirements for **cor
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
+<<<<<<< HEAD
 | `*.servicebus.windows.net`    | 443, 80        | Required by the self-hosted integration runtime to connect to data movement services in Data Factory. |
 | `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the Azure Storage account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
 | `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Data Factory service. |
 | `*.database.windows.net`      | 1433           | (Optional) Required when you copy from or to Azure SQL Database or Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database or Azure SQL Data Warehouse without opening port 1433. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Optional) Required when you copy from or to  Azure Data Lake Store. |
+=======
+| `*.servicebus.windows.net`    | 443, 80        | Required by the self-hosted integration runtime to connect to data movement services in Data Factory |
+| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to Azure Storage Account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
+| `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Azure Data Factory service. |
+| `*.database.windows.net`      | 1433           | (OPTIONAL) needed when you copy from/to Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (OPTIONAL) needed when you copy from/to is Azure Data Lake store |
+| `wu.configuration.dataproxy.clouddatahub.net`    | 443            | (OPTIONAL) used for telemetry - installation sucess/ failure |
+>>>>>>> 2601f8d2846c4a1c6692f2c2f679c02efa8e0e8f
 
 > [!NOTE] 
 > You might have to manage ports or whitelisting domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, and Azure Data Lake Store as examples.   

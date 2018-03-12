@@ -2,8 +2,8 @@
 title: Call the Emotion API for Video | Microsoft Docs
 description: Learn how to call the Emotion API for Video in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion
