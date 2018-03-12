@@ -39,13 +39,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-Before you start with this tutorial, make sure you have the following:
+Before you start with this tutorial, make sure of the following:
 - An Azure Event Hubs namespace.
 - An Event Hub within the namespace.
 - Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
 - Shared access policy name and policy key for Event Hubs.
 
-You can meet these requirements by completing the steps in the article [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
+You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
 ## What does this tutorial do?
 
@@ -84,13 +84,13 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     Select **Pin to dashboard** and then click **Create**.
 
-4. The account creation takes a few minutes. During account creation the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
     ![Databricks deployment tile](./media/databricks-stream-from-eventhubs/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Databricks
 
-1. In the Azure portal, go to the Databricks workspace that you created, and then click **Initialize Workspace**.
+1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
 
 2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
 
@@ -108,7 +108,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ## Create a Twitter application
 
-To receive a real-time stream of tweets, you must create an application in Twitter. Follow the steps to create a Twitter application and record the values that you need to complete this tutorial.
+To receive a real-time stream of tweets, you create an application in Twitter. Follow the steps to create a Twitter application and record the values that you need to complete this tutorial.
 
 1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and click **Create New App**.
 
@@ -126,13 +126,13 @@ Save the values that you retrieved for the Twitter application. You need the val
 
 ## Add libraries to the cluster
 
-In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Events Hub. To use these APIs as part of your cluster, you must add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the library to the **Shared** folder in your workspace.
+In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Events Hub. To use these APIs as part of your cluster, add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the library to the **Shared** folder in your workspace.
 
 1.  In the Azure Databricks workspace, click **Workspace**, and then right-click **Shared**. From the context menu, click **Create** > **Library**.
 
     ![Add library dialog box](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Add library dialog box")
 
-2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here are the Maven coordinates for the libraries used in this tutorial:
+2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
 
     * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
@@ -172,7 +172,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 ## Send message to Event Hubs
 
-In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Events Hub in real-time.
+In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Events Hub in real time.
 
     import java.util._
     import scala.collection.JavaConverters._
