@@ -12,7 +12,7 @@
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
-    name: First query in Go
+  - name: First query in Go
     href: quickstarts/go.md
   - name: First query in Java
     href: quickstarts/java.md

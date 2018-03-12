@@ -3,7 +3,7 @@ title: Azure Quick Start - Create VM CLI | Microsoft Docs
 description: Quickly learn to create virtual machines with the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/13/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
