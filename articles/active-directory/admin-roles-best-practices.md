@@ -177,7 +177,7 @@ Azure AD Identity Protection is an algorithm-based monitoring and reporting tool
 
 Secure Score figures out what Office 365 services you’re using (like OneDrive, SharePoint, and Exchange) then looks at your settings and activities and compares them to a baseline established by Microsoft. You’ll get a score based on how aligned you are with best security practices. Anyone who has admin permissions (global admin or a custom administrator role) for an Office 365 Business Premium or Enterprise subscription can access the Secure Score at [https://securescore.office.com](https://securescore.office.com/).
 
-#### Review the Office 365 security and compliance guidance (if using Office365)
+#### Review the Office 365 security and compliance guidance (if using Office 365)
 
 The [plan for security and compliance](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) outlines the approach for how an Office 365 customer should configure Office 365 and leverage other EMS capabilities. Then, review steps 3-6 of how to [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) and the guide for how to [monitor security and compliance in Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
@@ -200,7 +200,7 @@ If your Azure Active Directory tenant is synchronized with on-premises Active Di
 
 Use the Enterprise portal and the Azure portal to identify the subscriptions in your organization that host production applications. 
 
-#### Remove Microsoft ccounts from admin roles
+#### Remove Microsoft accounts from admin roles
 
 Microsoft accounts from other programs, such as Xbox, Live, and Outlook should not be used as administrator accounts for organizational subscriptions. Remove admin status from all Microsoft accounts, and replace with Active Directory (for example, chris@contoso.com) work or school accounts.
 
@@ -226,7 +226,7 @@ Stage 3 builds on the mitigations from Stage 2 and is designed to be implemented
 
 #### Complete an access review of users in administrator roles
 
-More corporate users are gaining privileged access through cloud services, which can lead to an increasing unmanaged platform. This includes users becoming global admins for Office365, Azure subscription administrators, and users who have admin access in VMs or via SaaS apps. Instead, organizations should have all employees, especially admins, handle day-to-day business transactions as unprivileged users, and only take on admin rights as needed. Since the number of users in admin roles may have grown since initial adoption, complete access reviews to identify and confirm every user who is eligible to activate admin privileges. 
+More corporate users are gaining privileged access through cloud services, which can lead to an increasing unmanaged platform. This includes users becoming global admins for Office 365, Azure subscription administrators, and users who have admin access to VMs or via SaaS apps. Instead, organizations should have all employees, especially admins, handle day-to-day business transactions as unprivileged users, and only take on admin rights as needed. Since the number of users in admin roles may have grown since initial adoption, complete access reviews to identify and confirm every user who is eligible to activate admin privileges. 
 
 Do the following:
 
@@ -304,7 +304,7 @@ MCAS allows you to investigate files and set policies based on Azure Information
 
 #### Configure conditional access
 
-Configure conditional access based on group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Azure AD connected apps. 
+Configure conditional access based on a group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Azure AD connected apps. 
 
 #### Monitor activity in connected cloud apps
 
@@ -437,16 +437,16 @@ For more information about how Microsoft Office 365 handles security incidents, 
 
 ## Next steps
 
-* [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Security features of Microsoft cloud products and services
+* [Microsoft Trust Center for Product Security](https://www.microsoft.com/en-us/trustcenter/security) – Security features of Microsoft cloud products and services
 
-* [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsoft’s comprehensive set of compliance offerings for cloud services
+* [Microsoft Trust Center - Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – Microsoft’s comprehensive set of compliance offerings for cloud services
 
-* [Guidance on how to perform a risk assessment](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Manage security and compliance requirements for Microsoft cloud services
+* [Guidance on how to perform a risk assessment](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - Manage security and compliance requirements for Microsoft cloud services
 
 ### Other MS Online Services 
 
-* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) – Intune provides mobile device management, mobile application management, and PC management capabilities from the cloud.
+* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune provides mobile device management, mobile application management, and PC management capabilities from the cloud.
 
-* [Microsoft Dynamics 365 security](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365 is the Microsoft cloud-based solution that unifies customer relationship management (CRM) and enterprise resource planning (ERP) capabilities.
+* [Microsoft Dynamics 365 security](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365 is the Microsoft cloud-based solution that unifies customer relationship management (CRM) and enterprise resource planning (ERP) capabilities.
 
  
