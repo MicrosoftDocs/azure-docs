@@ -17424,6 +17424,26 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
+        "redirect_url": "/azure/virtual-network/quick-create-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md",
+        "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-ps.md",
+        "redirect_url": "/azure/virtual-network/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md",
+        "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
         "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
         "redirect_document_id": false
