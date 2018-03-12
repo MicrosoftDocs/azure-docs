@@ -85,7 +85,7 @@ Log Analytics also makes its data available outside of Azure.  You can configure
 
 You can use [Logic Apps](../logic-apps/logic-apps-overview.md) in Azure to create custom workflows based on Log Analytics data.  For more complex logic based on PowerShell, you can use [runbooks in Azure Automation]().
 
-![Power BI](media/log-analytics-overview/power-bi.png)
+![Power BI](media/log-analytics-overview/export.png)
 
 
 ## Add functionality with management solutions
