@@ -18,12 +18,12 @@ ms.author: tomfitz
 ---
 # Use portal to create an Azure Active Directory application and service principal that can access resources
 
-When you have an application that needs to access or modify resources, you must set up an Azure Active Directory (AD) application and assign the required permissions to it. This approach is preferable to running the app under your own credentials because:
-
-* You can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
-* You can use a certificate to automate authentication when executing an unattended script.
+When you have code that needs to access or modify resources, you must set up an Azure Active Directory (AD) application. You assign the required permissions to AD application. This approach is preferable to running the app under your own credentials because you can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 
 This article shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
+
+> [!IMPORTANT]
+> Instead of creating a service principal, consider using Azure AD Managed Service Identity for your application identity. Azure AD MSI is a public preview feature of Azure Active Directory that simplifies creating an identity for code. If your code runs on a service that supports Azure AD MSI and accesses resources that support Azure Active Directory authentication, Azure AD MSI is a better option for you. To learn more about Azure AD MSI, including which services currently support it, see [Managed Service Identity for Azure resources](../active-directory/managed-service-identity/overview.md).
 
 ## Required permissions
 
@@ -57,7 +57,7 @@ To check your subscription permissions:
 
    ![select user permissions](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-1. From the drop down list, select the subscription. Select **Click here to view complete access details for this subscription**.
+1. From the drop-down list, select the subscription. Select **Click here to view complete access details for this subscription**.
 
    ![find user](./media/resource-group-create-service-principal-portal/view-details.png)
 
