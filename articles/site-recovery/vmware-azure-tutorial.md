@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/12/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -41,9 +41,6 @@ for disaster recovery scenarios.
 
 ## Set up the source environment
 
-> [!TIP]
-> The recomended method for deploying a Configuration server for protecting VMware virtual machine is to use the OVF based deployment model as suggested in this article. In case there are restrictions in your organization which prevents you from deploying an OVF template, then you can use the [UnifiedSetup.exe to install a Configuration server](physical-manage-configuration-server.md) .
-
 To set up the source environment, you need a single, highly available, on-premises machine to host on-premises Site Recovery components. Components include the configuration server, process server, and master target server:
 
 - The configuration server coordinates communications between on-premises and Azure and manages data replication.
@@ -59,10 +56,7 @@ To set up the configuration server as a highly available VMware VM, download a p
 3. In **Add Server**, check that **Configuration server for VMware** appears in **Server type**.
 4. Download the OVF template for the configuration server.
 
-  > [!TIP]
-  You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-
-## Import the template in VMware
+ ## Import the template in VMware
 
 1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the Deploy OVF Template wizard. 
