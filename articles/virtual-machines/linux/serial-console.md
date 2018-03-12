@@ -148,5 +148,5 @@ The current preview is available in global Azure regions. At this point serial c
 * This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) in bash mode and retry.
 
 ## Next Steps
-Learn more about [Windows serial console](../windows/serial-console.md)
-Learn more about [bootdiagnostics](boot-diagnostics.md)
+1. Learn more about [Windows serial console](../windows/serial-console.md)
+2. Learn more about [bootdiagnostics](boot-diagnostics.md)
