@@ -77,7 +77,7 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Design
+  - name: Design Model 
     items:
     - name: Intents
       href: luis-concept-intent.md
@@ -99,24 +99,24 @@
   items: 
   - name: Plan your app
     href: Plan-your-app.md
-  - name: Build a LUIS app
+  - name: Start a new app
+    href: Create-new-app.md
+  - name: Build Model
     items: 
-    - name: Start a new app
-      href: Create-new-app.md
     - name: Add intents
       href: Add-intents.md
     - name: Add utterances
       href: Add-example-utterances.md
     - name: Add entities
       href: Add-entities.md
-    - name: Improve performance using features
-      href: Add-Features.md
-    - name: Train and test the app
-      href: Train-Test.md
-    - name: Use active learning
-      href: Label-Suggested-Utterances.md
-    - name: Publish your app
-      href: PublishApp.md
+  - name: Improve prediction accuracy using features
+    href: Add-Features.md
+  - name: Train and test the app
+    href: Train-Test.md
+  - name: Use active learning
+    href: Label-Suggested-Utterances.md
+  - name: Publish your app
+    href: PublishApp.md
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
