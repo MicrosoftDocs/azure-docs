@@ -24,7 +24,7 @@ When you have a misbehaving container, start by viewing its logs with [az contai
 
 To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. The container need not be running for you to pull the logs.
 
-For example, here is log output from a *terminated* container (from [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md)) after having fed it a **non-existent URL** to process:
+The following is log output from the example task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having fed it an invalid URL to process:
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
