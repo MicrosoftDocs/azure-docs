@@ -1,6 +1,6 @@
 ---
 title: Security considerations in Azure Data Factory | Microsoft Docs
-description: Describes basic security infrastructure that data movement services in Azure Data Factory use to secure your data.  
+description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -22,18 +22,18 @@ ms.author: abnarain
 > * [Version 1 - GA](v1/data-factory-data-movement-security-considerations.md)
 > * [Version 2 - Preview](data-movement-security-considerations.md)
 
-This article describes basic security infrastructure that data movement services in Azure Data Factory use to secure your data. Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
+This article describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data. Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you're using version 1 of the Data Factory service, which is generally available (GA), see [Data movement security considerations for Data Factory version 1](v1/data-factory-data-movement-security-considerations.md).
 
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
-Even though Data Factory is only available in the **East US**, **East US 2**, and **West Europe** regions (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area or region unless you explicitly instruct the service to use an alternate region. 
+Even though Data Factory is only available in the East US, East US 2, and West Europe regions (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area or region unless you explicitly instruct the service to use an alternate region. 
 
-Azure Data Factory does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. With Data Factory, you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats), and processing of data using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. You can also monitor and manage workflows using SDKs and Azure Monitor.
+Azure Data Factory does not store any data except for linked service credentials for cloud data stores, which are encrypted by using certificates. With Data Factory, you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats), and processing of data by using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. You can also monitor and manage workflows by using SDKs and Azure Monitor.
 
-Data movement using Data Factory has been certified for:
+Data movement by using Data Factory has been certified for:
 -	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
 -	[ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -	[ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
@@ -48,7 +48,7 @@ In this article, we review security considerations in the following two data mov
 
 ## Cloud scenarios
 ### Secure data store credentials
-- **Store encrypted credentials in an Azure Data Factory managed store**. Data Factory protects your data store credentials by encrypting them with certificates managed by Microsoft. These certificates are rotated every two years (which includes certificate renewal and the migration of credentials). The encrypted credentials are securely stored in an Azure Storage account managed by Azure Data Factory management services. For more information about Azure Storage security, see [Azure Storage security overview](../security/security-storage-overview.md).
+- **Store encrypted credentials in an Azure Data Factory managed store**. Data Factory protects your data store credentials by encrypting them with certificates managed by Microsoft. These certificates are rotated every two years (which includes certificate renewal and the migration of credentials). The encrypted credentials are securely stored in an Azure storage account managed by Azure Data Factory management services. For more information about Azure Storage security, see [Azure Storage security overview](../security/security-storage-overview.md).
 
 - **Store credentials in Azure Key Vault**. You can also store the data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory retrieves the credential during the execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
@@ -56,7 +56,7 @@ In this article, we review security considerations in the following two data mov
 If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS.
 
 > [!NOTE]
-> All connections to **Azure SQL Database** and **Azure SQL Data Warehouse** require encryption (SSL/TLS) while data is in transit to and from the database. When authoring a pipeline using JSON, add the **encryption** property and set it to **true** in the **connection string**. For **Azure Storage**, you can use **HTTPS** in the connection string.
+> All connections to Azure SQL Database and Azure SQL Data Warehouse require encryption (SSL/TLS) while data is in transit to and from the database. When authoring a pipeline by using JSON, add the encryption property and set it to *true* in the connection string. For Azure Storage, you can use *HTTPS* in the connection string.
 
 ### Data encryption at rest
 Some data stores support encryption of data at rest. We recommend that you enable the data encryption mechanism for those data stores. 
@@ -71,7 +71,7 @@ Azure SQL Database also supports transparent data encryption (TDE), which helps 
 Azure Data Lake Store also provides encryption for data stored in the account. When enabled, Data Lake Store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [Security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### Azure Blob storage and Azure Table storage
-Azure Blob storage and Azure Table storage supports Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md).
+Azure Blob storage and Azure Table storage support Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md).
 
 #### Amazon S3
 Amazon S3 supports both client and server encryption of data at rest. For more information, see [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
@@ -87,21 +87,21 @@ Hybrid scenarios require self-hosted integration runtime to be installed in an o
 
 ![self-hosted integration runtime channels](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
-The **command channel** allows communication between data movement services in Data Factory and self-hosted integration runtime. The communication contains information related to the activity. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
+The command channel allows communication between data movement services in Data Factory and self-hosted integration runtime. The communication contains information related to the activity. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
 
 ### On-premises data store credentials
 The credentials for your on-premises data stores are always encrypted and stored. They can be either stored locally on the self-hosted integration runtime machine, or in Azure Data Factory managed storage (just like cloud store credentials). 
 
 1. **Store credentials locally**. If you want to encrypt and store credentials locally on the self-hosted integration runtime, follow the steps in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). All connectors support this option. The self-hosted integration runtime uses Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) to encrypt the sensitive data and credential information. 
 
-   Use the **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet to encrypt linked service credentials and sensitive details in the linked service. You can then use the JSON returned (with the **EncryptedCredential** element in the **connectionString**) to create a linked service by using the **Set-AzureRmDataFactoryV2LinkedService** cmdlet.  
+   Use the *New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential* cmdlet to encrypt linked service credentials and sensitive details in the linked service. You can then use the JSON returned (with the *EncryptedCredential* element in the connection string) to create a linked service by using the *Set-AzureRmDataFactoryV2LinkedService* cmdlet.  
 
-2. **Store in Azure Data Factory managed storage**. If you directly use the **Set-AzureRmDataFactoryV2LinkedService** cmdlet with the connection strings and credentials inline in the JSON, the linked service is encrypted and stored in Azure Data Factory managed storage. The sensitive information is still encrypted by certificate, and these certificates are managed by Microsoft.
+2. **Store in Azure Data Factory managed storage**. If you directly use the *Set-AzureRmDataFactoryV2LinkedService* cmdlet with the connection strings and credentials inline in the JSON, the linked service is encrypted and stored in Azure Data Factory managed storage. The sensitive information is still encrypted by certificate, and these certificates are managed by Microsoft.
 
 
 
 #### Ports used when encrypting linked service on self-hosted integration runtime
-By default, PowerShell uses port **8050** on the machine with self-hosted integration runtime for secure communication. If necessary, this port can be changed.  
+By default, PowerShell uses port 8050 on the machine with self-hosted integration runtime for secure communication. If necessary, this port can be changed.  
 
 ![HTTPS port for the gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -109,7 +109,7 @@ By default, PowerShell uses port **8050** on the machine with self-hosted integr
 
 
 ### Encryption in transit
-All data transfers are via secure channel **HTTPS** and **TLS over TCP** to prevent man-in-the-middle attacks during communication with Azure services.
+All data transfers are via secure channel HTTPS and TLS over TCP to prevent man-in-the-middle attacks during communication with Azure services.
 
 You can also use [IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) or [Azure ExpressRoute](../expressroute/expressroute-introduction.md) to further secure the communication channel between your on-premises network and Azure.
 
@@ -138,29 +138,20 @@ The following images show the use of self-hosted integration runtime for moving 
 #### Firewall requirements for on-premises/private network	
 In an enterprise, a corporate firewall runs on the central router of the organization. Windows Firewall runs as a daemon on the local machine in which the self-hosted integration runtime is installed. 
 
-The following table provides **outbound port** and domain requirements for **corporate firewalls**.
+The following table provides outbound port and domain requirements for corporate firewalls:
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-<<<<<<< HEAD
 | `*.servicebus.windows.net`    | 443, 80        | Required by the self-hosted integration runtime to connect to data movement services in Data Factory. |
-| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the Azure Storage account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
+| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the Azure storage account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
 | `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Data Factory service. |
 | `*.database.windows.net`      | 1433           | (Optional) Required when you copy from or to Azure SQL Database or Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database or Azure SQL Data Warehouse without opening port 1433. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Optional) Required when you copy from or to  Azure Data Lake Store. |
-=======
-| `*.servicebus.windows.net`    | 443, 80        | Required by the self-hosted integration runtime to connect to data movement services in Data Factory |
-| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to Azure Storage Account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
-| `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Azure Data Factory service. |
-| `*.database.windows.net`      | 1433           | (OPTIONAL) needed when you copy from/to Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (OPTIONAL) needed when you copy from/to is Azure Data Lake store |
-| `wu.configuration.dataproxy.clouddatahub.net`    | 443            | (OPTIONAL) used for telemetry - installation sucess/ failure |
->>>>>>> 2601f8d2846c4a1c6692f2c2f679c02efa8e0e8f
 
 > [!NOTE] 
 > You might have to manage ports or whitelisting domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, and Azure Data Lake Store as examples.   
 
-The following table provides **inbound port** requirements for **Windows Firewall**.
+The following table provides inbound port requirements for Windows Firewall:
 
 | Inbound ports | Description                              |
 | ------------- | ---------------------------------------- |
@@ -187,7 +178,7 @@ We do not support this feature yet. We are actively working on it.
 
 **What are the port requirements for the self-hosted integration runtime to work?**
 
-The self-hosted integration runtime makes HTTP-based connections to access the internet. The **outbound ports 443 and 80** must be opened for the self-hosted integration runtime to make this connection. Open **inbound port 8050** only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open **port 1433** as well. For more information, see the [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of-gateway) section. 
+The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 and 80 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8050 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of-gateway) section. 
 
 
 ## Next steps
