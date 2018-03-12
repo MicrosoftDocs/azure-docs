@@ -36,6 +36,7 @@ Pick the troubleshooting steps that correspond to or alert ID or message you enc
 | AADDS502 | *The secure LDAP certificate for the managed domain will expire on XX.* | [Expiring secure LDAP certificate](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *The managed domain is suspended because the Azure subscription associated with the domain is not active.* | [Suspension due to disabled subscription](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *The managed domain is suspended due to an invalid configuration. The service has been unable to manage, patch, or update the domain controllers for your managed domain for a long time.* | [Suspension due to an invalid configuration](#aadds504-suspension-due-to-an-invalid-configuration) |
+| AADDS000 | *The service principal used for password synchronization was deleted, and Microsoft was able to recreate it. However, the password synchronization applications that were authorized with the deleted service principal became outdated when the synchronization certificate expired. The new service principal is unable to update the old applications.* | [The password synchronization application is out of date]((active-directory-ds-troubleshoot-service-principals.md#aadds000-password-synchronization-application-is-out-of-date) |
 
 
 

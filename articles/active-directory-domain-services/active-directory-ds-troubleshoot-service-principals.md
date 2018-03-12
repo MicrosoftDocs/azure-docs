@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2018
+ms.date: 03/09/2018
 ms.author: ergreenl
 
 ---
@@ -22,9 +22,10 @@ ms.author: ergreenl
 This article helps you troubleshoot and resolve service principal-related configuration errors that result in the following alert message:
 
 ## Alert AADDS102: Service Principal not found
+
 **Alert message:** *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
-[Service principals](../active-directory/develop/active-directory-application-objects.md) are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain. 
+[Service principals](../active-directory/develop/active-directory-application-objects.md) are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain.
 
 
 ## Check for missing service principals
@@ -49,24 +50,24 @@ You need Azure AD PowerShell to complete these steps. For information on install
 
 To address this issue, type the following commands in a PowerShell window:
 1. Install the Azure AD PowerShell module and import it.
-    
-    ```powershell 
+
+    ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
-    
+
 2. Check whether the service principal required for Azure AD Domain Services is missing in your directory by executing the following PowerShell command:
-    
+
     ```powershell
     Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
     ```
-    
+
 3. Create the service principal by typing the following PowerShell command:
 
     ```powershell
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
-    
+
 4. After you have created the missing service principal, wait two hours and check your managed domain's health.
 
 
@@ -87,7 +88,33 @@ Use the following steps to restore Domain Services on your directory:
 Follow these steps if a service principal with the ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` is missing from your Azure AD directory.
 
 **Remediation:**
-Azure AD Domain Services can detect when this specific service principal is missing, misconfigured, or deleted. The service automatically recreates this service principal. Check your managed domain's health after two hours to ensure that the service principal has been recreated.
+Azure AD Domain Services can detect when this specific service principal is missing, misconfigured, or deleted. The service automatically recreates this service principal. However, you will need to delete the application and object that worked with the deleted application, as when the certification rolls over, the application and object will no longer be able to be modified by the new service principal. This will lead to a new error on your domain. Follow the steps outlined in the section to prevent this problem. After, check your managed domain's health after two hours to ensure that the new service principal has been recreated.
+
+
+## Alert AADDS000: Password synchronization application is out of date
+
+**Alert message:** The service principal used for password synchronization was deleted, and Microsoft was able to recreate it. However, the password synchronization applications that were authorized with the deleted service principal became outdated when the synchronization certificate expired. The new service principal is unable to update the old applications.
+
+
+**Remediation:**
+You need Azure AD PowerShell to complete these steps. For information on installing Azure AD PowerShell, see [this article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+
+To address this issue, type the following commands in a PowerShell window:
+1. Install the Azure AD PowerShell module and import it.
+
+    ```powershell
+    Install-Module AzureAD
+    Import-Module AzureAD
+    ```
+2. Delete the old application and object using the following PowerShell commands
+
+    ```powershell
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    ```
+3. After you have deleted both, the system will remediate itself and recreate the applications needed for password synchronization. To ensure the alert has been remediated, wait two hours and check your domain's health.
 
 
 ## Contact Us
