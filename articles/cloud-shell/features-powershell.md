@@ -100,7 +100,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |6.10       |
-|PowerShell  |5.1 and [6.0.0](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell  |5.1 and [6.0.1](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## Next steps
