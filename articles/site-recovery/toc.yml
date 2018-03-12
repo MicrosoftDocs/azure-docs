@@ -77,6 +77,8 @@
         href: vmware-azure-multi-tenant-overview.md
       - name: About the Mobility service
         href: vmware-azure-install-mobility-service.md
+      - name: Failback location options
+        href: concepts-types-of-failback.md
     - name: Replication to a secondary site
       items:
       - name: VMware/physical to secondary site support matrix
