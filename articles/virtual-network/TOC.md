@@ -27,11 +27,6 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
-### Virtual networks
-#### [Azure portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Template](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Network security groups
 #### [Azure portal](virtual-networks-create-nsg-arm-pportal.md)
