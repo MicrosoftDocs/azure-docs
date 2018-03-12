@@ -2,8 +2,8 @@
 title: Deploy a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
 description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part three and discusses the deploying model.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 3/7/2018
 ---
 
-# Tutorial: Classify Iris part 3: Deploy a model
+# Tutorial 3: Classify Iris: Deploy a model
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is **part three of a three-part series**. In this part of the tutorial, you use Machine Learning (preview) to:
