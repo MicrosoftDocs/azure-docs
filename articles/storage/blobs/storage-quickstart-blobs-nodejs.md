@@ -259,8 +259,7 @@ try {
 ```
 
 ## Clean up resources
-If no not plan on using the data or accounts created in this procedure, you may want to delete the storage account to ensure you avoid any undesired billing. First, 
-
+If you do not plan on using the data or accounts created as described in this article, you may want to delete what you created in order to avoid any undesired billing. To delete the blob and containers, you can use the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) and [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) methods. You can also delete the storage account [through the portal](../common/storage-create-storage-account.md).
 
 
 ## Next steps
