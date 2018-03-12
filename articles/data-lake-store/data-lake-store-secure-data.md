@@ -66,9 +66,9 @@ When you assign users or security groups to Azure Data Lake Store accounts, you 
 	For data operations, individual file system permissions define what the users can do. Therefore, a user having a Reader role can only view administrative settings associated with the account but can potentially read and write data based on file system permissions assigned to them. Data Lake Store file system permissions are described at [Assign security group as ACLs to the Azure Data Lake Store file system](#filepermissions).
 
     > [!IMPORTANT]
-    > Only the **Owner** role automatically enables file system access. The **Contributor**, **Reader**, and all other roles require ACLs to enable any level of access to folders and files.  The **Owner** role provides super-user file and folder permissions that cannot be overridden via ACLs. For more information on how RBAC policies map to data access, see [RBAC for account management](data-lake-store-security-overview#rbac-for-account-management).
+    > Only the **Owner** role automatically enables file system access. The **Contributor**, **Reader**, and all other roles require ACLs to enable any level of access to folders and files.  The **Owner** role provides super-user file and folder permissions that cannot be overridden via ACLs. For more information on how RBAC policies map to data access, see [RBAC for account management](data-lake-store-security-overview.md#rbac-for-account-management).
 
-1. If you want to add a group/user that is not listed in the **Add permissions** blade, you can invite them by typing their email address in the **Select** text box and then selecting them from the list.
+4. If you want to add a group/user that is not listed in the **Add permissions** blade, you can invite them by typing their email address in the **Select** text box and then selecting them from the list.
    
 	![Add a security group](./media/data-lake-store-secure-data/adl.add.user.2.png "Add a security group")
    
@@ -88,6 +88,8 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
    
     ![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
 3. The **Access** blade lists the owners and assigned permissions already assigned to the root. Click the **Add** icon to add additional Access ACLs.
+    > [!IMPORTANT]
+    > Setting access permissions for a single file does not necessarily grant a user/group access to that file. The path to the file must be accessible to the assigned user/group. For more information and examples, see [Common scenarios related to permissions](data-lake-store-access-control.md#common-scenarios-related-to-permissions).
    
     ![List standard and custom access](./media/data-lake-store-secure-data/adl.acl.2.png "List standard and custom access")
    
