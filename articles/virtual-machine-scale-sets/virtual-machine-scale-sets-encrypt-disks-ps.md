@@ -19,10 +19,10 @@ ms.author: iainfou
 
 ---
 # Encrypt OS and attached data disks in a virtual machine scale set
-To protect and safeguard virtual machine scale sets data at rest using industry standard encryption technology, scale sets support Azure Disk Encryption (ADE). Encryption can be enabled for Windows and Linux virtual machine scale sets. For more information, see [Azure Disk Encryption for Windows and Linux](../security/azure-security-disk-encryption.md).
+To protect and safeguard data at rest using industry standard encryption technology, virtual machine scale sets support Azure Disk Encryption (ADE). Encryption can be enabled for Windows and Linux virtual machine scale sets. For more information, see [Azure Disk Encryption for Windows and Linux](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
->  Azure Disk Encryption for virtual machine scale sets is currently in public preview, available in all Azure public regions. 
+>  Azure Disk Encryption for virtual machine scale sets is currently in preview, available in all Azure public regions. 
 >
 > Scale set VM reimage and upgrade operations are not supported in the current preview. In preview, scale set encryption is recommended only in test environments. In the preview, do not enable disk encryption in production environments where you may need to upgrade an OS image.
 
@@ -53,7 +53,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ## Create an Azure Key Vault enabled for disk encryption
 Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use.
 
-Create a Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). To allow the Key Vault to be used for disk encryption, set the 'EnabledForDiskEncryption' parameter. The following example also defines variables for resource group name, Key Vault Name, and location. Provide your own unique Key Vault name:
+Create a Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). To allow the Key Vault to be used for disk encryption, set the *EnabledForDiskEncryption* parameter. The following example also defines variables for resource group name, Key Vault Name, and location. Provide your own unique Key Vault name:
 
 ```powershell
 $rgName="myResourceGroup"
