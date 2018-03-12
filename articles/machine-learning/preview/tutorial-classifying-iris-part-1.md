@@ -5,12 +5,12 @@ services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 3/7/2018
 ---
 
 # Tutorial 1: Classify Iris - Preparing the data
@@ -56,8 +56,8 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
    Project name | myIris |Enter a unique name that identifies your account. You can use your own name, or a departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. 
    Project directory | c:\Temp\ | Specify the directory in which the project is created.
    Project description | _leave blank_ | Optional field useful for describing the projects.
-   Visualstudio.com |_leave blank_ | Optional field. You can associate a project with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Workspace | IrisGarden (if it exists) | Choose a workspace that you have created for your Experimentation account in the Azure portal. <br/>If you followed the Quickstart, you should have a workspace by the name IrisGarden. If not, select the one you created when you created your Experimentation account or any other you want to use.
+   Visualstudio.com GIT Repository URL |_leave blank_ | Optional field. You can associate a project with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set that up](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Selected workspace | IrisGarden (if it exists) | Choose a workspace that you have created for your Experimentation account in the Azure portal. <br/>If you followed the Quickstart, you should have a workspace by the name IrisGarden. If not, select the one you created when you created your Experimentation account or any other you want to use.
    Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 
    ![New project](media/tutorial-classifying-iris/new_project.png)
@@ -69,11 +69,11 @@ If you followed the steps in the [Quickstart: Install and start](quickstart-inst
 
 ## Create a data preparation package
 
-Next, you can explore the data and start preparing the data in Azure Machine Learning Workbench. Each transformation you perform in Workbench is stored in a JSON format in a local data preparation package (*.dprep file). This data preparation package is the primary container for your data preparation work in Workbench.
+Next, you can explore and start preparing the data in Azure Machine Learning Workbench. Each transformation you perform in Workbench is stored in a JSON format in a local data preparation package (*.dprep file). This data preparation package is the primary container for your data preparation work in Workbench.
 
 This data preparation package can be handed off later to a runtime, such as local-C#/CoreCLR, Scala/Spark, or Scala/HDI. 
 
-1. Select the folder icon to open the file view and then select **iris.csv** to open that file.  
+1. Select the folder icon to open the Files view, then select **iris.csv** to open that file.
 
    This file contains a table with 5 columns and 50 rows. Four columns are numerical feature columns. The fifth column is a string target column. None of the columns have header names.
 
@@ -82,32 +82,29 @@ This data preparation package can be handed off later to a runtime, such as loca
    >[!NOTE]
    > Do not include data files in your project folder, particularly when the file size is large. Because the **iris.csv** data file is tiny, it was included in this template for demonstration purposes. For more information, see [How to read and write large data files](how-to-read-write-files.md).
 
-2. In the **Data View**, select the plus sign (**+**) to add a new data source. The **Add Data Source** page opens. 
+2. In the **Data view**, select the plus sign (**+**) to add a new data source. The **Add Data Source** page opens. 
 
    ![Data view in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data_view.png)
 
-3. Select **Text Files(*.csv, .json, .txt.,... )** and click **Next**.
+3. Select **Text Files(\*.csv, \*.json, \*.txt., ...)** and click **Next**.
    ![Data Source in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data-source.png)
-   
 
-4. Browse to the file **iris.csv**, and click **Next**.  
+4. Browse to the file **iris.csv**, and click **Finish**. This will use default values for parameters such as the separator and data types.
 
    >[!IMPORTANT]
    >Make sure you select the **iris.csv** file from within the current project directory for this exercise. Otherwise, later steps might fail.
  
    ![Select iris](media/tutorial-classifying-iris/select_iris_csv.png)
    
-5. Leave the default values and click **Finish**.
-
-6. A new file named **iris-1.dsource** is created. The file is named uniquely with  "-1" because the sample project already comes with an unnumbered **iris.dsource** file.  
+5. A new file named **iris-1.dsource** is created. The file is named uniquely with  "-1" because the sample project already comes with an unnumbered **iris.dsource** file.  
 
    The file opens, and the data is shown. A series of column headers, from **Column1** to **Column5**, is automatically added to this data set. Scroll to the bottom and notice that the last row of the data set is empty. The row is empty because there is an extra line break in the CSV file.
 
    ![Iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-1. Select the **Metrics** button. Histograms are generated and displayed onscreen.
+1. Select the **Metrics** button. Histograms are generated and displayed.
 
-   You switch back to the data view by selecting the **Data** button. 
+   You can switch back to the data view by selecting the **Data** button.
    
    ![Iris data view](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
@@ -117,7 +114,7 @@ This data preparation package can be handed off later to a runtime, such as loca
 
 8. Begin creating a data preparation package by selecting the **Prepare** button. The **Prepare** dialog box opens. 
 
-   The sample project contains a **iris.dprep** data preparation file by default. 
+   The sample project contains a **iris.dprep** data preparation file that is selected by default. 
 
    ![Iris data view](media/tutorial-classifying-iris/prepare.png)
 
@@ -125,7 +122,7 @@ This data preparation package can be handed off later to a runtime, such as loca
 
    ![Iris data view](media/tutorial-classifying-iris/prepare_new.png)
 
-1. Enter a new value for the package name, use **iris-1**, and then select **OK**.
+1. Enter a new value for the package name (use **iris-1**) and then select **OK**.
 
    A new data preparation package named **iris-1.dprep** is created and opened in the data preparation editor.
 
@@ -144,7 +141,7 @@ This data preparation package can be handed off later to a runtime, such as loca
    1. Right-click to select it. 
    1. Select **Value Counts** from the drop-down menu. 
 
-   The **Inspectors** pane opens below the data. A histogram with four bars appears. The target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
+   The **Inspectors** pane opens below the data. A histogram with four bars appears. The target column has four distinct values: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa**, and a **(null)** value.
 
    ![Select Value Counts](media/tutorial-classifying-iris/value_count.png)
 
@@ -156,11 +153,11 @@ This data preparation package can be handed off later to a runtime, such as loca
 
    ![Filter out nulls](media/tutorial-classifying-iris/filter_out2.png)
 
-1. Take notice of the individual data preparation steps that are detailed in the **STEPS** pane. As you renamed the columns and filtered the null value rows, each action was recorded as a data-preparation step. You can edit individual steps to adjust the settings, reorder the steps, and remove steps.
+1. Take notice of the individual data preparation steps that are detailed in the **STEPS** pane. As you renamed the columns and filtered the null value rows, each action was recorded as a data preparation step. You can edit individual steps to adjust their settings, reorder the steps, and remove steps.
 
    ![Steps](media/tutorial-classifying-iris/steps.png)
 
-1. Close the data preparation editor. Select the x icon on the **iris-1** tab with the graph icon to close the tab. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
+1. Close the data preparation editor. Select the **x** icon on the **iris-1** tab with the graph icon to close the tab. Your work is automatically saved into the **iris-1.dprep** file shown under the **Data Preparations** heading.
 
    ![Close](media/tutorial-classifying-iris/close.png)
 
@@ -193,8 +190,8 @@ This data preparation package can be handed off later to a runtime, such as loca
    df.head(10)
    ```
 
-   Depending on the context in which this code is run, `df` represents a kind of dataframe. 
-   + When executing on a Python runtime, a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)  is used.
+   Depending on the context in which this code is run, `df` represents a different kind of DataFrame:
+   + When executing on a Python runtime, a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) is used.
    + When executing in a Spark context, a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) is used. 
    
    To learn more about how to prepare data in Azure Machine Learning Workbench, see the [Get started with data preparation](data-prep-getting-started.md) guide.
