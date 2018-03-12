@@ -6,11 +6,11 @@ The Azure File Sync agent is updated on a regular basis to add new functionality
 
 #### Upgrade paths
 There are three approved and tested ways to install the Azure File Sync agent updates. These update paths work for both major and minor versions.
-1. (Preferred) Configure Microsoft Update to automatically download and install agent updates. 
+1. **(Preferred) Configure Microsoft Update to automatically download and install agent updates.**  
     We always recommend taking every Azure File Sync update to ensure you have access to the latest fixes for the server agent. Microsoft Update makes this process seamless, by automatically downloading and installing updates for you.
-2. Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync)
+2. **Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Running an .msp exectuable will upgrade your Azure File Sync installation with the same method used automatically by Microsoft Update in the previous upgrade path. Applying a Microsoft Update patch will perform an in-place upgrade of an Azure File Sync installation.
-3. Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). The installer download is a Microsoft Installer package, or a .msi executable. 
+3. **Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). The installer download is a Microsoft Installer package, or a .msi executable.**  
     To upgrade an existing Azure File Sync agent installation, uninstalled the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
 
 #### Agent lifecyle and change management guarantees
