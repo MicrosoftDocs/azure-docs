@@ -20,7 +20,7 @@ ms.author: bwren
 # What is Azure Log Analytics?
 Log Analytics plays a central role in Azure management by collecting telemetry and other data from a variety of sources and  providing a query language and analytics engine that gives you insights into the operation of your applications and resources.  You can either interact directly with Log Analytics data through log searches and views, or you may use analysis tools in other Azure services such as Application Insights or Azure Security Center that store their data in Log Analytics.  
 
-Log Analytics requires minimal configuration 
+Log Analytics requires minimal configuration.  You just need to create a workspace to enable collection from other services, and data types are predefined as data is collected.  Once virtual machines have an agent installed, you can configure their data collection centrally.  Management solutions can be installed into Azure the include logic to provide additional insights into different applications using Log Analytics data.
 
 
 ## Role in monitoring
@@ -83,7 +83,7 @@ For example, the following view is from Application Insights.  If you click the 
 
 Log Analytics also makes its data available outside of Azure.  You can configure [Power BI](log-analytics-powerbi.md) to import the results of a query at scheduled intervals allowing you to take advantage of its features such as combing data from different sources and sharing reports on the web and mobile devices.  You can also leverage the [Log Search API](log-analytics-log-search-api.md) to build custom solutions that leverage Log Analytics data or to integrate with other systems.
 
-
+You can use [Logic Apps](../logic-apps/logic-apps-overview.md) in Azure to create custom workflows based on Log Analytics data.  For more complex logic based on PowerShell, you can use [runbooks in Azure Automation]().
 
 ![Power BI](media/log-analytics-overview/power-bi.png)
 
