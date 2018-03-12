@@ -1,6 +1,6 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
-description: In this quickstart, you run two sample Node.js applications to send simulated telemetry to an IoT hub and to read telemetry from from the IoT hub for processing in the cloud.
+title: Control a device from Azure IoT Hub quickstart | Microsoft Docs
+description: In this quickstart, you run two sample Node.js applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
 services: iot-hub
 author: dominicbetts
 manager: timlt
@@ -16,14 +16,12 @@ ms.date: 03/08/2018
 ms.author: dobett
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub
+# Quickstart: Control a device connected to an IoT hub
 
-In this quickstart, you send telemetry from a simulated device, through IoT Hub, to a back-end application for processing. You complete the following steps in this quickstart:
+In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You run two sample applications:
 
-1. Use the Azure portal to create an IoT hub in your Azure subscription.
-1. Use the Azure CLI to register a simulated device in your IoT hub.
-1. Run a Node.js device application that sends simulated telemetry.
-1. Run a simple Node.js back-end application that reads and processes the telemetry.
+* A simulated device application that responds to direct methods called from a back-end application. To receive the direct method calls, this application connects to a device-specific endpoint on your IoT hub.
+* A back-end application that calls the direct methods on the simulated device. To call a direct method on a device, this application connects to service-side endpoint on your IoT hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,6 +40,8 @@ node --version
 ```
 
 ## Create an IoT hub
+
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-d2c-node.md), you can skip this step.
 
 The first step is to use the Azure portal to create an IoT hub in your subscription. The IoT hub enables you to ingest high volumes of telemetry into the cloud from many devices. The hub then enables one or more back-end services running in the cloud to read and process that telemetry.
 
@@ -69,6 +69,8 @@ To create your IoT hub, use the values in the following table:
 Make a note of your IoT hub and resource group names. You use these values later in this quickstart.
 
 ## Register a device
+
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-d2c-node.md), you can skip this step.
 
 A device must be registered with your IoT hub before it can connect. In this step, you use the Azure CLI to register a device. Replace `{YourIoTHubName}` with the name of your IoT hub:
 
@@ -101,13 +103,15 @@ Make a note of the service connection string, which looks like `Hostname=...=`. 
 
 ## Download the sample
 
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-d2c-node.md), you can skip this step.
+
 Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstart-d2c/archive/master.zip and extract the ZIP archive.
 
 ## Run the simulated device application
 
-The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
+The simulated device application connects to a device-specific endpoint on your IoT hub and listens for direct method calls from your hub. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
 
-In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **simulated-device** folder.
+In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **simulated-device-2** folder.
 
 Open the **SimulatedDevice.js** file in a text editor of your choice.
 
@@ -122,13 +126,13 @@ node SimulatedDevice.js
 
 The following screenshot shows some example output:
 
-![Run the simulated device](media/quickstart-d2c-node/SimulatedDevice.png)
+![Run the simulated device](media/quickstart-c2d-node/SimulatedDevice.png)
 
 ## Run the back-end application
 
-The back-end application connects to the service-side **Events** endpoint on your IoT Hub. The application receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
+The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
 
-In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **back-end-application** folder.
+In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **back-end-application-2** folder.
 
 Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
 
@@ -143,17 +147,17 @@ node ReadDeviceToCloudMessages.js
 
 The following screenshot shows some example output:
 
-![Run the back-end application](media/quickstart-d2c-node/ReadDeviceToCloud.png)
+![Run the back-end application](media/quickstart-c2d-node/ReadDeviceToCloud.png)
 
 ## Clean up resources
 
-If you plan to complete the next quickstart, leave the resource group and IoT hub and reuse them later.
+If you plan to move on to the tutorials, leave the resource group and IoT hub and reuse them later.
 
 If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a Node.js application, and read the telemetry from the hub using a simple back-end app. To learn how to control your simulated device from a back-end app, continue to the next quickstart.
+In this quickstart, you've setup an IoT hub, registered a device, called a direct method on a device from a back-end application, and responded to the direct method call in a simulated device application. To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Control a device connected to an IoT hub](quickstart-c2d-node.md)
+> [Tutorial: Route telemetry to different endpoints for processing](iot-hub-node-node-process-d2c.md)
