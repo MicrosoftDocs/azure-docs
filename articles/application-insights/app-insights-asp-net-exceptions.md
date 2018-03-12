@@ -189,6 +189,23 @@ But if you have active redirects, add the following lines to the Application_Err
 
 
 ## MVC
+Starting with Application Insights Web SDK version 2.6 (beta3 and later), Application Insights collects unhandled exceptions thrown in the MVC 5+ controllers methods automatically. If you have previously added a custom handler to track such exceptions (as described below), you may remove it to prevent double tracking of exceptions.
+
+There are a number of cases that the exception filters cannot handle. For example:
+
+* Exceptions thrown from controller constructors.
+* Exceptions thrown from message handlers.
+* Exceptions thrown during routing.
+* Exceptions thrown during response content serialization.
+* Exception thrown during application start-up
+* Exception thrown in background tasks
+
+All exceptions *handled* by application still needs to be tracked manually. 
+Unhandled exceptions by controllers typically results in 500 "Internal Server Error" response. If 500 reponse is manually constructed as a result of handled exception (or no exception at all) it is tracked in corresponding request telemetry with 500 `ResultCode`, however no corresponding exception is automatically tracked.
+
+### Prior versions support
+If you use MVC 4 (and prior) of Application Insights Web SDK 2.5 (and prior), refer to the following examples to track exceptions.
+
 If the [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuration is `Off`, then exceptions will be available for the [HTTP Module](https://msdn.microsoft.com/library/ms178468.aspx) to collect. However, if it is `RemoteOnly` (default), or `On`, then the exception will be cleared and not available for Application Insights to automatically collect. You can fix that by overriding the [System.Web.Mvc.HandleErrorAttribute class](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), and applying the overridden class as shown for the different MVC versions below ([github source](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
     using System;
@@ -255,7 +272,25 @@ Register AiHandleErrorAttribute as a global filter in FilterConfig.cs:
 
 [Sample](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## Web API 1.x
+## Web API
+Starting with Application Insights Web SDK version 2.6 (beta3 and later), Application Insights collects unhandled exceptions thrown in the controller methods automatically for WebAPI 2+. If you have previously added a custom handler to track such exceptions (as described below), you may remove it to prevent double tracking of exceptions.
+
+There are a number of cases that the exception filters cannot handle. For example:
+
+* Exceptions thrown from controller constructors.
+* Exceptions thrown from message handlers.
+* Exceptions thrown during routing.
+* Exceptions thrown during response content serialization.
+* Exception thrown during application start-up
+* Exception thrown in background tasks
+
+All exceptions *handled* by application still needs to be tracked manually. 
+Unhandled exceptions by controllers typically results in 500 "Internal Server Error" response. If 500 reponse is manually constructed as a result of handled exception (or no exception at all) it is tracked in a corresponding request telemetry with 500 `ResultCode`, however no corresponding exception is automatically tracked.
+
+### Prior versions support
+If you use WebAPI 1 (and prior) of Application Insights Web SDK 2.5 (and prior), refer to the following examples to track exceptions.
+
+#### Web API 1.x
 Override System.Web.Http.Filters.ExceptionFilterAttribute:
 
     using System.Web.Http.Filters;
@@ -301,14 +336,7 @@ You could add this overridden attribute to specific controllers, or add it to th
 
 [Sample](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-There are a number of cases that the exception filters cannot handle. For example:
-
-* Exceptions thrown from controller constructors.
-* Exceptions thrown from message handlers.
-* Exceptions thrown during routing.
-* Exceptions thrown during response content serialization.
-
-## Web API 2.x
+#### Web API 2.x
 Add an implementation of IExceptionLogger:
 
     using System.Web.Http.ExceptionHandling;
