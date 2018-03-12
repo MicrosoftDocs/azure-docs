@@ -37,7 +37,9 @@ When you run the application discussed in this article, it prints out streaming 
 ## Prerequisites
 
 + An active [GitHub](https://github.com) account. 
-+ Visual Studio. The example described in this quickstart uses Visual Studio 2017.
++ Visual Studio. The example described in this quickstart uses Visual Studio 2017. 
+
+    If you do not have Visual Studio installed, you can get [Visual Studio Community 2017, Visual Studio Professional 2017, or Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 + An Azure Media Services account. See the steps described in [Create a Media Services account](create-account-cli-quickstart.md).
 
 ## Clone the sample application
