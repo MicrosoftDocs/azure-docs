@@ -80,6 +80,15 @@ For more information, see the following articles:
 * [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
 * [Blog post](https://aka.ms/svcendptmonitor)
 
+## Traffic Analytics
+Provides  visibility into user and application activity on your cloud network.  NSG Flow logs are analyzed to provide insights into:
+* Sources and destinations of traffic across VNETs
+* Top talkers, chatty applications, VM conversations in the cloud
+* Traffic flow patterns across Azure regions and Internet
+* Security – malicious traffic, ports open to the Internet,  applications or VMs attempting Internet access…
+
+Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
+
 ## Next steps
 
 * [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
