@@ -86,6 +86,7 @@ If needed SAC can be enabled offline as well,
 2. From an Administrative command prompt run the following commands 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+
 ### How do I know if SAC is enabled or not 
 
 If [SAC] (https://technet.microsoft.com/en-us/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. It can show a VM Health information in some cases or it would be blank.  
@@ -100,6 +101,9 @@ If you need to enable Windows boot loader prompts to show in serial console you 
 * `bcdedit /set {bootmgr} timeout 5`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reboot the system for the boot menu to be enabled
+
+> [!NOTE] 
+> At this point support for function keys is not enabled, if you require advanced boot options use bcdedit /set {current} onetimeadvancedoptions on, see [bcdedit](https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/bcdedit--set) for more details
 
 ## Common Scenarios for accessing Windows serial console 
 Scenario          | Actions in serial console                
