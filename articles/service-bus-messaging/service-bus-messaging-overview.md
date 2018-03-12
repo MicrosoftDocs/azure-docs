@@ -61,7 +61,7 @@ The following sections describe these key features:
 
 ### Scheduled delivery
 
-If [absolute order of messages](message-sequencing.md) is significant, or a consumer needs a trustworthy unique identifier for messages, the message broker stamps messages with a gap-free, increasing sequence number relative to the queue or topic. For partitioned entities, the sequence number is issued relative to the partition.
+You can submit messages to a queue or topic [for delayed processing](message-sequencing.md#scheduled-messages); for example, to schedule a job to become available for processing by a system at a certain time.
 
 ### Dead-lettering
 
