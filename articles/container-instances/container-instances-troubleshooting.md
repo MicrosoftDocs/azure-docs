@@ -52,7 +52,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 The [az container attach][az-container-attach] command provides diagnostic information during container startup. Once the container has started, it streams STDOUT and STDERR to your local console.
 
-For example, here is output from the task-based container in [Run a containerized task in Azure Container Instances](container-instances-restart-policy.md), after having supplied a valid URL of a large text file to process:
+For example, here is output from the task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having supplied a valid URL of a large text file to process:
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
