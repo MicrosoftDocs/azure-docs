@@ -108,7 +108,7 @@ Load Balancer Basic chooses a single frontend to be used for outbound flows when
 
 Load Balancer Standard uses all candidates for outbound flows at the same time when [multiple (public) IP frontends](load-balancer-multivip-overview.md) is present. Each frontend multiplies the number of available preallocated SNAT ports. You can choose to suppress a frontend IP address from being used for outbound connections with a new load balancing rule option:
 
-```    "loadBalancingRules": [
+```json    "loadBalancingRules": [
       {
         "id": "string",
         [..]
@@ -116,7 +116,7 @@ Load Balancer Standard uses all candidates for outbound flows at the same time w
         [..]
 ],```
 
-Normally, this option defaults to _true_ and signifies that this rule programs outbound SNAT for the associated VMs in the backend pool of the load balancing rule.  This can be changed to _false_ to prevent Load Balancer from using the associated frontend IP address for outbound connections for the VM's in the backend pool of this load balancing rule.  And you can also still designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations) as well.
+Normally, this option defaults to _false_ and signifies that this rule programs outbound SNAT for the associated VMs in the backend pool of the load balancing rule.  This can be changed to _true_ to prevent Load Balancer from using the associated frontend IP address for outbound connections for the VM's in the backend pool of this load balancing rule.  And you can also still designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations) as well.
 
 ## <a name="snat"></a>Understanding SNAT and PAT
 
