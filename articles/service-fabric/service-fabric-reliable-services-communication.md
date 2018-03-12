@@ -73,10 +73,13 @@ public class MyStatelessService extends StatelessService {
 
 For stateful services:
 
-> [!NOTE]
-> Stateful reliable services are not supported in Java yet.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService
