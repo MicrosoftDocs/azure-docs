@@ -14,7 +14,7 @@ ms.custom: develop apps
 ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/29/2017
 ms.author: daleche
 ---

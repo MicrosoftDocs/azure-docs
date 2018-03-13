@@ -3,17 +3,10 @@ title: SQL (PaaS) Database vs. SQL Server in the cloud on VMs (IaaS) | Microsoft
 description: 'Learn which cloud SQL Server option fits your application: Azure SQL (PaaS) Database or SQL Server in the cloud on Azure Virtual Machines.'
 services: sql-database, virtual-machines
 keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: cjgronlund
-
-ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.workload: "Active"
-ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab

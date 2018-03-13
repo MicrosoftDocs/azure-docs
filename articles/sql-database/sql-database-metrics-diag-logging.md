@@ -4,15 +4,9 @@ description: Learn about how to configure Azure SQL Database to store resource u
 services: sql-database
 documentationcenter: ''
 author: veljko-msft 
-manager: jhubbard
-editor: 
-
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
