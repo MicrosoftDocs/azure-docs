@@ -21,7 +21,9 @@ ms.custom: mvc
 
 The App Service Environment (ASE) is a deployment of Azure App Service in a customer's Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Forced tunneling is when you redirect internet bound traffic to your VPN or a virtual appliance instead. This is often done as a part of security requirements to inspect and audit all outbound traffic. 
 
-The ASE has a number of external dependencies, which are described in the [App Service Environment network architecture][network] document. By default the ASE requires that all outbound communication goes through the VIP that is provisioned with the ASE. In an Azure virtual network, routing is done based on the longest prefix match (LPM). If there is more than one route with the same LPM match, a route is selected based on its origin in the following order:
+The ASE has a number of external dependencies, which are described in the [App Service Environment network architecture][network] document. Normally all ASE outbound dependency traffic must go through the VIP that is provisioned with the ASE. If you change the routing for the traffic to or from the ASE without following the information below, your ASE will stop working.
+
+In an Azure virtual network, routing is done based on the longest prefix match (LPM). If there is more than one route with the same LPM match, a route is selected based on its origin in the following order:
 
 * User-defined route (UDR)
 * BGP route (when ExpressRoute is used)
@@ -37,7 +39,7 @@ If you want to route your ASE outbound traffic somewhere other than directly to 
 
 ## Enable your App Service Environment to have direct internet access
 
-For your App Service Environment to work while your virtual network is configured with an ExpressRoute connection, you can:
+To enable your ASE to go directly to the internet even if your Azure virtual network is configured with ExpressRoute, you can:
 
 * Configure ExpressRoute to advertise 0.0.0.0/0. By default, it routes all outbound traffic on-premises.
 * Create a UDR with an address prefix of 0.0.0.0/0, a next hop type of Internet and apply it to the ASE subnet.
@@ -47,7 +49,7 @@ If you make these two changes, internet-destined traffic that originates from th
 > [!IMPORTANT]
 > The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
 >
-> App Service Environments aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the App Service Environment's subnet are routed to a customer's on-premises network infrastructure. This network flow is currently not supported by default with App Service Environments. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path. Another solution is to enable your App Service Environment to work in a forced tunnel configuration.
+> App Service Environments aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the App Service Environment's subnet are routed to a customer's on-premises network infrastructure. This network flow is not supported by default with App Service Environments. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path. Another solution is to enable your App Service Environment to work in a forced tunnel configuration.
 
 ![Direct internet access][1]
 
@@ -55,7 +57,7 @@ If you make these two changes, internet-destined traffic that originates from th
 
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
-1. Create or edit a route table. Populate the rules to send the management addresses that map to your App Service Environment location with a next hop of Internet. To find the management addresses, see [App Service Environment management addresses][management]. The App Service Environment inbound management traffic can't be sent back from another address because that breaks TCP. 
+1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. This is needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
 
 2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet
 
@@ -63,17 +65,17 @@ Service Endpoints enable you to restrict access to multi-tenant services to a se
 
 When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints with a forced tunneled ASE, the Azure SQL and Azure Storage management traffic isn't forced tunneled. The other ASE dependency traffic is forced tunneled and can't be lost or the ASE would not function properly.
 
-When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you cannot enable Service Endpoints on one Azure SQL instance and not on another.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
+When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
-If you configure forced tunneling with a network filtering appliance then remember that the ASE has a number of dependencies in addition to Azure SQL and Azure Storage. You must allow that traffic or the ASE will not function properly.
+If you configure forced tunneling with a network filter appliance, then remember that the ASE has a number of dependencies in addition to Azure SQL and Azure Storage. You must allow that traffic or the ASE will not function properly.
 
 ![Forced tunnel with service endpoints][2]
 
 ## Add your own IPs to the ASE Azure SQL firewall ##
 
-To forced tunnel all outbound traffic from your ASE, except that which goes to Azure Storage, perform the following steps:
+To tunnel all outbound traffic from your ASE, except that which goes to Azure Storage, perform the following steps:
 
-1. Create a route table with the management addresses that map to your App Service Environment location with a next hop of Internet. To find the management addresses, see [App Service Environment management addresses][management]. The App Service Environment inbound management traffic can't be sent back from another address because that breaks TCP.  
+1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. This is needed because the App Service Environment inbound management traffic must reply from the same address it was sent to. 
 
 2. Enable Service Endpoints with Azure Storage with your ASE subnet
 
