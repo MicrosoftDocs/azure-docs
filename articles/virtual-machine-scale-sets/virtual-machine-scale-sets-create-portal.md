@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/25/18
+ms.date: 03/27/18
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
