@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/13/2018
 ms.author: vvasic
 
 ---
