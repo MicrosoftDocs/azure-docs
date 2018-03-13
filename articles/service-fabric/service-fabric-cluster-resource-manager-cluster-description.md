@@ -93,7 +93,7 @@ The most common model is the FD/UD matrix, where the FDs and UDs form a table an
 
 ## Fault and Upgrade Domain constraints and resulting behavior
 ### *Default approach*
-The Cluster Resource Manager keeps services balanced across Fault and Upgrade Domains by default. This is modeled as a [constraint](service-fabric-cluster-resource-manager-management-integration.md): “For a given service partition, there should never be a difference greater than one in the number of service objects (stateless service instances or stateful service replicas) between any two domains on the same level of hierarchy”. Let’s say this constraint provides a “maximum difference” guarantee. The Fault and Upgrade Domain constraint prevents certain moves or arrangements that violate the rule stated above. 
+By default, the Cluster Resource Manager keeps services balanced across Fault and Upgrade Domains. This is modeled as a [constraint](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraint states: “For a given service partition, there should never be a difference greater than one in the number of service objects (stateless service instances or stateful service replicas) between any two domains on the same level of hierarchy”. Let’s say this constraint provides a “maximum difference” guarantee. The Fault and Upgrade Domain constraint prevents certain moves or arrangements that violate the rule stated above. 
 
 Let's look at one example. Let's say that we have a cluster with six nodes, configured with five Fault Domains and five Upgrade Domains.
 
@@ -139,7 +139,7 @@ Now, let's look at what would happen if we'd used N6 instead of N2. How would th
 *Layout 2*
 
 
-This layout violates our definition of the “maximum difference” guarantee for the Fault Domain constraint. FD0 has two replicas, while FD1 has zero, making the difference between FD0 and FD1 a total of two, which is greater than the maximum difference of one. The Cluster Resource Manager does not allow this arrangement. 
+This layout violates our definition of the “maximum difference” guarantee for the Fault Domain constraint. FD0 has two replicas, while FD1 has zero, making the difference between FD0 and FD1 a total of two, which is greater than the maximum difference of one. Since the constraint is violated, the Cluster Resource Manager does not allow this arrangement. 
 Similarly if we picked N2 and N6 (instead of N1 and N2) we'd get:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
@@ -154,13 +154,11 @@ Similarly if we picked N2 and N6 (instead of N1 and N2) we'd get:
 *Layout 3*
 
 
-
-
 This layout is balanced in terms of Fault Domains. However, now it's violating the Upgrade Domain constraint because UD0 has zero replicas while UD1 has two. Therefore, this layout is also invalid and won't be picked by the Cluster Resource Manager.
 
 This approach to the distribution of stateful replicas or stateless instances provides the best possible fault tolerance. In a situation when one domain goes down, the minimal number of replicas/instances is lost. 
 
-On the other hand, this approach can be too strict and not allow the cluster to utilize all resources. For certain cluster configurations, certain nodes won’t be used or enough replicas placed, producing warning messages. In the previous example some of the cluster nodes can’t be used (N6 in the given example). Even if you would add nodes to that cluster (N7 – N10), replicas/instances would only be placed on N1 – N5 due to Fault and Upgrade Domain constraints. 
+On the other hand, this approach can be too strict and not allow the cluster to utilize all resources. For certain cluster configurations, certain nodes can't be used. This can lead to Service Fabric not placing your services, resulting in warning messages. In the previous example some of the cluster nodes can’t be used (N6 in the given example). Even if you would add nodes to that cluster (N7 – N10), replicas/instances would only be placed on N1 – N5 due to Fault and Upgrade Domain constraints. 
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 |
 | --- |:---:|:---:|:---:|:---:|:---:|
@@ -175,14 +173,25 @@ On the other hand, this approach can be too strict and not allow the cluster to 
 
 ### *Alternative approach*
 
-The Cluster Resource Manager supports another version of the Fault and Upgrade Domain constraint which allows placement while still guaranteeing a minimum level of safety. The alternative Fault and Upgrade domain constraint can be stated as follows: “For a given service partition, replica distribution across domains should ensure that the partition does not suffer a quorum loss”. Let’s say this constraint provides a “quorum safe” guarantee. A quorum loss is a situation in which a majority of the partition replicas are down at the same time. For example, if TargetReplicaSetSize is five, a set of any three replicas represents quorum. Similarly, if TargetReplicaSetSize is 6, four replicas are necessary for quorum. In both cases no more than two replicas can be down at the same time if the partition wants to continue functioning normally. 
+The Cluster Resource Manager supports another version of the Fault and Upgrade Domain constraint which allows placement while still guaranteeing a minimum level of safety. The alternative Fault and Upgrade Domain constraint can be stated as follows: “For a given service partition, replica distribution across domains should ensure that the partition does not suffer a quorum loss”. Let’s say this constraint provides a “quorum safe” guarantee. 
+
+> [!NOTE]
+>For a stateful service, we define *quorum loss* in a situation when a majority of the partition replicas are down at the same time. For example, if TargetReplicaSetSize is five, a set of any three replicas represents quorum. Similarly, if TargetReplicaSetSize is 6, four replicas are necessary for quorum. In both cases no more than two replicas can be down at the same time if the partition wants to continue functioning normally. 
+For a stateless service, there is no such thing as *quorum loss* as stateless services conitnue to functionate normally even if a majority of instances go down at the same time. 
+Hence, we will focus on stateful services in the rest of the text.
+>
 
 Let’s go back to the previous example. With the “quorum safe” version of the constraint, all three given layouts would be valid. This is because even if there would be failure of FD0 in the second layout or UD1 in the third layout, the partition would still have quorum (a majority of its replicas would still be up). With this version of the constraint N6 could almost always be utilized.
 
-The “quorum safe” approach provides more flexibility than the “maximum difference” approach as it is easier to find replica distributions that are valid in almost any clusters topology. However, this approach can’t guarantee the best fault tolerance characteristics because some failures are worse than others. In the worst case scenario, a majority of the replicas could be lost with the failure of one domain and one additional replica. For example, instead of 3 failures being required to lose quorum with 5 replicas or instances, you could now lose a majority with just two failures. 
+The “quorum safe” approach provides more flexibility than the “maximum difference” approach as it is easier to find replica distributions that are valid in almost any cluster topology. However, this approach can’t guarantee the best fault tolerance characteristics because some failures are worse than others. In the worst case scenario, a majority of the replicas could be lost with the failure of one domain and one additional replica. For example, instead of 3 failures being required to lose quorum with 5 replicas or instances, you could now lose a majority with just two failures. 
 
 ### *Adaptive approach*
-As both of described approaches have strong and weak points, we’re introducing an approach that combines these two strategies. This will be the default behavior starting with Service Fabric Version 6.2. The adaptive approach uses the “maximum difference” logic by default and switches to the “quorum safe” logic only when necessary. The Cluster Resource Manager automatically figures out which strategy is necessary by looking at how the cluster and services are configured. For a given service: *If the TargetReplicaSetSize is evenly divisible by the number of Fault Domains and the number of Upgrade Domains **and** the number of nodes is less than or equal to the number of Fault Domains * the number of Upgrade Domains, the Cluster Resource Manager should utilize the “quorum based” logic for that service.*
+Because both of the approaches have strengths and weaknesses, we've introduced an adaptive approach that combines these two strategies.
+
+> [!NOTE]
+>This will be the default behavior starting with Service Fabric Version 6.2. 
+>
+The adaptive approach uses the “maximum difference” logic by default and switches to the “quorum safe” logic only when necessary. The Cluster Resource Manager automatically figures out which strategy is necessary by looking at how the cluster and services are configured. For a given service: *If the TargetReplicaSetSize is evenly divisible by the number of Fault Domains and the number of Upgrade Domains **and** the number of nodes is less than or equal to the (number of Fault Domains) * (the number of Upgrade Domains), the Cluster Resource Manager should utilize the “quorum based” logic for that service.* Bear in mind that the Cluster Resource Manager will use this approach for both stateless and stateful services, despite quorum loss not being relevant for stateless services.
 
 Let’s go back to the previous example and assume that a cluster now has 8 nodes (the cluster is still configured with five Fault Domains and five Upgrade Domains and the TargetReplicaSetSize of a service hosted on that cluster remains five). 
 
@@ -196,7 +205,7 @@ Let’s go back to the previous example and assume that a cluster now has 8 node
 
 *Configuration 3*
 
-Because all necessary conditions are satisfied, Cluster Resource Manager will utilize the “quorum based” logic in distributing the replicas. This enables usage of N6 – N8. One possible replica distribution in this case could look like:
+Because all necessary conditions are satisfied, Cluster Resource Manager will utilize the “quorum based” logic in distributing the service. This enables usage of N6 – N8. One possible service distribution in this case could look like:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -211,7 +220,7 @@ Because all necessary conditions are satisfied, Cluster Resource Manager will ut
 
 If your service’s TargetReplicaSetSize is reduced to four (for example), Cluster Resource Manager will notice that change and resume using the “maximum difference” logic because TargetReplicaSetSize isn’t dividable by the number of FDs and UDs anymore. As a result, certain replica movements will occur in order to distribute remaining four replicas on nodes N1-N5 so that the “maximum difference” version of the Fault Domain and Upgrade domain logic is not violated. 
 
-Looking back to the fourth layout and the TargetReplicaSetSize of five. If N1 is removed from the cluster, the number of Upgrade Domains becomes equal to four. Again, the Cluster Resource Manager starts using “maximum difference” logic as the number of UDs doesn’t evenly divide the service’s TargetReplicaSetSize anymore. As a result, replica R1, when built again, has to land on N4 so that the placement constraint’s logic is not violated.
+Looking back to the fourth layout and the TargetReplicaSetSize of five. If N1 is removed from the cluster, the number of Upgrade Domains becomes equal to four. Again, the Cluster Resource Manager starts using “maximum difference” logic as the number of UDs doesn’t evenly divide the service’s TargetReplicaSetSize anymore. As a result, replica R1, when built again, has to land on N4 so that Fault and Upgrade Domain Constraint is not violated.
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
