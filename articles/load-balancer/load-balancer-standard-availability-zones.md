@@ -26,7 +26,7 @@ Azure Load Balancer's Standard SKU supports [Availability Zones](../availability
 
 ## <a name="concepts"></a> Availability Zones concepts applied to Load Balancer
 
-There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance. Load Balancer resources are objects within which you can express how Azure should program its prebuilt multi-tenant infrastructure to achieve the scenario you wish to create.  This is significant in the context of Availability Zones because a single Load Balancer resource can control programming of infrastructure in multiple Availability Zones while a zone-redundant service appears as one resource.
+There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance. Load Balancer resources are objects within which you can express how Azure should program its prebuilt multi-tenant infrastructure to achieve the scenario you wish to create.  This is significant in the context of Availability Zones because a single Load Balancer resource can control programming of infrastructure in multiple Availability Zones while a zone-redundant service appears as one resource from a customer point of view.
 
 A Load Balancer resources functions are expressed as a frontend, a rule, a health probe, and a backend pool definition.
 
@@ -180,13 +180,13 @@ Load Balancer is purposely flexible in the context of Availability Zones. You ca
 
 Load Balancer makes it simple to have a single IP as a zone-redundant frontend. A zone-redundant address can safely serve a zonal resource in any zone and can survive one or more zone failures as long as one zone remains healthy within the region. Conversely, a zonal frontend is a reduction of the service to a single zone and shares fate with the respective zone.
 
-Zone-redundancy does not imply hitless datapath or control plane. The traffic flows in a failed zone may be impacted but applications can recover in the remaining healthy zones upon retransmission or reestablishment once the routing system within the region has converged.
+Zone-redundancy does not imply hitless datapath or control plane;  it is expressly data plane. Zone-redundant flows can use any zones and a customer's flows will use all healthy zones in a region. In the event of zone failure, traffic flows using healthy zones at that point in time are not impacted.  Traffic flows using a zone at the time of zone failure may be impacted but applications can recover and these flows can continue in the remaining healthy zones within the region upon retransmission or reestablishment once Azure has converged around the zone failure.
 
 ### <a name="xzonedesign"></a> Cross zone boundaries
 
 It is important to understand that any time an end-to-end service crosses zones, you share fate with not one zone but potentially multiple zones.  As a result, your end-to-end service may not have gained any availability over non-zonal deployments.
 
-Avoid introducing new failure modes due to unintended cross-zone dependencies.  When your application consists of multiple components, you must take care to ensure the survival of all critical components in the event of a zone failure.  For example, a single critical component for your application can impact your entire application if it only exists in a zone other than the surviving zone(s).  In addition, also consider the zone restoration and how your application will converge. Let's review some key points and use them as inspiration for questions as you think through your specific scenario.
+Avoid introducing unintended cross-zone dependencies which will nullify availability gains when using Availability Zones.  When your application consists of multiple components and you wish to be resilient to zone failure, you must take care to ensure the survival of sufficient critical components in the event of a zone failing.  For example, a single critical component for your application can impact your entire application if it only exists in a zone other than the surviving zone(s).  In addition, also consider the zone restoration and how your application will converge. Let's review some key points and use them as inspiration for questions as you think through your specific scenario.
 
 - If your application has two components like an IP address and a VM with managed disk, and they're guaranteed in zone 1 and zone 2, when zone 1 fails your end-to-end service will not survive when zone 1 fails.  Don't cross zones unless you fully understand that you are creating a potentially hazardous failure mode.
 
