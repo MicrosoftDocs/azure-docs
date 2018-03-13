@@ -4,7 +4,7 @@ description: By using View Designer in Log Analytics, you can create custom view
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
@@ -25,21 +25,19 @@ For more information about View Designer, see:
 * [View Designer](log-analytics-view-designer.md): Provides an overview of View Designer and procedures for creating and editing custom views.
 * [Tile reference](log-analytics-view-designer-tiles.md): Provides a reference to the settings for each available tile in your custom views.
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), the queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078). Any views that were created before the workspace upgrade are automatically converted.
 
 The available View Designer tile types are described in the following table:
 
 | View type | Description |
 |:--- |:--- |
 | [List of queries](#list-of-queries-part) |Displays a list of log search queries. You can select each query to display its results. |
-| [Number and list](#number-amp-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Two numbers and list](#two-numbers-amp-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Donut and list](#donut-amp-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
-| [Two timelines and list](#two-timelines-amp-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Number and list](#number-and-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Two numbers and list](#two-numbers-and-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Donut and list](#donut-and-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
+| [Two timelines and list](#two-timelines-and-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Information](#information-part) |The header displays static text and an optional link. The list displays one or more items with a static title and text. |
-| [Line chart, callout, and list](#line-chart-callout-amp-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Line chart and list](#line-chart-amp-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Line chart, callout, and list](#line-chart-callout-and-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Line chart and list](#line-chart-and-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Stack of line charts part](#stack-of-line-charts-part) |Displays three separate line charts, with multiple series from a log query over time. |
 
 The next sections describe the tile types and their properties in detail.
@@ -329,7 +327,7 @@ The following table describes the settings for click-through navigation.
 |:--|:--|
 | Log Search (Auto) | Log search to run when you select a header item.  This is the same log search that the item is based on.
 | Log Search        | Log search to run when you select an item in a list.  Type the query into the **Navigation query** box.   Use *{selected item}* to include the syntax for the item that the user selected.  For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run. |
-| View              | View to open when you select a header item or an item in a list.  Select the name of a view in your workspace in **View Name**. |
+| View              | View to open when you select a header item or an item in a list.  Select the name of a view in your workspace in the **View Name** box. |
 
 
 
