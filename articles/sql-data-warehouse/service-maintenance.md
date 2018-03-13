@@ -22,13 +22,13 @@ ms.author: anvang
 Learn how to prepare for planned maintenance events on your Azure SQL data warehouse.
 
 ## What is a planned maintenance event?
-A planned maintenance event is a window of time when we need to take your data warehouse offline to perform a maintenance operation. We use this opportunity to apply service upgrades, new features, or patches. 
+A planned maintenance event is a window of time when your data warehouse needs to be offline for a maintenance operation. This event is an opportunity for applying service upgrades, new features, or patches. 
 
 ## Frequency
 On average, at least one planned maintenance event occurs each month. 
 
-## Notifications
-We send you a notification before each planned maintenance event. When the maintenance occurs, we cancel all running queries and take your data warehouse offline. The expected downtime for each data warehouse is approximately 30 minutes. You can expect a notification when maintenance is complete. 
+## Notifications and downtime
+You will receive a notification before each planned maintenance event. The maintenance event cancels all running queries and takes your data warehouse offline. The expected downtime for each data warehouse is approximately 30 minutes. You can expect a notification when maintenance is complete. 
 
 ## Setting up alerts
 
@@ -37,4 +37,4 @@ We recommend using [Azure Monitor](../monitoring-and-diagnostics/monitoring-acti
 To set up notifications, use these [log alert instructions](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
 
 ## Next steps
-To learn more about monitoring your data warehouse, see [Monitor your workload](sql-data-warehouse-manage-monitor.md).
+For more information about monitoring, see [Monitor your workload](sql-data-warehouse-manage-monitor.md).
