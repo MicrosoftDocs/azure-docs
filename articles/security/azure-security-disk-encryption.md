@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
@@ -225,11 +225,11 @@ Use the following PowerShell cmdlet to create an Azure AD application:
 ##### Setting up the Azure AD client ID and secret from the Azure portal
 You can also set up your Azure AD client ID and secret by using the Azure Portal. To perform this task, do the following:
 
-1. Select **All Services -> Azure Active Directory**
+1. Select **All Services > Azure Active Directory**
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Select **App registrations -> New application registration**
+2. Select **App registrations > New application registration**
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-app-registration.png)
 
@@ -237,7 +237,7 @@ You can also set up your Azure AD client ID and secret by using the Azure Portal
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Select the newly created application to view its properties, including Application ID.  To create a key for the application, select **Settings -> Keys**, add a description and expiration for the key, and click **Save**
+4. Select the newly created application to view its properties, including Application ID.  To create a key for the application, select **Settings > Keys**, add a description and expiration for the key, and click **Save**
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-pw.png)
 
