@@ -599,4 +599,4 @@ function newBingNewsSearch(form) {
 
 </body>
 </html>
-'''
+```
