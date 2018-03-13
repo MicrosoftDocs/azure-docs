@@ -32,7 +32,7 @@ The following example uses two Scala notebooks: one for streaming events from an
 * An [Azure Databricks](https://azure.microsoft.com/services/databricks/) instance. If you do not have one, [create one](../azure-databricks/quickstart-create-databricks-workspace-portal.md)
 * [Create a library using maven coordinate](https://docs.databricks.com/user-guide/libraries.html#upload-a-maven-package-or-spark-package): `com.microsoft.azure:azure‐eventhubs‐spark_2.11:2.3.0`
 
-Use the following code in your notebook to stream events from the event hub.
+Stream events from your Event Hub using the following code:
 
 ```scala
 import org.apache.spark.eventhubs._
