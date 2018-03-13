@@ -263,7 +263,7 @@ This an example of a deployment manifest JSON document.
 
 ## Next steps
 
-* For a complete list of properties that can or must be included in #edgeAgent and $edgeHub, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
+* For a complete list of properties that can or must be included in $edgeAgent and $edgeHub, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
 
 * Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
