@@ -33,16 +33,16 @@ GDPR compliance for Seamless SSO can be reached in two ways:
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.
 
-We strongly recommend the second option as it is easier to implement and maintain. See below for instructions for each log type:
+We strongly recommend the second option as it is easier to implement and maintain. See following instructions for each log type:
 
 ### Delete Azure AD Connect trace log files
 
-You should check the contents of **%ProgramData%\AADConnect** folder and delete the trace log contents (**trace-\*.log** files) of this folder within 48 hours of installing or upgrading Azure AD Connect or modifying Seamless SSO configuration, as this action may create data covered by GDPR.
+Check the contents of **%ProgramData%\AADConnect** folder and delete the trace log contents (**trace-\*.log** files) of this folder within 48 hours of installing or upgrading Azure AD Connect or modifying Seamless SSO configuration, as this action may create data covered by GDPR.
 
 >[!IMPORTANT]
 >Don’t delete the **PersistedState.xml** file in this folder, as this file is used to maintain the state of the previous installation of Azure AD Connect and is used when an upgrade installation is done. This file will never contain any data about a person and should never be deleted.
 
-You can either review and delete these trace log files using Windows Explorer or you can use a PowerShell script like the one below to perform the necessary actions:
+You can either review and delete these trace log files using Windows Explorer or you can use the following PowerShell script to perform the necessary actions:
 
 ```
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
@@ -52,13 +52,13 @@ Foreach ($file in $Files) {
 }
 ```
 
-Save the script in a file with the .PS1 extension. Run this script as needed.
+Save the script in a file with the ".PS1" extension. Run this script as needed.
 
 To learn more about related Azure AD Connect GDPR requirements, see [this article](active-directory-aadconnect-gdpr.md).
 
 ### Note about Domain controller logs
 
-Note that if audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, please see this [article](https://technet.microsoft.com/library/dd277403.aspx).
+If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## Next steps
 
