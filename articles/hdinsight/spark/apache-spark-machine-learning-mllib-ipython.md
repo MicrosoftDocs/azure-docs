@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/13/2018
 ms.author: jgao
 
 ---
@@ -218,9 +218,9 @@ Let's start to get a sense of what our dataset contains.
 
     - Pass
         - Pass
-    - Fail
-        - Pass
         - Pass w/ conditions
+    - Fail
+        - Fail
     - Discard
         - Business not located
         - Out of Business
