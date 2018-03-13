@@ -1135,12 +1135,10 @@ To achieve high query performance, it's important to create statistics on each c
     ```sql
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
+
 ## Clean up resources
 
-You are being charged for compute resources and data that you loaded into your data warehouse. These are billed separately. 
-
-- 
-- If you want to remove future charges, you can delete the data warehouse. 
+You are being charged for compute resources and data that you loaded into your data warehouse. These are billed separately.  
 
 Follow these steps to clean up resources as you desire.
 
