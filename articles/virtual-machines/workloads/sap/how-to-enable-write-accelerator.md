@@ -45,7 +45,7 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by A
 - 8 VHDs for an M64xx VM
 
 > [!IMPORTANT]
-> If you want to enable or disable Azure Write Accelerator for an existing volume that is build out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shut down the Azure VM**. 
+> If you want to enable or disable Azure Write Accelerator for an existing volume that is built out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shut down the Azure VM**. 
 
 
 > [!IMPORTANT]
