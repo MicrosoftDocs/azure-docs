@@ -40,7 +40,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 
     Via Azure CLI:
 
-    ```
+    ```bash
     az cloud set --n AzureUSGovernment
     az login
     az account list
@@ -49,7 +49,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for 3 nodes.
 
     ```bash
-    acs-engine deploy --api-model apimodel.my.ignore.json --subscription-id <YOUR_SUBSCRIPTION_ID> --location usgovvirginia --azure-env AzureUSGovernmentCloud
+    acs-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --api-model apimodel.json
     ```
 
 ## Connect to your Kubernetes cluster
