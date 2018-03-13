@@ -13,9 +13,7 @@ ms.author: v-geberr;
 ---
 
 # Versions
-Create different models of the same app with versions. 
-
-Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID. 
+Create different models of the same app with [versions](luis-how-to-manage-versions.md). 
 
 ## Version ID
 The version ID consists of characters, digits or '.' and cannot be longer than 10 characters.
@@ -24,9 +22,11 @@ The version ID consists of characters, digits or '.' and cannot be longer than 1
 The initial version (0.1) is the default active version. 
 
 ## Active version
-To set a version as the active means it is currently edited and tested in the [LUIS][LUIS] website. Set a version as active to access its data, make updates, as well as to test and publish it.
+To [set a version](luis-how-to-manage-versions.md#set-active-version) as the active means it is currently edited and tested in the [LUIS][LUIS] website. Set a version as active to access its data, make updates, as well as to test and publish it.
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
+
+![Change active version](./media/luis-concept-version/version-in-nav-bar.png)
 
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 
@@ -43,6 +43,9 @@ The exported file does not contain machine-learned information because the app i
 
 ## Delete a version
 You can delete all versions except the active version. 
+
+## Version availability at the endpoint
+Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
 ## Collaborators
 The owner and all collaborators have full access to all versions of the app.
