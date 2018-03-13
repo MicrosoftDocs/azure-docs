@@ -3,7 +3,7 @@ title: Add the Twilio Connector in your Azure Logic apps | Microsoft Docs
 description: Overview of the Twilio Connector with REST API parameters
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Twilio connector
