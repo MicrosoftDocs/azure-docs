@@ -33,7 +33,7 @@ This error occurs when:
 
 To resolve this issue:
 
-* Check that the Azure VM network allows the Azure VM to communicate with the on-premises configuration server. You can either set up a site-to-site VPN to your on-premises data center or configure an Azure ExpressRoute connection with private peering on the virtual network of the Azure VM.
+* Check that the Azure VM network allows the Azure VM to communicate with the on-premises configuration server. You can either set up a site-to-site VPN to your on-premises datacenter or configure an Azure ExpressRoute connection with private peering on the virtual network of the Azure VM.
 * If the VM can communicate with the on-premises configuration server, sign in to the VM. Then check the InMage Scout application service. If you see that it's not running, start the service manually. Check that the service start type is set to **Automatic**.
 
 ### Error code 78052
