@@ -73,6 +73,8 @@
     href: luis-tutorial-bing-spellcheck.md
 - name: Samples
   items:
+  - name: Azure CLI 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
