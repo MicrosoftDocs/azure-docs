@@ -36,16 +36,16 @@ GDPR compliance for Pass-through Authentication can be reached in two ways:
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.
 
-We strongly recommend the second option as it is easier to implement and maintain. See below for instructions for each log type:
+We strongly recommend the second option as it is easier to implement and maintain. Following are the instructions for each log type:
 
 ### Delete Azure AD Connect trace log files
 
-You should check the contents of **%ProgramData%\AADConnect** folder and delete the trace log contents (**trace-\*.log** files) of this folder within 48 hours of installing or upgrading Azure AD Connect or modifying Pass-through Authentication configuration, as this action may create data covered by GDPR.
+Check the contents of **%ProgramData%\AADConnect** folder and delete the trace log contents (**trace-\*.log** files) of this folder within 48 hours of installing or upgrading Azure AD Connect or modifying Pass-through Authentication configuration, as this action may create data covered by GDPR.
 
 >[!IMPORTANT]
 >Don’t delete the **PersistedState.xml** file in this folder, as this file is used to maintain the state of the previous installation of Azure AD Connect and is used when an upgrade installation is done. This file will never contain any data about a person and should never be deleted.
 
-You can either review and delete these trace log files using Windows Explorer or you can use a PowerShell script like the one below to perform the necessary actions:
+You can either review and delete these trace log files using Windows Explorer or you can use the following PowerShell script to perform the necessary actions:
 
 ```
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
@@ -55,7 +55,7 @@ Foreach ($file in $Files) {
 }
 ```
 
-Save the script in a file with the .PS1 extension. Run this script as needed.
+Save the script in a file with the ".PS1" extension. Run this script as needed.
 
 To learn more about related Azure AD Connect GDPR requirements, see [this article](active-directory-aadconnect-gdpr.md).
 
@@ -70,9 +70,9 @@ To view logs related to the Pass-through Authentication Agent, open the **Event 
 You should regularly check the contents of **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** and delete the contents of this folder every 48 hours. 
 
 >[!IMPORTANT]
->If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should've already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-You can either review and delete these files using Windows Explorer or you can use a script like the below to perform the necessary actions:
+You can either review and delete these files using Windows Explorer or you can use the following script to perform the necessary actions:
 
 ```
 $Files = ((Get-childitem -Path "$env:programdata\microsoft\azure ad connect authentication agent\trace" -Recurse).VersionInfo).FileName 
@@ -82,24 +82,22 @@ Foreach ($file in $files) {
 }
 ```
 
-To schedule this script to run every 48 hours please follow these steps:
+To schedule this script to run every 48 hours follow these steps:
 
-1.	Save the script in a file with the .PS1 extension.
+1.	Save the script in a file with the ".PS1" extension.
 2.	Open **Control Panel** and click on **System and Security**.
 3.	Under the **Administrative Tools** heading, click on “**Schedule Tasks**”.
-4.	In **Task Scheduler**, right click on “**Task Schedule Library**” and click on “**Create Basic task…**”.
+4.	In **Task Scheduler**, right-click on “**Task Schedule Library**” and click on “**Create Basic task…**”.
 5.	Enter the name for the new task and click **Next**.
 6.	Select “**Daily**” for the **Task Trigger** and click **Next**.
-7.	Set the recurrence to 2 days and click **Next**.
+7.	Set the recurrence to two days and click **Next**.
 8.	Select “**Start a program**” as the action and click **Next**.
 9.	Type “**PowerShell**” in the box for the Program/script, and in box labeled “**Add arguments (optional)**”, enter the full path to the script that you created earlier, then click **Next**.
 10.	The next screen shows a summary of the task you are about to create. Verify the values and click **Finish** to create the task:
  
-This completes the steps needed to run the script to delete Authentication Agent trace log files every two days.
-
 ### Note about Domain controller logs
 
-Note that if audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, please see this [article](https://technet.microsoft.com/library/dd277403.aspx).
+If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## Next steps
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
