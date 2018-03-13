@@ -173,17 +173,17 @@ The server admin account is meant to perform management operations, and is not s
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
-Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class. 
+Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC60**. Then assign the user to the **staticrc60** resource class. 
 
 1.  In SSMS, right-click **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
     ![New query in master](media/load-data-wideworldimportersdw/create-loader-login.png)
 
-2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC20, substituting your own password for 'a123STRONGpassword!'. 
+2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC60, substituting your own password for 'a123STRONGpassword!'. 
 
     ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+    CREATE LOGIN LoaderRC60 WITH PASSWORD = 'a123STRONGpassword!';
+    CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     ```
 
 3. Click **Execute**.
@@ -192,10 +192,10 @@ Since you are currently connected as the server admin, you can create logins and
 
     ![New query on sample data warehouse](media/load-data-wideworldimportersdw/create-loading-user.png)
  
-5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named LoaderRC60 for the LoaderRC60 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc60 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC60;
+    CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC60;
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
@@ -204,13 +204,13 @@ Since you are currently connected as the server admin, you can create logins and
 
 ## Connect to the server as the loading user
 
-The first step toward loading data is to login as LoaderRC20.  
+The first step toward loading data is to login as LoaderRC60.  
 
 1. In Object Explorer, click the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
     ![Connect with new login](media/load-data-wideworldimportersdw/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter **LoaderRC60** as the Login.  Enter your password for LoaderRC60.
 
 3. Click **Connect**.
 
