@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 03/12/2017
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -34,7 +34,7 @@ All IoT Edge devices need to be configured with a deployment manifest. A newly i
 
 In the Azure IoT Edge tutorials, you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. Refer to [Deploy and monitor][lnk-deploy] for more information on IoT Edge deployments.
 
-## Create the deployment manifest
+## Create a deployment manifest
 
 At a high level, the deployment manifest configures a module twin's desired properties for IoT Edge modules deployed on an IoT Edge device. Two of these modules are always present: the Edge agent, and the Edge hub.
 
@@ -70,7 +70,7 @@ The manifest follows this structure:
 }
 ```
 
-## Specify the modules
+## Configure modules
 
 In addition to establishing the desired properties of any modules that you want to deploy, you need to tell the IoT Edge runtime how to install them. The configuration and management information for all modules goes inside the **$edgeAgent** desired properties. This information includes the configuration parameters for the Edge agent itself. 
 
@@ -104,7 +104,7 @@ The $edgeAgent properties follow this structure:
 },
 ```
 
-## Specify the routes
+## Declare routes
 
 Edge hub provides a way to declaratively route messages between modules, and between modules and IoT Hub. The Edge hub manages all communication, so the route information goes inside the **$edgeHub** desired properties. You can have multiple routes within the same deployment.
 
@@ -121,11 +121,11 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
 }
 ```
 
-Every route needs a source and a sink, but the condition is an optional piece that you can use to specify which messages should be sent. 
+Every route needs a source and a sink, but the condition is an optional piece that you can use to filter messages. 
 
 
 ### Source
-The source of a route specifies where the messages come from. It can be any of the following values:
+The source specifies where the messages come from. It can be any of the following values:
 
 | Source | Description |
 | ------ | ----------- |
@@ -164,7 +164,7 @@ Given this sample message, there are a number of conditions that can be defined,
 * `WHERE $body.temperature >= 50`
 
 ### Sink
-The route sink defines where the messages are sent. It can be any of the following values:
+The sink defines where the messages are sent. It can be any of the following values:
 
 | Sink | Description |
 | ---- | ----------- |
@@ -173,9 +173,9 @@ The route sink defines where the messages are sent. It can be any of the followi
 
 It is important to note that Edge hub provides at-least-once guarantees, which means that messages are stored locally in case a route cannot deliver the message to its sink, for example, the Edge hub cannot connect to IoT Hub, or the target module is not connected.
 
-Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the [Edge hub desired properties]((module-edgeagent-edgehub.md).
+Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the [Edge hub desired properties](module-edgeagent-edgehub.md).
 
-## Specify desired properties 
+## Define or update desired properties 
 
 The deployment manifest can specify desired properties for the module twin of each module deployed to the IoT Edge device. When the desired properties are specified in the deployment manifest, they overwrite any desired properties currently in the module twin.
 

@@ -20,7 +20,7 @@ The Edge agent and Edge hub are two modules that make up the IoT Edge runtime. F
 
 This article provides the desired properties and reported properties of the runtime module twins. See [Deployment and monitoring][lnk-deploy] for more information on how to deploy modules on IoT Edge devices.
 
-## Edge agent twin desired properties
+## EdgeAgent desired properties
 
 The module twin for the Edge agent is called `$edgeAgent` and coordinates the communications between the Edge agent running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment. 
 
@@ -47,7 +47,7 @@ The module twin for the Edge agent is called `$edgeAgent` and coordinates the co
 | modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options][lnk-docker-create-options] | No |
 | modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | This is set by IoT Hub when this manifest is applied using a deployment. Not part of a deployment manifest. |
 
-## Edge agent twin reported properties
+## EdgeAgent reported properties
 
 The Edge agent reported properties include three main pieces of information:
 
@@ -88,7 +88,7 @@ The following table does not include the information that is copied from the des
 | modules.{moduleId}.lastRestartTimeUtc | Time when the module was last restarted |
 | modules.{moduleId}.restartCount | Number of times this module was restarted as part of the restart policy. |
 
-## Edge hub twin desired properties
+## EdgeHub desired properties
 
 The module twin for the Edge hub is called `$edgeHub` and coordinates the communications between the Edge hub running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment. 
 
@@ -98,7 +98,7 @@ The module twin for the Edge hub is called `$edgeHub` and coordinates the commun
 | routes.{routeName} | A string representing an Edge hub route. | The `routes` element can be present but empty. |
 | storeAndForwardConfiguration.timeToLiveSecs | The time in seconds that Edge hub keeps messages in case of disconnected routing endpoints, for example, disconnected from IoT Hub, or local module | Yes |
 
-## Edge hub twin reported properties
+## EdgeHub reported properties
 
 | Property | Description |
 | -------- | ----------- |
@@ -108,3 +108,11 @@ The module twin for the Edge hub is called `$edgeHub` and coordinates the commun
 | clients.{device or module identity}.status | The connectivity status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to Edge hub appear only when connected. |
 | clients.{device or module identity}.lastConnectTime | Last time the device or module connected |
 | clients.{device or module identity}.lastDisconnectTime | Last time the device or module disconnected |
+
+
+
+<!--links -->
+[lnk-deploy]: module-deployment-monitoring.md
+[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
+[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
+[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md
