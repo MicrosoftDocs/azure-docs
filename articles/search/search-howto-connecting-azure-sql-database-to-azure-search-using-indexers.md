@@ -55,7 +55,8 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 | Real-time data synchronization is not required | An indexer can re-index your table at most every five minutes. If your data changes frequently, and the changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-import-data-dotnet.md) to push updated rows directly. |
 | Incremental indexing is possible | If you have a large data set and plan to run the indexer on a schedule, Azure Search must be able to efficiently identify new, changed, or deleted rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. |
 
-> [!NOTE] Azure Search supports SQL Server authentication only. If you require support for Azure Active Directory Password authentication, please vote for this [UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
+> [!NOTE] 
+> Azure Search supports SQL Server authentication only. If you require support for Azure Active Directory Password authentication, please vote for this [UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## Create an Azure SQL Indexer
 
