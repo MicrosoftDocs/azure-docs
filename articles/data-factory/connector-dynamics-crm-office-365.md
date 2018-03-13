@@ -182,7 +182,7 @@ To copy data from and to Dynamics, set the type property of the dataset to **Dyn
                 "type": "Datetime"
             }
         ],
-        "typePoperties": {
+        "typeProperties": {
             "entityName": "account"
         },
         "linkedServiceName": {
