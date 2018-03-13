@@ -1146,46 +1146,9 @@ Follow these steps to clean up resources as you desire.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. If you want to keep the data warehouse, but delete the tables and procedures you create in this tutorial, run the following script.
+2. If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
 
-    ```sql
-    DROP EXTERNAL TABLE [ext].[dimension_City];
-    DROP EXTERNAL TABLE [ext].[dimension_Customer;]
-    DROP EXTERNAL TABLE [ext].[dimension_Date];
-    DROP EXTERNAL TABLE [ext].[dimension_Employee];
-    DROP EXTERNAL TABLE [ext].[dimension_PaymentMethod];
-    DROP EXTERNAL TABLE [ext].[dimension_StockItem];
-    DROP EXTERNAL TABLE [ext].[dimension_Supplier];
-    DROP EXTERNAL TABLE [ext].[dimension_TransactionType];
-    DROP EXTERNAL TABLE [ext].[fact_Movement];
-    DROP EXTERNAL TABLE [ext].[fact_Order];
-    DROP EXTERNAL TABLE [ext].[fact_Purchase];
-    DROP EXTERNAL TABLE [ext].[fact_Sale];
-    DROP EXTERNAL TABLE [ext].[fact_StockHolding];
-    DROP EXTERNAL TABLE [ext].[fact_Transaction];
-    DROP TABLE [wwi].[dimension_City];
-    DROP TABLE [wwi].[dimension_Customer];
-    DROP TABLE [wwi].[dimension_Date];
-    DROP TABLE [wwi].[dimension_Employee];
-    DROP TABLE [wwi].[dimension_PaymentMethod];
-    DROP TABLE [wwi].[dimension_StockItem];
-    DROP TABLE [wwi].[dimension_Supplier];
-    DROP TABLE [wwi].[dimension_TransactionType];
-    DROP TABLE [wwi].[fact_Movement];
-    DROP TABLE [wwi].[fact_Order];
-    DROP TABLE [wwi].[fact_Sale];    
-    DROP TABLE [wwi].[fact_StockHolding];    
-    DROP TABLE [wwi].[fact_Transaction];
-    DROP TABLE [wwi].[seed_Sale];
-    DROP PROCEDURE [dbo].[prc_sqldw_create_stats];
-    DROP PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable];
-    DROP PROCEDURE [wwi].[InitialSalesDataPopulation];
-    DROP PROCEDURE [wwi].[PopulateDateDimensionForYear];
-    ```
-
-3. If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
-
-4. If you want to remove future charges, you can delete the data warehouse. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
+3. If you want to remove future charges, you can delete the data warehouse. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 
 4. To remove the SQL server you created, click **sample-svr.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
