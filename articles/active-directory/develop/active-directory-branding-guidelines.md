@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 ---
 # Branding Guidelines for Applications
-This topic discusses the branding guidelines you should use when developing applications with Azure Active Directory (Azure AD). These guidelines will help direct your customers when they want to use their work or school account, managed in Azure AD, or their personal account for sign-up and sign-in to your application.
+This article discusses the branding guidelines you should use when developing applications with Azure Active Directory (Azure AD). These guidelines will help direct your customers when they want to use their work or school account, managed in Azure AD, or their personal account for sign-up and sign-in to your application.
 
 ## Personal accounts vs. work or school accounts from Microsoft
 Microsoft manages two kinds of user accounts:
@@ -27,7 +27,7 @@ Microsoft manages two kinds of user accounts:
 * **Personal accounts** (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
 * **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Azure Active Directory. These accounts are used to sign in to Office 365 and other business services from Microsoft.
 
-Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are either mastered directly in the cloud, in the Azure AD platform, or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
+Microsoft work or school accounts are typically assigned to end-users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are either mastered directly in the cloud, in the Azure AD platform, or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
 
 ## Referring to Azure AD accounts in your application
 Microsoft doesn’t expose end-users to the Azure or the Active Directory brand names, and neither should you.
@@ -36,14 +36,14 @@ Microsoft doesn’t expose end-users to the Azure or the Active Directory brand 
 * When users are not signed in, you should refer to their accounts as “Work or school accounts” and use the Microsoft logo to convey that these accounts are managed by Microsoft. Don’t use terms like “enterprise account”, “business account” or “corporate account” which create user confusion.
 
 ## User account pictogram
-In an earlier version of these guidelines, we recommended using a “blue badge” pictogram. Based on user and developer feedback, we now recommend the use of the Microsoft logo instead. This will help users understand that they can reuse the account they use with Office 365 or other Microsoft business services to sign in to your app.
+In an earlier version of these guidelines, we recommended using a “blue badge” pictogram. Based on user and developer feedback, we now recommend the use of the Microsoft logo instead. This will help users understand that they can reuse the account they use with Office 365 or other Microsoft business services to sign into your app.
 
 ## Signing up and signing in with Azure AD
 Your app may present separate paths for sign-up and sign-in and the following sections provide visual guidance for both scenarios.
 
-**If your app supports end user sign up (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD will show a consent prompt the first time they access your app.
+**If your app supports end-user sign-Fup (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD will show a consent prompt the first time they access your app.
 
-**If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: You should separate admin acquisition from user sign in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization. This has the added benefit of suppressing end users consent prompts to your app.
+**If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: You should separate admin acquisition from user sign-in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization. This has the added benefit of suppressing end users consent prompts to your app.
 
 ## Visual guidance for app acquisition
 Your “get the app” link must redirect the user to the Azure AD grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data that is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md) article.
@@ -59,10 +59,10 @@ However, we recommend that you write explanatory text instead of relying on butt
 > 
 
 ## Visual guidance for sign-in
-Your app should display a sign in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
+Your app should display a sign-in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
 
 ### Pictogram and “Sign in with Microsoft”
-It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represents Azure AD amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in”.
+It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represent Azure AD amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in”.
 
 ![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
