@@ -156,13 +156,13 @@ Load Balancer works with Virtual Machines.  Any VM in a single VNet can be part 
 
 If you wish to align and guarantee your frontend and backend with a single zone, only place VMs within the same zone into the respective backend pool.
 
-If you wish to address VMs across multiple zones, simply place VMs from multiple zones into the same backend pool.  When using Virtual Machine Scale Sets (virtual machine scale set), you can place one or more virtual machine scale sets into the same backend pool.  And each of these virtual machine scale sets can be in a single or multiple zones.
+If you wish to address VMs across multiple zones, simply place VMs from multiple zones into the same backend pool.  When using virtual machine scale sets, you can place one or more virtual machine scale sets into the same backend pool.  And each of these virtual machine scale sets can be in a single or multiple zones.
 
 ### Outbound connections
 
-[Outbound connections](load-balancer-outbound-connections.md) are served by all zones and are automatically zone-redundant in a zone with Availability Zones when a virtual machine is associated with a public Load Balancer and a zone-redundant frontend.  Outbound connection SNAT port allocations survive zone failures.  
+[Outbound connections](load-balancer-outbound-connections.md) are served by all zones and are automatically zone-redundant in a region with Availability Zones when a virtual machine is associated with a public Load Balancer and a zone-redundant frontend.  Outbound connection SNAT port allocations survive zone failures.  
 
-In turn, if the VM is associated with a public Load Balancer and a zonal frontend, the outbound connections are guaranteed to a single zone.  Outbound connections share fate with the respective zone's health.
+In turn, if the VM is associated with a public Load Balancer and a zonal frontend, outbound connections are guaranteed to be served by a single zone.  Outbound connections share fate with the respective zone's health.
 
 The SNAT port preallocation and algorithm is the same with or without zones.
 
