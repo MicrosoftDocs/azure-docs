@@ -196,18 +196,17 @@ Avoid introducing new failure modes due to unintended cross-zone dependencies.  
 -  When a zone fails, does your end-to-end service understand this and if the state is lost, how will you recover?
 -  When a zone returns, does your application understand how to converge safely?
 
-### Zone-redundant versus zonal
+### <a name="zonalityguidance"></a> Zone-redundant versus zonal
 
 Zone-redundant can provide a zone-agnostic and at the same time resilient option with a single IP address for the service.  It can reduce complexity in turn.  Zone-redundant also has mobility across zones, and can be safely used on resources in any zone.  Also, it's future proof in regions without Availability Zones, which can limit changes required once a region does gain Availability Zones.  The configuration syntax for a zone-redundant IP address or frontend succeeds in any region including those without Availability Zones.
 
-Zonal can provide an explicit guarantee to a zone, sharing fate with the health of the zone. This can be a desirable or reasonable attribute, especially if your attached resource is zonal (that is, a zonal VM). You can choose to expose multiple zonal frontends for a cross-zone distributed end-to-end service (that is, per zone zonal frontends for multiple zonal virtual machine scale set).  And you can use these multiple zonal frontends for exposing your service with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Or you can use multiple zonal frontends to gain per zone health and performance insights through third party monitoring solutions. Only serve zonal resources with zonal frontends aligned to the same zone and avoid potentially harmful cross-zone scenarios for zonal resources.  Zonal resources only exist in regions where Availability Zones exist.
+Zonal can provide an explicit guarantee to a zone, sharing fate with the health of the zone. This can be a desirable or reasonable attribute, especially if your attached resource is a zonal VM.  You can choose to expose multiple zonal frontends for a cross-zone distributed end-to-end service (that is, per zone zonal frontends for multiple zonal virtual machine scale sets).  And you can use these multiple zonal frontends for exposing your service with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Or you can use multiple zonal frontends to gain per zone health and performance insights through third party monitoring solutions and expose the overall service with a zone-redundant frontend. You should only serve zonal resources with zonal frontends aligned to the same zone and avoid potentially harmful cross-zone scenarios for zonal resources.  Zonal resources only exist in regions where Availability Zones exist.
 
-There is no general guidance that one is better than the other without knowing the end-to-end service.
+There is no general guidance that one is a better choice than the other without knowing the end-to-end service.
 
 ## Limitations
 
 - While data plane is fully zone-redundant (unless zonal guarantee was specified), control plane operations are not fully zone-redundant.
-- Standard Load Balancer Diagnostics do not provide Availability Zones as a dimension in Azure Monitor.
 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
