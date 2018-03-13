@@ -3,7 +3,7 @@ title: Create, link, delete, or move an integration account in Azure logic apps 
 description: How to create an integration account, and link it to your logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: LADocs; mandia
+ms.author: LADocs; divswa
 
 ---
 

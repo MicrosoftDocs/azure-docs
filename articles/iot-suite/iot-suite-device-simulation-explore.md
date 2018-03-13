@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need a deployed instance of Azure IoT Device Simulation in your Azure subscription.
 
-If you haven't deployed Device Simulation yet, you should complete the [Deploy Azure IoT Device Simulation](iot-suite-device-simulation-explore.md) tutorial.
+If you haven't deployed Device Simulation yet, you should complete the [Deploy Azure IoT Device Simulation](iot-suite-device-simulation-deploy.md) tutorial.
 
 ## Configuring Device Simulation
 
