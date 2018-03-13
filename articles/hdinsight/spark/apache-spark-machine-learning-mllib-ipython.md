@@ -152,9 +152,9 @@ Because the raw data is in a CSV format, you can use the Spark context to pull t
 
 ## Understand the data
 
-Let's start to get a sense of what our dataset contains. 
+Let's start to get a sense of what the dataset contains. 
 
-1. Run the following code to show the dinstinct values in the **results** column:
+1. Run the following code to show the distinct values in the **results** column:
 
     ```PySpark
     df.select('results').distinct().show()
@@ -311,7 +311,7 @@ You can use the model you created earlier to *predict* what the results of new i
     ```
 
    There is a prediction for the first entry in the test data set.
-1. The `model.transform()` method applies the same transformation to any new data with the same schema, and arrive at a prediction of how to classify the data. You can do some simple statistics to get a sense of how accurate our predictions were:
+1. The `model.transform()` method applies the same transformation to any new data with the same schema, and arrive at a prediction of how to classify the data. You can do some simple statistics to get a sense of how accurate the predictions were:
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
