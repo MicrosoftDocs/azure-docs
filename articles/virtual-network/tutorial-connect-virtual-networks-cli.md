@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic:
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom:
 ---
@@ -25,14 +25,15 @@ You can connect virtual networks to each other with virtual network peering. Onc
 
 > [!div class="checklist"]
 > * Create two virtual networks
-> * Connect two virtual network with a virtual network peering
-> * Deploy a virtual machine (VM) into each virtual network and communicate between VMs
+> * Connect two virtual networks with a virtual network peering
+> * Deploy a virtual machine (VM) into each virtual network
+> * Communicate between VMs
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Create virtual networks
 
@@ -119,11 +120,11 @@ Resources in one virtual network cannot communicate with resources in the other 
 
 ## Create virtual machines
 
-Create a virtual machine in each virtual network so that you can communicate between them in a later step.
+Create a VM in each virtual network so that you can communicate between them in a later step.
 
 ### Create the first VM
 
-Create a virtual machine with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a virtual machine named *myVm1* in the *myVirtualNetwork1* virtual network. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the virtual machine in the background, so you can continue to the next step.
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVm1* in the *myVirtualNetwork1* virtual network. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so you can continue to the next step.
 
 ```azurecli-interactive
 az vm create \
@@ -138,7 +139,7 @@ az vm create \
 
 ### Create the second VM
 
-Create a virtual machine in the *myVirtualNetwork2* virtual network.
+Create a VM in the *myVirtualNetwork2* virtual network.
 
 ```azurecli-interactive 
 az vm create \
@@ -150,7 +151,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The virtual machine takes a few minutes to create. After the virtual machine is created, the Azure CLI shows information similar to the following example: 
+The VM takes a few minutes to create. After the VM is created, the Azure CLI shows information similar to the following example: 
 
 ```azurecli 
 {
@@ -165,17 +166,17 @@ The virtual machine takes a few minutes to create. After the virtual machine is 
 }
 ```
 
-Take note of the **publicIpAddress**. This address is used to access the virtual machine from the Internet in a later step.
+Take note of the **publicIpAddress**. This address is used to access the VM from the Internet in a later step.
 
 ## Communicate between VMs
 
-Use the following command to create an SSH session with the *myVm2* virtual machine. Replace `<publicIpAddress>` with the public IP address of your virtual machine. In the previous example, the public IP address is *13.90.242.231*.
+Use the following command to create an SSH session with the *myVm2* VM. Replace `<publicIpAddress>` with the public IP address of your VM. In the previous example, the public IP address is *13.90.242.231*.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-Ping the virtual machine in *myVirtualNetwork1*.
+Ping the VM in *myVirtualNetwork1*.
 
 ```bash 
 ping 10.0.0.4 -c 4
@@ -183,7 +184,7 @@ ping 10.0.0.4 -c 4
 
 You receive four replies. 
 
-Close the SSH session to the *myVm2* virtual machine. 
+Close the SSH session to the *myVm2* VM. 
 
 ## Clean up resources
 

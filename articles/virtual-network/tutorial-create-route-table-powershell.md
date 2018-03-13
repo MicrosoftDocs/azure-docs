@@ -14,23 +14,23 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/05/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom:
 ---
 
 # Route network traffic with a route table using PowerShell
 
-Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance. In this article you learn how to:
+Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this article you learn how to:
 
 > [!div class="checklist"]
 > * Create a route table
 > * Create a route
 > * Create a virtual network with multiple subnets
 > * Associate a route table to a subnet
-> * Create a network virtual appliance that routes traffic
-> * Deploy virtual machines into different subnets
-> * Route traffic from one subnet to another through a network virtual appliance
+> * Create an NVA that routes traffic
+> * Deploy virtual machines (VM) into different subnets
+> * Route traffic from one subnet to another through an NVA
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -119,9 +119,11 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 Set-AzureRmVirtualNetwork
 ```
 
-## Create a network virtual appliance
+## Create an NVA
 
-Create a network interface, and then create a VM and attach the network interface to the VM.
+An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
+
+Before creating a VM, create a network interface.
 
 ### Create a network interface
 
@@ -147,15 +149,15 @@ $nic = New-AzureRmNetworkInterface `
   -EnableIPForwarding
 ```
 
-### Create a virtual machine
+### Create a VM
 
-To create a virtual machine and attach an existing network interface to it, you must first create a virtual machine configuration with [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). The configuration includes the network interface created in the previous step. When prompted for a username and password, select the user name and password you want to log into the virtual machine with. 
+To create a VM and attach an existing network interface to it, you must first create a VM configuration with [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). The configuration includes the network interface created in the previous step. When prompted for a username and password, select the user name and password you want to log into the VM with. 
 
 ```azurepowershell-interactive
 # Create a credential object.
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+$cred = Get-Credential -Message "Enter a username and password for the VM."
 
-# Create a virtual machine configuration.
+# Create a VM configuration.
 $vmConfig = New-AzureRmVMConfig `
   -VMName 'myVmNva' `
   -VMSize Standard_DS2 | `
@@ -170,7 +172,7 @@ $vmConfig = New-AzureRmVMConfig `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 ```
 
-Create the virtual machine using the virtual machine configuration with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVmNva*. 
+Create the VM using the VM configuration with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVmNva*. 
 
 ```azurepowershell-interactive
 $vmNva = New-AzureRmVM `
@@ -180,13 +182,13 @@ $vmNva = New-AzureRmVM `
   -AsJob
 ```
 
-The `-AsJob` option creates the virtual machine in the background, so you can continue to the next step.
+The `-AsJob` option creates the VM in the background, so you can continue to the next step.
 
 ## Create virtual machines
 
-Create two virtual machines in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the network virtual appliance in a later step. 
+Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the network virtual appliance in a later step. 
 
-Create a virtual machine in the *Public* subnet with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVmPublic* in the *Public* subnet of the *myVirtualNetwork* virtual network. 
+Create a VM in the *Public* subnet with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVmPublic* in the *Public* subnet of the *myVirtualNetwork* virtual network. 
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -199,7 +201,7 @@ New-AzureRmVm `
   -AsJob
 ```
 
-Create a virtual machine in the *Private* subnet.
+Create a VM in the *Private* subnet.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -211,11 +213,11 @@ New-AzureRmVm `
   -Name "myVmPrivate"
 ```
 
-The virtual machine takes a few minutes to create. Don't continue with the next step until the virtual machine is created and Azure returns output to PowerShell.
+The VM takes a few minutes to create. Don't continue with the next step until the VM is created and Azure returns output to PowerShell.
 
-## Route traffic through a network virtual appliance
+## Route traffic through an NVA
 
-Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to return the public IP address of the *myVmPrivate* virtual machine. The following example returns the public IP address of the *myVmPrivate* virtual machine:
+Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to return the public IP address of the *myVmPrivate* VM. The following example returns the public IP address of the *myVmPrivate* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -224,7 +226,7 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the *myVmPrivate* virtual machine from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
+Use the following command to create a remote desktop session with the *myVmPrivate* VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -232,9 +234,9 @@ mstsc /v:<publicIpAddress>
 
 Open the downloaded RDP file. If prompted, select **Connect**.
 
-Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection. 
+Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection. 
 
-In a later step, the tracert.exe command is used to test routing. Tracert uses the internet control message protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell:
+In a later step, the tracert.exe command is used to test routing. Tracert uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell:
 
 ```powershell
 New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
@@ -242,9 +244,9 @@ New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 
 Though tracert is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
-Enable IP forwarding within the operating system of the *myVmNva* by completing the following steps from the *myVmPrivate* virtual machine:
+Enable IP forwarding within the operating system of the *myVmNva* by completing the following steps from the *myVmPrivate* VM:
 
-Remote desktop to the *myVmNva* virtual machine with the following command from PowerShell:
+Remote desktop to the *myVmNva* VM with the following command from PowerShell:
 
 ``` 
 mstsc /v:myvmnva
@@ -256,9 +258,9 @@ To enable IP forwarding within the operating system, enter the following command
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Restart the virtual machine, which will also disconnect the remote desktop session.
+Restart the VM, which also disconnects the remote desktop session.
 
-While still connected to the *myVmPrivate* virtual machine, after the *myVmNva* virtual machine restarts, create a remote desktop session to the  *myVmPublic* virtual machine with the following command:
+While still connected to the *myVmPrivate* VM, after the *myVmNva* VM restarts, create a remote desktop session to the  *myVmPublic* VM with the following command:
 
 ``` 
 mstsc /v:myVmPublic
@@ -270,7 +272,7 @@ Enable ICMP through the Windows firewall by entering the following command from 
 New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-To test routing of network traffic to the *myVmPrivate* virtual machine from the *myVmPublic* virtual machine, enter the following command from PowerShell:
+To test routing of network traffic to the *myVmPrivate* VM from the *myVmPublic* VM, enter the following command from PowerShell:
 
 ```
 tracert myVmPrivate
@@ -288,10 +290,10 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-You can see that the first hop is 10.0.2.4, which is the network virtual appliance's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* virtual machine. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
+You can see that the first hop is 10.0.2.4, which is the network virtual appliance's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
 
-Close the remote desktop session to the *myVmPublic* virtual machine, which leaves you still connected to the *myVmPrivate* virtual machine.
-To test routing of network traffic to the *myVmPublic* virtual machine from the *myVmPrivate* virtual machine, enter the following command from a command prompt:
+Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
+To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt:
 
 ```
 tracert myVmPublic
@@ -308,9 +310,9 @@ over a maximum of 30 hops:
 Trace complete.
 ```
 
-You can see that traffic is routed directly from the *myVmPrivate* virtual machine to the *myVmPublic* virtual machine. By default, Azure routes traffic directly between subnets.
+You can see that traffic is routed directly from the *myVmPrivate* VM to the *myVmPublic* VM. By default, Azure routes traffic directly between subnets.
 
-Close the remote desktop session to the *myVmPrivate* virtual machine.
+Close the remote desktop session to the *myVmPrivate* VM.
 
 ## Clean up resources
 

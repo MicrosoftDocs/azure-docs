@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic:
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom:
 ---
@@ -25,8 +25,9 @@ You can connect virtual networks to each other with virtual network peering. Onc
 
 > [!div class="checklist"]
 > * Create two virtual networks
-> * Connect two virtual network with a virtual network peering
-> * Deploy a virtual machine (VM) into each virtual network and communicate between VMs
+> * Connect two virtual networks with a virtual network peering
+> * Deploy a virtual machine (VM) into each virtual network
+> * Communicate between VMs
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -84,7 +85,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
     If you don't see the status, refresh your browser.
 
-4. In the Search box at the top of the Azure portal, begin typing *MyVirtualNetwork2*. When **myVirtualNetwork2** appears in the search results, select it.
+4. In the **Search** box at the top of the Azure portal, begin typing *MyVirtualNetwork2*. When **myVirtualNetwork2** appears in the search results, select it.
 5. Complete steps 2-3 again, with the following changes, and then select **OK**:
 
     |Setting|Value|
@@ -96,7 +97,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual machines
 
-Create a virtual machine in each virtual network so that you can communicate between them in a later step.
+Create a VM in each virtual network so that you can communicate between them in a later step.
 
 ### Create the first VM
 
@@ -120,7 +121,7 @@ Create a virtual machine in each virtual network so that you can communicate bet
     
     ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
-6. Under **Create** in the **Summary**, select **Create** to start the virtual machine deployment.
+6. Under **Create** in the **Summary**, select **Create** to start the VM deployment.
 
 ### Create the second VM
 
@@ -131,28 +132,28 @@ Complete steps 1-6 again, with the following changes:
 |Name | myVm2|
 |Virtual network | myVirtualNetwork2|
 
-The virtual machines take a few minutes to create. Do not continue with the remaining steps until both virtual machines are created.
+The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
 ## Communicate between VMs
 
 1. In the *Search* box at the top of the portal, begin typing *myVm1*. When **myVm1** appears in the search results, select it.
-2. Create a remote desktop connection to the *myVm1* virtual machine by selecting **Connect**, as shown in the following picture:
+2. Create a remote desktop connection to the *myVm1* VM by selecting **Connect**, as shown in the following picture:
 
     ![Connect to virtual machine](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
 3. To connect to the VM, open the downloaded RDP file. If prompted, select **Connect**.
-4. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select **OK**.
+4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**.
 5. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
-6. In a later step, ping is used to communicate with the *myVm2* virtual machine from the *myVm1* virtual machine. Ping uses ICMP, which is denied through the Windows Firewall, by default. Enable ICMP through the Windows firewall by entering the following command from PowerShell:
+6. In a later step, ping is used to communicate with the *myVm2* VM from the *myVm1* VM. Ping uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall, by default. On the *myVm1* VM, enable the Internet Control Message Protocol (ICMP) through the Windows firewall so you can ping this VM from *myVm2* in a later step, using PowerShell:
 
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-    Though ping is used to communicate between virtual machines in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
+    Though ping is used to communicate between VMs in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
-7. To connect to the *myVm2* virtual machine, enter the following command from a command prompt on the *myVm1* virtual machine:
+7. To connect to the *myVm2* VM, enter the following command from a command prompt on the *myVm1* VM:
 
     ```
     mstsc /v:10.1.0.4

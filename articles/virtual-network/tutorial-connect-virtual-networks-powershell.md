@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic:
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom:
 ---
@@ -25,14 +25,15 @@ You can connect virtual networks to each other with virtual network peering. Onc
 
 > [!div class="checklist"]
 > * Create two virtual networks
-> * Connect two virtual network with a virtual network peering
-> * Deploy a virtual machine (VM) into each virtual network and communicate between VMs
+> * Connect two virtual networks with a virtual network peering
+> * Deploy a virtual machine (VM) into each virtual network
+> * Communicate between VMs
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Create virtual networks
 
@@ -120,11 +121,11 @@ Resources in one virtual network cannot communicate with resources in the other 
 
 ## Create virtual machines
 
-Create a virtual machine in each virtual network so that you can communicate between them in a later step.
+Create a VM in each virtual network so that you can communicate between them in a later step.
 
 ### Create the first VM
 
-Create a virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a virtual machine named *myVm1* in the *myVirtualNetwork1* virtual network. The `-AsJob` option creates the virtual machine in the background, so you can continue to the next step. When prompted, enter the user name and password you want to log in to the virtual machine with.
+Create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVm1* in the *myVirtualNetwork1* virtual network. The `-AsJob` option creates the VM in the background, so you can continue to the next step. When prompted, enter the user name and password you want to log in to the VM with.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -149,11 +150,11 @@ New-AzureRmVm `
   -Name "myVm2"
 ```
 
-The virtual machine takes a few minutes to create. Do not continue with later steps until Azure creates the virtual machine and returns output to PowerShell.
+The VM takes a few minutes to create. Do not continue with later steps until Azure creates the VM and returns output to PowerShell.
 
 ## Communicate between VMs
 
-You can connect to a virtual machine's public IP address from the Internet. Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to return the public IP address of a virtual machine. The following example returns the public IP address of the *myVm1* virtual machine:
+You can connect to a VM's public IP address from the Internet. Use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to return the public IP address of a VM. The following example returns the public IP address of the *myVm1* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -161,29 +162,29 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the *myVm1* virtual machine from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
+Use the following command to create a remote desktop session with the *myVm1* VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-A Remote Desktop Protocol (.rdp) file is created, downloaded to your computer, and opened. Enter the user name and password (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), and then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
+A Remote Desktop Protocol (.rdp) file is created, downloaded to your computer, and opened. Enter the user name and password (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), and then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
-From PowerShell, enable ping through the Windows firewall so you can ping this virtual machine from *myVm2* in a later step.
+On the *myVm1* VM, enable the Internet Control Message Protocol (ICMP) through the Windows firewall so you can ping this VM from *myVm2* in a later step, using PowerShell:
 
 ```powershell
 New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Though ping is used to communicate between virtual machines in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
+Though ping is used to communicate between VMs in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
-To connect to the *myVm2* virtual machine, enter the following command from a command prompt on the *myVm1* virtual machine:
+To connect to the *myVm2* VM, enter the following command from a command prompt on the *myVm1* VM:
 
 ```
 mstsc /v:10.1.0.4
 ```
 
-Since you enabled ping on *myVm1*, you can now ping it by IP address from a command prompt on the *myVm2* virtual machine:
+Since you enabled ping on *myVm1*, you can now ping it by IP address from a command prompt on the *myVm2* VM:
 
 ```
 ping 10.0.0.4
