@@ -224,15 +224,15 @@ Follow these instructions to configure user account provisioning from Workday to
 
 Before configuring user provisioning to an Active Directory forest, consider the following questions. The answers to these questions will determine how your scoping filters and attribute mappings need to be set. 
 
-* What users in Workday need to be provisioned to this Active Directory forest? 
+* **What users in Workday need to be provisioned to this Active Directory forest?**
 
    * *Example: Users where the Workday "Company" attribute contains the value "Contoso", and the "Worker_Type" attribute contains "Regular"*
 
-* How are users routed into different organization units (OUs)?
+* **How are users routed into different organization units (OUs)?**
 
    * *Example: Users are routed to OUs that correspond to an office location, as defined in the Workday "Municipality" and "Country_Region_Reference" attributes*
 
-* How should the following attributes be populated in the Active Directory? 
+* **How should the following attributes be populated in the Active Directory?**
 
    * Common Name (cn)
       * *Example: Use the Workday User_ID value, as set by human resources*
@@ -246,11 +246,11 @@ Before configuring user provisioning to an Active Directory forest, consider the
    * User Principal Name (userPrincipalName)
       * *Example: Use the Workday User_ID value, with an Azure AD provisioning expression to append a domain name*
 
-* How should users be matched between Workday and Active Directory?
+* **How should users be matched between Workday and Active Directory?**
 
   * *Example: Users with a specific Workday "Worker_ID" value are matched with Active Directory users where "employeeID" has the same value. If the Worker_ID value is not found in Active Directory, then create a new user.*
   
-* Does the Active Directory forest already contain the user IDs required for the matching logic to work?	
+* **Does the Active Directory forest already contain the user IDs required for the matching logic to work?**
 
   * *Example: If this is a new Workday deployment, it is strongly recommended that Active Directory be pre-populated with the correct Workday Worker_ID values (or unique ID value of choice) to keep the matching logic as simple as possible.*
 	
