@@ -78,11 +78,11 @@ Some Optional Claims can be configured to change the way the claim is returned. 
 | | `include_externally_authenticated_upn`              | Includes the guest UPN as stored in the resource tenant.  For example, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hashmarks (`#`) are replaced with underscores (`_`) , for example `foo_hometenant.com_EXT_@resourcetenant.com` |             
 | `groups`                                              |                                                                                                                                      |             |
-| | `Sam_account_name`                                  |                                                                                                                                      |             
-| | `Dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `Netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `Max_size_limit`                                    | Limit the number of groups returned to the max group size limit.                                                                     |             
-| | `Emit_as_roles`                                     | Return the groups the user is in as the roles corresponding to those groups.                                                         |             
+| | `sam_account_name`                                  |                                                                                                                                      |             
+| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
+| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
+| | `max_size_limit`                                    | Raises the number of groups returned to the max group size limit (1,000).                                                            |             
+| | `emit_as_roles`                                     | Emits a "roles" claim in place of the "groups" claim, with the same values.  Intended for apps migrating from an on-prem environment where RBAC was traditionally controlled via group membership.   |             
 
 > [!Note]
 >Specifying the upn optional claim without an additional property does not change any behavior – in order to see a new claim issued in the token, at least one of the additional properties must be added. 
@@ -178,7 +178,7 @@ In addition to the standard optional claims set, tokens can also be configured t
 
 ### Values for configuring additional optional claims 
 
-For extension attributes, use the full name of the extension (in the format: `extension_<appid>_<attributename>`) in the application manifest. 
+For extension attributes, use the full name of the extension (in the format: `extension_<appid>_<attributename>`) in the application manifest. The `<appid>` must match the id of the application requesting the claim. 
 
 Within the JWT, these claims will be emitted with the following name format:  `extn.<attributename>`.
 
