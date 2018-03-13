@@ -604,8 +604,8 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/operationresults/profileresults/endpointresults/customdomainresults/read||
 |/operationresults/profileresults/endpointresults/customdomainresults/write||
 |/operationresults/profileresults/endpointresults/customdomainresults/delete||
-|/operationresults/profileresults/endpointresults/customdomainresults/DisableCustomHttps/action||
-|/operationresults/profileresults/endpointresults/customdomainresults/EnableCustomHttps/action||
+|/operationresults/profileresults/endpointresults/customdomainresults/ DisableCustomHttps/action||
+|/operationresults/profileresults/endpointresults/customdomainresults/ EnableCustomHttps/action||
 |/operationresults/profileresults/endpointresults/originresults/read||
 |/operationresults/profileresults/endpointresults/originresults/write||
 |/operationresults/profileresults/endpointresults/originresults/delete||
@@ -734,7 +734,7 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read|Gets the network security group associated with the network interface.|
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write|Adds a network security group associated with the network interface.|
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete|Deletes the network security group associated with the network interface.|
-|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/operationStatuses/read|Reads the operation status for the virtual machines associated network security groups.|
+|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/ operationStatuses/read|Reads the operation status for the virtual machines associated network security groups.|
 |/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Gets the metrics definitions.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostics settings.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write|Add or modify diagnostics settings.|
@@ -921,8 +921,8 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/virtualMachineScaleSets/virtualMachines/performMaintenance/action|Performs planned maintenance on a Virtual Machine instance in a Virtual Machine Scale Set|
 |/virtualMachineScaleSets/virtualMachines/networkInterfaces/read|Get properties of one or all network interfaces of a virtual machine created using Virtual Machine Scale Set|
 |/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/read|Get properties of one or all IP configurations of a network interface created using Virtual Machine Scale Set. IP configurations represent private IPs|
-|/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/publicIPAddresses/read|Get properties of public IP address created using Virtual Machine Scale Set. Virtual Machine Scale Set can create at most one public IP per ipconfiguration (private IP)|
-|/virtualMachineScaleSets/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Reads Virtual Machine in Scale Set Metric Definitions|
+|/virtualMachineScaleSets/virtualMachines/networkInterfaces/ ipConfigurations/publicIPAddresses/read|Get properties of public IP address created using Virtual Machine Scale Set. Virtual Machine Scale Set can create at most one public IP per ipconfiguration (private IP)|
+|/virtualMachineScaleSets/virtualMachines/providers/ Microsoft.Insights/metricDefinitions/read|Reads Virtual Machine in Scale Set Metric Definitions|
 |/virtualMachineScaleSets/virtualMachines/instanceView/read|Retrieves the instance view of a Virtual Machine in a VM Scale Set.|
 |/images/read|Get the properties of the Image|
 |/images/write|Creates a new Image or updates an existing one|
@@ -2141,9 +2141,9 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/networkWatchers/connectionMonitors/read|Get Connection Monitor details|
 |/networkWatchers/connectionMonitors/write|Creates a Connection Monitor|
 |/networkWatchers/connectionMonitors/delete|Deletes a Connection Monitor|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for Connection Monitor|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostic settings of Connection Monitor|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the Connection Monitor Diagnostic Settings|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ metricDefinitions/read|Gets the available metrics for Connection Monitor|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/read|Get the diagnostic settings of Connection Monitor|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/write|Creates or updates the Connection Monitor Diagnostic Settings|
 |/networkWatchers/packetCaptures/queryStatus/action|Gets information about properties and status of a packet capture resource.|
 |/networkWatchers/packetCaptures/stop/action|Stop the running packet capture session.|
 |/networkWatchers/packetCaptures/read|Get the packet capture definition|
@@ -2517,11 +2517,11 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/write|Create or Update Any Recovery Services Providers|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/remove/action|Remove Recovery Services Provider|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete|Delete Any Recovery Services Providers|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action|Refresh Provider|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/ refreshProvider/action|Refresh Provider|
 |/vaults/replicationFabrics/replicationStorageClassifications/read|Read Any Storage Classifications|
-|/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read|Read Any Storage Classification Mappings|
-|/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/write|Create or Update Any Storage Classification Mappings|
-|/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/delete|Delete Any Storage Classification Mappings|
+|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/read|Read Any Storage Classification Mappings|
+|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/write|Create or Update Any Storage Classification Mappings|
+|/vaults/replicationFabrics/replicationStorageClassifications/ replicationStorageClassificationMappings/delete|Delete Any Storage Classification Mappings|
 |/vaults/replicationFabrics/replicationvCenters/read|Read Any Jobs|
 |/vaults/replicationFabrics/replicationvCenters/write|Create or Update Any Jobs|
 |/vaults/replicationFabrics/replicationvCenters/delete|Delete Any Jobs|
@@ -2530,29 +2530,29 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/write|Create or Update Any Network Mappings|
 |/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/delete|Delete Any Network Mappings|
 |/vaults/replicationFabrics/replicationProtectionContainers/read|Read Any Protection Containers|
-|/vaults/replicationFabrics/replicationProtectionContainers/discoverProtectableItem/action|Discover Protectable Item|
+|/vaults/replicationFabrics/replicationProtectionContainers/ discoverProtectableItem/action|Discover Protectable Item|
 |/vaults/replicationFabrics/replicationProtectionContainers/write|Create or Update Any Protection Containers|
 |/vaults/replicationFabrics/replicationProtectionContainers/remove/action|Remove Protection Container|
 |/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action|Switch Protection Container|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read|Read Any Protectable Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read|Read Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/write|Create or Update Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/remove/action|Remove Protection Container Mapping|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/delete|Delete Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read|Read Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/write|Create or Update Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete|Delete Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/remove/action|Remove Protected Item|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action|Planned Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action|Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action|Test Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action|Test Failover Cleanup|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action|Failover Commit|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action|ReProtect Protected Item|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action|Update Mobility Service|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action|Repair replication|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action|Apply Recovery Point|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read|Read Any Replication Recovery Points|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectableItems/read|Read Any Protectable Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/read|Read Any Protection Container Mappings|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/write|Create or Update Any Protection Container Mappings|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/remove/action|Remove Protection Container Mapping|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/delete|Delete Any Protection Container Mappings|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/read|Read Any Protected Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/write|Create or Update Any Protected Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/delete|Delete Any Protected Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/remove/action|Remove Protected Item|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/plannedFailover/action|Planned Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/unplannedFailover/action|Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailover/action|Test Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailoverCleanup/action|Test Failover Cleanup|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/failoverCommit/action|Failover Commit|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/reProtect/action|ReProtect Protected Item|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/updateMobilityService/action|Update Mobility Service|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/repairReplication/action|Repair replication|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/applyRecoveryPoint/action|Apply Recovery Point|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/recoveryPoints/read|Read Any Replication Recovery Points|
 |/vaults/replicationPolicies/read|Read Any Policies|
 |/vaults/replicationPolicies/write|Create or Update Any Policies|
 |/vaults/replicationPolicies/delete|Delete Any Policies|
@@ -2584,9 +2584,9 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read|Gets Result of Operation Performed on Protected Items.|
 |/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read|Returns the status of Operation performed on Protected Items.|
 |/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read|Get Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action|Restore Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action|Provision Instant Item Recovery for Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action|Revoke Instant Item Recovery for Protected Item|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/restore/action|Restore Recovery Points for Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/provisionInstantItemRecovery/action|Provision Instant Item Recovery for Protected Item|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/revokeInstantItemRecovery/action|Revoke Instant Item Recovery for Protected Item|
 |/Vaults/backupFabrics/backupProtectionIntent/write|Create a backup Protection Intent|
 |/Vaults/backupFabrics/{fabricName}/protectionContainers/{containerName}/items/read|Get all items in a container|
 |/Vaults/usages/read|Returns usage details for a Recovery Services Vault.|
@@ -3204,7 +3204,7 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read|Get list of Microsoft Storage Metrics definitions.|
 |/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
 |/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource.|
-|/storageAccounts/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
+|/storageAccounts/storageAccounts/queueServices/providers/ Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
 |/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read|Get list of Microsoft Storage Metrics definitions.|
 |/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource.|
 |/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource.|
@@ -3446,7 +3446,7 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/environments/eventsources/read|Get the properties of an event source.|
 |/environments/eventsources/write|Creates a new event source for an environment, or updates an existing event source.|
 |/environments/eventsources/delete|Deletes the event source.|
-|/environments/eventsources/eventsources/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/environments/eventsources/eventsources/providers/Microsoft.Insights/ diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
 |/environments/eventsources/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for eventsources|
 |/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
 |/environments/providers/Microsoft.Insights/metricDefinitions/read|Gets the available metrics for environments|
@@ -3493,7 +3493,7 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/hostingenvironments/operations/read|Get Hosting Environments Operations.|
 |/hostingEnvironments/multiRolePools/Read|Get the properties of a FrontEnd Pool in an App Service Environment|
 |/hostingEnvironments/multiRolePools/Write|Create a new FrontEnd Pool in an App Service Environment or update an existing one|
-|/hostingEnvironments/multiRolePools/providers/Microsoft.Insights/metricDefinitions/Read|Gets the available metrics for App Service Environment MultiRole|
+|/hostingEnvironments/multiRolePools/providers/Microsoft.Insights/ metricDefinitions/Read|Gets the available metrics for App Service Environment MultiRole|
 |/hostingenvironments/multirolepools/metricdefinitions/read|Get Hosting Environments MultiRole Pools Metric Definitions.|
 |/hostingenvironments/multirolepools/metrics/read|Get Hosting Environments MultiRole Pools Metrics.|
 |/hostingenvironments/multirolepools/skus/read|Get Hosting Environments MultiRole Pools SKUs.|

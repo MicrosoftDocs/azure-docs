@@ -1,5 +1,5 @@
 ---
-title: Actions and NotActions - Azure role-based access control (RBAC) | Microsoft Docs
+title: Built-in roles for Azure role-based access control (RBAC) | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC). The roles are continuously added, so check the documentation freshness.
 services: active-directory
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.custom: it-pro
 # Built-in roles for Azure role-based access control
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
-## Roles in Azure
+## Built-in role descriptions
 The following table provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
 
 The action defines what type of operations you can perform on a given resource type. For example:
@@ -34,7 +34,7 @@ This article only addresses the different roles that exist today. When you assig
 > The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet to list all current roles. You can dive in to a specific role using `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) to list operations of specific Azure resource providers.
 
 
-| Role name | Description |
+| Built-in role | Description |
 | --- | --- |
 | [Owner](#owner) | Can manage everything, including access |
 | [Contributor](#contributor) | Can manage everything except access |
@@ -109,17 +109,16 @@ This article only addresses the different roles that exist today. When you assig
 | [Web Plan Contributor](#web-plan-contributor) | Can manage web plans |
 | [Website Contributor](#website-contributor) | Can manage websites but not the web plans to which they are connected |
 
-## Role permissions
 The following tables describe the specific permissions given to each role. This can include **Actions**, which give permissions, and **NotActions**, which restrict them.
 
-### Owner
+## Owner
 Can manage everything, including access
 
 | **Actions** |  |
 | --- | --- |
 | * | Create and manage resources of all types |
 
-### Contributor
+## Contributor
 Can manage everything except access
 
 | **Actions** |  |
@@ -132,14 +131,14 @@ Can manage everything except access
 | Microsoft.Authorization/*/Write | Can't create roles and role assignments |
 | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
 
-### Reader
+## Reader
 Can view everything, but can't make changes
 
 | **Actions** |  |
 | --- | --- |
 | */read | Read resources of all types, except secrets. |
 
-### API Management Service Contributor
+## API Management Service Contributor
 Can manage API Management services
 
 | **Actions** |  |
@@ -152,7 +151,7 @@ Can manage API Management services
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### API Management Service Operator Role
+## API Management Service Operator Role
 Can manage API Management services
 
 | **Actions** |  |
@@ -177,7 +176,7 @@ Can manage API Management services
 | --- | --- |
 | Microsoft.ApiManagement/service/users/keys/read | Get list of user keys |
 
-### API Management Service Reader Role
+## API Management Service Reader Role
 Can manage API Management services
 
 | **Actions** |  |
@@ -195,7 +194,7 @@ Can manage API Management services
 | --- | --- |
 | Microsoft.ApiManagement/service/users/keys/read | Get list of user keys |
 
-### Application Insights Component Contributor
+## Application Insights Component Contributor
 Can manage Application Insights components
 
 | **Actions** |  |
@@ -209,7 +208,7 @@ Can manage Application Insights components
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Application Insights Snapshot Debugger
+## Application Insights Snapshot Debugger
 Gives user permission to use Application Insights Snapshot Debugger features
 
 | **Actions** |  |
@@ -221,7 +220,7 @@ Gives user permission to use Application Insights Snapshot Debugger features
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Automation Job Operator
+## Automation Job Operator
 Create and Manage Jobs using Automation Runbooks.
 
 | **Actions** |  |
@@ -239,7 +238,7 @@ Create and Manage Jobs using Automation Runbooks.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Automation Operator
+## Automation Operator
 Able to start, stop, suspend, and resume jobs
 
 | **Actions** |  |
@@ -265,7 +264,7 @@ Able to start, stop, suspend, and resume jobs
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Automation Runbook Operator
+## Automation Runbook Operator
 Read Runbook properties - to be able to create Jobs of the runbook.
 
 | **Actions** |  |
@@ -277,7 +276,7 @@ Read Runbook properties - to be able to create Jobs of the runbook.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Azure Stack Registration Owner
+## Azure Stack Registration Owner
 Lets you manage Azure Stack registrations.
 
 | **Actions** |  |
@@ -286,7 +285,7 @@ Lets you manage Azure Stack registrations.
 | Microsoft.AzureStack/registrations/products/read | Gets the properties of an Azure Stack Marketplace product |
 | Microsoft.AzureStack/registrations/read | Gets the properties of an Azure Stack registration |
 
-### Backup Contributor
+## Backup Contributor
 Can manage all backup management actions, except creating Recovery Services vault and giving access to others
 
 | **Actions** |  |
@@ -322,7 +321,7 @@ Can manage all backup management actions, except creating Recovery Services vaul
 | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Backup Operator
+## Backup Operator
 Can manage all backup management actions except creating vaults, removing backup and giving access to others
 
 | **Actions** |  |
@@ -330,14 +329,14 @@ Can manage all backup management actions except creating vaults, removing backup
 | Microsoft.Authorization/*/read | Read roles and role assignments |
 | Microsoft.Network/virtualNetworks/read | Read virtual networks |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Read results of operation on backup management |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Read operation results on protection containers |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Perform on-demand backup operation on a backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ operationResults/read | Read operation results on protection containers |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/backup/action | Perform on-demand backup operation on a backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationResults/read | Read result of operation performed on backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationsStatus/read | Returns the status of Operation performed on Protected Items. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Read backed up items |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/read | Read backed up items |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/read | Read recovery point of a backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/restore/action | Perform a restore operation using a recovery point of a backed up item |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/write | Create a backup item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Read containers holding backup item |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Create and manage backup jobs |
 | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancel the Job |
@@ -376,17 +375,17 @@ Can manage all backup management actions except creating vaults, removing backup
 | Microsoft.RecoveryServices/Vaults/certificates/write | The Update Resource Certificate operation updates the resource/vault credential certificate. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Backup Reader
+## Backup Reader
 Can monitor backup management in Recovery Services vault
 
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read | Read roles and role assignments |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Read results of operation on backup management |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Read operation results on protection containers |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ operationResults/read | Read operation results on protection containers |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationResults/read | Read result of operation performed on backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationsStatus/read | Returns the status of Operation performed on Protected Items. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Read backed up items |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/read | Read backed up items |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Read containers holding backup item |
 | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Read results of backup jobs |
 | Microsoft.RecoveryServices/Vaults/backupJobs/read | Read backup jobs |
@@ -404,7 +403,7 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Read results of operation performed on Registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Read registered items of the vault |
 | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read |  |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Gets the alerts for the Recovery services vault. |
 | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
 | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/read |  |
@@ -412,7 +411,7 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returns the Result of Export Job Operation. |
 | Microsoft.RecoveryServices/Vaults/usages/read | Read usage of the Recovery Services vault |
 
-### Billing Reader
+## Billing Reader
 Can view all Billing information
 
 | **Actions** |  |
@@ -424,7 +423,7 @@ Can view all Billing information
 | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### BizTalk Contributor
+## BizTalk Contributor
 Can manage BizTalk services
 
 | **Actions** |  |
@@ -437,7 +436,7 @@ Can manage BizTalk services
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### CDN Endpoint Contributor
+## CDN Endpoint Contributor
 Can manage CDN endpoints, but can’t grant access to other users.
 
 | **Actions** |  |
@@ -451,7 +450,7 @@ Can manage CDN endpoints, but can’t grant access to other users.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### CDN Endpoint Reader
+## CDN Endpoint Reader
 Can view CDN endpoints, but can’t make changes.
 
 | **Actions** |  |
@@ -465,7 +464,7 @@ Can view CDN endpoints, but can’t make changes.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### CDN Profile Contributor
+## CDN Profile Contributor
 Can manage CDN profiles and their endpoints, but can’t grant access to other users.
 
 | **Actions** |  |
@@ -479,7 +478,7 @@ Can manage CDN profiles and their endpoints, but can’t grant access to other u
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### CDN Profile Reader
+## CDN Profile Reader
 Can view CDN profiles and their endpoints, but can’t make changes.
 
 | **Actions** |  |
@@ -493,7 +492,7 @@ Can view CDN profiles and their endpoints, but can’t make changes.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Classic Network Contributor
+## Classic Network Contributor
 Can manage classic virtual networks and reserved IPs
 
 | **Actions** |  |
@@ -506,7 +505,7 @@ Can manage classic virtual networks and reserved IPs
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Classic Storage Account Contributor
+## Classic Storage Account Contributor
 Can manage classic storage accounts
 
 | **Actions** |  |
@@ -519,7 +518,7 @@ Can manage classic storage accounts
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Classic Storage Account Key Operator Service Role
+## Classic Storage Account Key Operator Service Role
 Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts
 
 | **Actions** |  |
@@ -527,7 +526,7 @@ Classic Storage Account Key Operators are allowed to list and regenerate keys on
 | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Lists the access keys for the storage accounts. |
 | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Regenerates the existing access keys for the storage account. |
 
-### Classic Virtual Machine Contributor
+## Classic Virtual Machine Contributor
 Can manage classic virtual machines but not the virtual network or storage account to which they are connected
 
 | **Actions** |  |
@@ -550,7 +549,7 @@ Can manage classic virtual machines but not the virtual network or storage accou
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### ClearDB MySQL DB Contributor
+## ClearDB MySQL DB Contributor
 Can manage ClearDB MySQL databases
 
 | **Actions** |  |
@@ -563,7 +562,7 @@ Can manage ClearDB MySQL databases
 | Microsoft.Support/* | Create and manage support tickets |
 | successbricks.cleardb/databases/* | Create and manage ClearDB MySQL databases |
 
-### Cosmos DB Account Reader Role
+## Cosmos DB Account Reader Role
 Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts.
 
 | **Actions** |  |
@@ -576,7 +575,7 @@ Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#doc
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Data Factory Contributor
+## Data Factory Contributor
 Create and manage data factories, and child resources within them.
 
 | **Actions** |  |
@@ -589,7 +588,7 @@ Create and manage data factories, and child resources within them.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Data Lake Analytics Developer
+## Data Lake Analytics Developer
 Lets you submit, monitor, and manage your own jobs but not create or delete Data Lake Analytics accounts.
 
 | **Actions** |  |
@@ -620,7 +619,7 @@ Lets you submit, monitor, and manage your own jobs but not create or delete Data
 | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Create or update a compute policy. |
 | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Delete a compute policy. |
 
-### DevTest Labs User
+## DevTest Labs User
 Can view everything and connect, start, restart, and shutdown virtual machines
 
 | **Actions** |  |
@@ -659,7 +658,7 @@ Can view everything and connect, start, restart, and shutdown virtual machines
 | --- | --- |
 | Microsoft.Compute/virtualMachines/vmSizes/read | Lists available sizes the virtual machine can be updated to |
 
-### DNS Zone Contributor
+## DNS Zone Contributor
 Can manage DNS zones and records.
 
 | **Actions** |  |
@@ -672,7 +671,7 @@ Can manage DNS zones and records.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage Support tickets |
 
-### DocumentDB Account Contributor
+## DocumentDB Account Contributor
 Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB.
 
 | **Actions** |  |
@@ -685,7 +684,7 @@ Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as Docume
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Intelligent Systems Account Contributor
+## Intelligent Systems Account Contributor
 Can manage Intelligent Systems accounts
 
 | **Actions** |  |
@@ -698,7 +697,7 @@ Can manage Intelligent Systems accounts
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Key Vault Contributor
+## Key Vault Contributor
 Lets you manage key vaults, but not access to them.
 
 | **Actions** |  |
@@ -715,7 +714,7 @@ Lets you manage key vaults, but not access to them.
 | Microsoft.KeyVault/locations/deletedVaults/purge/action | Purge a soft deleted key vault |
 | Microsoft.KeyVault/hsmPools/* |  |
 
-### Lab Creator
+## Lab Creator
 Lets you create, manage, delete your managed labs under your Azure Lab Accounts.
 
 | **Actions** |  |
@@ -726,7 +725,7 @@ Lets you create, manage, delete your managed labs under your Azure Lab Accounts.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Log Analytics Contributor
+## Log Analytics Contributor
 Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; creating and configuring Automation accounts; adding solutions; and configuring Azure diagnostics on all Azure resources.
 
 | **Actions** |  |
@@ -745,7 +744,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Log Analytics Reader
+## Log Analytics Reader
 Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
 
 | **Actions** |  |
@@ -759,7 +758,7 @@ Log Analytics Reader can view and search all monitoring data as well as and view
 | --- | --- |
 | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 
-### Logic App Contributor
+## Logic App Contributor
 Lets you manage logic app, but not access to them.
 
 | **Actions** |  |
@@ -785,7 +784,7 @@ Lets you manage logic app, but not access to them.
 | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 | Microsoft.Web/sites/functions/listSecrets/action | List Secrets Web Apps Functions. |
 
-### Logic App Operator
+## Logic App Operator
 Lets you read, enable and disable logic app.
 
 | **Actions** |  |
@@ -807,7 +806,7 @@ Lets you read, enable and disable logic app.
 | Microsoft.Web/customApis/*/read | Read Custom API. |
 | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 
-### Managed Identity Contributor
+## Managed Identity Contributor
 Create, Read, Update, and Delete User Assigned Identity
 
 | **Actions** |  |
@@ -821,7 +820,7 @@ Create, Read, Update, and Delete User Assigned Identity
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Managed Identity Operator
+## Managed Identity Operator
 Read and Assign User Assigned Identity
 
 | **Actions** |  |
@@ -834,7 +833,7 @@ Read and Assign User Assigned Identity
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Monitoring Contributor
+## Monitoring Contributor
 Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Actions** |  |
@@ -859,7 +858,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 | Microsoft.Support/* | Create and manage support tickets |
 | Microsoft.WorkloadMonitor/workloads/* |  |
 
-### Monitoring Reader
+## Monitoring Reader
 Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Actions** |  |
@@ -868,7 +867,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 | Microsoft.OperationalInsights/workspaces/search/action | Search Log Analytics data |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Network Contributor
+## Network Contributor
 Can manage all network resources
 
 | **Actions** |  |
@@ -881,7 +880,7 @@ Can manage all network resources
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### New Relic APM Account Contributor
+## New Relic APM Account Contributor
 Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
 
 | **Actions** |  |
@@ -894,7 +893,7 @@ Lets you manage New Relic Application Performance Management accounts and applic
 | Microsoft.Support/* | Create and manage support tickets |
 | NewRelic.APM/accounts/* |  |
 
-### Redis Cache Contributor
+## Redis Cache Contributor
 Can manage Redis caches
 
 | **Actions** |  |
@@ -907,7 +906,7 @@ Can manage Redis caches
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Resource Policy Contributor (Preview)
+## Resource Policy Contributor (Preview)
 (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy.
 
 | **Actions** |  |
@@ -919,7 +918,7 @@ Can manage Redis caches
 | Microsoft.PolicyInsights/* |  |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Scheduler Job Collections Contributor
+## Scheduler Job Collections Contributor
 Can manage Scheduler job collections
 
 | **Actions** |  |
@@ -932,7 +931,7 @@ Can manage Scheduler job collections
 | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Search Service Contributor
+## Search Service Contributor
 Can manage Search services
 
 | **Actions** |  |
@@ -945,7 +944,7 @@ Can manage Search services
 | Microsoft.Search/searchServices/* | Create and manage search services |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Security Admin
+## Security Admin
 In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations
 
 | **Actions** |  |
@@ -964,7 +963,7 @@ In Security Center only: Can view security policies, view security states, edit 
 | Microsoft.Security/policies/write | Updates the security policy |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Security Manager
+## Security Manager
 Can manage security components, security policies, and virtual machines
 
 | **Actions** |  |
@@ -980,7 +979,7 @@ Can manage security components, security policies, and virtual machines
 | Microsoft.Security/* | Create and manage security components and policies |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Security Reader
+## Security Reader
 In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes
 
 | **Actions** |  |
@@ -993,7 +992,7 @@ In Security Center only: Can view recommendations and alerts, view security poli
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Security/*/read | Read security components and policies |
 
-### Site Recovery Contributor
+## Site Recovery Contributor
 Can manage all Site Recovery management actions, except creating Recovery Services vault and assigning access rights to other users
 
 | **Actions** |  |
@@ -1019,14 +1018,14 @@ Can manage all Site Recovery management actions, except creating Recovery Servic
 | Microsoft.RecoveryServices/Vaults/usages/read | Read usage details of a Recovery Services vault |
 | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Read alerts for the Recovery services vault |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read | Read Recovery services vault notification configuration |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read | Read Recovery services vault notification configuration |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Storage/storageAccounts/read | Read storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Site Recovery Operator
+## Site Recovery Operator
 Can Failover and Failback but can not perform other Site Recovery management actions or assign access to other users
 
 | **Actions** |  |
@@ -1049,7 +1048,7 @@ Can Failover and Failback but can not perform other Site Recovery management act
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renew replication fabric certificate |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Read replication fabric networks |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Read replication fabric network mapping |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Read protection containers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Read protection containers |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Get list of all protectable items |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Apply Recovery Point |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Failover Commit |
@@ -1063,9 +1062,9 @@ Can Failover and Failback but can not perform other Site Recovery management act
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Failover |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Update Mobility Service |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Read protection container mappings |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Read Recovery Services providers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Read Recovery Services providers |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Refresh Recovery Services provider |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Read storage classifications for replication fabrics |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Read storage classifications for replication fabrics |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Read storage classification mappings |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Read registered vCenter information |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Create and manage replication jobs |
@@ -1078,7 +1077,7 @@ Can Failover and Failback but can not perform other Site Recovery management act
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Start cleanup of a recovery plan test failover |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Start unplanned failover of a recovery plan |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Read alerts for the Recovery services vault |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read | Read Recovery services vault notification configuration |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read | Read Recovery services vault notification configuration |
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Read storage configuration of a Recovery Services vault |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Read Recovery Services vault token information |
 | Microsoft.RecoveryServices/Vaults/usages/read | Read usage details of a Recovery Services vault |
@@ -1089,7 +1088,7 @@ Can Failover and Failback but can not perform other Site Recovery management act
 | Microsoft.Storage/storageAccounts/read | Read storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Site Recovery Reader
+## Site Recovery Reader
 Can monitor Site Recovery status in Recovery Services vault and raise Support tickets
 
 | **Actions** |  |
@@ -1098,7 +1097,7 @@ Can monitor Site Recovery status in Recovery Services vault and raise Support ti
 | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Read extended info related to vault |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Read alerts for the Recovery services vault |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read | Read Recovery services vault notification configuration |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read | Read Recovery services vault notification configuration |
 | Microsoft.RecoveryServices/Vaults/read | Read Recovery Services vaults |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Manage discovery operation for fetching newly created containers |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Read operation status and result for a submitted operation |
@@ -1108,13 +1107,13 @@ Can monitor Site Recovery status in Recovery Services vault and raise Support ti
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Read replication fabrics |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Read replication fabric networks |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Read replication fabric network mapping |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Read protection containers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Read protection containers |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Get list of all protectable items |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Get list of all protected items |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Get list of available recovery points |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Read protection container mappings |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Read Recovery Services providers |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Read storage classifications for replication fabrics |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Read Recovery Services providers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Read storage classifications for replication fabrics |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Read storage classification mappings |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Read registered vCenter information |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read | Read status of replication jobs |
@@ -1126,7 +1125,7 @@ Can monitor Site Recovery status in Recovery Services vault and raise Support ti
 | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### SQL DB Contributor
+## SQL DB Contributor
 Can manage SQL databases but not their security-related policies
 
 | **Actions** |  |
@@ -1157,7 +1156,7 @@ Can manage SQL databases but not their security-related policies
 | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 
-### SQL Security Manager
+## SQL Security Manager
 Can manage the security-related policies of SQL servers and databases
 
 | **Actions** |  |
@@ -1191,7 +1190,7 @@ Can manage the security-related policies of SQL servers and databases
 | Microsoft.Sql/servers/securityAlertPolicies/* | Create and manage SQL server security alert policies |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### SQL Server Contributor
+## SQL Server Contributor
 Can manage SQL servers and databases but not their security-related policies
 
 | **Actions** |  |
@@ -1225,7 +1224,7 @@ Can manage SQL servers and databases but not their security-related policies
 | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 | Microsoft.Sql/servers/securityAlertPolicies/* | Can't edit SQL server security alert policies |
 
-### Storage Account Contributor
+## Storage Account Contributor
 Can manage storage accounts, but not access to them.
 
 | **Actions** |  |
@@ -1240,7 +1239,7 @@ Can manage storage accounts, but not access to them.
 | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Storage Account Key Operator Service Role
+## Storage Account Key Operator Service Role
 Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts
 
 | **Actions** |  |
@@ -1248,7 +1247,7 @@ Storage Account Key Operators are allowed to list and regenerate keys on Storage
 | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
 
-### Storage Blob Data Contributor (Preview)
+## Storage Blob Data Contributor (Preview)
 Allows for read, write and delete access to Azure Storage blob containers and data.
 
 | **Actions** |  |
@@ -1260,7 +1259,7 @@ Allows for read, write and delete access to Azure Storage blob containers and da
 | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write |  |
 | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete |  |
 
-### Storage Blob Data Reader (Preview)
+## Storage Blob Data Reader (Preview)
 Allows for read access to Azure Storage blob containers and data.
 
 | **Actions** |  |
@@ -1268,7 +1267,7 @@ Allows for read access to Azure Storage blob containers and data.
 | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
 | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read |  |
 
-### Storage Queue Data Contributor (Preview)
+## Storage Queue Data Contributor (Preview)
 Allows for read, write, and delete access to Azure Storage queues and queue messages.
 
 | **Actions** |  |
@@ -1280,7 +1279,7 @@ Allows for read, write, and delete access to Azure Storage queues and queue mess
 | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write |  |
 | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete |  |
 
-### Storage Queue Data Reader (Preview)
+## Storage Queue Data Reader (Preview)
 Allows for read access to Azure Storage queues and queue messages.
 
 | **Actions** |  |
@@ -1288,7 +1287,7 @@ Allows for read access to Azure Storage queues and queue messages.
 | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read |  |
 
-### Support Request Contributor
+## Support Request Contributor
 Can create and manage support tickets at the subscription scope
 
 | **Actions** |  |
@@ -1297,7 +1296,7 @@ Can create and manage support tickets at the subscription scope
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Traffic Manager Contributor
+## Traffic Manager Contributor
 Lets you manage Traffic Manager profiles, but does not let you control who has access to them.
 
 | **Actions** |  |
@@ -1310,7 +1309,7 @@ Lets you manage Traffic Manager profiles, but does not let you control who has a
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### User Access Administrator
+## User Access Administrator
 Can manage user access to Azure resources
 
 | **Actions** |  |
@@ -1319,7 +1318,7 @@ Can manage user access to Azure resources
 | Microsoft.Authorization/* | Manage authorization |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Virtual Machine Administrator Login
+## Virtual Machine Administrator Login
 -	Users with this role have the ability to login to a virtual machine with Windows administrator or Linux root user privileges.
 
 | **Actions** |  |
@@ -1329,7 +1328,7 @@ Can manage user access to Azure resources
 | Microsoft.Compute/virtualMachine/loginAsAdmin/action |  |
 | Microsoft.Compute/virtualMachine/logon/action |  |
 
-### Virtual Machine Contributor
+## Virtual Machine Contributor
 Can manage virtual machines but not the virtual network or storage account to which they are connected
 
 | **Actions** |  |
@@ -1356,9 +1355,9 @@ Can manage virtual machines but not the virtual network or storage account to wh
 | Microsoft.Network/virtualNetworks/read | Read virtual networks |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Join virtual network subnets |
 | Microsoft.RecoveryServices/locations/* |  |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returns object details of the Protected Item |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup Protected Item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/*/read |  |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/read | Returns object details of the Protected Item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/write | Create a backup Protected Item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Creates Protection Policy |
@@ -1372,7 +1371,7 @@ Can manage virtual machines but not the virtual network or storage account to wh
 | Microsoft.Storage/storageAccounts/read | Read storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
-### Virtual Machine User Login
+## Virtual Machine User Login
 Users with this role have the ability to login to a virtual machine as a regular user.
 
 | **Actions** |  |
@@ -1380,7 +1379,7 @@ Users with this role have the ability to login to a virtual machine as a regular
 | Microsoft.Compute/virtualMachines/login/action |  |
 | Microsoft.Compute/virtualMachine/logon/action |  |
 
-### Web Plan Contributor
+## Web Plan Contributor
 Can manage web plans
 
 | **Actions** |  |
@@ -1393,7 +1392,7 @@ Can manage web plans
 | Microsoft.Support/* | Create and manage support tickets |
 | Microsoft.Web/serverFarms/* | Create and manage server farms |
 
-### Website Contributor
+## Website Contributor
 Can manage websites but not the web plans to which they are connected
 
 | **Actions** |  |
