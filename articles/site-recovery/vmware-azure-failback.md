@@ -18,7 +18,7 @@ This article describes how to fail back virtual machines from Azure Virtual Mach
 - Make sure that you have read the details about the [different types of failback](concepts-types-of-failback.md) and corresponding caveats.
 
 > [!WARNING]
-> You can't fail back after you have either [completed migration](migrate-overview.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you can't failback.
+> You can't fail back after you have either [completed migration](migrate-overview.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you can't fail back.
 
 > [!WARNING]
 > A Windows Server 2008 R2 SP1 physical server, if protected and failed over to Azure, can't be failed back.
@@ -71,10 +71,10 @@ During failback, you have two options to fail back the virtual machine/recovery 
 
 - If you select the latest processed point in time, all virtual machines fail over to their latest available point in time. If there is a replication group within the recovery plan, each virtual machine of the replication group fails over to its independent latest point in time.
 
-    You can't fail back a virtual machine until it has at least one recovery point. You can't fail back a recovery plan until all its virtual machines have at least one recovery point.
+  You can't fail back a virtual machine until it has at least one recovery point. You can't fail back a recovery plan until all its virtual machines have at least one recovery point.
 
-> [!NOTE]
-> A latest recovery point is a crash-consistent recovery point.
+  > [!NOTE]
+  > A latest recovery point is a crash-consistent recovery point.
 
 - If you select the application-consistent recovery point, a single virtual machine failback recovers to its latest available application-consistent recovery point. In the case of a recovery plan with a replication group, each replication group recovers to its common available recovery point.
 Application-consistent recovery points can be behind in time, and there might be loss in data.
