@@ -25,7 +25,7 @@ Container images are stored using [geo-redundant storage (GRS)](../storage/commo
 
 ## Capacity limits
 
-To help protect against unexpected charges due to abnormal registry usage, Azure Container Registry enforces capacity limits for each of the service tiers (SKUs). For example, Premium registries are limited to 5 TB. These limits are enforced primarily as a safety measure; for example, to mitigate a misbehaving script pushing massive numbers of images to the registry. These capacity limits aren't expected to be reached during normal production usage of a registry.
+To help protect against unexpected charges due to abnormal registry usage, Azure Container Registry enforces a 5 TB capacity limit for each container registry. This limit is enforced primarily as a safety measure; for example, to mitigate a misbehaving script pushing massive numbers of images to the registry. Typical production usage of a registry should not be impacted by this limit.
 
 ## Image count limits
 
