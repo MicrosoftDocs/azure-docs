@@ -17487,6 +17487,11 @@
         "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
         "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
         "redirect_document_id": false
-   }
+   },
+   {
+        "source_path": "articles/security-center/security-center-integrating-alerts-with-log-integration.md",
+        "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
+        "redirect_document_id": false
+    }
    ]
 }
