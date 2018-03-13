@@ -250,17 +250,29 @@ To enable soft delete, navigate to the "Soft delete" option under "Blob Service"
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-To view soft deleted blobs...
+To view soft deleted blobs, select the "Show deleted blobs" checkbox.
 
-To view soft deleted snapshots for a given blob...
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
-When you click on a soft deleted blob or snapshot, notice the new blob properties. They indicate when the object was deleted, and how many days are left until the blob or blob snapshot is permanently expired.
+To view soft deleted snapshots for a given blob, select the blob then click "View snapshots".
+
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+
+Make sure the "Show deleted snapshots" checkbox is selected.
+
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+
+When you click on a soft deleted blob or snapshot, notice the new blob properties. They indicate when the object was deleted, and how many days are left until the blob or blob snapshot is permanently expired. If the soft deleted object is not a snapshot, you will also have the option to undelete it.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-properties.png)
 
-Call undelete to restore. Remember that undeleting a blob, active or soft deleted, will restore all associated soft deleted snapshots as active.
+Remember that undeleting a blob will also undelete all associated snapshots. To undelete soft deleted snapshots for an active blob, click on the blob and select "Undelete all snapshots".
 
-Once you undelete a blob's snapshots, you can click "promote" to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+
+Once you undelete a blob's snapshots, you can click "Promote" to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
+
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### PowerShell
 To enable soft delete, update a blob client’s service properties. The following example enables soft delete for a subset of accounts in a subscription:
