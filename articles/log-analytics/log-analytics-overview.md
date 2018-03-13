@@ -18,9 +18,9 @@ ms.author: bwren
 
 ---
 # What is Azure Log Analytics?
-Log Analytics plays a central role in Azure management by collecting telemetry and other data from a variety of sources and  providing a query language and analytics engine that gives you insights into the operation of your applications and resources.  You can either interact directly with Log Analytics data through log searches and views, or you may use analysis tools in other Azure services such as Application Insights or Azure Security Center that store their data in Log Analytics.  
+Log Analytics plays a central role in Azure management by collecting telemetry and other data from a variety of sources and  providing a query language and analytics engine that gives you insights into the operation of your applications and resources.  You can either interact directly with Log Analytics data through log searches and views, or you may use analysis tools in other Azure services that store their data in Log Analytics such as Application Insights or Azure Security Center.  
 
-Log Analytics requires minimal configuration.  You just need to create a workspace to enable collection from other services, and data types are predefined as data is collected.  Once virtual machines have an agent installed, you can configure their data collection centrally.  Management solutions can be installed into Azure the include logic to provide additional insights into different applications using Log Analytics data.
+Log Analytics requires minimal configuration.  You just need to create a workspace to enable collection from other services, and data types are either predefined or automatically created as data is collected.  Once virtual machines have an agent installed, you can configure their data collection centrally.  Management solutions can be installed into Azure the include logic to provide additional insights into different applications using Log Analytics data.
 
 
 ## Role in monitoring
@@ -40,6 +40,7 @@ Methods for collecting data into Log Analytics include the following:
 - Agents on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) virtual machines send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](log-analytics-data-sources.md) that you configure.  
 - Connect a [System Center Operations Manager management group](log-analytics-om-agents.md) to Log Analytics to collect data from its agents.
 - Azure services such as [Application Insights](https://docs.microsoft.com/azure/application-insights/) and [Azure Security Center](https://docs.microsoft.com/azure/security-center/) store their data directly in Log Analytics without any configuration.
+- Write data from PowerShell command line or [Azure Automation runbook](../automation/automation-runbook-types.md) using Log Analytics cmdlets.
 - If you have custom requirements, then you can use the [HTTP Data Collector API](log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.
 
 
@@ -47,7 +48,7 @@ Methods for collecting data into Log Analytics include the following:
 
 ## Query language
 
-Log Analytics includes a [rich query language](http://docs.loganalytics.io) to quickly retrieve, consolidate, and analyze data that it's collected.  You can create and test queries using the [Log Search or Advanced Analytics portals](log-analytics-log-search-portals.md) and then either directly analyze the data using these tools or save queries for use with visualizations, alerts, or export to other tools such as Power BI or Excel.
+Log Analytics includes a [rich query language](http://docs.loganalytics.io) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Search or Advanced Analytics portals](log-analytics-log-search-portals.md) and then either directly analyze the data using these tools or save queries for use with visualizations, alerts, or export to other tools such as Power BI or Excel.
 
 You can quickly learn the query language using [multiple tutorials](https://docs.loganalytics.io/docs/Learn/Tutorials) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics)
 
