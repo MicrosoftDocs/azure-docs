@@ -58,6 +58,7 @@ At a minimum, installing Azure Log Integration requires the following items:
 
 For a quick demonstration of how to create a virtual machine by using the Azure portal, take a look at the following video:
 
+
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Create-a-Virtual-Machine/player]
 
 ## Deployment considerations
@@ -103,16 +104,16 @@ After you complete basic setup, you're ready to perform post-installation and va
 
 1. Open PowerShell as an administrator. Then, go to C:\Program Files\Microsoft Azure Log Integration.
 2. Import the Azure Log Integration cmdlets. To import the cmdlets, run the script `LoadAzlogModule.ps1`. Enter `.\LoadAzlogModule.ps1`, and then press Enter (note the use of **.\\** in this command). You should see something like what appears in the following figure:
+
   ![Screenshot of the output of the LoadAzlogModule.ps1 command](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Next, configure Azure Log Integration to use a specific Azure environment. An *Azure environment* is the type of Azure cloud datacenter that you want to work with. Although there are several Azure environments, currently, the relevant options are either **AzureCloud** or **AzureUSGovernment**. Running PowerShell as an administrator, make sure that you are in C:\Program Files\Microsoft Azure Log Integration\. Then, run this command: 
-
-
   `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
   
   If you want to use the US Government Azure cloud, use **AzureUSGovernment** for the **-Name** variable. Currently, other Azure clouds aren't supported.  
 
   > [!NOTE]
   > You don't receive feedback when the command succeeds. 
+
 4. Before you can monitor a system, you need the name of the storage account that's used for Azure Diagnostics. In the Azure portal, go to **Virtual machines**. Look for the virtual machine that you monitor. In the **Properties** section, select **Diagnostic Settings**.  Then, select **Agent**. Make note of the storage account name that's specified. You need this account name for a later step.
 
   ![Screenshot of the Azure Diagnostics Settings pane](./media/security-azure-log-integration-get-started/storage-account-large.png) 
@@ -121,6 +122,7 @@ After you complete basic setup, you're ready to perform post-installation and va
 
   > [!NOTE]
   > If monitoring wasn't enabled when the virtual machine was created, you can enable it as shown in the preceding image.
+
 5. Now, go back to the Azure Log Integration machine. Verify that you have connectivity to the storage account from the system where you installed Azure Log Integration. The computer running the Azure Log Integration service needs access to the storage account to retrieve information that's logged by Azure Diagnostics on each of the monitored systems. To verify connectivity: 
   1. [Download Azure Storage Explorer](http://storageexplorer.com/).
   2. Complete setup.
@@ -128,7 +130,7 @@ After you complete basic setup, you're ready to perform post-installation and va
   4. Sign in to Azure.
   5. Verify that you can see the storage account that you configured for Azure Diagnostics: 
 
-  ![Screenshot of storage accounts in Storage Explorer](./media/security-azure-log-integration-get-started/storage-explorer.png)
+    ![Screenshot of storage accounts in Storage Explorer](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
   6. A few options appear under storage accounts. Under **Tables**, you should see a table called **WADWindowsEventLogsTable**.
 
@@ -185,7 +187,7 @@ The following video covers the preceding steps:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
 
 
-## What if data isn't showing up in the Forwarded Events folder
+## If data isn't showing up in the Forwarded Events folder
 If data isn't showing up in the Forwarded Events folder after an hour, complete these steps:
 
 1. Check the machine that's running the Azure Log Integration service. Confirm that it can access Azure. To test connectivity, in a browser, try to go to the [Azure portal](http://portal.azure.com).
