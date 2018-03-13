@@ -21,6 +21,8 @@ ms.author: liydu
 
 In this tutorial, you learn how to run a sample app on your DevKit to send sensor data to your Azure IoT Suite.
 
+The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino compatible board with rich peripherals and sensors. You can develop for it using [Visual Studio Code extension for Arduino](https://aka.ms/arduino). And it comes with a growing [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) to guide you prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services.
+
 ## What you need
 
 Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) to:
@@ -121,3 +123,4 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 Now that you have learned how to connect a DevKit device to your Azure IoT Suite and visualize the sensor data, here are the suggested next steps:
 
 * [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

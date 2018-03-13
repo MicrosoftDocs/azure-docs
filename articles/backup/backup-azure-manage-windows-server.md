@@ -1,6 +1,6 @@
 ---
-title: Manage Azure recovery services vaults and servers | Microsoft Docs
-description: Use this tutorial to learn how to manage Azure recovery services vaults and servers.
+title: Manage Azure Recovery Services vaults and servers | Microsoft Docs
+description: Use this article to manage Azure Recovery Services vaults and servers.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
 
 ---

@@ -122,7 +122,7 @@ For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### Create a Cosmos DB account
 
@@ -248,7 +248,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
 ### Configure an environment variable
 

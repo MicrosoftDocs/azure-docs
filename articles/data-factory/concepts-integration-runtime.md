@@ -121,7 +121,7 @@ The following diagram shows two copy activity samples:
 ![Which IR to use](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## Integration runtime location
-The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Currently, the supported Data Factory locations are: East US, East US 2, and West Europe. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the IR available globally in multiple regions to ensure data compliance, efficiency, and reduced network egress costs.
+The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Currently, the supported Data Factory locations are: East US, East US 2, Southeast Asia and West Europe. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the IR available globally in multiple regions to ensure data compliance, efficiency, and reduced network egress costs.
 
 The IR Location defines the location of its back-end compute, and essentially the location where the data movement,  activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the data factory it belongs to. The following diagram shows location settings of Data Factory and its integration run times:
 
@@ -174,7 +174,7 @@ The self-hosted IR is logically registered to the Data Factory and the compute u
 When used to perform data movement, the self-hosted IR extracts data from the source and writes into the destination.
 
 ### Azure-SSIS IR
-Selecting the right location for your Azure-SSIS IR is essential to achieve high performance in your extract-transform-load (ETL) workflows.  Two locations are initially available for preview (East US and North Europe).
+Selecting the right location for your Azure-SSIS IR is essential to achieve high performance in your extract-transform-load (ETL) workflows.  Six locations are initially available for preview (East US, East US 2, Central US, Australia East, North Europe, and West Europe).
 
 - The location of your Azure-SSIS IR does not need be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database/Managed Instance (private preview) server where SSISDB is to be hosted. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
 - If you do not have an existing Azure SQL Database/Managed Instance (private preview) server to host SSISDB, but you have on-premises data sources/destinations, you should create a new Azure SQL Database/Managed Instance (private preview) server in the same location of a VNet connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database/Managed Instance (private preview) server and joining that VNet, all in the same location, effectively minimizing data movements across different locations.

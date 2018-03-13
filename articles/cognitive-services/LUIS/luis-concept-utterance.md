@@ -2,14 +2,14 @@
 title: Utterances in LUIS apps in Azure | Microsoft Docs
 description: Add utterances in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: cahann;v-geberr;v-demak;
+ms.author: v-geberr
 ---
 # Utterances in LUIS
 
@@ -45,7 +45,7 @@ Each intent needs to have example utterances. If you have an intent but do not h
 Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.
 
 ## Review utterances
-After your model is trained, published, and receiving endpoint queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
+After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
 ## Best practices
 Begin with 10-15 utterances per intent, but not more. Each utterance should be different enough from the other utterances in the intent that each utterance is equally informative. The **None** intent should have between 10 and 20 percent of the total utterances in the application. 
