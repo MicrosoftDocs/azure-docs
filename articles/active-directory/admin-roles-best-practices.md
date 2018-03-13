@@ -184,7 +184,7 @@ The [plan for security and compliance](https://support.office.com/article/Plan-f
 
 #### Configure Office 365 Activity Monitoring (if using Office 365)
 
-You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. Fore more informatuon, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. For more information, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### Establish incident/emergency response plan owners
 
@@ -200,7 +200,7 @@ If your Azure Active Directory tenant is synchronized with on-premises Active Di
 
 Use the Enterprise portal and the Azure portal to identify the subscriptions in your organization that host production applications. 
 
-#### Remove Microsoft ccounts from admin roles
+#### Remove Microsoft accounts from admin roles
 
 Microsoft accounts from other programs, such as Xbox, Live, and Outlook should not be used as administrator accounts for organizational subscriptions. Remove admin status from all Microsoft accounts, and replace with Active Directory (for example, chris@contoso.com) work or school accounts.
 
@@ -243,7 +243,7 @@ Attackers may attempt to target privileged accounts to gain access to an organiz
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents 
 
-The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more informatiin, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more information, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### Implement Privileged Identity Management (PIM) for JIT to additional administrative roles
 
@@ -356,7 +356,7 @@ If you are using Office 365.
 To improve upon your plan, Microsoft recommends you regularly validate that your plan operates as expected:
 
 * Go through your existing road map to see what was missed
-* Based on the post mortem analysis, revise existing or define new best practices
+* Based on the postmortem analysis, revise existing or define new best practices
 * Ensure that your updated incident response plan and best practices are distributed throughout your organization
 
 
