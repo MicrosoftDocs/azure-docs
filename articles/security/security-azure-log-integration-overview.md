@@ -63,8 +63,8 @@ If you need assistance, you can create a [support request](../azure-supportabili
 
 This article introduces you to Azure Log Integration. To learn more about Azure Log Integration and the types of logs that are supported, see the following articles:
 
-* [Get started with Azure Log Integration](security-azure-log-integration-get-started.md). The tutorial walks you through the installation of Azure Log Integration. It also describes how to integrate logs from Windows Azure Diagnostics (WAD) storage, Azure activity logs, Azure Security Center alerts, and Azure Active Directory audit logs.
-* [Azure Log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md). The FAQ answers common questions about Azure Log Integration.
+* [Get started with Azure Log Integration](security-azure-log-integration-get-started.md). This tutorial walks you through the installation of Azure Log Integration. It also describes how to integrate logs from Windows Azure Diagnostics (WAD) storage, Azure activity logs, Azure Security Center alerts, and Azure Active Directory audit logs.
+* [Azure Log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md). This FAQ answers common questions about Azure Log Integration.
 * Learn more about how to [stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 <!--Image references-->
