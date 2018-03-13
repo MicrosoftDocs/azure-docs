@@ -171,62 +171,70 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
 
 ## Monitor tempdb
-High tempdb utilization can be the root cause for slow performance and out of memory issues. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following describes how to identify tempdb usage per query on each node. 
-
-Create the following view to associate the appropriate node id for sys.dm_pdw_sql_requests. This will enable you to leverage other pass-through DMVs and join those tables with sys.dm_pdw_sql_requests.
+High tempdb utilization can be the root cause for slow performance and out of memory issues. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following describes how to identify tempdb usage per query on each node in real-time.
 
 ```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-Run the following query to monitor tempdb:
-
-```sql
--- Monitor tempdb
+with node_process as (
+	select
+		er.session_id,
+		sql_spids.*,
+		CASE 
+			WHEN (sql_spids.distribution_id = -1 ) THEN 
+				(SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL')
+			ELSE d.pdw_node_id
+		END AS pdw_node_id
+	from (
+		select
+			request_id,
+			distribution_id,
+			spid,
+			command,
+			total_elapsed_time
+		from sys.dm_pdw_sql_requests sr
+		where status = 'Running'
+		union all
+		select
+			request_id,
+			distribution_id,
+			sql_spid,
+			command,
+			total_elapsed_time
+		from sys.dm_pdw_dms_workers
+		where status not like 'Step[CE]%' --final statuses
+	) sql_spids
+	join sys.dm_pdw_exec_requests er
+		on sql_spids.request_id = er.request_id
+	left join sys.pdw_distributions d
+		on sql_spids.distribution_id = d.distribution_id
+)
 SELECT
-	sr.request_id,
-	ssu.session_id,
-	ssu.pdw_node_id,
-	sr.command,
-	sr.total_elapsed_time,
-	es.login_name AS 'LoginName',
-	DB_NAME(ssu.database_id) AS 'DatabaseName',
-	(es.memory_usage * 8) AS 'MemoryUsage (in KB)',
-	(ssu.user_objects_alloc_page_count * 8) AS 'Space Allocated For User Objects (in KB)',
-	(ssu.user_objects_dealloc_page_count * 8) AS 'Space Deallocated For User Objects (in KB)',
-	(ssu.internal_objects_alloc_page_count * 8) AS 'Space Allocated For Internal Objects (in KB)',
-	(ssu.internal_objects_dealloc_page_count * 8) AS 'Space Deallocated For Internal Objects (in KB)',
-	CASE es.is_user_process
-	WHEN 1 THEN 'User Session'
-	WHEN 0 THEN 'System Session'
-	END AS 'SessionType',
-	es.row_count AS 'RowCount'
+    sr.request_id,
+    ssu.session_id,
+    ssu.pdw_node_id,
+    sr.command,
+    sr.total_elapsed_time,
+    es.login_name AS 'LoginName',
+    DB_NAME(ssu.database_id) AS 'DatabaseName',
+    (es.memory_usage * 8) AS 'MemoryUsage (in KB)',
+    (ssu.user_objects_alloc_page_count * 8) AS 'Space Allocated For User Objects (in KB)',
+    (ssu.user_objects_dealloc_page_count * 8) AS 'Space Deallocated For User Objects (in KB)',
+    (ssu.internal_objects_alloc_page_count * 8) AS 'Space Allocated For Internal Objects (in KB)',
+    (ssu.internal_objects_dealloc_page_count * 8) AS 'Space Deallocated For Internal Objects (in KB)',
+    CASE es.is_user_process
+		WHEN 1 THEN 'User Session'
+		WHEN 0 THEN 'System Session'
+    END AS 'SessionType',
+    es.row_count AS 'RowCount'
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
-	INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
-	INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-	INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es
+		ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
+    INNER JOIN sys.dm_pdw_nodes_exec_connections AS er
+		ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
+    INNER JOIN node_process AS sr
+		ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
-	AND es.session_id <> @@SPID
-	AND es.login_name <> 'sa' 
-ORDER BY sr.request_id;
+	--and sr.session_id = 'SID11372'
+ORDER BY sr.request_id, pdw_node_id;
 ```
 ## Monitor memory
 
