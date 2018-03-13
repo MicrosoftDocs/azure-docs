@@ -24,22 +24,22 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: ../media/index/i_portal.svg
+          src: media/index/i_portal.svg
           text: Portal
       - image:
-          src: ../media/index/logo_powershell.svg
+          src: media/index/logo_powershell.svg
           text: Powershell
       - image:
-          src: ../media/index/i_cligeneric.svg
+          src: media/index/cli.svg
           text: Azure CLI
       - image:
-          src: ../media/index/logo_net.svg
+          src: media/index/logo_net.svg
       - image:
-          src: ../media/index/logo_java.svg
+          src: media/index/logo_java.svg
       - image:
-          src: ../media/index/logo_python.svg
+          src: media/index/logo_python.svg
       - image:
-          src: ../media/index/logo_nodejs.svg
+          src: media/index/logo_nodejs.svg
     rows:
       - title: Connect a simulated device to IoT Hub
         values:
@@ -112,12 +112,12 @@ sections:
     - title: Developing with .NET on Azure 
       href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
       image: 
-        src: ../media/index/logo_pluralsight.svg
+        src: media/index/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
     - title: Developing with Node.js on Azure
       href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
       image: 
-        src: ../media/index/logo_pluralsight.svg
+        src: media/index/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
 - title: Reference
   items:
