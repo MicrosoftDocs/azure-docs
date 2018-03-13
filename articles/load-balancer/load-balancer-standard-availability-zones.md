@@ -50,11 +50,11 @@ When using multiple frontends, review [multiple frontends for Load Balancer](loa
 
 #### Zone redundant by default
 
-In a region with Availability Zones, a Standard Load Balancer frontend is zone-redundant by default.  A single frontend IP address can survive zone failure and can be used to reach all backend pool members irrespective of the zone. DNS redundancy schemes are not required. The frontend's single IP address is served simultaneously by independent infrastructure deployments in every Availability Zone.  Zone-redundant means that all inbound or outbound flows are served by all Availability Zones in a region simultaneously using a single IP address.
+In a region with Availability Zones, a Standard Load Balancer frontend is zone-redundant by default.  A single frontend IP address can survive zone failure and can be used to reach all backend pool members irrespective of the zone. This does not mean hitless data path, but any retries or reestablishment will succeed. DNS redundancy schemes are not required. The frontend's single IP address is served simultaneously by independent infrastructure deployments in every Availability Zone.  Zone-redundant means that all inbound or outbound flows are served by all Availability Zones in a region simultaneously using a single IP address.
 
 One or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. Zone-redundant configuration is the default and requires no additional actions.  When a region gains the ability to support Availability Zones, an existing frontend becomes zone-redundant automatically.
 
-Use the following script to create a zone-redundant Public IP address for your internal Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
+Use the following script to create a zone-redundant Public IP address for your internal Standard Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -67,7 +67,7 @@ Use the following script to create a zone-redundant Public IP address for your i
             },
 ```
 
-Use the following script to create a zone-redundant frontend IP address for your internal Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
+Use the following script to create a zone-redundant frontend IP address for your internal Standard Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -95,13 +95,13 @@ Use the following script to create a zone-redundant frontend IP address for your
 
 #### Optional zone guarantee
 
-You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal frontend*.  This means any inbound or outbound flow is served by a single Availability Zone in a region.  Your frontend shares fate with the health of the Availability Zone.  The data path is unaffected by failures in Availability Zones other than where it was guaranteed.  You can use zonal frontends to expose an IP address per Availability Zone.  Also, you can consume zonal frontends directly or integrate them with a DNS load balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and gain a single DNS name, which a client can resolve to multiple zonal IP addresses.  You can also use this to expose per zone load-balanced endpoints to individually monitor each zone.  If you wish to blend these concepts (zone-redundant and zonal for same backend), review [multiple frontends for Azure Load Balancer](/load-balancer-multivip-overview.md).
+You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal frontend*.  This means any inbound or outbound flow is served by a single zone in a region.  Your frontend shares fate with the health of the zone.  The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal frontends to expose an IP address per Availability Zone.  Also, you can consume zonal frontends directly or integrate them with a DNS load balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and use a single DNS name, which a client will resolve to multiple zonal IP addresses.  You can also use this to expose per zone load-balanced endpoints to individually monitor each zone.  If you wish to blend these concepts (zone-redundant and zonal for same backend), review [multiple frontends for Azure Load Balancer](/load-balancer-multivip-overview.md).
 
 For a public Load Balancer frontend, you add a *zones* parameter to the public IP referenced by the frontend IP configuration.  
 
 For an internal Load Balancer frontend, add a *zones* parameter to the internal Load Balancer frontend IP configuration. The zonal frontend causes the Load Balancer to guarantee an IP address in a subnet to a specific zone.
 
-Use the following script to create a zonal Public IP address in Availability Zone 1. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
+Use the following script to create a zonal Standard Public IP address in Availability Zone 1. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -115,7 +115,7 @@ Use the following script to create a zonal Public IP address in Availability Zon
             },
 ```
 
-Use the following script to create an internal Load Balancer front end in Availability Zone 1.
+Use the following script to create an internal Standard Load Balancer front end in Availability Zone 1.
 
 If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates. Also, define the **zones** property in the frontend IP configuration for the child resource.
 
@@ -148,7 +148,7 @@ If you're using existing Resource Manager templates in your configuration, add t
 
 Cross-zone load balancing is the ability of Load Balancer to reach a backend endpoint in any zone and is independent of frontend and its zonality.
 
-If you wish to align and guarantee your deployment with a single zone, then align zonal frontend and zonal backend resources to the same zone. No further action is required.
+If you wish to align and guarantee your deployment with a single zone, align zonal frontend and zonal backend resources to the same zone. No further action is required.
 
 ### Backend
 
