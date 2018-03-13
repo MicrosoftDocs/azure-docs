@@ -23,9 +23,10 @@ ms.author: pabutler
 # SaaS Applications Technical Publishing Guide
 
 Welcome to the Azure Marketplace SaaS Applications Technical Publishing Guide. This guide is designed to help candidate and existing publishers to list their applications and services in the Azure Marketplace using the SaaS Applications offering.  
-You want to use SaaS Applications offer when your solution will be deployed in your own Azure subscription and customers will log on through an interface that you design and manage to test the application. It does this by using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) to leverage your existing trial environment. In other words, it is a customer-led, partner-hosted free trial. It is critical to expose your solution in a way that gives cloud buyers the opportunity to experience your solution independently for no charge or fee, and so this offer type provides a trial experience that matches how customers search for cloud solutions.  
 
-For an overview of all other Marketplace offerings, please refer to the [Marketplace Publisher Guide](https://aka.ms/sellerguide).
+You want to use the SaaS Applications offer when your solution will be deployed in your own Azure subscription and customers will log on through an interface that you design and manage to test the application. It does this by using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) to utilize your existing trial environment. In other words, it is a customer-led, partner-hosted free trial. It is critical to expose your solution in a way that gives cloud buyers the opportunity to experience your solution independently for no charge or fee, and so this offer type provides a trial experience that matches how customers search for cloud solutions.  
+
+For an overview of all other Marketplace offerings, refer to the [Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## SaaS Application Technical Guidance
 The technical requirements for SaaS applications are simple. Publishers are only required to be integrated with Azure AD to be published.  Azure AD integration with applications is well documented and Microsoft provides multiple SDKs and resources to accomplish this.  
@@ -80,14 +81,15 @@ After you've tested that your application integration works with Azure AD, submi
 - Provides best possible single sign-on experience for customers
 - Simple and minimal configuration of the application
 - Customers can search for the application and find it in the gallery
-- Any customer can use this integration regardless of which Azure AD SKU they use (Free, Basic or Premium)
+- Any customer can use this integration regardless of which Azure AD SKU they use (Free, Basic, or Premium)
 - Step-by-step configuration tutorial for our mutual customers
 - Enable the user provisioning for the same app if you are using SCIM
 
 ## Prerequisites
-To list an application in the Azure AD gallery, the application must first implement one of the federation protocols supported by Azure AD. Please read the terms and conditions of the Azure AD application gallery located at [Microsoft Azure Legal Information](https://azure.microsoft.com/en-us/support/legal/).  
+To list an application in the Azure AD gallery, the application must first implement one of the federation protocols supported by Azure AD. Read the terms and conditions of the Azure AD application gallery located at [Microsoft Azure Legal Information](https://azure.microsoft.com/en-us/support/legal/).  
 
 The following describes additional prerequisite information depending on which protocol you are using:
 
-**OpenID Connect** - Create the multi-tenant application in Azure AD and implement consent framework for your application. Send the login request to the common endpoint so that any customer can provide consent to the application. You can control the customer user access based on the tenant id and user's UPN received in the token.  
+**OpenID Connect** - Create the multi-tenant application in Azure AD and implement consent framework for your application. Send the login request to the common endpoint so that any customer can provide consent to the application. You can control the customer user access based on the tenant ID and user's UPN received in the token.  
+
 **SAML 2.0 or WS-Fed** - Your application should have a capability to do the SAML or WS-Fed SSO integration in either SP or IdP mode.
