@@ -38,6 +38,12 @@ Azure Write Accelerator only works in conjunction with [Azure managed disks](htt
 
 As the functionality of Azure Write Accelerator is still in public preview, no production scenario deployments are supported on the functionality yet.
 
+There are limits of Azure Premium Storage VHDs per VM that can be supported by Azure Write Accelerator.The current limits are:
+
+- 16 VHDs for an M128xx VM
+- 8 VHDs for an M64xx VM
+
+
 ## Enabling Write Accelerator on a specific disk
 The next few sections will describe how Azure Write Accelerator can be enabled on Azure Premium Storage VHDs.
 
