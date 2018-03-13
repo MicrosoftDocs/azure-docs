@@ -1,3 +1,5 @@
+# [Cloud Services Documentation](index.md)
+
 # Overview
 ## [What is Cloud Services?](cloud-services-choose-me.md)
 ## [Cloud service config files and packaging](cloud-services-model-and-package.md)
@@ -24,7 +26,6 @@
 ### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Use Twilio to make a phone call (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configure start up tasks
 #### [Create startup tasks](cloud-services-startup-tasks.md)
@@ -34,6 +35,7 @@
 ### Configure Remote Desktop
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Deploy
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)

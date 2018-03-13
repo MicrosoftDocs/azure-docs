@@ -2,10 +2,10 @@
 title: Azure Machine Learning deployment troubleshooting guide | Microsoft Docs
 description: Troubleshooting guide for deployment and service creation
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: AashishB
+ms.author: AashishB
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc

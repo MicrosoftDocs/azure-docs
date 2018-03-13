@@ -2,13 +2,13 @@
 title: Manage Azure Service Fabric applications using Azure Service Fabric CLI
 description: Learn how to deploy and remove applications from an Azure Service Fabric cluster by using Azure Service Fabric CLI
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
+ms.author: bikang
 ---
 # Manage an Azure Service Fabric application by using Azure Service Fabric CLI
 

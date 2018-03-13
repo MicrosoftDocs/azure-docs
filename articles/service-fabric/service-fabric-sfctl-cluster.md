@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
 
 ---
@@ -141,7 +141,7 @@ If connecting to secure cluster, specify a cert (.crt) and key file (.key) or a 
 ## sfctl cluster unprovision
 Unprovision the code or configuration packages of a Service Fabric    cluster.
 
-Unprovision the code or configuration packages of a Service Fabric cluster.
+Unprovision the code or configuration packages of a Service Fabric cluster. It is supported  to unprovision code and configuration separately.
 
 ### Arguments
 |Argument|Description|

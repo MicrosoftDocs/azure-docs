@@ -17,29 +17,20 @@ ms.author: apimpm
 ---
 
 # How to protect a Web API backend with Azure Active Directory and API Management
-The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
 
-* Build a Web API backend and secure it with AAD - starting at 1:30
-* Import the API into API Management - starting at 7:10
-* Configure the Developer portal to call the API - starting at 9:09
-* Configure a desktop application to call the API - starting at 18:08
-* Configure a JWT validation policy to pre-authorize requests - starting at 20:47
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+This topic shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  
 
 ## Create an Azure AD directory
-To secure your Web API backend using Azure Active Directory you must first have a an AAD tenant. In this video, a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
+To secure your Web API backend using Azure Active Directory you must first have an AAD tenant. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-In this example, a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. This directory is used throughout the video.
+In this example, a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## Create a Web API service secured by Azure Active Directory
-In this step, a Web API backend is created using Visual Studio 2013. This step of the video starts at 1:30. To create Web API backend project in Visual Studio click **File**->**New**->**Project**, and choose **ASP.NET Web Application** from the **Web** templates list. In this video, the project is named **APIMAADDemo**. Click **OK** to create the project. 
+In this step, a Web API backend is created using Visual Studio 2013. To create Web API backend project in Visual Studio click **File**->**New**->**Project**, and choose **ASP.NET Web Application** from the **Web** templates list. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -72,7 +63,6 @@ In this example,  a new **App Service plan** named **APIMAADDemo** is specified.
 Click **OK** to configure the Web App and create the project.
 
 ## Add the code to the Web API project
-The next step in the video adds the code to the Web API project. This step starts at 4:35.
 
 The Web API in this example,  implements a basic calculator service using a model and a controller. To add the model for the service, right-click **Models** in **Solution Explorer** and choose **Add**, **Class**. Name the class `CalcInput` and click **Add**.
 
@@ -158,14 +148,13 @@ public class CalcController : ApiController
 Press **F6** to build and verify the solution.
 
 ## Publish the project to Azure
-In this step the Visual Studio project is published to Azure. This step of the video starts at 5:45.
 
 To publish the project to Azure, right-click the **APIMAADDemo** project in Visual Studio and choose **Publish**. Keep the default settings in the **Publish Web** dialog box and click **Publish**.
 
 ![Web Publish][api-management-web-publish]
 
 ## Grant permissions to the Azure AD backend service application
-A new application for the backend service is created in your Azure AD directory as part of the configuring and publishing process of your Web API project. In this step of the video, starting at 6:13, permissions are granted to the Web API backend.
+A new application for the backend service is created in your Azure AD directory as part of the configuring and publishing process of your Web API project.
 
 ![Application][api-management-aad-backend-app]
 
@@ -187,7 +176,7 @@ APIs are configured from the API publisher portal, which is accessed through the
 
 ![Publisher portal][api-management-management-console]
 
-Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported. In this video, operations are imported in Swagger format starting at 6:40.
+Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported.
 
 Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example,  `"host": "apimaaddemo.azurewebsites.net"` is used.
 
@@ -349,7 +338,7 @@ Perform the following steps to configure the calculator API.
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 
 ## Call the API unsuccessfully from the developer portal
-At this point, the API has been imported into API Management, but cannot yet be called successfully from the developer portal because the backend service is protected with Azure AD authentication. This is demonstrated in the video starting at 7:40 using the following steps.
+At this point, the API has been imported into API Management, but cannot yet be called successfully from the developer portal because the backend service is protected with Azure AD authentication. 
 
 Click **Developer portal** from the top-right side of the publisher portal.
 
@@ -370,9 +359,9 @@ Click **Send** and note the response status of **401 Unauthorized**.
 The request is unauthorized because the backend API is protected by Azure Active Directory. Before successfully calling the API the developer portal must be configured to authorize developers using OAuth 2.0. This process is described in the following sections.
 
 ## Register the developer portal as an AAD application
-The first step in configuring the developer portal to authorize developers using OAuth 2.0 is to register the developer portal as an AAD application. This is demonstrated starting at 8:27 in the video.
+The first step in configuring the developer portal to authorize developers using OAuth 2.0 is to register the developer portal as an AAD application. 
 
-Navigate to the Azure AD tenant from the first step of this video, In this example,  **APIMDemo** and navigate to the **Applications** tab.
+Navigate to the Azure AD tenant. In this example, select **APIMDemo** and navigate to the **Applications** tab.
 
 ![New application][api-management-aad-new-application-devportal]
 
@@ -391,7 +380,7 @@ For **App Id URL** enter the URL of your API Management service and append some 
 ![New application][api-management-aad-new-application-devportal-2]
 
 ## Configure an API Management OAuth 2.0 authorization server
-The next step is to configure an OAuth 2.0 authorization server in API Management. This step is demonstrated in the video starting at 9:43.
+The next step is to configure an OAuth 2.0 authorization server in API Management. 
 
 Click **Security** from the API Management menu on the left, click **OAuth 2.0**, and then click **Add authorization** server.
 
@@ -463,7 +452,7 @@ Click **Delegated Permissions** for **APIMAADDemo** and check the box for **Acce
 ![Add permissions][api-management-aad-add-delegated-permissions]
 
 ## Enable OAuth 2.0 user authorization for the Calculator API
-Now that the OAuth 2.0 server is configured, you can specify it in the security settings for your API. This step is demonstrated in the video starting at 14:30.
+Now that the OAuth 2.0 server is configured, you can specify it in the security settings for your API. 
 
 Click **APIs** in the left menu, and click  **Calculator** to view and configure its settings.
 
@@ -474,7 +463,7 @@ Navigate to the **Security** tab, check the **OAuth 2.0** checkbox, select the d
 ![Calculator API][api-management-enable-aad-calculator]
 
 ## Successfully call the Calculator API from the developer portal
-Now that the OAuth 2.0 authorization is configured on the API, its operations can be successfully called from the developer center. THis step is demonstrated in the video starting at 15:00.
+Now that the OAuth 2.0 authorization is configured on the API, its operations can be successfully called from the developer center. 
 
 Navigate back to the **Add two integers** operation of the calculator service in the developer portal and click **Try it**. Note the new item in the **Authorization** section corresponding to the authorization server you just added.
 
@@ -489,10 +478,12 @@ Click **Send** and note the **Response status** of **200 OK** and the results of
 ![Calculator API][api-management-devportal-response]
 
 ## Configure a desktop application to call the API
-The next procedure in the video starts at 16:30 and configures a simple desktop application to call the API. The first step is to register the desktop application in Azure AD and give it access to the directory and to the backend service. At 18:25 there is a demonstration of the desktop application calling an operation on the calculator API.
+
+Configure a simple desktop application to call the API. The first step is to register the desktop application in Azure AD and give it access to the directory and to the backend service. 
 
 ## Configure a JWT validation policy to pre-authorize requests
-The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
+
+Use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -505,7 +496,7 @@ The final procedure in the video starts at 20:48 and shows you how to use the [V
 </validate-jwt>
 ```
 
-For another demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
+For more information, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
 
 ## Next steps
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.

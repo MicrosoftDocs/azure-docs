@@ -382,7 +382,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 |query_hash_s|Query hash of the failed query, if available.|
 |query_plan_hash_s|Query plan hash of the failed query, if available.|
 
-Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
+Learn more about [SQL Server error messages](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### Database wait statistics dataset
 
