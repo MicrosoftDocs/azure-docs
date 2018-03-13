@@ -20,7 +20,7 @@ To step through this how-to guide, you need:
 - The [Azure CLI 2.0](/cli/azure/install-azure-cli) or Azure Cloud Shell in the browser
 
 ## Configure logging for Azure Database for MySQL
-You can configure the server to access the MySQL slow query log by taking the following steps.
+You can configure the server to access the MySQL slow query log by taking the following steps:
 1. Turn on logging by setting the **slow\_query\_log** parameter to ON.
 2. Adjust other parameters, such as **long\_query\_time** and **log\_slow\_admin\_statements**.
 
