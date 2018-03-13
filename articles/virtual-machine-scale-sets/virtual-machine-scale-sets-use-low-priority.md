@@ -22,24 +22,24 @@ ms.author: memccror
 
 # Low-priority VMs on scale sets (Preview)
 
-Low-priority VMs on scale sets are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, big compute workloads, and more. Low-priority allows users to deploy scale sets at a significant cost savings of up to 80% with the acknowledgment that Azure will reclaim this capacity when it is required by evicting low-priority VMs when needed.
+Low-priority VMs on scale sets are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more. Low-priority allows users to deploy scale sets at a significant cost savings of up to 80% with the acknowledgment that Azure will reclaim this capacity when needed.
 
-The availability of low-priority VMs are not guaranteed and these VMs can be evicted at any time. You may try a different size, a different region, a differnt time, or a regular, full priced scale set if needed. In addition, A low-priority scale set is deployed in a single fault domain and offers no high availability guarantees.
+The availability of low-priority VMs is not guaranteed and these VMs can be evicted at any time. You may try a different size, a different region, a different time, or a regular, full priced scale set if needed. In addition, A low-priority scale set is deployed in a single fault domain and offers no high availability guarantees.
 
 > [!NOTE]
 > Low-priority scale sets are in preview and ready for your development and test scenarios. 
 
 ### Eviction Policy
 
-When your low-priority scale set VMs are evicted, they will be moved to the Stopped (deallocated) state by default. With this eviction policy, you can redeploy evicted instances, but there is no guarantee that the allocation will succeed. The stopped VMs will count against your VM Scale Set instance quota and you will be charged for your underlying disks. 
+When your low-priority scale set VMs are evicted, they will be moved to the Stopped (deallocated) state by default. With this eviction policy, you can redeploy evicted instances, but there is no guarantee that the allocation will succeed. The stopped VMs will count against your scale set instance quota and you will be charged for your underlying disks. 
 
-If you would like your VMs in your low-priority scale set to be deleted when they are evicted, you can set the eviction policy to delete in your ARM template. With the delete on eviction policy set, you can create new low-priority scale set VMs by simply increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of VMSS to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended that you only use the auto-scale feature on low-priority VMs when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
+If you would like your VMs in your low-priority scale set to be deleted when they are evicted, you can set the eviction policy to delete in your Resource Manager template. With the delete on eviction policy set, you can create new low-priority scale set VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the auto-scale feature on low-priority VMs when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
 During preview, you will be able to set your eviction policy by using [Azure Resource Manager templates](#use-azure-resource-manager-templates). Portal, PowerSell, and CLI support will be added soon.
 
 ## Deploying low-priority VMs on scale sets
 
-To deploy low-priority VMs on scale sets, you can set the new *Pritority* flag to *Low*. All VMs in your scale set will be set to low-priority. To create a scale set with low-priority VMs, use one of the following methods:
+To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to *Low*. All VMs in your scale set will be set to low-priority. To create a scale set with low-priority VMs, use one of the following methods:
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
@@ -48,7 +48,7 @@ Creating low-priority VMs on scale sets via the Azure portal is coming soon.
 
 ### Use the Azure CLI 2.0
 
-The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-cli.md).  Just add the '--Priority' parameter to the cli call and set it to *Low* as shown in the example below:
+The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-cli.md). Just add the '--Priority' parameter to the cli call and set it to *Low* as shown in the example below:
 
 ```azurecli
 az vmss create \
@@ -63,8 +63,8 @@ az vmss create \
 
 ### Use Azure PowerShell
 
-The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell).
-Just add the '-Priority' parameter to the [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) and set it to *Low* as shown in the example below:
+The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell).
+Just add the '-Priority' parameter to the [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) and set it to *Low* as shown in the example below:
 
 ```powershell
 $vmssConfig = New-AzureRmVmssConfig `
@@ -79,9 +79,9 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 The process to create a scale set that uses low-priority VMs is the same as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md). Add the 'priority' property to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template and specify *Low* as the value.
 
-In order to set the eviction policy to deletion, simply add the 'evitionPolicy' parameter and set it to *delete*.
+In order to set the eviction policy to deletion, add the 'evitionPolicy' parameter and set it to *delete*.
 
-The following example creates a Linux low-priority scale set named *myScaleSet* in *West Central US* which will *delete* the VMs in the scale set on eviction:
+The following example creates a Linux low-priority scale set named *myScaleSet* in *West Central US*, which will *delete* the VMs in the scale set on eviction:
 
 ```json
 {
