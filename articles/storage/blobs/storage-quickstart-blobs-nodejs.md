@@ -36,7 +36,7 @@ Before running the application, you must provide the connection string for your 
 
 ## Install required packages
 
-In the application directory run *npm install* to install the required packages for the application.
+In the application directory, run *npm install* to install the required packages for the application.
 
 ```bash
 npm install
@@ -182,7 +182,7 @@ The implementation shown here changes the source file path to append *.downloade
 
 ### Delete blobs in the container
 
-The *deleteBlock* function (aliased as the *delete* console command) calls the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) function. As the name implies, this function does not error out if the blob is already deleted when the command is dispatched.
+The *deleteBlock* function (aliased as the *delete* console command) calls the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) function. As the name implies, this function does not return an error the blob is already deleted.
 
 ```javascript
 const deleteBlock = () => {
@@ -198,9 +198,9 @@ const deleteBlock = () => {
 };
 ```
 
-## Upload and list
+### Upload and list
 
-One of the benefits of using promises is being able to chain commands together. The **uploadAndList** function demonstrates how easy it is to list the contents of a Blob directly after uploading a file to the Blob.
+One of the benefits of using promises is being able to chain commands together. The **uploadAndList** function demonstrates how easy it is to list the contents of a Blob directly after uploading a file.
 
 ```javascript
 const uploadAndList = () => {
@@ -223,7 +223,7 @@ const _module = {
 };
 ```
 
-With *_module* now in place, it is available to be interrogated for known commands.
+With *_module* now in place, each of the commands is available from the command line.
 
 ```javascript
 const commandExists = () => exists = !!_module[args.command];
@@ -267,7 +267,7 @@ try {
 ```
 
 ## Clean up resources
-If you do not plan on using the data or accounts created as described in this article, you may want to delete what you created in order to avoid any undesired billing. To delete the blob and containers, you can use the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) and [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) methods. You can also delete the storage account [through the portal](../common/storage-create-storage-account.md).
+If you do not plan on using the data or accounts created in this article, you may want to delete them in order to avoid any undesired billing. To delete the blob and containers, you can use the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) and [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) methods. You can also delete the storage account [through the portal](../common/storage-create-storage-account.md).
 
 
 ## Next steps
