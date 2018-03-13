@@ -105,6 +105,11 @@ Built for DNS Administrators, this solution collects, analyzes and correlates DN
 * Visibility into the request load on DNS servers
 * Monitoring of dynamic DNS registration failures
 
+![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Related links:
+* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](../log-analytics/log-analytics-dns)
+
 ## Next steps
 
 * [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
