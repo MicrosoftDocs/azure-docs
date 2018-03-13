@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 03/12/2018
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -161,7 +161,10 @@ Azure IoT messages are formatted as JSON and always have at least a **body** par
 
 Given this sample message, there are a number of conditions that can be defined, such as:
 * `WHERE $body.machine.status != "running"`
-* `WHERE $body.temperature >= 50`
+* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
+
+The condition can also be used to sort message types, for example, in a gateway that wants to route messages that come in from leaf devices. Messages the come from modules contain a specific property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route:
+* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### Sink
 The sink defines where the messages are sent. It can be any of the following values:
