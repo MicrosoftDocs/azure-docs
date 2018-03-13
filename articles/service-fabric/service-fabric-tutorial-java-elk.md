@@ -57,7 +57,7 @@ You can use a preconfigured ELK environment for this tutorial and if you already
 
 2. Go to your resource in Azure portal and enter the **Boot Diagnostics** tab under the **Support + Troubleshooting** section. Next, click on the **Serial Log** tab.
 
-![Boot Diagnostics](./media/service-fabric-tutorial-java-elk/bootdiagnostics.png)
+    ![Boot Diagnostics](./media/service-fabric-tutorial-java-elk/bootdiagnostics.png)
 3. Do a search on the logs for the password is required to access the Kibana instance. It resembles the following snippet:
 
     ```bash
