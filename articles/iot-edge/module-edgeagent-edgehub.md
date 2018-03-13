@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 03/12/2018
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -109,7 +109,9 @@ The module twin for the Edge hub is called `$edgeHub` and coordinates the commun
 | clients.{device or module identity}.lastConnectTime | Last time the device or module connected |
 | clients.{device or module identity}.lastDisconnectTime | Last time the device or module disconnected |
 
+## Next steps
 
+To learn how to use these properties to build out deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
 <!--links -->
 [lnk-deploy]: module-deployment-monitoring.md

@@ -163,7 +163,7 @@ Given this sample message, there are a number of conditions that can be defined,
 * `WHERE $body.machine.status != "running"`
 * `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
 
-The condition can also be used to sort message types, for example, in a gateway that wants to route messages that come in from leaf devices. Messages the come from modules contain a specific property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route:
+The condition can also be used to sort message types, for example, in a gateway that wants to route messages that come in from leaf devices. Messages that come from modules contain a specific property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude those messages:
 * `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### Sink
@@ -263,7 +263,9 @@ This an example of a deployment manifest JSON document.
 
 ## Next steps
 
-Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
+* For a complete list of properties that can or must be included in #edgeAgent and $edgeHub, see [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md).
+
+* Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
 [lnk-deploy]: module-deployment-monitoring.md
 [lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md
