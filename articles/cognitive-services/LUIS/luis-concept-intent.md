@@ -24,7 +24,7 @@ Example intent   |   Example utterances   |
  CheckWeather | What's the weather like in Boston? <br/> Show me the forecast for this weekend |
  None         | Get me a cookie recipe |
 
-All applications come with the predefined intent, **"[None](#none-intent)"**. 
+All applications come with the predefined intent, **"[None](#none-intent-is-fallback-for-app)"**. 
 
 ## Prebuilt domains provide intents
 In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. See [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
@@ -58,6 +58,9 @@ If you do not add any utterances for the **None** intent, LUIS forces an utteran
 
 ## Add utterances to the None intent
 The **None** intent is created but left empty on purpose. You must fill it with utterances that are outside of your domain. A good utterance for **None** is something completely outside the app as well as the industry the app serves. For example, a travel app should not use any utterances for **None** that can relate to travel, reservations, billing, food, hospitality, cargo, inflight entertainment, etc. What type of utterances are left for the None intent? Start with something specific that your bot shouldn't answer such "What kind of dinosaur can fly?" This is a very specific question far outside of a travel app. 
+
+## None is a required intent
+The **None** intent is a required intent and can't be deleted or renamed.
 
 ## Best practice - only required, specific intents
 It is a best practice to use only as many intents as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in calling application or bot. 

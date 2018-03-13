@@ -107,6 +107,8 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
+      - name: Upgrade to VM backup stack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
