@@ -168,19 +168,21 @@ The SNAT port preallocation and algorithm is the same with or without zones.
 
 ### Health probes
 
-Your existing health probe definitions remain as-is. Load Balancer expands its internal health model to independently probe the reachability of a VM from each Availability Zone and shut down paths across zones that may have failed without customer intervention.  If a given path is not available from the infrastructure of one zone to a VM in another zone, Load Balancer can detect and avoid this failure. Other zones who can reach this VM can continue to serve the VM from their respective frontends.  As a result, it is possible that during failure events, each zone may have slightly different flow distributions while protecting the overall health of your end-to-end service.
+Your existing health probe definitions remain as they are without Availability Zones.  But we have expanded the health model at an infrastructure level. 
 
-## Design considerations
+When using zone-redundant frontends, Load Balancer expands its internal health model to independently probe the reachability of a VM from each Availability Zone and shut down paths across zones that may have failed without customer intervention.  If a given path is not available from the Load Balancer infrastructure of one zone to a VM in another zone, Load Balancer can detect and avoid this failure. Other zones who can reach this VM can continue to serve the VM from their respective frontends.  As a result, it is possible that during failure events, each zone may have slightly different flow distributions while protecting the overall health of your end-to-end service.
 
-Load Balancer is purposely flexible in the context of Availability Zones. You can choose to align to zones or you can choose to be zone-redundant.  Increased availability can come at the price of increased complexity and in turn you must design for it for optimal performance.  Let's take a look at some important design considerations.
+## <a name="design"></a> Design considerations
+
+Load Balancer is purposely flexible in the context of Availability Zones. You can choose to align to zones or you can choose to be zone-redundant.  Increased availability can come at the price of increased complexity and you must design for availability for optimal performance.  Let's take a look at some important design considerations.
 
 ### Automatic zone-redundancy
 
 Load Balancer makes it simple to have a single IP as a zone-redundant frontend. A zone-redundant address can safely serve a zonal resource in any zone and can survive one or more zone failures as long as one zone remains healthy within the region. Conversely, a zonal frontend is a reduction of the service to a single zone and shares fate with the respective zone.
 
-Zone-redundancy does not imply hitless datapath or control plane. The traffic flows in a failed zone may be impacted but applications can recover in other zones upon retransmission or reestablishment once the routing system within the region has converged.
+Zone-redundancy does not imply hitless datapath or control plane. The traffic flows in a failed zone may be impacted but applications can recover in the remaining healthy zones upon retransmission or reestablishment once the routing system within the region has converged.
 
-### Cross zone boundaries
+### <a name="xzonedesign"></a> Cross zone boundaries
 
 It is important to understand that any time an end-to-end service crosses zones, you share fate with not one zone but potentially multiple zones.  As a result, your end-to-end service may not have gained any availability over non-zonal deployments.
 
