@@ -37,7 +37,7 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 
 Create the master target in accordance with the following sizing guidelines:
 - **RAM**: 6 GB or more
-- **OS disk size**: 100 GB or more (to install CentOS6.6)
+- **OS disk size**: 100 GB or more (to install OS)
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
 
