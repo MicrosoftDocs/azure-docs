@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #0063b1;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #0063b1;
+      }
+    </style>
+  </defs>
+  <title>labs-event-tracker</title>
+  <g id="Layer_3" data-name="Layer 3">
+    <rect class="cls-1" x="1.5" y="6.5" width="33" height="25"/>
+    <rect class="cls-2" x="7" y="2" width="3" height="8"/>
+    <rect class="cls-2" x="26" y="2" width="3" height="8"/>
+    <polygon class="cls-2" points="19 21.97 19 24 10 24 10 15 16.07 15 19.07 12 7 12 7 27 22 27 22 18.97 19 21.97"/>
+    <polygon class="cls-2" points="14.52 23.62 9.96 19.06 12.08 16.94 14.52 19.38 21.46 12.44 23.58 14.56 14.52 23.62"/>
+  </g>
+</svg>

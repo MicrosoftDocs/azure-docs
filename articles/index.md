@@ -2760,6 +2760,37 @@ featureFlags:
                                             </div>
                                         </div>
                                     </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Labs</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="https://docs.microsoft.com/en-us/gestures/"><img src="media/index/labs-hand-gesture.svg" alt="" />Gesture</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="media/index/labs-event-tracker.svg" alt="" />Event Tracking</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="media/index/API_Know_Academic.svg" alt="" />Academic Knowledge</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="media/index/labs-local-insight.svg" alt="" />Local Insights</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Knowledge Exploration Service</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Entity Linking</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
