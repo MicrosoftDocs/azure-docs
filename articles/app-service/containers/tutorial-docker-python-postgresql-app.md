@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database in Azure
-> * Connect a Python app to MySQL
+> * Connect a Python app to PostgreSQL
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Manage the app in the Azure portal
@@ -125,7 +125,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create an Azure Database for PostgreSQL server
 

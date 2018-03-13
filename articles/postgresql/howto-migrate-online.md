@@ -1,14 +1,14 @@
 ---
-title: Minimal-downtime migration to Azure Database for PostgreSQL | Microsoft Docs
+title: Minimal-downtime migration to Azure Database for PostgreSQL
 description: This article describes how to perform a minimal downtime migration by extracting a PostgreSQL database into a dump file, restoring the PostgreSQL database from an archive file created by pg_dump in Azure Database for PostgreSQL, and setting up initial load and continuous data sync from the source database to the target database by using Attunity Replicate for Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 02/28/2018
 ---
 
 # Minimal-downtime migration to Azure Database for PostgreSQL

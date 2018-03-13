@@ -123,8 +123,8 @@ The IoT Edge agent plays a critical role in the security of an IoT Edge device. 
 - [Understand Azure IoT Edge modules][lnk-modules]
 
 <!-- Images -->
-[1]: ./media/iot-edge-runtime/pipeline.png
-[2]: ./media/iot-edge-runtime/gateway.png
+[1]: ./media/iot-edge-runtime/Pipeline.png
+[2]: ./media/iot-edge-runtime/Gateway.png
 [3]: ./media/iot-edge-runtime/ModuleEndpoints.png
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
