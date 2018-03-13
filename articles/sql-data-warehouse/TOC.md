@@ -29,6 +29,7 @@
 ### [Data warehouse backups](sql-data-warehouse-backups.md)
 ### [Auditing](sql-data-warehouse-auditing-overview.md)
 ### [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
+### [Planned maintenance](planned-service-maintenance.md)
 ### [FAQ](sql-data-warehouse-overview-faq.md)
 
 ## Security
