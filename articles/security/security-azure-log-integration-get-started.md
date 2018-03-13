@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Log Integration | Microsoft Docs
 description: Learn how to install the Azure Log Integration service and integrate logs from Azure Storage, Azure audit logs, and Azure Security Center alerts.
 services: security
