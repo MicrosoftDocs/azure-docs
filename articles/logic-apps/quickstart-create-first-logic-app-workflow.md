@@ -76,6 +76,8 @@ which fires when a specific event happens or when a specific condition is met.
 Each time the trigger fires, the Logic Apps engine creates a logic app instance 
 that starts and runs your workflow.
 
+<a name="add-rss-trigger"></a>
+
 ## Check RSS feed with a trigger
 
 1. On the designer, enter "rss" in the search box. 
