@@ -64,7 +64,9 @@ Commands available include:
 This code sample uses a few modules to interface with the file system and the command line. 
 
 ```javascript
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+}
 const path = require('path');
 const args = require('yargs').argv;
 const storage = require('azure-storage');
@@ -196,6 +198,16 @@ const deleteBlock = () => {
 };
 ```
 
+## Upload and list
+
+One of the benefits of using promises is being able to chain commands together. The **uploadAndList** function demonstrates how easy it is to list the contents of a Blob directly after uploading a file to the Blob.
+
+```javascript
+const uploadAndList = () => {
+    return _module.upload().then(_module.list);
+};
+```
+
 ### Calling code
 
 To expose the functions implemented to the command line, each of the functions is mapped to an object literal.
@@ -206,24 +218,15 @@ const _module = {
     "upload": upload,
     "download": download,
     "delete": deleteBlock,
-    "list": list
+    "list": list,
+    "uploadAndList": uploadAndList
 };
 ```
 
 With *_module* now in place, it is available to be interrogated for known commands.
 
 ```javascript
-const commandExists = () => {
-    const cmd = args.command;
-    const exists = !!_module[cmd];
-
-    if(!exists) {
-        console.log(`The '${cmd}' command does not exist. Try one of these:`);
-        Object.keys(_module).forEach(key => console.log(` - ${key}`));
-    }
-
-    return exists;
-};
+const commandExists = () => exists = !!_module[args.command];
 ```
 
 If a given command does not exist, then *_module*'s properties are rendered to the console to as help text to the user. 
@@ -236,7 +239,7 @@ const executeCommand = async () => {
 
     console.log(response.message);
 
-    if(response.data) {
+    if (response.data) {
         response.data.entries.forEach(entry => {
             console.log('Name:', entry.name, ' Type:', entry.blobType)
         });
@@ -248,12 +251,17 @@ Finally, the executing code first calls *commandExists* to verify a known comman
 
 ```javascript
 try {
-    console.log(`Executing '${args.command}'...`);
+    const cmd = args.command;
 
-    if(commandExists()){
+    console.log(`Executing '${cmd}'...`);
+
+    if (commandExists()) {
         executeCommand();
+    } else {
+        console.log(`The '${cmd}' command does not exist. Try one of these:`);
+        Object.keys(_module).forEach(key => console.log(` - ${key}`));
     }
-} catch(e) {
+} catch (e) {
     console.log(e);
 }
 ```
