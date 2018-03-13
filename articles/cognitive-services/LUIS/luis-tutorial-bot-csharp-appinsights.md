@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Your LUIS web app bot from the **[previous tutorial](luis-csharp-tutorial-build-bot-framework-sample.md)** with Application Insights turned on. 
-* [Visual Studio 2017](http://www.microsoft.com/Visual_Studio/2017) installed locally on  your computer.
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) installed locally on  your computer.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -44,7 +44,7 @@ Currently, the Application Insights service, added as part of the web app bot se
 In order to capture the LUIS response, the web app bot needs **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** installed and configured for the project. 
 
 ## Download web app bot
-Use [Visual Studio 2017](http://www.microsoft.com/Visual_Studio/2017) to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, download the web app bot code.
+Use [Visual Studio 2017](https://www.visualstudio.com/downloads/) to add and configure Application Insights for the web app bot. In order to use the web app bot in Visual Studio, download the web app bot code.
 
 1. In the Azure portal, for the web app bot, select **Build**.
 
