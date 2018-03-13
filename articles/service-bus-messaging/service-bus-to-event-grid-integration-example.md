@@ -19,7 +19,7 @@ ms.author: chwolf
 ---
 # Azure Service Bus to Azure Event Grid integration examples
 
-In this article, you learn how to set up an Azure function and a logic app, which both receive messages based on receiving an event from Event Grid. You'll do the following:
+In this article, you learn how to set up an Azure function and a logic app, which both receive messages based on receiving an event from Azure Event Grid. You'll do the following:
  
 * Create a simple [test Azure function](#test-function-setup) for debugging and viewing the initial flow of events from the Event Grid. Perform this step regardless of whether you perform the others.
 * Create an [Azure function to receive and process Azure Service Bus messages](#receive-messages-using-azure-function) based on Event Grid events.
@@ -142,7 +142,7 @@ To create an Azure Event Grid subscription, do the following:
 
 The next step is to tie together the function and the Service Bus namespace. For this example, use the Azure portal. To understand how to use PowerShell or Azure CLI to perform this step, see [Azure Service Bus to Azure Event Grid integration overview](service-bus-to-event-grid-integration-concept.md).
 
-    ![9][]
+![9][]
 
 ### Receive messages by using Azure Functions
 
