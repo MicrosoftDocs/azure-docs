@@ -919,6 +919,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/vs-azure-tools-connected-services-add-active-directory.md",
+            "redirect_url": "/azure/active-directory/develop/vs-active-directory-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/xplat-cli-azure-resource-manager.md",
             "redirect_url": "/azure/azure-resource-manager/xplat-cli-azure-resource-manager",
             "redirect_document_id": false
