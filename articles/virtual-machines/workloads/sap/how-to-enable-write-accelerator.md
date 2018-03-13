@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2018
+ms.date: 03/13/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -43,6 +43,24 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by A
 - 16 VHDs for an M128xx VM
 - 8 VHDs for an M64xx VM
 
+> [!IMPORTANT]
+> If you want to enable or disable Azure Write Accelerator for an existing volume that is built up out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out fileserver (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shutdown the Azure VM**. 
+
+
+> [!IMPORTANT]
+> To enable Azure Write Accelerator to an existing Azure disk that is NOT part of a volume build up with Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out fileserver (SOFS), Linux LVM or MDADM, the workload accessing the Azure disk needs to be shut down. Database applications using the Azure disk MUST be shutdown.
+
+> [!IMPORTANT]
+> Enabling Write Accelerator for Azure operating system disk of the VM will reboot the VM. 
+
+Enabling Azure Write Accelerator for operating disks should not be necessary for SAP related VM configurations
+
+### Restrictions when using Azure Write Accelerator
+When using Azure Write Accelerator for an Azure disk/VHD, these restrictions apply:
+
+- The Premium disk caching needs to be set to 'None'. All other caching modes are not supported.
+- Snapshot on the Write Accelerator enabled disk is not supported yet. This restriction blocks Azure Backup Service ability to perform an application consistent snapshot of all disks of the virtual machine.
+
 
 ## Enabling Write Accelerator on a specific disk
 The next few sections will describe how Azure Write Accelerator can be enabled on Azure Premium Storage VHDs.
@@ -56,6 +74,7 @@ The following prerequisites apply to the usage of Azure Write Accelerator at thi
 - The disks you want to apply Azure Write Accelerator against need to be [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
 
 ### Enabling through Power Shell
+The Azure Power Shell module from version 5.5.0 include the changes to the relevant cmdlets to enable or disable Azure Write Accelerator for specific Azure Premium Storage disks.
 In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed, and extended to accept a parameter for Write Accelerator.
 
 A new switch parameter, "WriteAccelerator" got added to the following cmdlets: 
@@ -93,6 +112,64 @@ New-AzureRmVmssConfig | Set-AzureRmVmssStorageProfile -OsDiskWriteAccelerator | 
 Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false 
 
 ```
+
+Two main scenarios can be scripted as shown in the following sections..
+
+#### Adding  new disk supported by Azure Write Accelerator
+You can use this script to add a new disk to your VM. The disk created with this script is going to use Azure Write Accelerator.
+
+```
+
+# Specify your VM Name
+$vmName="mysapVM"
+#Specify your Resource Group
+$rgName = "mysap"
+#data disk name
+$datadiskname = "log001"
+#LUN Id
+$lunid=8
+#size
+$size=1023
+#Pulls the VM info for later
+$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+#add a new VM data disk
+Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
+#Updates the VM with the disk config - does not require a reboot
+Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+
+```
+You need to adapt the names of VM, disk, resource group, size of the disk and LunID of the disk for your specific deployment.
+
+
+#### Enabling Azure Write Accelerator on an existing Azure disk
+If you need to enable Write Accelerator on an existing disk, you can use this script to perform the task:
+
+```
+
+#Specify your VM Name
+$vmName="mysapVM"
+#Specify your Resource Group
+$rgName = "mysap"
+#data disk name
+$datadiskname = "testsap-log001" 
+#new Write Accelerator status ($true for enabled, $false for disabled) 
+$newstatus = $true
+#Pulls the VM info for later
+$vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
+#add a new VM data disk
+Set-AzureRmVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
+#Updates the VM with the disk config - does not require a reboot
+Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+
+```
+
+You need to adapt the names of VM, disk, and resource group. The script above adds Write Accelerator to an existing disk is the value for $newstatus is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
+
+> [!Note]
+> Executing the script above will detach the disk specified, enable Write Accelerator against the disk and then attach the disk again
+
+
+
 
 ### Enabling through Rest APIs
 In order to deploy through Azure Rest API, you need to install the Azure armclient
