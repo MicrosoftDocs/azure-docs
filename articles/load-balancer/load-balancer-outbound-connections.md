@@ -162,30 +162,33 @@ Changing the size of your backend pool might affect some of your established flo
 
 If the backend pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
 
-## <a name="snatexhaust"></a>Managing SNAT (PAT) port exhaustion
+## <a name="problemsolving"></a> Problem solving 
 
+This section is intended to help mitigate SNAT exhaustion and other scenarios which can occur with outbound connections in Azure.
+
+### <a name="snatexhaust"></a> Managing SNAT (PAT) port exhaustion
 [Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource, as described in [Standalone VM without an Instance Level Public IP address](#defaultsnat) and [Load-balanced VM without an Instance Level Public IP address](#lb).
 
 If you know that you're initiating many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or are advised by support that you're exhausting SNAT ports (preallocated [ephemeral ports](#preallocatedports) used by [PAT](#pat)), you have several general mitigation options. Review these options and decide what is available and best for your scenario. It's possible that one or more can help manage this scenario.
 
 If you are having trouble understanding the outbound connection behavior, you can use IP stack statistics (netstat). Or it can be helpful to observe connection behaviors by using packet captures. You can perform these packet captures in the guest OS of your instance or use [Network Watcher for packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md).
 
-### <a name="connectionreuse"></a>Modify the application to reuse connections 
+#### <a name="connectionreuse"></a>Modify the application to reuse connections 
 You can reduce demand for ephemeral ports that are used for SNAT by reusing connections in your application. This is especially true for protocols like HTTP/1.1, where connection reuse is the default. And other protocols that use HTTP as their transport (for example, REST) can benefit in turn. 
 
 Reuse is always better than individual, atomic TCP connections for each request. Reuse results in more performant, very efficient TCP transactions.
 
-### <a name="connection pooling"></a>Modify the application to use connection pooling
+#### <a name="connection pooling"></a>Modify the application to use connection pooling
 You can employ a connection pooling scheme in your application, where requests are internally distributed across a fixed set of connections (each reusing where possible). This scheme constrains the number of ephemeral ports in use and creates a more predictable environment. This scheme can also increase the throughput of requests by allowing multiple simultaneous operations when a single connection is blocking on the reply of an operation.  
 
 Connection pooling might already exist within the framework that you're using to develop your application or the configuration settings for your application. You can combine connection pooling with connection reuse. Your multiple requests then consume a fixed, predictable number of ports to the same destination IP address and port. The requests also benefit from efficient use of TCP transactions reducing latency and resource utilization. UDP transactions can also benefit, because managing the number of UDP flows can in turn avoid exhaust conditions and manage the SNAT port utilization.
 
-### <a name="retry logic"></a>Modify the application to use less aggressive retry logic
+#### <a name="retry logic"></a>Modify the application to use less aggressive retry logic
 When [preallocated ephemeral ports](#preallocatedports) used for [PAT](#pat) are exhausted or application failures occur, aggressive or brute force retries without decay and backoff logic cause exhaustion to occur or persist. You can reduce demand for ephemeral ports by using a less aggressive retry logic. 
 
 Ephemeral ports have a 4-minute idle timeout (not adjustable). If the retries are too aggressive, the exhaustion has no opportunity to clear up on its own. Therefore, considering how--and how often--your application retries transactions is a critical part of the design.
 
-### <a name="assignilpip"></a>Assign an Instance Level Public IP to each VM
+#### <a name="assignilpip"></a>Assign an Instance Level Public IP to each VM
 Assigning an ILPIP changes your scenario to [Instance Level Public IP to a VM](#ilpip). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective backend pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of whitelisting a large number of individual IP addresses.
 
 >[!NOTE] 
