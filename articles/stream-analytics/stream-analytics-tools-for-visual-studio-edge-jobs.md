@@ -141,8 +141,8 @@ The job view window provides you with operations such as refreshing the job, del
 
 ## Next steps
 
-* [More information on Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [ASA on IoT edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [More information on Azure Iot Edge](../iot-edge/how-iot-edge-works.md)
+* [ASA on IoT edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 
 
