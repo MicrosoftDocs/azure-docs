@@ -1,0 +1,12 @@
+- name: Azure IoT Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: Introduction
+  - name: Service portfolio
+- name: IoT Edge
+  href: ../iot-edge
+- name: IoT Hub 
+  href: ../iot-hub
+- name: IoT Hub Device Provisioning Services
+  href: ../iot-dps 
