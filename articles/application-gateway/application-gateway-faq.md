@@ -82,6 +82,7 @@ Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwa
 
 New Application Gateway deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
 
+
 ## Configuration
 
 **Q. Is Application Gateway always deployed in a virtual network?**
@@ -129,6 +130,11 @@ Micro service architecture is supported. You would need multiple http settings c
 **Q. Do custom probes support wildcards/regex on response data?**
 
 Custom probes do not support wildcard or regex on response data. 
+
+**Q. How can I determine the number of probes per interval to expect?**
+
+Multiply the number of servers in the backend pool/s by the number of rules. Eg. 2 servers in the backend with 2 rules will give you 4 probes per interval (2x2=4). A larger deployment may require adjusting the interval beyond 30 seconds. For example, 20 servers in the backend with 20 rules will give you 400 probes per interval.
+
 
 **Q. How are rules processed?**
 
