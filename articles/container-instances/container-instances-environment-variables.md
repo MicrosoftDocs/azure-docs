@@ -11,18 +11,30 @@ ms.date: 03/01/2018
 ms.author: dastanfo
 ---
 
-# Set environment variables in Azure Container Instances (ACI)
+# Set environment variables
 Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container.
 
-You are currently able to set environment variables from the CLI or powershell. In both cases you would use the --environment-variables flag. This is similar to the `--env` command-line argument to `docker run`.
+You are currently able to set environment variables from the CLI and PowerShell. In both cases you would use an environment variable flag on the commands. This is similar to the `--env` command-line argument to `docker run`.
 
-For example, you can modify the behavior of the script in the example container by specifying the following environment variables when you create the container instance:
+For example, if you use the microsoft/aci-wordcount container you can modify the behavior by specifying the following environment variables when you create the container instance:
 
 *NumWords*: The number of words sent to STDOUT.
 
 *MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "of" and "the."
 
 ## Azure CLI example
+
+In order to see the default output of the container run the following command:
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainer1 \
+    --image microsoft/aci-wordcount:latest \
+    --restart-policy OnFailure
+```
+
+By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output. 
 
 ```azurecli-interactive
 az container create \
@@ -33,13 +45,25 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output. Once the container status shows as *Terminated* (use `az container show` to check its status), display its logs to see the output.
+Once the container status shows as *Terminated* (use `az container show` to check its status), display its logs to see the output.  In order to view the output of the container with no environment variables simply set --name to be mycontainer1 instead of mycontainer2.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-## Azure Powershell example
+## Azure PowerShell example
+
+In order to see the default output of the container run the following command:
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainer1 \
+    --image microsoft/aci-wordcount:latest \
+    --restart-policy OnFailure
+```
+
+By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output.
 
 ```azurepowershell-interactive
 $envVars = @{}
@@ -53,7 +77,7 @@ New-AzureRmContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output. Once the container status shows as *Terminated* (use `Get-AzureRmContainerInstanceLog` to check its status), display its logs to see the output.
+Once the container status shows as *Terminated* (use `Get-AzureRmContainerInstanceLog` to check its status), display its logs to see the output.  In order to view the output of the container with no environment variables simply set ContainerGroupName to be mycontainer1 instead of mycontainer 2.
 
 ```azurepowershell-interactive
 Get-AzureRmContainerInstanceLog `
@@ -61,7 +85,22 @@ Get-AzureRmContainerInstanceLog `
     -ContainerGroupName mycontainer2
 ```
 
-## Example Output
+## Example output without environment variables
+
+```bash
+[('the', 990),
+ ('and', 702),
+ ('of', 628),
+ ('to', 610),
+ ('I', 544),
+ ('you', 495),
+ ('a', 453),
+ ('my', 441),
+ ('in', 399),
+ ('HAMLET', 386)]
+```
+
+## Example output with environment variables
 
 ```bash
 [('CLAUDIUS', 120),
