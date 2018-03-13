@@ -16,9 +16,7 @@ ms.workload: NA
 ms.date: 03/09/2018
 ms.author: dastanfo
 ms.custom: mvc
-
 ---
-
 # Create AWS Infrastructure to host a service fabric cluster
 
 This tutorial is part one of a series.  Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
@@ -27,15 +25,12 @@ In part one of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Create a set of EC2 instances
-> * VPC?
 > * Security Groups?
 > * Login to one of the instances
 
 ## Prerequisites
 
-In order to complete this tutorial you need an AWS account and method to make an RDP connection.
-
-## Create a VPC
+In order to complete this tutorial you need an AWS account and a method to make an RDP connection.
 
 ## Create an EC2 instance
 
@@ -73,10 +68,12 @@ Check to ensure all the settings are as desired.
 Change the drop down to proceed with out a key pair, in this case we do not need a key to retrieve the password, as we are setting it in the user data script.'
 ![AWS keypair selection][aws-keypair]
 **Click Launch Instances**
-
+**Click View Instances**
 
 ## Connect to an instance and validate inter-connectivity
-**Click View Instances**
+
+click in one of the checkboxes next to the instance list
+
 ![Download Remote Desktop File][aws-rdp]
 
 ## Next steps
