@@ -28,7 +28,10 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 ## Define your Kubernetes cluster configuration
 1. Download the [sample acs-engine apimodel.json` for Kubernetes 1.8](https://raw.githubusercontent.com/Azure/acs-engine/master/examples/kubernetes-releases/kubernetes1.8.json).
 
-    > Note: Only use Kubernetes version 1.8 or greater to if you intend to use Azure Files with Azure Government.
+    > [!NOTE]
+    > Only use Kubernetes version 1.8 or greater to if you intend to use Azure Files with Azure Government.
+    >
+    >
 
 1. Modify the following values in your `apimodel.json` file:
     * `dnsPrefix`: The dns name you want for the cluster. For example, `contoso` will result in `https://contoso.usgovvirginia.cloudapp.usgovcloudapi.net`
@@ -61,7 +64,10 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 
     Alternatively, you can replace your kubectl config file for your configuration to persist across sessions. 
     
-    > WARNING: Any existing configurations will be replaced.
+    > [!WARNING]
+    > Any existing configurations will be replaced.
+    >
+    >
 
     ```bash
     cp $(pwd)/_output/<DNS-PREFIX>/kubeconfig/kubeconfig.usgovvirginia.json ~/.kube/config
