@@ -74,6 +74,8 @@ You can also use a dark color scheme for the buttons.
 
 ![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
+To download these images for use in your app, right-click the one you want to use, and save it to your computer. 
+
 ## Branding Do’s and Don’ts
 **DO** use “work or school account” in combination with the "Sign in with Microsoft" button to provide additional explanation to help end-users recognize whether they can use it. **DON’T** use other terms such as “enterprise account”, “business account” or “corporate account.”
 
