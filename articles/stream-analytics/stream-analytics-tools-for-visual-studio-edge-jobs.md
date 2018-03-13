@@ -71,23 +71,8 @@ Stream Analytic jobs deployed in the Edge environments support most of [Stream A
 
 |**Category**  | **Command**  |
 |---------|---------|
-|Geospatial operators |    <ul>
-  <li>CreatePoint</li>
-  <li>CreatePolygon</li>
-  <li>CreateLineString</li>
-  <li>ST_DISTANCE</li>
-  <li>ST_WITHIN</li>
-  <li>ST_OVERLAPS</li>
-  <li>ST_INTERSECTS</li>
-</ul>     |
-|Other operators | <ul>
-  <li>PARTITION BY</li>
-  <li>TIMESTAMP BY OVER</li>
-  <li>DISTINCT</li>
-  <li>Expression parameter in the COUNT operator</li>
-  <li>Microsecond in DATE and TIME functions</li>
-  <li>JavaScript UDA (this feature is still in preview for jobs deployed in the cloud)</li>
-</ul>         |
+|Geospatial operators |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
+|Other operators | <ul><li>PARTITION BY</li><li>TIMESTAMP BY OVER</li><li>DISTINCT</li><li>Expression parameter in the COUNT operator</li><li>Microsecond in DATE and TIME functions</li><li>JavaScript UDA (this feature is still in preview for jobs deployed in the cloud)</li></ul>   |
 
 When you create an Edge job in the portal, the compiler will automatically warn you if you are not using a supported operator.
 
