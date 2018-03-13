@@ -110,11 +110,11 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **SampleDW** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **sample-svr.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open the server settings, click the server name.
 
     ![find server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
-3. Click the server name to open server settings.
+3. To open the server settings, click the server name.
 
     ![server settings](media/load-data-wideworldimportersdw/server-settings.png) 
 
@@ -122,7 +122,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
     ![server firewall rule](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4.  To add your current IP address to a new firewall rule, click **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
 5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
@@ -154,8 +154,8 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
     | Setting      | Suggested value | Description | 
     | ------------ | --------------- | ----------- | 
     | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | The name should be something like this: **sample-svr.database.windows.net**. |
-    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+    | Server name | The fully qualified server name | For example, **sample-svr.database.windows.net** is a fully qualified server name. |
+    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
     | Login | The server admin account | This is the account that you specified when you created the server. |
     | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
@@ -173,17 +173,17 @@ The server admin account is meant to perform management operations, and is not s
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
-Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class. 
+Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC60**. Then assign the user to the **staticrc60** resource class. 
 
 1.  In SSMS, right-click **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
     ![New query in master](media/load-data-wideworldimportersdw/create-loader-login.png)
 
-2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC20, substituting your own password for 'a123STRONGpassword!'. 
+2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC60, substituting your own password for 'a123STRONGpassword!'. 
 
     ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+    CREATE LOGIN LoaderRC60 WITH PASSWORD = 'a123STRONGpassword!';
+    CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     ```
 
 3. Click **Execute**.
@@ -192,10 +192,10 @@ Since you are currently connected as the server admin, you can create logins and
 
     ![New query on sample data warehouse](media/load-data-wideworldimportersdw/create-loading-user.png)
  
-5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named LoaderRC60 for the LoaderRC60 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc60 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC60;
+    CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC60;
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
@@ -204,13 +204,13 @@ Since you are currently connected as the server admin, you can create logins and
 
 ## Connect to the server as the loading user
 
-The first step toward loading data is to login as LoaderRC20.  
+The first step toward loading data is to login as LoaderRC60.  
 
 1. In Object Explorer, click the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
     ![Connect with new login](media/load-data-wideworldimportersdw/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter **LoaderRC60** as the Login.  Enter your password for LoaderRC60.
 
 3. Click **Connect**.
 
