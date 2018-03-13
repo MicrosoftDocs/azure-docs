@@ -72,7 +72,9 @@
   - name: Correct spelling with Bing Spell Check API v7
     href: luis-tutorial-bing-spellcheck.md
 - name: Samples
-  href: https://github.com/Microsoft/LUIS-Samples
+  items:
+  - name: Code samples
+    href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
   - name: Authoring cycle
