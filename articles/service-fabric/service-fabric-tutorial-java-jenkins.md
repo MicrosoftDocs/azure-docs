@@ -178,11 +178,11 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 5. In Service Fabric Explorer, click on the **Applications** dropdown. To see the status of your upgrade, click on the **Upgrades in Progress** tab.
 
-![Upgrade in progress](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
+    ![Upgrade in progress](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
 6. If you access **http://\<Host-IP>:8080**  the Voting application with full functionality is now up and running. 
 
-![Voting App Local](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
+    ![Voting App Local](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 
 ## Next steps
 In this tutorial, you learned how to:
