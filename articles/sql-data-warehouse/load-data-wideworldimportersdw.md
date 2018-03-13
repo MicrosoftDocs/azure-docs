@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
-description: This tutorial uses the Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from Azure blob storage to Azure SQL Data Warehouse. 
+description: This tutorial uses the Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
 author: ckarst
@@ -23,7 +23,7 @@ ms.reviewer: barbkess
 
 # Tutorial: Load data to Azure SQL Data Warehouse
 
-This tutorial loads the WideWorldImportersDW data warehouse from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
+This tutorial loads the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -1016,7 +1016,7 @@ This section creates the wwi.dimension_Date and wwi.fact_Sales tables. It also c
 Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
 
 
-1. Run is procedure to seed the [wwi].[seed_Sale] with more rows.
+1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]
