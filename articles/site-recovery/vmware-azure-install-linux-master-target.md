@@ -160,7 +160,7 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
     ![Open configuration parameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
-The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
+    The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
 
 5. See whether a row with **disk.EnableUUID** already exists.
 
