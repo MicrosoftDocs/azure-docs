@@ -71,9 +71,9 @@ After verifying that the Microsoft peering is configured and the prefixes you wi
   * [Delete Azure public peering using Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Delete Azure public peering using CLI](howto-routing-cli.md#deletepublic)
   
-  ## <a name="view"></a>5. View peerings
+## <a name="view"></a>5. View peerings
   
-  You can see a list of all ExpressRoute circuits and peerings in the Azure portal. For more information, see [View Microsoft peering details](expressroute-howto-routing-portal-resource-manager.md#getmsft).
+You can see a list of all ExpressRoute circuits and peerings in the Azure portal. For more information, see [View Microsoft peering details](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
 ## Next steps
 
