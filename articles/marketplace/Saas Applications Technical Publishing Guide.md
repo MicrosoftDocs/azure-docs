@@ -3,7 +3,7 @@ title: SaaS Applications Technical Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter:
-author: v-brela
+author:
 manager: 
 editor: v-brela
 
