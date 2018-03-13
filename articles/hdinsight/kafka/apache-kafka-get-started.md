@@ -54,7 +54,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
    
  ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
+3. Use the __Next__ button to finish basic configuration.
 
 4. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
 
