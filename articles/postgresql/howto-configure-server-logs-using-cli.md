@@ -42,5 +42,5 @@ Use the following example to download the specific log file for the server **myd
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
 ## Next steps
-- To learn more about server logs, see [Server Logs in Azure Database for PostgreSQL](concepts-server-logs.md).
+- To learn more about server logs, see [Server logs in Azure Database for PostgreSQL](concepts-server-logs.md).
 - For more information on server parameters, see [Customize server configuration parameters using Azure CLI](howto-configure-server-parameters-using-cli.md).
