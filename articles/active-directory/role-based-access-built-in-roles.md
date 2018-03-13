@@ -1362,7 +1362,7 @@ Can manage virtual machines but not the virtual network or storage account to wh
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Creates Protection Policy |
 | Microsoft.RecoveryServices/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
-| Microsoft.RecoveryServices/Vaults/usages/read | Read Any Vault Usages |
+| Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
