@@ -251,7 +251,7 @@
   - name: Manage
     items: 
     - name: Manage logic apps - Visual Studio
-      href: logic-apps-manage-from-vs.md
+      href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
   - name: Deploy
