@@ -1,116 +1,102 @@
 ---
 title: Manage API version profiles in Azure Stack | Microsoft Docs
-description: Learn about API version profiles in Azure Stack
+description: Learn about API version profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 6B749785-DCF5-4AD8-B808-982E7C6BBA0E
+ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 09/25/2017
 ms.author: mabrigg
+ms.reviewer: 
 
 ---
 
 # Manage API version profiles in Azure Stack
 
-The API feature of Azure App Service version profiles provides a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific, dated profile version, such as **2017-03-09-profile**, and Azure supports the *latest* API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-## Install the PowerShell module required to use API version profiles
+Profiles specify a combination of resource provider for the resource types and the API version for Azure Platform REST endpoints to be contacted by clients created in different languages.
 
-The **AzureRM.Bootstrapper** module that's available through the PowerShell Gallery provides PowerShell cmdlets that are required to work with API version profiles. Use the following cmdlet to install the **AzureRM.Bootstrapper** module:
+## Azure Resource Manager API Profiles
 
-```PowerShell
-Install-Module -Name AzureRm.BootStrapper
-```
-The **AzureRM.Bootstrapper** module is a preview, so the details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
+You can use profiles to specify a set of resource providers and API versions. Instead of specifying individual API-versions for each individual resource provider, you can align the application to a profile. The SDK, or a tool built with the SDK, will revert to the target api-version specified in the profile. With API profiles, you can can specify a profile version that applies to an entire template and, at runtime, the Azure Resource Manager (ARM) selects the right version of the resource.
 
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
+API profiles work with tools that use ARM, such as PowerShell, Azure CLI, code provided in the SDK, and Microsoft Visual Studio. Tools and SDKs can use profiles to read which version of the modules and libraries to include when building an application.
 
-## Install a profile
+For example, if use PowerShell to create a storage account using the Microsoft.Storage resource provider which supports api-version 2016-03-30 and a VM using the Microsoft.Compute resource provider with api-version 2015-12-01, you would need to look up  which PowerShell Module supports 2016-03-30 for Storage and which Module supports 2015-02-01 for Compute and install them. Instead, you can use a profile. Use the cmdlet **Install-Profile *profilename***, and PowerShell loads the right version of the modules.
 
-Use the **Install-AzureRmProfile** cmdlet with the **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. 
+Similarly, when using the Python SDK to build a Python-based application, you can specify the profile. The SDK will load the right modules for the resource providers that you have specified in your script.
 
->[!NOTE]
->The Azure Stack cloud administrator modules are not installed with this API version profile. The administrator modules should be installed separately as specified in step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+As a developer, you can focus on writing your solution. Rather than researching which api-versions, resource provider, and which cloud will work together, you use a profile and know that your code will work across all clouds that support that profile.
 
-```PowerShell 
-Install-AzureRMProfile -Profile 2017-03-09-profile
-```
-## Install and import modules in a profile
+## Design Principles
 
-Use the **Use-AzureRmProfile** cmdlet to install and import modules that are associated with an API version profile. You can import only one API version profile in a PowerShell session. To import a different API version profile, you must open a new PowerShell session. The **Use-AzureRMProfile** cmdlet runs the following tasks:  
-1. Checks to see if the PowerShell modules associated with the specified API version profile are installed in the current scope.  
-2. Downloads and installs the modules if they are not already installed.   
-3. Imports the modules into the current PowerShell session. 
+<Summary>
 
-```PowerShell
-# Installs and imports the specified API version profile into the current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
+### Which services get defined in a profile?
 
-# Installs and imports the specified API version profile into the current PowerShell session without any prompts.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
-```
+The list of services that will be defined in a profile going forward is a union of the below sets
 
-To install and import selected AzureRM modules from an API version profile, run the **Use-AzureRMProfile** cmdlet with the *Module* parameter:
+1. Azure Ring 0 services
+2. Services that ship on Azure Stack that do not belong in #1
 
-```PowerShell
-# Installs and imports the Compute, Storage, and Network modules from the specified API version profile into your current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
-```
+### Will profiles be defined at Azure Cadence or Azure Stack cadence? – 
 
-## Get the installed profiles
+We should decouple profile definitions from any one cloud’s cadence. We should agree on defining profiles on a consistent, predictable cadence of its own that will benefit customers.
 
-Use the **Get-AzureRmProfile** cmdlet to get the list of available API version profiles: 
+To get started, we will define profiles four times a year corresponding to our Sprint planning cycles Eg: For 2018, we will define a profile for Scandium and one for Titanium. We will announce said profiles during our major conferences in the year - Build and Ignite.
 
-```PowerShell
-# Lists all API version profiles provided by the AzureRM.BootStrapper module.
-Get-AzureRmProfile -ListAvailable 
+Defining them too often will make them as complicated as API-versions and defining them to sparsely will cause a drift in tooling support and will become an overhead and not provide any customer value.
 
-# Lists the API version profiles that are installed on your machine.
-Get-AzureRmProfile
-```
-## Update profiles
+### What Profiles will be available for the developers to use? 
 
-Use the **Update-AzureRmProfile** cmdlet to update the modules in an API version profile to the latest version of modules that are available in the PowerShell Gallery. We recommend that you run the **Update-AzureRmProfile** cmdlet in a new PowerShell session to avoid conflicts when you import modules. The **Update-AzureRmProfile** cmdlet runs the following tasks:
+The concept of API Profiles was created to make it easier for our developers to write automation and create templates that would work across many Azure Clouds. This concept evolved to also address the need of our developers for a varying degree of compatibility and stability. The naming schema for profiles is 'latest,' 'yyyy-mm-dd-hybrid,'yy-mm-dd-Profile.' 
 
-1. Checks to see if the latest versions of the modules are installed in the given API version profile for the current scope.  
-2. Prompts you to install the modules if they are not already installed.  
-3. Installs and imports the updated modules into the current PowerShell session.  
+### Latest 
 
-```PowerShell
-Update-AzureRmProfile -Profile 2017-03-09-profile
-```
+The 'latest' API Profile is for developers whom would like to target the most recent API versions released in Azure. 
 
-To remove the previously installed versions of the modules before you update to the latest available version, use the **Update-AzureRmProfile** cmdlet along with the *-RemovePreviousVersions* parameter:
+#### YYYY-MM-DD-Hybrid 
 
-```PowerShell 
-Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
-```
+This Profile will be available for a developer who seek consistency and stability across the multiple clouds. The API versions in this profile will reflect compatibility with Azure Stack and as such, code written against this profile will work as-is across the various Azure clouds.
 
-This cmdlet runs the following tasks:  
+The ‘-hybrid’ profiles will be coined at the two ecosystem wide milestones every year: //build and Ignite.
 
-1. Checks to see if the latest versions of the modules are installed in the given API version profile for the current scope.  
-2. Removes the older versions of the modules from the current API version profile and in the current PowerShell session.  
-3. Prompts you to install the latest version of the modules.  
-4. Installs and imports the updated modules into the current PowerShell session.  
- 
-## Uninstall profiles
+#### YYYY-MM-DD-Profile 
 
-Use the **Uninstall-AzureRmProfile** cmdlet to uninstall the specified API version profile:
+This Profile version sits between the optimal compatibility and stability of “-hybrid” and the cutting edge of “latest”. The main objective of this profile is to handle breaking changes in tooling. We will coin such profile a couple of times a year, intermittently with the “-hybrid” profile.
 
-```PowerShell 
-Uninstall-AzureRmProfile -Profile 2017-03-09-profile
-```
+### What is the next profile?
+
+| Resource Provider                 | 2018-03-01-hybrid (scandium)                        |
+|-----------------------------------|-----------------------------------------------------|
+| Microsoft.Compute                 | 2017-03-30                                          |
+| Microsoft.Network                 | 2015-06-15                                          |
+| VPN Gateway will be 2017-03-01    |                                                     |
+| Microsoft.Storage (Data Plane)    |                                                     |
+| Microsoft.Storage (Control Plane) | 2017-04-17                                          |
+| 2016-01-01                        |                                                     |
+| Microsoft.Websites                | 2016-08-01 which is the latest (as of now) in Azure |
+| Microsoft.KeyVault                | 2016-10-01 (Not changing)                           |
+ 
+
+## Public Facing, External Documentation
+
+### Problems that exist today with Hybrid App development
+
+-	When building hybrid applications, developers often run into the problem of different API versions being supported across different clouds. In fact, different namespaces (et: Compute, Network, Storage) within the same cloud support resource types that are at a different api-version from one another.
+-	At an ARM Template level, knowing and specifying individual API versions for individual resources is complicated. Adding to that when the template is deployed to another cloud, identifying if the api-versions per resources type will be supported in the second cloud is a complicated task.
+-	At an SDK level, finding the right version of these APIs across each namespace and finding the right libraries/modules to be able to write the application and re-compiling them to fit each cloud is a pain stacking and time-consuming process.
+While using tools such as Azure PowerShell, CLI etc.., being able to know and import the right versions of the Modules for each namespace for each cloud is a painstaking process as well.
 
 ## Next steps
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)  
+* [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)  

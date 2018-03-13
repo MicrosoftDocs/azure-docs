@@ -1,6 +1,6 @@
 ---
-title: Using API version profiles in Azure Stack | Microsoft Docs
-description: Learn about API version profiles in Azure Stack.
+title: Using API version profiles with PowerShell in Azure Stack | Microsoft Docs
+description: Learn about using API version profiles with PowerShell in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -18,7 +18,7 @@ ms.author: mabrigg
 
 ---
 
-# Manage API version profiles in Azure Stack
+# Use API version profiles for PowerShell in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
