@@ -82,7 +82,7 @@ You can use the Azure CosmosDB Table Library in any type of .NET application, in
 ### Use NuGet to install the required packages
 There are three packages you need to reference in your project to complete this tutorial:
 
-* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Azure Storage Common Library for .NET (8.6.0-preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
 * [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
@@ -160,7 +160,7 @@ Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.Storage; // Namespace for StorageAccounts
 using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 

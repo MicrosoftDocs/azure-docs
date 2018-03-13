@@ -58,8 +58,8 @@ During preview, Vnet service endpoints feature is supported for specific regions
 
 1. Open [Azure portal](https://portal.azure.com/).
 Log in to Azure using your Azure account. If you don't have an Azure account, you can sign up for a free trial. The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
-2. Click +New > Networking > Virtual network > +Add.
-3. On "Create virtual network", enter the following values, and then click Create:
+2. Click **Create a resource** > **Networking** > **Virtual network** > **+Add**.
+3. On "Create virtual network", enter the following values, and then click **Create**:
 
 Setting | Value
 ------- | -----
@@ -227,7 +227,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## Azure CLI
 
 Set-up pre-requisites:
-- Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- Log in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions. For more information about logging in, see [Get Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
  - The account must have the necessary [permissions](#provisioning) to create a virtual network and service endpoint.
 
  For full list of commands for virtual networks, see [Azure CLI Virtual Network commands](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)

@@ -189,7 +189,7 @@ You can host native Linux applications in the cloud by using Azure Web Apps. To 
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create a Linux App Service plan
 
@@ -233,7 +233,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
 > [!NOTE]
-> Deploying from a Private Docker Registry? See the optional instructions to [Configure Web App to use Docker container from a Private Registry](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
+> Deploying from a Private Docker Registry? See the optional instructions to [Use a Docker image from any private registry](#use-a-docker-image-from-any-private-registry-optional).
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 

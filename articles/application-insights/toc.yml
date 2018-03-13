@@ -121,6 +121,10 @@
         href: app-insights-configuration-with-applicationinsights-config.md
       - name: Snapshot Debugger
         href: app-insights-snapshot-debugger.md
+    - name: ASP.NET Core
+      items:
+      - name: Profiler for Linux App services
+        href: app-insights-profiler-aspnetcore-linux.md
     - name: J2EE
       items:
       - name: Log traces
@@ -192,6 +196,8 @@
         href: app-insights-usage-segmentation.md
       - name: Funnels
         href: usage-funnels.md
+      - name: Impact
+        href: app-insights-usage-impact.md
       - name: Retention
         href: app-insights-usage-retention.md
       - name: User Flows
@@ -244,7 +250,7 @@
         - name: Export to SQL using Stream Analytics
           href: app-insights-code-sample-export-sql-stream-analytics.md
         - name: Export to Stream Analytics
-          href: app-insights-export-stream-analytics.md         
+          href: app-insights-export-stream-analytics.md
     - name: Export data model
       href: app-insights-export-data-model.md
     - name: Export to Power BI

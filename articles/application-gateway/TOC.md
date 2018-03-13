@@ -1,3 +1,5 @@
+# [Application Gateway Documentation](index.md)
+
 # Overview
 ## [What is Application Gateway?](application-gateway-introduction.md)
 ## [Application Gateway FAQ](application-gateway-faq.md)
@@ -40,8 +42,19 @@
 ## Configure multiple site hosting
 ### [Azure portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Configure redirection
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
+## Configure external redirection
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## Configure internal redirection
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## Configure HTTP to HTTPS redirection
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## Configure URL redirection
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Configure web apps as backend pool members
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
@@ -49,6 +62,7 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Azure Security Center integration](application-gateway-integration-security-center.md)
 ## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Configure end-to-end SSL](application-gateway-end-to-end-ssl-powershell.md)
 ## Troubleshoot
 ### [Troubleshoot errors in Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)

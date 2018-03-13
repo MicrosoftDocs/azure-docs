@@ -1,10 +1,11 @@
 - name: Service Fabric Documentation
-  href: /azure/service-fabric
+  href: index.yml
 - name: Overview
   items:
   - name: What is Service Fabric?
     href: service-fabric-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
@@ -158,7 +159,9 @@
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Reverse proxy diagnostics
-        href: service-fabric-reverse-proxy-diagnostics.md      
+        href: service-fabric-reverse-proxy-diagnostics.md
+      - name: ASP.NET Core
+        href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: Application lifecycle
       href: service-fabric-application-lifecycle.md
       items:
@@ -386,8 +389,8 @@
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Configure reverse proxy for secure communication
       href: service-fabric-reverseproxy-configure-secure-communication.md
-    - name: ASP.NET Core
-      href: service-fabric-reliable-services-communication-aspnetcore.md
+    - name: Build an ASP.NET Core service
+      href: service-fabric-add-a-web-frontend.md
     - name: Configure security
       items:
       - name: Manage application secrets
@@ -579,9 +582,6 @@
       href: service-fabric-sfctl-store.md
   - name: Java API
     href: /java/api/overview/azure/servicefabric
-    items:
-    - name: Java REST client API
-      href: service-fabric-java-rest-api-usage.md
   - name: .NET
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST

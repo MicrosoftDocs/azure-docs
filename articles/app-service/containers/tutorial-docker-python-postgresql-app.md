@@ -23,12 +23,12 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database in Azure
-> * Connect a Python app to MySQL
+> * Connect a Python app to PostgreSQL
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Manage the app in the Azure portal
 
-You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,7 +83,7 @@ This sample repository contains a [Flask](http://flask.pocoo.org/) application.
 ### Run the application
 
 > [!NOTE] 
-> In a later step you simplify this process by building a Docker container to use with the production database.
+> In a later step, you simplify this process by building a Docker container to use with the production database.
 
 Install the required packages and start the application.
 
@@ -125,7 +125,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create an Azure Database for PostgreSQL server
 
@@ -338,7 +338,7 @@ You see two passwords. Make note of the user name and the first password.
 
 ### Upload your Docker container to Azure Container Registry
 
-Log in to your registry. When prompted, supply the password you just retrieved.
+Log in to your registry. When prompted, supply the password you retrieved.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>
