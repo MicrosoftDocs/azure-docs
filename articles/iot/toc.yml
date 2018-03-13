@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: Introduction
-  - name: Solution and technologies portfolio
+  - name: Solutions and technologies portfolio
 - name: IoT Edge
   href: ../iot-edge/index.yml
 - name: IoT Hub 
