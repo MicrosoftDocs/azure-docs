@@ -20,10 +20,13 @@ Trained versions are not automatically available at your app [endpoint](luis-glo
 ## Version ID
 The version ID consists of characters, digits or '.' and cannot be longer than 10 characters.
 
+## Initial version
+The initial version (0.1) is the default active version. 
+
 ## Active version
 To set a version as the active means it is currently edited and tested in the [LUIS][LUIS] website. Set a version as active to access its data, make updates, as well as to test and publish it.
 
-The initial version (0.1) is the default active version unless you set another version as active. The name of the currently active version is displayed in the top, left panel after the app name. 
+The name of the currently active version is displayed in the top, left panel after the app name. 
 
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 
@@ -31,13 +34,12 @@ You publish to either the stage and product slots. Each slot can have a differen
 ## Clone a version
 Clone a version to create a copy of an existing version and save it as a new version. Clone a version to use the same content of the existing version as a starting point for the new version. Once you clone a version, the new version becomes the **active** version. 
 
-## Import a version
-Import a version from a JSON file. Once you import the version, the new version becomes the active version.
+## Import and export a version
+You can import a version at the app level. That version becomes the active version and used the version ID in the version file. You can also import at the version level into an existing app. The new version comes the active version. 
 
-## Export a version
-Export a version to a JSON file. This is the entire definition of the application for this version. The exported file does not contain machine-learned information because the app is retrained after it is imported.
+You can export a version as the app level or you can export a version at the version level. The only different is that the app-level exported version is the currently active version. 
 
-If you export from the **Settings** page, you can choose which version to export. If you export from the **Apps** list page, you export the active version of the app.
+The exported file does not contain machine-learned information because the app is retrained after it is imported.
 
 ## Delete a version
 You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
