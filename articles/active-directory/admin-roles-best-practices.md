@@ -318,7 +318,6 @@ To ensure users’ access is protected in connected applications as well, we rec
 
 The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Office 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](https://docs.microsoft.com/cloud-app-security/siem).
 
-
 ## Stage 4: Continue building defenses to a more proactive security posture
 
 
