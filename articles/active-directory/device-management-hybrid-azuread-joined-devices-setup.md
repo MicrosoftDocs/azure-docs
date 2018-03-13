@@ -76,6 +76,7 @@ Make sure that the following URLs are accessible from computers inside your orga
 
 If your organizations requires access to the Internet via an outbound proxy, must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
 
+If your organization uses managed (non-federated) setup with on-premises AD and does not use ADFS to federate with Azure AD, then hybrid Azure AD join on Windows 10 relies on the computer objects in AD to be sync'ed to Azure AD. Make sure that any Organizational Units (OU) that contain the computer objects that need to be hybrid Azure AD joined are enabled for sync in the Azure AD Connect sync configuration.
 
 ## Configuration steps
 
