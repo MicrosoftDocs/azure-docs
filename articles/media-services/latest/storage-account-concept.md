@@ -23,11 +23,11 @@ When creating a Media Services account, you need to supply the ID of an Azure St
 
 ### Primary
 
-Media Services relies on tables and queues as well as blobs to store [assets](assets-concept.md) and metadata. Therefore, the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). 
+Media Services relies on tables and queues as well as blobs to store [assets](assets-concept.md) and metadata. The primary storage account can only be General Purpose v1. 
 
 ### Secondary
 
-Blob-only storage accounts can be added as secondary storage accounts.
+Blob-only storage accounts can be added as secondary storage accounts. The secondary storage account can be General Purpose v1 or v2. 
 
 ## Next steps
 
