@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/13/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -148,7 +148,13 @@ The output includes the core properties of your container, along with deployment
 
 ## Common deployment issues
 
-There are a few common issues that account for most errors in deployment.
+The following sections describe common issues that account for most errors in container deployment:
+
+* [Image version not supported](#image-version-not-supported)
+* [Unable to pull image](#unable-to-pull-image)
+* [Container continually exits and restarts](#container-continually-exits-and-restarts)
+* [Container takes a long time to start](#container-takes-a-long-time-to-start)
+* ["Resource not available" error](#resource-not-available-error)
 
 ## Image version not supported
 
@@ -238,24 +244,39 @@ The Container Instances API includes a `restartCount` property. To check the num
 
 ## Container takes a long time to start
 
+The two primary factors that contribute to container startup time in Azure Container Instances are:
+
+* [Image size](#image-size)
+* [Image location](#image-location)
+
+Windows images have [additional considerations](#windows-images).
+
+### Image size
+
 If your container takes a long time to start, but eventually succeeds, start by looking at the size of your container image. Because Azure Container Instances pulls your container image on demand, the startup time you experience is directly related to its size.
 
-You can view the size of your container image using the Docker CLI:
+You can view the size of your container image by using the `docker images` command in the Docker CLI:
 
-```bash
-docker images
-```
-
-Output:
-
-```bash
-REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
+```console
+$ docker images
+REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
+microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 ```
 
 The key to keeping image sizes small is ensuring that your final image does not contain anything that is not required at runtime. One way to do this is with [multi-stage builds][docker-multi-stage-builds]. Multi-stage builds make it easy to ensure that the final image contains only the artifacts you need for your application, and not any of the extra content that was required at build time.
 
-The other way to reduce the impact of the image pull on your container's startup time is to host the container image using the Azure Container Registry in the same region where you intend to use Azure Container Instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
+### Image location
+
+The other way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend deploy Azure container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
+
+### Use recent Windows images
+
+Azure Container Instances uses a caching mechanism to help speed container startup time for images based on certain Windows images.
+
+To ensure the fastest Windows container startup time, use one of the **three most recent** versions of the following **two images** as the base image:
+
+* [Windows Server 2016][docker-hub-windows-core] (LTS only)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ## Resource not available error
 
@@ -272,6 +293,8 @@ This error indicates that due to heavy load in the region in which you are attem
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
+[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az_container_attach
