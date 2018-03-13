@@ -79,9 +79,9 @@
   items:
   - name: Author App
     items: 
-      name: Authoring cycle
+    - name: Authoring cycle
       href: luis-concept-app-iteration.md 
-      name: Versioning
+    - name: Versioning
       href: luis-concept-version.md
   - name: Design Model 
     items:
