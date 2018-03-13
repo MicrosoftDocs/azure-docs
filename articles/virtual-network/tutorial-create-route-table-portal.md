@@ -189,7 +189,7 @@ You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Do 
     ```
     
     Restart the VM, which also disconnects the remote desktop session.
-8. While still connected to the *myVmPrivate* VM , create a remote desktop session to the *myVmPublic* VM with the following command, after the *myVmNva* VM restarts:
+8. While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM with the following command, after the *myVmNva* VM restarts:
 
     ``` 
     mstsc /v:myVmPublic
@@ -220,8 +220,8 @@ You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Do 
     ```
       
     You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
-10.  Close the remote desktop session to the *myVmPublic* VM , which leaves you still connected to the *myVmPrivate* VM .
-11. To test routing of network traffic to the *myVmPublic* VM  from the *myVmPrivate* VM , enter the following command from a command prompt:
+10.  Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
+11. To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt:
 
     ```
     tracert myVmPublic
