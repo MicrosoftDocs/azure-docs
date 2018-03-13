@@ -130,7 +130,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 
 #### Safari (Mac OS)
 
-Ensure that the machine running the Mac OS is joined to Azure AD. For instructions on joining Azure AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Ensure that the machine running the Mac OS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### Google Chrome (all platforms)
 
