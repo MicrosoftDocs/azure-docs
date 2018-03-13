@@ -22,8 +22,9 @@
 ### Virtual machine scale sets
 #### [Create a scale set in an Availability Zone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Load balancer
-#### [What is Load balancer?](../load-balancer/load-balancer-standard-overview.md)
+### Load Balancer
+#### [What is Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
+#### [Load Balancer Standard and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Create a zone redundant Public Load Balancer Standard with Azure portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Create a zone redundant Load Balancer Standard with PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Create a zone redundant Public Load Balancer Standard with CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
