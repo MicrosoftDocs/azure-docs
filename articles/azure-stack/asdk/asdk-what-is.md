@@ -33,9 +33,9 @@ Watch this short video to learn more about the ASDK:
 
 ### Who should be interested in the ASDK?
 The ASDK is designed to provide:
-- An Azure-consistent hybrid cloud experience
-- Administrators (Azure Stack Operators) a way to evaluate and demonstrate Azure Stack services
-- Developers a way to develop hybrid or modern applications on-premises (dev/test environments)
+- An Azure-consistent hybrid cloud experience.
+- Administrators (Azure Stack Operators) a way to evaluate and demonstrate Azure Stack services.
+- Developers a way to develop hybrid or modern applications on-premises (dev/test environments).
 
 ### Why is the ASDK important?
 The ASDK provides the following benefits to Azure Stack Operators:
@@ -52,7 +52,7 @@ The ASDK differs from multi-node Azure Stack deployments in a few ways.
 
 - **Networking**. The ASDK uses a BGPNAT VM (which does not exist in multi-node deployments) to route ASDK network traffic. THe BGPNAT VM acts as an edge router and provides NAT and VPN capabilities for Azure Stack. So, with the ASDK, there are no switch requirements because all network traffic goes through the development kit host computer network interface card (NIC) and network or domain-specific VMs installed as part of the ASDK.  
 
-- **Patch and update process**. ASDK deployments do not have a patch and update process like production, multi-node Azure Stack deployments. To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer. Perform proper backup of development workloads and infrastructure-as-code artifacts
+- **Patch and update process**. ASDK deployments do not have a patch and update process like production, multi-node Azure Stack deployments. To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer. Perform proper backup of development workloads and infrastructure-as-code artifacts.
 
 ## Learn about available services
 You need to know which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve over time.
