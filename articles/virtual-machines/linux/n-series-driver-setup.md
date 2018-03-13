@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 03/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -104,12 +104,12 @@ sudo reboot
   
   sudo reboot
 
-2. Install the latest Linux Integration Services for Hyper-V.
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
  
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
  
   cd LISISO
  
@@ -253,12 +253,12 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
   blacklist lbm-nouveau
   ```
  
-3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
+3. Reboot the VM, reconnect, and install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
+  wget https://aka.ms/lis
 
-  tar xvzf lis-rpms-4.2.4.tar.gz
+  tar xvzf lis
 
   cd LISISO
 

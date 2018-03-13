@@ -1069,7 +1069,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/vs-azure-tools-remote-desktop-roles.md",
+            "source_path": "articles/vs-azure-tools-connected-services-add-active-directory.md",
+            "redirect_url": "/azure/active-directory/develop/vs-active-directory-add-connected-service",
+            "redirect_document_id": false
+        },
+	{
+	    "source_path": "articles/vs-azure-tools-remote-desktop-roles.md",
             "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-visual-studio",
             "redirect_document_id": false
         },        
@@ -12905,6 +12910,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/storage-java-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-nodejs-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-php-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-python-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-ruby-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-how-to-use-blobs-powershell.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-how-to-use-blobs-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-government/documentation-government-services-intelligenceandanalytics.md",
             "redirect_url": "/azure/azure-government/documentation-government-services-dataandanalytics",
             "redirect_document_id": false
@@ -17447,6 +17487,11 @@
         "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
         "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
         "redirect_document_id": false
-   }
+   },
+   {
+        "source_path": "articles/security-center/security-center-integrating-alerts-with-log-integration.md",
+        "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
+        "redirect_document_id": false
+    }
    ]
 }
