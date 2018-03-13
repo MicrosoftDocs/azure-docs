@@ -63,6 +63,8 @@ Before beginning, verify that you have an Azure subscription. If you don't alrea
 
 Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. The gateway services use the IP addresses specified in the gateway subnet. If possible, create a gateway subnet using a CIDR block of /28 or /27 to provide enough IP addresses to accommodate additional future configuration requirements.
 
+Note: If you get stuck in a loop of the following errors, double check the address space for your virtual network. You may need to create an additional address space for your vnet. Error loop: "The specified address space overlaps with subnet..." and "Your subnet is not contained within the address space for this virtual network"
+
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-p2s-rm-portal-include.md)]
 
 ## <a name="dns"></a>3. Specify a DNS server (optional)
