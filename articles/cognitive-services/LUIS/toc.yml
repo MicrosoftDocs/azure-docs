@@ -72,11 +72,7 @@
   - name: Correct spelling with Bing Spell Check API v7
     href: luis-tutorial-bing-spellcheck.md
 - name: Samples
-  items:
-  - name: Azure CLI 2.0
-    href: https://aka.ms/az-cli-cognitiveservices
-  - name: Code samples
-    href: https://github.com/Microsoft/LUIS-Samples
+  href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
   - name: Authoring cycle
@@ -156,7 +152,11 @@
   - name: Authoring V2 APIs
     href: https://aka.ms/luis-authoring-apis
   - name: Endpoint V2 API
-    href: https://aka.ms/luis-endpoint-apis         
+    href: https://aka.ms/luis-endpoint-apis
+  - name: Azure CLI 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
+  - name: Azure RM PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
     - name: Android
