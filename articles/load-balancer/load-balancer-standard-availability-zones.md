@@ -26,7 +26,7 @@ Azure Load Balancer's Standard SKU supports [Availability Zones](../availability
 
 ## <a name="concepts"></a> Availability Zones concepts applied to Load Balancer
 
-There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance. Load Balancer resources are objects within which you can express how Azure should program its prebuilt multi-tenant infrastructure to achieve the scenario you wish to create.  This is significant in the context of Availability Zones because a single Load Balancer resource can control programming of infrastructure in multiple Availability Zones while a zone-redundant service appears as one resource.
+There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance. Load Balancer resources are objects within which you can express how Azure should program its prebuilt multi-tenant infrastructure to achieve the scenario you wish to create.  This is significant in the context of Availability Zones because a single Load Balancer resource can control programming of infrastructure in multiple Availability Zones while a zone-redundant service appears as one resource from a customer point of view.
 
 A Load Balancer resources functions are expressed as a frontend, a rule, a health probe, and a backend pool definition.
 
