@@ -120,6 +120,10 @@ You can choose to suppress a frontend IP address from being used for outbound co
 
 Normally, this option defaults to _false_ and signifies that this rule programs outbound SNAT for the associated VMs in the backend pool of the load balancing rule.  This can be changed to _true_ to prevent Load Balancer from using the associated frontend IP address for outbound connections for the VM's in the backend pool of this load balancing rule.  And you can also still designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations) as well.
 
+### <a name="az"></a> Availability Zones
+
+When using [Standard Load Balancer with Availability Zones](load-balancer-standard-availability-zones.md), zone-redundant frontends can provide zone-redundant outbound SNAT connections and SNAT programming survives zone failure.  When zonal frontends are used, outbound SNAT connections share fate with the zone they belong to.
+
 ## <a name="snat"></a>Understanding SNAT and PAT
 
 ### <a name="pat"></a>Port masquerading SNAT (PAT)
