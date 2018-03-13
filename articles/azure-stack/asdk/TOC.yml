@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is the Azure Stack Development Kit (ASDK)?
+  - name: What is the ASDK?
     href: asdk-what-is.md
   - name: ASDK release notes
     href: asdk-release-notes.md
