@@ -49,5 +49,5 @@ Use the following example to download the specific log file for the server **myd
 az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-group myresourcegroup --server mydemoserver
 ```
 
-## Next teps
+## Next steps
 - Learn about [server logs in Azure Database for MySQL](concepts-server-logs.md)
