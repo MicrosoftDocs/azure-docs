@@ -74,6 +74,9 @@ The following table provides definitions for the properties of a custom health p
 > If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 > For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>. The port used will be the same port as defined in the back-end HTTP settings.
 
+> [!NOTE]
+> Use the following calculation to determine how many probes to expect per interval. (Backend Servers * Rules = Probes per Interval)
+
 ## Next steps
 After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
