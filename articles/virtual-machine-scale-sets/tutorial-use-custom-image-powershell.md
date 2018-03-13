@@ -107,7 +107,7 @@ New-AzureRmImage -Image $image -ImageName "myImage" -ResourceGroupName "myResour
 
 
 ## Create a scale set from the custom VM image
-Now create a scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) that uses the `-ImageName` parameter to define the custom VM image. In the following example, a scale set and required network resources are created, and uses the custom VM image named *myImage*:
+Now create a scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) that uses the `-ImageName` parameter to define the custom VM image created in the previous step. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -118,7 +118,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicy "Automatic"
+  -UpgradePolicy "Automatic" `
   -ImageName "myImage"
 ```
 
@@ -128,8 +128,10 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Test your scale set
 To see your scale set in action, get the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) as follows:
 
-```azurepowershell-interactive 
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myPublicIPAddress" | Select IpAddress
 ```
 
 Type the public IP address into your web browser. The default IIS web page is displayed, as shown in the following example:
