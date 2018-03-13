@@ -32,8 +32,6 @@ The examples in this article require knowledge of the following concepts and fra
 
 * [moq](https://github.com/moq/moq4) - Mocking framework
 
-* [FluentAssertions](http://fluentassertions.com/) - .NET extension for more natural assertions 
-
 
 ## Base classes for mocking 
 
@@ -114,10 +112,10 @@ Now the `Run` method is called from the unit test:
 
 ```csharp
     // Validate that output is not null
-    result.Headers.RetryAfter.Should().NotBeNull();
+    Assert.NotNull(result.Headers.RetryAfter);
 
     // Validate output's Retry-After header value
-    result.Headers.RetryAfter.Delta.Should().Be(TimeSpan.FromSeconds(10));
+    Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
 After combining all steps, the unit test will have the following code: 
@@ -183,5 +181,3 @@ And the unit test will verify the format of the output:
 > [Learn more about xUnit](http://xunit.github.io/docs/getting-started-dotnet-core)
 
 > [Learn more about moq](https://github.com/Moq/moq4/wiki/Quickstart)
-
-> [Learn more about Fluent Assertions](http://fluentassertions.com/examples.html)
