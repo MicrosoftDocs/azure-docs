@@ -35,14 +35,14 @@ You publish to either the stage and product slots. Each slot can have a differen
 Clone a version to create a copy of an existing version and save it as a new version. Clone a version to use the same content of the existing version as a starting point for the new version. Once you clone a version, the new version becomes the **active** version. 
 
 ## Import and export a version
-You can import a version at the app level. That version becomes the active version and used the version ID in the version file. You can also import at the version level into an existing app. The new version comes the active version. 
+You can import a version at the app level. That version becomes the active version and used the version ID in the "versionId" property of the app file. You can also import at the version level into an existing app. The new version becomes the active version. 
 
-You can export a version as the app level or you can export a version at the version level. The only different is that the app-level exported version is the currently active version. 
+You can export a version at the app level or you can export a version at the version level. The only different is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **Settings** page. 
 
 The exported file does not contain machine-learned information because the app is retrained after it is imported.
 
 ## Delete a version
-You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
+You can delete all versions except the active version. 
 
 ## Collaborators
 The owner and all collaborators have full access to all versions of the app.
