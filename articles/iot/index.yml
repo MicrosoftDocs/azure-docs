@@ -24,13 +24,13 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: ../media/index/portal.svg
+          src: ../media/index/i_portal.svg
           text: Portal
       - image:
           src: ../media/index/logo_powershell.svg
           text: Powershell
       - image:
-          src: ../media/index/cli.svg
+          src: ../media/index/i_cligeneric.svg
           text: Azure CLI
       - image:
           src: ../media/index/logo_net.svg
