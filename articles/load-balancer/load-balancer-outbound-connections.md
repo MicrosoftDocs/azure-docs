@@ -98,7 +98,7 @@ You can combine the scenarios described in the preceding sections to achieve a p
 
 An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you can combine scenarios 1 and 2 for relief. For additional patterns, review [Managing SNAT exhaustion](#snatexhaust).
 
-### <a name="multivipsnat"></a> Multiple frontends for outbound flows
+### <a name="multife"></a> Multiple frontends for outbound flows
 
 #### Load Balancer Basic
 
@@ -193,6 +193,13 @@ Assigning an ILPIP changes your scenario to [Instance Level Public IP to a VM](#
 
 >[!NOTE] 
 >This option is not available for web worker roles.
+
+#### <a name="multifesnat"></a>Use multiple frontends
+
+When using public Standard Load Balancer, you assign [multiple frontend IP addresses for outbound connections](#multife) and [multiply the number of SNAT ports available](#preallocatedports).  You need to create a frontend IP configuration, rule, and backend pool to trigger the programming of SNAT to the public IP of the frontend.  The rule does not need to function and a health probe does not need to succeed.  If you do use multiple frontends for inbound as well, you should use custom health probes well.
+
+>[!NOTE]
+>In most cases, exhaustion of SNAT ports is a sign of bad design.  Make sure you understand why you are exhausting ports before using more frontends to add SNAT ports.  You may be masking a problem which can lead to failure later.
 
 ### <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
 
