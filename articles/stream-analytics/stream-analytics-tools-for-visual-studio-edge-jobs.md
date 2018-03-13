@@ -1,6 +1,6 @@
 ---
 title: Use Stream Analytics Visual Studio tools to set up the continuous integration and deployment process | Microsoft Docs
-description: Tutorial to develop Stream Analytics tools for Visual Studio to author, debug and create your Stream Analytics Edge jobs.
+description: Tutorial to develop Stream Analytics tools for Visual Studio to author, debug, and create your Stream Analytics Edge jobs.
 keywords: visual studio, NuGet, DevOps, Edge jobs, Stream analytics
 documentationcenter: ''
 services: stream-analytics
@@ -21,7 +21,7 @@ ms.author: sujie
 
 # Develop Stream Analytic edge jobs by using Visual Studio tools
 
-In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to author, debug and create your Stream Analytics Edge jobs. After you create and test the job, you can go to the Azure portal to deploy it to your devices. 
+In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to author, debug, and create your Stream Analytics Edge jobs. After you create and test the job, you can go to the Azure portal to deploy it to your devices. 
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ After the project gets created, navigate to the **Solution Explorer** to view th
 
 1. From your Visual Studio **View** menu, select **Server Explorer**.  
 
-2. Rignt click on **Azure** > Select **Connect to Microsoft Azure Subscription** > and then log in with your Azure account.
+2. Right click on **Azure** > Select **Connect to Microsoft Azure Subscription** > and then log in with your Azure account.
 
 ## Define inputs
 
@@ -100,7 +100,7 @@ FROM EdgeInput
 
 ## Test the job locally
 
-You should upload the sample data to test the query locally. Download the Registration data from the [GitHub repository](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) and save it to your local computer. 
+Yo test the query locally, you should upload the sample data. You can get sample data by downloading Registration data from the [GitHub repository](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) and save it to your local computer. 
 
 1. To upload sample data, > right click on **EdgeInput.json** file > choose **Add Local Input**  
 
@@ -123,7 +123,7 @@ You should upload the sample data to test the query locally. Download the Regist
 
 2. To submit the job to Azure, navigate to the query editor > select **Submit to Azure**.  
 
-3. A pop-up window opens, where you can choose to update an existing edge job or create a new one. When you update an existing job, it will replace all the job configuration, in this scenario, we will publish a new job. Select **Create a New Azure Stream Analytics Job** > enter a name for your job something like **MyASAEdgeJob** > choose the required **Subscription**, **Resource Group** and **Location** > Select **Submit**.
+3. A pop-up window opens, where you can choose to update an existing edge job or create a new one. When you update an existing job, it will replace all the job configuration, in this scenario, you will publish a new job. Select **Create a New Azure Stream Analytics Job** > enter a name for your job something like **MyASAEdgeJob** > choose the required **Subscription**, **Resource Group**, and **Location** > Select **Submit**.
 
    ![Submit to Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
  
@@ -146,4 +146,4 @@ The job view window provides you with operations such as refreshing the job, del
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 
 
-
+job-diagram-and-other-options
