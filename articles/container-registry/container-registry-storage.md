@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/14/2018
 ms.author: marsma
 ---
 
@@ -21,7 +21,7 @@ All container images are encrypted at rest using [Storage Service Encryption (SS
 
 ## Geo-redundant storage
 
-Container images are stored using [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Your images are automatically replicated to data centers that are geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to a healthy region for continued access to your images. For even more redundancy, consider using ACR's [geo-replication feature](container-registry-geo-replication.md).
+Container images are stored using [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Your images are automatically replicated to data centers that are geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to a healthy region for continued access to your images.
 
 ## Capacity limits
 
