@@ -113,7 +113,7 @@ Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (ISCSI) | Yes
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Guest/server VMDK | Yes
-Guest/server EFI/UEFI| Partial (Migration to Azure for Windows Server 2012 and later VMware virtual machines only) </br></br> See note at end of table
+Guest/server EFI/UEFI| Partial (migration to Azure for Windows Server 2012 and later VMware virtual machines only) </br></br> See the note at the end of the table
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 Guest/server NFS | No
@@ -140,13 +140,13 @@ Guest/server multipath (MPIO) | N/A
 
 **Component** | **Supported**
 --- | ---
-LRS | Yes
-GRS | Yes
-RA-GRS | Yes
+Locally redundant storage | Yes
+Geo-redundant storage | Yes
+Read-access geo-redundant storage | Yes
 Cool storage | No
 Hot storage| No
 Block blobs | No
-Encryption at rest (SSE)| Yes
+Encryption at rest (Storage Service Encryption)| Yes
 Premium storage | Yes
 Import/export service | No
 Virtual Network service endpoints<br/><br/> Storage firewalls and virtual networks configured on target storage/cache storage account (used to store replication data) | No
