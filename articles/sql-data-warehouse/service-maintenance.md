@@ -22,7 +22,7 @@ ms.author: anvang
 Learn how to prepare for planned maintenance events on your Azure SQL data warehouse.
 
 ## What is a planned maintenance event?
-A planned maintenance event is a window of time when your data warehouse needs to be offline for a maintenance operation. This event is an opportunity for applying service upgrades, new features, or patches. 
+A planned maintenance event is a window of time when your data warehouse needs to be offline for a maintenance operation. These events are opportunities for applying service upgrades, new features, or patches. 
 
 ## Frequency
 On average, at least one planned maintenance event occurs each month. 
