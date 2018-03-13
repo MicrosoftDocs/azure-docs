@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
-ms.author: shvija;sethm
+ms.author: shvija;sethm;sagrewal
 
 ---
 
@@ -50,11 +50,13 @@ val reader = spark.readStream
   .format("eventhubs")
   .options(ehConf.toMap)
   .load()
+val eventhubs = reader.select($"body" cast "string")
 
-// Select the body column and cast it to a string.
-val eventhubs = reader
-  .select("CAST (body AS STRING)")
-  .as[String]
+// Output using Console Sink
+val query = eventhubs.writeStream
+  .format("console")
+  .outputMode("append")
+query.start().awaitTermintation()
 ```
 The following example code sends events to your event hub with the Spark batch APIs. You can also write a streaming query to send events to the event hub.
 
@@ -67,21 +69,17 @@ import org.apache.spark.sql.functions._
 val connectionString = ConnectionStringBuilder("{EVENT HUB CONNECTION STRING FROM AZURE PORTAL}")
   .setEventHubName("{EVENT HUB NAME}")
   .build
+val ehConf = EventHubsConf(connectionString)
 
-val eventHubsConf = EventHubsConf(connectionString)
-
-// Create a column representing the partitionKey.
-val partitionKeyColumn = (col("id") % 5).cast("string").as("partitionKey")
 // Create random strings as the body of the message.
 val bodyColumn = concat(lit("random nunmber: "), rand()).as("body")
 
 // Write 200 rows to the specified event hub.
-val df = spark.range(200).select(partitionKeyColumn, bodyColumn)
+val df = spark.range(200).select(bodyColumn)
 df.write
   .format("eventhubs")
   .options(eventHubsConf.toMap)
   .save() 
-
 ```
 
 ## Next steps
