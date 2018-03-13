@@ -110,11 +110,11 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **SampleDW** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **sample-svr.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open the server settings, click the server name.
 
     ![find server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
-3. Click the server name to open server settings.
+3. To open the server settings, click the server name.
 
     ![server settings](media/load-data-wideworldimportersdw/server-settings.png) 
 
@@ -122,7 +122,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
     ![server firewall rule](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4.  To add your current IP address to a new firewall rule, click **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
 5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
@@ -154,8 +154,8 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
     | Setting      | Suggested value | Description | 
     | ------------ | --------------- | ----------- | 
     | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | The name should be something like this: **sample-svr.database.windows.net**. |
-    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+    | Server name | The fully qualified server name | For example, **sample-svr.database.windows.net** is a fully qualified server name. |
+    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
     | Login | The server admin account | This is the account that you specified when you created the server. |
     | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
