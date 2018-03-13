@@ -105,7 +105,7 @@ Make a note of the service connection string, which looks like `Hostname=...=`. 
 
 If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-d2c-node.md), you can skip this step.
 
-Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstart-d2c/archive/master.zip and extract the ZIP archive.
+Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts/archive/master.zip and extract the ZIP archive.
 
 ## Run the simulated device application
 
@@ -132,22 +132,22 @@ The following screenshot shows some example output:
 
 The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
 
-In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **back-end-application-2** folder.
+In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **back-end-application** folder.
 
-Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
+Open the **BackEndApplication.js** file in a text editor of your choice.
 
-Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **ReadDeviceToCloudMessages.js** file.
+Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.js** file.
 
 In the terminal window, run the following commands to install the required libraries and run the back-end application:
 
 ```cmd/sh
 npm install
-node ReadDeviceToCloudMessages.js
+node BackEndApplication.js
 ```
 
 The following screenshot shows some example output:
 
-![Run the back-end application](media/quickstart-c2d-node/ReadDeviceToCloud.png)
+![Run the back-end application](media/quickstart-c2d-node/BackEndApplication.png)
 
 ## Clean up resources
 

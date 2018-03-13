@@ -101,7 +101,7 @@ Make a note of the service connection string, which looks like `Hostname=...=`. 
 
 ## Download the sample
 
-Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstart-d2c/archive/master.zip and extract the ZIP archive.
+Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts/archive/master.zip and extract the ZIP archive.
 
 ## Run the simulated device application
 
@@ -128,7 +128,7 @@ The following screenshot shows some example output:
 
 The back-end application connects to the service-side **Events** endpoint on your IoT Hub. The application receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
 
-In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **back-end-application** folder.
+In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **read-d2c-messages** folder.
 
 Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
 
