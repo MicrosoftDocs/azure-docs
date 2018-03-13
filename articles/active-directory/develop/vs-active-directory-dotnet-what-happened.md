@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2018
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
 
@@ -34,38 +34,38 @@ Affects the project file *.NET references) and `packages.config` (NuGet referenc
 
 | Type | Reference |
 | --- | --- |
-| NuGet, .NET | Microsoft.IdentityModel.Protocol.Extensions |
-| NuGet, .NET | Microsoft.Owin |
-| NuGet, .NET | Microsoft.Owin.Host.SystemWeb |
-| NuGet, .NET | Microsoft.Owin.Security |
-| NuGet, .NET | Microsoft.Owin.Security.Cookies |
-| NuGet, .NET | Microsoft.Owin.Security.OpenIdConnect |
-| NuGet, .NET | Owin |
+| .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.Cookies |
+| .NET; NuGet | Microsoft.Owin.Security.OpenIdConnect |
+| .NET; NuGet | Owin |
 | .NET        | System.IdentityModel |
-| NuGet, .NET | System.IdentityModel.Tokens.Jwt |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 | .NET        | System.Runtime.Serialization |
 
 Additional references if you selected the **Read directory data** option:
 
 | Type | Reference |
 | --- | --- |
-| NuGet, .NET | EntityFramework |
+| .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 only) |
-| NuGet, .NET | Microsoft.Azure.ActiveDirectory.GraphClient |
-| NuGet, .NET | Microsoft.Data.Edm |
-| NuGet, .NET | Microsoft.Data.OData |
-| NuGet, .NET | Microsoft.Data.Services.Client |
-| NuGet, .NET | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
 | .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 only) |
-| NuGet, .NET | System.Spatial |
+| .NET; NuGet | System.Spatial |
 
 The following references are removed (ASP.NET 4 projects only, as in Visual Studio 2015):
 
 | Type | Reference |
 | --- | --- |
-| NuGet, .NET | Microsoft.AspNet.Identity.Core |
-| NuGet, .NET | Microsoft.AspNet.Identity.EntityFramework |
-| NuGet, .NET | Microsoft.AspNet.Identity.Owin |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
 
 ## Project file changes
 
@@ -126,11 +126,17 @@ Additional changes if you selected the **Read directory data** option:
 ## Code changes and additions
 
 - Added the `[Authorize]` attribute to `Controllers/HomeController.cs` and any other existing controllers.
+
 - Added an authentication startup class, `App_Start/Startup.Auth.cs`, containing startup logic for Azure AD authentication. If you selected the **Read directory data** option, this file also contains code to receive an OAuth code and exchange it for an access token.
+
 - Added a controller class, `Controllers/AccountController.cs`, containing `SignIn` and `SignOut` methods.
+
 - Added a partial view, `Views/Shared/_LoginPartial.cshtml`, containing an action link for `SignIn` and `SignOut`.
+
 - Added a partial view, `Views/Account/SignoutCallback.cshtml`, containing HTML for sign-out UI.
+
 - Updated the `Startup.Configuration` method to include a call to `ConfigureAuth(app)` if the class already existed; otherwise added a `Startup` class that includes calls the method.
+
 - Added `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) or `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), containing information that Visual Studio uses to track the addition of the connected service.
 
 - If you selected the **Read directory data** option, added `Models/ADALTokenCache.cs` and `Models/ApplicationDbContext.cs` to support token caching. Also added an additional controller and view to illustrate accessing user profile information using Azure graph APIs: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, and `Views/UserProfile/Relogin.cshtml`

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2018
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
 
@@ -34,36 +34,36 @@ Affects the project file *.NET references) and `packages.config` (NuGet referenc
 
 | Type | Reference |
 | --- | --- |
-| NuGet, .NET | Microsoft.Owin |
-| NuGet, .NET | Microsoft.Owin.Host.SystemWeb |
-| NuGet, .NET | Microsoft.Owin.Security |
-| NuGet, .NET | Microsoft.Owin.Security.ActiveDirectory |
-| NuGet, .NET | Microsoft.Owin.Security.Jwt |
-| NuGet, .NET | Microsoft.Owin.Security.OAuth |
-| NuGet, .NET | Owin |
-| NuGet, .NET | System.IdentityModel.Tokens.Jwt |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.ActiveDirectory |
+| .NET; NuGet | Microsoft.Owin.Security.Jwt |
+| .NET; NuGet | Microsoft.Owin.Security.OAuth |
+| .NET; NuGet | Owin |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 
 Additional references if you selected the **Read directory data** option:
 
 | Type | Reference |
 | --- | --- |
-| NuGet, .NET | EntityFramework |
+| .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 only) |
-| NuGet, .NET | Microsoft.Azure.ActiveDirectory.GraphClient |
-| NuGet, .NET | Microsoft.Data.Edm |
-| NuGet, .NET | Microsoft.Data.OData |
-| NuGet, .NET | Microsoft.Data.Services.Client |
-| NuGet, .NET | Microsoft.IdentityModel.Clients.ActiveDirectory |
-| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 only) |
-| NuGet, .NET | System.Spatial |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(Visual Studio 2015 only) |
+| .NET; NuGet | System.Spatial |
 
 The following references are removed (ASP.NET 4 projects only, as in Visual Studio 2015):
 
 | Type | Reference |
 | --- | --- |
-| NuGet, .NET | Microsoft.AspNet.Identity.Core |
-| NuGet, .NET | Microsoft.AspNet.Identity.EntityFramework |
-| NuGet, .NET | Microsoft.AspNet.Identity.Owin |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
 
 ## Project file changes
 
@@ -100,8 +100,11 @@ The following references are removed (ASP.NET 4 projects only, as in Visual Stud
 ## Code changes and additions
 
 - Added the `[Authorize]` attribute to `Controllers/ValueController.cs` and any other existing controllers.
+
 - Added an authentication startup class, `App_Start/Startup.Auth.cs`, containing startup logic for Azure AD authentication, or modified it accordingly. If you selected the **Read directory data** option, this file also contains code to receive an OAuth code and exchange it for an access token.
+
 - (Visual Studio 2015 with ASP.NET 4 app only) Removed `App_Start/IdentityConfig.cs` and added `Controllers/AccountController.cs`, `Models/IdentityModel.cs`, and `Providers/ApplicationAuthProvider.cs`.
+
 - Added `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) or `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), containing information that Visual Studio uses to track the addition of the connected service.
 
 ### File backup (Visual Studio 2015)

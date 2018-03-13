@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2018
+ms.date: 03/12/2018
 ms.author: kraigb
 
 ---
@@ -21,9 +21,9 @@ ms.author: kraigb
 
 By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or Active Directory Authentication in Web API services. With Azure AD Authentication, your users can use their accounts from Azure Active Directory to connect to your web applications. The advantages of Azure AD Authentication with Web API include enhanced data security when exposing an API from a web application. With Azure AD, you do not have to manage a separate authentication system with its own account and user management.
 
-At present, the Active Directory connected service supports only ASP.NET applications but not ASP.NET Core applications.
+This article and its companion articles provide details of using the Visual Studio Connected Service feature for Active Directory. The capability is available in both Visual Studio 2017 and Visual Studio 2015.
 
-This article and its companion articles apply to both Visual Studio 2017 and Visual Studio 2015.
+At present, the Active Directory connected service does not support ASP.NET Core applications.
 
 ## Prerequisites
 
@@ -39,11 +39,9 @@ This article and its companion articles apply to both Visual Studio 2017 and Vis
 
     ![Connected Services page](./media/vs-azure-active-directory/connected-services-add-active-directory.png)
 
-1. On the **Introduction** page, select **Next**.
+1. On the **Introduction** page, select **Next**. If you see errors on this page, refer to [Diagnosing errors with the Azure Active Directory Connected Service](vs-active-directory-error.md).
 
     ![Introduction page](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
-
-    If you see errors on this page, refer to [Diagnosing errors with the Azure Active Directory Connected Service](vs-active-directory-error.md).
 
 1. On the **Single-Sign On** page, select a domain from the **Domain** drop-down list. The list contains all domains accessible by the accounts listed in the Account Settings dialog of Visual Studio (**File > Account Settings...**). As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as `mydomain.onmicrosoft.com`. You can choose the option to create an Azure Active Directory app or use the settings from an existing Azure Active Directory app. Select **Next** when done.
 
