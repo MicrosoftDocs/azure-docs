@@ -32,23 +32,24 @@ The Azure Write Accelerator functionality is available as public preview in:
 - Western Europe
 
 ## Planning for using Azure Write Accelerator
-Azure Write Accelerator should be used for the volumes, which contain the transaction log or redo logs of a DBMS. It is not recommended to use Azure Write Accelerator for the data volumes of a DBMS. Reason to this restriction is that Azure Write Accelerator requires the Azure Premium Storage VHDs to be mounted without the additional read caching that is available for Premium Storage. Larger advantages with this type of caching can be observed with traditional databases. Since Write Accelerator is only affecting the write activities and does not speed up reads, the supported design is to use Write Accelerator against the transaction log drives only for databases. This includes SAP HANA as well.
+Azure Write Accelerator should be used for the volumes, which contain the transaction log or redo logs of a DBMS. It is not recommended to use Azure Write Accelerator for the data volumes of a DBMS. Reason to this restriction is that Azure Write Accelerator requires the Azure Premium Storage VHDs to be mounted without the additional read caching that is available for Premium Storage. Larger advantages with this type of caching can be observed with traditional databases. Since Write Accelerator is only affecting the write activities and does not speed up reads, the supported design for SAP is to use Write Accelerator against the transaction log or redo log drives of SAP supported databases. 
 
 Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Hence, you need to plan accordingly. 
 
-As the functionality of Azure Write Accelerator is still in public preview, no production scenario deployments are supported on the functionality yet.
+>[!NOTE]
+> As the functionality of Azure Write Accelerator is still in public preview, no production scenario deployments are supported on the functionality yet.
 
-There are limits of Azure Premium Storage VHDs per VM that can be supported by Azure Write Accelerator.The current limits are:
+There are limits of Azure Premium Storage VHDs per VM that can be supported by Azure Write Accelerator. The current limits are:
 
 - 16 VHDs for an M128xx VM
 - 8 VHDs for an M64xx VM
 
 > [!IMPORTANT]
-> If you want to enable or disable Azure Write Accelerator for an existing volume that is built up out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out fileserver (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shutdown the Azure VM**. 
+> If you want to enable or disable Azure Write Accelerator for an existing volume that is build out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shut down the Azure VM**. 
 
 
 > [!IMPORTANT]
-> To enable Azure Write Accelerator to an existing Azure disk that is NOT part of a volume build up with Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out fileserver (SOFS), Linux LVM or MDADM, the workload accessing the Azure disk needs to be shut down. Database applications using the Azure disk MUST be shutdown.
+> To enable Azure Write Accelerator to an existing Azure disk that is NOT part of a volume build out of multiple disks with Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM, or MDADM, the workload accessing the Azure disk needs to be shut down. Database applications using the Azure disk MUST be shut down.
 
 > [!IMPORTANT]
 > Enabling Write Accelerator for Azure operating system disk of the VM will reboot the VM. 
@@ -113,7 +114,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 ```
 
-Two main scenarios can be scripted as shown in the following sections..
+Two main scenarios can be scripted as shown in the following sections.
 
 #### Adding  new disk supported by Azure Write Accelerator
 You can use this script to add a new disk to your VM. The disk created with this script is going to use Azure Write Accelerator.
@@ -166,7 +167,7 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 You need to adapt the names of VM, disk, and resource group. The script above adds Write Accelerator to an existing disk is the value for $newstatus is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
 
 > [!Note]
-> Executing the script above will detach the disk specified, enable Write Accelerator against the disk and then attach the disk again
+> Executing the script above will detach the disk specified, enable Write Accelerator against the disk, and then attach the disk again
 
 
 
