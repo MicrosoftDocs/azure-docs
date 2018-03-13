@@ -26,7 +26,7 @@ Azure Log Integration provides customers with an alternative if an [Azure Monito
 > For more information about Azure Monitor, see [Get started with Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md). For more information about the status of an Azure Monitor connector, contact your SIEM vendor.
 
 > [!IMPORTANT]
-> If your primary interest is collecting virtual machine logs, most SIEM vendors include this functionality in their solution. Using the SIEM vendor's connector is always the preferred alternative.
+> If your primary interest is collecting virtual machine logs, most SIEM vendors include this option in their solution. Using the SIEM vendor's connector is always the preferred alternative.
 
 This article helps you get started with Azure Log Integration. It focuses on installing the Azure Log Integration service and integrating the service with Azure Diagnostics. The Azure Log Integration service then collects Windows Event Log information from the Windows Security Event channel from virtual machines deployed in an Azure infrastructure as a service. This is similar to *event forwarding* that you might use in an on-premises system.
 
@@ -56,7 +56,7 @@ At a minimum, installing Azure Log Integration requires the following items:
     * Must have connectivity to the Azure Storage account that's used for Azure Diagnostics logging. Later in this article, we describe how to confirm connectivity.
   * A machine that you want to monitor. This is a VM running as an [Azure virtual machine](../virtual-machines/virtual-machines-windows-overview.md). The logging information from this machine is sent to the Azure Log Integration service machine.
 
-For a quick demonstration of how to create a virtual machine by using the Azure portal, take a look at the following video:
+For a quick demonstration of how to create a virtual machine by using the Azure portal, take a look at the following video:<br /><br />
 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Create-a-Virtual-Machine/player]
@@ -94,7 +94,7 @@ Telemetry data that's collected includes the following:
 ![Screenshot of the installation pane, with the telemetry check box selected](./media/security-azure-log-integration-get-started/telemetry.png)
 
 
-The installation process is covered in the following video:
+The installation process is covered in the following video:<br /><br />
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Install-Azure-Log-Integration/player]
 
@@ -106,7 +106,8 @@ After you complete basic setup, you're ready to perform post-installation and va
 2. Import the Azure Log Integration cmdlets. To import the cmdlets, run the script `LoadAzlogModule.ps1`. Enter `.\LoadAzlogModule.ps1`, and then press Enter (note the use of **.\\** in this command). You should see something like what appears in the following figure:
 
   ![Screenshot of the output of the LoadAzlogModule.ps1 command](./media/security-azure-log-integration-get-started/loaded-modules.png)
-3. Next, configure Azure Log Integration to use a specific Azure environment. An *Azure environment* is the type of Azure cloud datacenter that you want to work with. Although there are several Azure environments, currently, the relevant options are either **AzureCloud** or **AzureUSGovernment**. Running PowerShell as an administrator, make sure that you are in C:\Program Files\Microsoft Azure Log Integration\. Then, run this command: 
+3. Next, configure Azure Log Integration to use a specific Azure environment. An *Azure environment* is the type of Azure cloud datacenter that you want to work with. Although there are several Azure environments, currently, the relevant options are either **AzureCloud** or **AzureUSGovernment**. Running PowerShell as an administrator, make sure that you are in C:\Program Files\Microsoft Azure Log Integration\. Then, run this command:
+
   `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
   
   If you want to use the US Government Azure cloud, use **AzureUSGovernment** for the **-Name** variable. Currently, other Azure clouds aren't supported.  
@@ -182,7 +183,7 @@ To obtain the storage key, complete the following steps:
 > [!NOTE]
 > Wait up to 60 minutes, and then view the events that are pulled from the storage account. To view the events, in Azure Log Integration, select **Event Viewer** > **Windows Logs** > **Forwarded Events**.
 
-The following video covers the preceding steps:
+The following video covers the preceding steps:<br /><br />
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
 
