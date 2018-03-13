@@ -66,7 +66,7 @@ After the project gets created, navigate to the **Solution Explorer** to view th
  
 ## Define the transformation query
 
-Stream Analytic jobs deployed in the Edge environments support most of [Stream Analytics Query Language reference](), however the following operations are not yet supported for edge jobs: 
+Stream Analytic jobs deployed in the Edge environments support most of [Stream Analytics Query Language reference](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396), however the following operations are not yet supported for edge jobs: 
 
 
 
@@ -96,7 +96,7 @@ FROM EdgeInput
 
 ## Test the job locally
 
-You should upload the sample data to test the query locally. Download the Registration data from the [GitHub repository]() and save it to your local computer. 
+You should upload the sample data to test the query locally. Download the Registration data from the [GitHub repository](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) and save it to your local computer. 
 
 1. To upload sample data, > right click on **EdgeInput.json** file > choose **Add Local Input**  
 
@@ -123,7 +123,7 @@ You should upload the sample data to test the query locally. Download the Regist
 
    ![Submit to Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
  
-   Now your Stream Analytics edge job has been created, you can refer to the [Run jobs on IoT edge tutorial]() to learn how to deploy it to your devices. 
+   Now your Stream Analytics edge job has been created, you can refer to the [Run jobs on IoT edge tutorial](stream-analytics-edge.md) to learn how to deploy it to your devices. 
 
 ## Manage the job 
 
@@ -138,7 +138,7 @@ The job view window provides you with operations such as refreshing the job, del
 ## Next steps
 
 * [More information on Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [ASA on IoT Edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [ASA on IoT edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 
 
