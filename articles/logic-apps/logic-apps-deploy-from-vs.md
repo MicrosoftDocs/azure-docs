@@ -291,7 +291,7 @@ Name your logic app, and choose **Add**.
 
 ## Next Steps
 
-* [Manage logic apps with Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
+* [Manage logic apps with Visual Studio Cloud Explorer](manage-logic-apps-with-visual-studio.md)
 * [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
 * [Learn how to automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Learn how to integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

@@ -216,7 +216,7 @@ then save your settings, for example:
 Congratulations, you've now successfully built and 
 deployed your logic app with Visual Studio! 
 To manage your logic app and review its run history, 
-see [Manage logic apps with Visual Studio](../logic-apps/logic-apps-manage-with-visual-studio.md).
+see [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
 ## Clean up resources
 
@@ -249,7 +249,7 @@ To learn more about managing and performing advanced deployment
 for logic apps with Visual Studio, see these articles:
 
 > [!div class="nextstepaction"]
-> [Manage logic apps with Visual Studio](../logic-apps/logic-apps-manage-with-visual-studio.md)
+> [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 >
 > -or-
 >
