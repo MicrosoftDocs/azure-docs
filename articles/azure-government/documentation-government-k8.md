@@ -31,12 +31,12 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
     > Note: Only use Kubernetes version 1.8 or greater to if you intend to use Azure Files with Azure Government.
 
 1. Modify the following values in your `apimodel.json` file:
-    * `dnsPrefix`: The dns name you want for the cluster. For example `contoso` will result in `https://contoso.usgovvirginia.cloudapp.usgovcloudapi.net`
-    * `keyData`: The public SSH key to SSH into the Kubernetes cluster. See [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
-    * `clientId` and `secret`: The client id and secret for the Azure AD service principal that Kubernetes will use to communicate with Azure Government (create load balancers, request public IPs, access Azure storage, etc). See [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+    * `dnsPrefix`: The dns name you want for the cluster. For example, `contoso` will result in `https://contoso.usgovvirginia.cloudapp.usgovcloudapi.net`
+    * `keyData`: The public SSH key to SSH into the Kubernetes cluster. See [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys).
+    * `clientId` and `secret`: The client ID and secret for the Azure AD service principal that Kubernetes uses to communicate with Azure Government (for example, to create load balancers, request public IPs and access Azure storage). See [Create an Azure service principal with Azure CLI 2.0](../cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## Deploy your Kubernetes cluster using acs-engine
-1. Obtain your Subscription ID. You can do this from the Azure portal, using Powershell or via the Azure CLI:
+1. Obtain your Subscription ID. The subscription ID is available in the Azure portal, via Powershell and via the Azure CLI:
 
     Via Azure CLI:
 
@@ -46,10 +46,10 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
     az account list
     ```
 
-1. Use acs-engine to deploy your template to Azure Government. This takes up to 30 minutes for 3 nodes.
+1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for 3 nodes.
 
     ```bash
-    acs-engine deploy --api-model apimodel.my.ignore.json --subscription-id <YOUR_SUB_ID> --location usgovvirginia --azure-env AzureUSGovernmentCloud
+    acs-engine deploy --api-model apimodel.my.ignore.json --subscription-id <YOUR_SUBSCRIPTION_ID> --location usgovvirginia --azure-env AzureUSGovernmentCloud
     ```
 
 ## Connect to your Kubernetes cluster
@@ -59,9 +59,9 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
     export KUBECONFIG=$(pwd)/_output/<DNS-PREFIX>/kubeconfig/kubeconfig.usgovvirginia.json
     ```
 
-    Alternatively, you can replace your kubectl config file with the one in the command above for your configuration to persist across sessions. 
+    Alternatively, you can replace your kubectl config file for your configuration to persist across sessions. 
     
-    > WARNING: This will replace any existing configurations.
+    > WARNING: Any existing configurations will be replaced.
 
     ```bash
     cp $(pwd)/_output/<DNS-PREFIX>/kubeconfig/kubeconfig.usgovvirginia.json ~/.kube/config
