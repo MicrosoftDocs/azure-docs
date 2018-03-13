@@ -1073,7 +1073,8 @@
             "redirect_url": "/azure/active-directory/develop/vs-active-directory-add-connected-service",
             "redirect_document_id": false
         },
-            "source_path": "articles/vs-azure-tools-remote-desktop-roles.md",
+	{
+	    "source_path": "articles/vs-azure-tools-remote-desktop-roles.md",
             "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-visual-studio",
             "redirect_document_id": false
         },        
