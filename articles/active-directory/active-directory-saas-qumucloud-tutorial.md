@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/13/2018
 ms.author: jeedes
 
 ---
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Qumu Cloud Domain and URLs single sign-on information](./media/active-directory-saas-qumucloud-tutorial/tutorial_qumucloud_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.qumucloud.com/saml/SSO`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.qumucloud.com`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Qumu Cloud Client support team](mailto:support@qumu.com) to get these values.
@@ -139,8 +139,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-qumucloud-tutorial/tutorial_attribute_05.png)
 
 	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Keep the **Namespace** textbox blank.
 	
-	d. Click **Ok**.
+	e. Click **Ok**.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
