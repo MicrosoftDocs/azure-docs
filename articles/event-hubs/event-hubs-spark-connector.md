@@ -19,7 +19,7 @@ ms.author: shvija;sethm;sagrewal
 
 # Integrating Apache Spark with Azure Event Hubs
 
-Azure Event Hubs seamlessly integrates with [Apache Spark](https://spark.apache.org/) to make building end-to-end distributed streaming applications easy. This integration supports [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). The Event Hubs connector for Apache Spark is available on [GitHub](https://github.com/Azure/azure-event-hubs-spark). This library is also available for use in Maven projects from the [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Azure Event Hubs seamlessly integrates with [Apache Spark](https://spark.apache.org/) to make building distributed streaming applications easy. This integration supports [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). The Event Hubs connector for Apache Spark is available on [GitHub](https://github.com/Azure/azure-event-hubs-spark). This library is also available for use in Maven projects from the [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
 This article shows you how to make a continuous application in [Azure Databrick](https://azure.microsoft.com/services/databricks/). While this article uses [Azure Databricks](https://azure.microsoft.com/services/databricks/), Spark Clusters are also available with [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 
@@ -84,7 +84,7 @@ df.write
 
 ## Next steps
 
-This article showed how the Event Hubs connector works for building real-time, fault tolerant streaming solutions. Learn more about Structured Streaming and Event Hubs integrated connector by following these links:
+This article showed how the Event Hubs connector works for building scalable, fault tolerant streaming solutions. Learn more about using Event Hubs with Structured Streaming and Spark Streaming by following these links:
 
 * [Structured Streaming + Azure Event Hubs Integration Guide](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md)
 * [Spark Streaming + Event Hubs Integration Guide](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/spark-streaming-eventhubs-integration.md)
