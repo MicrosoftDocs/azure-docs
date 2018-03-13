@@ -18,7 +18,7 @@
 
 
 # Tutorials
-## [1 - Load data from blob](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - Load WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Concepts
 ## Service features
@@ -101,6 +101,7 @@
 
 
 ## Load & move data
+### [New York taxi cab data](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso public data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

@@ -5,6 +5,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/machine-learning/studio/datamarket-deprecation.md",
+            "redirect_url": "https://microsoft.com/cognitive",
+            "redirect_document_id": true
+        },
+	{
             "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
             "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
             "redirect_document_id": true
