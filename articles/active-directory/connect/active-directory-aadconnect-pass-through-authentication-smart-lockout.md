@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
 ---
 
@@ -20,7 +20,7 @@ ms.author: billmath
 
 ## Overview
 
-Azure Active Directory (Azure AD) protects against brute-force password attacks and prevents genuine users from being locked out of their Office 365 and SaaS applications. This capability, called *Smart Lockout*, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants, and it continuously protects your user accounts.
+Azure Active Directory (Azure AD) protects against brute-force password attacks and prevents genuine users from being locked out of their Office 365 and SaaS applications. This capability, called *Smart Lockout*, is supported when you use Pass-through Authentication as your sign-in method. Smart Lockout is enabled by default for all tenants, not just tenants using Pass-through Authentication, and it continuously protects your user accounts.
 
 Smart Lockout keeps track of failed sign-in attempts. After a certain *lockout threshold*, it starts a *lockout duration*. Smart Lockout rejects any attempts to sign in from the attacker during the lockout duration. If the attack continues, subsequent failed sign-in attempts after the lockout duration ends result in longer lockout durations.
 

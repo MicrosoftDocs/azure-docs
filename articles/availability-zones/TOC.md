@@ -28,10 +28,10 @@
 #### [Create a zone redundant Load Balancer Standard with PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Create a zone redundant Public Load Balancer Standard with CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Public IP address
-#### [Create a public IP address in an availability zone with Azure portal](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Create a public IP address in an availability zone with PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Create a public IP address in an availability zone with CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Public IP address](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+
+### SQL Database
+#### [Availability zones with SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Storage
 #### [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage)
