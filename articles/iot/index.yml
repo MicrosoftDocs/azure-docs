@@ -50,6 +50,15 @@ sections:
         - href: /azure/iot-hub/iot-hub-java-java-getstarted
         - href: /azure/iot-hub/iot-hub-python-python-getstarted
         - href: /azure/iot-hub/iot-hub-node-node-getstarted
+      - title: Set up auto-provisioning
+        values:
+        - href: /azure/iot-dps/quick-setup-auto-provision
+        - href: 
+        - href: /azure/iot-dps/quick-setup-auto-provision-cli
+        - href: 
+        - href: 
+        - href: 
+        - href: 
       - title: Auto-provision a simulated TPM device
         values:
         - href: 
@@ -67,6 +76,10 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/iot-hub/iot-hub-explorer-cloud-device-messaging">Monitor device-to-cloud messages and send cloud-to-device messages</a>
+    - html: <a href="/azure/iot-hub/iot-hub-store-data-in-azure-table-storage">Save sensor data messages to Azure blob storage</a>
+    - html: <a href="/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi">Visualize real-time sensor data using Power BI</a>
+    - html: <a href="/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps">Visualize real-time sensor data using Azure Web Apps</a>
+    - html: <a href="/azure/iot-hub/iot-hub-weather-forecast-machine-learning">Create a weather forcast from sensor data using Azure Machine Learning</a>
   - type: paragraph
     text: Learn how to use Device Provisioning Services to auto-provision your devices.
   - type: list

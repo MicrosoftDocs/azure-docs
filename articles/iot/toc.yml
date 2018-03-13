@@ -3,10 +3,10 @@
 - name: Overview
   items:
   - name: Introduction
-  - name: Service portfolio
+  - name: Solution and technologies portfolio
 - name: IoT Edge
-  href: ../iot-edge
+  href: ../iot-edge/index.yml
 - name: IoT Hub 
-  href: ../iot-hub
+  href: ../iot-hub/index.md
 - name: IoT Hub Device Provisioning Services
-  href: ../iot-dps 
+  href: ../iot-dps/index.yml
