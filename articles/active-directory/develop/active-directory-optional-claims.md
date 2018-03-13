@@ -61,8 +61,8 @@ These claims are always included in v1.0 tokens, but are removed from v2.0 token
 | `onprem_sid`  | On-Premises Security Identifier |                                                                                                                                |       |
 | `pwd_exp`     | Password Expiration Time        | The datetime at which the password expires.                                                                                    |       |
 | `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.                                                                        |       |
-| `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they are not, the claim is not                              |       |
-| `nickname`    |                                 |                                                                                                                                |       |
+| `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they are not, the claim is not included                         |       |
+| `nickname`    | An additional name for the user, separate from first or last name. |                                                                                                                                |       |
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the Azure AD user object. <br>"family_name":"Miller" |       |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the Azure AD user object.<br>"given_name": "Frank"                   |       |
 
