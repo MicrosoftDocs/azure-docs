@@ -9,7 +9,7 @@ editor: monicar
 ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
+ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
