@@ -77,8 +77,12 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Authoring cycle
-    href: luis-concept-app-iteration.md 
+  - name: Author App
+    items: 
+      name: Authoring cycle
+      href: luis-concept-app-iteration.md 
+      name: Versioning
+      href: luis-concept-version.md
   - name: Design Model 
     items:
     - name: Intents
