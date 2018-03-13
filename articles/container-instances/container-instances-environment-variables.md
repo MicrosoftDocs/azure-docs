@@ -112,7 +112,7 @@ Get-AzureRmContainerInstanceLog `
 
 ## Next steps
 
-Now that you know how to customize the input to your container learn how to persist the output of the containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+Now that you know how to customize the input to your container learn how to persist the output of containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS Internal -->
 [azure-cloud-shell]: ../cloud-shell/overview.md
