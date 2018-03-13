@@ -58,7 +58,6 @@ To help protect your data, firewalls prevent all access to your database server 
 
 ### Authentication
 SQL database authentication refers to how you prove your identity when connecting to the database. SQL Database supports two types of authentication:
-
 * **SQL Authentication**, which uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." 
 * **Azure Active Directory Authentication**, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Use Active Directory authentication (integrated security) [whenever possible](https://msdn.microsoft.com/library/ms144284.aspx). If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
 
@@ -84,7 +83,7 @@ Threat Detection complements auditing, by providing an additional layer of secur
 In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
 
 
-## Security Management
+## Security management
 
 SQL Database helps you manage your data security by providing database scans and a centralized security dashboard using [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
 
