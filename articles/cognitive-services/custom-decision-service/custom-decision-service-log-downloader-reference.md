@@ -19,7 +19,7 @@ You use LogDownloader to download log files that are produced by Azure Custom De
 - Python 3: Installed and on your path. We recommend the 64-bit version to handle large files.
 - The *Microsoft/mwt-ds* repository: [Clone the repo](https://github.com/Microsoft/mwt-ds).
 - The *azure-storage-blob* package: For installation details, go to [Microsoft Azure Storage Library for Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
-- Enter your Azure storage connection string in *mwt-ds/DataScience/ds.config*: Follow the *my_app_id: my_connectionString* template. You can specify multiple `app_id`, but if you cannot find `app_id` in the list, use the `$Default` connection string.
+- Enter your Azure storage connection string in *mwt-ds/DataScience/ds.config*: Follow the *my_app_id: my_connectionString* template. You can specify multiple `app_id`. When you run `LogDownloader.py`, if the input `app_id` is not found in `ds.config`, `LogDownloader.py` uses the `$Default` connection string.
 
 ## Usage
 Go to `mwt-ds/DataScience` and run `LogDownloader.py` with the relevant arguments, as detailed in the following code:
@@ -41,7 +41,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-e END_DATE`, `--end_date END_DATE` | The downloading end date (included), in *YYYY-MM-DD* format. | `None` |  
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | The overwrite mode to use. | |  
 | | `0`: Never overwrite; ask the user whether blobs are currently used. | Default | | 
-| | `1`: Ask the user whether the files have different sizes and whether blobs are currently used. | |  
+| | `1`: Ask the user how to proceed when the files have different sizes or when the blobs are currently being used. | |  
 | | `2`: Always overwrite; download currently used blobs. | |  
 | | `3`: Never overwrite, and append if the size is larger, without asking; download currently used blobs. | |  
 | | `4`: Never overwrite, and append if the size is larger, without asking; skip currently used blobs. | |  
