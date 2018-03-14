@@ -47,7 +47,7 @@
 # How-to guides
 ## Plan
 ### [Compare IoT Hub and Event Hubs](iot-hub-compare-event-hubs.md)
-### [Scale your solution](iot-hub-scaling.md)
+### [Choose the right tier](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
 ### [Compare message and event routing](iot-hub-event-grid-routing-comparison.md)
