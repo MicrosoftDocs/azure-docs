@@ -1,4 +1,8 @@
-**See the following links for configuration information:**
+**To download VPN device configuration scripts:**
+
+Depending on the VPN device that you have, you may be able to download a VPN device configuration script. For more information, see [Download VPN device configuration scripts](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+
+**See the following links for additional configuration information:**
 
 - For information about compatible VPN devices, see [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
