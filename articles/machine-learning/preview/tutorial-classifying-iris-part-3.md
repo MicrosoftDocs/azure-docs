@@ -124,7 +124,10 @@ Use _local mode_ deployment to run in Docker containers on your local computer.
 You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the following steps to operationalize the model. You can use the `-h` flag at the end of each command to show the corresponding help message.
 
 >[!NOTE]
->If you don't have a local Docker engine, you can still proceed by creating a cluster in Azure for deployment. Just be sure to delete the cluster after the tutorial so you don't incur ongoing charges.
+>If you don't have the Docker engine locally, you can still proceed by creating a cluster in Azure for deployment. You can keep the cluster for re-use, or delete it after the tutorial so you don't incur ongoing charges.
+
+>[!NOTE]
+>Web services deployed locally do not show up in Azure Portal's list of services. They will be running in Docker on the local machine.
 
 1. Open the command-line interface (CLI).
    In the Machine Learning Workbench application, on the **File** menu, select **Open Command Prompt**.

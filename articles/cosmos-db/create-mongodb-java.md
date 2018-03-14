@@ -55,11 +55,11 @@ Now let's clone a MongoDB API app from github, set the connection string, and ru
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Then open the solution file in Visual Studio. 
+3. Then open the code in your favorite editor. 
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `Program.cs` file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the `Program.java` file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 * The DocumentClient is initialized.
 
