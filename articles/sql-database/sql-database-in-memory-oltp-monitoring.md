@@ -2,17 +2,10 @@
 title: Monitor XTP in-memory storage | Microsoft Docs
 description: Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41823
 services: sql-database
-documentationcenter: ''
 author: jodebrui
-manager: jhubbard
-editor: ''
-
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jodebrui
