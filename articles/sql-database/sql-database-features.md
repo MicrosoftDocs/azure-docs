@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: jovanpop
-manager: cguyer
+manager: craigg
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server 
