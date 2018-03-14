@@ -22,11 +22,11 @@ ms.author: shvija;sethm
 
 Azure Event Hubs is a Big Data streaming service that ingests millions of events per second, and provides low latency and high throughput for real-time analytics and visualization.
 
-Event Hubs is used in in the following scenarios:
+Event Hubs is used in the following scenarios:
 
 - Anomaly detection (fraud/outliers)
 - Application logging
-- Real-time analytics pipelines, such as clickstreams
+- Analytics pipelines, such as clickstreams
 - Live dashboarding
 - Archiving data
 - Transaction processing
@@ -35,7 +35,7 @@ Event Hubs is used in in the following scenarios:
 
 ## Why use Event Hubs?
 
-Your organization needs data-driven strategies to increase competitive advantage. You want to stream data or analyze real-time data to get valuable insights. Event Hubs provides a streaming platform with low latency and seamless integration with Azure services to build a complete Big Data pipeline.
+Your organization needs data-driven strategies to increase competitive advantage. You want to stream or analyze data to get valuable insights. Event Hubs provides a streaming platform with low latency and seamless integration with Azure services to build a complete Big Data pipeline.
 
 The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. 
 
@@ -51,7 +51,7 @@ Event Hubs is a managed service with no configuration or management overhead, so
 
 You can start with low-bandwidth streams, and grow to gigabytes or terabytes of data. Event Hubs covers all streaming platform needs.
 
-## Real time and batch
+## Batching
 
 Event Hubs supports real time and microbatch streaming. Microbatching is enabled by using [Event Hubs Capture](event-hubs-capture-overview.md), which enables a single stream to support batch-based pipelines, and reduces the complexity of your solution.
 
