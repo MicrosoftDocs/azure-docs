@@ -35,10 +35,10 @@ This article provides help troubleshooting errors you might experience with the 
 
     |Agent Resource| Ports | Direction |
     |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Port 443| Inboudn and outbound |  
-    |*.oms.opinsights.azure.com | Port 443| Inboudn and outbound |  
-    |*.blob.core.windows.net | Port 443| Inboudn and outbound |  
-    |*.azure-automation.net | Port 443| Inboudn and outbound | 
+    |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
+    |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
+    |*.blob.core.windows.net | Port 443| Inbound and outbound |  
+    |*.azure-automation.net | Port 443| Inbound and outbound | 
 
 ## Issue: You receive a 403 error when trying to onboard
 
