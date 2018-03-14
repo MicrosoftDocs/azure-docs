@@ -52,6 +52,14 @@ Once CLI is installed, perform the following steps to install the Event Hubs CLI
 
 3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login.
 
+4. Set the current subscription context:
+
+   ```azurecli
+   az account set --subscription <Azure_subscription_name>
+   ``` 
+
+## Provision resources
+
 After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace all placeholders with the appropriate values:
 
 ```azurecli
