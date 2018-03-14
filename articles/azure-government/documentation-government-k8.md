@@ -22,7 +22,7 @@ ms.author: gsacavdm
 This article describes how to deploy a Kubernetes cluster to Azure Government using acs-engine.
 
 ## Prerequisites
-* Download [acs-engine](https://github.com/Azure/acs-engine/releases). Make sure you download release v.0.13.2 or greater, previous versions don't work properly with Azure Government.
+* Download [acs-engine](https://github.com/Azure/acs-engine/releases). Make sure you download **release v.0.14.0 or greater**, previous versions don't work properly with Azure Government.
 * Download [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 ## Define your Kubernetes cluster configuration
