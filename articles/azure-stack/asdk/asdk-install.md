@@ -83,7 +83,7 @@ The steps in this article show you how to deploy the ASDK using a graphical user
 
 Congratulations, you've successfully installed the ASDK!
 
-If the deployment fails for some reason, you can [redeploy](asdk-redeploy-qs.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
+If the deployment fails for some reason, you can [redeploy](asdk-redeploy.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
 
     ```powershell
     cd C:\CloudDeployment\Setup

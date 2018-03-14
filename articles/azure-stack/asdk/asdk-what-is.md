@@ -20,9 +20,9 @@ ms.reviewer: misainat
 ---
 
 # What is the Azure Stack Development Kit?
-[Microsoft Azure Stack integrated systems](.\.\azure-stack-poc.md) range in size from 4-12 nodes, and are jointly supported by a hardware partner and Microsoft. Use Azure Stack integrated systems to enable new scenarios for your production workloads. 
+[Microsoft Azure Stack integrated systems](.\.\azure-stack-poc.md) range in size from 4-12 nodes, and are jointly supported by a hardware partner and Microsoft. Use Azure Stack integrated systems to enable new scenarios for your production workloads. If you're an Azure Stack operator who manages the integrated systems infrastructure and offers services, see our [operator documentation](https://docs.microsoft.com/azure/azure-stack).
 
-The Azure Stack Development Kit (ASDK) is an optional, single-node deployment of Azure Stack that you can download and use for free. All ASDK components are installed in virtual machines running on a single host server computer that must meet or exceed the [minimum hardware requirements](asdk-deploy-considerations.md#hardware). The ASDK is meant to provide an environment in which you can evaluate Azure Stack and develop modern applications using APIs and tooling consistent with Azure in a *non-production* environment. 
+The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack that you can download and use **for free**. All ASDK components are installed in virtual machines running on a single host server computer that must meet or exceed the [minimum hardware requirements](asdk-deploy-considerations.md#hardware). The ASDK is meant to provide an environment in which you can evaluate Azure Stack and develop modern applications using APIs and tooling consistent with Azure in a *non-production* environment. 
 
 > [!IMPORTANT]
 > The ASDK is not intended to be used or supported in a production environment.
