@@ -266,11 +266,7 @@ Once the user is successfully created, the status of **Check Installation Checkl
 
 > [!NOTE]
 
-> To allow a user to create **alerts** and **events** in ServiceNow from Azure:
-
-> - Ensure you have the Event Management module Installed on your ServiceNow instance.
-
-> - Add the following roles to the integration user:
+> ITSM Connector can send incidents to ServiceNow without any other modules installed on your ServiceNow instance. If you are using EventManagement module in your ServiceNow instance and wish to create Events or Alerts in ServiceNow using the connector, add the following roles to the integration user:
 >      - evt_mgmt_integration
 >      - evt_mgmt_operator  
 
