@@ -24,7 +24,7 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-    name: Spell Check SDK C# quickstart (preview)
+  - name: Spell Check SDK C# quickstart (preview)
     href: sdk-quickstart-spell-check.md
 - name: How-to guides
   items:

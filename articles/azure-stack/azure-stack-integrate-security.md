@@ -3,18 +3,16 @@ title: Azure Stack datacenter integration - Security
 description: Learn how to integrate Azure Stack security with your datacenter security
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
 ---
 
 # Azure Stack datacenter integration - Security
-
-*Applies to: Azure Stack integrated systems*
-
 Azure Stack was designed and built with security in mind. Azure Stack is a locked-down system, so software security agent installation is not supported.
 
 This article helps you integrate Azure Stack's security features with the security solutions already deployed in your datacenter.

@@ -16,6 +16,8 @@
     href: video-moderation-human-review.md
   - name: Jobs and reviews
     href: review-api.md
+  - name: Workflows
+    href: workflow-api.md
 - name: Quickstarts
   items: 
   - name: Review tool

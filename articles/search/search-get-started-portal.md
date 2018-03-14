@@ -43,7 +43,7 @@ If you don't want to provision a service immediately, you can watch a 6-minute d
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way: 
    
-   * In the Jumpbar, click **More services** at the bottom of the left navigation pane.
+   * In the Jumpbar, click **All services** on the left navigation pane.
    * In the search box, type *search* to get a list of search services for your subscription. Your service should appear in the list. 
 
 ## Check for space

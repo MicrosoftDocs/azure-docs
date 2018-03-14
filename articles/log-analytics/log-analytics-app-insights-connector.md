@@ -3,7 +3,7 @@ title: View Azure Application Insights app data | Microsoft Docs
 description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when monitored with Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 
-# Application Insights Connector management solution (Preview) 
+# Application Insights Connector management solution (Preview)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
@@ -61,7 +61,7 @@ In approximately 30 minutes, data becomes available and the Application Insights
 Other points to keep in mind:
 
 - You can only link Application Insights apps to one Log Analytics workspace.
-- You can only link [Standard or Premium Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to Log Analytics. However, you can use the Free tier of Log Analytics.
+- You can only link [Basic or Enterprise Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to Log Analytics. However, you can use the Free tier of Log Analytics.
 
 ## Management packs
 

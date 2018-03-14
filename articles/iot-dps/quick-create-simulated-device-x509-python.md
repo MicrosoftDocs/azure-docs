@@ -16,11 +16,7 @@ ms.custom: mvc
 ---
 
 # Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device-x509.md)
-> * [Java](quick-create-simulated-device-x509-java.md)
-> * [C#](quick-create-simulated-device-x509-csharp.md)
-> * [Python](quick-create-simulated-device-x509-python.md)
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 

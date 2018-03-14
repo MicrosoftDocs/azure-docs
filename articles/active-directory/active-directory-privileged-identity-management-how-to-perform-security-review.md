@@ -29,7 +29,7 @@ You can use the Azure AD Privileged Identity Management (PIM) application in the
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select your username in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
-3. Select **More services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
+3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application will open.
 
 ## Approve or deny access

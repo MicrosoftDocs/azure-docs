@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -29,7 +29,7 @@ In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https
 
 ## Prerequisites
 
-The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
+The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -210,11 +210,11 @@ Modify the `blobSource` and `containerURL` elements in the JSON file so that the
 ```json
 {
   "id": "myrendertask",
-  "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 Robo_Dummy_Lo_Res.max\"",
+  "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/maxfile/Robo_Dummy_Lo_Res.max",
-        "filePath": "Robo_Dummy_Lo_Res.max"
+        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "filePath": "MotionBlur-DragonFlying.max"
     }
   ],
     "outputFiles": [

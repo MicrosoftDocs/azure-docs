@@ -13,13 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
 ---
 # Register Azure Stack with Azure
-You can register Azure Stack with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration.
+You can register Azure Stack with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure Commerce. You can see it under the subscription you used for registration.
 
 > [!IMPORTANT]
 > Registration is mandatory if you choose the pay-as-you-use billing model. Otherwise, you will be in violation of the licensing terms of the Azure Stack deployment as usage will otherwise not be reported.
@@ -51,6 +51,7 @@ The Azure Stack tools GitHub repository contains PowerShell modules that support
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

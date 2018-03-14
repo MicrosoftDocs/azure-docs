@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -20,14 +20,14 @@ The Azure CLI can be used to start the Kubernetes Dashboard. This document walks
 
 The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
 
-You also need the Azure CLI version 2.0.21 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.27 or later installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Start Kubernetes dashboard
 
 Use the `az aks browse` command to start the Kubernetes dashboard. When running this command, replace the resource group and cluster name.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 This command creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard.

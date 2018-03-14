@@ -81,7 +81,7 @@ The following diagram represents a live streaming workflow where a channel recei
 The following are general steps involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
+> Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived@microsoft.com if you need to run a Channel for longer periods of time.Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 > 
 > 
 
@@ -260,7 +260,7 @@ There can be up to 8 audio stream sets specified if the input to the Channel is 
 ### <a id="preset"></a>System Preset
 Specifies the preset to be used by the live encoder within this Channel. Currently, the only allowed value is **Default720p** (default).
 
-Note that if you need custom presets, you should contact  amslived at Microsoft.com.
+Note that if you need custom presets, you should contact  amslived@microsoft.com.
 
 **Default720p** will encode the video into the following 7 layers.
 
@@ -380,7 +380,7 @@ The following table shows how Channel states map to the billing mode.
 * By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 * You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 * You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
-* Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived@microsoft.com if you need to run a Channel for longer periods of time.
 * Make sure to have the streaming endpoint from which you want to stream content in the **Running** state.
 * When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
 * The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.

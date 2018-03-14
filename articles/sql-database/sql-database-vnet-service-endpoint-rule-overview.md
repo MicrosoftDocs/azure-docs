@@ -2,21 +2,13 @@
 title: "Virtual Network service endpoints and rules for Azure SQL Database | Microsoft Docs"
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
-documentationcenter: ''
 author: MightyPen
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid:
-ms.service: sql-database
+manager: craigg
 ms.custom: "VNet Service endpoints"
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 01/31/2018
-ms.author: genemi
+ms.date: 02/20/2018
+ms.reviewer: genemi
+ms.author: dmalik
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
 
@@ -123,8 +115,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
 
-- At present, an Azure Web App in a subnet that has **Service Endpoints** turned on does not yet function as expected. We are working on enabling this functionality.
-    - Until this feature is fully implemented, we recommend that you move your Web App to a different subnet that does not have service endpoints turned on for SQL.
+- A Web App can be mapped to a private IP in a VNet/subnet. Even if service endpoints are turned ON from the given VNet/subnet, connections from the Web App to the server will have an Azure public IP source, not a VNet/subnet source. To enable connectivity from a Web App to a server that has VNet firewall rules, you must **Allow all Azure services** on the server.
 
 - In the firewall for your SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the SQL Database.
 
@@ -138,6 +129,12 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
     - On-premises via [ExpressRoute][expressroute-indexmd-744v]
+
+#### Considerations when using Service Endpoints
+When using service endpoints for Azure SQL Database, review the following considerations:
+
+- **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
+- **Azure Database for PostgreSQL and MySQL are unsupported**: Service endpoints are not supported for Azure Database for PostgreSQL or MySQL. Enabling service endpoints to SQL Database will break connectivity to these services. We have a mitigation for this; please contact *dmalik@microsoft.com*.
 
 #### ExpressRoute
 
@@ -167,6 +164,8 @@ The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are n
 #### Table Auditing
 At present there are two ways to enable auditing on your SQL Database. Table auditing fails after you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
 
+#### Impact on Data Sync
+Azure SQLDB has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, it is likely that you will turn off **Allow all Azure Services** access to your logical server. This will break the Data Sync feature.
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
@@ -174,7 +173,7 @@ Azure Storage has implemented the same feature that allows you to limit connecti
 If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQLDB features that are impacted by this.
 
 #### Azure SQLDW PolyBase
-PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break.
+PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this; please contact *dmalik@microsoft.com* for more information.
 
 #### Azure SQLDB Blob Auditing
 Blob auditing pushes audit logs to your own storage account. If this storage account uses the VENT Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.

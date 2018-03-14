@@ -66,7 +66,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
-4. To stop debugging, click the **Stop** button on the Visual Studio toolbar.
+4. To stop debugging, press Shift + F5.
 
 After you have verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -94,7 +94,7 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Next steps
 
-You have used Visual Studio to create a C# function app with a simple HTTP triggered function. 
+You have used Visual Studio to create and publish a C# function app with a simple HTTP triggered function. 
 
 + To learn how to configure your project to support other types of triggers and bindings, see the [Configure the project for local development](functions-develop-vs.md#configure-the-project-for-local-development) section in [Azure Functions Tools for Visual Studio](functions-develop-vs.md).
 + To learn more about local testing and debugging using the Azure Functions Core Tools, see [Code and test Azure Functions locally](functions-run-local.md). 

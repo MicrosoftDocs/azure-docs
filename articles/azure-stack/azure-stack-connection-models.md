@@ -26,7 +26,7 @@ If you decide to purchase an integrated system, your original equipment manufact
 ## Choose an Azure Stack deployment connection model
 You can choose to deploy Azure Stack either connected to the internet (and to Azure) or disconnected. To get the most benefit from Azure Stack, including hybrid scenarios between Azure Stack and Azure, you'd want to deploy connected to Azure. This choice defines which options are available for your identity store (Azure Active Directory or Active Directory Federation Services) and billing model (Pay as you use-based billing or capacity-based billing) as summarized in the following diagram and table: 
 
-![Azure Stack deployment and billing scenarios](media/azure-stack-deployment-decisions/azure-stack-scenarios.png)	
+![Azure Stack deployment and billing scenarios](media/azure-stack-connection-models/azure-stack-scenarios.png)	
   
 > [!IMPORTANT]
 > This is a key decision point! Choosing Active Directory Federation Services (AD FS) or Azure Active Directory (Azure AD) is a one-time decision that you must make at deployment time. You can’t change this later without re-deploying the entire system.  
@@ -34,11 +34,11 @@ You can choose to deploy Azure Stack either connected to the internet (and to Az
 
 |Options|Connected to Azure|Disconnected from Azure|
 |-----|-----|-----|
-|Azure AD|![Supported](media/azure-stack-deployment-decisions/check.png)| |
-|AD FS|![Supported](media/azure-stack-deployment-decisions/check.png)|![Supported](media/azure-stack-deployment-decisions/check.png)|
-|Consumption-based billing|![Supported](media/azure-stack-deployment-decisions/check.png)| |
-|Capacity-based billing|![Supported](media/azure-stack-deployment-decisions/check.png)|![Supported](media/azure-stack-deployment-decisions/check.png)|
-|Download update packages directly to Azure Stack|![Supported](media/azure-stack-deployment-decisions/check.png)|  |
+|Azure AD|![Supported](media/azure-stack-connection-models/check.png)| |
+|AD FS|![Supported](media/azure-stack-connection-models/check.png)|![Supported](media/azure-stack-connection-models/check.png)|
+|Consumption-based billing|![Supported](media/azure-stack-connection-models/check.png)| |
+|Capacity-based billing|![Supported](media/azure-stack-connection-models/check.png)|![Supported](media/azure-stack-connection-models/check.png)|
+|Download update packages directly to Azure Stack|![Supported](media/azure-stack-connection-models/check.png)|  |
 
 After you've decided on the Azure connection model to be used for Azure Stack deployment, additional, connection-dependent decisions must be made for the identity store and billing method. 
 

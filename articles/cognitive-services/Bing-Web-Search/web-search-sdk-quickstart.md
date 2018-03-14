@@ -61,7 +61,7 @@ if (webData?.WebPages?.Value?.Count > 0)
     }
     else
     {
-        Console.WriteLine("Couldn't find web results!";
+        Console.WriteLine("Couldn't find web results!)";
     }
 }
 else

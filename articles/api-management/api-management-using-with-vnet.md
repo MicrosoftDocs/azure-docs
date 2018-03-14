@@ -58,7 +58,7 @@ To perform the steps described in this article, you must have:
     You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
     
     > [!NOTE]
-    > **Service Endpoint** in the above diagram includes Gateway/Proxy, Publisher Portal, Developer Portal, GIT, and the Direct Management Endpoint.
+    > **Service Endpoint** in the above diagram includes Gateway/Proxy, the Azure portal, the Developer portal, GIT, and the Direct Management Endpoint.
     > **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure portal and Powershell.
     > Also, note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on its configured Hostnames.
     

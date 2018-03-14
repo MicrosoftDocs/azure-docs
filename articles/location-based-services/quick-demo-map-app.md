@@ -3,8 +3,8 @@ title: Interactive Map Search with Azure Location Based Services | Microsoft Doc
 description: Azure Quickstart - Launch a demo interactive map search using Azure Location Based Services (preview)
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: quickstart
 ms.service: location-based-services
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Launch a demo interactive map search using Azure Location Based Services (preview)
 
-This article demonstrates the capabilities of Azure Location Based Services (preview) or LBS in short, using an interactive search using Azure Maps. It also walks you through the basic steps of creating your own LBS account and getting your account's key to use in the demo web application. 
+This article demonstrates the capabilities of Azure Location Based Services (LBS) to perform an interactive search using Azure Maps. It also walks you through the basic steps of creating your own LBS account and getting your account's key to use in the demo web application. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,7 +31,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
 2. In the *Search the Marketplace* box, type **location based services**.
 3. From the *Results*, click the **Location Based Services (preview)**. Click **Create** button that appears below the map. 
-4. On the **Create Location Based Services Account** page, enter the *Name* for your new account, select *Subscription* to use, and enter the name of a new or existing *Resource group*. Select the location for your resource group, accept the *Preview Terms*, and click **Create**.
+4. On the **Create Location Based Services Account** page, enter the *Name* for your new account, select the *Subscription* to use, and enter the name of a new or existing *Resource group*. Select the location for your resource group, accept the *Preview Terms*, and click **Create**.
 
     ![Create Location Based Services account in portal](./media/quick-demo-map-app/create-lbs-account.png)
 
@@ -47,7 +47,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 ## Launch the demo application for Azure Maps
 
 1. Open the file **AzureMapDemo.html** in a browser of your choice.
-2. Observe the map shown of Los Angeles city. The city is determined by the value of `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *AzureMapDemo.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.
+2. Observe the map shown of Los Angeles city. The city is determined by the value of the `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *AzureMapDemo.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.
 3. In the search box on the upper left corner of the demo web application, enter any location type or address that you want to search. 
 4. Move your mouse over the list of addresses/locations that appear below the search box, and notice how the corresponding pin on the map pops out information about that location. For example, a sample launch of this web application and a search for *restaurants* leads to the following. Please note that for privacy of private businesses, fictitious names and addresses are shown. 
 

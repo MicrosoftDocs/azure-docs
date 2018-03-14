@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: ryanwi, mikhegn
 
 ---
@@ -60,10 +60,10 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.0.456
-* Service Fabric runtime 6.1.456
+* Service Fabric SDK and Tools 3.0.467
+* Service Fabric runtime 6.1.467
 * Service Fabric Tools for Visual Studio 2015 2.0.10124.2
-* Visual Studio 2017 15.5.6 includes Service Fabric Tools for Visual Studio 2.0.20180124.2 
+* Visual Studio 2017 15.5.6 includes Service Fabric Tools for Visual Studio 2.0.20180124.2  
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 
@@ -85,6 +85,7 @@ Now that you've finished setting up your development environment, start building
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Learn about [Service Fabric support options](service-fabric-support.md)
+* [Automate operating system patching on your Cluster](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric campaign page"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

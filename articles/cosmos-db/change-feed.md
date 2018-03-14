@@ -67,7 +67,6 @@ For example, with a change feed, you can perform the following tasks efficiently
 
 * Update a cache, search index, or a data warehouse with data stored in Azure Cosmos DB.
 * Implement application-level data tiering and archival, that is, store "hot data" in Azure Cosmos DB, and age out "cold data" to [Azure Blob Storage](../storage/common/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Implement batch analytics on data using [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Perform zero down-time migrations to another Azure Cosmos DB account with a different partitioning scheme.
 * Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with Azure Cosmos DB. Azure Cosmos DB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
 * Receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), or [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 

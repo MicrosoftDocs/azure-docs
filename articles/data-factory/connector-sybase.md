@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -59,7 +59,7 @@ The following properties are supported for Sybase linked service:
 | database | Name of the Sybase database. |Yes |
 | authenticationType | Type of authentication used to connect to the Sybase database.<br/>Allowed values are: **Basic**, and **Windows**. |Yes |
 | username | Specify user name to connect to the Sybase database. |Yes |
-| password | Specify password for the user account you specified for the username. Mark this field as a SecureString. |Yes |
+| password | Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

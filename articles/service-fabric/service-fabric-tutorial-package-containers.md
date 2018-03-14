@@ -1,6 +1,6 @@
 ---
 title: Package and deploy a Service Fabric containers application | Microsoft Docs
-description: Learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
+description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -19,7 +19,7 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Package and deploy containers as a Service Fabric application
+# Tutorial: package and deploy containers as a Service Fabric application
 
 This tutorial is part two in a series. In this tutorial, a template generator tool (Yeoman) is used to generate a Service Fabric application definition. This application can then be used to deploy containers to Service Fabric. In this tutorial you learn how to: 
 
@@ -215,9 +215,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 At this point in the tutorial, the template for a Service Package application is available for deployment to a cluster. In the subsequent tutorial, this application is deployed and ran in a Service Fabric cluster.
 
 ## Create a Service Fabric cluster
-To deploy the application to a cluster in Azure, use your own cluster, or use a Party Cluster.
+To deploy the application to a cluster in Azure, create your own cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure. It is maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+
+In order to perform management operations on the secure party cluster, you can use Service Fabric Explorer, CLI, or Powershell. To use Service Fabric Explorer, you will need to download the PFX file from the Party Cluster website and import the certificate into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). There is no password for the self-signed certificates from the party cluster. 
+
+To perform management operations with Powershell or CLI, you will need the PFX (Powershell) or PEM (CLI). To convert the PFX to a PEM file, please run the following command:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -227,7 +235,7 @@ You can deploy the application the Azure cluster using the Service Fabric CLI. I
 Connect to the Service Fabric cluster in Azure. Replace the placeholder endpoint with your own. The endpoint must be a full URL similar to the one below.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 Use the install script provided in the **TestContainer** directory to copy the application package to the cluster's image store, register the application type, and create an instance of the application.

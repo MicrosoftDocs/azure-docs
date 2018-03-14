@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
 ---
@@ -25,7 +25,8 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 This feature is available for the following Azure services and regions:
 
 - **Azure Storage**: Generally Available. All regions in the Azure public cloud and Azure Government.
-- **Azure SQL**: Preview. All regions in the Azure public cloud.
+- **Azure SQL Database**: Generally Available in all Azure regions. 
+- **Azure SQL Datawarehouse**: Preview. All regions in the Azure public cloud.
 
 For the most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 

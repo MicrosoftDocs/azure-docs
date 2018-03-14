@@ -9,7 +9,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
 ---
 
@@ -164,7 +164,7 @@ Apps that require the following capabilities cannot be migrated today.  Provide 
 - Claims in Token Capabilities
     - Issue on-premises group names as a claims
     - Claims from stores other than Azure AD
-    - Complex claims issuance transform rules (see this document and this document for information about supported claims mappings)
+    - Complex claims issuance transform rules (see this [document](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) and this [document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) for information about supported claims mappings)
     - Issue directory extensions as claims
     - Custom specification of NameID format
     - Issuance of multi value attributes

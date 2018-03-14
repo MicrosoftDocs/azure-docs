@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -37,8 +37,8 @@ Some of the downsides of using NAT for Public VIP are:
 - While NAT usage limits the user experience, it gives full control to the operator over publishing requests.
 - For hybrid cloud scenarios with Azure, consider that Azure does not support setting up a VPN tunnel to an endpoint using NAT.
 
-### SSL dECRYPTION
-Currently our recommendation on SSL Decryption is to disable it on all Azure Stack traffic, in the future we will provide guidance on how to enable SSL Decryption for Azure Stack.
+### SSL decryption
+It is currently recommended to disable SSL decryption on all Azure Stack traffic. If it is supported in future updates, guidance will be provided about how to enable SSL decryption for Azure Stack.
 
 ## Edge firewall scenario
 In an edge deployment, Azure Stack is deployed directly behind the edge router or the firewall. In these scenarios, it is supported for the firewall to be above the border or acting as the border device if it supports Equal Cost Multi Path (ECMP) with either BGP or static routing.

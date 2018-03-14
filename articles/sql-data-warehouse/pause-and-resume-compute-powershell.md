@@ -18,7 +18,7 @@ ms.author: barbkess
 
 ---
 # Quickstart: Pause and resume compute for an Azure SQL Data Warehouse in PowerShell
-Use PowerShell to pause compute for an Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
+Use PowerShell to pause compute for an Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - System and Information Integrity
-description: Web Applications for FedRAMP - System and Information Integrity
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - System and Information Integrity
+description: FedRAMP Web Applications Automation - System and Information Integrity
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -48,7 +48,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. |
+| **Customer** | This blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -76,7 +76,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Windows virtual machines deployed by this Azure Blueprint are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the OMS Automation & Control solution through which Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Customer** | Windows virtual machines deployed by this blueprint are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the OMS Automation & Control solution through which Update Deployments can be created to deploy patches to Windows servers when needed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -104,7 +104,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Customer** | This blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. Update Deployments can be created to deploy patches to Windows servers when needed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -118,7 +118,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated. |
+| **Customer** | This blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -160,7 +160,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. |
+| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -174,7 +174,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
+| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -188,7 +188,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform both real-time and periodic scans (weekly), automatically update both the antimalware engine and protection signatures, and perform automatic remediation actions. |
+| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform both real-time and periodic scans (weekly), automatically update both the antimalware engine and protection signatures, and perform automatic remediation actions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -216,7 +216,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. Azure OMS provides a centralized capability to review the current status of the antimalware solution. |
+| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. Azure OMS provides a centralized capability to review the current status of the antimalware solution. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -230,7 +230,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
+| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -244,7 +244,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform heuristic detection. |
+| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform heuristic detection. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -258,7 +258,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the Log Analytics and the OMS Security and Audit solution. This solution provides a comprehensive view of security posture, attacks, and indicators of potential attacks. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Customer** | This blueprint deploys the Log Analytics and the OMS Security and Audit solution. This solution provides a comprehensive view of security posture, attacks, and indicators of potential attacks. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -272,7 +272,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the  OMS Security and Audit solution. The Identify and Access domain provides a dashboard with an overview of the information system identity state, including number of failed attempts to log on and current number of accounts that are logged in. The information available in this dashboard can assist in identification of potential suspicious activity. |
+| **Customer** | This blueprint deploys the  OMS Security and Audit solution. The Identify and Access domain provides a dashboard with an overview of the information system identity state, including number of failed attempts to log on and current number of accounts that are logged in. The information available in this dashboard can assist in identification of potential suspicious activity. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -286,7 +286,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the Log Analytics and the OMS Security and Audit solution. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions, including insight into VM operating system monitoring data. |
+| **Customer** | This blueprint deploys the Log Analytics and the OMS Security and Audit solution. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions, including insight into VM operating system monitoring data. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -300,7 +300,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Logical access controls are used to protect monitoring information within this Azure Blueprint from unauthorized access, modification, and deletion. Azure Active Directory enforces approved logical access using role-based group memberships. The ability to view monitoring information and use monitoring tools can be limited to users that require those permissions. |
+| **Customer** | Logical access controls are used to protect monitoring information within this blueprint from unauthorized access, modification, and deletion. Azure Active Directory enforces approved logical access using role-based group memberships. The ability to view monitoring information and use monitoring tools can be limited to users that require those permissions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -370,7 +370,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. OMS can be configured to generate alerts based on defined criteria. |
+| **Customer** | This blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. OMS can be configured to generate alerts based on defined criteria. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -398,7 +398,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS can be configured to generate alerts based on defined criteria. |
+| **Customer** | This blueprint deploys various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS can be configured to generate alerts based on defined criteria. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -440,7 +440,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Customer** | This blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -510,7 +510,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint collects monitoring data from deployed resources, including data from host-based monitoring capabilities. The Microsoft Monitoring Agent is installed on all Windows virtual machines to collect monitoring data used by Log Analytics and other OMS solutions. |
+| **Customer** | This blueprint collects monitoring data from deployed resources, including data from host-based monitoring capabilities. The Microsoft Monitoring Agent is installed on all Windows virtual machines to collect monitoring data used by Log Analytics and other OMS solutions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -664,7 +664,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. |
+| **Customer** | The virtual machines deployed by this blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -678,7 +678,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. WRP enables real-time integrity checking. |
+| **Customer** | The virtual machines deployed by this blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. WRP enables real-time integrity checking. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -692,7 +692,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability.  |
+| **Customer** | The virtual machines deployed by this blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -748,7 +748,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -762,7 +762,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -776,7 +776,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -790,7 +790,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -818,7 +818,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The resources deployed by this Azure Blueprint employ commercial operating systems and software applications. This software uses industry best practices to ensure sensitive information is not revealed in error messages. |
+| **Customer** | The resources deployed by this blueprint employ commercial operating systems and software applications. This software uses industry best practices to ensure sensitive information is not revealed in error messages. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -832,7 +832,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The resources deployed by this Azure Blueprint employ commercial operating systems and software applications. This software uses industry best practices to provide error messages that are appropriate in the context of the uses receiving the message. |
+| **Customer** | The resources deployed by this blueprint employ commercial operating systems and software applications. This software uses industry best practices to provide error messages that are appropriate in the context of the uses receiving the message. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -860,5 +860,5 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows has protections in place for preventing code execution in restricted memory locations: No Execute (NX), Address Space Layout Randomization (ASLR), and Data Execution Prevention (DEP). |
+| **Customer** | The virtual machines deployed by this blueprint run Windows operating systems. Windows has protections in place for preventing code execution in restricted memory locations: No Execute (NX), Address Space Layout Randomization (ASLR), and Data Execution Prevention (DEP). |
 | **Provider (Microsoft Azure)** | Not Applicable |

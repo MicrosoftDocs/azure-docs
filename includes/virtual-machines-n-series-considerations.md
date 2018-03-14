@@ -4,9 +4,7 @@
 
 * N-series VMs can only be deployed in the Resource Manager deployment model.
 
-* When creating an N-series VM using the Azure portal, on the **Basics** blade, select a **VM disk type** of **HDD**. To choose an available N-series size, on the **Size** blade, click **View all**.
-
-* NC and NV VMs do not support VM disks that are backed by Azure Premium storage.
+* N-series VMs differ in the type of Azure Storage they support for their disks. NC and NV VMs only support VM disks that are backed by Standard Disk Storage (HDD). NCv2, ND, and NCv3 (preview) VMs only support VM disks that are backed by Premium Disk Storage (SSD).
 
 * If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 

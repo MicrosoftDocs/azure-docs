@@ -66,6 +66,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 4. Upload the **hivescript.hql** file to the **hivescripts** subfolder.
 
 ## Create a data factory
+
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Log in to the [Azure portal](https://portal.azure.com/).    
 2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    

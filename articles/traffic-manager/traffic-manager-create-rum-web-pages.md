@@ -62,7 +62,7 @@ After you have obtained the RUM key, the next step is to embed this copied JavaS
 
     **Figure 3: Simple HTML with embedded Real User Measurements JavaScript**
 
-3.	Save the HTML file
+3.	Save the HTML file and host it on a webserver connected to the internet. 
 4. Next time this page is rendered on a web browser, the JavaScript referenced is downloaded and the script will execute the measurement and reporting operations.
 
 

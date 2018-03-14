@@ -3,7 +3,7 @@ title: 'Provision an SSIS integration runtime by using Azure Data Factory | Micr
 description: 'This article explains how to create an Azure-SSIS integration runtime by using Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
-ms.author: spelluru
+ms.author: douglasl
 ---
 
 # Provision an Azure-SSIS integration runtime by using the Azure Data Factory UI
@@ -23,7 +23,7 @@ In this tutorial, you complete the following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create and start an Azure-SSIS integration runtime.
+> * Provision an Azure-SSIS integration runtime.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -32,14 +32,19 @@ In this tutorial, you complete the following steps:
 ## Prerequisites
 - **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 - **Azure SQL Database server**. If you don't already have a database server, create one in the Azure portal before you get started. Azure Data Factory creates the SSIS Catalog (SSISDB database) on this database server. We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to the SSISDB database without crossing Azure regions. 
-   - Confirm that the **Allow access to Azure services** setting is enabled for the database server. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). To enable this setting by using PowerShell, see [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
-   - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../sql-database/sql-database-firewall-configure.md).
-   - Confirm that your Azure SQL Database server does not have an SSIS Catalog (SSISDB database). The provisioning of an Azure-SSIS IR does not support using an existing SSIS Catalog.
- 
+- Confirm that the **Allow access to Azure services** setting is enabled for the database server. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). To enable this setting by using PowerShell, see [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+- Add the IP address of the client machine, or a range of IP addresses that includes the IP address of client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../sql-database/sql-database-firewall-configure.md).
+- Confirm that your Azure SQL Database server does not have an SSIS Catalog (SSISDB database). The provisioning of an Azure-SSIS IR does not support using an existing SSIS Catalog.
+
+> [!NOTE]
+> - You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+> - You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, and Australia East. 
+
 ## Create a data factory
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).    
-2. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Sign in to the [Azure portal](https://portal.azure.com/).    
+3. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. On the **New data factory** page, enter **MyAzureSsisDataFactory** under **Name**. 
@@ -66,7 +71,7 @@ In this tutorial, you complete the following steps:
 11. After the creation is complete, you see the **Data factory** page.
    
    ![Home page for the data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Select **Monitor & Manage** to open the Data Factory user interface (UI) on a separate tab. 
+12. Select **Author & Monitor** to open the Data Factory user interface (UI) on a separate tab. 
 
 ## Provision an Azure-SSIS integration runtime
 
@@ -157,7 +162,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create and start an Azure-SSIS integration runtime.
+> * Provision an Azure-SSIS integration runtime.
 
 To learn about copying data from on-premises to the cloud, advance to the following tutorial: 
 

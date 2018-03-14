@@ -123,7 +123,7 @@ docker login --username <docker-id>
 A "login succeeded" message confirms that you are logged in. After you have signed in, you push the image to Docker Hub by using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Verify that the push succeeded by examining the command's output.

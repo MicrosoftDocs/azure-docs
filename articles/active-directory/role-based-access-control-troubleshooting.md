@@ -3,7 +3,7 @@ title: Troubleshoot role-based access control Azure RBAC | Microsoft Docs
 description: Get help with issues or questions about Role Based Access Control resources.
 services: azure-portal
 documentationcenter: na
-author: curtand
+author: rolyon
 manager: mtillman
 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
 ---

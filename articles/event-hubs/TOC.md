@@ -3,7 +3,7 @@
 ## [Event Hubs features](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
@@ -27,6 +27,7 @@
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
 ### [Automatically scale throughput units](event-hubs-auto-inflate.md)
+### [Integrating Apache Spark with Event Hubs](event-hubs-spark-connector.md)
 ## Develop
 ### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
