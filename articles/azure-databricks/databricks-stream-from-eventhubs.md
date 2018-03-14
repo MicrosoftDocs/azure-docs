@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Stream events into Azure Databricks using Event Hubs | Microsoft Docs
-description: Learn to use Azure Databricks with Event Hubs to ingest streaming data from Twitter and then read the data out in real time. 
+title: 'Tutorial: Stream events into Azure Databricks using Event Hubs | Microsoft Docs'
+description: Learn to use Azure Databricks with Event Hubs to ingest streaming data from Twitter and read the data in real time. 
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
