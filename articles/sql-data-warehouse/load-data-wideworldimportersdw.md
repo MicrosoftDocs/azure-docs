@@ -979,6 +979,22 @@ Use the stored procedures you created to generate millions of rows in the wwi.fa
     EXEC sp_spaceused N'wwi.fact_Sale';
     ```
 
+## Populate the replicated table cache
+SQL Data Warehouse replicates a table by caching the data to each Compute node. The cache gets populated when a query runs against the table. Therefore, the first query on a replicated table might require extra time to populate the cache. After the cache is populated, queries on replicated tables run faster.
+
+Run these SQL queries to populate the replicated table cache on the Compute nodes. 
+
+    ```sql
+    SELECT TOP 1 * FROM [wwi].[dimension_City];
+    SELECT TOP 1 * FROM [wwi].[dimension_Customer];
+    SELECT TOP 1 * FROM [wwi].[dimension_Date];
+    SELECT TOP 1 * FROM [wwi].[dimension_Employee];
+    SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
+    SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
+    SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
+    SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
+    ```
+
 ## Create statistics on newly loaded data
 
 To achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data. 
