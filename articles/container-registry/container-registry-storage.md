@@ -45,7 +45,7 @@ For full details about pricing, see [Azure Container Registry pricing][pricing].
 
 ## Backup
 
-With GRS-backed storage, Azure Container Registry distributes images across multiple regional data centers for high availability. ACR doesn't currently provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
+By using geo-redundant storage, Azure Container Registry distributes images across multiple regional data centers for high availability. ACR doesn't currently provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
 
 ## Next steps
 
