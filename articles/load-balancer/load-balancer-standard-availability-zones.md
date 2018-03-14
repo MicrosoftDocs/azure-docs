@@ -30,7 +30,7 @@ There is no direct relationship between Load Balancer resources and actual infra
 
 A Load Balancer resource's functions are expressed as a frontend, a rule, a health probe, and a backend pool definition.
 
-In the context of Availability Zones, the behavior and properties of a Load Balancer resource are often described as zone-redundant or zonal.  Zone-redundant and zonal describe the zonality of a property.  In the context of Load Balancer, zone-redundant always means *all zones* and zonal means guaranteeing the service to a *single zone*.  
+In the context of Availability Zones, the behavior and properties of a Load Balancer resource are described as zone-redundant or zonal.  Zone-redundant and zonal describe the zonality of a property.  In the context of Load Balancer, zone-redundant always means *all zones* and zonal means guaranteeing the service to a *single zone*.
 
 Both public and internal Load Balancer support zone-redundant and zonal scenarios and both can direct traffic across zones as needed (*cross-zone load balancing*).
 
