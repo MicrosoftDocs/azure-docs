@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/13/2018
 ms.author: markvi
 
 ms.custom: H1Hack27Feb2017
 
 ---
 # Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory
-Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you have user provisioning for a third-party SaaS application enabled, the Azure Management Portal controls its attribute values in form of a configuration called “attribute mapping.”
+Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you have user provisioning for a third-party SaaS application enabled, the Azure portal controls its attribute values in form of a configuration called “attribute mapping.”
 
 There is a pre-configured set of attributes and attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects in addition to Users, such as Groups. <br> 
  You can customize the default attribute mappings according to your business needs. This means, you can change or delete existing attribute mappings, or create new attribute mappings.
@@ -32,15 +32,14 @@ In the Azure AD portal, you can access this feature by clicking a **Mappings** c
 
 ![Salesforce][5] 
 
-Clicking a **Mappings** configuration, opens the related **Attribute Mapping** blade.  
-There are attribute mappings that are required by a SaaS application to function correctly. For required attributes, the **Delete** feature is unavailable.
+Clicking a **Mappings** configuration, opens the related **Attribute Mapping** screen. There are attribute mappings that are required by a SaaS application to function correctly. For required attributes, the **Delete** feature is unavailable.
 
 
 ![Salesforce][6]  
 
 In the example above, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
 
-You can customize existing **Attribute Mappings** by clicking a mapping. This opens the **Edit Attribute** blade.
+You can customize existing **Attribute Mappings** by clicking a mapping. This opens the **Edit Attribute** screen.
 
 ![Salesforce][7]  
 
@@ -82,7 +81,8 @@ Group provisioning can be optionally enabled or disabled by selecting the group 
 
 The attributes provisioned as part of Group objects can be customized in the same manner as User objects, described previously. 
 
->[!TIP] Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](active-directory-coreapps-assign-user-azure-portal.md) to an application. It is possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects is not required to use groups in assignments.
+>[!TIP]
+>Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](active-directory-coreapps-assign-user-azure-portal.md) to an application. It is possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects is not required to use groups in assignments.
 
 
 ## Editing the list of supported attributes
@@ -100,7 +100,8 @@ Applications and systems that support customization of the attribute list includ
 * On-Premises Active Directory (as part of the Workday user provisioning connector)
 * Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643), where attributes defined in the [core schema](https://tools.ietf.org/html/rfc7643) need to be added
 
->[!NOTE] Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developers tools provided by an application or system. 
+>[!NOTE]
+>Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developers tools provided by an application or system. 
 
 ![Editor][9]  
 
@@ -108,12 +109,12 @@ When editing the list of supported attributes, the following properties are prov
 
 * **Name** - The system name of the attribute, as defined in the object's schema. 
 * **Type** - The type of data the attribute stores, as defined in the object's schema. This can be one of the following:
-   * *Binary*
-   * *Boolean*
-   * *DateTime*
-   * *Integer*
-   * *Reference*
-   * *String* 
+   * *Binary* - Attribute contains binary data.
+   * *Boolean* - Attribute contains a True or False value.
+   * *DateTime* - Attribute contains a date string.
+   * *Integer* - Attribute contains an integer.
+   * *Reference* - Attribute contains an ID that references a value stored in another table in the target application.
+   * *String*  - Attribute contains a text string. 
 * **Primary Key?** - Whether or not the attribute is defined as a primary key field in the object's schema.
 * **Required?** - Whether or not the attribute is required to be populated in the target application or system.
 * **Multi-value?** - Whether or not the attribute supports multiple values.
@@ -129,7 +130,8 @@ Should you need to start over, and reset your existing mappings back to their de
 
 Selecting this option will effectively force a re-synchronization of all users while the provisioning service is running. 
 
->[!IMPORTANT] It is strongly recommended that **Provisioning status** be set to **Off** before invoking this option.
+>[!IMPORTANT]
+>It is strongly recommended that **Provisioning status** be set to **Off** before invoking this option.
 
 
 ## What you should know
