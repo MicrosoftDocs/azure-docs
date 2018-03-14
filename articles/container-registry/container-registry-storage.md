@@ -17,21 +17,25 @@ Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container
 
 ## Encryption-at-rest
 
-All container images are encrypted at rest using [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md). Azure automatically encrypts your image data before storing it, and decrypts it on-the-fly when you or your applications and services pull an image. Azure manages the encryption keys for you; you cannot currently use your own encryption keys.
+All container images in your registry are encrypted at rest. Azure automatically encrypts your image data before storing it, and decrypts it on-the-fly when you or your applications and services pull an image.
 
 ## Geo-redundant storage
 
-Container images are stored using [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Your images are automatically replicated to data centers that are geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to a healthy region for continued access to your images.
+Azure uses a geo-redundant storage scheme to help ensure high availability of your container registry. Your images are automatically replicated to data centers that are geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to a healthy region for continued access to your images.
 
-## Capacity limits
+## Image limits
 
-To help protect against unexpected charges due to abnormal registry usage, Azure Container Registry enforces a 5 TB capacity limit for each container registry. This limit is enforced primarily as a safety measure; for example, to mitigate a misbehaving script pushing massive numbers of images to the registry. Typical production usage of a registry should not be impacted by this limit.
+The following table describes the container image and storage limits in place for Azure container registries.
 
-## Image count limits
+| Resource | Limit |
+| -------- | :---- |
+| Repostories | No limit |
+| Images | No limit |
+| Layers | No limit |
+| Tags | No limit|
+| Storage | 5 TB |
 
-Azure Container Registry imposes no limits on the number of images, layers, tags, or repositories in a registry. However, very high numbers of repositories and tags can impact the performance of your registry.
-
-Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry management routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
+Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry management routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
 
 ## Storage cost
 
