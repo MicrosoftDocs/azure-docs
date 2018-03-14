@@ -14,7 +14,7 @@ ms.author: v-geberr;
 
 # Train your LUIS app
 
-Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. 
+Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances. 
 
 <!--
 When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. -->
@@ -22,7 +22,7 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 Training and [testing](luis-concept-test.md) an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 ## Train your app
-To start the iterative process of training, you first need to train your LUIS app at least once. 
+To start the iterative process, you first need to train your LUIS app at least once. Make sure every intent has at least one utterance before training.
 
 1. Access your app by selecting its name on the **My Apps** page. 
 
@@ -40,8 +40,6 @@ To start the iterative process of training, you first need to train your LUIS ap
 >If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
 
 ## Next steps
-
-If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
 * [Use features to improve your LUIS app's performance](Add-Features.md) 
