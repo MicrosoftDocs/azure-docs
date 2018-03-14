@@ -3,20 +3,14 @@ title: Use Log Analytics with a SQL Database multi-tenant app | Microsoft Docs
 description: "Setup and use Log Analytics (OMS) with a multi-tenant Azure SQL Database SaaS app"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: billgib; sstein
+ms.author: sstein
+ms.reviewer: billgib
 
 ---
 # Set up and use Log Analytics (OMS) with a multi-tenant Azure SQL Database SaaS app

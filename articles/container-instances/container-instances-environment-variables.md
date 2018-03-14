@@ -45,7 +45,7 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-Once the container status shows as *Terminated* (use `az container show` to check its status), display its logs to see the output.  To view the output of the container with no environment variables set --name to be mycontainer1 instead of mycontainer2.
+Once the container status shows as *Terminated* (use [az container show][az-container-show] to check its status), display its logs to see the output.  To view the output of the container with no environment variables set --name to be mycontainer1 instead of mycontainer2.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -77,7 +77,7 @@ New-AzureRmContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Once the container status is *Terminated* (use `Get-AzureRmContainerInstanceLog` to check its status), display its logs to see the output. To view the container logs with no environment variables set ContainerGroupName to be mycontainer1 instead of mycontainer2.
+Once the container status is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check its status), display its logs to see the output. To view the container logs with no environment variables set ContainerGroupName to be mycontainer1 instead of mycontainer2.
 
 ```azurepowershell-interactive
 Get-AzureRmContainerInstanceLog `
@@ -112,9 +112,11 @@ Get-AzureRmContainerInstanceLog `
 
 ## Next steps
 
-Now that you know how to customize the input to your container's. Next learn how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+Now that you know how to customize the input to your container, learn how to persist the output of containers that run to completion. See [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS Internal -->
 [azure-cloud-shell]: ../cloud-shell/overview.md
 [azure-cli-install]: /cli/azure/
 [azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
