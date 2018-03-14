@@ -43,5 +43,3 @@ To start the iterative process, you first need to train your LUIS app at least o
 
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
 * [Use features to improve your LUIS app's performance](Add-Features.md) 
-
-
