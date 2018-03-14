@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Unit Testing
+title: Azure Durable Functions unit testing
 description: Learn how to unit test Durable Functions.
 services: functions
 author: kadimitr
@@ -16,7 +16,7 @@ ms.date: 02/28/2018
 ms.author: kadimitr
 ---
 
-# Durable Functions Unit Testing
+# Durable Functions unit testing
 
 Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, Orchestrator, and Activity functions. 
 
