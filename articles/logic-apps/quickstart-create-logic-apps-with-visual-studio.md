@@ -205,15 +205,25 @@ then save your settings, for example:
    ![Deployment status output](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
    After deployment finishes, your logic app is 
-   live and running in the Azure portal. 
-   Now, when a new RSS item appears, 
-   your logic app sends email for that item. 
-   If you don't get any emails, check your email junk folder. 
-   Your email junk filter might redirect these kinds of mails.   
+   live in the Azure portal and checks the RSS 
+   feed based on your specified schedule (every minute). 
+   If the RSS feed has new items, your logic app sends 
+   an email for each new item. If the feed doesn't 
+   have new items, your logic app skips firing the trigger 
+   and waits for the next interval before checking again. 
+   Technically, when the trigger fires, 
+   the Logic Apps engine creates an instance 
+   of your logic app workflow and runs 
+   the actions in that workflow.
+
+   For example, here are sample emails that this logic app sends:
 
    ![Outlook sends email for each new RSS item](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
 
-Congratulations, you've now successfully built and 
+   If you don't get any emails, check your email junk folder. 
+   Your email junk filter might redirect these kinds of mails. 
+
+Congratulations, you've now successfuly built and 
 deployed your logic app with Visual Studio! 
 To manage your logic app and review its run history, 
 see [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).

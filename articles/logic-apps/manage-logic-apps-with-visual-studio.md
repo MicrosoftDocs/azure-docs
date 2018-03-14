@@ -217,17 +217,24 @@ For example:
 
    ![View inputs and outputs for each step](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 
-## Stop or restart your logic app
+## Disable or enable logic app
 
-To stop running your logic app without deleting, in Cloud Explorer, 
-open your logic app's shortcut menu, and select **Disable**.
+Without deleting your logic app, 
+you can stop the trigger from firing 
+the next time when the trigger condition is met. 
+Disabling your logic app prevents creating 
+and running future workflow instances for your logic app.
+In Cloud Explorer, open your logic app's shortcut menu, 
+and select **Disable**.
 
-![Stop running your logic app](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
+![Disable your logic app](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
-To restart your logic app, in Cloud Explorer, 
+To let your logic app resume firing ger fire again 
+enable your logic app so that the trigger fires again when 
+the trigger criteria, in Cloud Explorer, 
 open your logic app's shortcut menu, and select **Enable**.
 
-![Restart running your logic app](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
+![Enable your logic app](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
 
 ## Delete your logic app
 

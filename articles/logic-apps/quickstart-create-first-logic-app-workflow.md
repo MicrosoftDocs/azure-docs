@@ -195,20 +195,29 @@ Next, test your logic app.
 
 ## Run your logic app
 
-To manually start your logic app, on the designer toolbar bar, choose **Run**. 
-Or, wait for your logic app to run on your specified schedule (every minute). 
-If the RSS feed has new items, your logic app sends an email for each new item. 
-But if the feed doesn't have new items, your logic app skips firing the trigger 
+To manually start your logic app, 
+on the designer toolbar bar, choose **Run**. 
+Or, wait for your logic app to check the 
+RSS feed based on your specified schedule (every minute). 
+If the RSS feed has new items, 
+your logic app sends an email for each new item. 
+If the feed doesn't have new items, 
+your logic app skips firing the trigger 
 and waits for the next interval before checking again. 
+Technically, when the trigger fires, 
+the Logic Apps engine creates an instance 
+of your logic app workflow and runs 
+the actions in that workflow.
 
-For example, here is a sample email that this logic app sends:
+Here is a sample email that this logic app sends:
 
 ![Email sent for new RSS feed item](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
 If you don't get any emails, check your email's junk folder. 
 Your email junk filter might redirect these kinds of mails. 
 
-Congratulations, you've built and run your first logic app.
+Congratulations, you've now successfully built and 
+run your first logic app with the Azure portal!
 
 ## Clean up resources
 
