@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
-ms.author: terrylan
+ms.date: 03/13/2018
+ms.author: barclayn
 
 ---
 # Integrating Azure Security Center alerts with Azure log integration
