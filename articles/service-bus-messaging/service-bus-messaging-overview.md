@@ -123,7 +123,7 @@ Service Bus fully integrates with the following Azure services:
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 - [Functions](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
-- [Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/)
+- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
 ## Next steps
 
