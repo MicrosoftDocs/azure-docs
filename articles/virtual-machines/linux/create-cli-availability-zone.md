@@ -23,7 +23,7 @@ ms.custom:
 
 This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../availability-zones/az-overview.md#regions-that-support-availability-zones).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
 Make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index#az_login).
 
@@ -40,19 +40,19 @@ az vm list-skus --location eastus2 --output table
 The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
 
 ```azurecli
-ResourceType      Locations  Name               Tier       Size     Zones
-----------------  ---------  -----------------  ---------  -------  -------
-virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
-virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+ResourceType      Locations  Name               [...]    Tier       Size     Zones
+----------------  ---------  -----------------           ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2             Standard   DS2_v2   1,2,3
 [...]
-virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
-virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+virtualMachines   eastus2    Standard_F1s                Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s                Standard   F2s      1,2,3
 [...]
-virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
-virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+virtualMachines   eastus2    Standard_D2s_v3             Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3             Standard   D4_v3    1,2,3
 [...]
-virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
-virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+virtualMachines   eastus2    Standard_E2_v3              Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2,3
 ```
 
 
