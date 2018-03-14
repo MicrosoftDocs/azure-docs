@@ -77,8 +77,12 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Authoring cycle
-    href: luis-concept-app-iteration.md 
+  - name: Author App
+    items: 
+    - name: Authoring cycle
+      href: luis-concept-app-iteration.md 
+    - name: Versioning
+      href: luis-concept-version.md
   - name: Design Model 
     items:
     - name: Intents
@@ -154,7 +158,11 @@
   - name: Authoring V2 APIs
     href: https://aka.ms/luis-authoring-apis
   - name: Endpoint V2 API
-    href: https://aka.ms/luis-endpoint-apis         
+    href: https://aka.ms/luis-endpoint-apis
+  - name: Azure CLI 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
+  - name: Azure RM PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
     - name: Android

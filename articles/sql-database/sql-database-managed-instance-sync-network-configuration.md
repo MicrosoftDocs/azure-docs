@@ -3,7 +3,7 @@ title: Azure App Service - sync network configuration | Microsoft Docs
 description: This article discusses how to sync your network configuration for Azure App Service hosting plan.
 ms.service: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
