@@ -94,7 +94,7 @@ After the last command runs, copy and paste the connection string, and the queue
 After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages.
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
-2. From a command prompt, navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsTopicQuickstart).
+2. From a command prompt, navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/QueuesGettingStarted).
 3. Issue the following command to build the application:
    
    ```shell
