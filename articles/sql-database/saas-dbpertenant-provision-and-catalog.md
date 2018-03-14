@@ -39,9 +39,11 @@ The catalog allows the name or location of the database to be changed with minim
 
 The catalog also can store additional tenant or database metadata, such as the schema version, service plan, or SLAs offered to tenants. The catalog can store other information that enables application management, customer support, or DevOps. 
 
-Beyond the SaaS application, the catalog can enable database tools. In the Wingtip Tickets SaaS database-per-tenant sample, the catalog is used to enable cross-tenant query, which is explored in the [Ad hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md). Cross-database job management is explored in the [Schema management](saas-tenancy-schema-management.md) and [Tenant analytics](saas-tenancy-tenant-analytics.md) tutorials. 
+Beyond the SaaS application, the catalog can enable database tools. In the Wingtip Tickets SaaS database-per-tenant sample, the catalog is used to enable cross-tenant query, which is explored in the [Ad-hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md). Cross-database job management is explored in the [Schema management](saas-tenancy-schema-management.md) and [Tenant analytics](saas-tenancy-tenant-analytics.md) tutorials. 
 
-In the Wingtip Tickets SaaS samples, the catalog is implemented by using the Shard Management features of the [Elastic Database client library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL is available in Java and the .NET Framework. The EDCL enables an application to create, manage, and use a database-backed shard map. A shard map contains a list of shards (databases) and the mapping between keys (tenants) and shards. EDCL functions are used during tenant provisioning to create the entries in the shard map. They're used at run time by applications to connect to the correct database. EDCL caches connection information to minimize traffic to the catalog database and speed up the application. 
+In the Wingtip Tickets SaaS samples, the catalog is implemented by using the Shard Management features of the [Elastic Database client library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL is available in Java and the .NET Framework. The EDCL enables an application to create, manage, and use a database-backed shard map. 
+
+A shard map contains a list of shards (databases) and the mapping between keys (tenants) and shards. EDCL functions are used during tenant provisioning to create the entries in the shard map. They're used at run time by applications to connect to the correct database. EDCL caches connection information to minimize traffic to the catalog database and speed up the application. 
 
 > [!IMPORTANT]
 > The mapping data is accessible in the catalog database, but *don't edit it*. Edit mapping data by using Elastic Database Client Library APIs only. Directly manipulating the mapping data risks corrupting the catalog and isn't supported.
@@ -73,7 +75,7 @@ To understand how the Wingtip Tickets application implements new tenant provisio
 
    * **$TenantName** = the name of the new venue (for example, *Bushwillow Blues*).
    * **$VenueType** = one of the predefined venue types: _blues, classicalmusic, dance, jazz, judo, motor racing, multipurpose, opera, rockmusic, soccer_.
-   * **$DemoScenario** = **1** to *Provision a single tenant*.
+   * **$DemoScenario** = **1**, *Provision a single tenant*.
 
 2. To add a breakpoint, put your cursor anywhere on the line that says *New-Tenant `*. Then press F9.
 
@@ -92,20 +94,12 @@ Trace the script's execution by using the **Debug** menu options. Press F10 and 
 
 You don't need to explicitly follow this workflow. It explains how to debug the script.
 
-<<<<<<< HEAD
-* **Import the SubscriptionManagement.psm1 module.** It contains functions for signing in to Azure and selecting the Azure subscription you want to work with.
 * **Import the CatalogAndDatabaseManagement.psm1 module.** It provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
-* **Get configuration details.** Step into Get-Configuration by using F11, and see how the app config is specified. Resource names and other app-specific values are defined here. Don't change these values until you are familiar with the scripts.
-* **Get the catalog object.** Step into Get-Catalog, which composes and returns a catalog object that's used in the higher-level script. This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:
+* **Import the SubscriptionManagement.psm1 module**. It contains functions for signing in to Azure and selecting the Azure subscription you want to work with.
+* **Get configuration details**. Step into Get-Configuration by using F11, and see how the app config is specified. Resource names and other app-specific values are defined here. Don't change these values until you are familiar with the scripts.
+* **Get the catalog object**. Step into Get-Catalog, which composes and returns a catalog object that's used in the higher-level script. This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:
 
    * $catalogServerFullyQualifiedName is constructed by using the standard stem plus your user name: _catalog-\<user\>.database.windows .net_.
-=======
-1. **Import the CatalogAndDatabaseManagement.psm1** module that provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
-1. **Import the SubscriptionManagement.psm1** module that contains functions for signing in to Azure and selecting the Azure subscription you are working with.
-1. **Get configuration details**. Step into Get-Configuration (with F11) and see how the app config is specified. Resource names and other app-specific values are defined here, but do not change these values until you are familiar with the scripts.
-1. **Get the catalog object**. Step into Get-Catalog, which composes and returns a catalog object that is used in the higher-level script.  This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:
-   * $catalogServerFullyQualifiedName is constructed using the standard stem plus your User name: _catalog-\<user\>.database.windows .net_.
->>>>>>> fa7769aa1d36fbf7711e7054e00e275a19014ffa
    * $catalogDatabaseName is retrieved from the config: *tenantcatalog*.
    * $shardMapManager object is initialized from the catalog database.
    * $shardMap object is initialized from the _tenantcatalog_ shard map in the catalog database. A catalog object is composed and returned. It's used in the higher-level script.
@@ -119,7 +113,7 @@ You don't need to explicitly follow this workflow. It explains how to debug the 
 
 * **The tenant database is further initialized.** The venue (tenant) name and the venue type are added. You also can do other initialization here.
 
-* **The tenant database is registered in the catalog.** It's registered with *Add-TenantDatabaseToCatalog* by using the tenant key.** Use F11 to step into the details:
+* **The tenant database is registered in the catalog.** It's registered with *Add-TenantDatabaseToCatalog* by using the tenant key. Use F11 to step into the details:
 
     * The catalog database is added to the shard map (the list of known databases).
     * The mapping that links the key value to the shard is created.
@@ -156,7 +150,9 @@ Other provisioning patterns not included in this tutorial:
 
 **Pre-provisioning databases.** The pre-provisioning pattern exploits the fact that databases in an elastic pool don't add extra cost. Billing is for the elastic pool, not the databases. Idle databases consume no resources. By pre-provisioning databases in a pool and allocating them when needed, you can reduce the time to add tenants. The number of databases pre-provisioned can be adjusted as needed to keep a buffer suitable for the anticipated provisioning rate.
 
-**Auto-provisioning.** In the auto-provisioning pattern, a provisioning service provisions servers, pools, and databases automatically, as needed. If you want, you can include pre-provisioning databases in elastic pools. If databases are decommissioned and deleted, gaps in elastic pools can be filled by the provisioning service. Such a service can be simple or complex, such as handling provisioning across multiple geographies and setting up geo-replication for disaster recovery. With the auto-provisioning pattern, a client application or script submits a provisioning request to a queue to be processed by the provisioning service. It then polls the service to determine completion. If pre-provisioning is used, requests are handled quickly. The service provisions a replacement database in the background.
+**Auto-provisioning.** In the auto-provisioning pattern, a provisioning service provisions servers, pools, and databases automatically, as needed. If you want, you can include pre-provisioning databases in elastic pools. If databases are decommissioned and deleted, gaps in elastic pools can be filled by the provisioning service. Such a service can be simple or complex, such as handling provisioning across multiple geographies and setting up geo-replication for disaster recovery. 
+
+With the auto-provisioning pattern, a client application or script submits a provisioning request to a queue to be processed by the provisioning service. It then polls the service to determine completion. If pre-provisioning is used, requests are handled quickly. The service provisions a replacement database in the background.
 
 
 ## Next steps

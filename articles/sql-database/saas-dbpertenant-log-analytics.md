@@ -43,13 +43,13 @@ Log Analytics workspaces and analytics solutions open in the Azure portal and in
 1. In the PowerShell ISE, open *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\**Demo-PerformanceMonitoringAndManagement.ps1***. Keep this script open because you might want to run several of the load generation scenarios during this tutorial.
 2. If you haven't done so already, provision a batch of tenants to make the monitoring context more interesting. This process takes a few minutes.
 
-   a. Set **$DemoScenario = 1** to _Provision a batch of tenants_.
+   a. Set **$DemoScenario = 1**, _Provision a batch of tenants_.
 
    b. To run the script and deploy an additional 17 tenants, press F5.
 
 3. Now start the load generator to run a simulated load on all the tenants.
 
-    a. Set **$DemoScenario = 2** to _Generate normal intensity load (approx. 30 DTU)_.
+    a. Set **$DemoScenario = 2**, _Generate normal intensity load (approx. 30 DTU)_.
 
     b. To run the script, press F5.
 

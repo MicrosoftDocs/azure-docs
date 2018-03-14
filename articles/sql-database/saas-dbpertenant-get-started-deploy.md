@@ -83,11 +83,11 @@ While the application deploys, download the source code and management scripts.
 5. On the **General** tab, select **Unblock** > **Apply**.
 6. Select **OK**, and extract the files
 
-Scripts are located in the *...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules* folder.
+Scripts are located in the ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules folder.
 
 ## Update the user configuration file for this deployment
 
-Before you run any scripts, update the resource group and user values in the *User Config* file. Set these variables to the values you used during deployment.
+Before you run any scripts, update the resource group and user values in the User Config file. Set these variables to the values you used during deployment.
 
 1. In the PowerShell ISE, open ...\\Learning Modules\\**UserConfig.psm1** 
 2. Update **ResourceGroupName** and **Name** with the specific values for your deployment (on lines 10 and 11 only).
@@ -161,7 +161,7 @@ If you want to control and monitor the background jobs, use the following cmdlet
 
 1. *Demo-LoadGenerator.ps1* starts *LoadGenerator.ps1* in the foreground.
 
-    - Both .ps1 files are stored under the folders *Learning Modules\\Utilities\\*.
+    - Both .ps1 files are stored under the folders Learning Modules\\Utilities\\.
 
 2. *LoadGenerator.ps1* loops through all tenant databases in the catalog.
 
@@ -210,7 +210,7 @@ Refresh the Events Hub to make the new tenant appear in the list.
 Now that you've started running a load against the collection of tenants, let's look at some of the resources that were deployed.
 
 1. In the [Azure portal](http://portal.azure.com), browse to your list of SQL servers. Then open the **catalog-dpt-&lt;USER&gt;** server.
-    - The catalog server contains two databases, **tenantcatalog** and **basetenantdb** (a template database that is copied to create new tenants).
+    - The catalog server contains two databases, **tenantcatalog** and **basetenantdb** (a template database that's copied to create new tenants).
 
    ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
@@ -241,9 +241,9 @@ The two charts illustrate that elastic pools and SQL Database are well suited to
 ## Additional resources
 
 - For more information, see additional [tutorials that build on the Wingtip Tickets SaaS database-per-tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- To learn about elastic pools, see [What is an Azure SQL elastic pool](sql-database-elastic-pool.md)
-- To learn about elastic jobs, see [Manage scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
-- To learn about multitenant SaaS applications, see [Design patterns for multitenant SaaS applications](saas-tenancy-app-design-patterns.md)
+- To learn about elastic pools, see [What is an Azure SQL elastic pool?](sql-database-elastic-pool.md).
+- To learn about elastic jobs, see [Manage scaled-out cloud databases](sql-database-elastic-jobs-overview.md).
+- To learn about multitenant SaaS applications, see [Design patterns for multitenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
 
 ## Next steps
