@@ -45,9 +45,16 @@ A client application can request an MSI [app-only access token](~/articles/activ
 
 ## Get a token using HTTP 
 
-The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs an Azure AD endpoint).
+The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses an endpoint on the virtual machine (vs an Azure AD endpoint).
 
-Sample request:
+Sample request using the Instance Metadata Service (IMDS) Endpoint:
+
+```
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
+Metadata: true
+```
+
+Sample request using the MSI VM Extension Endpoint (upcoming deprecation):
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
@@ -57,7 +64,9 @@ Metadata: true
 | Element | Description |
 | ------- | ----------- |
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
-| `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | The MSI endpoint for the Instance Metadata Service. |
+| `http://localhost:50342/oauth2/token` | The MSI endpoint for the VM extension, where 50342 is the default port and is configurable. |
+| `api-version`  | A query string parameter, indicating the API version for the IMDS endpoint.  |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
 | `client_id` | A query string parameter, indicating the client ID (also known as App ID) of the service principal representing the user-assigned MSI. This value is returned in the `clientId` property during creation of a user-assigned MSI. This example requests a token for client ID "712eac09-e943-418c-9be6-9fd5c91078bl". |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
@@ -91,6 +100,16 @@ Content-Type: application/json
 ## Get a token using CURL
 
 Be sure to substitute the client ID (also known as App ID) of your user-assigned MSI's service principal, for the <MSI CLIENT ID> value of the `client_id` parameter. This value is returned in the `clientId` property during creation of a user-assigned MSI.
+  
+Sample request using the Instance Metadata Service (IMDS) Endpoint:
+
+   ```bash
+   response=$(curl http://169.254.169.254/metadata/identity/oauth2/token --data "api-version=2018-02-01&resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Sample request using the MSI VM Extension Endpoint (upcoming deprecation):
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -109,7 +128,7 @@ Be sure to substitute the client ID (also known as App ID) of your user-assigned
 
 ## Handling token expiration
 
-The local MSI subsystem caches tokens. Therefore, you can call it as often as you like, and an on-the-wire call to Azure AD results only if:
+The MSI subsystem caches tokens. Therefore, you can call it as often as you like, and an on-the-wire call to Azure AD results only if:
 - a cache miss occurs due to no token in the cache
 - the token is expired
 
