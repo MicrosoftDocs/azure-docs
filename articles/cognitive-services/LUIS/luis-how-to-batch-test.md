@@ -64,7 +64,6 @@ To review the batch test results, select **See results**.
 Green points indicate correct prediction, and red ones indicate incorrect prediction.
 
 The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
-![Visualized Batch Test Result](./media/luis-how-to-batch-test/graph1.png) 
 
 -->
 
@@ -80,7 +79,6 @@ To filter the chart by a specific intent or entity, select the intent or entity 
 ## Investigate false sections
 Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
 
-![Four sections of chart](./media/luis-how-to-batch-test/chart-sections.png)
 
 The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
 -->
