@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: sethm
 
 ---
@@ -25,21 +25,15 @@ Azure Event Hubs is a highly scalable data streaming platform and ingestion serv
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
-## Launch Azure Cloud Shell
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure Cloud Shell is a free Bash shell that you can run directly from within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button in the upper right corner of the Azure portal.
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-![][1]
+## Log on to Azure
 
-This option launches an interactive shell that you can use to run the steps in this article.
+Once CLI is installed, perform the following steps to install the Event Hubs CLI extension, and to log on to Azure:
 
-![][2]
-
-## Install CLI locally
-
-If you choose to install and use the CLI locally, this article requires that you run the latest version of Azure CLI (2.0.14 or later). To find the version, run the `cli az –version` command. If you need to install or upgrade, see [Install Azure CLI 2.0][].
-
-1. Once CLI is installed, open a command prompt and issue the following command:
+1. Issue the following command to install the Event Hubs CLI extension:
 
    ```azurecli-interactive
    az extension add --name eventhubs
@@ -58,64 +52,50 @@ If you choose to install and use the CLI locally, this article requires that you
 
 3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login.
 
-## Create a resource group
+After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace all placeholders with the appropriate values:
 
-A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Create a new resource group with [az group create][] command.
-
-The following example creates a resource group named **eventhubsResourceGroup** in the **East US** region:
-
-```azurecli-interactive
+```azurecli
+# Create a resource group
 az group create --name eventhubsResourceGroup --location eastus
-```
 
-## Create an Event Hubs namespace
+# Create an Event Hubs namespace
+az eventhubs namespace create --name <namespace_name> --resource-group eventhubsResourceGroup -l eastus2
 
-An Event Hubs namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more event hubs. The following example creates a namespace in your resource group. Replace `<namespace_name>` with a unique name for your namespace:
+# Create an event hub
+az eventhubs eventhub create --name <event_hub_name> --resource-group eventhubsResourceGroup --namespace-name <namespace_name>
 
-```azurecli-interactive
-az eventhubs namespace create --name <namespace_name> -l eastus2
-```
-
-### Get namespace credentials
-
-To obtain the connection string, which contains the credentials you need to connect to the event hub, open the [Azure portal](https://portal.azure.com). 
-
-1. In the portal list of namespaces, click the newly created namespace.
-
-2. Click **Shared access policies**, and then click **RootManageSharedAccessKey**.
-    
-3. Click the **Copy** button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
- 
-## Create an event hub
-
-To create an event hub, specify the namespace under which you want it created. The following example shows how to create an event hub:
-
-```azurecli-interactive
-az eventhubs entity create --name <eventhub_name> -l eastus2
-```
-
-## Create a storage account for the Event Processor Host
-
-The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, the Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access:
-
-```azurecli-interactive
 # Create a general purpose standard storage account
-az storage account create --name <storage_account_name> --resource-group eventhubsResourceGroup --location eastus2 --sku Standard_RAGRS --encryption blob 
+az storage account create --name <storage_account_name> --resource-group eventhubsResourceGroup --location eastus2 --sku Standard_RAGRS --encryption blob
 
 # List the storage account access keys
 az storage account keys list --resource-group eventhubsResourceGroup --account-name <storage_account_name>
+
+# Get namespace connection string
+az eventhubs namespace authorizationrule keys list --resource-group eventhubsResourceGroup --namespace-name <namespace_name> --name RootManageSharedAccessKey
 ```
+
+Copy and paste the connection string to a temporary location, such as Notepad, to use later.
 
 ## Download and run the samples
 
-The next step is to download the sample code that sends events to an event hub, and receives those events using the Event Processor Host. Download the [Basic](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/src/main/java/com/microsoft/azure/eventhubs/samples/Basic) sample from GitHub, or clone or download the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
+The next step is to download the sample code that sends events to an event hub, and receives those events using the Event Processor Host. 
 
-### Send
-
-1. In the Send.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
+1. Clone the [Event Hubs GitHub repo](https://github.com/Azure/azure-event-hubs).
+2. Navigate to the [Send sample folder](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/Send).
+2. In the Send.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
 2. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
 3. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Primary Key value you obtained previously. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
-4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key in the previous step.   
+4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key in the previous step.
+5. Issue the following command to build the application:
+
+   ```shell
+   mvn clean package -DskipTests
+   ```
+6. To run the program, issue the following command:
+   
+   ```shell
+   java -jar ./target/send-1.0.0-jar-with-dependencies.jar
+   ```   
 
 ### Receive
 

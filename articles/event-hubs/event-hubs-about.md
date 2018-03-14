@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
+ms.date: 03/12/2018
 ms.author: shvija;sethm
 
 ---
@@ -49,19 +49,17 @@ Event Hubs is a completely managed service with no configuration or management o
 
 ## Scalable 
 
-You can start low with megabytes, and grow to gigabytes or terabytes of data. Use shared resources or completely dedicated resources. Event Hubs covers all streaming platform needs.
+You can start with low-bandwidth streams, and grow to gigabytes or terabytes of data. Event Hubs covers all streaming platform needs.
 
 ## Real time and batch
 
-[Event Hubs Capture](event-hubs-capture-overview.md) enables a single stream to support real-time and batch-based pipelines, and reduces the complexity of your solution. 
+Event Hubs supports real-time and microbatch streaming. Microbatching is enabled by using [Event Hubs Capture](event-hubs-capture-overview.md), which enables a single stream to support batch-based pipelines, and reduces the complexity of your solution.
+
+[Capture](event-hubs-capture-overview.md) enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account of your choice, with the added flexibility of specifying a time or size interval. Setting up Capture is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs throughput units. Event Hubs Capture enables you to focus on data processing rather than on data capture. 
 
 ## Develop cross-platform
 
-With native clients available in various [languages (.NET, Java)](https://github.com/Azure/azure-event-hubs), you can easily send and receive data from Event Hubs. 
-
-## Event Hubs Capture
-
-[Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account of your choice, with the added flexibility of specifying a time or size interval. Setting up Capture is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs throughput units. Event Hubs Capture enables you to focus on data processing rather than on data capture. 
+With a broad ecosystem available in various [languages (.NET, Java)](https://github.com/Azure/azure-event-hubs), you can easily send and receive data from Event Hubs. All supported client languages provide low-level integration.
 
 ## Next Steps
 
