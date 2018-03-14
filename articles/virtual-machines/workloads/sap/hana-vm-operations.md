@@ -190,7 +190,7 @@ When you install the VMs to run SAP HANA, the VMs need:
 
 For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that a lot of configuration attributs for HANA reference IP addresses.
+For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that a lot of configuration attributes for HANA reference IP addresses.
 
 [Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are used to direct traffic that's routed to the SAP HANA instance or the Jumpbox. The NSGs are associated to the SAP HANA subnet and the Management subnet.
 
