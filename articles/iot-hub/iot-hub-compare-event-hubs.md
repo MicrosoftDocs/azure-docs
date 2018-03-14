@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/15/2018
 ms.author: elioda
 
 ---
 # Comparison of Azure IoT Hub and Azure Event Hubs
-One of the main use cases for IoT Hub is to gather telemetry from devices. For this reason, IoT Hub is often compared to [Azure Event Hubs][Azure Event Hubs]. Like IoT Hub, Event Hubs is an event processing service that enables event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
 
-However, the services have many differences, which are detailed in the following table:
+Azure IoT Hub is the cloud gateway that connects devices and gathers data for business insights and automation. It makes it easy to stream data to the cloud and manage your devices at scale. IoT Hub also offers rich bi-directional communication capabilities, device-level security, and distributed computing on edge devices.
+
+[Azure Event Hubs][Azure Event Hubs] is a similar service that enables event and telemetry ingestion in the cloud, but implements different capabilities than IoT Hub.
+
+Some of the key differences between the two services are detailed in the following table:
 
 | Area | IoT Hub | Event Hubs |
 | --- | --- | --- |
-| Communication patterns | Enables [device-to-cloud communications][lnk-d2c-guidance] (messaging, file uploads, and reported properties) and [cloud-to-device communications][lnk-c2d-guidance] (direct methods, desired properties, messaging). |Only enables event ingress (usually considered for device-to-cloud scenarios). |
-| Device state information | [Device twins][lnk-twins] can store and query device state information. | No device state information can be stored. |
+| Communication patterns | Enables [device-to-cloud communications][lnk-d2c-guidance] (messaging, file uploads, and reported properties) and [cloud-to-device communications][lnk-c2d-guidance] (direct methods, desired properties, messaging).<sup>1</sup> | Enables event ingress (usually considered for device-to-cloud scenarios). |
+| Device state information | [Device twins][lnk-twins] can store and query device state information.<sup>1</sup> | No device state information can be stored. |
+| Distributed edge computing | IoT Hub enables creation and management of [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) devices and deployments.<sup>1</sup> | Event Hubs does not support moving workloads to devices. |
 | Device protocol support |Supports MQTT, MQTT over WebSockets, AMQP, AMQP over WebSockets, and HTTPS. Additionally, IoT Hub works with the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], a customizable protocol gateway implementation to support custom protocols. |Supports AMQP, AMQP over WebSockets, and HTTPS. |
 | Security |Provides per-device identity and revocable access control. See the [Security section of the IoT Hub developer guide]. |Provides Event Hubs-wide [shared access policies][Event Hubs - security], with limited revocation support through [publisher's policies][Event Hubs publisher policies]. IoT solutions are often required to implement a custom solution to support per-device credentials and anti-spoofing measures. |
 | Operations monitoring |Enables IoT solutions to subscribe to a rich set of device identity management and connectivity events such as individual device authentication errors, throttling, and bad format exceptions. These events enable you to quickly identify connectivity problems at the individual device level. |Exposes only aggregate metrics. |
@@ -33,6 +37,8 @@ However, the services have many differences, which are detailed in the following
 | Device SDKs |Provides [device SDKs][Azure IoT SDKs] for a large variety of platforms and languages, in addition to direct MQTT, AMQP, and HTTPS APIs. |Is supported on .NET, Java, and C, in addition to AMQP and HTTPS send interfaces. |
 | File upload |Enables IoT solutions to upload files from devices to the cloud. Includes a file notification endpoint for workflow integration and an operations monitoring category for debugging support. | Not supported. |
 | Route messages to multiple endpoints | Up to 10 custom endpoints are supported. Rules determine how messages are routed to custom endpoints. For more information, see [Send and receive messages with IoT Hub][lnk-devguide-messaging]. | Requires additional code to be written and hosted for message dispatching. |
+<sup>1</sup> Cloud-to-device communication, device twins and device management, and Azure IoT Edge are only included in the standard tier of IoT Hub. For more information about basic and standard IoT hubs, see [Choose the right IoT Hub](iot-hub-scaling.md).
+
 
 In summary, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is designed for IoT device connectivity. It continues to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios.
 
