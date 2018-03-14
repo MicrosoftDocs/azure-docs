@@ -27,11 +27,6 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
-### Virtual networks
-#### [Azure portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Template](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Network security groups
 #### [Azure portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -62,11 +57,6 @@
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
 ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
-
-### Public IP address - availability zone
-#### [Azure portal](create-public-ip-availability-zone-portal.md)
-#### [Azure CLI](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)
