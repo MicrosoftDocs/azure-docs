@@ -2,8 +2,8 @@
 title: Train and test your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: v-geberr
+manager: kaiqb
 
 ms.service: cognitive-services
 ms.technology: luis
@@ -110,19 +110,18 @@ Use the following steps to use the Bing Spell Check v7 service key.
 
     ![Corrected spelling JSON](./media/luis-how-to-train-test/interactive-with-spell-check-results.png)
 
-<a href="luis-how-to-batch-test.md#json-file-with-no-duplicates"></a>
-<a href="luis-how-to-batch-test.md#import-a-dataset-file-for-batch-testing"></a>
-<a href="luis-how-to-batch-test.md#export-rename-delete-or-download-dataset"></a>
-<a href="luis-how-to-batch-test.md#run-a-batch-test-on-your-trained-app"></a>
-<a href="luis-how-to-batch-test.md#access-batch-test-result-details-in-a-visualized-view"></a>
-<a href="luis-how-to-batch-test.md#filter-chart-results-by-intent-or-entity"></a>
-<a href="luis-how-to-batch-test.md#investigate-false-sections"></a>
-<a href="luis-how-to-batch-test.md#view single-point utterance data"></a>
-<a name="luis-how-to-batch-test.md#relabel-utterances-and-retrain"></a>
-<a href="luis-how-to-batch-test.md#false-test-results"></a>
-
+<a name="json-file-with-no-duplicates"></a>
+<a name="import-a-dataset-file-for-batch-testing"></a>
+<a name="export-rename-delete-or-download-dataset"></a>
+<a name="run-a-batch-test-on-your-trained-app"></a>
+<a name="access-batch-test-result-details-in-a-visualized-view"></a>
+<a name="filter-chart-results-by-intent-or-entity"></a>
+<a name="investigate-false-sections"></a>
+<a name="view single-point utterance data"></a>
+<a name="relabel-utterances-and-retrain"></a>
+<a name="false-test-results"></a>
 ## Batch testing
-See [batch testing](luis-how-to-batch-test.md) to learn how to test a batch of utterances.
+See batch testing [concepts](luis-concept-batch-test.md) and to learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
 ## Next steps
 

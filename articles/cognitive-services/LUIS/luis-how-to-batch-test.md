@@ -51,9 +51,8 @@ To run the test, select the dataset name. When the test completes, this row disp
 |![Failing test red x icon](./media/luis-how-to-batch-test/batch-test-result-red.png)|At least one utterance intent did not match the prediction.|
 |![Ready to test icon](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test is ready to run.|
 
-
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
-## 
+## View batch test results 
 To review the batch test results, select **See results**.
 
 ![Batch test results](./media/luis-how-to-batch-test/run-test-results.png)
