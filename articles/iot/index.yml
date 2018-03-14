@@ -39,7 +39,7 @@ sections:
       - image:
           src: media/index/logo_python.svg
       - image:
-          src: media/index/logo_nodejs1.svg
+          src: media/index/logo_nodejs_1.svg
     rows:
       - title: Connect a simulated device to IoT Hub
         values:

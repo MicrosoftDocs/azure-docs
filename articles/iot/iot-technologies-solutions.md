@@ -19,12 +19,12 @@ ms.custom:
 ---
 # Overview of the collection of PaaS/SaaS techologies and solutions available in Azure IoT
 
-Need text here talking about the 2 paths available to customers:
--	PaaS – build your own application using IoT Suite, PCS, and all Technologies
--	SaaS – leverage another application to build a solution, for instance, IoT Central solutions. 
+Article provides an overview then details on the 2 paths available to customers:
+- PaaS: build your own application using IoT Suite, PCS, and all Technologies
+- SaaS: leverage another application to build a solution, for instance, IoT Central solutions. 
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
-[img-paas-saas-technologies-solutions]: media/iot-technologies-solutions/img-paas-saas-technologies-solutions.png
+[img-paas-saas-technologies-solutions]: media/iot-technologies-solutions/paas-saas-technologies-solutions.png
 
 
