@@ -104,7 +104,7 @@ Be sure to substitute the client ID (also known as App ID) of your user-assigned
 Sample request using the Instance Metadata Service (IMDS) Endpoint:
 
    ```bash
-   response=$(curl http://169.254.169.254/metadata/identity/oauth2/token --data "api-version=2018-02-01&resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com&client_id=<MSI CLIENT ID>")
    access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    echo The MSI access token is $access_token
    ```
@@ -120,7 +120,7 @@ Sample request using the MSI VM Extension Endpoint (upcoming deprecation):
    Example responses:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
