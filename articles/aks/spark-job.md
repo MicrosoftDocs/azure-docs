@@ -51,6 +51,8 @@ Connect to the AKS cluster.
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
+If you are using Azure Container Registry (ACR) to store container images, configure authentication between AKS and ACR. See the [ACR authentication documentation][acr-aks] for these steps.
+
 ## Build the Spark source
 
 Before running Spark jobs on an AKS cluster, you need to build the Spark source code and package it into a container image. The Spark source includes scripts that can be used to complete this process. 
