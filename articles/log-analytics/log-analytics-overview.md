@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/14/2018
 ms.author: bwren
 
 ---
 # What is Azure Log Analytics?
 Log Analytics plays a central role in Azure management by collecting telemetry and other data from a variety of sources and  providing a query language and analytics engine that gives you insights into the operation of your applications and resources.  You can either interact directly with Log Analytics data through log searches and views, or you may use analysis tools in other Azure services that store their data in Log Analytics such as Application Insights or Azure Security Center.  
 
-Log Analytics is an end-to-end solution that's already integrated with other Azure services.  You just need to create a workspace to enable collection and enable management solutions that you're interested in.  Management solutions include logic to provide additional insights into different applications using Log Analytics data.  You can install agents on virtual machines to include them in the workspace and centrally configure data to be collected.  Behind the scenes, data types are either predefined or automatically created as data is collected.
+Log Analytics requires minimal configuration and is already integrated with other Azure services.  You just need to create a workspace to enable collection.  You can then install agents on virtual machines to include them in the workspace and enable management solutions which include logic to provide additional insights into different applications.  Behind the scenes, data types are either predefined or automatically created as data is collected.
 
 
 ## Role in monitoring
 
-The different monitoring services in Azure are described in [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md).  If you have no current monitoring in place for your Azure environment, you should start with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), which collects and analyzes monitoring data for your Azure resources.  Log Analytics can [collect data from Azure Monitor](log-analytics-azure-storage.md) to correlate it with other data and provide additional analysis.
+The different monitoring services in Azure are described in [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md).  Log Analytics plays a central role by consolidating monitoring data from different sources and providing a powerful query language for consolidation and analysis.  
 
-Log Analytics isn't limited to monitoring Azure resources.  It can collect data from resources that are on-premises or in other clouds to create a hybrid monitoring environment and can directly connect to System Center Operations Manager to collect telemetry from existing agents.  Analysis tools in Log Analytics such as log searches, views, and management solutions work against all collected data providing you with the capability to centrally analyze your entire environment.
+Log Analytics isn't limited to monitoring Azure resources though.  It can collect data from resources that are on-premises or in other clouds to create a hybrid monitoring environment and can directly connect to System Center Operations Manager to collect telemetry from existing agents.  Analysis tools in Log Analytics such as log searches, views, and management solutions work against all collected data providing you with the capability to centrally analyze your entire environment.
 
 
 
@@ -46,11 +46,17 @@ Methods for collecting data into Log Analytics include the following:
 
 ![Log Analytics components](media/log-analytics-overview/collecting-data.png)
 
+## Add functionality with management solutions
+[Management solutions](log-analytics-add-solutions.md) provide prepackaged logic for a particular product or scenario.  They may gather extra data into Log Analytics or process data that's already been collected.  They'll typically include a view to help you analyze this additional data.  Solutions are available for a variety of functions, and additional solutions are consistently being added.  You can easily browse available solutions and [add them to your workspace](log-analytics-add-solutions.md) from the Azure Marketplace.  
+
+![Marketplace](media/log-analytics-overview/solutions.png)
+
+
 ## Query language
 
 Log Analytics includes a [rich query language](http://docs.loganalytics.io) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Search or Advanced Analytics portals](log-analytics-log-search-portals.md) and then either directly analyze the data using these tools or save queries for use with visualizations, alerts, or export to other tools such as Power BI or Excel.
 
-You can quickly learn the query language using [multiple tutorials](https://docs.loganalytics.io/docs/Learn/Tutorials) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics).
+The Log Analytics query language is suitable for simple log searches but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple tutorials](https://docs.loganalytics.io/docs/Learn/Tutorials) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics).
 
 ![Log search](media/log-analytics-overview/analytics-query.png)
 
@@ -89,17 +95,9 @@ You can use [Logic Apps](../logic-apps/logic-apps-overview.md) in Azure to creat
 ![Power BI](media/log-analytics-overview/export.png)
 
 
-## Add functionality with management solutions
-[Management solutions](log-analytics-add-solutions.md) provide prepackaged logic for a particular product or scenario.  They may gather extra data into Log Analytics or process data that's already been collected.  They'll typically include a view to help you analyze this additional data.  Solutions are available for a variety of functions, and additional solutions are consistently being added.  You can easily browse available solutions and [add them to your workspace](log-analytics-add-solutions.md) from the Azure Marketplace.  
-
-![Marketplace](media/log-analytics-overview/solutions.png)
-
-
-
-
 
 ## Next steps
-* [Sign up for a free Log Analytics account](log-analytics-get-started.md) to test in your own environment.
-* View the different [Data Sources](log-analytics-data-sources.md) available to collect data into Log Analytics.
-* [Browse the available solutions in the Solutions Gallery](log-analytics-add-solutions.md) to add functionality to Log Analytics.
+- Get started by [collecting data from Azure VMs](log-analytics-quick-collect-azurevm.md).
+- Walk through a [tutorial on analyzing Log Analytics data with a simple query](log-analytics-tutorial-viewdata.md).
+* [Browse the available solutions](log-analytics-add-solutions.md) to add functionality to Log Analytics.
 
