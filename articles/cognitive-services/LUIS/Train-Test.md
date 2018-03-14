@@ -121,7 +121,7 @@ Use the following steps to use the Bing Spell Check v7 service key.
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 ## Batch testing
-See batch testing [concepts](luis-concept-batch-test.md) and to learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
+See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
 ## Next steps
 

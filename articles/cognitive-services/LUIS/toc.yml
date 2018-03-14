@@ -119,9 +119,11 @@
       href: Add-entities.md
   - name: Improve prediction accuracy using features
     href: Add-Features.md
-  - name: Train and test the app
+  - name: Train
+    href: luis-how-to-train.md
+  - name: Test
     items:
-    - name: Trian and interactive testing
+    - name: Interactive testing
       href: Train-Test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
