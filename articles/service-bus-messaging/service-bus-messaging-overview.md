@@ -20,7 +20,7 @@ ms.author: chwolf;sethm
 ---
 # What is Azure Service Bus?
 
-Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and it provides a highly reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
+Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a highly reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
 
 Some common messaging scenarios are:
 
@@ -51,7 +51,7 @@ You can also use *topics* to send and receive messages. While a queue is often u
 
 Topics can have multiple, independent subscriptions. A subscriber to a topic is eligible to receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
 
-In some scenarios you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional [actions](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters), filter specified messages, and set or modify message properties.
+In some scenarios you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional [actions](topic-filters.md#actions), filter specified messages, and set or modify message properties.
 
 ## Advanced features
 
@@ -107,12 +107,13 @@ Service Bus supports security protocols such as [Shared Access Signatures](servi
 
 When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue to operate in a different region or datacenter.
 
-### Supported protocols
+### Security
 
-Service Bus also supports the following standard protocols:
+Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 
-* Secure, standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
-* Client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client) support.
+## Client libraries
+
+Service Bus supports client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
 
 ## Integration
 

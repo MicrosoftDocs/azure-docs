@@ -32,7 +32,6 @@ If you do not have an Azure subscription, create a [free account][] before you b
 
 To develop a Service Bus app with Java, you must have the following installed:
 
--  [.NET Core](https://www.microsoft.com/net/core), latest version.
 -  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
@@ -62,7 +61,13 @@ Once CLI is installed, open Cloud Shell and issue the following commands to log 
    To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code ######## to authenticate.
    ```
 
-3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login. 
+3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login.
+
+4. Set the current subscription context:
+
+   ```azurecli
+   az account set --subscription <Azure_subscription_name>
+   ``` 
 
 ## Use CLI to provision resources
 
@@ -73,16 +78,16 @@ After logging in to Azure, issue the following commands to provision Service Bus
 az group create --name <my-resourcegroup> --location eastus
 
 # Create a Messaging namespace
-az servicebus namespace create --name <namespace_name> -location eastus
+az servicebus namespace create --name <namespace_name> --resource-group <my-resourcegroup> -l eastus2
 
 # Create a queue
-az servicebus entity create --name <queue_name> -location eastus
+az servicebus queue create --resource-group <my-resourcegroup> --namespace-name <namespace_name> --name <queue_name>
 
 # Get the connection string
 az servicebus namespace authorizationrule keys list --resource-group <my-resourcegroup> --namespace-name <namespace-name> --name RootManageSharedAccessKey
 ```
 
-Copy and paste the connection string value to a temporary location, such as Notepad, to use later.
+After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
