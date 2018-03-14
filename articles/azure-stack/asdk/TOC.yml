@@ -10,14 +10,18 @@
   expanded: true
   items:
   - name: 1. Add a marketplace item
-    href: asdk-marketplace-item.md
+    items:
+    - name: Download from Azure
+      href: asdk-marketplace-item.md
+    - name: Add from a local source
+      href: asdk-marketplace-item-offline.md
   - name: 2. Offer IaaS services
     href: asdk-offer-services.md
   - name: 3. Subscribe to an offer
     href: asdk-subscribe-services.md
   - name: 4. Update offers and plans
     href: asdk-update-offers.md 
-  - name: 5. Create a virtual machine from a template
+  - name: 5. Create a VM from a template
     href: asdk-create-vm-template.md 
 - name: Concepts
   items:
@@ -35,7 +39,7 @@
     items:
     - name: Deploy the ASDK
       items:
-       - name: Deploy the ASDK
+       - name: Deploy the ASDK - Installer
          href: asdk-deploy.md 
        - name: Deploy the ASDK - PowerShell
          href: asdk-deploy-powershell.md
