@@ -1,5 +1,5 @@
 ---
-title: Sentiment analysis on streaming data using Azure Databricks | Microsoft Docs
+title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks | Microsoft Docs'
 description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to perform sentiment analysis on real-time streaming data. 
 services: azure-databricks
 documentationcenter: ''
@@ -20,9 +20,15 @@ ms.author: nitinme
 
 ---
 
-# Sentiment analysis on streaming data using Azure Databricks
+# Tutorial: Sentiment analysis on streaming data using Azure Databricks
 
-In this tutorial, you learn how to run sentiment analysis on a real-time stream of data using Azure Databricks. For sentiment analysis you use Azure Cognitive Services API. For streaming ingestion, you use Azure Event Hubs.
+In this tutorial, you learn how to perform sentiment analysis on a real-time stream of data using Azure Databricks. You set up real-time data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Azure Cognitive Service APIs to run sentiment analysis on the streamed data. 
+
+By the end of this tutorial, you would have streamed tweets from Twitter that have the term "Azure" in them and performed sentiment analysis on the tweets.
+
+The following illustration shows the application flow:
+
+![Azure Databricks with Event Hubs and Cognitive Services](./media/databricks-sentiment-analysis-cognitive-services/databricks_eventhubs_tutorial.png "Azure Databricks with Event Hubs and Cognitive Services")
 
 This tutorial covers the following tasks: 
 
@@ -31,7 +37,7 @@ This tutorial covers the following tasks:
 > * Create a Spark cluster in Azure Databricks
 > * Create a Twitter app to access real-time data
 > * Create notebooks in Azure Databricks
-> * Add and attach libraries for Event Hubs and Twitter API
+> * Attach libraries for Event Hubs and Twitter API
 > * Create an Azure Cognitive Services account and retrieve the access key
 > * Send tweets to Event Hubs
 > * Receive messages from Event Hubs
@@ -49,12 +55,6 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
-## What does this tutorial do?
-
-In this tutorial, you set up a real-time data ingestion pipeline using Azure Event Hubs. You connect the pipeline to Spark on Azure Databricks to process the messages coming through the pipeline. To simulate a real-time stream of data, you use Twitter APIs to ingest tweets into Event Hubs. The following screenshot shows the application flow.
-
-![Azure Databricks with Events Hub](./media/databricks-sentiment-analysis-cognitive-services/databricks_eventhubs_tutorial.png "Azure Databricks with Events Hub")
-
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
@@ -63,11 +63,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, click **Create a resource**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. 
+1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks (Preview)**.
 
     ![Databricks on Azure portal](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-2. Under **Azure Databricks (Preview)**, click **Create**.
+2. Under **Azure Databricks (Preview)**, select **Create**.
 
 3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
@@ -83,7 +83,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Select **Pin to dashboard** and then click **Create**.
+    Select **Pin to dashboard** and then select **Create**.
 
 4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
@@ -91,9 +91,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ## Create a Spark cluster in Databricks
 
-1. In the Azure portal, go to the Databricks workspace that you created, and then click **Initialize Workspace**.
+1. In the Azure portal, go to the Databricks workspace that you created, and then select **Launch Workspace**.
 
-2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
+2. You are redirected to the Azure Databricks portal. From the portal, select **Cluster**.
 
     ![Databricks on Azure](./media/databricks-sentiment-analysis-cognitive-services/databricks-on-azure.png "Databricks on Azure")
 
@@ -101,35 +101,37 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create Databricks Spark cluster on Azure](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
+    Accept all other default values other than the following:
+
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0 (beta)** runtime. 
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
-    * Accept all other default values. 
-    * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+
+    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Create a Twitter application
 
 To receive a real-time stream of tweets, you must create an application in Twitter. Follow the steps to create a Twitter application and record the values that you need to complete this tutorial.
 
-1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and click **Create New App**.
+1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and select **Create New App**.
 
     ![Create Twitter application](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Create Twitter application")
 
-2. In the **Create an application** page, provide the details for the new app, and then click **Create your Twitter application**.
+2. In the **Create an application** page, provide the details for the new app, and then select **Create your Twitter application**.
 
     ![Twitter application details](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter application details")
 
-3. In the application page, click the **Keys and Access Tokens** tab and copy the values for **Consume Key** and **Consumer Secret**. Also, click **Create my access token** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
+3. In the application page, select the **Keys and Access Tokens** tab and copy the values for **Consume Key** and **Consumer Secret**. Also, select **Create my access token** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
     ![Twitter application details](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter application details")
 
 Save the values that you retrieved for the Twitter application. You need this later in the tutorial.
 
-## Add libraries to the cluster
+## Attach libraries to Spark cluster
 
-In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Events Hub. To use these APIs as part of your cluster, add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the library to the **Shared** folder in your workspace.
+In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Event Hubs. To use these APIs as part of your cluster, add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the library to the **Shared** folder in your workspace.
 
-1.  In the Azure Databricks workspace, click **Workspace**, and then right-click **Shared**. From the context menu, click **Create** > **Library**.
+1.  In the Azure Databricks workspace, select **Workspace**, and then right-click **Shared**. From the context menu, select **Create** > **Library**.
 
     ![Add library dialog box](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Add library dialog box")
 
@@ -140,9 +142,9 @@ In this tutorial, you use the Twitter APIs to send tweets to Events Hub. You als
 
     ![Provide Maven coordinates](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
 
-3. Click **Create Library**.
+3. Select **Create Library**.
 
-4. Click the folder where you added the library, and then click the library name.
+4. Select the folder where you added the library, and then select the library name.
 
     ![Select library to add](./media/databricks-sentiment-analysis-cognitive-services/select-library.png "Select library to add")
 
@@ -158,9 +160,9 @@ In this tutorial, we use the [Azure Cognitive Services Text Analytics APIs](../c
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Click **+ Create a resource**.
+2. Select **+ Create a resource**.
  
-3. Under Azure Marketplace, click **AI + Cognitive Services**, and then click **Text Analytics API**.
+3. Under Azure Marketplace, Select **AI + Cognitive Services** > **Text Analytics API**.
 
     ![Create cognitive services account](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Create cognitive services account")
 
@@ -174,15 +176,15 @@ In this tutorial, we use the [Azure Cognitive Services Text Analytics APIs](../c
     - Select a pricing tier for the service. For more information about Cognitive Services pricing, see [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/).
     - Specifiy whether you want to create a new resource group or select an existing one.
 
-    Click **Create**.
+    Select **Create**.
 
-5. After the accout is created, from the **Overview** tab, click **Show access keys**.
+5. After the accout is created, from the **Overview** tab, select **Show access keys**.
 
     ![Show access keys](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Show access keys")
 
     Also, copy a part of the endpoint URL, as shown in the screenshot. You will need this later in the tutorial.
 
-6. Under **Manage keys**, click the copy icon against the key you want to use.
+6. Under **Manage keys**, select the copy icon against the key you want to use.
 
     ![Copy access keys](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-copy-access-keys.png "Copy access keys")
 
@@ -192,10 +194,10 @@ In this tutorial, we use the [Azure Cognitive Services Text Analytics APIs](../c
 
 In this section, you create two notebooks in Databricks workspace with the following names
 
-- **SendTweetsToEventHub** - You use this notebook to get tweets from Twitter and stream them to Events Hub.
-- **AnalyzeTweetsFromEventHub** - You use this notebook to read the tweets from Events Hub.
+- **SendTweetsToEventHub** - A producer notebook you use to get tweets from Twitter and stream them to Event Hubs.
+- **AnalyzeTweetsFromEventHub** - A consumer notebook you use to read the tweets from Event Hubs and run sentiment analysis.
 
-1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
+1. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create**, and then select **Notebook**.
 
     ![Create notebook in Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Create notebook in Databricks")
 
@@ -203,13 +205,13 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
     ![Create notebook in Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Create notebook in Databricks")
 
-    Click **Create**.
+    Select **Create**.
 
 3. Repeat the steps to create the **AnalyzeTweetsFromEventHub** notebook.
 
-## Send message to Event Hubs
+## Send tweets to Event Hubs
 
-In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Events Hub in real time.
+In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
     import java.util._
     import scala.collection.JavaConverters._
@@ -281,7 +283,7 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet below. Each event in the output is a real-time tweet that is ingested into the Events Hub. 
+To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet below. Each event in the output is a real-time tweet that is ingested into the Event Hubs. 
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
@@ -298,9 +300,9 @@ To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet
     ...
     ...
 
-## Read message from Event Hubs
+## Read tweets from Event Hubs
 
-In the **AnalyzeTweetsFromEventHub** notebook, paste the following code, and replace the placeholder with values for your Azure Event Hubs that you created earlier. This notebook reads the tweets that you earlier streamed into Events Hub using the **SendTweetsToEventHub** notebook.
+In the **AnalyzeTweetsFromEventHub** notebook, paste the following code, and replace the placeholder with values for your Azure Event Hubs that you created earlier. This notebook reads the tweets that you earlier streamed into Event Hubs using the **SendTweetsToEventHub** notebook.
 
     import org.apache.spark.eventhubs._
 
@@ -394,7 +396,7 @@ The output now resembles the following snippet:
     ...
     ...
 
-## Run sentiment analysis on received messages
+## Run sentiment analysis on tweets
 
 In this section, you run sentiment analysis on the tweets received using the Twitter API. For this section, you add the code snippets to the same **AnalyzeTweetsFromEventHub** notebook.
 
@@ -569,18 +571,18 @@ You should see an output like the following:
     |4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |0.5               |
     +--------------------------------+------------------+ 
 
-That's it! Using Azure Databricks, you have successfully streamed real-time data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run sentiment analysis on streaming data.
+That's it! Using Azure Databricks, you have successfully streamed real-time data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then performed sentiment analysis on streaming data.
 
 ## Clean up resources
 
-While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically stop if it has been inactive for the specified time.
-
-If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
+After you have finished running the tutorial, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
 ![Stop a Databricks cluster](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
+If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+
 ## Next steps 
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Events Hub and then read the streaming data from Events Hub in real time. You learned how to:
+In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. You learned how to:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
