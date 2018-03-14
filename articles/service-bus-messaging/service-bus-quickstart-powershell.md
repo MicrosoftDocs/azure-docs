@@ -32,19 +32,34 @@ This article requires that you are running the latest version of Azure PowerShel
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+## Log in to Azure
+
+Once PowerShell is installed, open Cloud Shell and issue the following commands to log in to Azure: 
+
+1. First, install the Service Bus PowerShell module, if you haven't already:
+
+   ```azurepowershell-interactive
+   Install-Module AzureRM.ServiceBus
+   ```
+
+2. Run the following command to log in to Azure:
+
+   ```azurepowershell-interactive
+   Login-AzureRmAccount
+   ```
+
+4. Set the current subscription context, or see the currently active subscription:
+
+   ```azurepowershell
+   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzureRmContext
+   ```
+
 ## Use PowerShell to provision resources
 
 Replace all placeholders with the appropriate values, then run the following PowerShell cmdlets:
 
 ```azurepowershell
-# Run this first: log in to your Azure subscription, follow the on-screen directions, then install Service Bus module
-Login-AzureRmAccount
-Install-Module AzureRM.ServiceBus
-
-# Optional - Change to the current subscription or see the currently active subscription
-Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
-Get-AzureRmContext
-
 # Create a resource group 
 New-AzureRmResourceGroup –Name <resource_group_name> –Location westus2
 
