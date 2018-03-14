@@ -17,7 +17,7 @@ ms.author: v-geberr;
 Batch testing validates your [active](luis-concept-version.md#active-version) trained model to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your current trained model in a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent.
 
 ## Group data for batch test
-It is important that utterances used for batch testing are new to LUIS. If you have a dataset of utterances, divide the utterances into three sets: utterances add to the model, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained. 
+It is important that utterances used for batch testing are new to LUIS. If you have a dataset of utterances, divide the utterances into three sets: utterances added to an intent, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained. 
 
 ## A dataset of utterances
 Submit a batch file of utterances, known as a *dataset*, for batch testing. The dataset is a JSON-formatted file containing a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to 10 datasets in an app. If you need to test more, delete a dataset and then add a new one.
@@ -33,7 +33,7 @@ Submit a batch file of utterances, known as a *dataset*, for batch testing. The 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## Batch file format
-The batch file consists of utterances. Each utterance must have an expected intent prediction along with any machine-learned entities you expect to be detected. 
+The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learned entities](luis-concept-entity-types.md#types-of-entities) you expect to be detected. 
 
 An example batch file follows:
 
@@ -53,7 +53,7 @@ LUIS tracks the state of each dataset's last test. This includes the size (numbe
 ## Batch test results
 The batch test result is a scatter graph, known as an error matrix. This graph is a 4-way comparison of the utterances in the file and the current model's predicted intent and entities. 
 
-Data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. If all data points are on the **True Positive** and **True Negative** sections, then your application's performance is perfect on this dataset.
+Data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. If all data points are on the **True Positive** and **True Negative** sections, then your app's accuracy is perfect on this dataset.
 
 ![Four sections of chart](./media/luis-concept-batch-test/chart-sections.png)
 
