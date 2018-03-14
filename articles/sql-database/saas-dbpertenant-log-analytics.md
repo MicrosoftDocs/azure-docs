@@ -3,20 +3,14 @@ title: Use Log Analytics with a SQL Database multitenant app | Microsoft Docs
 description: Set up and use Log Analytics (Operations Management Suite) with a multitenant Azure SQL Database SaaS app
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: billgib; sstein
+ms.author: sstein
+ms.reviewer: billgib
 
 ---
 # Set up and use Log Analytics (Operations Management Suite) with a multitenant Azure SQL Database SaaS app
