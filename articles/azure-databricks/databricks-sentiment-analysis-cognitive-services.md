@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks | Microsoft Docs'
-description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to perform sentiment analysis on real-time streaming data. 
+description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to run sentiment analysis on real-time streaming data. 
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -22,9 +22,9 @@ ms.author: nitinme
 
 # Tutorial: Sentiment analysis on streaming data using Azure Databricks
 
-In this tutorial, you learn how to perform sentiment analysis on a real-time stream of data using Azure Databricks. You set up real-time data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Azure Cognitive Service APIs to run sentiment analysis on the streamed data. 
+In this tutorial, you learn how to run sentiment analysis on a real-time stream of data using Azure Databricks. You set up real-time data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Microsoft Cognitive Service APIs to run sentiment analysis on the streamed data. 
 
-By the end of this tutorial, you would have streamed tweets from Twitter that have the term "Azure" in them and performed sentiment analysis on the tweets.
+By the end of this tutorial, you would have streamed tweets from Twitter that have the term "Azure" in them and ran sentiment analysis on the tweets.
 
 The following illustration shows the application flow:
 
@@ -38,7 +38,7 @@ This tutorial covers the following tasks:
 > * Create a Twitter app to access real-time data
 > * Create notebooks in Azure Databricks
 > * Attach libraries for Event Hubs and Twitter API
-> * Create an Azure Cognitive Services account and retrieve the access key
+> * Create a Microsoft Cognitive Services account and retrieve the access key
 > * Send tweets to Event Hubs
 > * Receive messages from Event Hubs
 > * Run sentiment analysis on received messages
@@ -125,7 +125,7 @@ To receive a real-time stream of tweets, you must create an application in Twitt
 
     ![Twitter application details](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter application details")
 
-Save the values that you retrieved for the Twitter application. You need this later in the tutorial.
+Save the values that you retrieved for the Twitter application. You need the values later in the tutorial.
 
 ## Attach libraries to Spark cluster
 
@@ -154,9 +154,9 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 6. Repeat these steps for the Twitter package, `twitter4j-core:4.0.6`.
 
-## Get an Azure Cognitive Services access key
+## Get a Cognitive Services access key
 
-In this tutorial, we use the [Azure Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to perform sentiment analysis on a real-time stream of tweets. Before you use the APIs, you must create an Azure Cognitive Services account and retrieve an access key to use the Text Analytics APIs.
+In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run sentiment analysis on a real-time stream of tweets. Before you use the APIs, you must create an Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -166,7 +166,7 @@ In this tutorial, we use the [Azure Cognitive Services Text Analytics APIs](../c
 
     ![Create cognitive services account](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Create cognitive services account")
 
-4. In the **Create** dialog box, provide the following values.
+4. In the **Create** dialog box, provide the following values:
 
     ![Create cognitive services account](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Create cognitive services account")
 
@@ -182,7 +182,7 @@ In this tutorial, we use the [Azure Cognitive Services Text Analytics APIs](../c
 
     ![Show access keys](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Show access keys")
 
-    Also, copy a part of the endpoint URL, as shown in the screenshot. You will need this later in the tutorial.
+    Also, copy a part of the endpoint URL, as shown in the screenshot. You need this URL in the tutorial.
 
 6. Under **Manage keys**, select the copy icon against the key you want to use.
 
@@ -283,7 +283,7 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet below. Each event in the output is a real-time tweet that is ingested into the Event Hubs. 
+To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet. Each event in the output is a real-time tweet that is ingested into the Event Hubs. 
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
@@ -426,7 +426,7 @@ Add a new code cell and paste the code snippet provided below. This code snippet
     object S extends CC[String]
     object D extends CC[Double]
 
-Add a new code cell and paste the snippet provided below. This snippet defines an object that contains functions to call the Text Analysis API to perform language detection and sentiment analysis. Make sure you replace the placeholders, `<PROVIDE ACCESS KEY HERE>` and `<PROVIDE HOST HERE>`, with the values you retrieved for your Azure Cognitive Services account.
+Add a new code cell and paste the snippet provided below. This snippet defines an object that contains functions to call the Text Analysis API to run language detection and sentiment analysis. Make sure you replace the placeholders, `<PROVIDE ACCESS KEY HERE>` and `<PROVIDE HOST HERE>`, with the values you retrieved for your Cognitive Services account.
 
     import javax.net.ssl.HttpsURLConnection
     import com.google.gson.Gson
@@ -556,7 +556,7 @@ Add a final code cell to prepare a dataframe with the content of the tweet and t
     // Display the streaming data with the sentiment
     streamingDataFrame.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
-You should see an output like the following:
+You should see an output like the following snippet:
 
     -------------------------------------------
     Batch: 0
@@ -573,7 +573,7 @@ You should see an output like the following:
 
 A value closer to **1** in the **Sentiment** column suggests a great experience with Azure. A value closer to **0** suggests issues that users faced while working with Microsoft Azure. 
 
-That's it! Using Azure Databricks, you have successfully streamed real-time data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then performed sentiment analysis on streaming data.
+That's it! Using Azure Databricks, you have successfully streamed real-time data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran sentiment analysis on streaming data.
 
 ## Clean up resources
 
@@ -591,12 +591,12 @@ In this tutorial, you learned how to use Azure Databricks to stream data into Az
 > * Create a Twitter app to access real-time data
 > * Create notebooks in Azure Databricks
 > * Add and attach libraries for Event Hubs and Twitter API
-> * Create an Azure Cognitive Services account and retrieve the access key
+> * Create a Microsoft Cognitive Services account and retrieve the access key
 > * Send tweets to Event Hubs
 > * Receive messages from Event Hubs
 > * Run sentiment analysis on received messages
 
-Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Azure Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
 >[Sentiment analyis on streaming data using Azure Databricks ](quickstart-create-databricks-workspace-portal.md)
