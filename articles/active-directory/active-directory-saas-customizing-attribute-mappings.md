@@ -25,7 +25,7 @@ Microsoft Azure AD provides support for user provisioning to third-party SaaS ap
 There is a pre-configured set of attributes and attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects in addition to Users, such as Groups. <br> 
  You can customize the default attribute mappings according to your business needs. This means, you can change or delete existing attribute mappings, or create new attribute mappings.
  
-## Editing attribute mappings between source and target systems
+## Editing user attribute mappings
 
 In the Azure AD portal, you can access this feature by clicking a **Mappings** configuration under **Provisioning** in the **Manage** section of an **Enterprise application**.
 
@@ -71,13 +71,13 @@ In addition to this property, attribute mappings do also support the following a
     - **Only during creation** - Apply this mapping only on user creation actions
 
 
-## Enabling and disabling provisioning of group objects
+## Editing group attribute mappings
 
 A selected number of applications, such as ServiceNow, Box, and Google Apps, support the ability to provision Group objects in addition to User objects. Group objects can contain group properties such as display names and email aliases, in addition to group members.
 
 ![ServiceNow][8]  
 
-Group provisioning can be optionally enabled or disabled by selecting the group mapping under **Mappings**, and setting the **Enabled** option to **No** in the **Attribute Mapping** screen.
+Group provisioning can be optionally enabled or disabled by selecting the group mapping under **Mappings**, and setting **Enabled** to the desired option in the **Attribute Mapping** screen.
 
 The attributes provisioned as part of Group objects can be customized in the same manner as User objects, described previously. 
 
