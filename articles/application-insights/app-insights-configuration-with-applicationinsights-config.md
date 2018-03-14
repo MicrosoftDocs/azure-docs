@@ -34,6 +34,9 @@ There isn't an equivalent file to control the [SDK in a web page][client].
 
 This document describes the sections you see in the configuration file, how they control the components of the SDK, and which NuGet packages load those components.
 
+> [!NOTE]
+> ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For changes to a .NET Core application we typically use the appsettings.json file. An example of this can be found in the [Snapshot Debugger documentation.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+
 ## Telemetry Modules (ASP.NET)
 Each telemetry module collects a specific type of data and uses the core API to send the data. The modules are installed by different NuGet packages, which also add the required lines to the .config file.
 
@@ -245,7 +248,7 @@ If you want to set the key dynamically - for example if you want to send results
 
 To set the key for all instances of TelemetryClient, including standard telemetry modules, set the key in TelemetryConfiguration.Active. Do this in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -258,7 +261,7 @@ To set the key for all instances of TelemetryClient, including standard telemetr
 
 If you just want to send a specific set of events to a different resource, you can set the key for a specific TelemetryClient:
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

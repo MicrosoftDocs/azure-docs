@@ -1,6 +1,6 @@
 ---
-title: Azure Content Moderator - Match against custom images using .NET | Microsoft Docs
-description: How to match against custom images using Azure Content Moderator SDK for .NET
+title: Moderate with custom image lists in Azure Content Moderator | Microsoft Docs
+description: How to moderate with custom image lists using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 01/04/2018
 ms.author: sajagtap
 ---
 
-# Match against custom images using .NET
+# Moderate with custom image lists in .NET
 
 This article provides information and code samples to help you get started using 
 the Content Moderator SDK for .NET to:
@@ -24,6 +24,10 @@ the Content Moderator SDK for .NET to:
 - Screen images against images in the list
 - Delete all images from the list
 - Delete the custom list
+
+> [!NOTE]
+> There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
+>
 
 The console application for this quickstart simulates some of the tasks you
 can perform with the image list API.

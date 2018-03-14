@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -37,9 +37,7 @@ This document provides an example of using Azure PowerShell to submit Pig jobs t
 
 * **A workstation with Azure PowerShell**.
 
-[!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
-
-## <a id="powershell"></a>Run Pig jobs using PowerShell
+## <a id="powershell"></a>Run a Pig job
 
 Azure PowerShell provides *cmdlets* that allow you to remotely run Pig jobs on HDInsight. Internally, PowerShell uses REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) running on the HDInsight cluster.
 

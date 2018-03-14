@@ -20,7 +20,13 @@ ms.author: juluk
 
 Embedding Cloud Shell enables developers and content writers to directly open Cloud Shell from a dedicated URL, [shell.azure.com](https://shell.azure.com). This immediately brings the full power of Cloud Shell's authentication, tooling, and up-to-date Azure CLI/Azure PowerShell tools to your users.
 
+Regular sized button
+
 [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+Large sized button
+
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 ## How-to
 

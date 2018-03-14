@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro;seohack1
 
 ---
 # Customize the Azure AD functionality for self-service password reset
@@ -71,31 +71,7 @@ The graphics you choose are shown in the following circumstances:
     * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
     * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### Graphics details
-
-Use the following settings to change the visual characteristics of the sign-in page. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**:
-
-* The sign-in page image should be a .png or .jpg file, 1420 x 1200 pixels, and no larger than 500 KB. For the best results, we recommend that you keep it around 200 KB.
-* The sign-in page background color is used on high-latency connections and must be in RGB hexadecimal format.
-* The banner image should be a .png or .jpg file, 60 x 280 pixels, and be no larger than 10 KB.
-* The square logo (normal and dark theme) should be a .png or .jpg file, 240 x 240 (resizable) pixels, and no larger than 10 KB.
-
-### Sign-in text options
-
-Use the following settings to add text to the sign-in page that's relevant to your organization. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**:
-
-* **User name hint**: Replaces the example text of *someone@example.com* with something more appropriate for your users. We recommended that you leave the default hint when you support internal and external users.
-* **Sign-in page text**: Can be a maximum of 256 characters in length. This text appears anywhere your users sign in online and in the Azure AD Workplace Join experience on Windows 10. Use this text for the terms of use, instructions, and tips for your users. 
-
-   >[!IMPORTANT]
-   >Anyone can see your sign-in page, so don't provide any sensitive information here.
-   >
-
-### The "Keep me signed in disabled" setting
-
-With the **Keep me signed in disabled** option, users can remain signed in when they close and reopen their browser window. This option does not impact the session lifetime. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**.
-
-Some features of SharePoint Online and Office 2010 have a dependency on users' ability to select this check box. If you hide this option, users can get additional and unexpected sign-in prompts.
+Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](customize-branding.md).
 
 ### Directory name
 

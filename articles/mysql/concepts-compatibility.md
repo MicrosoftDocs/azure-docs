@@ -1,14 +1,14 @@
 ---
-title: MySQL drivers and management tools compatibility | Microsoft Docs
-description: MySQL drivers and management tools compatible with Azure Database for MySQL
+title: MySQL drivers and management tools compatibility
+description: This article describes the MySQL drivers and management tools that are compatible with Azure Database for MySQL. 
 services: mysql
-author: seanli1988
-ms.author: seanli
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 02/28/2018
 ---
 # MySQL drivers and management tools compatible with Azure Database for MySQL
 This article describes the drivers and management tools that are compatible with Azure Database for MySQL.

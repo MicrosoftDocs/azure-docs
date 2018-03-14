@@ -119,7 +119,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configure the function app to [use the 2.0 runtime version](functions-versions.md).
+2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
 
 3. Create a new function by selecting **"create your own custom function."**.
 

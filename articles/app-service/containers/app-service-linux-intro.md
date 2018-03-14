@@ -31,7 +31,7 @@ App Service on Linux supports a number of Built-in images in order to increase d
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
-| .NET Core | 1.0, 1.1 |
+| .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
 
 ## Deployments
@@ -70,7 +70,7 @@ Some features, such as virtual network integration, Azure Active Directory/third
 App Service on Linux is only supported with [Basic and Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. The following are also important restrictions for App Service on Linux:
 
 * You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps.
-* When creating Web App for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different region than the existing App Service plan.
+* When creating Web App for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different resource group than the existing App Service plan.
 
 ## Troubleshooting
 
@@ -87,7 +87,7 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Web App for Containers](quickstart-custom-docker-image.md)
+* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)

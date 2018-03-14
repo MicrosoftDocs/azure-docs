@@ -5,15 +5,15 @@ services: data-factory
 documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
-editor: shlo
+editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: spelluru
+ms.date: 01/10/2018
+ms.author: shlo
 
 ---
 # Lookup activity in Azure Data Factory
@@ -33,6 +33,8 @@ The following data sources are currently supported for lookup:
 - Azure SQL Data Warehouse (JSON data converted from query)
 - SQL Server (JSON data converted from query)
 - Azure Table storage (JSON data converted from query)
+
+The maximum number of rows returned by Lookup activity is **5000**, and up to **10MB** in size.
 
 ## Syntax
 

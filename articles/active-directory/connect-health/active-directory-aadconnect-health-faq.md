@@ -40,6 +40,7 @@ Note that the features provided by the service may differ based on the role and 
 * The first Connect Health Agent requires at least one Azure AD Premium license.
 * Each additional registered agent requires 25 additional Azure AD Premium licenses.
 * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
+* AAD Connect Health licensing does not require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
 
 Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
 
@@ -122,12 +123,7 @@ The health agent can fail to register due to the following possible reasons:
 
 **Q: I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?**
 
-Azure AD Connect Health generates the alert when it does not receive all the data points from the server in the last two hours. There can be multiple reasons for this alert.
-
-* The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required end points and ports. See the [requirements section](active-directory-aadconnect-health-agent-install.md#requirements) for details.
-* Outbound communication is subjected to an SSL inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the process fails to upload data to the Azure AD Connect Health service.
-* You can use the connectivity command built into the agent. [Read more](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* The agents also support outbound connectivity via an unauthenticated HTTP Proxy. [Read more](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Azure AD Connect Health generates the alert when it does not receive all the data points from the server in the last two hours. [Read more](active-directory-aadconnect-health-data-freshness.md).
 
 ## Operations questions
 **Q: Do I need to enable auditing on the web application proxy servers?**

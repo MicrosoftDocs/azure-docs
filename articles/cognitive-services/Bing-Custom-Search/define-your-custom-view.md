@@ -19,7 +19,7 @@ The following are the ways that you can define a slice of the web:
 
 1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
 2.	Subsite. A subsite slice includes all content found in the subsite and paths below it. You may specify a maximum of two subsites in the path. For example, www.microsoft.com/en-us/windows/ 
-3.	Webpage. A webpage slice includes only that webpage in your custom search. For example, https://www.microsoft.com/en-us/store/b/home. Specify the full URL of the webpage, If you do not include the HTTP protocol, the service treats it as a domain or subsite.
+3.	Webpage. A webpage slice can include only that webpage in a custom search. An option in the Definition Editor  specifies whether to include subsites.
 
 All domains, subsites, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
 
@@ -39,7 +39,6 @@ File Upload details:
 
 - File upload is available only for adding slices to the Active list, you cannot use it to add slices to the Blocked. 
 - Create a text file and specify a single domain, subsite, or webpage per line. The entire upload is rejected if an error occurs. 
-- During the upload process, the service asks you to specify the type of each entry. For example, does the entry specify a site, subsite, or webpage. 
 - If the Blocked list contains the domain, subsite, or webpage that you specified in the upload file, the service removes it from the Blocked list and adds it to the Active list. 
 - The service ignores duplicates found in the upload file.
 
@@ -108,8 +107,7 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 3.	In the Preview pane on the right side, select Bing from the dropdown list.
 4.	In the search box, enter a query term that’s relevant for your instance.
 5.	Click **Add site** next to the result you want to include.
-6.	Select **Entire Site**, **Subsite**, or **Exact URL** in the **What do you want to add**? window.
-7.	Click the **Ok** button.
+6.	Click the **Ok** button.
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.

@@ -1,6 +1,6 @@
 ---
 title: Create container images for Azure Service Fabric | Microsoft Docs
-description: Learn how to create container images for a multi-container Service Fabric application.
+description: In this tutorial, you learn how to create container images for a multi-container Service Fabric application.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -19,7 +19,7 @@ ms.author: suhuruli
 ms.custom: mvc
 ---
 
-# Create container images for Service Fabric
+# Tutorial: create container images for Service Fabric
 
 This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial, a multi-container application is prepared for use with Service Fabric. In subsequent tutorials, these images are used as part of a Service Fabric application. In this tutorial you learn how to: 
 
@@ -55,7 +55,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-The solution contains two folders and a 'docker-compse.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. These directories contain the necessary assets for this tutorial.  
+The solution contains two folders and a 'docker-compose.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. These directories contain the necessary assets for this tutorial.  
 
 ## Create container images
 
@@ -185,7 +185,7 @@ The docker push commands take a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) command. Update the command with the ACR instance name.
 
 ```bash
 az acr repository list --name <acrName> --output table

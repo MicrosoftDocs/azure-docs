@@ -55,7 +55,10 @@ The following major changes are introduced in compatibility level 1.1:
   * **previous versions:** Field names were changed to lower case when processed by the Azure Stream Analytics engine. 
 
   * **current version:** case-sensitivity is persisted for field names when they are processed by the Azure Stream Analytics engine. 
- 
+
+  > [!NOTE] 
+  > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase if your job is hosted on Edge. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **previous versions:** CREATE TABLE command did not filter events with NaN (Not-a-Number. For example, Infinity, -Infinity) in a FLOAT column type because they are out of the documented range for these numbers.

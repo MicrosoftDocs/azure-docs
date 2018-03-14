@@ -92,6 +92,7 @@ The **Main** function calls methods that will be defined further in this section
 > [!NOTE]
 > You will be getting compilation errors until you add definitions for all the functions that are defined later in this article.
 
+```csharp
 	class Program
 	{
 	    // Read values from the App.config file.
@@ -142,7 +143,7 @@ The **Main** function calls methods that will be defined further in this section
             Console.ReadLine();
         }
 	    }
-	
+```
 
 ## Create a new asset and upload a video file
 
@@ -164,6 +165,7 @@ In the following example, we specify **None** for the asset options.
 
 Add the following method to the Program class.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -178,7 +180,7 @@ Add the following method to the Program class.
 
         return inputAsset;
     }
-
+```
 
 ## Encode the source file into a set of adaptive bitrate MP4 files
 After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is composed of atomic Tasks that do the actual work on the Asset file.
@@ -193,6 +195,7 @@ Once the job is completed, you would be able to stream your asset or progressive
 
 Add the following method to the Program class.
 
+```csharp
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
@@ -226,10 +229,11 @@ Add the following method to the Program class.
 
         return outputAsset;
     }
+```
 
 ## Publish the asset and get URLs for streaming and progressive download
 
-To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files (for more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
+To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
 ### Some details about URL formats
 
@@ -258,6 +262,7 @@ The following code uses .NET SDK Extensions to create locators and to get stream
 
 Add the following method to the Program class.
 
+```csharp
     static public void PublishAssetGetURLs(IAsset asset)
     {
         // Publish the output asset by creating an Origin locator for adaptive streaming,
@@ -322,6 +327,7 @@ Add the following method to the Program class.
 
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
+```
 
 ## Test by playing your content
 

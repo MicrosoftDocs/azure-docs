@@ -3,9 +3,9 @@ title: Overview of Azure Location Based Services | Microsoft Docs
 description: An introduction to Azure Location Based Services (preview)
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 11/28/2017
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
 
@@ -14,9 +14,13 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ---
-
+ 
 # An introduction to Azure Location Based Services (preview)
 Azure Location Based Services is a portfolio of geospatial services that include service APIs for Maps, Search, Routing, Traffic, and Time Zones. The portfolio of Azure OneAPI compliant services allows you to use familiar developer tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Azure Location Based Services provides developers from all industries powerful geospatial capabilities packed with fresh mapping data imperative to providing geographic context to web and mobile applications. Azure Location Based Services is an Azure One API compliant set of REST APIs accompanied with a web-based JavaScript control to make development super easy, flexible, and portable across multiple mediums. 
+
+The following video introduces Azure Location Based Services.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Azure Location Based Services consists of five primary services to bolster Azure applications requiring geographic context. Each of the services is explained in detail below.
 
@@ -62,11 +66,22 @@ Azure Location Based Services is built for mobility and can power cross-platform
 
 Azure Location Based Services uses a key-based authentication scheme, so accessing the services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Location Based Services account. Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Location Based Services service.
 
-**Relationship With Bing Maps** - Please note that the Azure Location Based Services described in this document are distinct from those provided by Bing Maps.  Although they share much of the same functionality, the two services are different and not related.  There is no impact to Bing Maps product offering or roadmap with the availability of this new service within Azure, which will be managed separately.
+## Unsupported Regions
+Our API is currently unavailable in below countries. Please check your current IP address and verify that your IP address' location is not in one of the unsupported countries below.
+
+* Argentina
+* China
+* India
+* Morrocco
+* Pakistan
+* South Korea
+
+## Relationship With Bing Maps
+The Azure Location Based Services described in this document are distinct from those provided by Bing Maps.  Although they share much of the same functionality, the two services are different and not related.  There is no impact to Bing Maps product offering or roadmap with the availability of this new service within Azure, which will be managed separately.
 
 Microsoft’s goal is to provide choice to the developer community in terms of location service offerings.  Below is some quick guidance for developers on which service to use for various use cases and customer situations.  Please note this guidance applies currently to Azure LBS as it is in Public Preview stage, and will be updated once it reaches General Availability later in 2018.
 
-| Customer Criteria | Use Azure Location Based Services When… | Use Bing Maps When… |
+| Customer Criteria | Use Azure Location Based Services when… | Use Bing Maps when… |
 | ------------- | ------------- | ------------- |
 | Development Environment | Building in or leveraging other Azure services | Using a third party cloud or other developer environment |
 | Development Stage  | Because Azure LBS is currently in Public Preview, it is optimized for early stage testing and Proof of Concept development | An enterprise grade SLA is required for a production environment |
@@ -76,7 +91,7 @@ Microsoft’s goal is to provide choice to the developer community in terms of l
 | Mapping Content | Standard surface maps are sufficient | Satellite, aerial and street side imagery are required |
 | Underlying Map Source | TomTom mapping data is preferred | HERE mapping data is preferred |
 
-Sign up for an [Azure Location Based Services account today!](http://aka.ms/azurelbsportal)
+Sign up for an [Azure Location Based Services account today](http://aka.ms/azurelbsportal).
 
 ## Next steps
 

@@ -50,18 +50,10 @@ To consume the hosted UI, either:
     ``` html
     <html>
         <body>
-            
-                <script type="text/javascript">
-                        var customConfigId = '<YOUR-CUSTOM-CONFIG-ID>';
-                        var javasriptResourceUrl = 'https://ui.customsearch.ai/api/ux/render?customConfig=' + customConfigId;                
-                        var s = document.createElement('script');                
-                        s.setAttribute('type', 'text/javascript');                
-                        s.id = 'bcs_js_snippet';                
-                        s.src = javasriptResourceUrl;                
-                        var scripts = document.getElementsByTagName("script"),                
-                            currentScript = scripts[scripts.length-1];                
-                        currentScript.parentElement.appendChild(s);                
-                    </script>
+            <script type="text/javascript"
+                id="bcs_js_snippet"            
+                src="https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate">            
+            </script>
         </body>    
     </html>
     ```

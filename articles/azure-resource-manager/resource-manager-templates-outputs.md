@@ -54,6 +54,8 @@ For example, you can set the IP address on a load balancer by retrieving a value
 }
 ```
 
+You cannot use the `reference` function in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+
 ## Available properties
 
 The following example shows the structure of an output definition:

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 
 ---
@@ -28,10 +28,10 @@ Learn how to run MapReduce jobs on HDInsight clusters. Use the following table t
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** (examples use cURL) |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
-| [Remote Desktop](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 and 3.3) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+>
 
 ## <a id="whatis"></a>What is MapReduce
 
@@ -165,7 +165,6 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
-| [Remote Desktop](apache-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 and 3.3) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

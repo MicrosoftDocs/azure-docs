@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Understanding the default configuration | Microso
 description: This article describes the default configuration in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -47,7 +47,7 @@ The following user objects are **not** synchronized to Azure AD:
 * Do not synchronize objects that would not work in Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   This bitmask (&H21C07000) would filter out the following objects:
-  * Mail-enabled Public Folder
+  * Mail-enabled Public Folder (In Preview as of version 1.1.524.0)
   * System Attendant Mailbox
   * Mailbox Database Mailbox (System Mailbox)
   * Universal Security Group (wouldn't apply for a user, but is present for legacy reasons)

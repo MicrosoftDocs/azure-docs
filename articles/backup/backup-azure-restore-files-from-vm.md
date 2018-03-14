@@ -22,6 +22,7 @@ ms.author: pullabhk;markgal
 Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as restore points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
 
 > [!Note]
+> This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 > File recovery from an encrypted VM backup is not supported.
 >
 
@@ -62,12 +63,15 @@ To restore files or folders from the restore point, go to the virtual machine an
     If you run the script on a computer with restricted access, ensure there is access to:
 
     - download.microsoft.com
-    - Azure endpoints used for Azure VM backups
+    - [Azure endpoints used for Azure VM backups](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - outbound port 3260
 
-   For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.  
-         
-   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
+    
+    The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.         
+
+    You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+ 
 
 ### Identifying Volumes
 

@@ -59,7 +59,7 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 **Remote Debugging**. Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your web app. Remote debugging will remain enabled for 48 hours. 
 
 ### App settings
-This section contains name/value pairs that you web app will load on start up. 
+This section contains name/value pairs that your web app will load on start up. 
 
 * For .NET apps, these settings are injected into your .NET configuration `AppSettings` at runtime, overriding existing settings. 
 * PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting, two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both contain the same value.
@@ -126,12 +126,12 @@ The full FTP user name is “app\username” where *app* is the name of your web
 
 ## Other configuration tasks
 ### SSL
-In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for a web app]. 
+In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for a web app](app-service-web-tutorial-custom-ssl.md). 
 
 To view your uploaded certificates, click **All Settings** > **Custom domains and SSL**.
 
 ### Domain names
-Add custom domain names for your web app. For more information, see [Configure a custom domain name for a web app in Azure App Service].
+Add custom domain names for your web app. For more information, see [Configure a custom domain name for a web app in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 To view your domain names, click **All Settings** > **Custom domains and SSL**.
 

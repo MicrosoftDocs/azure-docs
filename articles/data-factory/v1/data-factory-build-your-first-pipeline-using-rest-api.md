@@ -3,7 +3,7 @@ title: Build your first data factory (REST) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/01/2017
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---
@@ -469,7 +469,7 @@ Run the Invoke-Command and the next one until you see the slice in **Ready** sta
 >
 >
 
-You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) details.
+You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) details.
 
 ## Summary
 In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:

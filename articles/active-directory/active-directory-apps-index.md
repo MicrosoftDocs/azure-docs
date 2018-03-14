@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
 
@@ -50,7 +50,7 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Article Guide |  |
 |:---:| --- |
 | An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](active-directory-saas-tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
 | More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), and many more |[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | How to manually set up and customize your single sign-on configuration |[How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
 | Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
@@ -134,7 +134,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 | Learn about how it works and find answers to common questions |[Automate User Provisioning & Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
 | Configure how information is mapped between Azure AD and your SaaS app |[Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
-| How to report on and troubleshoot user provisioning |[Reporting on automatic user provisioning](active-directory-saas-provisioning-reporting.md)<br><br>[Provisioning notifications](active-directory-saas-account-provisioning-notifications.md)<br><br>[Troubleshooting user provisioning](active-directory-application-provisioning-content-map.md) |
+| How to report on and troubleshoot user provisioning |[Reporting on automatic user provisioning](active-directory-saas-provisioning-reporting.md)<br><br>[Troubleshooting user provisioning](active-directory-application-provisioning-content-map.md) |
 | Limit who gets provisioned to an application based on their attribute values |[Scoping Filters](active-directory-saas-scoping-filters.md) |
 
 Automated user provisioning is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to manage which users get provisioned](#managing-access-to-applications).

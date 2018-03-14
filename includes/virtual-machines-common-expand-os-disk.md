@@ -8,6 +8,9 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
 > 
 > 
+> [!WARNING]
+> Resizing the OS Disk of an Azure Virtual Machine will cause it to restart.
+>
 
 ## Resize the OS drive
 In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). We will show resizing the OS drive for both Unamanged and Managed disks since the approach to resize disks differs between both disk types.

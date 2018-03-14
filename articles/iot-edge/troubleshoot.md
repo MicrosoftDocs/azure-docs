@@ -31,7 +31,13 @@ When you encounter an issue, learn more about the state of your IoT Edge device 
 * View the messages going through the Edge Hub, and gather insights on device properties updates with verbose logs from the runtime containers.
 
    ```cmd
-   iotedgectl setup --runtime-log-level DEBUG
+   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* View verbose logs from iotedgectl commands:
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * If you experience connectivity issues, inspect your edge device environment variables like your device connection string:
@@ -54,7 +60,7 @@ The Edge Agent starts and runs successfully for about a minute, then stops. The 
 
 Example Edge Agent logs:
 
-```
+```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
 2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5) 
 2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP... 
@@ -73,7 +79,7 @@ Ensure that there is a route to the internet for the IP addresses assigned to th
 
 The Edge Hub fails to start, and prints the following message to the logs: 
 
-```
+```output
 One or more errors occurred. 
 (Docker API responded with status code=InternalServerError, response=
 {\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 
@@ -94,6 +100,23 @@ The Edge Agent doesn't have permissions to access a module's image.
 
 ### Resolution
 Try running the `iotedgectl login` command again.
+
+## iotedgectl can't find Docker
+iotedgectl fails to execute the setup or start command and prints the following message to the logs:
+```output
+File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
+  info = self._client.info()
+File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
+  return self.api.info(*args, **kwargs)
+File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
+  return self._result(self._get(self._url("/info")), True)
+```
+
+### Root cause
+iotedgectl can't find Docker, which is a pre-requisite.
+
+### Resolution
+Install Docker, make sure that it is running and retry.
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 

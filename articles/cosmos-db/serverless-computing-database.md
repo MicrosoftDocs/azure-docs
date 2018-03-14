@@ -98,7 +98,7 @@ In retail implementations, when a user adds an item to their basket you now have
 
 **Implementation:** Multiple Azure Cosmos DB triggers listening to one collection
 
-1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function.
+1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed.md#understand-cf).
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
     * One function may use the contents of the current basket to change the display of other items the user might be interested in.
     * Another function may update inventory totals.

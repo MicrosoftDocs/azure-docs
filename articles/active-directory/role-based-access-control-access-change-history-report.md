@@ -3,7 +3,7 @@ title: Access reporting - Azure RBAC | Microsoft Docs
 description: Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days.
 services: active-directory
 documentationcenter: ''
-author: andredm7
+author: rolyon
 manager: mtillman
 
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ---

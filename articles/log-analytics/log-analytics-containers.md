@@ -3,7 +3,7 @@ title: Container Monitoring solution in Azure Log Analytics | Microsoft Docs
 description: The Container Monitoring solution in Log Analytics helps you view and manage your Docker and Windows container hosts in a single location.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 
 ---
 # Container Monitoring solution in Log Analytics
@@ -47,7 +47,7 @@ The following table outlines the Docker orchestration and operating system monit
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Service<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Service<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(standalone) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Server<br>(standalone) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -99,7 +99,7 @@ Use the following information to install and configure the solution.
     - If you have a Kubernetes cluster using the Azure Container Service, review [Configure an OMS agent for Kubernetes](#configure-an-oms-agent-for-kubernetes).
     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - If you have a Docker Swarm mode environment, learn more at [Configure an OMS agent for Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-    - If you use containers with Service Fabric, learn more at [Overview of Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+    - If you have a Service Fabric cluster, learn more at [Monitor containers with OMS Log Analytics](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
@@ -398,8 +398,8 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
         ```
     3. Create your omsagent daemon-set by running ``` kubectl create -f omsagentsecret.yaml ```
     4. To check, run the following:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -414,13 +414,13 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
     5. Create your omsagent daemon-set by running ```kubectl create -f ws-omsagent-de-secrets.yaml```
@@ -433,9 +433,9 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
     omsagent   1         1         <none>          1h
     ```
 
-3. To install the agent on the Worker Node, which are running Windows, follow the steps in the section [install and configure Windows container hosts](#install-and-configure-windows-container-hosts).	
+3. To install the agent on the Worker Node, which are running Windows, follow the steps in the section [install and configure Windows container hosts](#install-and-configure-windows-container-hosts).
 
-#### Use Helm to deploy OMS Agent on Linux Kubernetes 
+#### Use Helm to deploy OMS Agent on Linux Kubernetes
 To use helm to deploy OMS Agent on your Linux Kubernetes environment, perform the following steps.
 
 1. Create your omsagent daemon-set by running ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
@@ -649,7 +649,7 @@ That shows the list of performance metrics that are collected for an individual 
 ## Example log search queries
 It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Sample Queries** area to help you build more advanced queries.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Containers queries](./media/log-analytics-containers/containers-queries.png)
 

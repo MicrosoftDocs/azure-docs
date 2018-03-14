@@ -3,8 +3,8 @@ title: Configure Deployment Sources for App Services on Azure Stack | Microsoft 
 description: How a Service Administrator can configure deployment sources (Git, GitHub, BitBucket, DropBox and OneDrive) for App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,16 +13,19 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: anwestg
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 
 # Configure deployment sources
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 
 App Service on Azure Stack supports on-demand deployment from multiple Source Control Providers. This feature lets application developers deploy direct from their source control repositories. If users want to configure App Service to connect to their repositories, a cloud operator must first configure the integration between App Service on Azure Stack and the Source Control Provider.  
 
-The Source Control Providers supported, in addition to local Git, are:
+In addition to local Git, the following Source Control Providers are supported:
 
 * GitHub
 * BitBucket
@@ -46,14 +49,14 @@ You must have a GitHub account to complete this task. You might want to use an a
 2. Enter an **Application name** for example - App Service on Azure Stack.
 3. Enter the **Homepage URL**. The Homepage URL must be the Azure Stack Portal address. For example, https://portal.local.azurestack.external.
 4. Enter an **Application Description**.
-5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local.
+5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for local.azurestack.external
     ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]
 7.  In a new browser tab or window Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 8.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
 9. Click **Source control configuration**.
-10. Copy and paste the **Client Id** and **Client Secret** into the corresponding input boxes for GitHub.
+10. Copy and paste the **Client ID** and **Client Secret** into the corresponding input boxes for GitHub.
 11. Click **Save**.
 
 ## Configure BitBucket
@@ -76,7 +79,7 @@ You must have a BitBucket account to complete this task. You might want to use a
 9.  In a new browser tab or window Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 10.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
 11. Click **Source control configuration**.
-12. Copy and paste the **Key** into the **Client Id** input box and **Secret** into the **Client Secret** input box for BitBucket.
+12. Copy and paste the **Key** into the **Client ID** input box and **Secret** into the **Client Secret** input box for BitBucket.
 13. Click **Save**.
 
 
@@ -91,7 +94,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 2. Under **My applications**, click **Add an app**.
 ![OneDrive Applications][10]
 3. Enter a **Name** for the New Application Registration, enter **App Service on Azure Stack**, and click **Create Application**
-4. The next screen lists the properties of your new application. Record the **Application Id**.
+4. The next screen lists the properties of your new application. Record the **Application ID**.
 ![OneDrive Application Properties][11]
 5. Under **Application Secrets**, click **Generate New Password**. Make a note of **New password generated**. This is your application secret and is not retrievable after you click **OK** at this stage.
 6. Under **Platforms** click **Add Platform** and select **Web**.
@@ -105,7 +108,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 10.  In a new browser tab or window Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 11.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
 12. Click **Source control configuration**.
-13. Copy and paste the **Application Id** into the **Client Id** input box and **Password** into the **Client Secret** input box for OneDrive.
+13. Copy and paste the **Application ID** into the **Client ID** input box and **Password** into the **Client Secret** input box for OneDrive.
 14. Click **Save**.
 
 ## Configure DropBox
@@ -129,7 +132,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 9.  In a new browser tab or window Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 10.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
 11. Click **Source control configuration**.
-12. Copy and paste the **Application Key** into the **Client Id** input box and **App secret** into the **Client Secret** input box for DropBox.
+12. Copy and paste the **Application Key** into the **Client ID** input box and **App secret** into the **Client Secret** input box for DropBox.
 13. Click **Save**.
 
 

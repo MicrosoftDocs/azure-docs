@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
+ms.author: raymondl
 
 ---
 # Deploying Azure ML web services that use Data Import and Data Export modules
