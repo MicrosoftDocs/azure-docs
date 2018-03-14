@@ -74,11 +74,23 @@ The following is an example of a counter instance name for a counter that belong
 
 In the example above, `00d0126d-3e36-4d68-98da-cc4f7195d85e` is the string representation of the Service Fabric partition ID, and `131652217797162571` is the replica ID.
 
-## List of events and performance counters
-### Transactional Replicator events and performance counters
+### Transactional Replicator performance counters
 
-The Reliable Services runtime emits the following events related to the Transactional Replicator
+The Reliable Services runtime emits the following events under the `Service Fabric Transactional Replicator` category
 
+ Counter name | Description |
+| --- | --- |
+| BeginTransactionOperationRate | The number of BeginTransaction operations initiated per second.|
+| AddOperationRate | The number of Add operations initiated per second.|
+| CommitTransactionRate | The number of transaction commits initiated per second. |
+| AbortTransactionRate | The number of transaction aborts initiated per second. |
+| CheckpointCount | The total number of checkpoints initiated |
+| StateManagerRecovery | Duration for the State Manager to recover the checkpoint state of all state providers in the replica |
+| LogFlushBytes | The number of bytes being flushed to the disk by the Transactional Replicator per second |
+| ThrottledOpsPerSecond | The number of operations rejected every second by the Transactional Replicator due to throttling. |
+| AvgBytesPerFlush | The number of bytes flushed in every IO. |
+| AvgCommitLatency | Average Commit Latency per transaction |
+| AvgFlushLatency | Average duration of disk flush operations initiated by the Transactional Replicator |
 
 ## Next steps
 [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
