@@ -7,13 +7,10 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: "Active"
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
+manager: craigg
 
 ---
 # Create an Azure SQL Database Managed Instance in the Azure portal
@@ -22,6 +19,9 @@ This tutorial demonstrates how to create an Azure SQL Database Managed Instance 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+> [!IMPORTANT]
+> For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+ 
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
