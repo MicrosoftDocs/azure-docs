@@ -56,7 +56,7 @@ When programmatically logging in, you use the ID for your application and an aut
 2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
 
      ![client id](./media/azure-stack-create-service-principal/image12.png)
-3. To generate an authentication key, select **Keys**.
+3. To generate an authentication key, select **Settings** > **Keys**.
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
