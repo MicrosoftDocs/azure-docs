@@ -4,7 +4,7 @@ description: Create a Linux VM in an availability zone with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: 
 ---
@@ -23,7 +23,7 @@ ms.custom:
 
 This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
 Make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index#az_login).
 
@@ -40,19 +40,19 @@ az vm list-skus --location eastus2 --output table
 The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
 
 ```azurecli
-ResourceType      Locations  Name               Tier       Size     Zones
-----------------  ---------  -----------------  ---------  -------  -------
-virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
-virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+ResourceType      Locations  Name               [...]    Tier       Size     Zones
+----------------  ---------  -----------------           ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2             Standard   DS2_v2   1,2,3
 [...]
-virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
-virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+virtualMachines   eastus2    Standard_F1s                Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s                Standard   F2s      1,2,3
 [...]
-virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
-virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+virtualMachines   eastus2    Standard_D2s_v3             Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3             Standard   D4_v3    1,2,3
 [...]
-virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
-virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+virtualMachines   eastus2    Standard_E2_v3              Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2,3
 ```
 
 
@@ -60,7 +60,7 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.  
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. East US 2 is one of the Azure regions that supports availability zones in preview.
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. East US 2 is one of the Azure regions that supports availability zones.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus2
@@ -72,7 +72,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 Create a virtual machine with the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
-When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availability zone *1*. By default, the VM is created in the *Standard_DS1_v2* size. This size is supported in the availability zones preview.
+When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availability zone *1*. By default, the VM is created in the *Standard_DS1_v2* size.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
@@ -83,7 +83,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 ```azurecli-interactive 
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -94,7 +94,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 }
 ```
 
-## Zone for IP address and managed disk
+## Confirm zone for IP address and managed disk
 
 When the VM is deployed in an availability zone, the IP address and managed disk resources are deployed in the same availability zone. The following examples get information about these resources.
 
@@ -116,12 +116,12 @@ The output shows that the IP address is in the same availability zone as the VM:
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "52.174.34.95",
   "ipConfiguration": {
     "etag": null,
-    "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM",
     "name": null,
     "privateIpAddress": null,
     "privateIpAllocationMethod": null,
@@ -163,7 +163,7 @@ The output shows that the managed disk is in the same availability zone as the V
   "creationData": {
     "createOption": "FromImage",
     "imageReference": {
-      "id": "/Subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
       "lun": null
     },
     "sourceResourceId": null,
@@ -172,7 +172,7 @@ The output shows that the managed disk is in the same availability zone as the V
   },
   "diskSizeGb": 30,
   "encryptionSettings": null,
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
   "location": "eastus2",
   "managedBy": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
   "name": "osdisk_761c570dab",
