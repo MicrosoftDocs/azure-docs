@@ -48,6 +48,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CSHttpClientSample
 {
@@ -90,7 +91,7 @@ namespace CSHttpClientSample
 		/// Gets the analysis of the specified image file by using the Computer Vision REST API.
 		/// </summary>
 		/// <param name="imageFilePath">The image file.</param>
-		static async void MakeAnalysisRequest(string imageFilePath)
+		static async Task MakeAnalysisRequest(string imageFilePath)
 		{
 			HttpClient client = new HttpClient();
 
@@ -310,6 +311,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CSHttpClientSample
 {
@@ -355,7 +357,7 @@ namespace CSHttpClientSample
 		/// Gets a thumbnail image from the specified image file by using the Computer Vision REST API.
 		/// </summary>
 		/// <param name="imageFilePath">The image file to use to create the thumbnail image.</param>
-		static async void MakeAnalysisRequest(string imageFilePath)
+		static async Task MakeAnalysisRequest(string imageFilePath)
 		{
 			HttpClient client = new HttpClient();
 
@@ -525,6 +527,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CSHttpClientSample
 {
@@ -567,7 +570,7 @@ namespace CSHttpClientSample
 		/// Gets a thumbnail image from the specified image file by using the Computer Vision REST API.
 		/// </summary>
 		/// <param name="imageFilePath">The image file to use to create the thumbnail image.</param>
-		static async void MakeThumbNailRequest(string imageFilePath)
+		static async Task MakeThumbNailRequest(string imageFilePath)
 		{
 			HttpClient client = new HttpClient();
 
@@ -745,6 +748,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CSHttpClientSample
 {
@@ -787,7 +791,7 @@ namespace CSHttpClientSample
 		/// Gets the text visible in the specified image file by using the Computer Vision REST API.
 		/// </summary>
 		/// <param name="imageFilePath">The image file.</param>
-		static async void MakeOCRRequest(string imageFilePath)
+		static async Task MakeOCRRequest(string imageFilePath)
 		{
 			HttpClient client = new HttpClient();
 
@@ -1015,6 +1019,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CSHttpClientSample
 {
@@ -1057,7 +1062,7 @@ namespace CSHttpClientSample
 		/// Gets the handwritten text from the specified image file by using the Computer Vision REST API.
 		/// </summary>
 		/// <param name="imageFilePath">The image file with handwritten text.</param>
-		static async void ReadHandwrittenText(string imageFilePath)
+		static async Task ReadHandwrittenText(string imageFilePath)
 		{
 			HttpClient client = new HttpClient();
 
