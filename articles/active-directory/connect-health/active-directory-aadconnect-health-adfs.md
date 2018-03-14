@@ -110,9 +110,12 @@ The report provides the following information:
 | Last Failure IP |Shows the Client IP address from the latest bad request. |
 
 > [!NOTE]
-> This report is automatically updated after every 12 hours with the new information collected within that time. As a result, login attempts within the last two hours may not be included in the report.
+> This report is automatically updated after every 12 hours with the new information collected within that time. As a result, login attempts within the last 12 hours may not be included in the report.
 >
 >
+
+### Risky IP Report 
+Preview coming soon.
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

@@ -52,23 +52,26 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 ### Sample text to scan
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
+> [!NOTE]
+> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
+
 ```
 	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
 	These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.
-	Also, 544-56-7788 looks like a social security number (SSN).
+	Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
 ### Text classification feature (preview)
 
-In the following example, you see Content Moderator’s machine-assisted text classification (preview) response. It helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
+In the following example, you see Content Moderator’s machine-assisted text classification (preview) response. It helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
 
 #### Explanation
 
 - `Category1` represents the potential presence of language that may be considered sexually explicit or adult in certain situations.
 - `Category2` represents the potential presence of language that may be considered sexually suggestive or mature in certain situations.
 - `Category3` represents the potential presence of language that may be considered offensive in certain situations.
-- `Score` range is between 0 and 1. The higher the score, higher the likelihood of the category being applicable.
-- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers are recommended to either use this value or decide on custom thresholds based on their content policies. In the preceding example, `ReviewRecommended` is `true` because of the high score assigned to `Category3`.
+- `Score` is between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This preview relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
+- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
 
 ### Analyze the response
 The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
@@ -119,10 +122,10 @@ The following response shows the various insights from the API. It contains pote
       			"Index": 89
     		}],
     		"SSN": [{
-      			"Text": "665778988",
+      			"Text": "999999999",
       			"Index": 56
     		}, {
-      			"Text": "544-56-7788",
+      			"Text": "999-99-9999",
       			"Index": 266
     		}]
   		},

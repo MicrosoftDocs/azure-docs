@@ -82,7 +82,7 @@ At tutorial completion, you have an AKS cluster ready for workloads. In subseque
 
 ## Configure ACR authentication
 
-Authentication needs to be configured between the AKS cluster and the ACR registry. This involves granting the ACS identity the proper rights to pull images from the ACR registry.
+Authentication needs to be configured between the AKS cluster and the ACR registry. This involves granting the AKS identity the proper rights to pull images from the ACR registry.
 
 First, get the ID of the service principal configured for AKS. Update the resource group name and AKS cluster name to match your environment.
 
@@ -93,7 +93,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 Get the ACR registry resource id. Update the regsitry name to that of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Create the role assignment, which grants the proper access.
