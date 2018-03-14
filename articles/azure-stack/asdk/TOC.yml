@@ -1,13 +1,13 @@
 - name: Azure Stack Development Kit Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is the ASDK?
     href: asdk-what-is.md
   - name: ASDK release notes
     href: asdk-release-notes.md
 - name: Tutorials
-  expanded: true
   items:
   - name: 1. Add a marketplace item
     items:
