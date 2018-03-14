@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
 
 ---
@@ -92,7 +92,7 @@ Add the Parson JSON library to the **RMDevice** project and add the required `#i
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -114,7 +114,7 @@ Add code to invoke the **remote\_monitoring\_run** function, then build and run 
     }
     ```
 
-1. Choose **Build** and then **Build Solution** to build the device application. Ignore the warning about the **gmtime** function.
+1. Choose **Build** and then **Build Solution** to build the device application.
 
 1. In **Solution Explorer**, right-click the **RMDevice** project, choose **Debug**, and then choose **Start new instance** to run the sample. The console displays messages as:
 
