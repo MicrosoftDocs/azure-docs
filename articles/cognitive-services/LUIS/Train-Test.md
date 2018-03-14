@@ -16,10 +16,7 @@ ms.author: v-geberr;
 
 [Training](luis-how-to-train.md) and [testing](luis-concept-test.md) an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
-<a name="test-your-app"></a>
-<a name="access-the-test-page"></a>
-<a name="interactive-testing"></a>
-
+<a name="train-your-app"></a>
 Learn more about [how to train](luis-how-to-train.md) your app.
 
 <!-- anchors for H2 name changes -->
