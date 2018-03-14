@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Tutorial: create and deploy an application with a Java web API front-end service and a stateful back-end service
+# Tutorial: Create and deploy an application with a Java web API front-end service and a stateful back-end service
 This tutorial is part one of a series. When you are finished, you have a Voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires that you have a working Mac OSX or Linux developer machine. If you don't want to manually create the voting application, you can [download the source code for the completed application](https://github.com/Azure-Samples/service-fabric-java-quickstart) and skip ahead to [Walk through the voting sample application](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
 ![Voting App Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
@@ -76,7 +76,7 @@ The table gives a short description of each item in the package explorer from th
 | build.gradle | Gradle file used to manage the project. |
 | settings.gradle | Contains names of Gradle projects in this folder. |
 
-### Add HTML & Javascript to the VotingWeb service
+### Add HTML and Javascript to the VotingWeb service
 To add UI that can be rendered by the stateless service, add an HTML file in the *VotingApplication/VotingWebPkg/Code*. This HTML file is then rendered by the lightweight HTTP server embedded into the stateless Java service. 
 
 1. Expand the *VotingApplication* directory to reach the *VotingApplication/VotingWebPkg/Code* directory. 

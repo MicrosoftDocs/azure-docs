@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Tutorial: deploy a Java application to a Service Fabric cluster in Azure
+# Tutorial: Deploy a Java application to a Service Fabric cluster in Azure
 This tutorial is part three of a series and shows you how to deploy a Service Fabric application to a cluster in Azure.
 
 In part three of the series, you learn how to:
@@ -115,7 +115,7 @@ The following steps create the necessary resources required to deploy your appli
     Example: az group create --location westus --name testeventhubsrg
     ```
 
-10. Create an Event Hubs resource using the following command: Follow the prompts to enter details for the namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule, and receiveAuthorizationRule. 
+10. Create an Event Hubs resource using the following command. Follow the prompts to enter details for the namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule, and receiveAuthorizationRule. 
 
     ```bash
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json

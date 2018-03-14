@@ -1,6 +1,6 @@
 ---
 title: Setup CI/CD for an Azure Service Fabric Java application| Microsoft Docs
-description: Learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
+description: In this tutorial, learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Set up Jenkins environment with Service Fabric
+# Tutorial: Set up a Jenkins environment with Service Fabric
 This tutorial is part five of a series. It shows you how to use Jenkins to deploy upgrades to your application. In this tutorial, the Service Fabric Jenkins plugin is used in combination with a Github repository hosting the Voting application to deploy the application to a cluster. 
 
 In part five of the series, you learn how to:

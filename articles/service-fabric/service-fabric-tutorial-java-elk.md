@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Tutorial: monitor your Service Fabric applications using ELK 
+# Tutorial: Monitor your Service Fabric applications using ELK 
 This tutorial is part four of a series. It shows how to use ELK (Elasticsearch, Logstash, and Kibana) to monitor Service Fabric applications running in Azure. 
 
 In part four of the series, you learn how to:
