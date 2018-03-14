@@ -19,7 +19,7 @@ ms.author: mahender
 ---
 # Authentication and authorization in Azure App Service
 
-Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, API, mobile back end, or function app. This article describes how App Service helps simplify authentication and authorization for your app. 
+Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, API, mobile back end, or [function app](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app. 
 
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
@@ -32,6 +32,10 @@ Authentication and authorization in App Service doesn't fit everyone's need. Use
 ### User claims
 
 For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard code pattern. For other language frameworks, App Service makes the user's claims available by injecting them into the request headers.
+
+> [!NOTE]
+> For [function apps](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not hydrated for .NET code, but you can still find the user claims in the request headers.
+>
 
 For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
 
@@ -63,15 +67,18 @@ You can provide your users with any number of these sign-in options with ease. Y
 The authentication flow is the same for all providers, but differs depending on whether the browser is involved:
 
 - Browser apps: Can present the provider's login page to the user. The server code manages the sign-in process, so it is also called _server-directed flow_ or _server flow_. This case applies to web apps. It also applies to native apps that sign users in using the Mobile Apps client SDK because the SDK opens a web view to sign users in with App Service authentication. 
-- Browser-less apps: Cannot present the provider's login page to the user. The client code must sign users in directly using the provider's SDK, so it is also called _client-directed flow_ or _client flow_. This case applies to REST APIs, function apps, and JavaScript browser clients. It also applies to native mobile apps that sign users in using the provider's SDK. 
+- Browser-less apps: Cannot present the provider's login page to the user. The client code must sign users in directly using the provider's SDK, so it is also called _client-directed flow_ or _client flow_. This case applies to REST APIs, [function apps](../azure-functions/functions-overview.md), and JavaScript browser clients. It also applies to native mobile apps that sign users in using the provider's SDK. 
 
 > [!NOTE]
-> Calls from a trusted browser app in App Service calls another REST API App Service or function app can be authenticated using the server-directed flow. For more information, see [Authenticate users with Azure App Service]().
+> Calls from a trusted browser app in App Service calls another REST API App Service or [function app](../azure-functions/functions-overview.md) can be authenticated using the server-directed flow. For more information, see [Authenticate users with Azure App Service]().
 >
 
+The table below shows the steps of the authentication flow.
+
 | Step | Browser app | Browser-less app |
-| 1. Sign user sin | Redirects client to `/.auth/login/<provider>`. | Client code signs user in directly with provider's SDK. |
-| 2. Post authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code posts token from provider to `/.auth/login/<provider>`. |
+| - | - | - |
+| 1. Sign user in | Redirects client to `/.auth/login/<provider>`. | Client code signs user in directly with provider's SDK. |
+| 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code posts token from provider to `/.auth/login/<provider>`. |
 | 3. Establish authenticated session | App Service adds authenticated cookie to response. | App Service returns its own authentication token to client code. |
 | 4. Serve authenticated content | Client includes authentication cookie in subsequent requests (automatically handled by browser). | Client code presents authentication token in `X-ZUMO-AUTH` header (automatically handled by Mobile Apps client SDKs). |
 
@@ -83,17 +90,23 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 You can configure App Service authorization with any of the following behaviors:
 
-- (default) Allow all requests - Authentication and authorization is not managed by App Service (turned off). 
+### (default) Allow all requests
 
-    Choose this option that you don't need authentication and authorization, or that you want to write your own authentication and authorization code.
+Authentication and authorization is not managed by App Service (turned off). 
 
-- Allow only authenticated requests - In the Azure portal, the option is **Log in with \<provider>**. App Service redirects all anonymous requests to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`.
+Choose this option that you don't need authentication and authorization, or that you want to write your own authentication and authorization code.
 
-    With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](app-service-authentication-how-to.md#access-user-claims)).
+### Allow only authenticated requests
 
-- Allow all requests, but validate authenticated requests - In the Azure portal, the option is **Allow Anonymous requests**. This option turns on authentication and authorization in App Service, but defers authorization decisions to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
+In the Azure portal, the option is **Log in with \<provider>**. App Service redirects all anonymous requests to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`.
 
-    This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in options](app-service-authentication-how-to.md#configure-multiple-sign-in-options) to your users. However, you have to write code. 
+With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](app-service-authentication-how-to.md#access-user-claims)).
+
+### Allow all requests, but validate authenticated requests
+
+In the Azure portal, the option is **Allow Anonymous requests**. This option turns on authentication and authorization in App Service, but defers authorization decisions to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
+
+This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in options](app-service-authentication-how-to.md#configure-multiple-sign-in-options) to your users. However, you have to write code. 
 
 ## More resources
 

@@ -61,7 +61,7 @@ Your application can also obtain additional details on the authenticated user by
 
 ## Retrieve tokens in app code
 
-From your server code, the provider-specific tokens are injected into the request header, so you can easily access them. Possible token header names are listed below:
+From your server code, the provider-specific tokens are injected into the request header, so you can easily access them. The following table shows possible token header names:
 
 | | |
 |-|-|
