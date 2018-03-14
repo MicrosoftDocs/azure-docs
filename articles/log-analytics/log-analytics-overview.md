@@ -90,7 +90,7 @@ For example, the following view is from Application Insights.  If you click the 
 
 Log Analytics also makes its data available outside of Azure.  You can configure [Power BI](log-analytics-powerbi.md) to import the results of a query at scheduled intervals allowing you to take advantage of its features such as combing data from different sources and sharing reports on the web and mobile devices.  You can also leverage the [Log Search API](log-analytics-log-search-api.md) to build custom solutions that leverage Log Analytics data or to integrate with other systems.
 
-You can use [Logic Apps](../logic-apps/logic-apps-overview.md) in Azure to create custom workflows based on Log Analytics data.  For more complex logic based on PowerShell, you can use [runbooks in Azure Automation]().
+You can use [Logic Apps](../logic-apps/logic-apps-overview.md) in Azure to create custom workflows based on Log Analytics data.  For more complex logic based on PowerShell, you can use [runbooks in Azure Automation](../automation/automation-runbook-types.md).
 
 ![Power BI](media/log-analytics-overview/export.png)
 
