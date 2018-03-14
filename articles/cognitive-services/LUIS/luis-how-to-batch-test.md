@@ -13,7 +13,7 @@ ms.author: v-geberr;
 ---
 
 # Batch testing
- Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. See [batch testing](luis-concept-batch-test.md) to understand batch testing concepts.
+ Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. 
 
 <a name="batch-testing"></a>
 ## Import a dataset file for batch testing
@@ -22,13 +22,13 @@ ms.author: v-geberr;
 
     ![Batch Testing Link](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the JSON file that contains *no more than 1,000* utterances to test.
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the [JSON](luis-concept-batch-test.md#batch-file-format) file that contains *no more than 1,000* utterances to test.
 
     ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. See [Common errors](luis-concept-batch-test.md#common-errors-importing-a-batch) for more information.
 
-3. In the **Dataset Name** field, type a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. Review the [example batch file](luis-concept-batch-test.md#example-batch-file) for syntax. 
+3. In the **Dataset Name** field, enter a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. Review the [example batch file](luis-concept-batch-test.md#batch-file-format) for syntax. 
 
 4. Select **Done**. The dataset file is added.
 
@@ -43,7 +43,7 @@ To run the test, select the dataset name. When the test completes, this row disp
 
 ![Batch Test Result](./media/luis-how-to-batch-test/run-test.png)
 
-
+The downloadable dataset is the same file that was uploaded for batch testing.
 
 |State|Meaning|
 |--|--|
@@ -70,7 +70,7 @@ The filtering panel on the right side of the screen displays a list of all inten
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 ## Filter chart results
 
-To filter the chart by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. All items in the filtered section also display in more detail below the chart. 
+To filter the chart by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. 
  
 ![Visualized Batch Test Result](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
@@ -90,7 +90,7 @@ In the chart, hover over a data point to see the certainty score of its predicti
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 ## View section data
-In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list of incorrect predictions. 
+In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list. 
 
 ![Selected utterances by section](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
 
@@ -107,6 +107,7 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
 * [Use features to improve your LUIS app's performance](Add-Features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
+* [Learn batch testing concepts](luis-concept-batch-test.md).
 
 [true-positive]:luis-glossary.md#true-positive
 [true-negative]:luis-glossary.md#true-negative
