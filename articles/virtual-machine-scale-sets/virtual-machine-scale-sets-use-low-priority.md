@@ -74,7 +74,7 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Priority "Low"
 ```
 
-## Use Azure Resource Manager Templates:
+## Use Azure Resource Manager Templates
 
 The process to create a scale set that uses low-priority VMs is the same as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md). Add the 'priority' property to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template and specify *Low* as the value. Be sure to use *2017-10-30-preview* API version or higher. 
 
