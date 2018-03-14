@@ -30,7 +30,7 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the AzureRM.Compute module version 4.3.2 or later. Run ` Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Before you begin
 
@@ -95,7 +95,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU and version. Using the simplified parameter set for the [New-AzureRMVM] cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
+Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU and version. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
 
 This example creates a VM named *myVMfromImage* from the *myImage*, in the *myResourceGroup*.
 
@@ -110,7 +110,7 @@ New-AzureRmVm `
     -SubnetName "myImageSubnet" `
     -SecurityGroupName "myImageNSG" `
     -PublicIpAddressName "myImagePIP" `
-    -OpenPorts 80,3389
+    -OpenPorts 3389
 ```
 
 ## Image management 
