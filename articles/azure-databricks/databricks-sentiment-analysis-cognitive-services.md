@@ -426,7 +426,7 @@ Add a new code cell and paste the code snippet provided below. This code snippet
     object S extends CC[String]
     object D extends CC[Double]
 
-Add a new code cell and paste the snippet provided below. This snippet defines an object that contains functions to call the Text Analysis API to perform language detection and sentiment analysis. Make sure you replace the placeholders, \<PROVIDE ACCESS KEY HERE> and \<PROVIDE HOST HERE>, with the values you retrieved for your Azure Cognitive Services account.
+Add a new code cell and paste the snippet provided below. This snippet defines an object that contains functions to call the Text Analysis API to perform language detection and sentiment analysis. Make sure you replace the placeholders, `<PROVIDE ACCESS KEY HERE>` and `<PROVIDE HOST HERE>`, with the values you retrieved for your Azure Cognitive Services account.
 
     import javax.net.ssl.HttpsURLConnection
     import com.google.gson.Gson
@@ -570,6 +570,8 @@ You should see an output like the following:
     |@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|0.5               |
     |4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |0.5               |
     +--------------------------------+------------------+ 
+
+A value closer to **1** in the **Sentiment** column suggests a great experience with Azure. A value closer to **0** suggests issues that users faced while working with Microsoft Azure. 
 
 That's it! Using Azure Databricks, you have successfully streamed real-time data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then performed sentiment analysis on streaming data.
 
