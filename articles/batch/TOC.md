@@ -28,6 +28,7 @@
 ## [Developer features](batch-api-basics.md)
 ## [APIs and tools](batch-apis-tools.md)
 ## [Quotas and limits](batch-quota-limit.md)
+## [Supported VM sizes](batch-pool-vm-sizes.md)
 
 # How-to guides
 ## Manage Batch accounts
@@ -69,9 +70,9 @@
 ### [Rendering](batch-rendering-service.md)
 ### [Data processing with Batch and Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 
-## Monitor resources
-### [Diagnostic logging](batch-diagnostics.md)
-### [Efficient list queries](batch-efficient-list-queries.md)
+## [Monitor Batch solutions](monitoring-overview.md)
+### [Use metrics and diagnostic logs](batch-diagnostics.md)
+### [Query resources efficiently](batch-efficient-list-queries.md)
 
 ## Use developer tools
 ### [Use Batch .NET](batch-dotnet-get-started.md)
