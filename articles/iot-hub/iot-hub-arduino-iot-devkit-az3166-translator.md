@@ -8,7 +8,7 @@ manager: timlt
 tags: ''
 keywords: ''
 
-ms.service: iot-hube
+ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
