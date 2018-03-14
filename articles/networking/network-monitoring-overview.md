@@ -31,6 +31,8 @@ Network Performance Monitor (NPM) is a suite of capabilities, each of which is g
 * Mission critical multi-tier applications/micro-services
 * User locations and web-based applications (HTTP/HTTPs) 
 
+Performance Monitor, ExpressRoute Monitor and Service Endpoint Monitor are monitoring capabilities within NPM and are described below.
+
 ## Performance Monitor
 
 Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, and on-premises environments. You can monitor network connectivity across remote branch and field offices, store locations, data centers, and clouds. You can detect network issues before your users complain. The key advantages are:
@@ -108,7 +110,7 @@ Built for DNS Administrators, this solution collects, analyzes and correlates DN
 ![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Related links:
-* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](../log-analytics/log-analytics-dns)
 
 ## Next steps
 
