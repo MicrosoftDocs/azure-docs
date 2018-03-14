@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -22,7 +22,7 @@ When you have a misbehaving container, start by viewing its logs with [az contai
 
 ### View logs
 
-To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command. The container need not be running for you to pull the logs.
+To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command.
 
 The following is log output from the example task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having fed it an invalid URL to process:
 
