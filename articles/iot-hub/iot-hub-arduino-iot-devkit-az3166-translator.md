@@ -39,7 +39,7 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 ### A. Start VS Code
 
-- Make sure your DevKit is not connected to your PC.
+- Make sure your DevKit is connected to your PC.
 - Start VS Code
 - Connect the DevKit to your computer.
 
@@ -49,7 +49,10 @@ VS Code automatically finds the DevKit and opens an introduction page:
 
 ### B. Open the Arduino Examples folder
 
-Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.
+Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.  
+
+> [!NOTE]
+> If you can't see the Examples for MXCHIP AZ3166 section, make sure your device is properly connected and restart Visual Studio Code.  
 
 ![IoT DevKit samples](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
@@ -73,8 +76,7 @@ After Azure Function deploys successfully, fill in the azure_config.h file with 
 
 ![Find Azure Function app name](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-function.png)
 
-> [!NOTE]
-> If the Azure Function does not work properly, check this [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) section to resolve it.
+> Note : If the Azure Function does not work properly, check this [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) section to resolve it.
 
 ## Step 4. Build and upload the device code
 
