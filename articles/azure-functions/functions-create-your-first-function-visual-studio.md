@@ -38,7 +38,7 @@ To complete this tutorial:
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* If you installed the Azure development workload with an earlier version of Visual Studio 2017, you may also need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version). 
+* If you installed the Azure development workload with Visual Studio 2017 version 15.4 or earlier, you may also need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
