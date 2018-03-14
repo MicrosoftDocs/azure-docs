@@ -21,7 +21,7 @@ ms.author: cakarst;barbkess
 ---
 # Load data from Azure Data Lake Store into SQL Data Warehouse
 This document gives you all steps you need to load data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
-While you are able to run adhoc queries over the data stored in ADLS using the External Tables,we suggest importing the data into the SQL Data Warehouse for best performance.
+While you are able to run adhoc queries over the data stored in ADLS using the External Tables, we suggest importing the data into the SQL Data Warehouse for best performance.
 
 In this tutorial you will learn how to:
 
@@ -97,7 +97,7 @@ WITH (
 ```
 
 ## Configure data format
-To import the data from ADLS, you need to specify the External File Format. This objects defines how the files are written in ADLS.
+To import the data from ADLS, you need to specify the External File Format. This object defines how the files are written in ADLS.
 For the complete list, look at our T-SQL documentation [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
