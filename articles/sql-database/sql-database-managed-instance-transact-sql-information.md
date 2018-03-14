@@ -9,7 +9,7 @@ ms.custom: managed instance
 ms.topic: article 
 ms.date: 03/09/2018 
 ms.author: jovanpop 
-manager: cguyer 
+manager: craigg 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 

@@ -2,18 +2,12 @@
 title: Azure SQL Database Managed Instance Overview | Microsoft Docs
 description: This topic describes an Azure SQL Database Managed Instance and explains how it works and how it is different from a single database in Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: ''
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
 ms.date: 03/14/2018
 ms.author: bonova
 ---
