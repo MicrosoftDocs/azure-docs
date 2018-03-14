@@ -210,7 +210,7 @@ If you need to hardcode the location in your template, provide the name of one o
 ```
 
 ## Tags
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### Add tags to your template
 
