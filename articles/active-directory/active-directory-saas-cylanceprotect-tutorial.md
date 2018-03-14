@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/09/2018
 ms.author: jeedes
 
 ---
@@ -108,11 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Region | URL Value |
 	|----------|---------|
-	| Asia-Pacific Northeast (APNE1)| ` https://login-apne1.cylance.com`|
-	| Asia-Pacific Southeast (AU) | `https://login-au.cylance.com` |
-	| Europe Central (EUC1)|`https://login-euc1.cylance.com`|
-	| North America|`https://login.cylance.com`|
-	| South America (SAE1)|`https://login-sae1.cylance.com`|
+	| Asia-Pacific Northeast (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| Asia-Pacific Southeast (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
+	| Europe Central (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| North America|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| South America (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 	
 	b. In the **Reply URL** textbox, type the URL:
 	

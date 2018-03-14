@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: raynew
 
 ---
@@ -51,14 +51,14 @@ If you want to replicate to a secondary datacenter, then Hyper-V VMs must be on 
 Yes. You can either replicate VMs in Hyper-V servers in the VMM cloud to Azure, or you can replicate between VMM clouds on the same server. For on-premises to on-premises replication, we recommend that you have a VMM server in both the primary and secondary sites.  
 
 ### What physical servers can I protect?
-You can replicate physical servers running Windows and Linux to Azure or to a secondary site. [Learn about](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) operating system requirements.  The same requirements apply whether you're replicating physical servers to Azure, or to a secondary site.
+You can replicate physical servers running Windows and Linux to Azure or to a secondary site. Learn about requirements for [replication to Azure](vmware-physical-azure-support-matrix.md#replicated-machines), and [replication to a secondary site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported. For a machine protected as physical, you can only failback to a VMware virtual machine.
 
 ### What VMware VMs can I protect?
 
-To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines running VMware tools. We also recommend that you have a VMware vCenter server to manage the hypervisors. [Learn more](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) about exact requirements for replicating VMware servers and VMs to Azure, or to a secondary site.
+To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines running VMware tools. We also recommend that you have a VMware vCenter server to manage the hypervisors. Learn more about requirements for [replication to Azure](vmware-physical-azure-support-matrix.md#replicated-machines), or [replication to a secondary site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ### Can I manage disaster recovery for my branch offices with Site Recovery?
@@ -89,7 +89,7 @@ Azure Site Recovery replicates data to an Azure storage account, over a public e
 Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) to use ExpressRoute for Site Recovery replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) setup with the Azure virtual network.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
-Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+[VMware VMs](vmware-physical-azure-support-matrix.md#replicated-machines) and [Hyper-V VMs](hyper-v-azure-support-matrix.md#replicated-vms) you want to replicate to Azure should comply with Azure requirements.
 
 Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 

@@ -84,7 +84,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
 ```
 
 ## Next steps
-- Learn how [create a Public IP in an availability zone](../virtual-network/create-public-ip-availability-zone-cli.md)
+- Learn how [create a Public IP in an availability zone](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

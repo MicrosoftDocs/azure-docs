@@ -92,6 +92,8 @@
       href: tutorial-control-flow-portal.md    
     - name: .NET
       href: tutorial-control-flow.md    
+  - name: 9 - Transform data with Azure Databricks
+    href: transform-data-using-databricks-notebook.md
 - name: Samples
   items:
   - name: Code samples

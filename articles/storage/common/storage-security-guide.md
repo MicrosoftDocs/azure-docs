@@ -211,7 +211,7 @@ For example, with our URL above, if the URL was pointing to a file instead of a 
 * A service-level SAS can be used to access specific resources in a storage account. Some examples of this are retrieving a list of blobs in a container, downloading a blob, updating an entity in a table, adding messages to a queue, or uploading a file to a file share.
 * An account-level SAS can be used to access anything that a service-level SAS can be used for. Additionally, it can give options to resources that are not permitted with a service-level SAS, such as the ability to create containers, tables, queues, and file shares. You can also specify access to multiple services at once. For example, you might give someone access to both blobs and files in your storage account.
 
-#### Creating an SAS URI
+#### Creating a SAS URI
 1. You can create a URI on demand, defining all of the query parameters each time.
 
    This approach is flexible, but if you have a logical set of parameters that are similar each time, using a Stored Access Policy is a better idea.
@@ -373,7 +373,7 @@ Client-side encryption is more load on the client, and you have to account for t
 
 #### Storage Service Encryption (SSE)
 
-SSE is managed by Azure Storage. SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance from SSE.
+SSE is managed by Azure Storage. SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. SSE does not affect Azure Storage performance.
 
 You can encrypt any kind of data of the storage account using SSE (block blobs, append blobs, page blobs, table data, queue data, and files).
 
