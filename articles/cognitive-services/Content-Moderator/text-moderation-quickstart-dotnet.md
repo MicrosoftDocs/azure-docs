@@ -194,13 +194,6 @@ The sample output for the program, as written to the log file, is:
     		 "Address": [{
      			 "Text": "1 Microsoft Way, Redmond, WA 98052",
       			 "Index": 89
-    		        }],
-    		 "SSN": [{
-      			"Text": "999999999",
-      			"Index": 56
-    		        }, {
-      			"Text": "999-99-9999",
-      			"Index": 266
     		        }]
   		},
   	"Language": "eng",
