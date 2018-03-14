@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/14/2018
 ms.author: jeedes
 
 ---
@@ -137,15 +137,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
 
-7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![The Certificate download link](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_certificate.png) 
-
-8. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-contractworks-tutorial/tutorial_general_400.png)
 
-9. To generate the **Metadata URL**, perform the following steps:
+8. To generate the **Metadata URL**, perform the following steps:
 
     a. Click **App registrations**.
     
@@ -165,7 +161,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-10. To configure single sign-on on **ContractWorks** side, you need to send the generated **Metadata URL** to [ContractWorks support team](mailto:support@contractworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **ContractWorks** side, you need to send the generated **Metadata URL** to [ContractWorks support team](mailto:support@contractworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
