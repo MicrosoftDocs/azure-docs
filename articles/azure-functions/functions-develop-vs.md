@@ -34,15 +34,41 @@ This topic shows you how to use the Azure Functions Tools for Visual Studio 2017
 
 ## Prerequisites
 
-Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
+Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
 
 ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+If you have previously installed the Azure development workload, your Azure Functions tools may be out of date. Make sure you are using the [most recent version](#check-your-tools-version) of the tools.
+
+### Other requirements
 
 To create and deploy functions, you also need:
 
 * An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
 
 * An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
+### Check your tools version
+
+1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools** and choose **Azure Functions and Web Jobs Tools**.
+
+    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. Note the installed **Version**. You can compare this with the latest version listed [in the release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+3. If your version is older, update your tools in Visual Studio.
+
+### Update your tools
+
+1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
+
+    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. After the tools update is downloaded, close Visual Studio to trigger the tools update using the VSIX installer.
+
+3. In the installer, choose **OK** to start and then **Modify** to update the tools. 
+
+4. After the update is complete, choose **Close** and restart Visual Studio.
 
 ## Create an Azure Functions project 
 

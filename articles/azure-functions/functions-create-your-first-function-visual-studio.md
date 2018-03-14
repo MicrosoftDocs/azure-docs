@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 
@@ -34,11 +34,11 @@ This topic includes [a video](#watch-the-video) that demonstrates the same basic
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
+* Install [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Make sure you have updated to the most recent version of Azure Functions and WebJobs Tools. Do this under **Updates** > **Visual Studio Marketplace** in **Extensions and Updates**.
+* If you installed the Azure development workload with an earlier version of Visual Studio 2017, you may also need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
