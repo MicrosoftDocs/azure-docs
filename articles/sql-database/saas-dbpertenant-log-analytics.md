@@ -3,20 +3,14 @@ title: Use Log Analytics with a SQL Database multi-tenant app | Microsoft Docs
 description: "Setup and use Log Analytics (OMS) with a multi-tenant Azure SQL Database SaaS app"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: billgib; sstein
+ms.author: sstein
+ms.reviewer: billgib
 
 ---
 # Set up and use Log Analytics (OMS) with a multi-tenant Azure SQL Database SaaS app
@@ -129,7 +123,7 @@ In the OMS portal, you can explore the log and metric data in the workspace furt
 
 The monitoring and alerting in Log Analytics and OMS is based on queries over the data in the workspace, unlike the alerting defined on each resource in the Azure portal. By basing alerts on queries, you can define a single alert that looks over all databases, rather than defining one per database. Queries are only limited by the data available in the workspace.
 
-For more information on using OMS to query and set alerts, see, [Working with alert rules in Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+For more information on using OMS to query and set alerts, see, [Working with alert rules in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Log Analytics for SQL Database is charged for based on the data volume in the workspace. In this tutorial, you created a Free workspace, which is limited to 500 MB per day. Once that limit is reached, data is no longer added to the workspace.
 

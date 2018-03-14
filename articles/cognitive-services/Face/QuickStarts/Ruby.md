@@ -3,14 +3,14 @@ title: Face API Ruby QuickStarts | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with Ruby in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: anroth
+ms.author: sbowles
 ---
 
 # Face API Ruby Quickstarts

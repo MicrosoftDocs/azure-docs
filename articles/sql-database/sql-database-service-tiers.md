@@ -1,27 +1,22 @@
 ---
 title: 'Azure SQL Database service | Microsoft Docs'
 description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
-keywords: 
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: carlrab
 
 ---
 # What are Azure SQL Database service tiers?
 
-[Azure SQL Database](sql-database-technical-overview.md) offers **Basic**, **Standard**, and **Premium** service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). Service tiers are primarily differentiated by a range of performance level and storage size choices, and price.  All service tiers provide flexibility in changing performance level and storage size.  Single databases and elastic pools are billed hourly based on service tier, performance level, and storage size.   
+[Azure SQL Database](sql-database-technical-overview.md) offers **Basic**, **Standard**, and **Premium** service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). SQL Database offers a General Purpose service tier for [Azure SQL Database Managed Instance](sql-database-managed-instance.md#managed-instance-service-tier). Service tiers are primarily differentiated by a range of performance level and storage size choices, and price.  All service tiers provide flexibility in changing performance level and storage size.  Single databases and elastic pools are billed hourly based on service tier, performance level, and storage size.   
+
+> [!IMPORTANT]
+> SQL Database Managed Instance, currently in public preview, offers a single general-purpose service tier. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to Managed Instance.
 
 ## Choosing a service tier
 

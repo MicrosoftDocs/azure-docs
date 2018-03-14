@@ -97,6 +97,12 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 Follow the instructions at [Service Fabric CLI](service-fabric-cli.md#cli-mac) to install the Service Fabric CLI (`sfctl`) on your Mac.
 The CLI commands support interacting with Service Fabric entities, including clusters, applications, and services.
 
+1. To connect to the cluster before deploying applications run the command below. 
+
+```bash
+sfctl cluster select --endpoint http://localhost:19080
+```
+
 ## Create your application on your Mac by using Yeoman
 
 Service Fabric provides scaffolding tools that help you to create a Service Fabric application from the terminal by using the Yeoman template generator. Use the following steps to ensure that the Service Fabric Yeoman template generator is working on your machine:
