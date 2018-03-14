@@ -69,7 +69,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 
 ## How can I deal with spelling mistakes in utterances?
 
-See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial.
+See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7. 
 
 ## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
@@ -147,6 +147,8 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the b
 
 ## How do I create and assign a LUIS endpoint key?
 [Create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action.
+
+
 
 ## Next steps
 

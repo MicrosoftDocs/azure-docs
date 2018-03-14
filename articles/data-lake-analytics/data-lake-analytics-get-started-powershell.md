@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
-ms.author: edmaca
+ms.author: saveenr
 
 ---
 # Get started with Azure Data Lake Analytics using Azure PowerShell
