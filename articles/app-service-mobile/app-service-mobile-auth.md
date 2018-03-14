@@ -18,15 +18,15 @@ ms.author: mahender
 ---
 # Authentication and authorization in Azure App Service for mobile apps
 
-This article describes how authentication and authorization works when developing native mobile apps with an App Service back end. App Service provides integrated authentication and authorization, so your mobile apps can sign users in without changing any code on the App Service back end. It provides an easy way to protect your application and work with per-user data. 
+This article describes how authentication and authorization works when developing native mobile apps with an App Service back end. App Service provides integrated authentication and authorization, so your mobile apps can sign users in without changing any code in App Service. It provides an easy way to protect your application and work with per-user data. 
 
-This article focuses on mobile app development. If you want to get started right away with authentication and authorization for your mobile app, see one of the following tutorials [Add authentication to your iOS app][iOS] (or [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], or [Cordova]). 
+This article focuses on mobile app development. To get started quickly with App Service authentication and authorization for your mobile app, see one of the following tutorials [Add authentication to your iOS app][iOS] (or [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], or [Cordova]). 
 
 For information on how authentication and authorization work in App Service, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
 
 ## Authentication with provider SDK
 
-After everything is configured on the App Service back end, you can modify mobile clients to sign in with App Service. There are two approaches here:
+After everything is configured in App Service, you can modify mobile clients to sign in with App Service. There are two approaches here:
 
 * Use an SDK that a given identity provider publishes to establish identity and then gain access to App Service.
 * Use a single line of code so that the Mobile Apps client SDK can sign in users.
@@ -36,15 +36,15 @@ After everything is configured on the App Service back end, you can modify mobil
 > 
 > 
 
-When you use a provider SDK, users can sign in to an experience that integrates more tightly with the operating system that the app is running on. This also gives you a provider token and some user information on the client, which makes it much easier to consume graph APIs and customize the user experience. Occasionally on blogs and forums, you will see this referred to as the "client flow" or "client-directed flow" because code on the client signs in users, and the client code has access to a provider token.
+When you use a provider SDK, users can sign in to an experience that integrates more tightly with the operating system that the app is running on. This method also gives you a provider token and some user information on the client, which makes it much easier to consume graph APIs and customize the user experience. Occasionally on blogs and forums, it is referred to as the "client flow" or "client-directed flow" because code on the client signs in users, and the client code has access to a provider token.
 
-After a provider token is obtained, it needs to be sent to App Service for validation. After App Service validates the token, App Service creates a new App Service token that is returned to the client. The Mobile Apps client SDK has helper methods to manage this exchange and automatically attach the token to all requests to the application back end. Developers can also keep a reference to the provider token if they so choose.
+After a provider token is obtained, it needs to be sent to App Service for validation. After App Service validates the token, App Service creates a new App Service token that is returned to the client. The Mobile Apps client SDK has helper methods to manage this exchange and automatically attach the token to all requests to the application back end. Developers can also keep a reference to the provider token.
 
 For more information on the authentication flow, see [App Service authentication flow](../app-service/app-service-authentication-overview.md#authentication-flow). 
 
 ## Authentication without provider SDK
 
-If you do not want to set up a provider SDK, you can allow the Mobile Apps feature of Azure App Service to sign in for you. The Mobile Apps client SDK will open a web view to the provider of your choosing and sign in the user. Occasionally on blogs and forums, you will see this referred to as the "server flow" or "server-directed flow" because the server manages the process that signs in users, and the client SDK never receives the provider token.
+If you do not want to set up a provider SDK, you can allow the Mobile Apps feature of Azure App Service to sign in for you. The Mobile Apps client SDK will open a web view to the provider of your choosing and sign in the user. Occasionally on blogs and forums, it is called the "server flow" or "server-directed flow" because the server manages the process that signs in users, and the client SDK never receives the provider token.
 
 Code to start this flow is included in the authentication tutorial for each platform. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the application backend.
 
