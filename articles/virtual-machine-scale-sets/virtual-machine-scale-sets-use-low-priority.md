@@ -37,7 +37,7 @@ If you would like your VMs in your low-priority scale set to be deleted when the
 
 During preview, you will be able to set your eviction policy by using [Azure Resource Manager templates](#use-azure-resource-manager-templates). 
 
-### Deploying low-priority VMs on scale sets
+## Deploying low-priority VMs on scale sets
 
 To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to *Low*. All VMs in your scale set will be set to low-priority. To create a scale set with low-priority VMs, use one of the following methods:
 - [Azure CLI 2.0](#use-the-azure-cli-20)
