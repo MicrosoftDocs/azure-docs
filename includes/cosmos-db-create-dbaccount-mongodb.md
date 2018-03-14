@@ -3,14 +3,14 @@
    
    ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
-3. In the **New account** blade, specify **MongoDB** as the API and fille our your desired configuration for the Azure Cosmos DB account.
+3. In the **New account** blade, specify **MongoDB** as the API and fill out your desired configuration for the Azure Cosmos DB account.
  
     ![Screen shot of the New Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
 
     * **ID** must be a unique name you wish to use to identify your Azure Cosmos DB account. It may only contain lower case letters, numbers, the '-' character, and must be between 3 and 50 characters.
-    * **Subscription** is your Azure subscription. It will be filled out for you, but you can select different subscriptions if you have them.
-    * **Resource Group** is the resource group name for your Azure Cosmos DB account. You can use an existing one if you have it.
-    * **Location** is the geographic location where your Azure Cosmos DB instance is located. Choose the location closes to your users.
+    * **Subscription** is your Azure subscription. It will be filled out for you.
+    * **Resource Group** is the resource group name for your Azure Cosmos DB account.
+    * **Location** is the geographic location where your Azure Cosmos DB instance is located. Choose the location closest to your users.
 
 4. Click **Create** to create the account.
 5. On the toolbar, click **Notifications** to monitor the deployment process.
