@@ -23,4 +23,4 @@ Azure virtual machine extensions are small applications that provide post-deploy
 
 This document provides an overview of VM extensions, prerequisites for using Azure VM extensions, and guidance on how to detect, manage, and remove VM extensions. This document provides generalized information because many VM extensions are available, each with a potentially unique configuration. Extension-specific details can be found in each document specific to the individual extension.
 
-# Next steps
+## Next steps
