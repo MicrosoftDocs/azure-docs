@@ -130,8 +130,7 @@ The following table explains how each data source size is determined.
 | Microsoft Exchange |Sum of all Exchange databases in an Exchange server being backed up |
 | BMR/System State |Each individual copy of BMR or system state of the machine being backed up |
 
-For Azure VM backup, each VM can have up to 16 data disks with each data disk being of size 1024GB or less. <br>
-We have a [private preview](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) for supporting disks upto 4TB. 
+For Azure VM backup, each VM can have up to 16 data disks with each data disk being of size 4095GB or less. <br>
 
 ## Retention policy and recovery points
 ### Is there a difference between the retention policy for DPM and Windows Server/client (that is, on Windows Server without DPM)?<br/>

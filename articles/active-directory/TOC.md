@@ -221,7 +221,7 @@
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -290,9 +290,10 @@
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](users-default-permissions.md)
+### [Securing privileged access](admin-roles-best-practices.md) 
+### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
-### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
