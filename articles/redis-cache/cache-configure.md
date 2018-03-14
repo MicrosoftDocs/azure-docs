@@ -277,8 +277,6 @@ You can specify firewall rules with a start and end IP address range. When firew
 > [!IMPORTANT]
 > Connections from Azure Redis Cache monitoring systems are always permitted, even if firewall rules are configured.
 > 
-> Firewall rules are only available for Premium tier caches.
-> 
 > 
 
 ### Properties
