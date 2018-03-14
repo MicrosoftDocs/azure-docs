@@ -77,8 +77,12 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Authoring cycle
-    href: luis-concept-app-iteration.md 
+  - name: Author App
+    items: 
+    - name: Authoring cycle
+      href: luis-concept-app-iteration.md 
+    - name: Versioning
+      href: luis-concept-version.md
   - name: Design Model 
     items:
     - name: Intents
@@ -151,10 +155,14 @@
     href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference
     href: luis-reference-cortana-prebuilt.md
-  - name: Authoring APIs
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: Endpoint API
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78         
+  - name: Authoring V2 APIs
+    href: https://aka.ms/luis-authoring-apis
+  - name: Endpoint V2 API
+    href: https://aka.ms/luis-endpoint-apis
+  - name: Azure CLI 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
+  - name: Azure RM PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
     - name: Android
@@ -163,8 +171,10 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
     - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-LUIS-Windows
+    - name: .Net Endpoint
+      href: https://aka.ms/luis-endpoint-sdk
+    - name: .Net Authoring
+      href: https://aka.ms/luis-authoring-sdk
 - name: Resources
   items: 
   - name: Azure Roadmap
