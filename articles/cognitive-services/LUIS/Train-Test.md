@@ -26,10 +26,13 @@ Learn more about [how to train](luis-how-to-train.md) your app.
 ## Test an utterance
 
 1. Access your app by selecting its name on the **My Apps** page. 
+
 2. To access the **Test panel** slide-out panel, select **Test panel** in your application's top panel.
 
     ![Train & Test App page](./media/luis-how-to-train-test/test.png)
+
 3. Enter an utterance in the text box and select **Enter**. You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
+
 4. The utterance and its top intent and score are added to the list of utterances under the text box.
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
