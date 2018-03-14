@@ -121,6 +121,6 @@ The following example creates a Linux low-priority scale set named *myScaleSet* 
 }
 ```
 ## Next steps
-Now that you have created a scale set with low-priority VMs, you can learn how to [Deploy applications on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md) or [Use autoscale with virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md).
+Now that you have created a scale set with low-priority VMs, try deploying our [auto scale template using low-priority](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Check out the [virtual machine scale set pricing page](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) for pricing details.
