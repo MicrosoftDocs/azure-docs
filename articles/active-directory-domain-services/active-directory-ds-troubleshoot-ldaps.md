@@ -55,7 +55,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 
 *The secure LDAP certificate for the managed domain will expire on XX.*
 
-**Remediation:**
+**Resolution:**
 
 Create a new secure LDAP certificate by following the steps outlined in the [Configure secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) article.
 

@@ -80,6 +80,36 @@ For more information, see the following articles:
 * [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
 * [Blog post](https://aka.ms/svcendptmonitor)
 
+## Traffic Analytics
+Traffic Analytics is a cloud based solution that provides  visibility into user and application activity on your cloud networks. NSG Flow logs are analyzed to provide insights into:
+
+* Traffic flows across your networks between Azure and Internet,  public cloud regions, VNETs and subnets
+* Applications and protocols on your network, without the need for sniffers or dedicated flow collector appliances
+* Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots
+* Sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications
+* Security – malicious traffic, ports open to the Internet,  applications or VMs attempting Internet access…
+
+Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
+
+![Geo-map showing traffic across regions](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+Related links:
+* [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## DNS Analytics
+Built for DNS Administrators, this solution collects, analyzes and correlates DNS logs to provide security, operations and performance related insights.  Some of the capabilities are:
+
+* Identification of clients that try to resolve to malicious domains
+* Identification of stale resource records
+* Visibility into frequently queried domain names and talkative DNS clients
+* Visibility into the request load on DNS servers
+* Monitoring of dynamic DNS registration failures
+
+![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Related links:
+* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+
 ## Next steps
 
 * [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
