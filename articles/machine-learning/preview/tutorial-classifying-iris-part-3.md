@@ -1,16 +1,16 @@
 ---
-title: Deploy a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part three and discusses the deploying model.
+title: Deploy a model tutorial for Azure Machine Learning services
+description: This full-length tutorial shows how to use Azure Machine Learning services end to end. This is part three and discusses the deploying model.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 3/13/2018
 ---
 
 # Tutorial 3: Classify Iris: Deploy a model
