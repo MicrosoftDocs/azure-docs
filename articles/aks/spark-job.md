@@ -313,7 +313,7 @@ When running the job, instead of indicating a remote jar URL, the `local://` sch
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
 
-## Next Steps
+## Next steps
 
 Check out Spark documentation for more details.
 
