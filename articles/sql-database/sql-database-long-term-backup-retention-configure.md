@@ -2,17 +2,10 @@
 title: 'Configure long-term backup retention - Azure SQL database | Microsoft Docs' 
 description: "Learn how to store automated backups in the Azure Recovery Services vault and to restore from the Azure Recovery Services vault"
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
