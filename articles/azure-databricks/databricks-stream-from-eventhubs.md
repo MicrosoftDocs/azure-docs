@@ -24,7 +24,7 @@ In this tutorial, you connect a data ingestion system with Azure Databricks to s
 
 The following screenshot shows the application flow:
 
-![Azure Databricks with Event Hubs](./media/databricks-stream-from-eventhubs/databricks_eventhubs_tutorial.png "Azure Databricks with Event Hubs") 
+![Azure Databricks with Event Hubs](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks with Event Hubs") 
 
 This tutorial covers the following tasks: 
 
