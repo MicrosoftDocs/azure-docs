@@ -4,6 +4,7 @@
   items:
   - name: Introduction
   - name: Technologies/Solutions portfolio
+    href: iot-technologies-solutions.md
 - name: IoT Hub 
   href: ../iot-hub/index.md
 - name: IoT Hub Device Provisioning Services
