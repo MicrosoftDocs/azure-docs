@@ -24,19 +24,12 @@ Azure Storage now offers soft delete (public preview) for blob objects so that y
 easily recover your data when it is erroneously modified or deleted by an
 application or other storage account user.
 
-A question we often get asked is the following - do applications need to backup
-data if Azure Storage already stores multiple replicas? The answer is yes.
-Replication of data in Azure Storage will not protect against logical errors,
-which will be committed on the replicas that Azure Storage maintains. Currently,
-many application developers implement their own backup strategies to keep data
-safe. With the introduction of object-level soft delete, your blob data is a little safer.
-
 ## How does it work?
 
-When turned on, soft delete enables you to save and recover your data where blobs or blob snapshots are deleted. This protection extends to
+When turned on, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted. This protection extends to
 blob data that is erased as the result of an overwrite.
 
-When soft data is deleted, it transitions to a soft deleted
+When data is deleted, it transitions to a soft deleted
 state instead of being permanently erased. When soft delete is on and you
 overwrite data, a soft deleted snapshot is generated to save the state of the
 overwritten data. Soft deleted objects are invisible unless explicitly listed.
@@ -45,7 +38,7 @@ is permanently expired.
 
 Soft delete is backwards compatible; you don’t have to make any changes to your
 applications to take advantage of the protections this feature affords. However,
-[data recovery](#recovery) requires you to learn a few new tricks.
+[data recovery](#recovery) introduces a new "Undelete Blob" API.
 
 > [!NOTE]
 > During Public Preview, calling Set Blob Tier on a blob with snapshots is disallowed.
@@ -112,7 +105,7 @@ written data appears beneath older data. When “Snapshot Blob” is called, B0
 becomes a snapshot and B1 is the active state of the blob. When the B0 snapshot
 is deleted, it is marked as soft deleted.*
 
-When “Delete Blob” is called on a base blob, that blob is marked as soft
+When “Delete Blob” is called on a base blob (any blob that is not itself a snapshot), that blob is marked as soft
 deleted. Consistent with previous behavior, calling “Delete Blob” on a blob that
 has active snapshots returns an error. Calling “Delete Blob” on a blob with soft
 deleted snapshots does not return an error. You can still delete a blob and all
