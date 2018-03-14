@@ -1,7 +1,7 @@
 ---
 title: Create, build, and deploy logic apps in Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Create Visual Studio projects so you can design, build, and deploy Azure Logic Apps.
-author: jeffhollan
+author: ecfan
 manager: anneta
 editor: ''
 services: logic-apps
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
-ms.author: LADocs; jehollan
+ms.author: LADocs; estfan
 ---
 
 # Design, build, and deploy Azure Logic Apps in Visual Studio
