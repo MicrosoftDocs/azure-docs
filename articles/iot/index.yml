@@ -39,7 +39,7 @@ sections:
       - image:
           src: media/index/logo_python.svg
       - image:
-          src: media/index/logo_nodejs.svg
+          src: media/index/logo_nodejs1.svg
     rows:
       - title: Connect a simulated device to IoT Hub
         values:
@@ -71,7 +71,7 @@ sections:
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use use IoT Hub.
+    text: Learn how to connect and collect data with IoT Hub.
   - type: list
     style: unordered
     items:
@@ -126,8 +126,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.iothub">PowerShell</a></p><p><a href="/cli/azure/iot">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/azurerm.iothub#iot">PowerShell</a></p><p><a href="/cli/azure/iot">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C</a></p><p><a href="/dotnet/api/overview/azure">.NET</a></p><p><a href="/java/api/overview/azure/iot">Java</a></p><p><a href="/python/api/overview/azure/iot">Python</a></p><p><a href="/javascript/api/overview/azure/iot-hub">Node​.js</a></p>
+      html: <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C</a></p><p><a href="/dotnet/api/overview/azure/iot">.NET</a></p><p><a href="/java/api/overview/azure/iot">Java</a></p><p><a href="/python/api/overview/azure/iot">Python</a></p><p><a href="/javascript/api/overview/azure/iot-hub">Node​.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/iothub">IoT Hub</a></p><p><a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service</a></p>

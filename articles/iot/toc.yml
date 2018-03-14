@@ -1,12 +1,20 @@
-- name: Azure IoT Documentation
+- name: Azure Internet of Things (IoT) Documentation
   href: index.yml
 - name: Overview
   items:
   - name: Introduction
-  - name: Solutions & technologies portfolio
-- name: IoT Edge
-  href: ../iot-edge/index.yml
+  - name: Technologies/Solutions portfolio
 - name: IoT Hub 
   href: ../iot-hub/index.md
 - name: IoT Hub Device Provisioning Services
   href: ../iot-dps/index.yml
+- name: IoT Edge
+  href: ../iot-edge/index.yml
+- name: IoT Suite
+  href: ../iot-suite/
+- name: Azure Location Based Services
+  href: ../location-based-services/
+- name: Azure Time Series Insights
+  href: ../time-series-insights/
+- name: Microsoft IoT Central
+  href: ../microsoft-iot-central/
