@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.date: 03/13/2018
 ms.author: bwren
 
 ---
 # What is Azure Log Analytics?
 Log Analytics plays a central role in Azure management by collecting telemetry and other data from a variety of sources and  providing a query language and analytics engine that gives you insights into the operation of your applications and resources.  You can either interact directly with Log Analytics data through log searches and views, or you may use analysis tools in other Azure services that store their data in Log Analytics such as Application Insights or Azure Security Center.  
 
-Log Analytics requires minimal configuration.  You just need to create a workspace to enable collection from other services, and data types are either predefined or automatically created as data is collected.  Once virtual machines have an agent installed, you can configure their data collection centrally.  Management solutions can be installed into Azure the include logic to provide additional insights into different applications using Log Analytics data.
+Log Analytics is an end-to-end solution that's already integrated with other Azure services.  You just need to create a workspace to enable collection and enable management solutions that you're interested in.  Management solutions include logic to provide additional insights into different applications using Log Analytics data.  You can install agents on virtual machines to include them in the workspace and centrally configure data to be collected.  Behind the scenes, data types are either predefined or automatically created as data is collected.
 
 
 ## Role in monitoring
@@ -50,7 +50,7 @@ Methods for collecting data into Log Analytics include the following:
 
 Log Analytics includes a [rich query language](http://docs.loganalytics.io) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Search or Advanced Analytics portals](log-analytics-log-search-portals.md) and then either directly analyze the data using these tools or save queries for use with visualizations, alerts, or export to other tools such as Power BI or Excel.
 
-You can quickly learn the query language using [multiple tutorials](https://docs.loganalytics.io/docs/Learn/Tutorials) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics)
+You can quickly learn the query language using [multiple tutorials](https://docs.loganalytics.io/docs/Learn/Tutorials) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics).
 
 ![Log search](media/log-analytics-overview/analytics-query.png)
 
