@@ -18,7 +18,9 @@ ms.author: masnider
 
 ---
 # Scaling in Service Fabric
-Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. 
+Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. This Channel9 video provides an overview of scaling Service Fabric applications:
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
 Scaling in Service Fabric is accomplished several different ways:
 
