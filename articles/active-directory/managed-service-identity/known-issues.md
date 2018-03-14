@@ -34,6 +34,10 @@ No, there are no plans to support MSI in Azure Cloud Services.
 
 No, MSI is not yet integrated with ADAL or MSAL. For details on acquiring an MSI token using the MSI REST endpoint, see [How to use an Azure VM Managed Service Identity (MSI) for token acquisition](how-to-use-vm-token.md).
 
+### What is the security boundary of a Managed Service Identity?
+
+The security boundary of the identity is the resource to which it is attached to. For example, the security boundary for a Virtual Machine MSI, is the Virtual Machine. Any code running on that VM, is able to call the MSI endpoint and request tokens. It is the similar experience with other resources that support MSI.
+
 ### What are the supported Linux distributions?
 
 The following Linux distributions support MSI: 
