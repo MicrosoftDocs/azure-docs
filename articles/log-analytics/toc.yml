@@ -50,7 +50,7 @@
   - name: Log Search
     items:
        - name: Log searches overview
-         href: log-analytics-log-search-new.md   
+         href: log-analytics-log-search.md   
        - name: Log Search portals
          href: log-analytics-log-search-portals.md   
 - name: How-to guides
