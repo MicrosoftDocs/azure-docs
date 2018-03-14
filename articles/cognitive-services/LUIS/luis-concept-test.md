@@ -33,6 +33,8 @@ See [batch testing](luis-concept-batch-test.md) for testing more than one uttera
 ## Endpoint testing
 You can test using the [endpoint](luis-glossary.md#endpoint) with a maximum of two versions of your app. With your main or live version of your app set as the production endpoint, add a second version to the staging endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the LUIS website, and the two versions at the two different endpoints. 
 
+All endpoint testing counts against your usage quota. 
+
 ## Do not log tests
 If you test against an endpoint, and do not want the utterance logged, remember to use the `logging=false` query string configuration.
 
