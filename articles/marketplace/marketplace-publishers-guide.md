@@ -26,52 +26,53 @@ Welcome to the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [
 
 By the end of this guide, you'll learn more about each of these topics and know where to find more detailed information:
 
-- What are the benefits of listing in one of the Marketplace storefronts
-- What are Azure Marketplace and AppSource
+- What the benefits of listing in one of the marketplace storefronts are
+- What the Azure Marketplace and AppSource are
 - How to use these storefronts
 - Which storefront is right for your offers and services 
 - What kinds of applications and services offers can be published
-- What are the technical and business requirements for each publishing option
-- Pre-publishing asset checklist
+- What the technical and business requirements are for each publishing option
+- How to create a pre-publishing asset checklist
 - How to become a publisher
 - Where to create and publish offers
-- How to optimize a listing and use Go-to-Market resources to drive impact
+- How to optimize a listing and use go-to-market resources to drive impact
 - Where to get help and support
-For questions about Azure Marketplace, AppSource, or this publishing guide please contact the Marketplace team at **cloudmarketplace@microsoft.com**. 
+
+For questions about the Azure Marketplace, AppSource, or this publishing guide, [contact the Marketplace team](mailto:cloudmarketplace@microsoft.com). 
 
 ## Benefits of participating in the Marketplace
 
-Azure Marketplace and AppSource are the launching points for joint go-to-market activities with Microsoft and a flywheel for business growth. Using launch promotion, demand generation, and joint sales and marketing, your Marketplace listings can be the centerpiece of your cloud business engine. There are no fees for participating in the Marketplace. Our goal is to connect Microsoft customers with the best solutions and services that our partner ecosystem offers.
+The Azure Marketplace and AppSource are the launching points for joint go-to-market activities with Microsoft and a flywheel for business growth. By using launch promotion, demand generation, and joint sales and marketing, you can make your Marketplace listings the centerpiece of your cloud business engine. There are no fees for participating in the Marketplace. Our goal is to connect Microsoft customers with the best solutions and services that our partner ecosystem offers.
 
 Take advantage of Marketplace capabilities to grow your business:
 
 - **Generate leads and sales opportunities.** Enter new markets with an expanded portfolio of solutions on the Microsoft cloud platform. Upsell and cross-sell Marketplace offerings. 
-- **Enhance business value and increase deal size with existing and new customers.** Grow deal size and address customer pain points when moving workloads to the cloud. Reduce sales cycles and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios.
+- **Enhance business value and increase deal size with existing and new customers.** Grow deal size and address customer problems when you're moving workloads to the cloud. Reduce sales cycles and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios.
 - **Get actionable insights.** Your success is our success. Get insights on the performance of your listings via the Cloud Partner Portal. Learn what is performing, what leads you have generated, and how to maximize your campaign activities.
 
 >[!NOTE]
->Apps that extend Office will access insights through the Office apps publishing process.
+>Apps that extend Office will access insights through the publishing process for Office apps.
 
-## What are Azure Marketplace and AppSource?
+## Azure Marketplace and AppSource storefronts
 
-Microsoft provides two distinct Marketplace storefronts that allow partners to list offers, enable trials, and transact directly with Microsoft's customers and ecosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) and [AppSource] (https://appsource.microsoft.com). These storefronts allow customers to find, try, and buy applications and services that accelerate their Digital Transformation, and help publishers grow their businesses by increasing access to Microsoft's customers and partner ecosystem.
+Microsoft provides two distinct marketplace storefronts that allow partners to list offers, enable trials, and transact directly with Microsoft customers and ecosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) and [AppSource] (https://appsource.microsoft.com). These storefronts enable customers to find, try, and buy applications and services that accelerate their digital transformation. They help publishers grow their businesses by increasing access to Microsoft customers and partner ecosystems.
  
-The Marketplace storefronts are aligned to audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options, to help you maximize your publishing investment summarized by the following table:
+The marketplace storefronts are aligned to audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
-|Target Audience     |IT Professionals, Developers (specialist roles include DBAs, SecOps, DevOps, etc.)    | Line of Business Decision-Makers (specialist roles include Procurement, Manufacturing, Accounting, etc.)      |
-|Built with or to extend     |Azure         | Azure, Dynamics 365, Office 365, Power BI, and Power Apps       |
-|Types of Solutions and Services     |  Infrastructure Solutions and Professional Services   | Finished line of business cloud applications, Office 365 add-ins, and professional services        |
-|Publishing Options     |  Contact Me, Consulting Services Offer, Trial, Virtual Machine, Solution Templates, and Managed Apps       |  Free Trial, Get Now, Test Drive, Contact Me, Consulting Services Offer      |
-|In-App Experience Provides users access to apps and services in context of their application  | Azure Portal and CLI         | Office 365, Dynamics 365, Power BI, Office client apps       |
+|Target audience     |IT pros and developers (specialist roles include DBAs, SecOps, DevOps)    | Line-of-business decision makers (specialist roles include Procurement, Manufacturing, Accounting)      |
+|Built with or to extend     |Azure         | Azure, Dynamics 365, Office 365, Power BI, and PowerApps       |
+|Types of solutions and services     |  Infrastructure solutions and professional services   | Finished line-of-business cloud applications, Office 365 add-ins, and professional services        |
+|Publishing options     |  Contact Me, Consulting Services Offer, Trial, Virtual Machine, Solution Templates, and Managed Apps       |  Free Trial, Get Now, Test Drive, Contact Me, Consulting Services Offer      |
+|In-app experience to provides users access to apps and services in the context of their application  | Azure portal and Azure CLI         | Office 365, Dynamics 365, Power BI, Office client apps       |
 
-## Using these storefronts
+## Using the storefronts
 
-Each storefront serves unique customer needs and enables targeting by role to allow you to offer the right solution or service based on who your customer is.
+Each storefront serves unique customer needs and enables targeting by role so you can offer the right solution or service based on who your customer is.
 
-Engage IT Pros and Cloud Developers through the **Azure Marketplace** to discover, try, and buy IaaS, SaaS, and PaaS solutions:
+Engage IT pros and cloud developers through the Azure Marketplace to discover, try, and buy IaaS, SaaS, and PaaS solutions:
 
 
 |Customer need  |Azure Marketplace |
@@ -81,30 +82,30 @@ Engage IT Pros and Cloud Developers through the **Azure Marketplace** to discove
 |**Needs a scalable deployment mechanism for third-party applications and services**   | Enables the creation and configuration of scalable deployments for third-party applications and services        |
 |**Requires new applications and services to integrate and work with existing solutions**  |   Easily integrates third-party applications and services with existing solutions on Azure      |
 
-Engage Business Users on AppSource to find, try and get line-of-business SaaS applications and implementation services to help drive business results and reduce time to value: 
+Engage business users on AppSource to find, try, and get line-of-business SaaS applications and implementation services to help drive business results and reduce time to value: 
 
 
 |Customer need  |AppSource  |
 |---------|---------|
-|**Looking for business solutions that work with Microsoft products they already use** | Allow customers to use third-party applications and services to extend Microsoft’s cloud applications and technologies.       |
-|**Ability to easily find the right the right solution or implementation service.**    |   Provides a one-stop shop to discover, trial, and get applications and services, add-ins, and more      |
-|**Industry-specific line of business solution to address their specific business challenges**   | Provides finished end-to-end industry solutions to help address specific requirements across many industries     |
-|**Apps to help improve productivity, efficiency, and business insights**    | Provides apps for line of business, including customer service, HR, operations, and many more        |
-| **Experienced implementation partner to help adapt apps to their unique situation** | Provides, a catalog of consulting services offerings for solutions based on Dynamics 365, Power BI, PowerApps, and 3rd party apps are available on AppSource to help business users find consulting services design to deliver predictable outcomes |
+|**Looking for business solutions that work with Microsoft products they already use** | Enables customers to use third-party applications and services to extend Microsoft cloud applications and technologies       |
+|**Ability to easily find the right solution or implementation service.**    |   Provides a one-stop shop to discover, try, and get applications and services, add-ins, and more      |
+|**Industry-specific line-of-business solutions to address their specific business challenges**   | Provides finished end-to-end industry solutions to help address specific requirements across many industries     |
+|**Apps to help improve productivity, efficiency, and business insights**    | Provides apps for lines of business, including customer service, HR, operations, and many more        |
+| **Experienced implementation partner to help adapt apps to their unique situation** | Provides a catalog of consulting service offerings for solutions based on Dynamics 365, Power BI, PowerApps, and 3rd party apps are to help business users deliver predictable outcomes |
 
 ## Understanding the differences between storefronts
 
-Choosing a storefront starts with identifying the target audience for your offer: Azure Marketplace is aligned to the needs of IT Professionals and Developers, and AppSource is aligned to the needs of Business Users. If your solution targets both audiences, you only need to publish once to list in both storefronts.
+Choosing a storefront starts with identifying the target audience for your offer. The Azure Marketplace is aligned to the needs of IT pros and developers, and AppSource is aligned to the needs of business users. If your solution targets both audiences, you need to publish only once to list in both storefronts.
  
 Consider the additional benefits of each storefront:
 
 |Storefront benefit  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Billing Flexibility**    | For Virtual Machines, 'Pay as you go' billing options, use Microsoft enterprise agreements or web direct sales models. Pricing options also include a Free Tier subscription where an offering is perpetually free, as well as a Try It Now subscription that is promotionally free for a limited period after which it converts to a paid subscription. 'Bring Your Own License' activation is also an option for supporting publishers For both billing options, in scenarios where Virtual Machines are deployed using Azure Apps (e.g., Solution Template or Managed App), all Azure resources provisioned are billed directly to the customer | AppSource offers provisioning of a trial experience but does not currently offer a commerce-enabled publishing option; this enables you to use your current ordering and billing infrastructure with no additional investment or changes        |
-|**Facilitate Connections with Other Partners**     |Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer, but will launch this functionality in 2018         |  Independent Software Vendors, Systems Integrators, and Managed Services Providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers      |
+|**Billing flexibility**    | For Virtual Machines, 'Pay as you go' billing options, use Microsoft enterprise agreements or web direct sales models. Pricing options also include a Free Tier subscription where an offering is perpetually free, as well as a Try It Now subscription that is promotionally free for a limited period after which it converts to a paid subscription. 'Bring Your Own License' activation is also an option for supporting publishers For both billing options, in scenarios where Virtual Machines are deployed using Azure Apps (e.g., Solution Template or Managed App), all Azure resources provisioned are billed directly to the customer | AppSource offers provisioning of a trial experience but does not currently offer a commerce-enabled publishing option; this enables you to use your current ordering and billing infrastructure with no additional investment or changes        |
+|**Facilitation of connections with other partners**     |Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer, but will launch this functionality in 2018         |  Independent Software Vendors, Systems Integrators, and Managed Services Providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers      |
 |**Automation**     |    Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer     | Take advantage of automated SaaS with add-in provisioning and use Solution Templates to automate SaaS-based data collection and deployment scenarios        |Independent Software Vendors, Systems Integrators, and Managed Services Providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers
-|**Multiple Cloud Types**     |   Publish both public cloud and on-premises solutions through Azure Stack, or publish to Azure Government and regional clouds including China and Germany      |    AppSource does not currently offer support for Azure Stack, Azure Government, or regional clouds     |
-|**In-Context Presentation to Customers**     |  Make your solution available in the Azure in-portal experience for contextual search (Virtual Machines and Solution Templates)       |  Reach more customers through the in-app experience for Microsoft products such as Dynamics 365, Power BI and Office 365    |
+|**Multiple cloud types**     |   Publish both public cloud and on-premises solutions through Azure Stack, or publish to Azure Government and regional clouds including China and Germany      |    AppSource does not currently offer support for Azure Stack, Azure Government, or regional clouds     |
+|**In-context presentation to customers**     |  Make your solution available in the Azure in-portal experience for contextual search (Virtual Machines and Solution Templates)       |  Reach more customers through the in-app experience for Microsoft products such as Dynamics 365, Power BI and Office 365    |
 
 ## Select a Publishing Option
 
@@ -154,9 +155,9 @@ Use a *test drive* when the solution is deployed via one or more Virtual Machine
 
 There are additional benefits to a test drive:
 
-- 27% of user searches on Marketplace are refined by users to only show offers with test drives 
+- 27% of user searches on the Marketplace are refined by users to only show offers with test drives 
 - Offers with test drives generate 38% more leads than offers without 
-- 36% of new customer acquisitions on Azure Marketplace come from customers that took a test drive 
+- 36% of new customer acquisitions on the Marketplace come from customers that took a test drive 
 - Enable Microsoft field sellers to better understand your product for Co-Sell efforts
 
 #### Interactive demo
@@ -165,7 +166,7 @@ Take your customers through a guided experience of your product with an *interac
 
 ### TRANSACT
 
-In Azure Marketplace, use a **Virtual Machine** when the solution is deployed as a virtual appliance into the customer's subscription. Virtual machines are fully commerce enabled via Pay-as-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer's preferred payment relationship with Microsoft, including the Enterprise Agreement. 
+In the Azure Marketplace, use a **Virtual Machine** when the solution is deployed as a virtual appliance into the customer's subscription. Virtual machines are fully commerce enabled via Pay-as-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer's preferred payment relationship with Microsoft, including the Enterprise Agreement. 
 
 >[!NOTE]
 >At this time, an Enterprise Agreement's Monetary Commitments can be used against the virtual appliance's Azure usage, but not against the publisher's software license fees.
@@ -183,7 +184,7 @@ All Virtual Machines published in the Azure Marketplace are tested for the **Azu
 
 #### Marketplace commercial considerations
 
-There are no fees for participating in Marketplace. There is no revenue share for participating in Marketplace when publishing using the List, Trial, and BYOL Transact options. For more details, see our [Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+There are no fees for participating in the Marketplace. There is no revenue share for participating in the Marketplace when publishing using the List, Trial, and BYOL Transact options. For more details, see our [Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
 #### Pay-as-You-Go and Bring-Your-Own-License billing options
 
@@ -244,7 +245,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 |**Participation Policies**    | Review Azure Marketplace [Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | List, Trial, Transact        |
 |**Integration with Microsoft**    | Azure Marketplace offers should use or extend Microsoft Azure services such as Compute, Networking, or Storage, and align to an existing Azure Marketplace category such as Databases, Security, Networking, etc. See the [full list](https://azuremarketplace.microsoft.com/marketplace/apps).        | List, Trial, Transact        |
 |**Audience**    | Azure Marketplace offers must be for IT Pros, Cloud Developers, or other technical customer roles.       |  List, Trial, Transact 
-|**Lead Management**    | To receive leads from Marketplace, you must enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data.        |   List, Trial, Transact      |
+|**Lead Management**    | To receive leads from the Marketplace, you must enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data.        |   List, Trial, Transact      |
 |**Privacy Policy and Terms of Use**     |   Your Privacy Policy must be available via a public URL and your Terms of Use must be input as text during publishing.      |   List, Trial, Transact      |
 |**Support**     |  Your Offer must include a publicly available support URL where customers can find help. For Trials, support must be provided at no additional cost for the Trial period.       |  Trial, Transact       |
 
@@ -276,12 +277,12 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 ## Using Azure Active Directory to enable trials
 Azure Active Directory (Azure AD) is a cloud identity service that enables authentication with a Microsoft work or school account using the industry standard protocols: OAuth and OpenID Connect. Learn more about Azure AD on the [product webpage](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in Marketplace and is re-directed to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The [token that your app receives from Azure AD during authentication](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. 
+Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in the Marketplace and is re-directed to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The [token that your app receives from Azure AD during authentication](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. 
 
 Using Azure AD to enable 1-click authentication to your app or Trial:
 
 - Streamlines the customer experience from Marketplace to Trial 
-- Maintains the feel of an 'in-product experience' even when the user is redirected from Marketplace to your domain or Trial environment
+- Maintains the feel of an 'in-product experience' even when the user is redirected from the Marketplace to your domain or Trial environment
 - Decreases the likelihood of abandonment on redirect because there is not an additional sign-in step
 - Reduces deployment barriers for the large population of Azure AD users
 
