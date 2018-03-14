@@ -70,8 +70,7 @@ To configure the integration of Azure AD with Box, add Box from the gallery to y
 4. In the search box, type **Box**, select **Box** in the results list, and then select **Add**.
 
 	![Box in the results list](./media/active-directory-saas-box-tutorial/tutorial_box_search.png)
-
-## Configure and test Azure AD single sign-on
+### Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Box, based on a test user called "Britta Simon."
 
@@ -97,7 +96,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 	!["Box Domain and URLs" single sign-on information](./media/active-directory-saas-box-tutorial/url3.png)
 
-	a. In the **Sign-on URL** box, type a URL in the following format: *https://\<subdomain>.box.com*.`
+	a. In the **Sign-on URL** box, type a URL in the following format: *https://\<subdomain>.box.com*.
 
 	b. In the **Identifier** textbox, type **box.net**.
 	 
