@@ -154,5 +154,5 @@ Selecting this option will effectively force a re-synchronization of all users w
 [6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
 [7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
 [8]: ./media/active-directory-saas-customizing-attribute-mappings/24.png
-[9]: ./media/active-directory-saas-customizing-attribute-mappings/25.png
+[9]: ./media/active-directory-saas-customizing-attribute-mappings/25.PNG
 
