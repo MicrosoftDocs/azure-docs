@@ -42,6 +42,8 @@ When you're done, your logic app looks like this high-level workflow:
 
 ![Finished logic app](./media/quickstart-create-logic-apps-with-visual-studio/overview.png)
 
+<a name="prerequisites"></a>
+
 Before you start, make sure that you have these items:
 
 * If you don't have an Azure subscription, 
@@ -103,10 +105,15 @@ for example:
 
    ![Solution Explorer shows new logic app solution and deployment file](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-solution-created.png)
 
+   In your solution, the **LogicApp.json** file not only 
+   stores the definition for your logic app but is also 
+   an Azure Resource Manager template that you can set up for deployment.
+
 ## Create blank logic app
 
-After you create your project, 
-use the **Logic App** template for creating your logic app.
+After you create your Azure Resource Group project, 
+create and build your logic app starting 
+from the **Blank Logic App** template.
 
 1. In Solution Explorer, open the shortcut menu for the **LogicApp.json** file. 
 Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
@@ -184,11 +191,6 @@ resource group, and other default settings.
 When you're ready, choose **Deploy**. 
 
    ![Deploy logic app to Azure resource group](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-deployment.png)
-
-   To learn more about the LogicApp.json 
-   and LogicApp.parameters.json files 
-   used for deployment, see 
-   [Deploy logic apps from Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md).
 
 3. If the **Edit Parameters** box appears, 
 provide the resource name for the logic app to use at deployment, 

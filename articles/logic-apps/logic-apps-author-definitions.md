@@ -33,7 +33,7 @@ Also, see the [full reference for the Workflow Definition Language](http://aka.m
 > For example, if you want to use the same email address across several actions, 
 > define that email address as a parameter.
 
-## View and edit your logic app definition's in JSON
+## Edit JSON definition - Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
@@ -45,6 +45,22 @@ Select your logic app.
 choose **Logic App Code View**.
 
    The code view window opens and shows your logic app definition.
+
+## Edit JSON definition - Visual Studio
+
+* To open a logic app that's in a Visual Studio solution, 
+in Solution Explorer, open the shortcut menu for your 
+logic app definition and deployment template, 
+which is usually **LogicApp.json**. Select **Open With Logic App Designer**.
+
+  ![Open logic app in a Visual Studio solution](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+  The "LogicApp.json" file for a logic app created in Visual Studio 
+  contains that logic app's underlying definition and is also a 
+  [Azure Resource Manager deployment template](../azure-resource-manager/resource-manager-create-first-template.md). 
+  Both are combined into a single JavaScript Object Notation (JSON) file 
+  where your logic app definition appears in the `resources` subsection.  
+  Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## Parameters
 

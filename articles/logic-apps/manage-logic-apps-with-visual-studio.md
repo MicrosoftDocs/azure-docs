@@ -19,14 +19,17 @@ ms.author: estfan; LADocs
 
 # Manage logic apps with Visual Studio
 
-Although you can build, edit, manage, and deploy logic apps 
+Although you can create, edit, manage, and deploy logic apps 
 in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 you can also use Visual Studio when you want to add logic apps to source control, 
-publish different versions, and create Azure Resource Manager templates for 
-different deployment environments. With Visual Studio Cloud Explorer, 
+publish different versions, and create 
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
+templates for different deployment environments. With Visual Studio Cloud Explorer, 
 you can find and manage your logic apps along with other Azure resources. 
 For example, you can open, download, edit, run, view run history, 
 disable, and enable logic apps that are already deployed in the Azure portal. 
+If you're new to working with Azure Logic Apps in Visual Studio, learn 
+[how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Deploying or publishing a logic app from Visual Studio 
@@ -68,11 +71,12 @@ disable, and enable logic apps that are already deployed in the Azure portal.
 
 ## Find your logic apps
 
-In Visual Studio, you can find all the deployed logic 
+In Visual Studio, you can find all the logic 
 apps that are associated with your Azure subscription 
-by using Cloud Explorer.
+and are deployed in the Azure portal by using Cloud Explorer.
 
-1. Open Visual Studio. On the **View** menu, select **Cloud Explorer**.
+1. Open Visual Studio. On the **View** menu, 
+select **Cloud Explorer**.
 
 2. In Cloud Explorer, choose **Account Management**. 
 Select the Azure subscription associated with your logic apps, 
@@ -96,37 +100,29 @@ or **Resource Types**, follow these steps:
 
 <a name="open-designer"></a>
 
-## Open in Logic App Designer
+## Open in Visual Studio
 
-* To open a logic app that's deployed in Azure with Visual Studio, 
-in Cloud Explorer, find the logic app. Open the app's shortcut menu, 
-and select **Open With Logic App Editor**.
+In Visual Studio, you can open logic apps that were 
+created and deployed either directly from the Azure portal 
+or as Azure Resource Manager projects from Visual Studio.
 
-  This example shows logic apps by resource type, 
-  so your logic apps appear under the **Logic Apps** section.
+1. Open Cloud Explorer, and find your logic app. 
+
+2. On the logic app's shortcut menu, 
+select **Open With Logic App Editor**.
+
+   This example shows logic apps by resource type, 
+   so your logic apps appear under the **Logic Apps** section.
 
   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   The .json file that opens contains only the logic app's 
-   underlying definition and is not an 
-   [Azure Resource Manager deployment template](../azure-resource-manager/resource-manager-create-first-template.md). 
-   To get the deployment template, 
-   [download the logic app from the Azure portal](#download-logic-app).
-   Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-* To open a logic app created in a Visual Studio solution, 
-in Solution Explorer, open the shortcut menu for your 
-logic app definition and deployment template, 
-which is usually **LogicApp.json**. Select **Open With Logic App Designer**.
-
-  ![Open logic app in a Visual Studio solution](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
-
-  The "LogicApp.json" file for a logic app created in Visual Studio 
-  contains that logic app's underlying definition and is also a 
-  [Azure Resource Manager deployment template](../azure-resource-manager/resource-manager-create-first-template.md). 
-  Both are combined into a single JavaScript Object Notation (JSON) file 
-  where your logic app definition appears in the `resources` subsection.  
-  Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   After the logic app opens in Logic App Designer, 
+   at the bottom of the designer, you can choose **Code View** 
+   so that you can review the underlying logic app definition structure. 
+   If you want to create a deployment template for the logic app, 
+   learn [how to download an Azure Resource Manager template](#download-logic-app) 
+   for that logic app. Learn more about 
+   [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 <a name="download-logic-app"></a>
 
@@ -134,34 +130,41 @@ which is usually **LogicApp.json**. Select **Open With Logic App Designer**.
 
 You can download logic apps from the 
 <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-so that you can work on them locally with Visual Studio. 
-This step automatically *parameterizes* logic app definitions, 
-representing them as parameters, and saves them as 
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
-deployment templates in JavaScript Object Notation (JSON) format (.json file).
+and save them as [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
+templates, which you can work on locally with Visual Studio 
+and customize for different deployment environments. 
+Downloading logic apps automatically *parameterizes* their 
+definitions inside [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment), 
+which also use JavaScript Object Notation (JSON).
 
-1. In Cloud Explorer, find and select the logic app that you want to download from Azure.
+1. In Visual Studio, open Cloud Explorer, 
+then find and select the logic app 
+that you want to download from Azure.
 
-2. On that app's shortcut menu, select **Open With Logic App Editor**.
+2. On that app's shortcut menu, 
+select **Open With Logic App Editor**.
 
-   The .json file that opens contains only the logic app's underlying definition 
-   and is not an [Azure Resource Manager deployment template](../azure-resource-manager/resource-manager-create-first-template.md). 
-   Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   After the logic app opens in Logic App Designer, 
+   you can chooose **Code View** so that you can 
+   inspect the structure for the underlying logic app definition. 
 
-3. After the logic app appears, on the designer's toolbar, choose **Download**.
+3. After the logic app appears in Logic App Designer, 
+on the designer's toolbar, choose **Download**.
 
    ![Choose "Download"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 
-4. When you're prompted for a location, browse to that location and save 
-the logic app definition as a .json file. 
+4. When you're prompted for a location, 
+browse to that location and save the 
+Resource Manager template for the 
+logic app definition in JSON (.json) file format. 
 
-   The downloaded .json file contains the logic app's underlying definition 
-   and is also a [Azure Resource Manager deployment template](../azure-resource-manager/resource-manager-create-first-template.md). 
-   Both are combined into a single JavaScript Object Notation (JSON) file 
-   where your logic app definition appears in the `resources` subsection. 
-   Learn more about [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-You can now edit the logic app with Visual Studio. 
+Your logic app definition appears in the `resources` 
+subsection inside the Resource Manager template. 
+You can now edit the logic app definition 
+and Resource Manager template with Visual Studio. 
+You can also add the template as an Azure Resource 
+Manager project to a Visual Studio solution. 
+Learn about [Resource Manager projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
 
 <a name="refresh"></a>
 
@@ -196,15 +199,16 @@ On the Logic App Designer toolbar, choose **Run Trigger**.
 ## Review run history
 
 To check the status and diagnose problems with logic app runs, 
-you can review the details, such as inputs and outputs, from those runs in Visual Studio.
+you can review the details, such as inputs and outputs, 
+for those runs in Visual Studio.
 
 1. In Cloud Explorer, open your logic app's shortcut menu, 
 and select **Open run history**.
 
    ![Open run history](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-2. To view the details for a specific run, double-click a run. 
-For example:
+2. To view the details for a specific run, 
+double-click a run. For example:
 
    ![Detailed run history](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

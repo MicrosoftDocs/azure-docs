@@ -56,7 +56,7 @@ Or, you might want to deploy within different subscriptions or resource groups.
 ## Create a logic app deployment template
 
 The easiest way to have a valid logic app deployment template is to use the
-[Visual Studio Tools for Logic Apps](logic-apps-deploy-from-vs.md).
+[Visual Studio Tools for Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisities).
 The Visual Studio tools generate a valid deployment template that can be used across any subscription or location.
 
 A few other tools can assist you as you create a logic app deployment template.
