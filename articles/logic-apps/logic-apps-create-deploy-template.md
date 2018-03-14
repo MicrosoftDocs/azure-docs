@@ -20,8 +20,10 @@ ms.author: LADocs; jehollan
 ---
 # Create templates for logic apps deployment and release management
 
-After a logic app has been created, you might want to create it as an Azure Resource Manager template.
-This way, you can easily deploy the logic app to any environment or resource group where you might need it.
+After a logic app has been created, you might want 
+to create it as an Azure Resource Manager template.
+This way, you can easily deploy the logic app 
+to any environment or resource group where you might need it.
 For more about Resource Manager templates, see
 [authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 and [deploying resources by using Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
@@ -90,6 +92,117 @@ After PowerShell is installed, you can generate a template by using the followin
 
 ## Add parameters to a logic app template
 After you create your logic app template, you can continue to add or modify parameters that you might need. For example, if your definition includes a resource ID to an Azure function or nested workflow that you plan to deploy in a single deployment, you can add more resources to your template and parameterize IDs as needed. The same applies to any references to custom APIs or Swagger endpoints you expect to deploy with each resource group.
+
+### Add references for dependent resources to Visual Studio deployment templates
+
+When you want your logic app to reference dependent resources, you can use 
+[Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) in your logic app deployment template. 
+For example, you might want your logic app to reference an Azure Function 
+or integration account that you want to deploy alongside your logic app. 
+Follow these guidelines about how to use parameters in your deployment template 
+so that the Logic App Designer renders correctly. 
+
+You can use logic app parameters in these kinds of triggers and actions:
+
+*   Child workflow
+*   Function app
+*   APIM call
+*   API connection runtime URL
+*   API connection path
+
+And you can use template functions such as parameters, variables, resourceId, concat, etc. 
+For example, here's how you can replace the Azure Function resource ID:
+
+```
+"parameters":{
+	"functionName": {
+		"type":"string",
+		"minLength":1,
+		"defaultValue":"<FunctionName>"
+	}
+},
+```
+
+And where you would use parameters:
+
+```
+"MyFunction": {
+	"type": "Function",
+	"inputs": {
+		"body":{},
+		"function":{
+			"id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+		}
+	},
+	"runAfter":{}
+}
+```
+As another example you can parameterize the Service Bus send message operation:
+
+```
+"Send_message": {
+	"type": "ApiConnection",
+		"inputs": {
+			"host": {
+				"connection": {
+					"name": "@parameters('$connections')['servicebus']['connectionId']"
+				}
+			},
+			"method": "post",
+			"path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+			"body": {
+				"ContentData": "@{base64(triggerBody())}"
+			},
+			"queries": {
+				"systemProperties": "None"
+			}
+		},
+		"runAfter": {}
+	}
+```
+> [!NOTE] 
+> host.runtimeUrl is optional and can be removed from your template if present.
+> 
+
+
+> [!NOTE] 
+> For the Logic App Designer to work when you use parameters, 
+> you must provide default values, for example:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## Add your logic app to an existing Resource Group project
+
+If you have an existing Resource Group project, 
+you can add your logic app to that project in 
+the JSON Outline window. You can also add another 
+logic app alongside the app you previously created.
+
+1. Open the `<template>.json` file.
+
+2. To open the JSON Outline window, 
+go to **View** > **Other Windows** > **JSON Outline**.
+
+3. To add a resource to the template file, 
+click **Add Resource** at the top of the JSON Outline window. 
+Or in the JSON Outline window, 
+right-click **resources**, and select **Add New Resource**.
+
+	![JSON Outline window](./media/logic-apps-deploy-from-vs/jsonoutline.png)
+    
+4. In the **Add Resource** dialog box, find and select **Logic App**. 
+Name your logic app, and choose **Add**.
+
+	![Add resource](./media/logic-apps-deploy-from-vs/addresource.png)
+
 
 ## Deploy a logic app template
 
