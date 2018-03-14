@@ -97,7 +97,7 @@
     href: luis-concept-prediction-score.md
   - name: Data extraction
     href: luis-concept-data-extraction.md
-  - name: Testing
+  - name: Test
     items: 
     - name: Interactive testing
       href: luis-concept-test.md
