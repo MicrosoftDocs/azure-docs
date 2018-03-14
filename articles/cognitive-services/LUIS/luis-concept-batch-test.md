@@ -14,17 +14,23 @@ ms.author: v-geberr;
 
 # Batch testing in LUIS
 
-Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. Use utterances LUIS has not seen before in either the model or the endpoint. This testing helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
+Batch testing validates your [active](luis-concept-verion.md#active-version) trained model to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your current trained model in a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent.
 
-## JSON file with no duplicates
-You submit a batch file of utterances, known as a *dataset*. The dataset is JSON format and contains a maximum of 1,000 labeled **non-duplicate** utterances. Duplicates are considered exact string matches, not matches that are tokenized first. 
+## Datasets
+You submit a batch file of utterances, known as a *dataset*. The dataset is a JSON format and contains a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to ten datasets in an app. If you need to test more, you can delete a dataset and then add a new one.
+
+Use utterances LUIS has not seen before in either the model or the endpoint. 
 
 |**Rules**|
 |--|
-|No duplicate utterances|
+|*No duplicate utterances|
 |No hierarchical entity children|
 |1000 utterances or less|
 
+*Duplicates are considered exact string matches, not matches that are tokenized first. 
+
+<a name="json-file-with-no-duplicates"></a>
+## Batch file format
 
 Import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
 
