@@ -17497,6 +17497,36 @@
         "source_path": "articles/security-center/security-center-integrating-alerts-with-log-integration.md",
         "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
         "redirect_document_id": false
-    }
+    },
+    {
+        "source_path": "articles/log-analytics/log-analytics-log-searches.md",
+        "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-new.md",
+        "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-search-reference.md",
+        "redirect_url": "https://docs.loganalytics.io/docs/Language-Reference",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-searches-regex.md",
+        "redirect_url": "https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-api.md",
+        "redirect_url": "https://dev.loganalytics.io/",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-api-python.md",
+        "redirect_url": "https://dev.loganalytics.io/",
+        "redirect_document_id": false
+     }
    ]
 }
