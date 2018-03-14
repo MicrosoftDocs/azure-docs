@@ -54,6 +54,8 @@ The Reliable Services runtime defines the following performance counter categori
 | --- | --- |
 | Service Fabric Transactional Replicator |Counters specific to the Azure Service Fabric Transactional Replicator |
 
+The Service Fabric Transactional Replicator is used by the [Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md) to replicate transactions within a given set of [replicas](service-fabric-concepts-replica-lifecycle.md). 
+
 The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
 
 ### Performance counter instance names
