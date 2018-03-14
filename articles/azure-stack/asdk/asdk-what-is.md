@@ -76,4 +76,4 @@ Azure Stack will continue to add support for additional Azure services. To learn
 
 
 ## Next steps
-To get started evaluating Azure Stack, you need to prepare the development kit host server computer and then [install the ASDK](asdk-deploy-qs.md). After that, you can sign in to the administrator and user portals to start using Azure Stack.
+To get started evaluating Azure Stack, you need to prepare the development kit host server computer and then [install the ASDK](asdk-deploy.md). After that, you can sign in to the administrator and user portals to start using Azure Stack.

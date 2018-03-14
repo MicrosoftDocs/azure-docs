@@ -50,5 +50,5 @@ For the development kit, your only support option is to ask support-related ques
 > Because the ASDK is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 
 ## Next steps
-[Deploy the ASDK](asdk-deploy-qs.md)
+[Deploy the ASDK](asdk-deploy.md)
 
