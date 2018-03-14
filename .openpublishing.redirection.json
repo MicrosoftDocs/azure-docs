@@ -1760,12 +1760,12 @@
         },
         {
             "source_path": "articles/logic-apps/logic-apps-manage-from-vs.md",
-            "redirect_url": "https://docs.microsoft.com/logic-apps/manage-logic-apps-with-visual-studio",
+            "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
-            "redirect_url": "https://docs.microsoft.com/logic-apps/quickstart-create-logic-apps-with-visual-studio",
+            "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio",
             "redirect_document_id": true
         },
         {
