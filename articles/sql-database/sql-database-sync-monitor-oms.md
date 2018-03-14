@@ -2,12 +2,13 @@
 title: "Monitor Azure SQL Data Sync with OMS Log Analytics | Microsoft Docs"
 description: "Learn how to monitor Azure SQL Data Sync by using OMS log analytics"
 services: sql-database
-ms.date: "11/7/2017"
+ms.date: "11/07/2017"
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
+ms.custom: data-sync
 ---
 # Monitor SQL Data Sync (Preview) with OMS Log Analytics 
 
@@ -87,7 +88,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  OMS information. Find this information at OMS Portal | Settings | Connected Sources. For more info about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (public preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  OMS information. Find this information at OMS Portal | Settings | Connected Sources. For more info about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 

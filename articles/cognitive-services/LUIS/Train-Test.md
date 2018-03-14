@@ -8,8 +8,8 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/02/2018
-ms.author: v-demak;v-geberr;
+ms.date: 02/22/2018
+ms.author: v-geberr;
 ---
 
 # Train and test your LUIS app
@@ -70,9 +70,19 @@ You inspect details of the test result in the **Inspect** panel.
 2. The **Inspection panel** appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
     ![Inspect button](./media/luis-how-to-train-test/inspect-panel.png)
- 
+
+## Correct top scoring intent
+
+1. If the top scoring intent is incorrect, select the **Edit** button.
+
+    ![Edit intent](./media/luis-how-to-train-test/intent-edit.png)
+
+2.  In the drop-down list, select the correct intent for the utterance.
+
+    ![Select correct intent](./media/luis-how-to-train-test/intent-select.png)
+
 ## Compare with published version
-You can test the active version of your app with the published endpoint version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
+You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
 ![Compare with published](./media/luis-how-to-train-test/inspect-panel-compare.png)
 
@@ -81,12 +91,39 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 
 ![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
 
+<!--Service name is 'Bing Spell Check v7 API' in the portal-->
+## View Bing Spell Check corrections in test panel
+You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel. 
+
+To use this feature, you must have published the app, and have a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
+
+Use the following steps to use the Bing Spell Check v7 service key. 
+
+1. In the test panel, on the **Published** pane, select **Additional Settings**.
+
+    ![Additional Settings link](./media/luis-how-to-train-test/interactive-with-spell-check-additional-settings.png)
+
+2. In the pop-up dialog, enter your **Bing Spell Check** service key. 
+    ![Enter Bing Spell Check service key](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)
+
+3. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as query, and the corrected spelling in the query, as alteredQuery.
+
+    ![Corrected spelling JSON](./media/luis-how-to-train-test/interactive-with-spell-check-results.png)
+
 ## Batch testing
 Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. Use utterances LUIS has not seen before in either the model or the endpoint. This testing helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
 
-You submit a batch file of utterances, known as a *dataset*. The dataset is JSON format and contains a maximum of 1,000 labeled utterances. 
+## JSON file with no duplicates
+You submit a batch file of utterances, known as a *dataset*. The dataset is JSON format and contains a maximum of 1,000 labeled **non-duplicate** utterances. Duplicates are considered exact string matches, not matches that are tokenized first. 
 
-You import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
+|**Rules**|
+|--|
+|No duplicate utterances|
+|No hierarchical entity children|
+|1000 utterances or less|
+
+
+Import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
 
 You can test 10 dataset files in a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
@@ -143,7 +180,7 @@ In the preceding screenshot:
 
 Green points indicate correct prediction, and red ones indicate incorrect prediction.
 
-The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
+The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
 
 ![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
 
@@ -174,7 +211,7 @@ In the four-section chart, select the section name, such as **False Positive** a
 
 In this preceding image, the utterance `switch on` is labeled with the TurnAllOn intent, but received the prediction of None intent. This is an indication that the TurnAllOn intent needs more example utterances in order to make the expected prediction. 
 
-The two section of the chart in red indicate utterances that did not match the expected prediction. These are utterances where LUIS needs more training. 
+The two sections of the chart in red indicate utterances that did not match the expected prediction. These indicate utterances which LUIS needs more training. 
 
 The two sections of the chart in greed did match the expected prediction.
 
@@ -192,3 +229,4 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 [f-measure]:luis-glossary.md#f-measure
 [recall]: luis-glossary.md#recall
 [precision]: luis-glossary.md#precision
+

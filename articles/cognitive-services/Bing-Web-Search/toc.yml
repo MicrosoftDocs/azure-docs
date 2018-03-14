@@ -12,6 +12,8 @@
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
+  - name: First query in Go
+    href: quickstarts/go.md
   - name: First query in Java
     href: quickstarts/java.md
   - name: First query for Node.js
@@ -26,8 +28,14 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Web search SDK C# quickstart (preview)
-    href: web-search-sdk-quickstart.md  
+  - name: Web Search SDK C# quickstart (preview)
+    href: web-search-sdk-quickstart.md 
+  - name: Web Search SDK Node.js quickstart (preview)
+    href: web-search-sdk-node-quickstart.md 
+  - name: Web Search SDK Python quickstart (preview)
+    href: web-sdk-python-quickstart.md
+  - name: Web Search SDK Java quickstart (preview)
+    href: web-sdk-java-quickstart.md    
 - name: How To Guides
   items:
   - name: Use and display results

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
 
 ---
@@ -32,19 +32,25 @@ The **Log Analytics usage** dashboard displays the following information:
 - Offerings
     - Insight and Analytics nodes
     - Automation and Control nodes
-    - Security nodes
+    - Security nodes  
+- Performance
+    - Time taken to collect and index data  
 - List of queries
 
 ![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### To work with usage data
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. In your list of Log Analytics workspaces, select a workspace.
-4. Select **Log Analytics usage** from the list in the left pane.
-5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.<br><br> ![time interval](./media/log-analytics-usage/time.png)<br><br>
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage blade](./media/log-analytics-usage/blade.png)<br><br>
-7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
+2. Click **All services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
+    ![Azure hub](./media/log-analytics-usage/hub.png)
+3. The **Log Analytics** dashboard shows a list of your workspaces. Select a workspace.
+4. In the *workspace* dashboard, click **Log Analytics usage**.
+5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.  
+    ![time interval](./media/log-analytics-usage/time.png)
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
+    ![example data usage blade](./media/log-analytics-usage/blade.png)
+7. On the Log Search dashboard, review the results that are returned from the search.  
+    ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
 
 ## Create an alert when data collection is higher than expected
 This section describes how to create an alert if:
@@ -148,19 +154,6 @@ Click on **See all...** to view the full list of computers sending data for the 
 
 Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
-## Check if there is ingestion latency
-With Log Analytics there is an anticipated latency with the ingestion of collected data.  The absolute time between indexing data and when it is available to search can be unpredictable. Previously we included a performance chart on the dashboard that showed the time taken to collect and index data, and with the introduction of the new query language, we have temporarily removed this chart.  As an interim solution until we release updated data ingestion latency metrics, the following query can be used to approximate the latency for each data type.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> The ingestion latency query does not show historical latency and is limited to only returning results for the current time.  The value for *TimeGenerated* is populated at the agent for Common schema logs and populated at the collection endpoint for Custom logs.  
->
 
 ## Next steps
 * See [Log searches in Log Analytics](log-analytics-log-searches.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.

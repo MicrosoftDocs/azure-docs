@@ -239,8 +239,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
         - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
         - Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
-    6. The **Settings** should look like the following image: 
-
+    
         ![Settings for the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Connect the **Copy** activity to the **Web** activity by dragging the green button next to the Copy activity and dropping on the Web activity. 
 
@@ -264,8 +263,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. The **Settings** should look like the following image: 
-    
+
         ![Settings for the second Web activity](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Select **Copy** activity in the pipeline designer, and click **+->** button, and select **Error**.  
 
@@ -276,7 +274,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 24. To validate the pipeline, click **Validate** button on the toolbar. Close the **Pipeline Validation Output** window by clicking the **>>** button.
 
     ![Validate pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. To publish the entities (datasets, pipelines, etc.) to Data Factory service, click **Publish**. Wait until you see the **Successfully published** message.
+24. To publish the entities (datasets, pipelines, etc.) to Data Factory service, select **Publish All**. Wait until you see the **Successfully published** message.
 
     ![Publish](./media/tutorial-control-flow-portal/publish-button.png)
  

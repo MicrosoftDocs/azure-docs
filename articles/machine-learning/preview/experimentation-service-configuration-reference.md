@@ -5,7 +5,7 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -25,12 +25,12 @@ Following are the relevant files under this folder:
     - \<run configuration name>.runconfig
 
 >[!NOTE]
->You typically have a compute target file and run configuration file for each compute target you create. However, you can create these files independently and have multiple run configuration files point to the same compute target.
+>You typically have a compute target file and run configuration file for each compute target you create. However, you can create these files independently and have multiple run configuration files pointing to the same compute target.
 
 ## conda_dependencies.yml
-This file is a [conda environment file](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) that specifies the Python runtime version and packages that your code depends on. When Azure ML Workbench executes a script in a Docker container or HDInsight cluster, it creates a [conda environment](https://conda.io/docs/using/envs.html) for your script to run. 
+This file is a [conda environment file](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) that specifies the Python runtime version and packages that your code depends on. When Azure ML Workbench executes a script in a Docker container or HDInsight cluster, it creates a [conda environment](https://conda.io/docs/using/envs.html) for your script to run on. 
 
-In this file, you specify Python packages that your script needs for execution. Azure ML  Experimentation Service creates the conda environment in the Docker image according to your list of dependencies. The packages list here must be reachable by the execution engine. For that reason, packages need to be listed in channels such as:
+In this file, you specify Python packages that your script needs for execution. Azure ML  Experimentation Service creates the conda environment according to your list of dependencies. Packages listed here must be reachable by the execution engine through channels such as:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -39,7 +39,7 @@ In this file, you specify Python packages that your script needs for execution. 
 * others reachable by the execution engine
 
 >[!NOTE]
->When running on HDInsight cluster, Azure ML Workbench creates a conda environment just for your run. This allows different users to run on different python environments on the same cluster.  
+>When running on HDInsight cluster, Azure ML Workbench creates a conda environment for your specific run. This allows different users to run on different python environments on the same cluster.  
 
 Here is an example of a typical **conda_dependencies.yml** file.
 ```yaml
@@ -64,13 +64,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML Workbench uses the same conda environment without rebuilding as long as the **conda_dependencies.yml** remains intact. However, if anything changes in this file, it results in rebuild of the Docker image.
+Azure ML Workbench uses the same conda environment without rebuilding it as long as the **conda_dependencies.yml** remains the same. It will rebuild your environment if your dependencies change.
 
 >[!NOTE]
 >If you target execution against _local_ compute context, **conda_dependencies.yml** file is **not** used. Package dependencies for your local Azure ML Workbench Python environment need to be installed manually.
 
 ## spark_dependencies.yml
-This file specifies the Spark application name when you submit a PySpark script and Spark packages that needs to be installed. You can also specify any public Maven repository as well as Spark package that can be found in those Maven repositories.
+This file specifies the Spark application name when you submit a PySpark script and Spark packages that need to be installed. You can also specify a public Maven repository as well as Spark packages that can be found in those Maven repositories.
 
 Here is an example:
 
@@ -99,13 +99,13 @@ packages:
 ```
 
 >[!NOTE]
->Cluster tuning parameters such as worker size, cores should go into "configuration" section in the spark_dependecies.yml file 
+>Cluster tuning parameters such as worker size and cores should go into "configuration" section in the spark_dependecies.yml file 
 
 >[!NOTE]
->If you are executing the script in Python environment, *spark_dependencies.yml* file is ignored. It only has effect if you are running against Spark (either on Docker or HDInsight Cluster).
+>If you are executing the script in Python environment, *spark_dependencies.yml* file is ignored. It is used only if you are running against Spark (either on Docker or HDInsight Cluster).
 
 ## Run configuration
-To specify a particular run configuration, a pair of files is needed. They are typically generated using a CLI command. But you can also clone exiting ones, rename them, and edit them.
+To specify a particular run configuration, you need a .compute file and a .runconfig file. These are typically generated using a CLI command. You can also clone exiting ones, rename them, and edit them.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -121,10 +121,11 @@ This command creates a pair of files based on the compute target specified. Let'
 > _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename "<run configuration name>.runconfig" files that come with the project template, or create new ones with any name you want.
 
 ### \<compute target name>.compute
-_\<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Follwing are the supported settings.
+_\<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Following are the supported settings:
 
 **type**: Type of the compute environment. Supported values are:
   - local
+  - remote
   - docker
   - remotedocker
   - cluster
@@ -143,8 +144,10 @@ _\<compute target name>.compute_ file specifies connection and configuration inf
 
 **nativeSharedDirectory**: This property specifies the base directory (For example: _~/.azureml/share/_) where files can be saved in order to be shared across runs on the same compute target. If this setting is used when running on a Docker container, _sharedVolumes_ must be set to true. Otherwise, execution fails.
 
+**userManagedEnvironment**: This property specifies whether this compute target is managed by the user directly or managed through experimentation service.  
+
 ### \<run configuration name>.runconfig
-_\<run configuration name>.runconfig_ specifies the Azure ML experiment execution behavior. You can configure execution behaviors such as tracking run history, or what compute target to use along with many others. The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop application.
+_\<run configuration name>.runconfig_ specifies the Azure ML experiment execution behavior. You can configure execution behavior such as tracking run history or what compute target to use along with many others. The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop application.
 
 **ArgumentVector**: This section specifies the script to be run as part of this execution and the parameters for the script. For example, if you have the following snippet in your "<run configuration name>.runconfig" file 
 
@@ -162,11 +165,11 @@ _"az ml experiment submit foo.runconfig"_  automatically runs the command with _
 **Environment Variables**: This section enables users to set environment variables as part of their runs. User can specify environment variables using name-value pairs in the following format:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-These environment variables can be accessed in user's code. For example, this phyton code prints the environment variable named "EXAMPLE_ENV_VAR"
+These environment variables can be accessed in user's code. For example, this Python code prints the environment variable named "EXAMPLE_ENV_VAR"
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
@@ -185,7 +188,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **DataSourceSettings**: This configuration section specifies the data source settings. In this section, user specifies which existing data sample for a particular data source is used as part of the run. 
 
-The following configuration setting specifies that sample named "MySample" is used for the datasource named "MyDataSource"
+The following configuration setting specifies that sample named "MySample" is used for the data source named "MyDataSource"
 ```
 DataSourceSettings:
     MyDataSource.dsource:
@@ -199,7 +202,7 @@ The following example replaces the "mylocal.datasource" references in Azure ML d
  
 ```
 DataSourceSubstitutions:
-    myocal.dsource: myremote.dsource
+    mylocal.dsource: myremote.dsource
 ```
 
 Based on the substitution above, the following code sample now reads from "myremote.dsource" instead of "mylocal.dsource" without users changing their code.

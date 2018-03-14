@@ -3,8 +3,8 @@ title: Use Azure Resource Manager templates in Azure Stack | Microsoft Docs
 description: Learn how to use Azure Resource Manager templates in Azure Stack to provision resources.
 services: azure-stack
 documentationcenter: ''
-author: heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 
 ---
 # Use Azure Resource Manager templates in Azure Stack
