@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot your local Service Fabric cluster setup | Microsoft Docs
+title: Troubleshoot your local Azure Service Fabric cluster setup | Microsoft Docs
 description: This article covers a set of suggestions for troubleshooting your local development cluster
 services: service-fabric
 documentationcenter: .net
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
-ms.author: mikkelhegn
+ms.author: mikhegn
 
 ---
 # Troubleshoot your local development cluster setup

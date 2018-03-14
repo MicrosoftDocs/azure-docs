@@ -118,10 +118,6 @@ The process of manually packaging a guest executable is based on the following g
 3. Edit the service manifest file.
 4. Edit the application manifest file.
 
-<!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
--->
-
 ### Create the package directory structure
 You can start by creating the directory structure, as described in the preceding section, "Application package file structure."
 
