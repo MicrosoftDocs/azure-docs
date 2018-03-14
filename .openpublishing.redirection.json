@@ -17498,7 +17498,12 @@
         "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
         "redirect_document_id": false
     },
-    {
+	{
+        "source_path": "articles/active-directory/active-directory-apps-permissions-consent.md",
+        "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
+        "redirect_document_id": false
+     },
+     {
         "source_path": "articles/log-analytics/log-analytics-log-searches.md",
         "redirect_url": "/azure/log-analytics/log-analytics-log-search",
         "redirect_document_id": false
