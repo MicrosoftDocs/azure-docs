@@ -144,7 +144,7 @@ In order to ensure that your data is durable, Azure Storage will keep (and manag
 
 **Locally-redundant storage (LRS)**
 
-Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
+Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a given year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
 
 **Zone-redundant storage (ZRS) (Preview)**
 
