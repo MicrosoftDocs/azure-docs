@@ -17,9 +17,9 @@ ms.author: v-geberr;
 Batch testing validates your [active](luis-concept-verion.md#active-version) trained model to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your current trained model in a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent.
 
 ## Datasets
-You submit a batch file of utterances, known as a *dataset*. The dataset is a JSON format and contains a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to ten datasets in an app. If you need to test more, you can delete a dataset and then add a new one.
+Submit a batch file of utterances, known as a *dataset*, for batch testing. The dataset is a JSON-formatted file containing a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to ten datasets in an app. If you need to test more, delete a dataset and then add a new one.
 
-Use utterances LUIS has not seen before in either the model or the endpoint. 
+Use utterances LUIS has not seen before in either the model or the endpoint for best results. 
 
 |**Rules**|
 |--|
@@ -32,11 +32,8 @@ Use utterances LUIS has not seen before in either the model or the endpoint.
 <a name="json-file-with-no-duplicates"></a>
 ## Batch file format
 
-Import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
-
-You can test 10 dataset files in a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
-
-[Batch testing](luis-how-to-batch-test.md) allows LUIS to test up to 10 sets of 1,000 utterances and score the batch in a graphical manner so you can see the results as a group. The results can be broken up in to intents, entities, and you can select individual points on the graph to review the utterance information. 
+## Batch test results
+The batch test result is a comparison of the utterances in the file and the current model's predicted intent and entities. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. The results can be broken up in to intents, entities, and you can select individual points on the graph to review the utterance information.
 
 ![Batch testing](./media/luis-concept-batch-test/batch-testing.png)
 
@@ -85,4 +82,4 @@ Developers should have three sets of test data. The first is for building the mo
 
 ## Next steps
 
-* Learn more about [testing](Train-Test.md) your utterances.
+* Learn how to [test a batch](luis-how-to-batch-test.md)
