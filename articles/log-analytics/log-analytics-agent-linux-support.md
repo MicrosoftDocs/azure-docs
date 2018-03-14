@@ -37,8 +37,8 @@ This article provides help troubleshooting errors you might experience with the 
     |------|---------|----------|  
     |*.ods.opinsights.azure.com | Port 443| Inboudn and outbound |  
     |*.oms.opinsights.azure.com | Port 443| Inboudn and outbound |  
-    |ods.systemcenteradvisor.com | Port 443| Inboudn and outbound |  
-    |*.blob.core.windows.net/ | Port 443| Inboudn and outbound | 
+    |*.blob.core.windows.net | Port 443| Inboudn and outbound |  
+    |*.azure-automation.net | Port 443| Inboudn and outbound | 
 
 ## Issue: You receive a 403 error when trying to onboard
 
