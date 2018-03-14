@@ -7,7 +7,7 @@
   - name: ASDK release notes
     href: asdk-release-notes.md
 - name: Tutorials
-  expaneded: true
+  expanded: true
   items:
   - name: 1. Add a marketplace item
     href: asdk-marketplace-item.md
@@ -34,7 +34,7 @@
   - name: Setup the ASDK
     items:
     - name: Deploy the ASDK
-     items:
+      items:
        - name: Deploy the ASDK
          href: asdk-deploy.md 
        - name: Deploy the ASDK - PowerShell
