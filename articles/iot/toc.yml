@@ -7,11 +7,11 @@
 - name: IoT Hub 
   href: ../iot-hub/index.md
 - name: IoT Hub Device Provisioning Services
-  href: ../iot-dps/index.yml
+  href: ../iot-dps/
 - name: IoT Edge
-  href: ../iot-edge/index.yml
+  href: ../iot-edge/
 - name: IoT Suite
-  href: ../iot-suite/
+  href: ../iot-suite/index.md
 - name: Azure Location Based Services
   href: ../location-based-services/
 - name: Azure Time Series Insights
