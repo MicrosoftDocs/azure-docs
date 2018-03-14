@@ -98,8 +98,8 @@ You can also grant access via the Azure portal by navigating to the Azure Key Va
 
 You can associate the above key with an existing storage account using the following PowerShell commands:
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "RGSSECMK" -AccountName "storagetousecmk"
-$keyVault = Get-AzureRmKeyVault -VaultName "cmkwithsettings"
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
 Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
