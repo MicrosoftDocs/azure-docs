@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
-ms.author: magoedte
+ms.date: 03/14/2018
+ms.author: gwallace
 ---
 
 # Update your Automation account authentication with Run As accounts 
@@ -53,20 +53,20 @@ To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountN
 ### Required permissions to update your Automation account
 To update an Automation account, you must have the following specific privileges and permissions required to complete this topic.   
  
-* Your AD user account needs to be added to a role with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
+* Your AD user account must be added to a role with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
 * Non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
 
-If you are not a member of the subscription’s Active Directory instance before you are added to the global administrator/co-administrator role of the subscription, you are added to Active Directory as a guest. In this situation, you receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
+If you are not a member of the subscription’s Active Directory instance before you are added to the global administrator/co-administrator role of the subscription, you are added to Active Directory as a guest. In this situation, you receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and readded to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
 ## Create Run As account from the portal
-In this section, perform the following steps to update your Azure Automation account in the Azure portal.  You create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.  
+In this section, perform the following steps to update your Azure Automation account in the Azure portal. You create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.  
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. In the Azure portal, click **All services**. In the list of resources, type **Automation**. As you begin typing, the list filters based on your input. Select **Automation Accounts**.
 3. On the **Automation Accounts** page, select your Automation account from the list of Automation accounts.
 4. In the left-hand pane, select **Run As Accounts** under the section **Account Settings**.  
-5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**.  After selecting either the **Add Azure Run As** or **Add Azure Classic Run As Account** pane appears and after reviewing the overview information, click **Create** to proceed with Run As account creation.  
-6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu.  A banner is also displayed stating the account is being created.  This process can take a few minutes to complete.  
+5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**. After selecting either the **Add Azure Run As** or **Add Azure Classic Run As Account** pane appears and after reviewing the overview information, click **Create** to proceed with Run As account creation.  
+6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu. A banner is also displayed stating the account is being created. This process can take a few minutes to complete.  
 
 ## Create Run As account using PowerShell script
 This PowerShell script includes support for the following configurations:
@@ -277,6 +277,16 @@ After the script has executed successfully, note the following:
 * If you created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure portal](../azure-api-management-certs.md), and then validate the credential configuration with classic deployment resources by using the [sample code to authenticate with Azure Classic Deployment Resources](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * If you did *not* create a Classic Run As account, authenticate with Resource Manager resources and validate the credential configuration by using the [sample code for authenticating with Service Management resources](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
+## Limiting Run As account permissions
+
+To control targeting of automation against resources in Azure Automation, the Run As account by default is granted contributor rights in the subscription. If you need to restrict what the RunAs service principal can do, you can remove the account from the contributor role to the subscription and add it as a contributor to the resource groups you want to specify.
+
+In the Azure portal, select **Subscriptions** and choose the subscription of your Automation Account. Select **Access control (IAM)** and search for the service principal for your Automation Account (it looks like <AutomationAccountName>_unique identifier). Select the account and click **Remove** to remove it from the subscription.
+
+![Subscription contributors](media/automation-create-runas-account/automation-account-remove-subscription.png)
+
+To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes.
+
 ## Next steps
-* For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
-* For more information about certificates and Azure services, refer to [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+* For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
+* For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
