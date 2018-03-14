@@ -16,10 +16,11 @@ ms.author: v-geberr;
 
 Batch testing validates your [active](luis-concept-verion.md#active-version) trained model to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your current trained model in a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent.
 
-## Datasets
-Submit a batch file of utterances, known as a *dataset*, for batch testing. The dataset is a JSON-formatted file containing a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to ten datasets in an app. If you need to test more, delete a dataset and then add a new one.
+## Group data for batch test
+It is important that utterances used for batch testing are new to LUIS. If you have a dataset of utterances, divide the utterances into three sets: utterances add to the model, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained. 
 
-Use utterances LUIS has not seen before in either the model or the endpoint for best results. 
+## A dataset of utterances
+Submit a batch file of utterances, known as a *dataset*, for batch testing. The dataset is a JSON-formatted file containing a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to 10 datasets in an app. If you need to test more, delete a dataset and then add a new one.
 
 |**Rules**|
 |--|
@@ -30,21 +31,14 @@ Use utterances LUIS has not seen before in either the model or the endpoint for 
 *Duplicates are considered exact string matches, not matches that are tokenized first. 
 
 <a name="json-file-with-no-duplicates"></a>
+<a name="example-batch-file"></a>
 ## Batch file format
+The batch file consists of utterances. Each utterance must have an expected intent prediction along with any machine-learned entities you expect to be detected. 
 
-## Batch test results
-The batch test result is a comparison of the utterances in the file and the current model's predicted intent and entities. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. The results can be broken up in to intents, entities, and you can select individual points on the graph to review the utterance information.
-
-![Batch testing](./media/luis-concept-batch-test/batch-testing.png)
-
-It is important that utterances used for batch testing are new to LUIS. If you have a dataset of utterances, divide the utterances into three sets: utterances add to the model, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained. 
-
-If there are errors in the batch testing, you can either add more labels to help LUIS make the discrimination between intents or add a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster. 
-
-## Example batch file
-An example of the JSON in the batch file follows:
+An example batch file follows:
 
    [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+
 
 ## Common errors importing a batch
 Common errors include: 
@@ -52,30 +46,28 @@ Common errors include:
 > * more than 1,000 utterances
 > * an utterance JSON object that doesn't have an entities property
 
-**Successful predictions** are utterances where the intent in the batch file is the same intent predicted in the test.
+## Batch test state
+LUIS tracks the state of each dataset's last test. This includes the size (number of utterances in the batch), last run date, and last result (number of successfully predicted utterances).
 
-In the preceding screenshot:
- 
- - **State** includes ready to run, erroring results, or successful results. 
- - **Size** is the total number of utterances included in the dataset file.
- - **Last Run** is the date of the latest test run for this dataset. 
- - **Last Result** displays the number of successful predictions in the last test run.
+<a name="sections-of-the-results-chart"></a>
+## Batch test results
+The batch test result is a scatter graph, known as an error matrix. This graph is a 4-way comparison of the utterances in the file and the current model's predicted intent and entities. 
 
-## Access batch test result details in a visualized view
- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. 
-
-Green points indicate correct prediction, and red ones indicate incorrect prediction.
-
-The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
-
-![Visualized Batch Test Result](./media/luis-concept-batch-test/graph1.png) 
-
-## Sections of the results chart
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
+Data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. If all data points are on the **True Positive** and **True Negative** sections, then your application's performance is perfect on this dataset.
 
 ![Four sections of chart](./media/luis-concept-batch-test/chart-sections.png)
 
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision]. 
+This chart helps you find utterances that LUIS predicts incorrectly based on its current training. The results are displayed per region of the chart. Select individual points on the graph to review the utterance information or select region name to review utterance results in that region.
+
+![Batch testing](./media/luis-concept-batch-test/batch-testing.png)
+
+## Errors in the results
+Errors in the batch test indicate intents that are not predicted as noted in the batch file. Errors are indicated in the two red sections of the chart. 
+
+The false positive section indicates that an utterance matched an intent or entity when it shouldn't have. The false negative indicates an utterance did not match an intent or entity when it should have. 
+
+## Fixing batch errors
+If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster. 
 
 ## Best practice - three sets of data
 Developers should have three sets of test data. The first is for building the model, the second is for testing the model at the endpoint. The third is used in [batch testing](luis-how-to-batch-test.md). The first set is not used in training the application nor sent on the endpoint. 
