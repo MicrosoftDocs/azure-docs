@@ -22,7 +22,7 @@ ms.author: shvija;sethm
 
 Azure Event Hubs is a Big Data streaming service that ingests millions of events per second, and provides low latency and high throughput for real-time analytics and visualization.
 
-Event Hubs is used in scenarios such as (but not limited to) the following:
+Event Hubs is used in in the following scenarios:
 
 - Anomaly detection (fraud/outliers)
 - Application logging
@@ -45,7 +45,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 
 ## Fully managed PaaS 
 
-Event Hubs is a completely managed service with no configuration or management overhead, so you focus on your business solutions. 
+Event Hubs is a managed service with no configuration or management overhead, so you focus on your business solutions. 
 
 ## Scalable 
 
@@ -53,7 +53,7 @@ You can start with low-bandwidth streams, and grow to gigabytes or terabytes of 
 
 ## Real time and batch
 
-Event Hubs supports real-time and microbatch streaming. Microbatching is enabled by using [Event Hubs Capture](event-hubs-capture-overview.md), which enables a single stream to support batch-based pipelines, and reduces the complexity of your solution.
+Event Hubs supports real time and microbatch streaming. Microbatching is enabled by using [Event Hubs Capture](event-hubs-capture-overview.md), which enables a single stream to support batch-based pipelines, and reduces the complexity of your solution.
 
 [Capture](event-hubs-capture-overview.md) enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account of your choice, with the added flexibility of specifying a time or size interval. Setting up Capture is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs throughput units. Event Hubs Capture enables you to focus on data processing rather than on data capture. 
 
