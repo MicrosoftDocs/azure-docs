@@ -20,7 +20,7 @@ ms.author: dragosav
 
 ## Overview
 
-The KeyVault VM extension provides automatic refresh of secrets stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and, upon detecting a change, retrieves and installs the corresponding certificates. The KeyVault VM extension is published and supported by Microsoft, currently on Windows VMs, with Linux support to follow shortly. This document details the supported platforms, configurations and deployment options for the KeyVault VM extension for Windows. 
+The KeyVault VM extension provides automatic refresh of secrets stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and, upon detecting a change, retrieves, and installs the corresponding certificates. The KeyVault VM extension is published and supported by Microsoft, currently on Windows VMs, with Linux support to follow shortly. This document details the supported platforms, configurations, and deployment options for the KeyVault VM extension for Windows. 
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ The KeyVault VM extension for Windows requires that the target virtual machine i
 
 ## Extension schema
 
-The following JSON shows the schema for the KeyVault VM extension. The extension does not require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency and the destination certificate store. Specifically:  
+The following JSON shows the schema for the KeyVault VM extension. The extension does not require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency, and the destination certificate store. Specifically:  
 
 ```json
     {
@@ -76,10 +76,10 @@ The following JSON shows the schema for the KeyVault VM extension. The extension
 | publisher | Microsoft.Azure.KeyVault.Edp | string |
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 0.0 | int |
-| pollingIntervalInS (e.g) | 3600 | int |
-| certificateStoreName (e.g) | MY | string |
-| certificateStoreLocation (e.g.) | LOCAL_MACHINE | string |
-| observedCertificates (e.g.) | ["https://myvault.vault.azure.net:443/secrets/mycertificate"] | string array
+| pollingIntervalInS | 3600 | int |
+| certificateStoreName | MY | string |
+| certificateStoreLocation  | LOCAL_MACHINE | string |
+| observedCertificates  | ["https://myvault.vault.azure.net:443/secrets/mycertificate"] | string array
 
 
 ## Template deployment
@@ -156,7 +156,7 @@ The Azure PowerShell can be used to deploy the KeyVault VM extension to an exist
 ```
 
 Please be aware of the following restrictions/requirements:
-- the deployment must be done in the southcentralus region
+- the deployment must be done in the South Central US region
 - vault restrictions:
 	- it must exist at the time of the deployment 
 	- must be located in the same region and resource group as the deployment
