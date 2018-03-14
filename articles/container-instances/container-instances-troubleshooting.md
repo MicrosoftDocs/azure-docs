@@ -267,7 +267,7 @@ The key to keeping image sizes small is ensuring that your final image does not 
 
 ### Image location
 
-The other way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend deploy Azure container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
+Another way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend to deploy container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
 
 ### Use recent Windows images
 
