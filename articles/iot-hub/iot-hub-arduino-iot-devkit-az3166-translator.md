@@ -76,7 +76,8 @@ After Azure Function deploys successfully, fill in the azure_config.h file with 
 
 ![Find Azure Function app name](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-function.png)
 
-> Note : If the Azure Function does not work properly, check this [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) section to resolve it.
+> [!NOTE]
+> If the Azure Function does not work properly, check this [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) section to resolve it.
 
 ## Step 4. Build and upload the device code
 
