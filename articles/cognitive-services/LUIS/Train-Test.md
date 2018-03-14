@@ -13,11 +13,8 @@ ms.author: v-geberr;
 ---
 
 # Test your LUIS app
-
-[Training](luis-how-to-train.md) and [testing](luis-concept-test.md) an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
-
 <a name="train-your-app"></a>
-Learn more about [how to train](luis-how-to-train.md) your app.
+[Training](luis-how-to-train.md) and [testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -27,13 +24,13 @@ Learn more about [how to train](luis-how-to-train.md) your app.
 
 1. Access your app by selecting its name on the **My Apps** page. 
 
-2. To access the **Test panel** slide-out panel, select **Test panel** in your application's top panel.
+2. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
     ![Train & Test App page](./media/luis-how-to-train-test/test.png)
 
-3. Enter an utterance in the text box and select **Enter**. You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
+3. Enter an utterance in the text box and select Enter. You can type as many test utterances as you want in the **Test**, but only one utterance at a time.
 
-4. The utterance and its top intent and score are added to the list of utterances under the text box.
+4. The utterance, its top intent, and score are added to the list of utterances under the text box.
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
 
@@ -50,7 +47,7 @@ You inspect details of the test result in the **Inspect** panel.
 
     ![Inspect button](./media/luis-how-to-train-test/inspect.png)
 
-2. The **Inspection panel** appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
+2. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
     ![Inspect button](./media/luis-how-to-train-test/inspect-panel.png)
 
@@ -80,7 +77,7 @@ You can view the spelling corrections provided by [Bing Spell Check v7](https://
 
 To use this feature, you must have published the app, and have a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
-Use the following steps to use the Bing Spell Check v7 service key. 
+Use the following to use the Bing Spell Check v7 service key. 
 
 1. In the test panel, on the **Published** pane, select **Additional Settings**.
 
@@ -89,7 +86,7 @@ Use the following steps to use the Bing Spell Check v7 service key.
 2. In the pop-up dialog, enter your **Bing Spell Check** service key. 
     ![Enter Bing Spell Check service key](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)
 
-3. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as query, and the corrected spelling in the query, as alteredQuery.
+3. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
     ![Corrected spelling JSON](./media/luis-how-to-train-test/interactive-with-spell-check-results.png)
 
@@ -108,16 +105,7 @@ See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis
 
 ## Next steps
 
-If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
+If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accurately by labeling more utterances or adding features. 
 
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
 * [Use features to improve your LUIS app's performance](Add-Features.md) 
-
-[true-positive]:luis-glossary.md#true-positive
-[true-negative]:luis-glossary.md#true-negative
-[false-positive]:luis-glossary.md#false-positive
-[false-negative]:luis-glossary.md#false-negative
-[f-measure]:luis-glossary.md#f-measure
-[recall]: luis-glossary.md#recall
-[precision]: luis-glossary.md#precision
-
