@@ -28,7 +28,7 @@ By the end of this tutorial, you would have streamed tweets from Twitter that ha
 
 The following illustration shows the application flow:
 
-![Azure Databricks with Event Hubs and Cognitive Services](./media/databricks-sentiment-analysis-cognitive-services/databricks_eventhubs_tutorial.png "Azure Databricks with Event Hubs and Cognitive Services")
+![Azure Databricks with Event Hubs and Cognitive Services](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Azure Databricks with Event Hubs and Cognitive Services")
 
 This tutorial covers the following tasks: 
 
