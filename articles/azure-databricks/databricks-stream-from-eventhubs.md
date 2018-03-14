@@ -5,10 +5,8 @@ services: azure-databricks
 documentationcenter: ''
 author: nitinme
 manager: cgronlun
-editor: ''
-tags: ''
+editor: cgronlun
 
-ms.assetid: 
 ms.service: azure-databricks
 ms.custom: mvc
 ms.devlang: na
