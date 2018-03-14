@@ -142,6 +142,9 @@ You will see output similar to the following:
 
     ![View traces](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
-## Report issues to project Github repository
+## Next Steps
+If you are using custom containers hosted by App Services, follow instructions from [
+Enable Service Profiler for containerized ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) to enable App Insights Profiler
+
 If you have any issues or suggestions, please report to our github repository:
 [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues)
