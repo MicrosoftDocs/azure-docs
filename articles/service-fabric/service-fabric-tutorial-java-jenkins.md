@@ -1,5 +1,5 @@
 ---
-title: Setup CICD for an Azure Service Fabric Java application| Microsoft Docs
+title: Setup CI/CD for an Azure Service Fabric Java application| Microsoft Docs
 description: Learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
 services: service-fabric
 documentationcenter: java
