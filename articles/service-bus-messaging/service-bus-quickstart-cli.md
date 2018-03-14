@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/09/2018
 ms.author: sethm
 
 ---
@@ -28,13 +28,23 @@ This quickstart describes how to send and receive messages with Service Bus, usi
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
+## Prerequisites
+
+To develop a Service Bus app with Java, you must have the following installed:
+
+-  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
+-  [Apache Maven](https://maven.apache.org), version 3.0 or above.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
-1. Once CLI is installed, open a command prompt and issue the following command:
+Once CLI is installed, open Cloud Shell and issue the following commands to log in to Azure: 
+
+1. First, install the Service Bus CLI extension, if you haven't already:
 
    ```azurecli-interactive
    az extension add --name servicebus
@@ -51,69 +61,69 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
    To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code ######## to authenticate.
    ```
 
-3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login. 
+3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login.
 
-## Create a resource group
+4. Set the current subscription context:
 
-A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Create a new resource group with [az group create][] command.
+   ```azurecli
+   az account set --subscription <Azure_subscription_name>
+   ``` 
 
-The following example creates a resource group named **serviceBusResourceGroup** in the **East US** region
+## Use CLI to provision resources
 
-```azurecli-interactive
-az group create --name serviceBusResourceGroup --location eastus
+After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
+
+```azurecli
+# Create a resource group
+az group create --name <my-resourcegroup> --location eastus
+
+# Create a Messaging namespace
+az servicebus namespace create --name <namespace_name> --resource-group <my-resourcegroup> -l eastus2
+
+# Create a queue
+az servicebus queue create --resource-group <my-resourcegroup> --namespace-name <namespace_name> --name <queue_name>
+
+# Get the connection string
+az servicebus namespace authorizationrule keys list --resource-group <my-resourcegroup> --namespace-name <namespace-name> --name RootManageSharedAccessKey
 ```
 
-## Create a Service Bus namespace
-
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a namespace in your resource group. Replace `<namespace_name>` with a unique name for your namespace:
-
-```azurecli-interactive
-az servicebus namespace create --name <namespace_name> -location eastus
-```
-
-## Create a queue
-
-To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue:
-
-```azurecli-interactive
-az servicebus entity create --name <queue_name> -location eastus
-```
-
-## Get the connection string
-
-You need the namespace-level connection string in order to perform operations on the messaging entities within that namespace. To obtain the connection string, run the following command:
-
-```azurecli-interactive
-az servicebus TBD
-```
-
-Copy and paste the **PrimaryConnectionString** value to a temporary location, such as Notepad, to use later.
+After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
 After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages.
 
-1. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
-2. Double-click **Program.cs** to open it in the Visual Studio editor.
-3. Replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained in the [previous section](#get-the-connection-string).
-4. Replace the value of `QueueName` with the name of the queue you [created previously](#create-a-queue).
-5. Build and run the program, and observe 10 messages being sent to the queue, and received in parallel from the queue.
+1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
+2. From a command prompt, navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/QueuesGettingStarted).
+3. Issue the following command to build the application:
+   
+   ```shell
+   mvn clean package -DskipTests
+   ```
+
+4. To run the program, issue the following command. Make sure you supply the connection string you obtained in the previous step:
+
+   ```shell
+   java -jar .\target\jmstopicquickstart-1.0.0-jar-with-dependencies.jar -c <your_connection_string>
+   ```
+
+Observe 10 messages being sent to the queue, and subsequently received from the queue:
+
+![program output](./media/service-bus-quickstart-cli/javasendrecv.png)
 
 ## Clean up deployment
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
 ```azurecli-interactive
-az group delete --name serviceBusResourceGroup
+az group delete --name <my-resourcegroup>
 ```
 
 ## Next steps
 
 In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages, continue with the following articles:
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

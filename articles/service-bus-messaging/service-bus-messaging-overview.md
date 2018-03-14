@@ -13,28 +13,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.custom: mvc
 ms.author: chwolf;sethm
 
 ---
 # What is Azure Service Bus?
 
-Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and provides a highly reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services, commonly called *endpoints*, via *messages*. A message can contain text (including JSON and XML) as well as binary data. You can think of messages as data packages. 
+Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a highly reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
 
-Some common Service Bus messaging scenarios are:
+Some common messaging scenarios are:
 
-* Transferring business data, such as sales or purchase orders, journals or inventory movements.
+* Transferring business data, such as sales or purchase orders, journals, or inventory movements.
 * Improving reliability and scalability of applications and services through decoupling (client and service do not have to be online at the same time).
 * Enable 1:*n* relationships between publishers and subscribers.
+* Implementing workflows that require message ordering or message deferral.
+
+## Namespaces
+
+A namespace is a scoping container for all messaging components. Multiple queues and topics can reside within a single namespace, and namespaces often serve as application containers.
 
 ## Queues
 
-Messages sent to and received from the message broker are stored in *queues*. Queues enable you to store messages until the receiving application is available to receive and process them.
+Messages are sent to and received from *queues*. Queues enable you to store messages until the receiving application is available to receive and process them.
 
 ![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Messages in queues are ordered, and Service Bus applies a timestamp on arrival. Once accepted, the message is held safely in redundant, triple replicated storage, with intra-region disaster recovery backups.
+Messages in queues are ordered and timestamped on arrival. Once accepted, the message is held safely in redundant storage. 
+
+The standard delivery mode is *pull*, which delivers messages on request.
 
 ## Topics
 
@@ -44,31 +51,21 @@ You can also use *topics* to send and receive messages. While a queue is often u
 
 Topics can have multiple, independent subscriptions. A subscriber to a topic is eligible to receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
 
-In some scenarios you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional actions, filter specified messages, and set or modify message properties.
-
-## Delivery modes
-
-Queues and topics have two delivery modes: *pull* and *forward*.
-
-* [Pull](service-bus-quickstart-powershell.md) – delivers messages on request.
-* [Forward](service-bus-auto-forwarding.md) – delivers a message to a single forwarding destination.
-
+In some scenarios you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional [actions](topic-filters.md#actions), filter specified messages, and set or modify message properties.
 
 ## Advanced features
 
-Service Bus has advanced features, discussed in the next section, that enable you to solve more complex messaging problems. For example, Service Bus supports enforcing first in, first out (FIFO) receiving via [sessions](message-sessions.md), chaining multiple entities with [auto-forwarding](service-bus-auto-forwarding.md), or [dead-letter queues](service-bus-dead-letter-queues.md) if messages cannot be processed for any reason. 
+Service Bus has many advanced features that enable you to solve more complex messaging problems. For example, Service Bus supports enforcing first in, first out (FIFO) receiving via [sessions](message-sessions.md), chaining multiple entities with [auto-forwarding](service-bus-auto-forwarding.md), or [dead-letter queues](service-bus-dead-letter-queues.md) if messages cannot be processed for any reason.
 
-## Key Service Bus features
-
-The following list summarizes some advanced features supported by Azure Service Bus:
+The following sections describe these key features:
 
 ### Scheduled delivery
 
-If [absolute order of messages](message-sequencing.md) is significant, or a consumer needs a trustworthy unique identifier for messages, the message broker stamps messages with a gap-free, increasing sequence number relative to the queue or topic. For partitioned entities, the sequence number is issued relative to the partition.
+You can submit messages to a queue or topic [for delayed processing](message-sequencing.md#scheduled-messages); for example, to schedule a job to become available for processing by a system at a certain time.
 
 ### Dead-lettering
 
-Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. Messages can then be removed from the DLQ and inspected. An application might, with the help of an operator, correct issues and resubmit the message, log the fact that there was an error, and take corrective action.
+Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. Messages can then be removed from the DLQ and inspected.
 
 ### Auto-forwarding
 
@@ -84,28 +81,55 @@ To realize a FIFO guarantee in Service Bus, use sessions. [Message sessions](mes
 
 ### Batching
 
-[Client-side batching](service-bus-performance-improvements.md#client-side-batching) enables a queue or topic client to delay sending a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support batching.
+[Client-side batching](service-bus-performance-improvements.md#client-side-batching) enables a queue or topic client to delay sending a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. 
 
 ### Transactions
 
-A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction. For example, you can send several messages to one queue from within a transaction scope, and the messages will only be committed to the queue's log when the transaction successfully completes.
+A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction.
+
+### Filtering and actions
+
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more [named subscription rules](topic-filters.md). For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
+
+### Auto-delete on idle
+
+[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+
+### Duplicate detection
+
+If an error occurs that causes the client to have any doubt about the outcome of a send operation, [duplicate detection](duplicate-detection.md) takes the doubt out of these situations by enabling the sender re-send the same message, and the queue or topic discards any duplicate copies.
+
+### SAS, RBAC, and MSI
+
+Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](service-bus-role-based-access-control.md) (RBAC) and [Managed Service Identity](service-bus-managed-service-identity.md) (MSI).
+
+### Geo-disaster recovery
+
+When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue to operate in a different region or datacenter.
+
+### Security
+
+Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
+
+## Client libraries
+
+Service Bus supports client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
 
 ## Integration
 
-Service Bus also supports the following integration features:
+Service Bus fully integrates with the following Azure services:
 
-* [Filtering and Actions](topic-filters.md)
-* [Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle?view=azure-dotnet#Microsoft_ServiceBus_Messaging_SubscriptionDescription_AutoDeleteOnIdle)
-* [Duplicate detection](duplicate-detection.md)
-* [SAS](service-bus-sas.md), [RBAC](service-bus-role-based-access-control.md) and [MSI](service-bus-managed-service-identity.md) support.
-* [Geo-Recovery](service-bus-geo-dr.md)
-* Secure, standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols
-* Client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client) support
-
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Functions](https://azure.microsoft.com/services/functions/) 
+- [Dynamics 365](https://dynamics.microsoft.com)
+- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+ 
 ## Next steps
 
 To get started using Service Bus messaging, see the following articles:
 
-* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and their pricing.
-* [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/).
-* Try the quickstarts in [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md).
+* [Compare Azure messaging services](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and their pricing
+* [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* Try the quickstarts in [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md)
