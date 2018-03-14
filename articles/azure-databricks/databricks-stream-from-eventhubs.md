@@ -37,7 +37,7 @@ This tutorial covers the following tasks:
 > * Create notebooks in Azure Databricks
 > * Attach libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
-> * Receive messages from Event Hubs
+> * Receive tweets from Event Hubs
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
