@@ -117,20 +117,6 @@
       href: log-analytics-flow-tutorial.md
     - name: Log Search API
       href: https://dev.loganalytics.io/
-  - name: Legacy log search
-    items:
-    - name: Log searches overview
-      href: log-analytics-log-searches.md
-    - name: Search reference
-      href: log-analytics-search-reference.md
-      items:
-      - name: Regular expressions
-        href: log-analytics-log-searches-regex.md
-    - name: Log Search API
-      href: log-analytics-log-search-api.md
-      items:
-      - name: Python
-        href: log-analytics-log-search-api-python.md
   - name: Analyze data
     items:
     - name: Dashboards
