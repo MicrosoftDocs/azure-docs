@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack - PowerShell | Microsoft Docs
-description: In this quickstart, you install the ASDK from the command line.
+description: In this article, you install the ASDK from the command line.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,15 +12,15 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: quickstart
-ms.custom: mvc
+ms.topic: article
+ms.custom: 
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Quickstart: deploy the ASDK - PowerShell
-In this quickstart, you deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
+# Deploy the ASDK - PowerShell
+In this article, you deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
 
 The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
 
@@ -101,7 +101,7 @@ To deploy the development kit **using AD FS as the identity provider**, run the 
 
 In AD FS deployments, the default stamp Directory Service is used as the identity provider. The default account to sign in with is azurestackadmin@azurestack.local, and the password will be set to what you provided as part of the PowerShell setup commands.
 
-The deployment process can take a few hours, during which time the system automatically reboots once. When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**. If the deployment fails, you can try running the script again using the -rerun parameter. Or, you can [redeploy ASDK](.\asdk-redeploy-qs.md) from scratch.
+The deployment process can take a few hours, during which time the system automatically reboots once. When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**. If the deployment fails, you can try running the script again using the -rerun parameter. Or, you can [redeploy ASDK](asdk-redeploy.md) from scratch.
 
 > [!IMPORTANT]
 > If you want to monitor the deployment progress after the ASDK host reboots, you must sign in as AzureStack\AzureStackAdmin. If you sign in as a local administrator after the host computer is restarted (and joined to the azurestack.local domain), you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack to validate that it's running.
@@ -161,8 +161,6 @@ You should also reset the password expiration policy to make sure that the passw
 ## Next steps
 Congratulations! After completing these steps, you’ll have a development kit environment with both [administrator](https://adminportal.local.azurestack.external) and [user](https://portal.local.azurestack.external) portals. 
 
-In this quickstart, you deployed the ASDK from the command line. To start evaluating the ASDK, continue on to the tutorial for adding a marketplace item.
-> [!div class="nextstepaction"]
-> [Add an Azure Stack marketplace item](./asdk-marketplace-item.md)
+In this article, you deployed the ASDK from the command line. To start evaluating the ASDK, continue on to the tutorial for [adding an Azure Stack marketplace item](asdk-marketplace-item.md).
 
 

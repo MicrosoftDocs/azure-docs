@@ -6,16 +6,8 @@
     href: asdk-what-is.md
   - name: ASDK release notes
     href: asdk-release-notes.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Deploy the ASDK
-    href: asdk-deploy-qs.md 
-  - name: Deploy the ASDK - PowerShell
-    href: asdk-deploy-powershell-qs.md
-  - name: Redeploy the ASDK
-    href: asdk-redeploy-qs.md  
 - name: Tutorials
+  expaneded: true
   items:
   - name: 1. Add a marketplace item
     href: asdk-marketplace-item.md
@@ -39,8 +31,16 @@
     href: asdk-advanced-eval.md
 - name: How to
   items:
-  - name: Deploy the ASDK
+  - name: Setup the ASDK
     items:
+    - name: Deploy the ASDK
+     items:
+       - name: Deploy the ASDK
+         href: asdk-deploy.md 
+       - name: Deploy the ASDK - PowerShell
+         href: asdk-deploy-powershell.md
+       - name: Redeploy the ASDK
+         href: asdk-redeploy.md 
     - name: Download and extract the development kit
       href: asdk-download.md
     - name: Prepare the ASDK host computer

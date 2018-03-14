@@ -1,6 +1,6 @@
 ---
 title: Redeploy the Azure Stack Development Kit (ASDK) | Microsoft Docs
-description: In this quickstart, you learn how to reinstall the ASDK.
+description: In this article, you learn how to reinstall the ASDK.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,23 +12,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: quickstart
-ms.custom: mvc
+ms.topic: article
+ms.custom: 
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Quickstart: redeploy the ASDK
-In this quickstart, you redeploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
+# Redeploy the ASDK
+In this article, you learn how to redeploy the Azure Stack Development Kit (ASDK) in a non-production environment. Because upgrading the ASDK isn't supported, you need to completely redeploy it to move to a newer version. You can also redeploy the ASDK at any time that you just want to start over from scratch.
 
 > [!IMPORTANT]
-> Upgrading the ASDK to a new version is not supported. You have to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.
+> Upgrading the ASDK to a new version isn't supported. You have to redeploy the ASDK on the development kit host computer each time you want to evaluate a newer version of Azure Stack.
 
 ## Remove Azure registration 
-If you have previously registered your ASDK installation with Azure, you should remove the registration resource before redeploying the ASDK. Re-register the ASDK to enable marketplace syndication when you redeploy the ASDK. 
+If you have previously registered your ASDK installation with Azure, you should remove the registration resource before redeploying the ASDK. Re-register the ASDK to enable marketplace syndication when you redeploy the ASDK. If you have not previously registered the ASDK with your Azure subscription, you can skip this section.
 
-To remove the registration resource, use the **Remove-AzsRegistration** cmdlet to unregister Azure Stack. Then, use the **Remove-AzureRMRsourceGroup** cmdlet to delete the Azure Stack resource group from your Azure subscription (you need to log in to both your Azure subscription and the local ASDK installation):
+To remove the registration resource, use the **Remove-AzsRegistration** cmdlet to unregister Azure Stack. Then, use the **Remove-AzureRMRsourceGroup** cmdlet to delete the Azure Stack resource group from your Azure subscription:
 
 > [!NOTE]
 > These commands must be run from a computer that has access to the privileged endpoint. For the ASDK, that's the development kit host computer.
@@ -56,9 +56,20 @@ To remove the registration resource, use the **Remove-AzsRegistration** cmdlet t
   Remove-AzureRmResourceGroup -Name azurestack -Force
   ```
 
-3. When the script completes, you should see messages similar to the following example:
+3. You are prompted to sign in to both your Azure subscription and the local ASDK installation when the script runs.
+4. When the script completes, you should see messages similar to the following examples:
 
-   ![unregister ASDK](media/asdk-redeploy-qs/0.png)
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete`
+    
+    ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+
+    ` Remove registration resource from Azure...`
+
+    ` "Deleting the resource..." on target "/subscriptions/<subscription information>`
+
+    ` ********** End Log: Remove-AzsRegistration ********* `
+
+
 
 Azure Stack should now successfully be unregistered from your Azure subscription. Additionally, the azurestack resource group, created when you registered the ASDK with Azure, should also be deleted.
 
@@ -66,40 +77,32 @@ Azure Stack should now successfully be unregistered from your Azure subscription
 To redeploy Azure Stack, you must start over from scratch as described below. The steps are different depending on whether or not you used the Azure Stack installer (asdk-installer.ps1) script to install the ASDK.
 
 ### Redeploy the ASDK using the installer script
-1. On the ASDK computer, open an elevated PowerShell console and navigate to the asdk-installer.ps1 script (the script should be in the **AzureStack_Installer** directory located on a non-system drive). Run the script and click **Reboot**.
+1. On the ASDK computer, open an elevated PowerShell console and navigate to the asdk-installer.ps1 script in the **AzureStack_Installer** directory located on a non-system drive. Run the script and click **Reboot**.
 
-   ![Run the asdk-installer.ps1 script](media/asdk-redeploy-qs/1.png)
+   ![Run the asdk-installer.ps1 script](media/asdk-redeploy/1.png)
 
 2. Select the base operating system (not **Azure Stack**) and click **Next**.
 
-   ![Restart into the host operating system](media/asdk-redeploy-qs/2.png)
+   ![Restart into the host operating system](media/asdk-redeploy/2.png)
 
-3. After the development kit host reboots into the base operating system, log in as a local administrator for the development kit host computer. Locate and delete the CloudBuilder.vhdx file that was used as part of the previous deployment (most likely at the root of the C:). 
+3. After the development kit host reboots into the base operating system, log in as a local administrator. Locate and delete the C:\CloudBuilder.vhdx file that was used as part of the previous deployment. 
 
-   ![Delete the CloudBuilder.vhdx file](media/asdk-redeploy-qs/3.png)
-
-4. Repeat the same steps that you took to first [deploy the ASDK](asdk-deploy-qs.md).
+4. Repeat the same steps that you took to first [deploy the ASDK](asdk-deploy.md).
 
 ### Redeploy the ASDK without using the installer
 If you did not use the asdk-installer.ps1 script to install the ASDK, you must manually reconfigure the development kit host computer before redeploying the ASDK.
 
 1. Start the System Configuration utility by running **msconfig.exe** on the ASDK computer. On the **Boot** tab, select the host computer operating system (not Azure Stack), click **Set as default**, and then click **OK**. Click **Restart** when prompted.
 
-      ![Set the boot configuration](media/asdk-redeploy-qs/4.png)
+      ![Set the boot configuration](media/asdk-redeploy/4.png)
 
-2. After the development kit host reboots into the base operating system, log in as a local administrator for the development kit host computer. Locate and delete the CloudBuilder.vhdx file that was used as part of the previous deployment (most likely at the root of the C:). 
+2. After the development kit host reboots into the base operating system, log in as a local administrator for the development kit host computer. Locate and delete the C:\CloudBuilder.vhdx file that was used as part of the previous deployment. 
 
-   ![Delete the CloudBuilder.vhdx file](media/asdk-redeploy-qs/5.png)
-
-3. Repeat the same steps that you took to first [deploy the ASDK using PowerShell](asdk-deploy-powershell-qs.md).
-
-
+3. Repeat the same steps that you took to first [deploy the ASDK using PowerShell](asdk-deploy-powershell.md).
 
 
 ## Next steps
-In this quickstart, you redeployed the ASDK. To start evaluating the ASDK, continue on to the tutorial for adding a marketplace item.
-> [!div class="nextstepaction"]
-> [Add an Azure Stack marketplace item](./asdk-marketplace-item.md)
+In this article, you learned how to redeploy the ASDK. To start evaluating the ASDK, continue on to the tutorial for [adding an Azure Stack marketplace item](asdk-marketplace-item.md).
 
 
 
