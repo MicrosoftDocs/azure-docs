@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace consulting services 
-description: This article describes the eligibility criteria and publishing requirements for new consulting-service offerings in Azure Marketplace.
+description: This article describes the eligibility criteria and publishing requirements for new consulting-service offerings in the Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: ellacroi
@@ -19,7 +19,7 @@ ms.author: ellacroi
 ---
 
 # Azure Marketplace consulting services
-With a goal of connecting customers with services to support and extend their use of Microsoft Azure, Azure Marketplace lists the consulting-service offerings from System Integrator (SI) partners of Microsoft. 
+With a goal of connecting customers with services to support and extend their use of Microsoft Azure, the Azure Marketplace lists the consulting-service offerings from System Integrator (SI) partners of Microsoft. 
 
 These consulting-service offerings are customer-specific engagements. The offerings are fixed in scope and duration, can be fixed-price or free, and have a defined outcome. Potential customers can easily request to be contacted by partners. Partners receive a notification in their CRM system, and they aim to respond to requests within 48 hours.
 
@@ -86,11 +86,11 @@ Even before you nominate your service, you can start collecting and preparing th
 
 
 ## Publishing process
-Listing your consulting-service offer on Azure Marketplace involves the following stages:
+Listing your consulting-service offer on the Azure Marketplace involves the following stages:
 
 1. **Request**: To send your request, use the [Azure Marketplace Nomination Form](https://azuremarketplace.microsoft.com/en-us/sell/nominate) and tell us more about your organization. 
 2. **Validation**: Your request is reviewed to ensure that you meet the eligibility criteria. We then send you instructions for listing your consulting services offering. 
 3. **Submit**: Provide the required information that's listed in the instructions. All content and supporting material must be submitted in English. 
 4. **Review**: Our marketing and editorial team reviews your submission and optimizes it for readability, grammar, and effectiveness. 
 5. **Staging**: Your submission is staged for your review. 
-6. **Publishing**: When you and Microsoft are satisfied with the staged content, your listing is ready to go live on Azure Marketplace. The go-live date for your listing depends on the country that's specified in your offering. If the catalog for your selected country is already live on Azure Marketplace, your listing will appear within a few hours. Otherwise, the listing will appear as soon as the catalog goes live.
+6. **Publishing**: When you and Microsoft are satisfied with the staged content, your listing is ready to go live on the Azure Marketplace. The go-live date for your listing depends on the country that's specified in your offering. If the catalog for your selected country is already live on the Azure Marketplace, your listing will appear within a few hours. Otherwise, the listing will appear as soon as the catalog goes live.
