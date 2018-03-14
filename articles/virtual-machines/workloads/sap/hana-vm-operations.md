@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2017
+ms.date: 03/13/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 
@@ -135,7 +135,7 @@ If you want to benefit from [Azure virtual machine single VM SLA](https://azure.
 | DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
-| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x S6 | 1 x P30 |
+| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
 | M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
@@ -177,6 +177,8 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by A
 
 More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Azure Write Accelerator for SAP deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
 
+Details and restrictions for Azure Write Accelerator can be found in the same documentation.
+
 
 ### Set up Azure virtual networks
 When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. The Virtual Gateway lives in a subnet in the Azure virtual network. To install SAP HANA, you create two additional subnets within the virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio or other management software.
@@ -187,6 +189,8 @@ When you install the VMs to run SAP HANA, the VMs need:
 - Static private IP addresses that are deployed for both virtual NICs.
 
 For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+
+For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that a lot of configuration attributs for HANA reference IP addresses.
 
 [Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are used to direct traffic that's routed to the SAP HANA instance or the Jumpbox. The NSGs are associated to the SAP HANA subnet and the Management subnet.
 
