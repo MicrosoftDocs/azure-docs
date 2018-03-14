@@ -75,10 +75,6 @@ The URLs for Function are different:
 ### Quickstarts
 The [Functions Quickstart for Government](documentation-government-functions.md) will guide you through creating your first Azure Function on Azure Government and contains other useful tutorials. 
 
-## Azure Container Service
-This service is available for Preview in Azure Government. 
-For details on this service and how to use it, see [Azure Container Service documentation](../container-service/index.yml). 
-
 ### Variations
 Azure Container Service does not yet have Portal support in Azure Government. 
 

@@ -3,13 +3,13 @@ title: Language Understanding Intelligent Services (LUIS) in Azure frequently as
 titleSuffix: Azure
 description:  Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/02/2018
 ms.author: v-geberr;
 ---
 # Language Understanding FAQ
@@ -69,13 +69,15 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 
 ## How can I deal with spelling mistakes in utterances?
 
-See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial.
+See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7. 
 
 ## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
 The errors indicate that there is some discrepancy between your labels and the predictions from your models. To address the problem, do one or both of the following tasks:
 * To help LUIS improve discrimination among intents, add more labels.
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
+
+See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
 
 ## Why don't I see my endpoint hits in my app's Dashboard?
 The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure portal are updated more frequently. If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
@@ -142,6 +144,11 @@ No.
 
 ## What are the LUIS best practices? 
 Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the best practices for [Intents](luis-concept-intent.md#best-practice---only-required-specific-intents), [Entities](luis-concept-entity-types.md#best-practices), and [Utterances](luis-concept-utterance.md#best-practices). 
+
+## How do I create and assign a LUIS endpoint key?
+[Create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action.
+
+
 
 ## Next steps
 

@@ -31,6 +31,18 @@
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
     - name: 4- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
+  - name: Deploy a Java app
+    items:
+    - name: 1- Build a Java application
+      href: service-fabric-tutorial-create-java-app.md
+    - name: 2- Debug the application
+      href: service-fabric-tutorial-debug-log-local-cluster.md
+    - name: 3- Deploy the application
+      href: service-fabric-tutorial-java-deploy-azure.md
+    - name: 4- Monitor and diagnose
+      href: service-fabric-tutorial-java-elk.md
+    - name: 5- Configure CI/CD 
+      href: service-fabric-tutorial-java-jenkins.md
   - name: Containerize an existing .NET app
     items:
     - name: 1- Deploy a .NET app using Docker Compose
@@ -94,8 +106,6 @@
     - name: Reliable Services
       href: service-fabric-reliable-services-introduction.md
       items:
-      - name: Replica and instance lifecycle
-        href: service-fabric-concepts-replica-lifecycle.md
       - name: Reliable Services lifecycle - C#
         href: service-fabric-reliable-services-lifecycle.md
       - name: Reliable Services lifecycle - Java
@@ -146,7 +156,9 @@
     - name: Scalability of applications
       href: service-fabric-concepts-scalability.md
     - name: Availability of services
-      href: service-fabric-availability-services.md    
+      href: service-fabric-availability-services.md
+    - name: Replica and instance lifecycle
+      href: service-fabric-concepts-replica-lifecycle.md
     - name: Reconfiguration
       href: service-fabric-concepts-reconfiguration.md
     - name: Service communication
@@ -159,7 +171,9 @@
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Reverse proxy diagnostics
-        href: service-fabric-reverse-proxy-diagnostics.md      
+        href: service-fabric-reverse-proxy-diagnostics.md
+      - name: ASP.NET Core
+        href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: Application lifecycle
       href: service-fabric-application-lifecycle.md
       items:
@@ -387,8 +401,8 @@
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Configure reverse proxy for secure communication
       href: service-fabric-reverseproxy-configure-secure-communication.md
-    - name: ASP.NET Core
-      href: service-fabric-reliable-services-communication-aspnetcore.md
+    - name: Build an ASP.NET Core service
+      href: service-fabric-add-a-web-frontend.md
     - name: Configure security
       items:
       - name: Manage application secrets
@@ -530,11 +544,7 @@
     - name: Connect to a secure cluster
       href: service-fabric-connect-to-secure-cluster.md
     - name: Patch cluster nodes
-      items:
-      - name: Windows
-        href: service-fabric-patch-orchestration-application.md
-      - name: Linux
-        href: service-fabric-patch-orchestration-application-linux.md
+      href: service-fabric-patch-orchestration-application.md
   - name: Monitor and diagnose
     items:
     - name: OMS
@@ -584,9 +594,6 @@
       href: service-fabric-sfctl-store.md
   - name: Java API
     href: /java/api/overview/azure/servicefabric
-    items:
-    - name: Java REST client API
-      href: service-fabric-java-rest-api-usage.md
   - name: .NET
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST
@@ -604,7 +611,7 @@
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/service-fabric/
   - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator

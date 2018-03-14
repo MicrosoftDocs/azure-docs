@@ -71,7 +71,7 @@ public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
             });
 }
 ```
-Search for videos about "NASA CubeSat." Verify the number of results. Print the ID, name, and URL for the first video result.
+Search for videos about "SwiftKey." Verify the number of results. Print the ID, name, and URL for the first video result.
 ```
 public static void VideoSearch(String subscriptionKey)
 {
@@ -79,8 +79,8 @@ public static void VideoSearch(String subscriptionKey)
 
     try
     {
-        VideosInner videoResults = client.searchs().list("Nasa CubeSat");
-        System.out.println("\r\nSearch videos for query \"Nasa CubeSat\"");
+        VideosInner videoResults = client.searchs().list("SwiftKey");
+        System.out.println("\r\nSearch videos for query \"SwiftKey\"");
 
         if (videoResults == null)
         {
@@ -113,7 +113,7 @@ public static void VideoSearch(String subscriptionKey)
 
 
 ```
-Search for videos about "Interstellar Trailer." Filter the search with the *free*, *short*, and *1080p resolution* parameters. Verify the number of results. Print the ID, name, and URL for the first video result.
+Search for videos about "Bellevue Trailer." Filter the search with the *free*, *short*, and *1080p resolution* parameters. Verify the number of results. Print the ID, name, and URL for the first video result.
 ```
 public static void VideoSearchWithFilters(String subscriptionKey)
 {
@@ -121,9 +121,9 @@ public static void VideoSearchWithFilters(String subscriptionKey)
 
     try
     {
-        VideosInner videoResults = client.searchs().list("Interstellar Trailer", "en-us", null, null, null, null, null,
+        VideosInner videoResults = client.searchs().list("Bellevue Trailer", "en-us", null, null, null, null, null,
                 Freshness.MONTH, null, VideoLength.SHORT, "en-us", null, VideoPricing.FREE, VideoResolution.HD1080P, null, null, null, null);
-        System.out.println("\r\nSearch videos for query \"Interstellar Trailer\" free, short and 1080p resolution");
+        System.out.println("\r\nSearch videos for query \"Bellevue Trailer\" free, short and 1080p resolution");
 
         if (videoResults == null)
         {
@@ -238,7 +238,7 @@ public static void VideoTrending(String subscriptionKey)
 }
 
 ```
-Search for videos about "Interstellar Trailer," and then search for details about the first video result.
+Search for videos about "Bellevue Trailer," and then search for details about the first video result.
 ```
 public static void VideoDetail(String subscriptionKey)
 {
@@ -246,15 +246,15 @@ public static void VideoDetail(String subscriptionKey)
 
     try
     {
-        VideosInner videoResults = client.searchs().list("Interstellar Trailer");
+        VideosInner videoResults = client.searchs().list("Bellevue Trailer");
         if (videoResults.value().size() > 0)
         {
             VideoObject firstVideo = videoResults.value().get(0);
             List<VideoInsightModule> modules = new ArrayList<VideoInsightModule>();
             modules.add(VideoInsightModule.ALL);
-            VideoDetailsInner videoDetail = client.details().list("Interstellar Trailer", null, null, null, null, null,
+            VideoDetailsInner videoDetail = client.details().list("Bellevue Trailer", null, null, null, null, null,
                     firstVideo.videoId(), modules, "en-us", null, null, null, null, null);
-                    //nc(query: "Interstellar Trailer", id: firstVideo.VideoId, modules: modules).Result;
+                    //nc(query: "Bellevue Trailer", id: firstVideo.VideoId, modules: modules).Result;
             System.out.println(
                     String.format("\r\nSearch detail for video id={firstVideo.VideoId}, name=%s", firstVideo.name()));
 

@@ -18,7 +18,7 @@ ms.author: vinagara
 
 ---
 # Log alerts in Azure Monitor - Alerts (Preview)
-This article provides details of how alert rules in Analytics queries work in Azure Alerts (Preview) and describes the differences between different types of log alert rules.
+This article provides details of how alert rules in Analytics queries work in Azure Alerts (Preview) and describes the differences between different types of log alert rules. For details of Metric Alerts using Logs, refer to [Near Real Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
 
 Currently Azure Alerts (Preview), supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -38,7 +38,7 @@ Then when [creating a log alert in Alerts (Preview)](monitor-alerts-unified-usag
 
 ## Log Alert rules
 
-Alerts are created by Azure Alerts (Preview) automatically run log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process like sending data to external application using [json based webhook](monitor-alerts-unified-log-webhook.md), using [Action Groups](monitoring-action-groups.md). Different types of alert rules use different logic to perform this analysis.
+Alerts are created by Azure Alerts (Preview) to automatically run log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process like sending data to external application using [json based webhook](monitor-alerts-unified-log-webhook.md), using [Action Groups](monitoring-action-groups.md). Different types of alert rules use different logic to perform this analysis.
 
 Alert Rules are defined by the following details:
 
@@ -73,7 +73,7 @@ Consider a scenario where you want to know when your web-based App gives a respo
 **Alert frequency:** five minutes<br>
 **Threshold value:** Great than 0<br>
 
-Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and trigger the action configured.
+Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and triggers the action configured.
 
 ## Metric measurement alert rules
 
@@ -94,7 +94,7 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 
 **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time window specified for the alert.
 > [!NOTE]
-> Bin function must be used in query. Also if unequal time intervals are produced for time window by use of Bin function - Alert will instead use bin_at function instead to ensure there is a fixed point
+> Bin function must be used in query. As bin() can result in unequal time intervals  - Alert will instead use bin_at function with appropriate time at runtime, to ensure results with a fixed point
 
 **Threshold**: The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value, then an alert is created for that object.
 
