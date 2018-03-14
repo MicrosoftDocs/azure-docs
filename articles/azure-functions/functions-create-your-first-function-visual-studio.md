@@ -50,7 +50,7 @@ Visual Studio creates a project and in it a class that contains boilerplate code
 
 ![Function code file](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-Now that you have created your function project and an HTTP-triggered function, you can test it on your local computer.
+Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
 
 ## Test the function locally
 
