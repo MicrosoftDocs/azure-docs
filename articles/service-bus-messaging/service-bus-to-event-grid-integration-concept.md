@@ -142,7 +142,7 @@ Execute the following code:
 ```PowerShell-interactive
 Az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+Az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
