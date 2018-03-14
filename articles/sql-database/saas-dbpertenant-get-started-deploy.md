@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
 ---
-# Deploy and explore a multitenant SaaS application that uses the database-per-tenant pattern with Azure SQL Database
+# Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with SQL Database
 
 In this tutorial, you deploy and explore the Wingtip Tickets SaaS database-per-tenant application (Wingtip). The app uses a database-per-tenant pattern to store the data of multiple tenants. The app is designed to showcase features of Azure SQL Database that simplify how to enable SaaS scenarios.
 
@@ -122,7 +122,7 @@ The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traff
     | URL part        | Description       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database-per-tenant* implementation of Wingtip Tickets from other implementations. Examples are the *standalone* app-per-tenant (*-sa*) or *multitenant database* (*-mt*) implementations. |
-    | .*&lt;user&gt;* | *af1* in our example. |
+    | .*&lt;user&gt;* | *af1* in the example. |
     | .trafficmanager.net/ | Traffic Manager, base URL. |
     | fabrikamjazzclub | Identifies the tenant named Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -187,11 +187,11 @@ Before you continue with the next section, leave the load generator running in t
 The initial deployment creates three sample tenants. Now you create another tenant to see the impact on the deployed application. In the Wingtip app, the workflow to provision new tenants is explained in the [Provision and catalog tutorial](saas-dbpertenant-provision-and-catalog.md). In this phase, you create a new tenant, which takes less than one minute.
 
 1. Open a new PowerShell ISE.
-2. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* .
-3. Press **F5** to run the script. Leave the default values for now.
+2. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
+3. To run the script, press F5. Leave the default values for now.
 
    > [!NOTE]
-   > Many Wingtip SaaS scripts use *$PSScriptRoot* to browse folders to call functions in other scripts. This variable is evaluated only when the full script is executed by pressing F5. Highlighting and running a selection with F8 can result in errors. Press F5 to run the scripts.
+   > Many Wingtip SaaS scripts use *$PSScriptRoot* to browse folders to call functions in other scripts. This variable is evaluated only when the full script is executed by pressing F5. Highlighting and running a selection with F8 can result in errors. To run the scripts, press F5.
 
 The new tenant database is:
 

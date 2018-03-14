@@ -13,7 +13,7 @@ ms.author: sstein
 ms.reviewer: billgib
 
 ---
-# Set up and use Log Analytics (Operations Management Suite) with a multitenant Azure SQL Database SaaS app
+# Set up and use Log Analytics (Operations Management Suite) with a multitenant SQL Database SaaS app
 
 In this tutorial, you set up and use Azure Log Analytics ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) to monitor elastic pools and databases. This tutorial builds on the [Performance monitoring and management tutorial](saas-dbpertenant-performance-monitoring.md). It shows how to use Log Analytics to augment the monitoring and alerting provided in the Azure portal. Log Analytics supports monitoring thousands of elastic pools and hundreds of thousands of databases. Log Analytics provides a single monitoring solution, which can integrate monitoring of different applications and Azure services across multiple Azure subscriptions.
 
@@ -88,11 +88,11 @@ In this exercise, open Log Analytics and the Operations Management Suite portal 
 
     ![Overview tile](media/saas-dbpertenant-log-analytics/overview.png)
 
-    ![Log Analytics dashboard](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
-
 5. The views in the solution scroll sideways, with their own inner scroll bar at the bottom. Refresh the page if necessary.
 
 6. To explore the summary page, select the tiles or individual databases to open a drill-down explorer.
+
+    ![Log Analytics dashboard](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
 7. Change the filter setting to modify the time range. For this tutorial, select **Last 1 hour**.
 
@@ -106,16 +106,17 @@ In this exercise, open Log Analytics and the Operations Management Suite portal 
  
      ![Database metrics](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-10. Scroll the analytics page to the left, and select the server tile in the **Resource Info** list. A page opens that shows the pools and databases on the server. 
+10. Scroll the analytics page to the left, and select the server tile in the **Resource Info** list.  
 
-     ![Resource Info list](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
+    ![Resource Info list](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
- 
-     ![Server with pools and databases](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
+    A page opens that shows the pools and databases on the server.
+
+    ![Server with pools and databases](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
 11. Select a pool. On the pool page that opens, scroll to the right to see the pool metrics. 
 
-     ![Pool metrics](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
+    ![Pool metrics](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
 12. Back in the Log Analytics workspace, select **OMS Portal** to open the workspace there.

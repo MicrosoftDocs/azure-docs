@@ -122,7 +122,7 @@ The script restores the tenant database to a point before the event was deleted.
 
 You successfully restored the database to a point in time before the event was deleted. When the **Events** page opens, confirm that the last event was restored.
 
-After you restore the database, it takes another 10 to 15 minutes before the first full back end is available to restore from again. 
+After you restore the database, it takes another 10 to 15 minutes before the first full backup is available to restore from again. 
 
 ## Next steps
 

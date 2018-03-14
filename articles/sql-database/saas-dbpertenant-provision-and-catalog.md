@@ -132,13 +132,13 @@ This exercise provisions a batch of 17 tenants. We recommend that you provision 
 1. In the PowerShell ISE, open ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*. Change the *$DemoScenario* parameter to 3:
 
    * **$DemoScenario** = **3** to *provision a batch of tenants*.
-2. Press F5 to run the script.
+2. To run the script, press F5.
 
 The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. The templates provision databases in parallel and handle retries, if needed. The script is idempotent, so if it fails or stops for any reason, run it again.
 
 ### Verify the batch of tenants that successfully deployed
 
-* In the [Azure portal](https://portal.azure.com), browse to your list of servers and open the *tenants1* server. Select **SQL databases**, and verify that the batch of 17 additional databases are now in the list.
+* In the [Azure portal](https://portal.azure.com), browse to your list of servers and open the *tenants1* server. Select **SQL databases**, and verify that the batch of 17 additional databases is now in the list.
 
    ![Database list](media/saas-dbpertenant-provision-and-catalog/database-list.png)
 
