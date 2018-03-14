@@ -29,7 +29,7 @@ The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino-comp
 
 ## Before you begin
 
-To complete the steps in this tutorial, first do the following:
+To complete the steps in this tutorial, first do the following tasks:
 
 * Prepare your DevKit by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * Upgrade to the latest firmware (1.3.0 or later) with the [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) tutorial.
@@ -49,19 +49,19 @@ To connect the DevKit to the device provisioning service instance that you creat
   git clone https://github.com/DevKitExamples/DevKitDPS.git
   ```
 
-4. Open Visual Studio Code and connect DevKit to your computer. Then open the folder that contains the code you cloned.
+4. Open Visual Studio Code and connect DevKit to your computer, and then open the folder that contains the code you cloned.
 
 5. Open **DevKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
   ![DPS Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png)
-  You can leave the **registrationId** blank. The application generates one for you based on the MAC address and firmware version. If you want to customize the Registration ID, it has to use only alphanumeric, lowercase, and hyphen combinations with a maximum of 128 characters. For more information, see [Manage device enrollments with Azure portal](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  You can leave the **registrationId** blank. The application generates one for you based on the MAC address and firmware version. If you want to customize the Registration ID, you must use only alphanumeric, lowercase, and hyphen combinations with a maximum of 128 characters. For more information, see [Manage device enrollments with Azure portal](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
 
-6. Use **Quick Open** in VS Code (Windows: `Ctrl+P`, macOS: `Cmd+P`) and type **task device-upload** to build and upload the code to the DevKit.
+6. Use Quick Open in VS Code (Windows: `Ctrl+P`, macOS: `Cmd+P`) and type *task device-upload* to build and upload the code to the DevKit.
 
-7. The output window shows if the task was successful.
+7. The output window shows whether the task was successful.
 
 ## Save a unique device secret on an STSAFE security chip
 
-The device provisioning service can be configured on a device based on its [Hardware Security Module](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/). The MXChip IoT DevKit uses the [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) from the [Trusted Computing Group](https://trustedcomputinggroup.org). A **unique device secret** (UDS) saved in an STSAFE security chip on the DevKit is used to generate the device's unique [X.509](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-device#select-a-hardware-security-module) certificate. The certificate can be later used for the enrollment process in the device provisioning service.
+The device provisioning service can be configured on a device based on its [Hardware Security Module](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/). The MXChip IoT DevKit uses the [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) from the [Trusted Computing Group](https://trustedcomputinggroup.org). A *unique device secret* (UDS) saved in an STSAFE security chip on the DevKit is used to generate the device's unique [X.509](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-device#select-a-hardware-security-module) certificate. The certificate can be used later for the enrollment process in the device provisioning service.
 
 A typical unique device secret is a 64-character string, as seen in the following sample:
 
@@ -75,11 +75,11 @@ To save a unique device secret on the DevKit:
 
 1. Open the serial monitor by using a tool such as Putty. See [Use configuration mode](https://microsoft.github.io/azure-iot-developer-kit/docs/use-configuration-mode/) for details.
 
-2. With the DevKit connected to your computer, hold down the **A** button, and then press and release the **Reset** button to enter configuration mode. The screen shows the DevKit ID and **Configuration**.
+2. With the DevKit connected to your computer, hold down the **A** button, and then press and release the **Reset** button to enter configuration mode. The screen shows the DevKit ID and Configuration.
 
 3. Take the sample UDS string and change one or more characters to other values between `0` and `f` for your own UDS.
 
-4. In the serial monitor window, type **set_dps_uds [your_own_uds_value]** and select Enter.
+4. In the serial monitor window, type *set_dps_uds [your_own_uds_value]* and select Enter.
   > [!NOTE]
   > For example, if you set your own UDS by changing the last two characters to `f`, you need to enter the command like this: set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff.
 
@@ -92,14 +92,14 @@ To save a unique device secret on the DevKit:
 
 ### Windows
 
-1. Open File Explorer and go to the folder that contains the device provisioning service sample code that you cloned earlier. In the **.build** folder, find and copy **DPS.ino.bin** and **DPS.ino.map** into the folder containing the code.
+1. Open File Explorer and go to the folder that contains the device provisioning service sample code that you cloned earlier. In the **.build** folder, find and copy **DPS.ino.bin** and **DPS.ino.map** into the folder that contains the code.
   ![Generated files](./media/how-to-connect-mxchip-iot-devkit/generated-files.png)
   > [!NOTE]
   > If you changed the `built.path` configuration for Arduino to another folder, you need to find those files in the folder you configured.
 
 2. Paste these two files into the **tools** folder on the same level with the **.build** folder.
 
-3. Run **dps_cert_gen.exe**. Then follow the prompts to enter your **UDS**, the **MAC address** for the DevKit, and the **firmware version** to generate the X.509 certificate.
+3. Run **dps_cert_gen.exe**. Follow the prompts to enter your **UDS**, the **MAC address** for the DevKit, and the **firmware version** to generate the X.509 certificate.
   ![Run dps-cert-gen.exe](./media/how-to-connect-mxchip-iot-devkit/dps-cert-gen.png)
 
 4. After the X.509 certificate is generated, a **.pem** certificate is saved to the same folder.
@@ -128,24 +128,24 @@ You see the DevKit start the registration with your device provisioning service.
 
 ![VS Code output](./media/how-to-connect-mxchip-iot-devkit/vscode-output.png)
 
-## Verify that the DevKit is registered with IoT Hub
+## Verify that the DevKit is registered with Azure IoT Hub
 
 After the device boots, the following actions take place:
 
 1. The device sends a registration request to your device provisioning service.
 2. The device provisioning service sends back a registration challenge to which your device responds.
 3. On successful registration, the device provisioning service sends the IoT Hub URI, device ID, and the encrypted key back to the device.
-4. The IoT Hub client application on the device then connects to your hub.
+4. The IoT Hub client application on the device connects to your hub.
 5. On successful connection to the hub, you see the device appear in the IoT Hub Device Explorer.
   ![Device registered](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
-## Change device ID
+## Change the device ID
 
-The default device ID registered with Azure IoT Hub is **AZ3166**. If you want to modify it, follow the instructions in [Customize device ID](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
+The default device ID registered with Azure IoT Hub is *AZ3166*. If you want to modify the ID, follow the instructions in [Customize device ID](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
 
 ## Problems and feedback
 
-If you encounter problems, refer to the Iot DevKit [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/), or reach out to us from the following channels:
+If you encounter problems, refer to the Iot DevKit [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/), or reach out to the following channels for support:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
