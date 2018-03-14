@@ -88,7 +88,7 @@ Use the following steps to restore Domain Services on your directory:
 Follow these steps if a service principal with the ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` is missing from your Azure AD directory.
 
 **Resolution:**
-Azure AD Domain Services can detect when this specific service principal is missing, misconfigured, or deleted. The service automatically recreates this service principal. However, you will need to delete the application and object that worked with the deleted application, as when the certification rolls over, the application and object will no longer be able to be modified by the new service principal. This will lead to a new error on your domain. Follow the steps outlined in the section to prevent this problem. After, check your managed domain's health after two hours to ensure that the new service principal has been recreated.
+Azure AD Domain Services can detect when this specific service principal is missing, misconfigured, or deleted. The service automatically recreates this service principal. However, you will need to delete the application and object that worked with the deleted application, as when the certification rolls over, the application and object will no longer be able to be modified by the new service principal. This will lead to a new error on your domain. Follow the steps outlined in the [section for AADDS105](#alert-aadds105-password-synchronization-application-is-out-of-date) to prevent this problem. After, check your managed domain's health after two hours to ensure that the new service principal has been recreated.
 
 
 ## Alert AADDS105: Password synchronization application is out of date
