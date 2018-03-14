@@ -39,13 +39,13 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-- Install the Service Fabric SDK for [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac) or [Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux)
+- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Install the Service Fabric SDK for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md)
 - [Install Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 ## Create a Service Fabric cluster in Azure
 
-The following steps create the necessary resources required to deploy your application to a Service Fabric cluster. Additionally, resources necessary to monitor the health of your solution using the ELK (Elasticsearch, Logstash, Kibana) stack are set up. Specifically, [Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) is used as a sink for logs from Service Fabric. It is configured to send logs from the Service Fabric cluster to your Logstash instance. 
+The following steps create the necessary resources required to deploy your application to a Service Fabric cluster. Additionally, resources necessary to monitor the health of your solution using the ELK (Elasticsearch, Logstash, Kibana) stack are set up. Specifically, [Event Hubs](https://azure.microsoft.com/services/event-hubs/) is used as a sink for logs from Service Fabric. It is configured to send logs from the Service Fabric cluster to your Logstash instance. 
 
 1. Open a terminal and download the following package that contains necessary helper scripts and the templates to create the resources in Azure
 
