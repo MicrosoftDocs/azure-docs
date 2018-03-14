@@ -157,7 +157,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     The CURL request and response for the access token is below.  Replace <CLIENT ID> with the clientId value of your user assigned MSI: 
     
     ```bash
-    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com&client_id=<MSI CLIENT ID>" 
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]
