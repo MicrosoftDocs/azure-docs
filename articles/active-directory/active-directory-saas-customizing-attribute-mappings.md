@@ -62,8 +62,8 @@ In addition to these four basic attribute mapping types, custom attribute mappin
 In the previous section, you have already been introduced to the attribute mapping type property.
 In addition to this property, attribute mappings do also support the following attributes:
 
-- **Source attribute** - The user attribute from the source system (e.g.: Azure Active Directory).
-- **Target attribute** – The user attribute in the target system (e.g.: ServiceNow).
+- **Source attribute** - The user attribute from the source system (example: Azure Active Directory).
+- **Target attribute** – The user attribute in the target system (example: ServiceNow).
 - **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between the source and target systems. This is typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
 - **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
 - **Apply this mapping**
@@ -107,20 +107,20 @@ Applications and systems that support customization of the attribute list includ
 
 When editing the list of supported attributes, the following properties are provided:
 
-* **Name** - The system name of the attribute, as defined in the object's schema. 
-* **Type** - The type of data the attribute stores, as defined in the object's schema. This can be one of the following:
+* **Name** - The system name of the attribute, as defined in the target object's schema. 
+* **Type** - The type of data the attribute stores, as defined in the target object's schema. This can be one of the following:
    * *Binary* - Attribute contains binary data.
    * *Boolean* - Attribute contains a True or False value.
    * *DateTime* - Attribute contains a date string.
    * *Integer* - Attribute contains an integer.
    * *Reference* - Attribute contains an ID that references a value stored in another table in the target application.
    * *String*  - Attribute contains a text string. 
-* **Primary Key?** - Whether or not the attribute is defined as a primary key field in the object's schema.
+* **Primary Key?** - Whether or not the attribute is defined as a primary key field in the target object's schema.
 * **Required?** - Whether or not the attribute is required to be populated in the target application or system.
 * **Multi-value?** - Whether or not the attribute supports multiple values.
 * **Exact case?** - Whether or not the attributes values are evaluated in a case-sensitive way.
 * **API Expression** - Do not use, unless instructed to do so by the documentation for a specific provisioning connector (such as Workday).
-* **Referenced Object Attribute** - If this is a Reference type attribute, then this menu allows you to select the table + attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value is an ID referencing an object in a separate "Departments" table, you would select "Departments.Name". Note that the reference tables and the primary ID fields supported for a given application are pre-configured and currently cannot be edited using the Azure portal (but can be editing using the [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)).
+* **Referenced Object Attribute** - If this is a Reference type attribute, then this menu allows you to select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". Note that the reference tables and the primary ID fields supported for a given application are pre-configured and currently cannot be edited using the Azure portal, but can be edited using the [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You will then need to reload the **Provisioning** tab for the new attributes to become available in the attribute mapping editor.
 
