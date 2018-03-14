@@ -8,6 +8,7 @@ ms.service: "sql-database"
 author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
+ms.custom: data-sync
 ---
 # Monitor SQL Data Sync (Preview) with OMS Log Analytics 
 
