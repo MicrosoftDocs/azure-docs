@@ -8,7 +8,7 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/14/2018
 ms.author: v-geberr;
 ---
 
@@ -110,110 +110,19 @@ Use the following steps to use the Bing Spell Check v7 service key.
 
     ![Corrected spelling JSON](./media/luis-how-to-train-test/interactive-with-spell-check-results.png)
 
+<a href="luis-how-to-batch-test.md#json-file-with-no-duplicates"></a>
+<a href="luis-how-to-batch-test.md#import-a-dataset-file-for-batch-testing"></a>
+<a href="luis-how-to-batch-test.md#export-rename-delete-or-download-dataset"></a>
+<a href="luis-how-to-batch-test.md#run-a-batch-test-on-your-trained-app"></a>
+<a href="luis-how-to-batch-test.md#access-batch-test-result-details-in-a-visualized-view"></a>
+<a href="luis-how-to-batch-test.md#filter-chart-results-by-intent-or-entity"></a>
+<a href="luis-how-to-batch-test.md#investigate-false-sections"></a>
+<a href="luis-how-to-batch-test.md#view single-point utterance data"></a>
+<a name="luis-how-to-batch-test.md#relabel-utterances-and-retrain"></a>
+<a href="luis-how-to-batch-test.md#false-test-results"></a>
+
 ## Batch testing
-Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. Use utterances LUIS has not seen before in either the model or the endpoint. This testing helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
-
-## JSON file with no duplicates
-You submit a batch file of utterances, known as a *dataset*. The dataset is JSON format and contains a maximum of 1,000 labeled **non-duplicate** utterances. Duplicates are considered exact string matches, not matches that are tokenized first. 
-
-|**Rules**|
-|--|
-|No duplicate utterances|
-|No hierarchical entity children|
-|1000 utterances or less|
-
-
-Import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
-
-You can test 10 dataset files in a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
- 
-<a name="batch-testing"></a>
-## Import a dataset file for batch testing
-
-1. Select **Test** in the top bar, and then select **Batch testing panel**.
-
-    ![Batch Testing Link](./media/luis-how-to-train-test/batch-testing-link.png)
-
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the JSON file that contains *no more than 1,000* utterances to test.
-
-    ![Import Dataset File](./media/luis-how-to-train-test/batchtest-importset.png)
-
-    Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. **Common errors** are more than 1,000 utterances or an utterance JSON object that doesn't have an entities property. Every utterance must have an entities property. If the utterance has no entities, the entities property should be an empty array.
-
-3. In the **Dataset Name** field, type a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. An example of the JSON in the batch file follows:
-
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
-
-4. Select **Done**. The dataset file is added.
-
-## Export, rename, delete, or download dataset
-To export, rename, delete, or download the imported dataset, use the three dots (**...**) at the end of the dataset row.
-
-![Dataset Actions](./media/luis-how-to-train-test/batch-testing-options.png)
-
-## Run a batch test on your trained app
-
-To run the test, select the dataset name. When the test completes, this row displays the test result of the dataset.
-
-![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
-
-**Successful predictions** are utterances where the intent in the batch file is the same intent predicted in the test.
-
-In the preceding screenshot:
- 
- - **State** includes ready to run, erroring results, or successful results. 
- - **Size** is the total number of utterances included in the dataset file.
- - **Last Run** is the date of the latest test run for this dataset. 
- - **Last Result** displays the number of successful predictions in the last test run.
-
-
-|State|Meaning|
-|--|--|
-|![Successful test green circle icon](./media/luis-how-to-train-test/batch-test-result-green.png)|All utterances are successful.|
-|![Failing test red x icon](./media/luis-how-to-train-test/batch-test-result-red.png)|At least one utterance intent did not match the prediction.|
-|![Ready to test icon](./media/luis-how-to-train-test/batch-test-result-blue.png)|Test is ready to run.|
-
-
-
-## Access batch test result details in a visualized view
- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. 
-
-Green points indicate correct prediction, and red ones indicate incorrect prediction.
-
-The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
-
-![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
-
-  
-## Filter chart results by intent or entity
-To filter the view by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. All items in the filtered section also display in more detail below the chart. 
- 
-![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
-
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-![Four sections of chart](./media/luis-how-to-train-test/chart-sections.png)
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
-
-## View single-point utterance data
-In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page. 
-
-![Selected utterance](./media/luis-how-to-train-test/selected-utterance.png)
-
-
-<a name="relabel-utterances-and-retrain"></a>
-## False test results
-In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list of incorrect predictions. 
-
-![Selected utterances by section](./media/luis-how-to-train-test/selected-utterances-by-section.png)
-
-In this preceding image, the utterance `switch on` is labeled with the TurnAllOn intent, but received the prediction of None intent. This is an indication that the TurnAllOn intent needs more example utterances in order to make the expected prediction. 
-
-The two sections of the chart in red indicate utterances that did not match the expected prediction. These indicate utterances which LUIS needs more training. 
-
-The two sections of the chart in greed did match the expected prediction.
+See [batch testing](luis-how-to-batch-test.md) to learn how to test a batch of utterances.
 
 ## Next steps
 
