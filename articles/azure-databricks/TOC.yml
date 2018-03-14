@@ -9,6 +9,10 @@
   items:
   - name: Create Databricks workspace
     href: quickstart-create-databricks-workspace-portal.md
+- name: Tutorials
+  items:
+  - name: Sentiment analysis using Cognitive Services
+    href: databricks-sentiment-analysis-cognitive-services.md
 - name: How-to guides
   items:
   - name: Connect with Excel, R, and Python 
