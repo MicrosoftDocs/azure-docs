@@ -967,7 +967,7 @@ Use the stored procedures you created to generate millions of rows in the wwi.fa
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
     ```
-3. The data generation in the previous step might take a while as it progresses through the year.  To see which day the current process is on, run this SQL command:
+3. The data generation in the previous step might take a while as it progresses through the year.  To see which day the current process is on, open a new query and run this SQL command:
 
     ```sql
     SELECT MAX([Invoice Date Key]) FROM wwi.fact_Sale;
