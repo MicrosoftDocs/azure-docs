@@ -1,6 +1,6 @@
 ---
-title: Use Jenkins for CICD in Java| Microsoft Docs
-description: Learn how to set up Jenkins in SF cluster for Java
+title: Setup CICD for an Azure Service Fabric Java application| Microsoft Docs
+description: Learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
