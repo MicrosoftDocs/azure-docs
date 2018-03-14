@@ -92,7 +92,7 @@ If your reference data is a slowly changing data set, then support for refreshin
 ## Tips on refreshing your reference data
 1. Overwriting reference data blobs will not cause Stream Analytics to reload the blob and in some cases it can cause the job to fail. The recommended way to change reference data is to add a new blob using the same container and path pattern defined in the job input and use a date/time **greater** than the one specified by the last blob in the sequence.
 2. Reference data blobs are **not** ordered by the blob’s “Last Modified” time but only by the time and date specified in the blob name using the {date} and {time} substitutions.
-3. To avoid having to list large number of blobs, consider deleting very old blobs for which processing will no longer be done. Please note that ASA might go have to reprocess a small amount in some scenarios like a restart
+3. To avoid having to list large number of blobs, consider deleting very old blobs for which processing will no longer be done. Please note that ASA might go have to reprocess a small amount in some scenarios like a restart.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
