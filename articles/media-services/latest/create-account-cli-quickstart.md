@@ -56,7 +56,7 @@ az group create -n <myresourcegroup> -l westus2
 
 ## Create an Azure Storage account
 
-When creating a Media Services account, you need to supply the ID of an Azure Storage account resource. The specified storage account is attached to your Media Services account. You can have two storage accounts associated with your Media Services account: **Primary** and **Secondary**.  The primary storage account can only be General Purpose v1. The secondary storage account can be General Purpose v1 or v2. If you want to learn more about storage accounts, see [Azure Storage account options](../../storage/common/storage-account-options.md).
+When creating a Media Services account, you need to supply the ID of an Azure Storage account resource. The specified storage account is attached to your Media Services account. You can have two storage accounts associated with your Media Services account: **Primary** and **Secondary**, Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. However, **Blob only** accounts are not allowed as **Primary**. If you want to learn more about storage accounts, see [Azure Storage account options](../../storage/common/storage-account-options.md). 
 
 The following command creates the Storage account that is going to be associated with the Media Services Account (primary). In the script below, substitute the *storageaccountforams* placeholder. 
 

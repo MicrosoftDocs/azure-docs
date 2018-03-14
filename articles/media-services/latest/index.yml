@@ -30,7 +30,7 @@ sections:
       href: /azure/media-services/latest/create-account-cli-quickstart
     - image: 
         src: media/index/media-services.svg
-      text: Stream a file
+      text: Stream video files
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
 - title: Step-by-Step Tutorials
   items:
@@ -40,7 +40,6 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/media-services/latest/stream-files-tutorial">Upload, encode, stream videos</a>
-    - html: <a href="/azure/media-services/latest/broadcast-live-tutorial">Broadcast live</a>
     - html: <a href="/azure/media-services/latest/analyze-videos-tutorial">Analyze your videos</a>
     - html: <a href="/azure/media-services/latest/playback-tutorial">Playback on multiple devices</a>
 - title: Reference

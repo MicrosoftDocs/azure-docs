@@ -13,10 +13,9 @@ ms.service: media-services
 ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.workload: media
 ms.date: 03/11/2018
 ms.author: juliako
-
 ms.custom: mvc
 
 ---
@@ -38,7 +37,7 @@ Media Services v3, is the latest version of the services and it is based on the 
 
 * It combines together the previously separate management and operations API into a single unified API surface built on Azure Resource Management framework. 
 * It enhances Media Services capabilities by introducing a new templated workflow resource called a [Transform](transform-concept.md). Transforms help you define simple workflows of media processing or analytics tasks - essentially a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
-* Jobs can now be submitted using HTTP(s) URLs, SAS URLs, AWS S3 Token URLs or paths to files located in Azure Blob storage. 
+* Jobs can now be submitted using HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. 
 * Notifications have been redesigned to integrate directly with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. For example, Job progress or states, or Live Channel start/stop and error events. 
 * Customers can now use Azure Resource Management templates to create and deploy Transforms, Streaming Endpoints, Channels, and more.
 * Role-based access control  can also be set at the resource level, allowing customers to lock down access to specific resources like Transforms, Content Keys, Channels, and more.
@@ -51,7 +50,7 @@ The following are some real-world customer use-case scenarios you might also wan
 * Deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices.
   
     For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. To see how to deliver adaptive bitrate content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
-* Stream live sporting events to a large online audiences, such as soccer, baseball, college and high school sports, and more. 
+* Stream live sporting events to a large online audience, such as soccer, baseball, college and high school sports, and more. 
 * Broadcast public government meetings and events such as town halls, city council meetings, and legislative bodies (Parliament, House of Representatives).
 * Analyze audio from call centers. Embedded in the audio data is a large amount of customer information that can be analyzed to achieve higher customer satisfaction. Organizations can extract speech-to-text and build search indexes and dashboards. Then they can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * Analyze surveillance video. Manually reviewing surveillance video is time intensive and prone to human error. You can utilize services such as motion detection and face detection to make the process of reviewing, managing, and creating derivatives easier.
@@ -76,7 +75,6 @@ As a developer, you can use Media Services [REST API](https://docs.microsoft.com
 * Go
 * Azure CLI 2.0
 
-
 Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) that you can use to generate SDKs for your preferred language/technology. You can use [AutoRest](https://github.com/Azure/autorest) to generate client libraries. 
 
 ### Jump right in
@@ -87,7 +85,6 @@ For a more advanced streaming scenario, see [Tutorial: Upload, encode, stream](s
 
 ## Next Steps
 
-* [Broadcast live](broadcast-live-tutorial.md)
 * [Analyze your videos](analyze-videos-tutorial.md)
 * [Playback on multiple devices](playback-tutorial.md)
 

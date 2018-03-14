@@ -1,5 +1,5 @@
 ---
-title: Stream files - .NET | Microsoft Docs
+title: Stream video files - .NET | Microsoft Docs
 description: Follow the steps of this quickstart to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -9,19 +9,19 @@ editor: ''
 keywords: azure media services, stream
 
 ms.service: media-services
-ms.workload: 
+ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/11/2018
+ms.date: 03/13/2018
 ms.author: juliako
 ---
 
-# Quickstart: Stream files - .NET
+# Quickstart: Stream video files - .NET
 
 > [!NOTE]
 > The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3.
 
-This quickstart shows you how to stream files. Most likely, you would want to deliver adaptive bitrate content in HLS or MPEG DASH so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. 
+This quickstart shows you how to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately.
 
 This quickstart examines a .NET code sample that is located on GitHub. The article explains the following tasks that are part of the code sample:  
 

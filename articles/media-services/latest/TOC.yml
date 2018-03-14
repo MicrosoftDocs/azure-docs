@@ -9,7 +9,7 @@
   items:
   - name: Create an account - CLI
     href: create-account-cli-quickstart.md
-  - name: Stream files 
+  - name: Stream video files 
     items:
     - name: .NET with Visual Studio
       href: stream-files-dotnet-quickstart.md
@@ -17,8 +17,6 @@
   items:
   - name: Upload, encode, stream
     href: stream-files-tutorial.md
-  - name: Broadcast live
-    href: broadcast-live-tutorial.md
   - name: Analyze your video
     href: analyze-videos-tutorial.md
   - name: Playback on multiple devices
