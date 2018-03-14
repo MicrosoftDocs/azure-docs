@@ -1,5 +1,5 @@
 - name: Event Hubs Documentation
-  href: index.md
+  href: ./index.md
 - name: Overview
   items:
   - name: What is Event Hubs?
