@@ -20,7 +20,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Deploy virtual machines and applications across both Azure and Azure Stack.'
+    text: 'Learn how to add services to your ASDK deployment.'
   - type: list
     style: ordered
     items:
