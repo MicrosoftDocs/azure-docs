@@ -37,14 +37,14 @@ If you would like your VMs in your low-priority scale set to be deleted when the
 
 During preview, you will be able to set your eviction policy by using [Azure Resource Manager templates](#use-azure-resource-manager-templates). 
 
-## Deploying low-priority VMs on scale sets
+### Deploying low-priority VMs on scale sets
 
 To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to *Low*. All VMs in your scale set will be set to low-priority. To create a scale set with low-priority VMs, use one of the following methods:
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
 
-### Use the Azure CLI 2.0
+## Use the Azure CLI 2.0
 
 The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-cli.md). Just add the '--Priority' parameter to the cli call and set it to *Low* as shown in the example below:
 
@@ -59,7 +59,7 @@ az vmss create \
     --priority Low
 ```
 
-### Use Azure PowerShell
+## Use Azure PowerShell
 
 The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md).
 Just add the '-Priority' parameter to the [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) and set it to *Low* as shown in the example below:
@@ -73,7 +73,7 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Priority "Low"
 ```
 
-### Use Azure Resource Manager Templates:
+## Use Azure Resource Manager Templates:
 
 The process to create a scale set that uses low-priority VMs is the same as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md). Add the 'priority' property to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template and specify *Low* as the value. Be sure to use *2017-10-30-preview* API version or higher. 
 
