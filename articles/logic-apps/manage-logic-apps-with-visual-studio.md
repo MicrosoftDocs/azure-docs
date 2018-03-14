@@ -13,7 +13,8 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.custom: mvc
+ms.date: 03/15/2018
 ms.author: estfan; LADocs
 ---
 
@@ -68,6 +69,8 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
   For example, if you use the Dynamics CRM Online connector, 
   the designer checks your CRM instance for available 
   default and custom properties.
+
+<a name="find-logic-apps-vs"></a>
 
 ## Find your logic apps
 
