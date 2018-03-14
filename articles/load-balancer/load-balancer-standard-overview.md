@@ -324,7 +324,7 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 ## Region availability
 
-Load Balancer Standard is currently available in all public cloud regions.
+Load Balancer Standard is currently available in all public cloud regions except West US.
 
 >[!IMPORTANT]
 > For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) requires the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  [Please follow these steps](#additionalpreviewregions). Please execute all of them even if you have previously signed up for AllowLBPreview already.
@@ -464,6 +464,7 @@ The following limitations apply at the time of preview and are subject to change
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - Portal does not yet support the expanded preview regions.  Please use client tools like templates, Azure CLI 2.0 or PowerShell as a workaround.
 - Move subscription operations are not supported.
+- Not available in West US.
 
 
 ## Next steps

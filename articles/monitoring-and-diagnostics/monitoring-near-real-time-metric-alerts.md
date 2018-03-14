@@ -35,7 +35,7 @@ Near real-time metric alerts differ from regular metric alerts in a few ways:
 >
 
 ## Metrics and Dimensions Supported
-Near real-time metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [*Azure Monitor - **Metrics (Preview)***](monitoring-metric-charts.md).
+Near real-time metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
 
 Here's the full list of Azure monitor based metric sources that are supported for near real-time metric alerts:
 
@@ -63,7 +63,7 @@ Here's the full list of Azure monitor based metric sources that are supported fo
 
 
 Metrics from Logs, currently supports the following popular OMS logs:
-- [Performance counters](../log-analytics/https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
+- [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
 - Heartbeat records for machines
 - [Update management](../operations-management-suite/oms-solution-update-management.md) records
 

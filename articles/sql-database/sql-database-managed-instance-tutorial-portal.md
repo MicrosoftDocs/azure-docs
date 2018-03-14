@@ -3,24 +3,25 @@ title: 'Azure portal: Create SQL Database Managed Instance | Microsoft Docs'
 description: Create an Azure SQL Database Managed Instance in a VNet and use SSMS to restore the Wide World Importers database backup.
 keywords: sql database tutorial, create a sql database managed instance
 services: sql-database
-author: CarlRabeler
+author: bonova
+ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: "Active"
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 03/07/2018
-ms.author: carlrab
-manager: Craig.Guyer
+ms.date: 03/14/2018
+ms.author: bonova
+manager: craigg
 
 ---
-# Create an Azure SQL Database Managed Instance (preview) in the Azure portal
+# Create an Azure SQL Database Managed Instance in the Azure portal
 
 This tutorial demonstrates how to create an Azure SQL Database Managed Instance (preview) using the Azure portal in a dedicated subnet of a virtual network (VNet). It then shows you how to connect to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNet and then restore a backup of a database stored in Azure blob storage into the Managed Instance.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+> [!IMPORTANT]
+> For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+ 
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -48,14 +49,14 @@ Managed Instance is being released initially as a gated public preview that requ
 
 ## Configure a virtual network (VNet)
 
-The following steps show you how to create a new [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNet) for use by your Managed Instance.
+The following steps show you how to create a new [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) virtual network (VNet) for use by your Managed Instance. For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Locate and then click **Virtual Network**, verify the **Resource Manager** is selected as the deployment mode, and then click **Create**.
 
    ![virtual network create](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
-3. Fill out the virtual network form with the requested information, using the information in the following table.
+3. Fill out the virtual network form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -82,7 +83,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route.
 
    ![route table create](./media/sql-database-managed-instance-tutorial/route-table-create.png)
 
-3. Fill out the route table form with the requested information, using the information in the following table.
+3. Fill out the route table form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -90,7 +91,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route.
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource Group**|Select the resource group you created in the previous procedure|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|Select the location you specified in the previous procedure| For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
-   |**Disable BCP route propogation**|Disabled||
+   |**Disable BCP route propagation**|Disabled||
    ||||
 
    ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
@@ -104,7 +105,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route.
 
    ![route table add](./media/sql-database-managed-instance-tutorial/route-table-add.png)
 
-7.  Add **0.0.0.0/0 Next Hop Internet route** as the **only** route, using the information in the following table.
+7.  Add **0.0.0.0/0 Next Hop Internet route** as the **only** route, using the information in the following table:
 
     | Setting| Suggested value | Description |
     | ------ | --------------- | ----------- |
@@ -148,7 +149,7 @@ The following steps show you how to create your Managed Instance after your prev
 
    ![managed instance preview accepted](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Fill out the Managed Instance form with the requested information, using the information in the following table.
+4. Fill out the Managed Instance form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -161,7 +162,7 @@ The following steps show you how to create your Managed Instance after your prev
 
    ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance will get 32 GB of storage space free of charge, which may not be sufficient for your applications.
+5. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance gets 32 GB of storage space free of charge, which may not be sufficient for your applications.
 6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
    ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
@@ -178,11 +179,11 @@ The following steps show you how to create your Managed Instance after your prev
 While deployment occurs, continue to the next procedure.
 
 > [!IMPORTANT]
-> For the first instance in a subnet, deployment time is typically be much longer then in case of the subsequent instances - sometimes more than 24 hours to complete. Do not cancel deployment operation because it lasts longer than you expected. This lenght of time to deploy your first instance is a temporary situation. Expect a significant reduction of deployment time shortly after the beginning of the public preview.
+> For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances - sometimes more than 24 hours to complete. Do not cancel deployment operation because it lasts longer than you expected. This length of time to deploy your first instance is a temporary situation. Expect a significant reduction of deployment time shortly after the beginning of the public preview.
 
 ## Create a new subnet in the VNet for a virtual machine
 
-The following steps show you how to create a second subnet in the VNet for a virtual machine in which you will install SQL Server Management Studio and connect to your Managed Instance.
+The following steps show you how to create a second subnet in the VNet for a virtual machine in which you install SQL Server Management Studio and connect to your Managed Instance.
 
 1. Open your virtual network resource.
  
@@ -192,7 +193,7 @@ The following steps show you how to create a second subnet in the VNet for a vir
  
    ![add subnet](./media/sql-database-managed-instance-tutorial/add-subnet.png)
 
-3. Fill out the subnet form with the requested information, using the information in the following table.
+3. Fill out the subnet form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -215,7 +216,7 @@ The following steps show you how to create a virtual machine in the same VNet in
 
    ![compute](./media/sql-database-managed-instance-tutorial/compute.png)
 
-3. Fill out the virtual machine form with the requested information, using the information in the following table.
+3. Fill out the virtual machine form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -229,7 +230,7 @@ The following steps show you how to create a virtual machine in the same VNet in
    |**Already have a Windows license**|No|If you own Windows licenses with active Software Assurance (SA), use Azure Hybrid Benefit to save compute cost|
    ||||
 
-   ![virutal machine create form](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
+   ![virtual machine create form](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
 3. Click **OK**.
 4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. For this tutorial, you only need a small virtual machine.
@@ -263,7 +264,7 @@ The following steps show you how to connect to your newly created virtual machin
 You are connected to your virtual machine in the Server Manager dashboard.
 
 > [!IMPORTANT]
-> Do not continue until your Managed Instance is successfully provisioned. After it is provivioned, retrieve the host name for your instance in the **Managed instance** field on the **Overview** tab for your Managed Instance. In will be similar to this: **drfadfadsfd.tr23.westus1-a.worker.database.windows.net**.
+> Do not continue until your Managed Instance is successfully provisioned. After it is provisioned, retrieve the host name for your instance in the **Managed instance** field on the **Overview** tab for your Managed Instance. The name is similar to this: **drfadfadsfd.tr23.westus1-a.worker.database.windows.net**.
 
 ## Install SSMS and connect to the Managed Instance
 
@@ -288,7 +289,7 @@ The following steps show you how to download and install SSMS, and then connect 
 
     ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 
-After you connect, you can view your system and user databases in the Databases node, and various objects in the Seciruty, Server Objects, Replication, Management, SQL Server Agent, and XEvent Profiler nodes.
+After you connect, you can view your system and user databases in the Databases node, and various objects in the Security, Server Objects, Replication, Management, SQL Server Agent, and XEvent Profiler nodes.
 
 ## Download the Wide World Importers - Standard backup file
 
@@ -303,7 +304,7 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
 
    ![storage account](./media/sql-database-managed-instance-tutorial/storage-account.png)
 
-3. Fill out the storage account form with the requested information, using the information in the following table.
+3. Fill out the storage account form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -311,7 +312,7 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
    |**Deployment model**|Resource model||
    |**Account kind**|Blob storage||
    |**Performance**|Standard or premium|Magnetic drives or SSDs|
-   |**Replication**|Locally-redundant storage||
+   |**Replication**|Locally redundant storage||
    |**Access tier (default)|Cool or hot||
    |**Secure transfer required**|Disabled||
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
@@ -329,7 +330,7 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
    ![sas form](./media/sql-database-managed-instance-tutorial/sas-form.png)
 
 7. On the SAS form, modify the default values as desired. Notice that the expiry date/time is, by default, only 8 hours.
-8. In the **Allows IP addresses** box, enter the external IP address for your virtual machine - or use the totally open range of **0.0.0.0** to **255.255.255.255** and click **Generate SAS**.
+8. Click **Generate SAS**.
 
    ![sas form completed](./media/sql-database-managed-instance-tutorial/sas-generate.png)
 
@@ -339,7 +340,7 @@ Using Internet Explorer, enter https://github.com/Microsoft/sql-server-samples/r
     ![containers](./media/sql-database-managed-instance-tutorial/containers.png)
 
 11. Click **+ Container** to create a container to hold your backup file.
-12. Fill out the container form with the requested information, using the information in the following table.
+12. Fill out the container form with the requested information, using the information in the following table:
 
     | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -422,5 +423,7 @@ WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
 
 ## Next steps
 
-- For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
-- For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS]../dms/tutorial-sql-server-to-managed-instance.md).
+- For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
+- For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
+- For information about connecting apps, see [Connect applications](sql-database-managed-instance-connect-app.md).
+- For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).

@@ -33,7 +33,7 @@ Here are some data movement tools we have provided on the DSVM.
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Importing multiple blobs from Azure storage into Azure Data Lake Store.      |
 |  How to use / run it?    |   Open a command prompt, then type `adlcopy` to get help.    |
-| Links to Samples      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Links to Samples      | [Using AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Related Tools on the DSVM      | AzCopy, Azure Command Line     |
 
 ## Azure Command Line
@@ -44,7 +44,7 @@ Here are some data movement tools we have provided on the DSVM.
 | Supported DSVM Versions      | Windows, Linux     |
 | Typical Uses      | Importing, exporting data to and from Azure storage, Azure Data Lake Store      |
 |  How to use / run it?    |   Open a command prompt, then type `az` to get help.    |
-| Links to Samples      | [Using Azure CLI](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Links to Samples      | [Using Azure CLI](https://docs.microsoft.com/cli/azure)     |
 | Related Tools on the DSVM      | AzCopy, AdlCopy      |
 
 
@@ -91,7 +91,7 @@ Here are some data movement tools we have provided on the DSVM.
 | Supported DSVM Versions      | Linux      |
 | Typical Uses      | Reading and writing to blobs in a container      |
 |  How to use / run it?    |   Run _blobfuse_ at a terminal.    |
-| Links to Samples      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Links to Samples      | [blobfuse on GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Related Tools on the DSVM      | Azure Command Line      |
 
 

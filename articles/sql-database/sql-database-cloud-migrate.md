@@ -4,7 +4,7 @@ description: Learn how about SQL Server database migration to Azure SQL Database
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 author: CarlRabeler
-manager: Craig.Guyer
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
@@ -29,7 +29,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
  Use this method to migrate to a single or a pooled database if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
 
-The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to Azure SQL Database Managed Instance, see [Migration to a Managed Instance](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to Managed Instance, see [Migration to a Managed Instance](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
 
   ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
@@ -109,7 +109,7 @@ There are a wide variety of compatibility issues that you might encounter, depen
 In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](http://stackoverflow.com/).
 
 > [!IMPORTANT]
-> SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibilty issues. See [What is an Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Managed Instance](sql-database-managed-instance.md).
 
 
 ## Next steps

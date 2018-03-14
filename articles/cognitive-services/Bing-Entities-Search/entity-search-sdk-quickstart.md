@@ -191,24 +191,24 @@ The following code handles disambiguation of results for an ambiguous query "Wil
 ```
 
 ##EntityData places
-The following code looks up a single restaurant "John Howie Bellevue" and prints out its phone number.
+The following code looks up a single store "Microsoft Store" and prints out its phone number.
 ```
-        public static void RestaurantLookup(EntitySearchAPI client)
+        public static void StoreLookup(EntitySearchAPI client)
         {
             try
             {
-                var entityData = client.Entities.Search(query: "john howie bellevue");
+                var entityData = client.Entities.Search(query: "microsoft store");
 
                 if (entityData?.Places?.Value?.Count > 0)
                 {
                     // Some local entities will be places, others won't be. Depending on the data you want, try to cast to the appropriate schema.
-                    // In this case, the item being returned is technically a Restaurant, but the Place schema has the data we want (telephone)
-                    var restaurant = entityData.Places.Value.FirstOrDefault() as Place;
+                    // In this case, the item being returned is technically a store, but the Place schema has the data we want (telephone)
+                    var store = entityData.Places.Value.FirstOrDefault() as Place;
 
-                    if (restaurant != null)
+                    if (store != null)
                     {
-                        Console.WriteLine("Searched for \"John Howie Bellevue\" and found a restaurant with this phone number:");
-                        Console.WriteLine(restaurant.Telephone);
+                        Console.WriteLine("Searched for \"Microsoft Store\" and found a store with this phone number:");
+                        Console.WriteLine(store.Telephone);
                     }
                     else
                     {

@@ -1,23 +1,24 @@
 ---
 title: Azure SQL Database Managed Instance connect application | Microsoft Docs
 description: This article discusses how to connect your application to Azure SQL Database Managed Instance.
-author: CarlRabeler
+ms.service: sql-database
+author: srdjan-bozovic
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.workload: "Active"
 ms.date: 03/07/2018
-ms.author: carlrab
-manager: cguyer
+ms.author: srbozovi
+ms.reviewer: bonova, carlrab
 ---
 
-# Connect your application to Azure SQL Database Managed Instance (preview)
+# Connect your application to Azure SQL Database Managed Instance
 
-Today you have multiple choices when deciding how and where you will host your application. 
+Today you have multiple choices when deciding how and where you host your application. 
  
 You may choose to host application in the cloud either by using Azure App Service or some of Azure's virtual network (VNet) integrated options like Azure App Service Environment, Virtual Machine, Virtual Machine Scale Set. You could also take hybrid cloud approach and keep your applications on-premises. 
  
-Whatever choice you made, you can connect it to Managed Instance.  
+Whatever choice you made, you can connect it to a Managed Instance (preview).  
 
 ![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
@@ -56,10 +57,10 @@ Managed Instance can be accessed only through a private IP address so in order t
  
 For troubleshooting, see [Troubleshooting VNets and Applications](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). If a connection cannot be established, try [synching the networking configuration](sql-database-managed-instance-sync-network-configuration.md). 
  
-A special case of connecting Azure App Service to SQL Managed Instance is when you integrated Azure App Service to a network peered to SQL Managed Instance VNet. That case requires the following configuration to be set up: 
+A special case of connecting Azure App Service to Managed Instance is when you integrated Azure App Service to a network peered to Managed Instance VNet. That case requires the following configuration to be set up: 
 
-- SQL Managed Instance VNet must NOT have gateway  
-- SQL Managed Instance VNet must have Use remote gateways option set 
+- Managed Instance VNet must NOT have gateway  
+- Managed Instance VNet must have Use remote gateways option set 
 - Peered VNet must have Allow gateway transit option set 
  
 This scenario is illustrated in the following diagram:

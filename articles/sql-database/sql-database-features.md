@@ -1,20 +1,14 @@
 ---
 title: Azure SQL Database feature comparison | Microsoft Docs
-description: This article compares the features of Azure SQL Database and Azure SQL Database Managed Instances with each other and with SQL Server.
+description: This article compares the features of Azure SQL Database and Managed Instances with each other and with SQL Server.
 services: sql-database
-documentationcenter: 
-author: CarlRabeler
-editor: 
-ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
+author: jovanpop-msft
+ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.custom: 
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: "Active"
 ms.date: 02/28/2018
-ms.author: carlrab
-manager: jhubbard
+ms.author: jovanpop
+manager: craigg
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server 
@@ -30,7 +24,7 @@ Microsoft continues to add features to Azure SQL Database. Visit the Service Upd
 
 The following table lists the major features of SQL Server and provides information about whether the feature is partially or fully supported and a link to more information about the feature. 
 
-| **SQL Feature** | **Supported in Azure SQL Database** | **Azure SQL Database Managed Instance (preview)** |
+| **SQL Feature** | **Supported in Azure SQL Database** | **Managed Instance (preview)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
@@ -140,4 +134,4 @@ The following table lists the major features of SQL Server and provides informat
 ## Next steps
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
-- For information about a Managed Instance, see [What is an Azure SQL Database Managed Instance?](sql-database-managed-instance.md).
+- For information about a Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).

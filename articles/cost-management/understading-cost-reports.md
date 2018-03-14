@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -72,6 +72,49 @@ Each numbered area in the preceding image is described in detail in the followin
      - Application
      - Environment
      - Cost code
+
+    Here's a list of built-in groups available in reports:
+
+    - **Cost Type**
+      - Select a cost type or multiple cost types, or select all. Cost types include:
+        - One-Time Fee
+        - Support
+        - Usage Cost
+    - **Customer**
+        - Select a specific customer, multiple customers, or select all customers.
+    - **Account Name**
+        - The account or subscription name. In Azure, it is the name of the Azure subscription.
+    - **Account No**
+        - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription’s GUID.
+    - **Parent Account**
+        - Select the parent account, multiple accounts, or select all.
+    - **Service**
+        - Select a service, multiple services, or select all services.
+    - **Provider**
+        - The cloud provider where assets and expenses are associated.
+    - **Region**
+        - Region where the resource is hosted.
+    - **Availability Zone**
+        - AWS isolated locations within a region.
+    - **Resource Type**
+        - The type of resource in use.
+    - **Sub-Type**
+        - Select the sub-type.
+    - **Operation**
+        - Select the operation or **Show all**.
+    - **Price Model**
+        - All Upfront
+        - No Upfront
+        - Partial Upfront
+        - On Demand
+        - Reservation
+        - Spot
+    - **Charge Type**
+        - Select Negative or Positive charge type or both.
+    - **Tenancy**
+        - Whether a machine is running as a dedicated machine.
+    -   **Usage Type**
+          - Usage type can be one-time fees or recurring fees.
 
 5. **Filters**
 

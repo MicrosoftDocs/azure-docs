@@ -4,17 +4,11 @@ description: Learn about how to configure Azure SQL Database to store resource u
 services: sql-database
 documentationcenter: ''
 author: veljko-msft 
-manager: jhubbard
-editor: 
-
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 03/13/2018
 ms.author: vvasic
 
 ---
@@ -254,7 +248,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### Download metrics and logs from Storage
 
-Learn how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+Learn how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## Metrics and logs available
 
@@ -382,7 +376,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 |query_hash_s|Query hash of the failed query, if available.|
 |query_plan_hash_s|Query plan hash of the failed query, if available.|
 
-Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
+Learn more about [SQL Server error messages](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### Database wait statistics dataset
 
@@ -475,4 +469,4 @@ To learn about Event Hubs, read:
 * [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-To learn more about Storage, see how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
+To learn more about Storage, see how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
