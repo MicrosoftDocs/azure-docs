@@ -73,7 +73,7 @@ The following Linux distributions are officially supported.  However, the Linux 
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 #### Network configuration
-The information below list the proxy and firewall configuration information required for the Linux agent to communicate with Log Analytics. Traffic is outbound from your network to the Log Analytics service. 
+The information below list the proxy and firewall configuration information required for the Linux agent to communicate with Log Analytics.  
 
 |Agent Resource| Ports | Direction |  
 |------|---------|--------|  
