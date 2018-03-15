@@ -19,7 +19,7 @@ ms.author: douglasl
 
 The Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks Notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
-## Databricks Notebook activity properties
+## Databricks Notebook activity definition
 
 Here is the sample JSON definition of a Databricks Notebook Activity:
 
@@ -43,6 +43,8 @@ Here is the sample JSON definition of a Databricks Notebook Activity:
 	}
 }
 ```
+
+## Databricks Notebook activity properties
 
 The following table describes the JSON properties used in the JSON
 definition:
