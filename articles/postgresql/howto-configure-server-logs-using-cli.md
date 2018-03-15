@@ -20,9 +20,9 @@ To step through this how-to guide, you need:
 - The [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or Azure Cloud Shell in the browser
 
 ## Configure logging for Azure Database for PostgreSQL
-You can configure the server to access query logs and error logs. Error logs can contain auto-vacuum, connection, and checkpoint information.
+You can configure the server to access query logs and error logs. Error logs can have auto-vacuum, connection, and checkpoint information.
 1. Turn on logging.
-2. To enable query logging, update **log\_statement** and **log\_min\_duration\_statement** .
+2. To enable query logging, update **log\_statement** and **log\_min\_duration\_statement**.
 3. Update retention period.
 
 For more information, see [Customizing server configuration parameters](howto-configure-server-parameters-using-cli.md).
