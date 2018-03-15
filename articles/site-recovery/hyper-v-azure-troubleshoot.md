@@ -13,31 +13,34 @@ ms.author: rayne
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
 
-This article describes common issues you might encounter when replicating on-premises Hyper-V VMs to Azure using [Azure Site Recovery](site-recovery-overview.md)
+This article describes common issues that you might encounter when replicating on-premises Hyper-V VMs to Azure, that using [Azure Site Recovery](site-recovery-overview.md)
 
 ## Enable protection issues
 
 If you encounter issues when you enable protection for Hyper-V VMs, check the following:
 
--	Make sure your deployment complies with requirements and prerequisites for Hyper-V hosts, VMs descibed in the [support matrix](hyper-v-azure-support-matrix.md)
--	Check that you're prepared an on-premises [System Center VMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional) if your Hyper-V servers are located in VMM clouds. 
--	Check that the Hyper-V Virtual Machine Management service is up and running on the VM.
--	Check the Hyper-V-VMMS\Admin log on the VM. This log is located in Applications and Services Logs\Microsoft\Windows.logs.
--	Ensure WMI is enabled and accessible on the VM:
+-	Make sure that your deployment complies with the requirements and prerequisites for Hyper-V hosts and VMs, descibed in the [support matrix](hyper-v-azure-support-matrix.md)
+-	If our Hyper-V servers are located in System Center Virtual Machine Manager (VMM) clouds, verify that you've prepared the [SVMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
+-	Check that the Hyper-V Virtual Machine Management service is running.
+-	Check the Hyper-V-VMMS\Admin log on the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
+-	Ensure That WMI is enabled and accessible.
   - [Learn about](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) basic WMI testing.
   - [Troubleshoot](https://aka.ms/WMiTshooting) WMI.
   - [Troubleshoot ](https://technet.microsoft.com/library/ff406382.aspx#H22) problems with WMI scripts and services.
--	Ensure that the latest version of the Integration Service is running on the VM.
+-	Ensure that the latest version of Integration Services is running.
     - [Check](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
-    - [Keep]](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration services up-to-date.
+    - [Keep]](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
     - 
 ## Replication issues
 
-Issues with initial or ongoing replication can happen for a number of reasons. Troubleshoot as follows:
+Troubleshoot issues with initial and ongoing replication as follows:
 
-- Make sure you're running the [latest version](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
-- Verify whether replication is paused. Check the VM health status in the Hyper-V Manager console. If it's critical, right-click the VM > **Replication** > **View Replication Health**. If replication is paused, click **Resume Replication**.
-- Check that the relevant services are running. If they aren't restart the service.
+- Make sure you're running the [latest version](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) of Site Recovery services.
+- Verify whether replication is paused:
+  - Check the VM health status in the Hyper-V Manager console.
+  - If it's critical, right-click the VM > **Replication** > **View Replication Health**.
+  - If replication is paused, click **Resume Replication**.
+- Check that required service are running. If they aren't, restart them.
     - If you're replicating Hyper-V without VMM, check that these services are running on the Hyper-V host:
         - Virtual Machine Management service
         - Microsoft Azure Recovery Services Agent service
@@ -46,22 +49,23 @@ Issues with initial or ongoing replication can happen for a number of reasons. T
     - If you're replicating with VMM in the environment, check that these services are running:
         - On the Hyper-V host, check that the Virtual Machine Management service, the Microsoft Azure Recovery Services Agent, and the WMI Provider Host service are running.
         - On the VMM srver, ensure that the System Center Virtual Machine Manager Service is running.
-    - Check connectivity between the Hyper-V server and Azure. To do this, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab, in **Processess with Network Activity**, check if cbengine.exe is actively sending large volumes (Mbs) of data.
-    - Check if the Hyper-V hosts can connect to the Azure storage blob URL. Select and check **cbengine.exe**. View **TCP Connections** to verify connecting from the process server to the Azure storage blob.
+    - Check connectivity between the Hyper-V server and Azure. To do this, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab > **Processess with Network Activity**, check whether cbengine.exe is actively sending large volumes (Mbs) of data.
+    - Check if the Hyper-V hosts can connect to the Azure storage blob URL. To do this, select and check **cbengine.exe**. View **TCP Connections** to verify connectivity from the process server, to the Azure storage blob.
     - Check performance issues, as described below.
     - 
 ### Performance issues
 
-Network bandwidth limitations can also impact replication. Troubleshoot issues as follows:
+Network bandwidth limitations can impact replication. Troubleshoot issues as follows:
 
   -  [Check](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) if there are bandwidth or throttling constraints in your environment.
   - [Run the Deployment Planner profiler](hyper-v-deployment-planner-run.md).
-  - After running the profiler, follow the [bandwidth recommendations](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input), and [storage recommendations](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation), In addition, [check](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits) data churn limitations.
+  - After running the profiler, follow the [bandwidth](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input), and [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) recommendations.
+  - In addition, [check](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits) data churn limitations.
   - If you see high data churn on a VM, do the following:
       - Check if your VM is marked for resynchronization. 
       - To investigate the source of the churn, follow [these steps](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/).
-      - One of the reasons this can happen is that the HRL files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs experiencing the HRL file growth.
-  - Check that replication isn't paused. If it is, it doesn't not stop writing the changes to the hrl file, which can contribute to its increased size.
+      - One of the reasons this can happen is that HRL files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs experiencing the HRL file growth.
+  - Check that replication isn't paused. If it is, it continues writing the changes to the hrl file, which can contribute to its increased size.
  
 
 ## Critical replicate state issues
@@ -77,35 +81,36 @@ Network bandwidth limitations can also impact replication. Troubleshoot issues a
 
 ## App-consistent snapshot issues
 
-An app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken.  This section details some common issues you might experience.
+An app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that apps on the VM are in a consistent state when the snapshot is taken.  This section details some common issues you might experience.
 
 ### VSS failing inside the VM
 
 1. Check that the latest version of Integration services is installed and running.  Check if an update is available by running the following command from an elevated PowerShell prompt on the Hyper-V host: **get-vm  | select Name, State, IntegrationServicesState**.
 2. Check that VSS services are running and healthy:
-    - To do this, log into the guest VM. Open an admin command prompt, and run the following commands to check whether all the VSS writers are healthy.
+    - To do this, log onto the guest VM. Then open an admin command prompt, and run the following commands to check whether all the VSS writers are healthy.
         - **Vssadmin list writers**
         - **Vssadmin list shadows**
         - **Vssadmin list providers**
     - Check the output. If writers are in a failed state, do the following:
         - Check the application event log on the VM for VSS operation errors.
-    - Try restarting the service associated with the failed writer:
+    - Try restarting these services associated with the failed writer:
         - Volume Shadow Copy
-          - Azure Site Recovery VSS Provider
-    - Wait for a couple of hours once this is done to see if app-consistent snapshots are generated successfully.
+         - Azure Site Recovery VSS Provider
+    - After you do this, wait for a couple of hours to see if app-consistent snapshots are generated successfully.
     - As a last resort try rebooting the VM. This might resolve services that are in unresponsive state.
 3. Ensure you don't have dynamic disks in the VM. THis isn't supported for app-consistent snapshots. You can check in Disk Management (diskmgmt.msc)
     ![Dynamic disk](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
-4. Check you don't have an iSCSI disk attached to the VM. This isn't supported.
-5. Check that the Backup service is enabled. Verify this in Hyper-V settings > **Integration Services**.
-6. Make sure there are no conflicts with apps taking VSS snapshots. If multiple apps are trying to take VSS snapshots at the same time conflicts can occur.. For example, if a Backup app is taking VSS snapshots when Site Recovery is scheduled by your replication policy to take a snapshot.
+4. Check that you don't have an iSCSI disk attached to the VM. This isn't supported.
+5. Check that the Backup service is enabled. Verify this in **Hyper-V settings** > **Integration Services**.
+6. Make sure there are no conflicts with apps taking VSS snapshots. If multiple apps are trying to take VSS snapshots at the same time conflicts can occur. For example, if a Backup app is taking VSS snapshots when Site Recovery is scheduled by your replication policy to take a snapshot.
     ![Snapshot conflict](media/hyper-v-azure-troubleshoot/snapshot-conflict.png)
 7. Check if the VM is experiencing a high churn rate:
-    - You can measure the daily data change rate for the guest VMs using performance counters on Hyper-V host. Enable this counter to do this. Aggregrate a sample of this value across the VM disks for 5-15 minutes to get the VM churn.
+    - You can measure the daily data change rate for the guest VMs, using performance counters on Hyper-V host. To do this, enable the following counter. Aggregrate a sample of this value across the VM disks for 5-15 minutes, to get the VM churn.
         - Category: “Hyper-V Virtual Storage Device”
         - Counter: “Write Bytes / Sec”</br>
         - This data churn rate will increase or remain at a high level, depending on how busy the VM or its apps are.
-        - The average source disk data churn is 2 MB/s for standard storage for Site Recovery. [Learn more](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits).  In addition you can [verify storage scalability targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets.md#scalability-targets-for-a-storage-account).
+        - The average source disk data churn is 2 MB/s for standard storage for Site Recovery. [Learn more](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+    - In addition you can [verify storage scalability targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets.md#scalability-targets-for-a-storage-account).
 8. Run the [Deployment Planner](hyper-v-deployment-planner-run.md).
 9. Review the recommendations for [network](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)).
 
@@ -113,14 +118,14 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 ### VSS failing inside the Hyper-V Host
 
 1. Check event logs for VSS errors and recommendations:
-    - On the Hyper-V host server, open the Hyper-V Admin event log in **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin*** .
-    - Verify if there are any events indicating app-consistent snapshot failures.
-    - A typical error would be: "Hyper-V failed to generate VSS snapshot set for virtual machine 'XYZ': The writer experienced a non-transient error. Restarting the VSS service might resolve issues if the service is unresponsive."
+    - On the Hyper-V host server, open the Hyper-V Admin event log in **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin***.
+    - Verify whether there are any events that indicate app-consistent snapshot failures.
+    - A typical error is: "Hyper-V failed to generate VSS snapshot set for virtual machine 'XYZ': The writer experienced a non-transient error. Restarting the VSS service might resolve issues if the service is unresponsive."
 
-2. To be able to generate VSS snapshots for the VM, check that Hyper-V Integration services are installed on the VM, and that the Backup (VSS) integration service is enabled.
-    - Ensure that the Integration services VSS service/daemons are running on the guest and in an OK state.
-     - You can check this from an elevated PowerShell session on the Hyper-V host with command **et-VMIntegrationService -VMName<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-     - Ensure that the Backup/VSS integration services on the VM are running and in healthy state. If not, restart these services, and and the Hyper-V Volume Shadow Copy requestor service on the Hyper-V host server.
+2. To generate VSS snapshots for the VM, check that Hyper-V Integration Services are installed on the VM, and that the Backup (VSS) Integration Service is enabled.
+    - Ensure that the Integration Services VSS service/daemons are running on the guest, and are in an **OK** state.
+    - You can check this from an elevated PowerShell session on the Hyper-V host with command **et-VMIntegrationService -VMName<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Ensure that the Backup/VSS integration Services on the VM are running and in healthy state. If not, restart these services, and and the Hyper-V Volume Shadow Copy requestor service on the Hyper-V host server.
 
 ### Common errors
 
