@@ -52,8 +52,9 @@ In your Batch applications, use the Batch APIs to monitor or query the status of
 
 * [Application Insights](../application-insights/app-insights-overview.md) is an Azure service you can use to programmatically monitor the availability, performance, and usage of your Batch jobs and tasks. Easily get performance counters from compute nodes (VMs) and custom information for tasks off of the VMs. See the [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
 
-> [!NOTE]
-> You may incur additional costs to use Application Insights. See the [pricing options](https://azure.microsoft.com/pricing/details/application-insights/). 
+  > [!NOTE]
+  > You may incur additional costs to use Application Insights. See the [pricing options](https://azure.microsoft.com/pricing/details/application-insights/). 
+  >
 
 * [BatchLabs](https://github.com/Azure/BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchLabs/) for Mac, Linux, or Windows. Optionally configure your Batch solution to [display Application Insights data](https://github.com/Azure/batch-insights) in BatchLabs.
 

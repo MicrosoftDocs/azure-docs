@@ -42,13 +42,15 @@ To view all Batch account metrics:
 2. Under **Monitoring**, click **Metrics**.
 3. Select one or more of the metrics. If you want, select additional resource metrics by using the **Subscriptions**, **Resource group**, **Resource type**, and **Resource** dropdowns.
 
-![Batch metrics](media/batch-diagnostics/metrics-portal.png)
+    ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 
 To retrieve metrics programmatically, use the Azure Monitor APIs. For example, see [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
-### Metric alerts
+## Batch metric alerts
 
-Optionally, configure *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools.
+Optionally, configure *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). 
+
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools.
 
 To configure a metric alert:
 
@@ -59,13 +61,13 @@ To configure a metric alert:
 
 ## Batch diagnostics
 
-Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. Batch supports the collection of **Service Logs** events emitted by the Azure Batch service during the lifetime of an individual Batch resource like a pool or task. You can also log account-level **Metrics**. 
+Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For Batch, you can collect **Service Logs** events emitted by the Azure Batch service during the lifetime of an individual Batch resource like a pool or task. You can also log account-level **Metrics**. 
 
 Settings to enable collection of diagnostic logs are not enabled by default. You must explicitly enable diagnostic settings for each Batch account you want to monitor.
 
 ### Log destinations
 
-A common scenario is to use an Azure Storage account as the log destination. To store logs in Azure Storage, create the account before enabling collection of logs. If you associated a storage account with your Batch account, you can choose that account as the log destination. 
+A common scenario is to select an Azure Storage account as the log destination. To store logs in Azure Storage, create the account before enabling collection of logs. If you associated a storage account with your Batch account, you can choose that account as the log destination. 
 
 Other optional destinations for diagnostic logs:
 
@@ -87,11 +89,9 @@ Other optional destinations for diagnostic logs:
 
 4. Click **Save**.
 
-![Batch diagnostics](media/batch-diagnostics/diagnostics-portal.png)
+    ![Batch diagnostics](media/batch-diagnostics/diagnostics-portal.png)
 
-Other options to enable log collection include: configure Azure Monitor in the portal, use a [Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs).
-
-
+Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs).
 
 
 ### Access diagnostics logs in storage
@@ -99,15 +99,20 @@ Other options to enable log collection include: configure Azure Monitor in the p
 If you archive Batch diagnostic logs in a storage account, a storage container is created in the storage account as soon as a related event occurs. Blobs are created according to the following naming pattern:
 
 ```
-insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
+RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+m={two-digit numeric month}/d={two-digit numeric day}/
+h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 Example:
 
 ```
-insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
+insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
+RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
+Each PT1H.json blob file contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
 
 
 For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
