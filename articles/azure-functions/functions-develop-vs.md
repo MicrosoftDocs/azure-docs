@@ -38,7 +38,7 @@ Azure Functions Tools is included in the Azure development workload of [Visual S
 
 ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-If you have previously installed the Azure development workload, make sure you are using the [most recent version](#check-your-tools-version) of the tools.
+Make sure that your Visual Studio is up-to-date and that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools.
 
 ### Other requirements
 
