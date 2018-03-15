@@ -44,24 +44,24 @@ This is the maximum number of jobs that can run concurrently in your account. Ab
 3. Click **Properties**.
 4. Adjust **Parallelism** and **Concurrent Jobs** to suit your needs.
 
-    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+    ![Azure Data Lake Analytics portal page](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
 
 ## Increase maximum quota limits
 
 1. Open a support request in Azure Portal.
 
-    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+    ![Azure Data Lake Analytics portal page](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+    ![Azure Data Lake Analytics portal page](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 2. Select the issue type **Quota**.
 3. Select your **Subscription** (make sure it is not a "trial" subscription).
 4. Select quota type **Data Lake Analytics**.
 
-    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+    ![Azure Data Lake Analytics portal page](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. In the problem blade, explain your requested increase limit with **Details** of why you need this extra capacity.
+5. In the problem page, explain your requested increase limit with **Details** of why you need this extra capacity.
 
-    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+    ![Azure Data Lake Analytics portal page](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6. Verify your contact information and create the support request.
 
