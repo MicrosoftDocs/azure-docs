@@ -95,9 +95,9 @@ Trace the script's execution by using the **Debug** menu options. Press F10 and 
 You don't need to explicitly follow this workflow. It explains how to debug the script.
 
 * **Import the CatalogAndDatabaseManagement.psm1 module.** It provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
-* **Import the SubscriptionManagement.psm1 module**. It contains functions for signing in to Azure and selecting the Azure subscription you want to work with.
-* **Get configuration details**. Step into Get-Configuration by using F11, and see how the app config is specified. Resource names and other app-specific values are defined here. Don't change these values until you are familiar with the scripts.
-* **Get the catalog object**. Step into Get-Catalog, which composes and returns a catalog object that's used in the higher-level script. This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:
+* **Import the SubscriptionManagement.psm1 module.** It contains functions for signing in to Azure and selecting the Azure subscription you want to work with.
+* **Get configuration details.** Step into Get-Configuration by using F11, and see how the app config is specified. Resource names and other app-specific values are defined here. Don't change these values until you are familiar with the scripts.
+* **Get the catalog object.** Step into Get-Catalog, which composes and returns a catalog object that's used in the higher-level script. This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:
 
    * $catalogServerFullyQualifiedName is constructed by using the standard stem plus your user name: _catalog-\<user\>.database.windows .net_.
    * $catalogDatabaseName is retrieved from the config: *tenantcatalog*.
@@ -131,7 +131,7 @@ This exercise provisions a batch of 17 tenants. We recommend that you provision 
 
 1. In the PowerShell ISE, open ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*. Change the *$DemoScenario* parameter to 3:
 
-   * **$DemoScenario** = **3** to *provision a batch of tenants*.
+   * **$DemoScenario** = **3**, *Provision a batch of tenants*.
 2. To run the script, press F5.
 
 The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. The templates provision databases in parallel and handle retries, if needed. The script is idempotent, so if it fails or stops for any reason, run it again.
@@ -148,9 +148,9 @@ The script deploys a batch of additional tenants. It uses an [Azure Resource Man
 
 Other provisioning patterns not included in this tutorial:
 
-**Pre-provisioning databases.** The pre-provisioning pattern exploits the fact that databases in an elastic pool don't add extra cost. Billing is for the elastic pool, not the databases. Idle databases consume no resources. By pre-provisioning databases in a pool and allocating them when needed, you can reduce the time to add tenants. The number of databases pre-provisioned can be adjusted as needed to keep a buffer suitable for the anticipated provisioning rate.
+**Pre-provisioning databases**: The pre-provisioning pattern exploits the fact that databases in an elastic pool don't add extra cost. Billing is for the elastic pool, not the databases. Idle databases consume no resources. By pre-provisioning databases in a pool and allocating them when needed, you can reduce the time to add tenants. The number of databases pre-provisioned can be adjusted as needed to keep a buffer suitable for the anticipated provisioning rate.
 
-**Auto-provisioning.** In the auto-provisioning pattern, a provisioning service provisions servers, pools, and databases automatically, as needed. If you want, you can include pre-provisioning databases in elastic pools. If databases are decommissioned and deleted, gaps in elastic pools can be filled by the provisioning service. Such a service can be simple or complex, such as handling provisioning across multiple geographies and setting up geo-replication for disaster recovery. 
+**Auto-provisioning**: In the auto-provisioning pattern, a provisioning service provisions servers, pools, and databases automatically, as needed. If you want, you can include pre-provisioning databases in elastic pools. If databases are decommissioned and deleted, gaps in elastic pools can be filled by the provisioning service. Such a service can be simple or complex, such as handling provisioning across multiple geographies and setting up geo-replication for disaster recovery. 
 
 With the auto-provisioning pattern, a client application or script submits a provisioning request to a queue to be processed by the provisioning service. It then polls the service to determine completion. If pre-provisioning is used, requests are handled quickly. The service provisions a replacement database in the background.
 
