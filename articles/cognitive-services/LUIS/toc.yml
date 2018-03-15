@@ -95,8 +95,12 @@
     href: luis-concept-feature.md
   - name: Prediction score
     href: luis-concept-prediction-score.md
-  - name: Data extraction
-    href: luis-concept-data-extraction.md
+  - name: Data management
+    items: 
+    - name: Altering data
+      href: luis-concept-data-alteration.md
+    - name: Extracting data
+      href: luis-concept-data-extraction.md
   - name: Test
     items: 
     - name: Interactive testing
