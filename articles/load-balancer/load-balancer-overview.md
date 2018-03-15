@@ -83,7 +83,7 @@ When Internet clients send web page requests to the public IP address of a web a
 
 By default, Azure Load Balancer distributes network traffic equally among multiple virtual machine instances. You can also configure session affinity, For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
 
-## <a name = "internalloadbalancer"></a> Why use an internal Load Balancer?
+### <a name = "internalloadbalancer"></a> Why use an internal Load Balancer?
 
 Internal Load Balancer only directs traffic to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. Frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 
@@ -103,5 +103,5 @@ The Basic Load Balancer is free of charge. For Standard Load Balancer pricing in
 
 ## Next steps
 
-- Learn how to create a [basic public load balancer](load-balancer-create-inetrnet-portal.md)
+- Learn how to create a [basic public load balancer](load-balancer-create-internet-portal.md)
 
