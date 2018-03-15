@@ -23,6 +23,183 @@ This document lists the operations available for each Microsoft Azure Resource M
 > [!NOTE]
 > For a comprehensive and current list please use `Get-AzureRmProviderOperation` (in PowerShell) or `az provider operation list` (in Azure CLI v2) to list operations of Azure resource providers.
 
+## 84codes.CloudAMQP
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/operations/read|Read any Operation|
+|/servers/delete|Deletes any server|
+|/servers/listSecrets/action|Read any server Secrets|
+|/servers/listSingleSignOnToken/action|Read any server Single Sign On Tokens|
+|/servers/read|Read any server|
+|/servers/regenerateKeys/action|Regenerate any server Keys|
+|/servers/write|Create or Update any server|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## AppDynamics.APM
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read Any Communication Preferences|
+|/operations/read|Read Any Operation|
+|/services/delete|Deletes Any Service|
+|/services/listSecrets/action|Read Any Service Secrets|
+|/services/listSingleSignOnToken/action|Read Any Service Single Sign On Tokens|
+|/services/read|Read Any Service|
+|/services/write|Create or Update Any Service|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Aspera.Transfers
+
+| Operation | Description |
+|---|---|
+|/Operations/read|Description of the operation.|
+|/services/Delete|Delete Operation|
+|/services/listSecrets/action|List the Secrets|
+|/services/listSingleSignOnToken/action|Read Single Sign On Authorization Token For The Resource|
+|/services/Read|Read Operation|
+|/services/regenerateKey/action|Regenerates the Key|
+|/services/Write|Write Operation|
+
+## Auth0.Cloud
+
+| Operation | Description |
+|---|---|
+|/accounts/delete|Delete Account|
+|/accounts/listSecrets/action|Read account secrets|
+|/accounts/listSingleSignOnToken/action|Read any account Single Sign On Tokens|
+|/accounts/read|Read account|
+|/accounts/write|Create or Update Account|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/operations/read|Read any Operations|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Citrix.Cloud
+
+| Operation | Description |
+|---|---|
+|/accounts/Delete|Deletes the resource for $Citrix.Cloud/accounts|
+|/accounts/listSecrets/action|List the secrets for Citrix.Cloud/accounts|
+|/accounts/listSingleSignOnToken/action|Gets the single sign on authorization token for Citrix.Cloud/accounts|
+|/accounts/Read|Gets the resource for Citrix.Cloud/accounts|
+|/accounts/regenerateKey/action|Regenerate key(s) for Citrix.Cloud/accounts|
+|/accounts/Write|Updates the resource for Citrix.Cloud/accounts|
+|/listCommunicationPreference/action|Gets the communication preferences for the owner of Citrix.Cloud|
+|/Operations/read|List the operations for Citrix.Cloud|
+|/updateCommunicationPreference/action|Updates the communication preferences for the owner of Citrix.Cloud|
+
+## Cloudyn.Analytics
+
+| Operation | Description |
+|---|---|
+|/accounts/Delete|Deletes the resource for Cloudyn.Analytics/accounts|
+|/accounts/listSecrets/action|List the secrets for Cloudyn.Analytics/accounts|
+|/accounts/listSingleSignOnToken/action|Gets the single sign on authorization token for Cloudyn.Analytics/accounts|
+|/accounts/Read|Gets the resource for Cloudyn.Analytics/accounts|
+|/accounts/regenerateKey/action|Regenerate key(s) for Cloudyn.Analytics/accounts|
+|/accounts/RegenerateKey/action|Regenerate Key for Cloudyn.Analytics/accounts|
+|/accounts/Write|Updates the resource for Cloudyn.Analytics/accounts|
+|/listCommunicationPreference/action|Gets the communication preferences for the owner of Cloudyn.Analytics|
+|/Operations/Read|List the operations for Cloudyn.Analytics|
+|/updateCommunicationPreference/action|Updates the communication preferences for the owner of Cloudyn.Analytics|
+
+## Conexlink.MyCloudIT
+
+| Operation | Description |
+|---|---|
+|/accounts/Delete|Deletes any accounts|
+|/accounts/listSecrets/action|Read any accounts Secrets|
+|/accounts/Read|Read any accounts|
+|/accounts/regenerateKey/action|Regenerate any accounts Keys|
+|/accounts/Write|Create or Update any accounts|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Crypteron.DataSecurity
+
+| Operation | Description |
+|---|---|
+|/apps/delete|Deletes any apps|
+|/apps/listSecrets/action|Read any apps Secrets|
+|/apps/listSingleSignOnToken/action|Read any apps Single Sign On Tokens|
+|/apps/read|Read any apps|
+|/apps/regenerateKeys/action|Regenerate any apps Keys|
+|/apps/write|Create or Update any apps|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/operations/read|Read any Operation|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Dynatrace.DynatraceSaaS
+
+| Operation | Description |
+|---|---|
+|/accounts/delete|Delete Operation|
+|/accounts/listSecrets/action|Lists the secrets|
+|/accounts/listSingleSignOnToken/action|Read Single Sign On Tokens|
+|/accounts/read|Read Operation|
+|/accounts/regenerateKeys/action|Regenerate any Keys|
+|/accounts/write|Write Operation|
+|/listCommunicationPreference/action|Regenerate the Key|
+|/operations/read|read operation|
+|/updateCommunicationPreference/action|Regenerate the Key|
+
+## Dynatrace.Ruxit
+
+| Operation | Description |
+|---|---|
+|/accounts/delete|Delete Operation|
+|/accounts/listSecrets/action|Lists the secrets|
+|/accounts/listSingleSignOnToken/action|Read Single Sign On Tokens|
+|/accounts/read|Read Operation|
+|/accounts/regenerateKeys/action|Regenerate any Keys|
+|/accounts/write|Write Operation|
+|/listCommunicationPreference/action|Regenerate the Key|
+|/operations/read|read operation|
+|/updateCommunicationPreference/action|Regenerate the Key|
+
+## LiveArena.Broadcast
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/services/Delete|Deletes any Services|
+|/services/listSecrets/action|Read any Services Secrets|
+|/services/listSingleSignOnToken/action|Read any Services Single Sign On Tokens|
+|/services/Read|Read any Services|
+|/services/regenerateKey/action|Regenerate any Services Keys|
+|/services/Write|Create or Update any Services|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Lombiq.DotNest
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read Any Communication Preferences|
+|/operations/read|Read any Operation|
+|/sites/delete|Deletes any sites|
+|/sites/listSecrets/action|Read any sites Secrets|
+|/sites/listSingleSignOnToken/action|Read any sites Single Sign On Tokens|
+|/sites/read|Read any sites|
+|/sites/regenerateKeys/action|Regenerate any sites Keys|
+|/sites/write|Create or Update any sites|
+|/updateCommunicationPreference/action|Updates Communication Preference|
+
+## Mailjet.Email
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read Any Communication Preferences|
+|/operations/read|Read any Operation|
+|/services/delete|Delete any services|
+|/services/listSecrets/action|Read Any services Secrets|
+|/services/listSingleSignOnToken/action|Read Any services Single Sign On Tokens|
+|/services/read|Read any services|
+|/services/write|Create or Upgrade any services|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
 ## Microsoft.AAD
 
 | Operation | Description |
@@ -3847,6 +4024,178 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/workloads/delete|Deletes a workload resource|
 |/workloads/read|Reads a workload resource|
 |/workloads/write|Writes a workload resource|
+
+## MyGet.PackageManagement
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/services/Delete|Deletes any Services|
+|/services/listSecrets/action|Read any Services Secrets|
+|/services/listSingleSignOnToken/action|Read any Services Single Sign On Tokens|
+|/services/Read|Read any Services|
+|/services/regenerateKey/action|Regenerate any Services Keys|
+|/services/Write|Create or Update any Services|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## nuubit.nextgencdn
+
+| Operation | Description |
+|---|---|
+|/accounts/delete|Deletes any accounts|
+|/accounts/listSecrets/action|Read any accounts Secrets|
+|/accounts/listSingleSignOnToken/action|Read any accounts Single Sign On Tokens|
+|/accounts/read|Read any accounts|
+|/accounts/regenerateKeys/action|Regenerate any accounts Keys|
+|/accounts/write|Create or Update any accounts|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/operations/read|Read any Operation|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## paraleap.cloudmonix
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/services/Delete|Deletes any resources|
+|/services/listSecrets/action|Read any resources Secrets|
+|/services/listSingleSignOnToken/action|Read any resources Single Sign On Tokens|
+|/services/Read|Read any resources|
+|/services/regenerateKey/action|Regenerate any resources Keys|
+|/services/Write|Create or Update any resources|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Pokitdok.Platform
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Regenerate the Key|
+|/operations/read|read operation|
+|/services/delete|Delete Operation|
+|/services/listSecrets/action|Lists the secrets|
+|/services/listSingleSignOnToken/action|Read Single Sign On Tokens|
+|/services/read|Read Operation|
+|/services/read|Read Operation|
+|/services/write|Write Operation|
+|/updateCommunicationPreference/action|Regenerate the Key|
+
+## RavenHq.Db
+
+| Operation | Description |
+|---|---|
+|/databases/Delete|Deletes any Databases|
+|/databases/listSecrets/action|Read any Databases Secrets|
+|/databases/listSingleSignOnToken/action|Read any Databases Single Sign On Tokens|
+|/databases/Read|Read any Databases|
+|/databases/regenerateKey/action|Regenerate any Databases Keys|
+|/databases/Write|Create or Update any Databases|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Raygun.CrashReporting
+
+| Operation | Description |
+|---|---|
+|/apps/Delete|Deletes any Apps|
+|/apps/listSecrets/action|Read any Apps Secrets|
+|/apps/listSingleSignOnToken/action|Read any Apps Single Sign On Tokens|
+|/apps/Read|Read any Apps|
+|/apps/regenerateKey/action|Regenerate any Apps Keys|
+|/apps/Write|Create or Update any Apps|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## RevAPM.MobileCDN
+
+| Operation | Description |
+|---|---|
+|/accounts/delete|Deletes any accounts|
+|/accounts/listSecrets/action|Read any accounts Secrets|
+|/accounts/listSingleSignOnToken/action|Read any accounts Single Sign On Tokens|
+|/accounts/read|Read any accounts|
+|/accounts/regenerateKeys/action|Regenerate any accounts Keys|
+|/accounts/write|Create or Update any accounts|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/operations/read|Read any Operation|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## Sendgrid.Email
+
+| Operation | Description |
+|---|---|
+|/accounts/delete|Delete a SendGrid account|
+|/accounts/read|Get account information|
+|/accounts/write|Provision a SendGrid account.|
+
+## Signiant.Flight
+
+| Operation | Description |
+|---|---|
+|/accounts/delete|Deletes the resource for signiant.flight/accounts|
+|/accounts/listSecrets/action|List the secrets for signiant.flight/accounts|
+|/accounts/read|Gets the resource for signiant.flight/accounts|
+|/accounts/regenerateKey/action|Regenerate key(s) for signiant.flight/accounts|
+|/accounts/write|Updates the resource for signiant.flight/accounts|
+|/listCommunicationPreference/action|Gets the communication  preferences for the owner of signiant.flight/accounts|
+|/updateCommunicationPreference/action|Updates the communication  preferences for the owner of signiant.flight/accounts|
+
+## Sparkpost.Basic
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Lists Communication Preferences|
+|/operations/read|Read Operation|
+|/services/delete|Delete Operation|
+|/services/listSecrets/action|Lists the Secrets|
+|/services/listSingleSignOnToken/action|Read Single Sign On Tokens|
+|/services/read|Read Operation|
+|/services/read|Read Operation|
+|/services/write|Write Operation|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## stackify.retrace
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/services/Delete|Deletes any Stackify Retrace|
+|/services/listSecrets/action|Read any Stackify Retrace Secrets|
+|/services/listSingleSignOnToken/action|Read any Stackify Retrace Single Sign On Tokens|
+|/services/Read|Read any Stackify Retrace|
+|/services/regenerateKey/action|Regenerate any Stackify Retrace Keys|
+|/services/Write|Create or Update any Stackify Retrace|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
+
+## TrendMicro.DeepSecurity
+
+| Operation | Description |
+|---|---|
+|/accounts/Delete|Delete Operation|
+|/accounts/listSecrets/action|List the Secrets|
+|/accounts/listSingleSignOnToken/action|Read Single Sign On Authorization Token For The Resource|
+|/accounts/Read|Read Operation|
+|/accounts/regenerateKey/action|Regenerates the Key|
+|/accounts/Write|Write Operation|
+|/Operations/read|Description of the operation.|
+
+## U2uconsult.TheIdentityHub
+
+| Operation | Description |
+|---|---|
+|/listCommunicationPreference/action|Read any Communication Preferences|
+|/Operations/read|Read any Operations|
+|/services/Delete|Deletes any Services|
+|/services/listSecrets/action|Read any Services Secrets|
+|/services/listSingleSignOnToken/action|Read any Services Single Sign On Tokens|
+|/services/Read|Read any Services|
+|/services/regenerateKey/action|Regenerate any Services Keys|
+|/services/Write|Create or Update any Services|
+|/updateCommunicationPreference/action|Updates Communication Preferences|
 
 ## Next steps
 

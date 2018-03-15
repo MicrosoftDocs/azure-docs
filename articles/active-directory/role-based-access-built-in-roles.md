@@ -82,7 +82,6 @@ This article only addresses the different roles that exist today. When you assig
 | [Network Contributor](#network-contributor) | Can manage all network resources |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
 | [Redis Cache Contributor](#redis-cache-contributor) | Can manage Redis caches |
-| [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Can manage Scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) | Can manage Search services |
 | [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
@@ -96,10 +95,6 @@ This article only addresses the different roles that exist today. When you assig
 | [SQL Server Contributor](#sql-server-contributor) | Can manage SQL servers and databases but not their security-related policies |
 | [Storage Account Contributor](#storage-account-contributor) | Can manage storage accounts, but not access to them. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
-| [Storage Blob Data Contributor (Preview)](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data. |
-| [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data. |
-| [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages. |
-| [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages. |
 | [Support Request Contributor](#support-request-contributor) | Can create and manage support tickets at the subscription scope |
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
 | [User Access Administrator](#user-access-administrator) | Can manage user access to Azure resources |
@@ -906,18 +901,6 @@ Can manage Redis caches
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Resource Policy Contributor (Preview)
-(Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy.
-
-| **Actions** |  |
-| --- | --- |
-| */read | Read resources of all types, except secrets. |
-| Microsoft.Authorization/policyassignments/* | Create and manage policy assignments |
-| Microsoft.Authorization/policydefinitions/* | Create and manage policy definitions |
-| Microsoft.Authorization/policysetdefinitions/* | Create and manage policy sets |
-| Microsoft.PolicyInsights/* |  |
-| Microsoft.Support/* | Create and manage support tickets |
-
 ## Scheduler Job Collections Contributor
 Can manage Scheduler job collections
 
@@ -1246,46 +1229,6 @@ Storage Account Key Operators are allowed to list and regenerate keys on Storage
 | --- | --- |
 | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
-
-## Storage Blob Data Contributor (Preview)
-Allows for read, write and delete access to Azure Storage blob containers and data.
-
-| **Actions** |  |
-| --- | --- |
-| Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
-| Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put or lease blob container |
-| Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
-| Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read |  |
-| Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write |  |
-| Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete |  |
-
-## Storage Blob Data Reader (Preview)
-Allows for read access to Azure Storage blob containers and data.
-
-| **Actions** |  |
-| --- | --- |
-| Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
-| Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read |  |
-
-## Storage Queue Data Contributor (Preview)
-Allows for read, write, and delete access to Azure Storage queues and queue messages.
-
-| **Actions** |  |
-| --- | --- |
-| Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
-| Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
-| Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
-| Microsoft.Storage/storageAccounts/queueServices/queues/messages/read |  |
-| Microsoft.Storage/storageAccounts/queueServices/queues/messages/write |  |
-| Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete |  |
-
-## Storage Queue Data Reader (Preview)
-Allows for read access to Azure Storage queues and queue messages.
-
-| **Actions** |  |
-| --- | --- |
-| Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
-| Microsoft.Storage/storageAccounts/queueServices/queues/messages/read |  |
 
 ## Support Request Contributor
 Can create and manage support tickets at the subscription scope
