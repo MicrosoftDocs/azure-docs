@@ -31,7 +31,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
-| [Utterances][utterances] | 15,000 created in app|
+| [Utterances][utterances] | 15,000|
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanum and period (.) |
 
 ## Key limits
