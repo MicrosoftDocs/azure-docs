@@ -12,8 +12,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-ms.date: 03/08/2018
+ms.date: 03/30/2018
 ms.author: dobett
+
+# As a developer, I need to build an IoT solution that can control a device from a back-end application.
 ---
 
 # Quickstart: Control a device connected to an IoT hub
@@ -45,61 +47,61 @@ If you completed the previous [Quickstart: Send telemetry from a device to an Io
 
 The first step is to use the Azure portal to create an IoT hub in your subscription. The IoT hub enables you to ingest high volumes of telemetry into the cloud from many devices. The hub then enables one or more back-end services running in the cloud to read and process that telemetry.
 
-Sign in to your Azure subscription in the Azure portal:
+1. In a new browser window, sign in to the [Azure portal](http://portal.azure.com).
 
-![Signed in to the portal](media/quickstart-d2c-node/portal.png)
+1. Click **+ Create a resource**, then select **Internet of Things**, and then select **IoT Hub**:
 
-Click **+ Create a resource**, then select **Internet of Things**, and then select **IoT Hub**:
+    ![Select to install IoT Hub](media/quickstart-c2d-node/selectiothub.png)
 
-![Select to install IoT Hub](media/quickstart-d2c-node/selectiothub.png)
+1. To create your IoT hub, use the values in the following table:
 
-To create your IoT hub, use the values in the following table:
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | A unique name for your hub |
+    | Pricing and scale tier | F1 Free |
+    | IoT Hub units | 1 |
+    | Device-to-cloud partitions | 2 partitions |
+    | Subscription | Your Azure subscription. |
+    | Resource group | Create new. Enter a name for your resource group. |
+    | Location | The location closest to you. |
+    | Pin to dashboard | Yes |
 
-| Setting | Value |
-| ------- | ----- |
-| Name | A unique name for your hub |
-| Pricing and scale tier | F1 Free |
-| IoT Hub units | 1 |
-| Device-to-cloud partitions | 2 partitions |
-| Subscription | Your Azure subscription. |
-| Resource group | Create new. Enter a name for your resource group. |
-| Location | The location closest to you. |
-| Pin to dashboard | Yes |
+    Then click **Create**.
 
-Make a note of your IoT hub and resource group names. You use these values later in this quickstart.
+    ![Hub settings](media/quickstart-c2d-node/hubdefinition.png)
+
+1. Make a note of your IoT hub and resource group names. You use these values later in this quickstart.
 
 ## Register a device
 
-If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-d2c-node.md), you can skip this step.
+1. Add the the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name of your IoT hub:
 
-A device must be registered with your IoT hub before it can connect. In this step, you use the Azure CLI to register a device. Replace `{YourIoTHubName}` with the name of your IoT hub:
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
+    ```
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
-```
+1. You need the *device connection string* for your simulated device later in this tutorial. The device connection string enables the device to authenticate with your IoT hub. The following command retrieves the device connection string for the device you just registered:
 
-You need the *device connection string* for your simulated device later in this tutorial. The device connection string enables the device to authenticate with your IoT hub. The following command retrieves the device connection string for the device you just registered:
+    ```azurecli-interactive
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    ```
 
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
-```
+    Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
 
-Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
+    You can list all the devices registered with your IoT hub. Replace `{YourIoTHubName}` with the name of your IoT hub:
 
-You can list all the devices registered with your IoT hub. Replace `{YourIoTHubName}` with the name of your IoT hub:
+    ```azurecli-interactive
+    az iot hub device-identity list --hub-name {YourIoTHubName} --output table
+    ```
 
-```azurecli-interactive
-az iot hub device-identity list --hub-name {YourIoTHubName} --output table
-```
+1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
-You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+    ```azurecli-interactive
+    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    ```
 
-```azurecli-interactive
-az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-```
-
-Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
+    Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
 
 ## Download the sample
 
@@ -111,43 +113,43 @@ Download the sample Node.js project from https://github.com/Azure-Samples/iot-hu
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and listens for direct method calls from your hub. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
 
-In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **simulated-device-2** folder.
+1. In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **simulated-device-2** folder.
 
-Open the **SimulatedDevice.js** file in a text editor of your choice.
+1. Open the **SimulatedDevice.js** file in a text editor of your choice.
 
-Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.js** file.
+    Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.js** file.
 
-In the terminal window, run the following commands to install the required libraries and run the simulated device application:
+1. In the terminal window, run the following commands to install the required libraries and run the simulated device application:
 
-```cmd/sh
-npm install
-node SimulatedDevice.js
-```
+    ```cmd/sh
+    npm install
+    node SimulatedDevice.js
+    ```
 
-The following screenshot shows some example output:
+    The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub and receives direct method calls:
 
-![Run the simulated device](media/quickstart-c2d-node/SimulatedDevice.png)
+    ![Run the simulated device](media/quickstart-c2d-node/SimulatedDevice.png)
 
 ## Run the back-end application
 
 The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
 
-In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **back-end-application** folder.
+1. In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **back-end-application** folder.
 
-Open the **BackEndApplication.js** file in a text editor of your choice.
+1. Open the **BackEndApplication.js** file in a text editor of your choice.
 
-Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.js** file.
+    Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.js** file.
 
-In the terminal window, run the following commands to install the required libraries and run the back-end application:
+1. In the terminal window, run the following commands to install the required libraries and run the back-end application:
 
-```cmd/sh
-npm install
-node BackEndApplication.js
-```
+    ```cmd/sh
+    npm install
+    node BackEndApplication.js
+    ```
 
-The following screenshot shows some example output:
+    The following screenshot shows some example output as the application makes a direct method calll to the device and receives an acknowledgemnt:
 
-![Run the back-end application](media/quickstart-c2d-node/BackEndApplication.png)
+    ![Run the back-end application](media/quickstart-c2d-node/BackEndApplication.png)
 
 ## Clean up resources
 
