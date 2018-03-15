@@ -360,7 +360,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[workload management]: ./resource-classes-for-workload-management.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->

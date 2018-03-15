@@ -7,14 +7,13 @@ author: jrowlandjones
 manager: jhubbard
 editor: ''
 
-ms.assetid: 6f326f26-8a54-49df-a482-9c96a58db371
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: t-sql
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
 
 ---
@@ -425,7 +424,7 @@ See [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse] to 
 <!--Article references-->
 [Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
 [table partition]: ./sql-data-warehouse-tables-partition.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[Concurrency]: ./resource-classes-for-workload-management.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

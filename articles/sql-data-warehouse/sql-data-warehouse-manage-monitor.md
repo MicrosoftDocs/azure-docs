@@ -7,14 +7,13 @@ author: sqlmojo
 manager: jhubbard
 editor: ''
 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
 
 ---
@@ -69,7 +68,7 @@ WHERE   [label] = 'My Query';
 
 From the preceding query results, **note the Request ID** of the query that you would like to investigate.
 
-Queries in the **Suspended** state are being queued due to concurrency limits. These queries also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType. See [Concurrency and workload management][Concurrency and workload management] for more details on concurrency limits. Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][Investigating queries waiting for resources] further down in this article.
+Queries in the **Suspended** state are being queued due to concurrency limits. These queries also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType. See [Resource classes for workload management](resource-classes-for-workload-management.md) for more details on concurrency limits. Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][Investigating queries waiting for resources] further down in this article.
 
 To simplify the lookup of a query in the sys.dm_pdw_exec_requests table, use [LABEL][LABEL] to assign a comment to your query that can be looked up in the sys.dm_pdw_exec_requests view.
 
@@ -291,7 +290,6 @@ See [SQL Data Warehouse best practices][SQL Data Warehouse best practices] for m
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
