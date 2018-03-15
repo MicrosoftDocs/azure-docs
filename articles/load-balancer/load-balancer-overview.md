@@ -129,7 +129,7 @@ The following figure shows a load-balanced endpoint for web traffic that is shar
 
 ![public load balancer example](./media/load-balancer-overview/IC727496.png)
 
-**Figure 1: Load balancing web traffic using a public Load Balancer
+**Figure 1: Load balancing web traffic using a public Load Balancer**
 
 When Internet clients send web page requests to the public IP address of a web app on TCP port 80, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
 
@@ -143,8 +143,12 @@ Internal Load Balancer enables the following types of load balancing:
 
 * Within a virtual network: Load balancing from VMs in the virtual network to a set of VMs that reside within the same virtual network.
 * For a cross-premises virtual network: Load balancing from on-premises computers to a set of VMs that reside within the same virtual network. 
-* For multi-tier applications: Load balancing for internet-facing multi-tier applications where the back-end tiers are not internet-facing. The back-end tiers require traffic load balancing from the internet-facing tier.
+* For multi-tier applications: Load balancing for internet-facing multi-tier applications where the back-end tiers are not internet-facing. The back-end tiers require traffic load balancing from the internet-facing tier (see figure 2).
 * For line-of-business applications: Load balancing for line-of-business applications that are hosted in Azure without additional load balancer hardware or software. This scenario includes on-premises servers that are in the set of computers whose traffic is load-balanced.
+
+![internal load balancer example](./media/load-balancer-overview/IC744147.png)
+
+**Figure 2 - Load balancing multi-tier applications using both public and internal load balancers**
 
 ## Limitations
 
