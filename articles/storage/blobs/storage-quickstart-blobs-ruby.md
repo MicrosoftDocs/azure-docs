@@ -178,7 +178,7 @@ File.delete(full_path_to_file2)
 
 See these additional resources for Ruby development with Blob storage:
 
-- View, download, and install the [Ruby client library source code](https://github.com/Azure/azure-storage-ruby) for Azure Storage on GitHub.
+- View and download the [Ruby client library source code](https://github.com/Azure/azure-storage-ruby) for Azure Storage on GitHub.
 - Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) written using the Ruby client library.
 
 ## Next steps
