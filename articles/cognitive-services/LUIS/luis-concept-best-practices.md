@@ -32,3 +32,4 @@ In each iteration of the model, do not add a large quantity of utterances. Add u
 ## Next steps
 
 * Learn how to [add and manage intents](Add-intents.md) in your LUIS app.
+
