@@ -175,7 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a CylancePROTECT test user
 
-In this section, you create a user called Britta Simon in CylancePROTECT. Work with [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com) to add the users in the CylancePROTECT platform. The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
+In this section, you create a user called Britta Simon in CylancePROTECT. Work with [CylancePROTECT support team](https://www.cylance.com/en_us/support.html) to add the users in the CylancePROTECT platform. The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
 
 ### Assign the Azure AD test user
 
