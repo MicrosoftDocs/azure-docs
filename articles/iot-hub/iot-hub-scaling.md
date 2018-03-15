@@ -30,7 +30,6 @@ Azure IoT Hub offers two tiers, basic and standard, that differ in the number of
 **How much data do I plan to move daily?**
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. For example, each unit of a level 1 IoT hub can handle 400,000 messages a day, while a level 3 unit can handle 300,000,000. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
 
-
 ## Basic and standard tiers
 
 The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the featuers, and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
@@ -48,6 +47,8 @@ Once you create your IoT hub, you can upgrade from the basic tier to the standar
 | [Cloud-to-device messaging](iot-hub-devguide-c2d-guidance.md) |   | Yes |
 | [Device twins](iot-hub-devguide-device-twins.md) and [Device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Yes |
+
+IoT Hub offers a third, free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. 
 
 ### IoT Hub REST APIs
 
