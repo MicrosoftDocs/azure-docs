@@ -109,7 +109,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
         > Only private peerings that are connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Use Network Performance Monitor to monitor those peerings.
 
 
-       ![ExpressRoute Monitor view](media/log-analytics-network-performance-monitor/npm-express-route.png)
+      ![ExpressRoute Monitor view](media/log-analytics-network-performance-monitor/npm-express-route.png)
 
     After the discovery is finished, the discovered private peerings are listed in a table. 
 
