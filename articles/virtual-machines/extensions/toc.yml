@@ -51,6 +51,8 @@
       href: dsc-template.md
   - name: Log Collector extension
     href: log-collector.md
+  - name: Key Vault extension
+    href: key-vault-windows.md
   - name: Third-party extensions
     items:
     - name: Symantec
