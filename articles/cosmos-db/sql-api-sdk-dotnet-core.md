@@ -57,6 +57,11 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 > [!NOTE] 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="1.9.1"/>1.9.1
+
+* Fixed KeyNotFoundException for cross partition order by queries in corner cases.
+* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+
 ### <a name="1.8.2"/>1.8.2
 
 * Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
@@ -167,6 +172,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.9.1](#1.9.1) |March 09, 2018 |--- |
 | [1.8.2](#1.8.2) |February 21, 2018 |--- |
 | [1.8.1](#1.8.1) |February 05, 2018 |--- |
 | [1.7.1](#1.7.1) |November 16, 2017 |--- |

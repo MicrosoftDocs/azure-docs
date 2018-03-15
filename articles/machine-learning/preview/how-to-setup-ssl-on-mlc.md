@@ -27,7 +27,7 @@ These instructions allow you to set up SSL for scoring calls on a Machine Learni
 
 You will have two files after completing the prerequisites:
 
-* A file for the certificate, for example, `cert.pem`
+* A file for the certificate, for example, `cert.pem`. Make sure the file has the full certificate chain.
 * A file for the key, for example, `key.pem`
 
 
@@ -51,7 +51,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## Map the CNAME and the IP Address
 
-Create a mapping between the CNAME you selected in the prerequisites and the IP address of the real-time front-end (FE). To discover the IP address of the FE, run the command below. The output displays a field called "publicIpAddress" which contains the IP address of the real-time cluster front-end. Refer to the instructions of your DNS provider to set up a CNAME record.
+Create a mapping between the CNAME you selected in the prerequisites and the IP address of the real-time front-end (FE). To discover the IP address of the FE, run the command below. The output displays a field called "publicIpAddress" which contains the IP address of the real-time cluster front-end. Refer to the instructions of your DNS provider to set up a record from the FQDN used in CNAME to the public IP address.
 
 
 

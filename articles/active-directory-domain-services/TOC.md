@@ -22,7 +22,6 @@
 ## [Check a managed domain's health](active-directory-ds-check-health.md)
 ## [Use Azure AD Domain Services in Azure CSP subscriptions](active-directory-ds-csp.md)
 ## [Enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md)
-## [Check your domain's health](active-directory-ds-check-health.md)
 ## Join a managed domain
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server VM from template](active-directory-ds-join-windows-vm-template.md)

@@ -1,19 +1,19 @@
 ---
-title: Deploy a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part three and discusses the deploying model.
+title: Deploy a model tutorial for Azure Machine Learning services
+description: This full-length tutorial shows how to use Azure Machine Learning services end to end. This is part three and discusses the deploying model.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 3/13/2018
 ---
 
-# Tutorial: Classify Iris part 3: Deploy a model
+# Tutorial 3: Classify Iris: Deploy a model
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is **part three of a three-part series**. In this part of the tutorial, you use Machine Learning (preview) to:
@@ -124,7 +124,10 @@ Use _local mode_ deployment to run in Docker containers on your local computer.
 You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the following steps to operationalize the model. You can use the `-h` flag at the end of each command to show the corresponding help message.
 
 >[!NOTE]
->If you don't have a local Docker engine, you can still proceed by creating a cluster in Azure for deployment. Just be sure to delete the cluster after the tutorial so you don't incur ongoing charges.
+>If you don't have the Docker engine locally, you can still proceed by creating a cluster in Azure for deployment. You can keep the cluster for re-use, or delete it after the tutorial so you don't incur ongoing charges.
+
+>[!NOTE]
+>Web services deployed locally do not show up in Azure Portal's list of services. They will be running in Docker on the local machine.
 
 1. Open the command-line interface (CLI).
    In the Machine Learning Workbench application, on the **File** menu, select **Open Command Prompt**.

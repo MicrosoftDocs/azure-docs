@@ -28,10 +28,16 @@ When you encounter an issue, learn more about the state of your IoT Edge device 
    docker logs <container name>
    ```
 
-* View the messages going through the Edge Hub, and gather insights on device properties updates with verbose logs from the runtime containers. You may want to add the "--auto-cert-gen-force-no-passwords" option if you're following the quickstart articles.
+* View the messages going through the Edge Hub, and gather insights on device properties updates with verbose logs from the runtime containers.
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* View verbose logs from iotedgectl commands:
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * If you experience connectivity issues, inspect your edge device environment variables like your device connection string:
